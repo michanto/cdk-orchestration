@@ -1,0 +1,1 @@
+export const NAMESPACE = '@open-constructs/aws-cdk';
