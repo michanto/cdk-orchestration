@@ -35,4 +35,20 @@ describe('Logging tests', () => {
     Log.of(app).error('error line');
     expect(capture.captured.length).toEqual(expected);
   });
+  it.each([
+    [0, ''],
+    [1, 'Error'],
+    [2, 'Warning'],
+    [3, 'Info'],
+    [4, 'Debug'],
+    [5, 'Erratum'],
+  ])('level name', (logLevel, expected) => {
+    let app = new App();
+    let capture = new Capture({
+      logLevel: logLevel,
+    });
+    expect(capture.levelName(logLevel)).toEqual(expected);
+    capture.log(app, logLevel, 'Test');
+    expect(capture.captured.length).toEqual(1);
+  });
 });

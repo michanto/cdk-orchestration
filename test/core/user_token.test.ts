@@ -113,6 +113,33 @@ describe('UserToken tests', () => {
     });
   });
 
+  test('StackToken on other.', () => {
+    // GIVEN
+    const app = new App();
+    const stack = new Stack(app, 'StackA');
+    const construct = new Construct(stack, 'AConstruct');
+    const bucketName = StackToken.string(construct, 'bucketName');
+    const bucket = new Bucket(stack, 'Bucket', {
+      bucketName: bucketName,
+    });
+    // WHEN
+    StackToken.resolveString(bucket, 'bucketName', { produce: () => 'my_bucket' });
+    const template = Template.fromStack(stack);
+
+    // THEN
+    template.templateMatches({
+      Resources: {
+        Bucket83908E77: {
+          Type: 'AWS::S3::Bucket',
+          Properties: {
+            BucketName: 'my_bucket',
+          },
+        },
+      },
+    });
+
+  });
+
   test('AppToken create in stack 1, resolve in stack 2.', () => {
     // GIVEN
     const app = new App();

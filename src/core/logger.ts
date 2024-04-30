@@ -102,6 +102,8 @@ export class Logger implements ILogger {
    */
   levelName(logLevel: number): string {
     switch (logLevel) {
+      case LogLevel.OFF:
+        return '';
       case LogLevel.ERROR:
         return 'Error';
       case LogLevel.WARNING:

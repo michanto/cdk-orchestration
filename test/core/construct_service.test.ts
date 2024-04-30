@@ -21,8 +21,27 @@ describe('ConstructService tests', () => {
     expect(ConstructService.scopesOf([serviceQueryResult])).toEqual([app]);
   });
 
+  it('serviceOf tests.', () => {
+    expect(ConstructService.serviceOf(undefined)).toBeUndefined();
+  });
+
+  it('createSearchResult tests.', () => {
+    const localService = new class extends ConstructService {
+      publicCreateSearchResult(scope: IConstruct | undefined) {
+        return this.createSearchResult(scope);
+      }
+    }({
+      servicePropertyName: `${NAMESPACE}.test.TestService`,
+    });
+    expect(localService.publicCreateSearchResult(undefined)).toBeUndefined();
+    let app = new App();
+    expect(localService.publicCreateSearchResult(app)).toBeUndefined();
+  });
+
   it('not a construct tests.', () => {
     let notConstruct = new Object();
+    expect(testService.get(undefined as unknown as IConstruct)).toBeUndefined();
+    expect(() => testService.set(undefined as unknown as IConstruct, true)).toThrow();
     expect(() => testService.set(notConstruct as IConstruct, true)).toThrow();
     expect(() => testService.get(notConstruct as IConstruct)).toThrow();
   });
