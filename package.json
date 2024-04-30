@@ -1,5 +1,5 @@
 {
-  "name": "@cdk-orchestration",
+  "name": "cdk-orchestration",
   "repository": {
     "type": "git",
     "url": "https://github.com/michanto/cdk-orchestration.git"

@@ -2,9 +2,9 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
-### CfnTransform <a name="CfnTransform" id="@cdk-orchestration.transforms.CfnTransform"></a>
+### CfnTransform <a name="CfnTransform" id="cdk-orchestration.transforms.CfnTransform"></a>
 
-- *Implements:* @cdk-orchestration.transforms.ICfnTransform
+- *Implements:* cdk-orchestration.transforms.ICfnTransform
 
 This is the base class for CDK Transform constructs.
 
@@ -13,28 +13,28 @@ The hosting construct must support Transform processing.  CfnTransformHostHook
 ensures the construct is hosted by either the antecedent CfnElement, Stack, or by
 another construct in the heirarchy (such as a TemplateImporter)
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.transforms.CfnTransform.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.transforms.CfnTransform.Initializer"></a>
 
 ```typescript
-import { transforms } from '@cdk-orchestration'
+import { transforms } from 'cdk-orchestration'
 
 new transforms.CfnTransform(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransform.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransform.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.CfnTransform.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.CfnTransform.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.transforms.CfnTransform.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.transforms.CfnTransform.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.transforms.CfnTransform.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.transforms.CfnTransform.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -44,12 +44,12 @@ new transforms.CfnTransform(scope: Construct, id: string)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransform.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransform.apply">apply</a></code> | Modifies the template. |
+| <code><a href="#cdk-orchestration.transforms.CfnTransform.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.transforms.CfnTransform.apply">apply</a></code> | Modifies the template. |
 
 ---
 
-##### `toString` <a name="toString" id="@cdk-orchestration.transforms.CfnTransform.toString"></a>
+##### `toString` <a name="toString" id="cdk-orchestration.transforms.CfnTransform.toString"></a>
 
 ```typescript
 public toString(): string
@@ -57,7 +57,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `apply` <a name="apply" id="@cdk-orchestration.transforms.CfnTransform.apply"></a>
+##### `apply` <a name="apply" id="cdk-orchestration.transforms.CfnTransform.apply"></a>
 
 ```typescript
 public apply(template: any): any
@@ -65,7 +65,7 @@ public apply(template: any): any
 
 Modifies the template.
 
-###### `template`<sup>Required</sup> <a name="template" id="@cdk-orchestration.transforms.CfnTransform.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.transforms.CfnTransform.apply.parameter.template"></a>
 
 - *Type:* any
 
@@ -77,15 +77,15 @@ The template to transform.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransform.isCfnTransform">isCfnTransform</a></code> | Returns `true` if a construct is a CfnTransform. |
+| <code><a href="#cdk-orchestration.transforms.CfnTransform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-orchestration.transforms.CfnTransform.isCfnTransform">isCfnTransform</a></code> | Returns `true` if a construct is a CfnTransform. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@cdk-orchestration.transforms.CfnTransform.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.transforms.CfnTransform.isConstruct"></a>
 
 ```typescript
-import { transforms } from '@cdk-orchestration'
+import { transforms } from 'cdk-orchestration'
 
 transforms.CfnTransform.isConstruct(x: any)
 ```
@@ -106,7 +106,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@cdk-orchestration.transforms.CfnTransform.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.transforms.CfnTransform.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -114,10 +114,10 @@ Any object.
 
 ---
 
-##### `isCfnTransform` <a name="isCfnTransform" id="@cdk-orchestration.transforms.CfnTransform.isCfnTransform"></a>
+##### `isCfnTransform` <a name="isCfnTransform" id="cdk-orchestration.transforms.CfnTransform.isCfnTransform"></a>
 
 ```typescript
-import { transforms } from '@cdk-orchestration'
+import { transforms } from 'cdk-orchestration'
 
 transforms.CfnTransform.isCfnTransform(x: any)
 ```
@@ -127,7 +127,7 @@ Returns `true` if a construct is a CfnTransform.
 Uses duck-typing instead of `instanceof` to allow CfnTransforms from different
 versions of this library to be included in the same stack.
 
-###### `x`<sup>Required</sup> <a name="x" id="@cdk-orchestration.transforms.CfnTransform.isCfnTransform.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.transforms.CfnTransform.isCfnTransform.parameter.x"></a>
 
 - *Type:* any
 
@@ -137,13 +137,13 @@ versions of this library to be included in the same stack.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransform.property.host">host</a></code> | <code>constructs.IConstruct</code> | Which construct will apply this transform. |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransform.property.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.CfnTransform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.transforms.CfnTransform.property.host">host</a></code> | <code>constructs.IConstruct</code> | Which construct will apply this transform. |
+| <code><a href="#cdk-orchestration.transforms.CfnTransform.property.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@cdk-orchestration.transforms.CfnTransform.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.transforms.CfnTransform.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -155,7 +155,7 @@ The tree node.
 
 ---
 
-##### `host`<sup>Required</sup> <a name="host" id="@cdk-orchestration.transforms.CfnTransform.property.host"></a>
+##### `host`<sup>Required</sup> <a name="host" id="cdk-orchestration.transforms.CfnTransform.property.host"></a>
 
 ```typescript
 public readonly host: IConstruct;
@@ -167,7 +167,7 @@ Which construct will apply this transform.
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.transforms.CfnTransform.property.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.transforms.CfnTransform.property.id"></a>
 
 ```typescript
 public readonly id: string;
@@ -178,7 +178,7 @@ public readonly id: string;
 ---
 
 
-### CfnTransformHost <a name="CfnTransformHost" id="@cdk-orchestration.transforms.CfnTransformHost"></a>
+### CfnTransformHost <a name="CfnTransformHost" id="cdk-orchestration.transforms.CfnTransformHost"></a>
 
 Normally, transforms are hosted by a Stack or CfnElement, and they are applied during synthesis (calls to _toCloudFormation).
 
@@ -192,28 +192,28 @@ So anything can be done with the transforms hosted here, but they will not affec
 
 This is used for import and other non-stack not-element scenarios.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.transforms.CfnTransformHost.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.transforms.CfnTransformHost.Initializer"></a>
 
 ```typescript
-import { transforms } from '@cdk-orchestration'
+import { transforms } from 'cdk-orchestration'
 
 new transforms.CfnTransformHost(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransformHost.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransformHost.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.CfnTransformHost.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.CfnTransformHost.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.transforms.CfnTransformHost.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.transforms.CfnTransformHost.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.transforms.CfnTransformHost.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.transforms.CfnTransformHost.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -223,11 +223,11 @@ new transforms.CfnTransformHost(scope: Construct, id: string)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransformHost.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.transforms.CfnTransformHost.toString">toString</a></code> | Returns a string representation of this construct. |
 
 ---
 
-##### `toString` <a name="toString" id="@cdk-orchestration.transforms.CfnTransformHost.toString"></a>
+##### `toString` <a name="toString" id="cdk-orchestration.transforms.CfnTransformHost.toString"></a>
 
 ```typescript
 public toString(): string
@@ -239,15 +239,15 @@ Returns a string representation of this construct.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransformHost.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransformHost.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
+| <code><a href="#cdk-orchestration.transforms.CfnTransformHost.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-orchestration.transforms.CfnTransformHost.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@cdk-orchestration.transforms.CfnTransformHost.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.transforms.CfnTransformHost.isConstruct"></a>
 
 ```typescript
-import { transforms } from '@cdk-orchestration'
+import { transforms } from 'cdk-orchestration'
 
 transforms.CfnTransformHost.isConstruct(x: any)
 ```
@@ -268,7 +268,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@cdk-orchestration.transforms.CfnTransformHost.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.transforms.CfnTransformHost.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -276,10 +276,10 @@ Any object.
 
 ---
 
-##### `isCfnTransformHost` <a name="isCfnTransformHost" id="@cdk-orchestration.transforms.CfnTransformHost.isCfnTransformHost"></a>
+##### `isCfnTransformHost` <a name="isCfnTransformHost" id="cdk-orchestration.transforms.CfnTransformHost.isCfnTransformHost"></a>
 
 ```typescript
-import { transforms } from '@cdk-orchestration'
+import { transforms } from 'cdk-orchestration'
 
 transforms.CfnTransformHost.isCfnTransformHost(scope: Construct)
 ```
@@ -288,7 +288,7 @@ Tells you if an object is a CfnTransformHost.
 
 Duck-typing.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.transforms.CfnTransformHost.isCfnTransformHost.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.transforms.CfnTransformHost.isCfnTransformHost.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
@@ -298,11 +298,11 @@ Duck-typing.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.transforms.CfnTransformHost.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.transforms.CfnTransformHost.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@cdk-orchestration.transforms.CfnTransformHost.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.transforms.CfnTransformHost.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -315,7 +315,7 @@ The tree node.
 ---
 
 
-### EncodeResource <a name="EncodeResource" id="@cdk-orchestration.custom_resources.EncodeResource"></a>
+### EncodeResource <a name="EncodeResource" id="cdk-orchestration.custom_resources.EncodeResource"></a>
 
 This transform base64-encodes any CustomResource it is applied to by moving all properties (other than ServiceToken) to EncodedProperties and applying {@link Fn.base64}. This resource will encode it's properties as a post-resolve step, It is meant to be used on CfnCustomResource (or any CfnResource with a ServiceToken), as it does not encode the ServiceToken.  If there is no ServiceToken, the resource is not encoded.
 
@@ -334,28 +334,28 @@ Note that the lambda MUST base64 decode the EncodedProperties for use.  Example:
  }
 ```
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.custom_resources.EncodeResource.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.custom_resources.EncodeResource.Initializer"></a>
 
 ```typescript
-import { custom_resources } from '@cdk-orchestration'
+import { custom_resources } from 'cdk-orchestration'
 
 new custom_resources.EncodeResource(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.custom_resources.EncodeResource.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@cdk-orchestration.custom_resources.EncodeResource.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.custom_resources.EncodeResource.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.custom_resources.EncodeResource.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.custom_resources.EncodeResource.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.custom_resources.EncodeResource.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -365,12 +365,12 @@ new custom_resources.EncodeResource(scope: Construct, id: string)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.custom_resources.EncodeResource.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@cdk-orchestration.custom_resources.EncodeResource.apply">apply</a></code> | Modifies the template. |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.apply">apply</a></code> | Modifies the template. |
 
 ---
 
-##### `toString` <a name="toString" id="@cdk-orchestration.custom_resources.EncodeResource.toString"></a>
+##### `toString` <a name="toString" id="cdk-orchestration.custom_resources.EncodeResource.toString"></a>
 
 ```typescript
 public toString(): string
@@ -378,7 +378,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `apply` <a name="apply" id="@cdk-orchestration.custom_resources.EncodeResource.apply"></a>
+##### `apply` <a name="apply" id="cdk-orchestration.custom_resources.EncodeResource.apply"></a>
 
 ```typescript
 public apply(template: any): any
@@ -386,7 +386,7 @@ public apply(template: any): any
 
 Modifies the template.
 
-###### `template`<sup>Required</sup> <a name="template" id="@cdk-orchestration.custom_resources.EncodeResource.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.custom_resources.EncodeResource.apply.parameter.template"></a>
 
 - *Type:* any
 
@@ -396,16 +396,16 @@ Modifies the template.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.custom_resources.EncodeResource.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@cdk-orchestration.custom_resources.EncodeResource.isCfnTransform">isCfnTransform</a></code> | Returns `true` if a construct is a CfnTransform. |
-| <code><a href="#@cdk-orchestration.custom_resources.EncodeResource.encodeCustomResource">encodeCustomResource</a></code> | Encode an L1, L2 or L3 resource by calling this method instead of having to find the L1 yourself. |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.isCfnTransform">isCfnTransform</a></code> | Returns `true` if a construct is a CfnTransform. |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.encodeCustomResource">encodeCustomResource</a></code> | Encode an L1, L2 or L3 resource by calling this method instead of having to find the L1 yourself. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@cdk-orchestration.custom_resources.EncodeResource.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.custom_resources.EncodeResource.isConstruct"></a>
 
 ```typescript
-import { custom_resources } from '@cdk-orchestration'
+import { custom_resources } from 'cdk-orchestration'
 
 custom_resources.EncodeResource.isConstruct(x: any)
 ```
@@ -426,7 +426,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@cdk-orchestration.custom_resources.EncodeResource.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.custom_resources.EncodeResource.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -434,10 +434,10 @@ Any object.
 
 ---
 
-##### `isCfnTransform` <a name="isCfnTransform" id="@cdk-orchestration.custom_resources.EncodeResource.isCfnTransform"></a>
+##### `isCfnTransform` <a name="isCfnTransform" id="cdk-orchestration.custom_resources.EncodeResource.isCfnTransform"></a>
 
 ```typescript
-import { custom_resources } from '@cdk-orchestration'
+import { custom_resources } from 'cdk-orchestration'
 
 custom_resources.EncodeResource.isCfnTransform(x: any)
 ```
@@ -447,16 +447,16 @@ Returns `true` if a construct is a CfnTransform.
 Uses duck-typing instead of `instanceof` to allow CfnTransforms from different
 versions of this library to be included in the same stack.
 
-###### `x`<sup>Required</sup> <a name="x" id="@cdk-orchestration.custom_resources.EncodeResource.isCfnTransform.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.custom_resources.EncodeResource.isCfnTransform.parameter.x"></a>
 
 - *Type:* any
 
 ---
 
-##### `encodeCustomResource` <a name="encodeCustomResource" id="@cdk-orchestration.custom_resources.EncodeResource.encodeCustomResource"></a>
+##### `encodeCustomResource` <a name="encodeCustomResource" id="cdk-orchestration.custom_resources.EncodeResource.encodeCustomResource"></a>
 
 ```typescript
-import { custom_resources } from '@cdk-orchestration'
+import { custom_resources } from 'cdk-orchestration'
 
 custom_resources.EncodeResource.encodeCustomResource(scope: Construct, id?: string)
 ```
@@ -465,7 +465,7 @@ Encode an L1, L2 or L3 resource by calling this method instead of having to find
 
 Throws if there are multiple custom resources under scope.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.custom_resources.EncodeResource.encodeCustomResource.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.custom_resources.EncodeResource.encodeCustomResource.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
@@ -473,7 +473,7 @@ Construct containing one L1 custom resource construct.
 
 ---
 
-###### `id`<sup>Optional</sup> <a name="id" id="@cdk-orchestration.custom_resources.EncodeResource.encodeCustomResource.parameter.id"></a>
+###### `id`<sup>Optional</sup> <a name="id" id="cdk-orchestration.custom_resources.EncodeResource.encodeCustomResource.parameter.id"></a>
 
 - *Type:* string
 
@@ -485,13 +485,13 @@ Id for the EncodeResource transform.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.custom_resources.EncodeResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@cdk-orchestration.custom_resources.EncodeResource.property.host">host</a></code> | <code>constructs.IConstruct</code> | Which construct will apply this transform. |
-| <code><a href="#@cdk-orchestration.custom_resources.EncodeResource.property.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.property.host">host</a></code> | <code>constructs.IConstruct</code> | Which construct will apply this transform. |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.property.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@cdk-orchestration.custom_resources.EncodeResource.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.custom_resources.EncodeResource.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -503,7 +503,7 @@ The tree node.
 
 ---
 
-##### `host`<sup>Required</sup> <a name="host" id="@cdk-orchestration.custom_resources.EncodeResource.property.host"></a>
+##### `host`<sup>Required</sup> <a name="host" id="cdk-orchestration.custom_resources.EncodeResource.property.host"></a>
 
 ```typescript
 public readonly host: IConstruct;
@@ -515,7 +515,7 @@ Which construct will apply this transform.
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.custom_resources.EncodeResource.property.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.custom_resources.EncodeResource.property.id"></a>
 
 ```typescript
 public readonly id: string;
@@ -526,7 +526,7 @@ public readonly id: string;
 ---
 
 
-### InlineNodejsFunction <a name="InlineNodejsFunction" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction"></a>
+### InlineNodejsFunction <a name="InlineNodejsFunction" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction"></a>
 
 - *Implements:* aws-cdk-lib.IInspectable
 
@@ -542,37 +542,37 @@ types to the rest of your CDK package, it cannot import anything
 not available in the Lambda runtime.  The Lambda runtime includes the base Node library
 (such as https://nodejs.org/docs/latest-v18.x/api/), along with aws-sdk and/or
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.Initializer"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 new aws_lambda_nodejs.InlineNodejsFunction(scope: Construct, id: string, props: InlineNodejsFunctionProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.Initializer.parameter.props">props</a></code> | <code>@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps</code> | *No description.* |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.Initializer.parameter.props">props</a></code> | <code>cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.Initializer.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.Initializer.parameter.props"></a>
 
-- *Type:* @cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps
+- *Type:* cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps
 
 ---
 
@@ -580,32 +580,32 @@ new aws_lambda_nodejs.InlineNodejsFunction(scope: Construct, id: string, props: 
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEventSource">addEventSource</a></code> | Adds an event source to this function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEventSourceMapping">addEventSourceMapping</a></code> | Adds an event source that maps to this AWS Lambda function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addFunctionUrl">addFunctionUrl</a></code> | Adds a url to this lambda function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addPermission">addPermission</a></code> | Adds a permission to the Lambda resource policy. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addToRolePolicy">addToRolePolicy</a></code> | Adds a statement to the IAM role assumed by the instance. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.configureAsyncInvoke">configureAsyncInvoke</a></code> | Configures options for asynchronous invocation. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.considerWarningOnInvokeFunctionPermissions">considerWarningOnInvokeFunctionPermissions</a></code> | A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvoke">grantInvoke</a></code> | Grant the given identity permissions to invoke this Lambda. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeCompositePrincipal">grantInvokeCompositePrincipal</a></code> | Grant multiple principals the ability to invoke this Lambda via CompositePrincipal. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeUrl">grantInvokeUrl</a></code> | Grant the given identity permissions to invoke this Lambda Function URL. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metric">metric</a></code> | Return the given named metric for this Function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricDuration">metricDuration</a></code> | How long execution of this Lambda takes. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricErrors">metricErrors</a></code> | How many invocations of this Lambda fail. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricInvocations">metricInvocations</a></code> | How often this Lambda is invoked. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricThrottles">metricThrottles</a></code> | How often this Lambda is throttled. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addAlias">addAlias</a></code> | Defines an alias for this function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEnvironment">addEnvironment</a></code> | Adds an environment variable to this Lambda function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addLayers">addLayers</a></code> | Adds one or more Lambda Layers to this Lambda function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.invalidateVersionBasedOn">invalidateVersionBasedOn</a></code> | Mix additional information into the hash of the Version object. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEventSource">addEventSource</a></code> | Adds an event source to this function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEventSourceMapping">addEventSourceMapping</a></code> | Adds an event source that maps to this AWS Lambda function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addFunctionUrl">addFunctionUrl</a></code> | Adds a url to this lambda function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addPermission">addPermission</a></code> | Adds a permission to the Lambda resource policy. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addToRolePolicy">addToRolePolicy</a></code> | Adds a statement to the IAM role assumed by the instance. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.configureAsyncInvoke">configureAsyncInvoke</a></code> | Configures options for asynchronous invocation. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.considerWarningOnInvokeFunctionPermissions">considerWarningOnInvokeFunctionPermissions</a></code> | A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvoke">grantInvoke</a></code> | Grant the given identity permissions to invoke this Lambda. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeCompositePrincipal">grantInvokeCompositePrincipal</a></code> | Grant multiple principals the ability to invoke this Lambda via CompositePrincipal. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeUrl">grantInvokeUrl</a></code> | Grant the given identity permissions to invoke this Lambda Function URL. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metric">metric</a></code> | Return the given named metric for this Function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricDuration">metricDuration</a></code> | How long execution of this Lambda takes. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricErrors">metricErrors</a></code> | How many invocations of this Lambda fail. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricInvocations">metricInvocations</a></code> | How often this Lambda is invoked. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricThrottles">metricThrottles</a></code> | How often this Lambda is throttled. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addAlias">addAlias</a></code> | Defines an alias for this function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEnvironment">addEnvironment</a></code> | Adds an environment variable to this Lambda function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addLayers">addLayers</a></code> | Adds one or more Lambda Layers to this Lambda function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.invalidateVersionBasedOn">invalidateVersionBasedOn</a></code> | Mix additional information into the hash of the Version object. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.inspect">inspect</a></code> | Examines construct. |
 
 ---
 
-##### `toString` <a name="toString" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.toString"></a>
+##### `toString` <a name="toString" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.toString"></a>
 
 ```typescript
 public toString(): string
@@ -613,7 +613,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.applyRemovalPolicy"></a>
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.applyRemovalPolicy"></a>
 
 ```typescript
 public applyRemovalPolicy(policy: RemovalPolicy): void
@@ -629,13 +629,13 @@ to be replaced.
 The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
-###### `policy`<sup>Required</sup> <a name="policy" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.applyRemovalPolicy.parameter.policy"></a>
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
 
 ---
 
-##### `addEventSource` <a name="addEventSource" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEventSource"></a>
+##### `addEventSource` <a name="addEventSource" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEventSource"></a>
 
 ```typescript
 public addEventSource(source: IEventSource): void
@@ -651,13 +651,13 @@ import { SqsEventSource } from 'aws-cdk-lib/aws-lambda-event-sources';
 myFunction.addEventSource(new SqsEventSource(myQueue));
 ```
 
-###### `source`<sup>Required</sup> <a name="source" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEventSource.parameter.source"></a>
+###### `source`<sup>Required</sup> <a name="source" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEventSource.parameter.source"></a>
 
 - *Type:* aws-cdk-lib.aws_lambda.IEventSource
 
 ---
 
-##### `addEventSourceMapping` <a name="addEventSourceMapping" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEventSourceMapping"></a>
+##### `addEventSourceMapping` <a name="addEventSourceMapping" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEventSourceMapping"></a>
 
 ```typescript
 public addEventSourceMapping(id: string, options: EventSourceMappingOptions): EventSourceMapping
@@ -665,19 +665,19 @@ public addEventSourceMapping(id: string, options: EventSourceMappingOptions): Ev
 
 Adds an event source that maps to this AWS Lambda function.
 
-###### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEventSourceMapping.parameter.id"></a>
+###### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEventSourceMapping.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-###### `options`<sup>Required</sup> <a name="options" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEventSourceMapping.parameter.options"></a>
+###### `options`<sup>Required</sup> <a name="options" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEventSourceMapping.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.aws_lambda.EventSourceMappingOptions
 
 ---
 
-##### `addFunctionUrl` <a name="addFunctionUrl" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addFunctionUrl"></a>
+##### `addFunctionUrl` <a name="addFunctionUrl" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addFunctionUrl"></a>
 
 ```typescript
 public addFunctionUrl(options?: FunctionUrlOptions): FunctionUrl
@@ -685,13 +685,13 @@ public addFunctionUrl(options?: FunctionUrlOptions): FunctionUrl
 
 Adds a url to this lambda function.
 
-###### `options`<sup>Optional</sup> <a name="options" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addFunctionUrl.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addFunctionUrl.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.aws_lambda.FunctionUrlOptions
 
 ---
 
-##### `addPermission` <a name="addPermission" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addPermission"></a>
+##### `addPermission` <a name="addPermission" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addPermission"></a>
 
 ```typescript
 public addPermission(id: string, permission: Permission): void
@@ -701,7 +701,7 @@ Adds a permission to the Lambda resource policy.
 
 > [Permission for details.](Permission for details.)
 
-###### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addPermission.parameter.id"></a>
+###### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addPermission.parameter.id"></a>
 
 - *Type:* string
 
@@ -709,7 +709,7 @@ The id for the permission construct.
 
 ---
 
-###### `permission`<sup>Required</sup> <a name="permission" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addPermission.parameter.permission"></a>
+###### `permission`<sup>Required</sup> <a name="permission" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addPermission.parameter.permission"></a>
 
 - *Type:* aws-cdk-lib.aws_lambda.Permission
 
@@ -717,7 +717,7 @@ The permission to grant to this Lambda function.
 
 ---
 
-##### `addToRolePolicy` <a name="addToRolePolicy" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addToRolePolicy"></a>
+##### `addToRolePolicy` <a name="addToRolePolicy" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addToRolePolicy"></a>
 
 ```typescript
 public addToRolePolicy(statement: PolicyStatement): void
@@ -725,13 +725,13 @@ public addToRolePolicy(statement: PolicyStatement): void
 
 Adds a statement to the IAM role assumed by the instance.
 
-###### `statement`<sup>Required</sup> <a name="statement" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addToRolePolicy.parameter.statement"></a>
+###### `statement`<sup>Required</sup> <a name="statement" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addToRolePolicy.parameter.statement"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.PolicyStatement
 
 ---
 
-##### `configureAsyncInvoke` <a name="configureAsyncInvoke" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.configureAsyncInvoke"></a>
+##### `configureAsyncInvoke` <a name="configureAsyncInvoke" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.configureAsyncInvoke"></a>
 
 ```typescript
 public configureAsyncInvoke(options: EventInvokeConfigOptions): void
@@ -739,13 +739,13 @@ public configureAsyncInvoke(options: EventInvokeConfigOptions): void
 
 Configures options for asynchronous invocation.
 
-###### `options`<sup>Required</sup> <a name="options" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.configureAsyncInvoke.parameter.options"></a>
+###### `options`<sup>Required</sup> <a name="options" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.configureAsyncInvoke.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.aws_lambda.EventInvokeConfigOptions
 
 ---
 
-##### `considerWarningOnInvokeFunctionPermissions` <a name="considerWarningOnInvokeFunctionPermissions" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.considerWarningOnInvokeFunctionPermissions"></a>
+##### `considerWarningOnInvokeFunctionPermissions` <a name="considerWarningOnInvokeFunctionPermissions" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.considerWarningOnInvokeFunctionPermissions"></a>
 
 ```typescript
 public considerWarningOnInvokeFunctionPermissions(scope: Construct, action: string): void
@@ -758,19 +758,19 @@ function.currentVersion is invoked before or after the permission is created.
 This applies only to permissions on Lambda functions, not versions or aliases.
 This function is overridden as a noOp for QualifiedFunctionBase.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.considerWarningOnInvokeFunctionPermissions.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.considerWarningOnInvokeFunctionPermissions.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `action`<sup>Required</sup> <a name="action" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.considerWarningOnInvokeFunctionPermissions.parameter.action"></a>
+###### `action`<sup>Required</sup> <a name="action" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.considerWarningOnInvokeFunctionPermissions.parameter.action"></a>
 
 - *Type:* string
 
 ---
 
-##### `grantInvoke` <a name="grantInvoke" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvoke"></a>
+##### `grantInvoke` <a name="grantInvoke" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvoke"></a>
 
 ```typescript
 public grantInvoke(grantee: IGrantable): Grant
@@ -778,13 +778,13 @@ public grantInvoke(grantee: IGrantable): Grant
 
 Grant the given identity permissions to invoke this Lambda.
 
-###### `grantee`<sup>Required</sup> <a name="grantee" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvoke.parameter.grantee"></a>
+###### `grantee`<sup>Required</sup> <a name="grantee" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvoke.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
 
 ---
 
-##### `grantInvokeCompositePrincipal` <a name="grantInvokeCompositePrincipal" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeCompositePrincipal"></a>
+##### `grantInvokeCompositePrincipal` <a name="grantInvokeCompositePrincipal" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeCompositePrincipal"></a>
 
 ```typescript
 public grantInvokeCompositePrincipal(compositePrincipal: CompositePrincipal): Grant[]
@@ -792,13 +792,13 @@ public grantInvokeCompositePrincipal(compositePrincipal: CompositePrincipal): Gr
 
 Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
 
-###### `compositePrincipal`<sup>Required</sup> <a name="compositePrincipal" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeCompositePrincipal.parameter.compositePrincipal"></a>
+###### `compositePrincipal`<sup>Required</sup> <a name="compositePrincipal" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeCompositePrincipal.parameter.compositePrincipal"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.CompositePrincipal
 
 ---
 
-##### `grantInvokeUrl` <a name="grantInvokeUrl" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeUrl"></a>
+##### `grantInvokeUrl` <a name="grantInvokeUrl" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeUrl"></a>
 
 ```typescript
 public grantInvokeUrl(grantee: IGrantable): Grant
@@ -806,13 +806,13 @@ public grantInvokeUrl(grantee: IGrantable): Grant
 
 Grant the given identity permissions to invoke this Lambda Function URL.
 
-###### `grantee`<sup>Required</sup> <a name="grantee" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeUrl.parameter.grantee"></a>
+###### `grantee`<sup>Required</sup> <a name="grantee" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeUrl.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
 
 ---
 
-##### `metric` <a name="metric" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metric"></a>
+##### `metric` <a name="metric" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metric"></a>
 
 ```typescript
 public metric(metricName: string, props?: MetricOptions): Metric
@@ -820,19 +820,19 @@ public metric(metricName: string, props?: MetricOptions): Metric
 
 Return the given named metric for this Function.
 
-###### `metricName`<sup>Required</sup> <a name="metricName" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metric.parameter.metricName"></a>
+###### `metricName`<sup>Required</sup> <a name="metricName" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metric.parameter.metricName"></a>
 
 - *Type:* string
 
 ---
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metric.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metric.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricDuration` <a name="metricDuration" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricDuration"></a>
+##### `metricDuration` <a name="metricDuration" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricDuration"></a>
 
 ```typescript
 public metricDuration(props?: MetricOptions): Metric
@@ -842,13 +842,13 @@ How long execution of this Lambda takes.
 
 Average over 5 minutes
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricDuration.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricDuration.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricErrors` <a name="metricErrors" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricErrors"></a>
+##### `metricErrors` <a name="metricErrors" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricErrors"></a>
 
 ```typescript
 public metricErrors(props?: MetricOptions): Metric
@@ -858,13 +858,13 @@ How many invocations of this Lambda fail.
 
 Sum over 5 minutes
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricErrors.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricErrors.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricInvocations` <a name="metricInvocations" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricInvocations"></a>
+##### `metricInvocations` <a name="metricInvocations" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricInvocations"></a>
 
 ```typescript
 public metricInvocations(props?: MetricOptions): Metric
@@ -874,13 +874,13 @@ How often this Lambda is invoked.
 
 Sum over 5 minutes
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricInvocations.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricInvocations.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricThrottles` <a name="metricThrottles" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricThrottles"></a>
+##### `metricThrottles` <a name="metricThrottles" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricThrottles"></a>
 
 ```typescript
 public metricThrottles(props?: MetricOptions): Metric
@@ -890,13 +890,13 @@ How often this Lambda is throttled.
 
 Sum over 5 minutes
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricThrottles.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricThrottles.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `addAlias` <a name="addAlias" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addAlias"></a>
+##### `addAlias` <a name="addAlias" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addAlias"></a>
 
 ```typescript
 public addAlias(aliasName: string, options?: AliasOptions): Alias
@@ -920,7 +920,7 @@ new lambda.Alias(this, 'AliasLive', {
 });
 ```
 
-###### `aliasName`<sup>Required</sup> <a name="aliasName" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addAlias.parameter.aliasName"></a>
+###### `aliasName`<sup>Required</sup> <a name="aliasName" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addAlias.parameter.aliasName"></a>
 
 - *Type:* string
 
@@ -928,7 +928,7 @@ The name of the alias.
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addAlias.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addAlias.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.aws_lambda.AliasOptions
 
@@ -936,7 +936,7 @@ Alias options.
 
 ---
 
-##### `addEnvironment` <a name="addEnvironment" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEnvironment"></a>
+##### `addEnvironment` <a name="addEnvironment" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEnvironment"></a>
 
 ```typescript
 public addEnvironment(key: string, value: string, options?: EnvironmentOptions): Function
@@ -946,7 +946,7 @@ Adds an environment variable to this Lambda function.
 
 If this is a ref to a Lambda function, this operation results in a no-op.
 
-###### `key`<sup>Required</sup> <a name="key" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEnvironment.parameter.key"></a>
+###### `key`<sup>Required</sup> <a name="key" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEnvironment.parameter.key"></a>
 
 - *Type:* string
 
@@ -954,7 +954,7 @@ The environment variable key.
 
 ---
 
-###### `value`<sup>Required</sup> <a name="value" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEnvironment.parameter.value"></a>
+###### `value`<sup>Required</sup> <a name="value" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEnvironment.parameter.value"></a>
 
 - *Type:* string
 
@@ -962,7 +962,7 @@ The environment variable's value.
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEnvironment.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addEnvironment.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.aws_lambda.EnvironmentOptions
 
@@ -970,7 +970,7 @@ Environment variable options.
 
 ---
 
-##### `addLayers` <a name="addLayers" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addLayers"></a>
+##### `addLayers` <a name="addLayers" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addLayers"></a>
 
 ```typescript
 public addLayers(layers: ILayerVersion): void
@@ -978,7 +978,7 @@ public addLayers(layers: ILayerVersion): void
 
 Adds one or more Lambda Layers to this Lambda function.
 
-###### `layers`<sup>Required</sup> <a name="layers" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addLayers.parameter.layers"></a>
+###### `layers`<sup>Required</sup> <a name="layers" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addLayers.parameter.layers"></a>
 
 - *Type:* aws-cdk-lib.aws_lambda.ILayerVersion
 
@@ -986,7 +986,7 @@ the layers to be added.
 
 ---
 
-##### `invalidateVersionBasedOn` <a name="invalidateVersionBasedOn" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.invalidateVersionBasedOn"></a>
+##### `invalidateVersionBasedOn` <a name="invalidateVersionBasedOn" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.invalidateVersionBasedOn"></a>
 
 ```typescript
 public invalidateVersionBasedOn(x: string): void
@@ -1009,13 +1009,13 @@ a new Version needs to be created.
 
 This method may be called more than once.
 
-###### `x`<sup>Required</sup> <a name="x" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.invalidateVersionBasedOn.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.invalidateVersionBasedOn.parameter.x"></a>
 
 - *Type:* string
 
 ---
 
-##### `inspect` <a name="inspect" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.inspect"></a>
+##### `inspect` <a name="inspect" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -1023,7 +1023,7 @@ public inspect(inspector: TreeInspector): void
 
 Examines construct.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
@@ -1033,28 +1033,28 @@ Examines construct.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.classifyVersionProperty">classifyVersionProperty</a></code> | Record whether specific properties in the `AWS::Lambda::Function` resource should also be associated to the Version resource. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionArn">fromFunctionArn</a></code> | Import a lambda function into the CDK using its ARN. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionAttributes">fromFunctionAttributes</a></code> | Creates a Lambda function object which represents a function not defined within this stack. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionName">fromFunctionName</a></code> | Import a lambda function into the CDK using its name. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAll">metricAll</a></code> | Return the given named metric for this Lambda. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllConcurrentExecutions">metricAllConcurrentExecutions</a></code> | Metric for the number of concurrent executions across all Lambdas. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllDuration">metricAllDuration</a></code> | Metric for the Duration executing all Lambdas. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllErrors">metricAllErrors</a></code> | Metric for the number of Errors executing all Lambdas. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllInvocations">metricAllInvocations</a></code> | Metric for the number of invocations of all Lambdas. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllThrottles">metricAllThrottles</a></code> | Metric for the number of throttled invocations of all Lambdas. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllUnreservedConcurrentExecutions">metricAllUnreservedConcurrentExecutions</a></code> | Metric for the number of unreserved concurrent executions across all Lambdas. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.minifyEngineFromProps">minifyEngineFromProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.classifyVersionProperty">classifyVersionProperty</a></code> | Record whether specific properties in the `AWS::Lambda::Function` resource should also be associated to the Version resource. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionArn">fromFunctionArn</a></code> | Import a lambda function into the CDK using its ARN. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionAttributes">fromFunctionAttributes</a></code> | Creates a Lambda function object which represents a function not defined within this stack. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionName">fromFunctionName</a></code> | Import a lambda function into the CDK using its name. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAll">metricAll</a></code> | Return the given named metric for this Lambda. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllConcurrentExecutions">metricAllConcurrentExecutions</a></code> | Metric for the number of concurrent executions across all Lambdas. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllDuration">metricAllDuration</a></code> | Metric for the Duration executing all Lambdas. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllErrors">metricAllErrors</a></code> | Metric for the number of Errors executing all Lambdas. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllInvocations">metricAllInvocations</a></code> | Metric for the number of invocations of all Lambdas. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllThrottles">metricAllThrottles</a></code> | Metric for the number of throttled invocations of all Lambdas. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllUnreservedConcurrentExecutions">metricAllUnreservedConcurrentExecutions</a></code> | Metric for the number of unreserved concurrent executions across all Lambdas. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.minifyEngineFromProps">minifyEngineFromProps</a></code> | *No description.* |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isConstruct"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.isConstruct(x: any)
 ```
@@ -1075,7 +1075,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -1083,42 +1083,42 @@ Any object.
 
 ---
 
-##### `isOwnedResource` <a name="isOwnedResource" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isOwnedResource"></a>
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isOwnedResource"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.isOwnedResource(construct: IConstruct)
 ```
 
 Returns true if the construct was created by CDK, and false otherwise.
 
-###### `construct`<sup>Required</sup> <a name="construct" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isOwnedResource.parameter.construct"></a>
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isOwnedResource.parameter.construct"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `isResource` <a name="isResource" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isResource"></a>
+##### `isResource` <a name="isResource" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isResource"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.isResource(construct: IConstruct)
 ```
 
 Check whether the given construct is a Resource.
 
-###### `construct`<sup>Required</sup> <a name="construct" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isResource.parameter.construct"></a>
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.isResource.parameter.construct"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `classifyVersionProperty` <a name="classifyVersionProperty" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.classifyVersionProperty"></a>
+##### `classifyVersionProperty` <a name="classifyVersionProperty" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.classifyVersionProperty"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.classifyVersionProperty(propertyName: string, locked: boolean)
 ```
@@ -1127,7 +1127,7 @@ Record whether specific properties in the `AWS::Lambda::Function` resource shoul
 
 See 'currentVersion' section in the module README for more details.
 
-###### `propertyName`<sup>Required</sup> <a name="propertyName" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.classifyVersionProperty.parameter.propertyName"></a>
+###### `propertyName`<sup>Required</sup> <a name="propertyName" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.classifyVersionProperty.parameter.propertyName"></a>
 
 - *Type:* string
 
@@ -1135,7 +1135,7 @@ The property to classify.
 
 ---
 
-###### `locked`<sup>Required</sup> <a name="locked" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.classifyVersionProperty.parameter.locked"></a>
+###### `locked`<sup>Required</sup> <a name="locked" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.classifyVersionProperty.parameter.locked"></a>
 
 - *Type:* boolean
 
@@ -1143,10 +1143,10 @@ whether the property should be associated to the version or not.
 
 ---
 
-##### `fromFunctionArn` <a name="fromFunctionArn" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionArn"></a>
+##### `fromFunctionArn` <a name="fromFunctionArn" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionArn"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.fromFunctionArn(scope: Construct, id: string, functionArn: string)
 ```
@@ -1156,28 +1156,28 @@ Import a lambda function into the CDK using its ARN.
 For `Function.addPermissions()` to work on this imported lambda, make sure that is
 in the same account and region as the stack you are importing it into.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionArn.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionArn.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionArn.parameter.id"></a>
+###### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionArn.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-###### `functionArn`<sup>Required</sup> <a name="functionArn" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionArn.parameter.functionArn"></a>
+###### `functionArn`<sup>Required</sup> <a name="functionArn" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionArn.parameter.functionArn"></a>
 
 - *Type:* string
 
 ---
 
-##### `fromFunctionAttributes` <a name="fromFunctionAttributes" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionAttributes"></a>
+##### `fromFunctionAttributes` <a name="fromFunctionAttributes" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionAttributes"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.fromFunctionAttributes(scope: Construct, id: string, attrs: FunctionAttributes)
 ```
@@ -1187,7 +1187,7 @@ Creates a Lambda function object which represents a function not defined within 
 For `Function.addPermissions()` to work on this imported lambda, set the sameEnvironment property to true
 if this imported lambda is in the same account and region as the stack you are importing it into.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionAttributes.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionAttributes.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
@@ -1195,7 +1195,7 @@ The parent construct.
 
 ---
 
-###### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionAttributes.parameter.id"></a>
+###### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionAttributes.parameter.id"></a>
 
 - *Type:* string
 
@@ -1203,7 +1203,7 @@ The name of the lambda construct.
 
 ---
 
-###### `attrs`<sup>Required</sup> <a name="attrs" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionAttributes.parameter.attrs"></a>
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionAttributes.parameter.attrs"></a>
 
 - *Type:* aws-cdk-lib.aws_lambda.FunctionAttributes
 
@@ -1211,163 +1211,163 @@ the attributes of the function to import.
 
 ---
 
-##### `fromFunctionName` <a name="fromFunctionName" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionName"></a>
+##### `fromFunctionName` <a name="fromFunctionName" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionName"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.fromFunctionName(scope: Construct, id: string, functionName: string)
 ```
 
 Import a lambda function into the CDK using its name.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionName.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionName.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionName.parameter.id"></a>
+###### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionName.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-###### `functionName`<sup>Required</sup> <a name="functionName" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionName.parameter.functionName"></a>
+###### `functionName`<sup>Required</sup> <a name="functionName" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.fromFunctionName.parameter.functionName"></a>
 
 - *Type:* string
 
 ---
 
-##### `metricAll` <a name="metricAll" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAll"></a>
+##### `metricAll` <a name="metricAll" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAll"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.metricAll(metricName: string, props?: MetricOptions)
 ```
 
 Return the given named metric for this Lambda.
 
-###### `metricName`<sup>Required</sup> <a name="metricName" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAll.parameter.metricName"></a>
+###### `metricName`<sup>Required</sup> <a name="metricName" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAll.parameter.metricName"></a>
 
 - *Type:* string
 
 ---
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAll.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAll.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricAllConcurrentExecutions` <a name="metricAllConcurrentExecutions" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllConcurrentExecutions"></a>
+##### `metricAllConcurrentExecutions` <a name="metricAllConcurrentExecutions" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllConcurrentExecutions"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.metricAllConcurrentExecutions(props?: MetricOptions)
 ```
 
 Metric for the number of concurrent executions across all Lambdas.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllConcurrentExecutions.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllConcurrentExecutions.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricAllDuration` <a name="metricAllDuration" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllDuration"></a>
+##### `metricAllDuration` <a name="metricAllDuration" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllDuration"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.metricAllDuration(props?: MetricOptions)
 ```
 
 Metric for the Duration executing all Lambdas.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllDuration.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllDuration.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricAllErrors` <a name="metricAllErrors" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllErrors"></a>
+##### `metricAllErrors` <a name="metricAllErrors" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllErrors"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.metricAllErrors(props?: MetricOptions)
 ```
 
 Metric for the number of Errors executing all Lambdas.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllErrors.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllErrors.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricAllInvocations` <a name="metricAllInvocations" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllInvocations"></a>
+##### `metricAllInvocations` <a name="metricAllInvocations" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllInvocations"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.metricAllInvocations(props?: MetricOptions)
 ```
 
 Metric for the number of invocations of all Lambdas.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllInvocations.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllInvocations.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricAllThrottles` <a name="metricAllThrottles" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllThrottles"></a>
+##### `metricAllThrottles` <a name="metricAllThrottles" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllThrottles"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.metricAllThrottles(props?: MetricOptions)
 ```
 
 Metric for the number of throttled invocations of all Lambdas.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllThrottles.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllThrottles.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricAllUnreservedConcurrentExecutions` <a name="metricAllUnreservedConcurrentExecutions" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllUnreservedConcurrentExecutions"></a>
+##### `metricAllUnreservedConcurrentExecutions` <a name="metricAllUnreservedConcurrentExecutions" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllUnreservedConcurrentExecutions"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.metricAllUnreservedConcurrentExecutions(props?: MetricOptions)
 ```
 
 Metric for the number of unreserved concurrent executions across all Lambdas.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllUnreservedConcurrentExecutions.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricAllUnreservedConcurrentExecutions.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `minifyEngineFromProps` <a name="minifyEngineFromProps" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.minifyEngineFromProps"></a>
+##### `minifyEngineFromProps` <a name="minifyEngineFromProps" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.minifyEngineFromProps"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 aws_lambda_nodejs.InlineNodejsFunction.minifyEngineFromProps(props: InlineNodejsFunctionProps)
 ```
 
-###### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.minifyEngineFromProps.parameter.props"></a>
+###### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.minifyEngineFromProps.parameter.props"></a>
 
-- *Type:* @cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps
+- *Type:* cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps
 
 ---
 
@@ -1375,30 +1375,30 @@ aws_lambda_nodejs.InlineNodejsFunction.minifyEngineFromProps(props: InlineNodejs
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.architecture">architecture</a></code> | <code>aws-cdk-lib.aws_lambda.Architecture</code> | The architecture of this Lambda Function (this is an optional attribute and defaults to X86_64). |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | Access the Connections object. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.functionArn">functionArn</a></code> | <code>string</code> | ARN of this function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.functionName">functionName</a></code> | <code>string</code> | Name of this function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.grantPrincipal">grantPrincipal</a></code> | <code>aws-cdk-lib.aws_iam.IPrincipal</code> | The principal this Lambda Function is running as. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.isBoundToVpc">isBoundToVpc</a></code> | <code>boolean</code> | Whether or not this Lambda function was bound to a VPC. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.latestVersion">latestVersion</a></code> | <code>aws-cdk-lib.aws_lambda.IVersion</code> | The `$LATEST` version of this function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.permissionsNode">permissionsNode</a></code> | <code>constructs.Node</code> | The construct node where permissions are attached. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.resourceArnsForGrantInvoke">resourceArnsForGrantInvoke</a></code> | <code>string[]</code> | The ARN(s) to put into the resource field of the generated IAM policy for grantInvoke(). |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Execution role associated with this function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.currentVersion">currentVersion</a></code> | <code>aws-cdk-lib.aws_lambda.Version</code> | Returns a `lambda.Version` which represents the current version of this Lambda function. A new version will be created every time the function's configuration changes. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The LogGroup where the Lambda function's logs are made available. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.runtime">runtime</a></code> | <code>aws-cdk-lib.aws_lambda.Runtime</code> | The runtime configured for this lambda. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.deadLetterQueue">deadLetterQueue</a></code> | <code>aws-cdk-lib.aws_sqs.IQueue</code> | The DLQ (as queue) associated with this Lambda Function (this is an optional attribute). |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.deadLetterTopic">deadLetterTopic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | The DLQ (as topic) associated with this Lambda Function (this is an optional attribute). |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The timeout configured for this lambda. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.tmpFile">tmpFile</a></code> | <code>string</code> | Path to the temporary file with the minified code (if any). |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.architecture">architecture</a></code> | <code>aws-cdk-lib.aws_lambda.Architecture</code> | The architecture of this Lambda Function (this is an optional attribute and defaults to X86_64). |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | Access the Connections object. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.functionArn">functionArn</a></code> | <code>string</code> | ARN of this function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.functionName">functionName</a></code> | <code>string</code> | Name of this function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.grantPrincipal">grantPrincipal</a></code> | <code>aws-cdk-lib.aws_iam.IPrincipal</code> | The principal this Lambda Function is running as. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.isBoundToVpc">isBoundToVpc</a></code> | <code>boolean</code> | Whether or not this Lambda function was bound to a VPC. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.latestVersion">latestVersion</a></code> | <code>aws-cdk-lib.aws_lambda.IVersion</code> | The `$LATEST` version of this function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.permissionsNode">permissionsNode</a></code> | <code>constructs.Node</code> | The construct node where permissions are attached. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.resourceArnsForGrantInvoke">resourceArnsForGrantInvoke</a></code> | <code>string[]</code> | The ARN(s) to put into the resource field of the generated IAM policy for grantInvoke(). |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Execution role associated with this function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.currentVersion">currentVersion</a></code> | <code>aws-cdk-lib.aws_lambda.Version</code> | Returns a `lambda.Version` which represents the current version of this Lambda function. A new version will be created every time the function's configuration changes. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The LogGroup where the Lambda function's logs are made available. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.runtime">runtime</a></code> | <code>aws-cdk-lib.aws_lambda.Runtime</code> | The runtime configured for this lambda. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.deadLetterQueue">deadLetterQueue</a></code> | <code>aws-cdk-lib.aws_sqs.IQueue</code> | The DLQ (as queue) associated with this Lambda Function (this is an optional attribute). |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.deadLetterTopic">deadLetterTopic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | The DLQ (as topic) associated with this Lambda Function (this is an optional attribute). |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The timeout configured for this lambda. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.tmpFile">tmpFile</a></code> | <code>string</code> | Path to the temporary file with the minified code (if any). |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -1410,7 +1410,7 @@ The tree node.
 
 ---
 
-##### `env`<sup>Required</sup> <a name="env" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.env"></a>
+##### `env`<sup>Required</sup> <a name="env" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.env"></a>
 
 ```typescript
 public readonly env: ResourceEnvironment;
@@ -1429,7 +1429,7 @@ that might be different than the stack they were imported into.
 
 ---
 
-##### `stack`<sup>Required</sup> <a name="stack" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.stack"></a>
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.stack"></a>
 
 ```typescript
 public readonly stack: Stack;
@@ -1441,7 +1441,7 @@ The stack in which this resource is defined.
 
 ---
 
-##### `architecture`<sup>Required</sup> <a name="architecture" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.architecture"></a>
+##### `architecture`<sup>Required</sup> <a name="architecture" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.architecture"></a>
 
 ```typescript
 public readonly architecture: Architecture;
@@ -1453,7 +1453,7 @@ The architecture of this Lambda Function (this is an optional attribute and defa
 
 ---
 
-##### `connections`<sup>Required</sup> <a name="connections" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.connections"></a>
+##### `connections`<sup>Required</sup> <a name="connections" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.connections"></a>
 
 ```typescript
 public readonly connections: Connections;
@@ -1467,7 +1467,7 @@ Will fail if not a VPC-enabled Lambda Function
 
 ---
 
-##### `functionArn`<sup>Required</sup> <a name="functionArn" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.functionArn"></a>
+##### `functionArn`<sup>Required</sup> <a name="functionArn" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.functionArn"></a>
 
 ```typescript
 public readonly functionArn: string;
@@ -1479,7 +1479,7 @@ ARN of this function.
 
 ---
 
-##### `functionName`<sup>Required</sup> <a name="functionName" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.functionName"></a>
+##### `functionName`<sup>Required</sup> <a name="functionName" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.functionName"></a>
 
 ```typescript
 public readonly functionName: string;
@@ -1491,7 +1491,7 @@ Name of this function.
 
 ---
 
-##### `grantPrincipal`<sup>Required</sup> <a name="grantPrincipal" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.grantPrincipal"></a>
+##### `grantPrincipal`<sup>Required</sup> <a name="grantPrincipal" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.grantPrincipal"></a>
 
 ```typescript
 public readonly grantPrincipal: IPrincipal;
@@ -1503,7 +1503,7 @@ The principal this Lambda Function is running as.
 
 ---
 
-##### `isBoundToVpc`<sup>Required</sup> <a name="isBoundToVpc" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.isBoundToVpc"></a>
+##### `isBoundToVpc`<sup>Required</sup> <a name="isBoundToVpc" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.isBoundToVpc"></a>
 
 ```typescript
 public readonly isBoundToVpc: boolean;
@@ -1517,7 +1517,7 @@ If this is is `false`, trying to access the `connections` object will fail.
 
 ---
 
-##### `latestVersion`<sup>Required</sup> <a name="latestVersion" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.latestVersion"></a>
+##### `latestVersion`<sup>Required</sup> <a name="latestVersion" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.latestVersion"></a>
 
 ```typescript
 public readonly latestVersion: IVersion;
@@ -1536,7 +1536,7 @@ function configuration, use `lambdaFunction.currentVersion` instead.
 
 ---
 
-##### `permissionsNode`<sup>Required</sup> <a name="permissionsNode" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.permissionsNode"></a>
+##### `permissionsNode`<sup>Required</sup> <a name="permissionsNode" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.permissionsNode"></a>
 
 ```typescript
 public readonly permissionsNode: Node;
@@ -1548,7 +1548,7 @@ The construct node where permissions are attached.
 
 ---
 
-##### `resourceArnsForGrantInvoke`<sup>Required</sup> <a name="resourceArnsForGrantInvoke" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.resourceArnsForGrantInvoke"></a>
+##### `resourceArnsForGrantInvoke`<sup>Required</sup> <a name="resourceArnsForGrantInvoke" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.resourceArnsForGrantInvoke"></a>
 
 ```typescript
 public readonly resourceArnsForGrantInvoke: string[];
@@ -1560,7 +1560,7 @@ The ARN(s) to put into the resource field of the generated IAM policy for grantI
 
 ---
 
-##### `role`<sup>Optional</sup> <a name="role" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.role"></a>
+##### `role`<sup>Optional</sup> <a name="role" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.role"></a>
 
 ```typescript
 public readonly role: IRole;
@@ -1572,7 +1572,7 @@ Execution role associated with this function.
 
 ---
 
-##### `currentVersion`<sup>Required</sup> <a name="currentVersion" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.currentVersion"></a>
+##### `currentVersion`<sup>Required</sup> <a name="currentVersion" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.currentVersion"></a>
 
 ```typescript
 public readonly currentVersion: Version;
@@ -1587,7 +1587,7 @@ prop when initializing the `lambda.Function`.
 
 ---
 
-##### `logGroup`<sup>Required</sup> <a name="logGroup" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.logGroup"></a>
+##### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.logGroup"></a>
 
 ```typescript
 public readonly logGroup: ILogGroup;
@@ -1606,7 +1606,7 @@ to never expire even if it was configured with a different value.
 
 ---
 
-##### `runtime`<sup>Required</sup> <a name="runtime" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.runtime"></a>
+##### `runtime`<sup>Required</sup> <a name="runtime" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.runtime"></a>
 
 ```typescript
 public readonly runtime: Runtime;
@@ -1618,7 +1618,7 @@ The runtime configured for this lambda.
 
 ---
 
-##### `deadLetterQueue`<sup>Optional</sup> <a name="deadLetterQueue" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.deadLetterQueue"></a>
+##### `deadLetterQueue`<sup>Optional</sup> <a name="deadLetterQueue" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.deadLetterQueue"></a>
 
 ```typescript
 public readonly deadLetterQueue: IQueue;
@@ -1630,7 +1630,7 @@ The DLQ (as queue) associated with this Lambda Function (this is an optional att
 
 ---
 
-##### `deadLetterTopic`<sup>Optional</sup> <a name="deadLetterTopic" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.deadLetterTopic"></a>
+##### `deadLetterTopic`<sup>Optional</sup> <a name="deadLetterTopic" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.deadLetterTopic"></a>
 
 ```typescript
 public readonly deadLetterTopic: ITopic;
@@ -1642,7 +1642,7 @@ The DLQ (as topic) associated with this Lambda Function (this is an optional att
 
 ---
 
-##### `timeout`<sup>Optional</sup> <a name="timeout" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.timeout"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.timeout"></a>
 
 ```typescript
 public readonly timeout: Duration;
@@ -1654,7 +1654,7 @@ The timeout configured for this lambda.
 
 ---
 
-##### `tmpFile`<sup>Optional</sup> <a name="tmpFile" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.tmpFile"></a>
+##### `tmpFile`<sup>Optional</sup> <a name="tmpFile" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.tmpFile"></a>
 
 ```typescript
 public readonly tmpFile: string;
@@ -1678,11 +1678,11 @@ is compiled.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.TMP_FILE_ATTRIBUTE_NAME">TMP_FILE_ATTRIBUTE_NAME</a></code> | <code>string</code> | Link in tree.json to the file used for inline code. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.TMP_FILE_ATTRIBUTE_NAME">TMP_FILE_ATTRIBUTE_NAME</a></code> | <code>string</code> | Link in tree.json to the file used for inline code. |
 
 ---
 
-##### `TMP_FILE_ATTRIBUTE_NAME`<sup>Required</sup> <a name="TMP_FILE_ATTRIBUTE_NAME" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.TMP_FILE_ATTRIBUTE_NAME"></a>
+##### `TMP_FILE_ATTRIBUTE_NAME`<sup>Required</sup> <a name="TMP_FILE_ATTRIBUTE_NAME" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.property.TMP_FILE_ATTRIBUTE_NAME"></a>
 
 ```typescript
 public readonly TMP_FILE_ATTRIBUTE_NAME: string;
@@ -1694,7 +1694,7 @@ Link in tree.json to the file used for inline code.
 
 ---
 
-### LateBoundStepFunctionsStartExecution <a name="LateBoundStepFunctionsStartExecution" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution"></a>
+### LateBoundStepFunctionsStartExecution <a name="LateBoundStepFunctionsStartExecution" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution"></a>
 
 Calls a stepFunction who's ARN is not known until runtime.
 
@@ -1707,29 +1707,29 @@ Examples:
 
 Runs the state machine specified by {@link LateBoundStepFunctionsStartExecutionProps.stateMachineArnPath).}
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.Initializer"></a>
 
 ```typescript
-import { aws_stepfunctions_tasks } from '@cdk-orchestration'
+import { aws_stepfunctions_tasks } from 'cdk-orchestration'
 
 new aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution(scope: Construct, id: string, props: LateBoundStepFunctionsStartExecutionProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.Initializer.parameter.id">id</a></code> | <code>string</code> | Descriptive identifier for this chainable. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.Initializer.parameter.props">props</a></code> | <code>@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps</code> | *No description.* |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.Initializer.parameter.id">id</a></code> | <code>string</code> | Descriptive identifier for this chainable. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.Initializer.parameter.props">props</a></code> | <code>cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -1737,9 +1737,9 @@ Descriptive identifier for this chainable.
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.Initializer.parameter.props"></a>
 
-- *Type:* @cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps
+- *Type:* cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps
 
 ---
 
@@ -1747,27 +1747,27 @@ Descriptive identifier for this chainable.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addPrefix">addPrefix</a></code> | Add a prefix to the stateId of this state. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.bindToGraph">bindToGraph</a></code> | Register this state as part of the given graph. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.toStateJson">toStateJson</a></code> | Return the Amazon States Language object for this state. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addCatch">addCatch</a></code> | Add a recovery handler for this state. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addRetry">addRetry</a></code> | Add retry configuration for this state. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metric">metric</a></code> | Return the given named metric for this Task. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricFailed">metricFailed</a></code> | Metric for the number of times this activity fails. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricHeartbeatTimedOut">metricHeartbeatTimedOut</a></code> | Metric for the number of times the heartbeat times out for this activity. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricRunTime">metricRunTime</a></code> | The interval, in milliseconds, between the time the Task starts and the time it closes. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricScheduled">metricScheduled</a></code> | Metric for the number of times this activity is scheduled. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricScheduleTime">metricScheduleTime</a></code> | The interval, in milliseconds, for which the activity stays in the schedule state. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricStarted">metricStarted</a></code> | Metric for the number of times this activity is started. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricSucceeded">metricSucceeded</a></code> | Metric for the number of times this activity succeeds. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricTime">metricTime</a></code> | The interval, in milliseconds, between the time the activity is scheduled and the time it closes. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricTimedOut">metricTimedOut</a></code> | Metric for the number of times this activity times out. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.next">next</a></code> | Continue normal execution with the given state. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addPrefix">addPrefix</a></code> | Add a prefix to the stateId of this state. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.bindToGraph">bindToGraph</a></code> | Register this state as part of the given graph. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.toStateJson">toStateJson</a></code> | Return the Amazon States Language object for this state. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addCatch">addCatch</a></code> | Add a recovery handler for this state. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addRetry">addRetry</a></code> | Add retry configuration for this state. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metric">metric</a></code> | Return the given named metric for this Task. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricFailed">metricFailed</a></code> | Metric for the number of times this activity fails. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricHeartbeatTimedOut">metricHeartbeatTimedOut</a></code> | Metric for the number of times the heartbeat times out for this activity. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricRunTime">metricRunTime</a></code> | The interval, in milliseconds, between the time the Task starts and the time it closes. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricScheduled">metricScheduled</a></code> | Metric for the number of times this activity is scheduled. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricScheduleTime">metricScheduleTime</a></code> | The interval, in milliseconds, for which the activity stays in the schedule state. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricStarted">metricStarted</a></code> | Metric for the number of times this activity is started. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricSucceeded">metricSucceeded</a></code> | Metric for the number of times this activity succeeds. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricTime">metricTime</a></code> | The interval, in milliseconds, between the time the activity is scheduled and the time it closes. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricTimedOut">metricTimedOut</a></code> | Metric for the number of times this activity times out. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.next">next</a></code> | Continue normal execution with the given state. |
 
 ---
 
-##### `toString` <a name="toString" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.toString"></a>
+##### `toString` <a name="toString" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.toString"></a>
 
 ```typescript
 public toString(): string
@@ -1775,7 +1775,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `addPrefix` <a name="addPrefix" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addPrefix"></a>
+##### `addPrefix` <a name="addPrefix" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addPrefix"></a>
 
 ```typescript
 public addPrefix(x: string): void
@@ -1783,13 +1783,13 @@ public addPrefix(x: string): void
 
 Add a prefix to the stateId of this state.
 
-###### `x`<sup>Required</sup> <a name="x" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addPrefix.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addPrefix.parameter.x"></a>
 
 - *Type:* string
 
 ---
 
-##### `bindToGraph` <a name="bindToGraph" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.bindToGraph"></a>
+##### `bindToGraph` <a name="bindToGraph" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.bindToGraph"></a>
 
 ```typescript
 public bindToGraph(graph: StateGraph): void
@@ -1800,13 +1800,13 @@ Register this state as part of the given graph.
 Don't call this. It will be called automatically when you work
 with states normally.
 
-###### `graph`<sup>Required</sup> <a name="graph" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.bindToGraph.parameter.graph"></a>
+###### `graph`<sup>Required</sup> <a name="graph" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.bindToGraph.parameter.graph"></a>
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.StateGraph
 
 ---
 
-##### `toStateJson` <a name="toStateJson" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.toStateJson"></a>
+##### `toStateJson` <a name="toStateJson" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.toStateJson"></a>
 
 ```typescript
 public toStateJson(): object
@@ -1814,7 +1814,7 @@ public toStateJson(): object
 
 Return the Amazon States Language object for this state.
 
-##### `addCatch` <a name="addCatch" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addCatch"></a>
+##### `addCatch` <a name="addCatch" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addCatch"></a>
 
 ```typescript
 public addCatch(handler: IChainable, props?: CatchProps): TaskStateBase
@@ -1825,19 +1825,19 @@ Add a recovery handler for this state.
 When a particular error occurs, execution will continue at the error
 handler instead of failing the state machine execution.
 
-###### `handler`<sup>Required</sup> <a name="handler" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addCatch.parameter.handler"></a>
+###### `handler`<sup>Required</sup> <a name="handler" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addCatch.parameter.handler"></a>
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.IChainable
 
 ---
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addCatch.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addCatch.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.CatchProps
 
 ---
 
-##### `addRetry` <a name="addRetry" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addRetry"></a>
+##### `addRetry` <a name="addRetry" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addRetry"></a>
 
 ```typescript
 public addRetry(props?: RetryProps): TaskStateBase
@@ -1848,13 +1848,13 @@ Add retry configuration for this state.
 This controls if and how the execution will be retried if a particular
 error occurs.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addRetry.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.addRetry.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.RetryProps
 
 ---
 
-##### `metric` <a name="metric" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metric"></a>
+##### `metric` <a name="metric" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metric"></a>
 
 ```typescript
 public metric(metricName: string, props?: MetricOptions): Metric
@@ -1862,19 +1862,19 @@ public metric(metricName: string, props?: MetricOptions): Metric
 
 Return the given named metric for this Task.
 
-###### `metricName`<sup>Required</sup> <a name="metricName" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metric.parameter.metricName"></a>
+###### `metricName`<sup>Required</sup> <a name="metricName" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metric.parameter.metricName"></a>
 
 - *Type:* string
 
 ---
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metric.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metric.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricFailed` <a name="metricFailed" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricFailed"></a>
+##### `metricFailed` <a name="metricFailed" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricFailed"></a>
 
 ```typescript
 public metricFailed(props?: MetricOptions): Metric
@@ -1882,13 +1882,13 @@ public metricFailed(props?: MetricOptions): Metric
 
 Metric for the number of times this activity fails.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricFailed.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricFailed.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricHeartbeatTimedOut` <a name="metricHeartbeatTimedOut" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricHeartbeatTimedOut"></a>
+##### `metricHeartbeatTimedOut` <a name="metricHeartbeatTimedOut" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricHeartbeatTimedOut"></a>
 
 ```typescript
 public metricHeartbeatTimedOut(props?: MetricOptions): Metric
@@ -1896,13 +1896,13 @@ public metricHeartbeatTimedOut(props?: MetricOptions): Metric
 
 Metric for the number of times the heartbeat times out for this activity.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricHeartbeatTimedOut.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricHeartbeatTimedOut.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricRunTime` <a name="metricRunTime" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricRunTime"></a>
+##### `metricRunTime` <a name="metricRunTime" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricRunTime"></a>
 
 ```typescript
 public metricRunTime(props?: MetricOptions): Metric
@@ -1910,13 +1910,13 @@ public metricRunTime(props?: MetricOptions): Metric
 
 The interval, in milliseconds, between the time the Task starts and the time it closes.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricRunTime.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricRunTime.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricScheduled` <a name="metricScheduled" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricScheduled"></a>
+##### `metricScheduled` <a name="metricScheduled" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricScheduled"></a>
 
 ```typescript
 public metricScheduled(props?: MetricOptions): Metric
@@ -1924,13 +1924,13 @@ public metricScheduled(props?: MetricOptions): Metric
 
 Metric for the number of times this activity is scheduled.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricScheduled.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricScheduled.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricScheduleTime` <a name="metricScheduleTime" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricScheduleTime"></a>
+##### `metricScheduleTime` <a name="metricScheduleTime" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricScheduleTime"></a>
 
 ```typescript
 public metricScheduleTime(props?: MetricOptions): Metric
@@ -1938,13 +1938,13 @@ public metricScheduleTime(props?: MetricOptions): Metric
 
 The interval, in milliseconds, for which the activity stays in the schedule state.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricScheduleTime.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricScheduleTime.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricStarted` <a name="metricStarted" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricStarted"></a>
+##### `metricStarted` <a name="metricStarted" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricStarted"></a>
 
 ```typescript
 public metricStarted(props?: MetricOptions): Metric
@@ -1952,13 +1952,13 @@ public metricStarted(props?: MetricOptions): Metric
 
 Metric for the number of times this activity is started.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricStarted.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricStarted.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricSucceeded` <a name="metricSucceeded" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricSucceeded"></a>
+##### `metricSucceeded` <a name="metricSucceeded" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricSucceeded"></a>
 
 ```typescript
 public metricSucceeded(props?: MetricOptions): Metric
@@ -1966,13 +1966,13 @@ public metricSucceeded(props?: MetricOptions): Metric
 
 Metric for the number of times this activity succeeds.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricSucceeded.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricSucceeded.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricTime` <a name="metricTime" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricTime"></a>
+##### `metricTime` <a name="metricTime" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricTime"></a>
 
 ```typescript
 public metricTime(props?: MetricOptions): Metric
@@ -1980,13 +1980,13 @@ public metricTime(props?: MetricOptions): Metric
 
 The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricTime.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricTime.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `metricTimedOut` <a name="metricTimedOut" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricTimedOut"></a>
+##### `metricTimedOut` <a name="metricTimedOut" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricTimedOut"></a>
 
 ```typescript
 public metricTimedOut(props?: MetricOptions): Metric
@@ -1994,13 +1994,13 @@ public metricTimedOut(props?: MetricOptions): Metric
 
 Metric for the number of times this activity times out.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricTimedOut.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.metricTimedOut.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
 ---
 
-##### `next` <a name="next" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.next"></a>
+##### `next` <a name="next" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.next"></a>
 
 ```typescript
 public next(next: IChainable): Chain
@@ -2008,7 +2008,7 @@ public next(next: IChainable): Chain
 
 Continue normal execution with the given state.
 
-###### `next`<sup>Required</sup> <a name="next" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.next.parameter.next"></a>
+###### `next`<sup>Required</sup> <a name="next" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.next.parameter.next"></a>
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.IChainable
 
@@ -2018,18 +2018,18 @@ Continue normal execution with the given state.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.filterNextables">filterNextables</a></code> | Return only the states that allow chaining from an array of states. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableEndStates">findReachableEndStates</a></code> | Find the set of end states states reachable through transitions from the given start state. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableStates">findReachableStates</a></code> | Find the set of states reachable through transitions from the given start state. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.prefixStates">prefixStates</a></code> | Add a prefix to the stateId of all States found in a construct tree. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.filterNextables">filterNextables</a></code> | Return only the states that allow chaining from an array of states. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableEndStates">findReachableEndStates</a></code> | Find the set of end states states reachable through transitions from the given start state. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableStates">findReachableStates</a></code> | Find the set of states reachable through transitions from the given start state. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.prefixStates">prefixStates</a></code> | Add a prefix to the stateId of all States found in a construct tree. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.isConstruct"></a>
 
 ```typescript
-import { aws_stepfunctions_tasks } from '@cdk-orchestration'
+import { aws_stepfunctions_tasks } from 'cdk-orchestration'
 
 aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.isConstruct(x: any)
 ```
@@ -2050,7 +2050,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -2058,48 +2058,48 @@ Any object.
 
 ---
 
-##### `filterNextables` <a name="filterNextables" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.filterNextables"></a>
+##### `filterNextables` <a name="filterNextables" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.filterNextables"></a>
 
 ```typescript
-import { aws_stepfunctions_tasks } from '@cdk-orchestration'
+import { aws_stepfunctions_tasks } from 'cdk-orchestration'
 
 aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.filterNextables(states: State[])
 ```
 
 Return only the states that allow chaining from an array of states.
 
-###### `states`<sup>Required</sup> <a name="states" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.filterNextables.parameter.states"></a>
+###### `states`<sup>Required</sup> <a name="states" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.filterNextables.parameter.states"></a>
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.State[]
 
 ---
 
-##### `findReachableEndStates` <a name="findReachableEndStates" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableEndStates"></a>
+##### `findReachableEndStates` <a name="findReachableEndStates" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableEndStates"></a>
 
 ```typescript
-import { aws_stepfunctions_tasks } from '@cdk-orchestration'
+import { aws_stepfunctions_tasks } from 'cdk-orchestration'
 
 aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableEndStates(start: State, options?: FindStateOptions)
 ```
 
 Find the set of end states states reachable through transitions from the given start state.
 
-###### `start`<sup>Required</sup> <a name="start" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableEndStates.parameter.start"></a>
+###### `start`<sup>Required</sup> <a name="start" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableEndStates.parameter.start"></a>
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.State
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableEndStates.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableEndStates.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.FindStateOptions
 
 ---
 
-##### `findReachableStates` <a name="findReachableStates" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableStates"></a>
+##### `findReachableStates` <a name="findReachableStates" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableStates"></a>
 
 ```typescript
-import { aws_stepfunctions_tasks } from '@cdk-orchestration'
+import { aws_stepfunctions_tasks } from 'cdk-orchestration'
 
 aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableStates(start: State, options?: FindStateOptions)
 ```
@@ -2108,35 +2108,35 @@ Find the set of states reachable through transitions from the given start state.
 
 This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
 
-###### `start`<sup>Required</sup> <a name="start" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableStates.parameter.start"></a>
+###### `start`<sup>Required</sup> <a name="start" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableStates.parameter.start"></a>
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.State
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableStates.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.findReachableStates.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.FindStateOptions
 
 ---
 
-##### `prefixStates` <a name="prefixStates" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.prefixStates"></a>
+##### `prefixStates` <a name="prefixStates" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.prefixStates"></a>
 
 ```typescript
-import { aws_stepfunctions_tasks } from '@cdk-orchestration'
+import { aws_stepfunctions_tasks } from 'cdk-orchestration'
 
 aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.prefixStates(root: IConstruct, prefix: string)
 ```
 
 Add a prefix to the stateId of all States found in a construct tree.
 
-###### `root`<sup>Required</sup> <a name="root" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.prefixStates.parameter.root"></a>
+###### `root`<sup>Required</sup> <a name="root" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.prefixStates.parameter.root"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `prefix`<sup>Required</sup> <a name="prefix" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.prefixStates.parameter.prefix"></a>
+###### `prefix`<sup>Required</sup> <a name="prefix" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.prefixStates.parameter.prefix"></a>
 
 - *Type:* string
 
@@ -2146,15 +2146,15 @@ Add a prefix to the stateId of all States found in a construct tree.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.endStates">endStates</a></code> | <code>aws-cdk-lib.aws_stepfunctions.INextable[]</code> | Continuable states of this Chainable. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.id">id</a></code> | <code>string</code> | Descriptive identifier for this chainable. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.startState">startState</a></code> | <code>aws-cdk-lib.aws_stepfunctions.State</code> | First state of this Chainable. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.stateId">stateId</a></code> | <code>string</code> | Tokenized string that evaluates to the state's ID. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.endStates">endStates</a></code> | <code>aws-cdk-lib.aws_stepfunctions.INextable[]</code> | Continuable states of this Chainable. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.id">id</a></code> | <code>string</code> | Descriptive identifier for this chainable. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.startState">startState</a></code> | <code>aws-cdk-lib.aws_stepfunctions.State</code> | First state of this Chainable. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.stateId">stateId</a></code> | <code>string</code> | Tokenized string that evaluates to the state's ID. |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -2166,7 +2166,7 @@ The tree node.
 
 ---
 
-##### `endStates`<sup>Required</sup> <a name="endStates" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.endStates"></a>
+##### `endStates`<sup>Required</sup> <a name="endStates" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.endStates"></a>
 
 ```typescript
 public readonly endStates: INextable[];
@@ -2178,7 +2178,7 @@ Continuable states of this Chainable.
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.id"></a>
 
 ```typescript
 public readonly id: string;
@@ -2190,7 +2190,7 @@ Descriptive identifier for this chainable.
 
 ---
 
-##### `startState`<sup>Required</sup> <a name="startState" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.startState"></a>
+##### `startState`<sup>Required</sup> <a name="startState" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.startState"></a>
 
 ```typescript
 public readonly startState: State;
@@ -2202,7 +2202,7 @@ First state of this Chainable.
 
 ---
 
-##### `stateId`<sup>Required</sup> <a name="stateId" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.stateId"></a>
+##### `stateId`<sup>Required</sup> <a name="stateId" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution.property.stateId"></a>
 
 ```typescript
 public readonly stateId: string;
@@ -2215,7 +2215,7 @@ Tokenized string that evaluates to the state's ID.
 ---
 
 
-### StepFunctionTask <a name="StepFunctionTask" id="@cdk-orchestration.orchestration.StepFunctionTask"></a>
+### StepFunctionTask <a name="StepFunctionTask" id="cdk-orchestration.orchestration.StepFunctionTask"></a>
 
 This class creates multiple StepFunctionTaskStep resources to monitor the execution of a long-running step function.
 
@@ -2231,37 +2231,37 @@ StepFunctionTaskStep resources (if any) will fast-succeed.
 If the StepFunction fails, the subsequent StepFunctionTaskStep
 resources will fast-fail.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.orchestration.StepFunctionTask.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.orchestration.StepFunctionTask.Initializer"></a>
 
 ```typescript
-import { orchestration } from '@cdk-orchestration'
+import { orchestration } from 'cdk-orchestration'
 
 new orchestration.StepFunctionTask(scope: Construct, id: string, props: StepFunctionTaskProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTask.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTask.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTask.Initializer.parameter.props">props</a></code> | <code>@cdk-orchestration.orchestration.StepFunctionTaskProps</code> | *No description.* |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTask.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTask.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTask.Initializer.parameter.props">props</a></code> | <code>cdk-orchestration.orchestration.StepFunctionTaskProps</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.orchestration.StepFunctionTask.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.orchestration.StepFunctionTask.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.orchestration.StepFunctionTask.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.orchestration.StepFunctionTask.Initializer.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.orchestration.StepFunctionTask.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.orchestration.StepFunctionTask.Initializer.parameter.props"></a>
 
-- *Type:* @cdk-orchestration.orchestration.StepFunctionTaskProps
+- *Type:* cdk-orchestration.orchestration.StepFunctionTaskProps
 
 ---
 
@@ -2269,13 +2269,13 @@ new orchestration.StepFunctionTask(scope: Construct, id: string, props: StepFunc
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTask.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTask.getAtt">getAtt</a></code> | See {@link CustomResource.getAtt }. |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTask.getAttString">getAttString</a></code> | See {@link CustomResource.getAttString }. |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTask.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTask.getAtt">getAtt</a></code> | See {@link CustomResource.getAtt }. |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTask.getAttString">getAttString</a></code> | See {@link CustomResource.getAttString }. |
 
 ---
 
-##### `toString` <a name="toString" id="@cdk-orchestration.orchestration.StepFunctionTask.toString"></a>
+##### `toString` <a name="toString" id="cdk-orchestration.orchestration.StepFunctionTask.toString"></a>
 
 ```typescript
 public toString(): string
@@ -2283,7 +2283,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `getAtt` <a name="getAtt" id="@cdk-orchestration.orchestration.StepFunctionTask.getAtt"></a>
+##### `getAtt` <a name="getAtt" id="cdk-orchestration.orchestration.StepFunctionTask.getAtt"></a>
 
 ```typescript
 public getAtt(attributeName: string): Reference
@@ -2291,13 +2291,13 @@ public getAtt(attributeName: string): Reference
 
 See {@link CustomResource.getAtt }.
 
-###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@cdk-orchestration.orchestration.StepFunctionTask.getAtt.parameter.attributeName"></a>
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="cdk-orchestration.orchestration.StepFunctionTask.getAtt.parameter.attributeName"></a>
 
 - *Type:* string
 
 ---
 
-##### `getAttString` <a name="getAttString" id="@cdk-orchestration.orchestration.StepFunctionTask.getAttString"></a>
+##### `getAttString` <a name="getAttString" id="cdk-orchestration.orchestration.StepFunctionTask.getAttString"></a>
 
 ```typescript
 public getAttString(attributeName: string): string
@@ -2305,7 +2305,7 @@ public getAttString(attributeName: string): string
 
 See {@link CustomResource.getAttString }.
 
-###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@cdk-orchestration.orchestration.StepFunctionTask.getAttString.parameter.attributeName"></a>
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="cdk-orchestration.orchestration.StepFunctionTask.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
 
@@ -2315,14 +2315,14 @@ See {@link CustomResource.getAttString }.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTask.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTask.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@cdk-orchestration.orchestration.StepFunctionTask.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.orchestration.StepFunctionTask.isConstruct"></a>
 
 ```typescript
-import { orchestration } from '@cdk-orchestration'
+import { orchestration } from 'cdk-orchestration'
 
 orchestration.StepFunctionTask.isConstruct(x: any)
 ```
@@ -2343,7 +2343,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@cdk-orchestration.orchestration.StepFunctionTask.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.orchestration.StepFunctionTask.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -2355,14 +2355,14 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTask.property.numberOfSteps">numberOfSteps</a></code> | <code>number</code> | Total number of StepFunctionTaskStep resources created. |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTask.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTask.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Execution role. |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTask.property.numberOfSteps">numberOfSteps</a></code> | <code>number</code> | Total number of StepFunctionTaskStep resources created. |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTask.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTask.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Execution role. |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@cdk-orchestration.orchestration.StepFunctionTask.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.orchestration.StepFunctionTask.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -2374,7 +2374,7 @@ The tree node.
 
 ---
 
-##### `numberOfSteps`<sup>Required</sup> <a name="numberOfSteps" id="@cdk-orchestration.orchestration.StepFunctionTask.property.numberOfSteps"></a>
+##### `numberOfSteps`<sup>Required</sup> <a name="numberOfSteps" id="cdk-orchestration.orchestration.StepFunctionTask.property.numberOfSteps"></a>
 
 ```typescript
 public readonly numberOfSteps: number;
@@ -2386,7 +2386,7 @@ Total number of StepFunctionTaskStep resources created.
 
 ---
 
-##### `ref`<sup>Required</sup> <a name="ref" id="@cdk-orchestration.orchestration.StepFunctionTask.property.ref"></a>
+##### `ref`<sup>Required</sup> <a name="ref" id="cdk-orchestration.orchestration.StepFunctionTask.property.ref"></a>
 
 ```typescript
 public readonly ref: string;
@@ -2398,7 +2398,7 @@ The physical name of this custom resource.
 
 ---
 
-##### `role`<sup>Required</sup> <a name="role" id="@cdk-orchestration.orchestration.StepFunctionTask.property.role"></a>
+##### `role`<sup>Required</sup> <a name="role" id="cdk-orchestration.orchestration.StepFunctionTask.property.role"></a>
 
 ```typescript
 public readonly role: IRole;
@@ -2413,14 +2413,14 @@ Execution role.
 
 ## Structs <a name="Structs" id="Structs"></a>
 
-### ConstructHostProps <a name="ConstructHostProps" id="@cdk-orchestration.ConstructHostProps"></a>
+### ConstructHostProps <a name="ConstructHostProps" id="cdk-orchestration.ConstructHostProps"></a>
 
 Properties for ConstructHost.
 
-#### Initializer <a name="Initializer" id="@cdk-orchestration.ConstructHostProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="cdk-orchestration.ConstructHostProps.Initializer"></a>
 
 ```typescript
-import { ConstructHostProps } from '@cdk-orchestration'
+import { ConstructHostProps } from 'cdk-orchestration'
 
 const constructHostProps: ConstructHostProps = { ... }
 ```
@@ -2429,43 +2429,43 @@ const constructHostProps: ConstructHostProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructHostProps.property.hostConstructTypeInfo">hostConstructTypeInfo</a></code> | <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo">ConstructRunTimeTypeInfo</a></code> | Host RTTI. |
-| <code><a href="#@cdk-orchestration.ConstructHostProps.property.hostedConstructTypeInfo">hostedConstructTypeInfo</a></code> | <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo">ConstructRunTimeTypeInfo</a></code> | Hosted construct RTTI. |
-| <code><a href="#@cdk-orchestration.ConstructHostProps.property.stopCondition">stopCondition</a></code> | <code><a href="#@cdk-orchestration.IStopCondition">IStopCondition</a></code> | Stop condition for searching for hosted constructs. |
+| <code><a href="#cdk-orchestration.ConstructHostProps.property.hostConstructTypeInfo">hostConstructTypeInfo</a></code> | <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo">ConstructRunTimeTypeInfo</a></code> | Host RTTI. |
+| <code><a href="#cdk-orchestration.ConstructHostProps.property.hostedConstructTypeInfo">hostedConstructTypeInfo</a></code> | <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo">ConstructRunTimeTypeInfo</a></code> | Hosted construct RTTI. |
+| <code><a href="#cdk-orchestration.ConstructHostProps.property.stopCondition">stopCondition</a></code> | <code><a href="#cdk-orchestration.IStopCondition">IStopCondition</a></code> | Stop condition for searching for hosted constructs. |
 
 ---
 
-##### `hostConstructTypeInfo`<sup>Required</sup> <a name="hostConstructTypeInfo" id="@cdk-orchestration.ConstructHostProps.property.hostConstructTypeInfo"></a>
+##### `hostConstructTypeInfo`<sup>Required</sup> <a name="hostConstructTypeInfo" id="cdk-orchestration.ConstructHostProps.property.hostConstructTypeInfo"></a>
 
 ```typescript
 public readonly hostConstructTypeInfo: ConstructRunTimeTypeInfo;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.ConstructRunTimeTypeInfo">ConstructRunTimeTypeInfo</a>
+- *Type:* <a href="#cdk-orchestration.ConstructRunTimeTypeInfo">ConstructRunTimeTypeInfo</a>
 
 Host RTTI.
 
 ---
 
-##### `hostedConstructTypeInfo`<sup>Required</sup> <a name="hostedConstructTypeInfo" id="@cdk-orchestration.ConstructHostProps.property.hostedConstructTypeInfo"></a>
+##### `hostedConstructTypeInfo`<sup>Required</sup> <a name="hostedConstructTypeInfo" id="cdk-orchestration.ConstructHostProps.property.hostedConstructTypeInfo"></a>
 
 ```typescript
 public readonly hostedConstructTypeInfo: ConstructRunTimeTypeInfo;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.ConstructRunTimeTypeInfo">ConstructRunTimeTypeInfo</a>
+- *Type:* <a href="#cdk-orchestration.ConstructRunTimeTypeInfo">ConstructRunTimeTypeInfo</a>
 
 Hosted construct RTTI.
 
 ---
 
-##### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="@cdk-orchestration.ConstructHostProps.property.stopCondition"></a>
+##### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="cdk-orchestration.ConstructHostProps.property.stopCondition"></a>
 
 ```typescript
 public readonly stopCondition: IStopCondition;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Type:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 Stop condition for searching for hosted constructs.
 
@@ -2473,7 +2473,7 @@ Normally this will at least exclude sub-stacks.
 
 ---
 
-### ConstructServiceProps <a name="ConstructServiceProps" id="@cdk-orchestration.ConstructServiceProps"></a>
+### ConstructServiceProps <a name="ConstructServiceProps" id="cdk-orchestration.ConstructServiceProps"></a>
 
 Properties for defining a construct service.
 
@@ -2493,10 +2493,10 @@ In regards to this technique the CDK says (wrt `CfnElement.isCfnElement`):
 > Uses duck-typing instead of `instanceof` to allow stack elements from different
 > versions of this library to be included in the same stack.
 
-#### Initializer <a name="Initializer" id="@cdk-orchestration.ConstructServiceProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="cdk-orchestration.ConstructServiceProps.Initializer"></a>
 
 ```typescript
-import { ConstructServiceProps } from '@cdk-orchestration'
+import { ConstructServiceProps } from 'cdk-orchestration'
 
 const constructServiceProps: ConstructServiceProps = { ... }
 ```
@@ -2505,12 +2505,12 @@ const constructServiceProps: ConstructServiceProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructServiceProps.property.servicePropertyName">servicePropertyName</a></code> | <code>string</code> | The symbol property for this construct service. |
-| <code><a href="#@cdk-orchestration.ConstructServiceProps.property.factory">factory</a></code> | <code><a href="#@cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a></code> | This function is used when calling {@link ConstructService.searchUpOrCreate } or {@link ConstructService.searchSelfOrCreate} to optionally create a service when none is found. |
+| <code><a href="#cdk-orchestration.ConstructServiceProps.property.servicePropertyName">servicePropertyName</a></code> | <code>string</code> | The symbol property for this construct service. |
+| <code><a href="#cdk-orchestration.ConstructServiceProps.property.factory">factory</a></code> | <code><a href="#cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a></code> | This function is used when calling {@link ConstructService.searchUpOrCreate } or {@link ConstructService.searchSelfOrCreate} to optionally create a service when none is found. |
 
 ---
 
-##### `servicePropertyName`<sup>Required</sup> <a name="servicePropertyName" id="@cdk-orchestration.ConstructServiceProps.property.servicePropertyName"></a>
+##### `servicePropertyName`<sup>Required</sup> <a name="servicePropertyName" id="cdk-orchestration.ConstructServiceProps.property.servicePropertyName"></a>
 
 ```typescript
 public readonly servicePropertyName: string;
@@ -2532,13 +2532,13 @@ To ensure uniqueness.
 
 ---
 
-##### `factory`<sup>Optional</sup> <a name="factory" id="@cdk-orchestration.ConstructServiceProps.property.factory"></a>
+##### `factory`<sup>Optional</sup> <a name="factory" id="cdk-orchestration.ConstructServiceProps.property.factory"></a>
 
 ```typescript
 public readonly factory: IConstructServiceFactory;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
+- *Type:* <a href="#cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
 
 This function is used when calling {@link ConstructService.searchUpOrCreate } or {@link ConstructService.searchSelfOrCreate} to optionally create a service when none is found.
 
@@ -2548,14 +2548,14 @@ default factory.
 
 ---
 
-### ConstructTreeServiceProps <a name="ConstructTreeServiceProps" id="@cdk-orchestration.ConstructTreeServiceProps"></a>
+### ConstructTreeServiceProps <a name="ConstructTreeServiceProps" id="cdk-orchestration.ConstructTreeServiceProps"></a>
 
 Properties for ConstructTreeService.
 
-#### Initializer <a name="Initializer" id="@cdk-orchestration.ConstructTreeServiceProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="cdk-orchestration.ConstructTreeServiceProps.Initializer"></a>
 
 ```typescript
-import { ConstructTreeServiceProps } from '@cdk-orchestration'
+import { ConstructTreeServiceProps } from 'cdk-orchestration'
 
 const constructTreeServiceProps: ConstructTreeServiceProps = { ... }
 ```
@@ -2564,13 +2564,13 @@ const constructTreeServiceProps: ConstructTreeServiceProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructTreeServiceProps.property.servicePropertyName">servicePropertyName</a></code> | <code>string</code> | The symbol property for this construct service. |
-| <code><a href="#@cdk-orchestration.ConstructTreeServiceProps.property.factory">factory</a></code> | <code><a href="#@cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a></code> | This function is used when calling {@link ConstructService.searchUpOrCreate } or {@link ConstructService.searchSelfOrCreate} to optionally create a service when none is found. |
-| <code><a href="#@cdk-orchestration.ConstructTreeServiceProps.property.stopCondition">stopCondition</a></code> | <code><a href="#@cdk-orchestration.IStopCondition">IStopCondition</a></code> | The `stopCondition` function is used in two cases:. |
+| <code><a href="#cdk-orchestration.ConstructTreeServiceProps.property.servicePropertyName">servicePropertyName</a></code> | <code>string</code> | The symbol property for this construct service. |
+| <code><a href="#cdk-orchestration.ConstructTreeServiceProps.property.factory">factory</a></code> | <code><a href="#cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a></code> | This function is used when calling {@link ConstructService.searchUpOrCreate } or {@link ConstructService.searchSelfOrCreate} to optionally create a service when none is found. |
+| <code><a href="#cdk-orchestration.ConstructTreeServiceProps.property.stopCondition">stopCondition</a></code> | <code><a href="#cdk-orchestration.IStopCondition">IStopCondition</a></code> | The `stopCondition` function is used in two cases:. |
 
 ---
 
-##### `servicePropertyName`<sup>Required</sup> <a name="servicePropertyName" id="@cdk-orchestration.ConstructTreeServiceProps.property.servicePropertyName"></a>
+##### `servicePropertyName`<sup>Required</sup> <a name="servicePropertyName" id="cdk-orchestration.ConstructTreeServiceProps.property.servicePropertyName"></a>
 
 ```typescript
 public readonly servicePropertyName: string;
@@ -2592,13 +2592,13 @@ To ensure uniqueness.
 
 ---
 
-##### `factory`<sup>Optional</sup> <a name="factory" id="@cdk-orchestration.ConstructTreeServiceProps.property.factory"></a>
+##### `factory`<sup>Optional</sup> <a name="factory" id="cdk-orchestration.ConstructTreeServiceProps.property.factory"></a>
 
 ```typescript
 public readonly factory: IConstructServiceFactory;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
+- *Type:* <a href="#cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
 
 This function is used when calling {@link ConstructService.searchUpOrCreate } or {@link ConstructService.searchSelfOrCreate} to optionally create a service when none is found.
 
@@ -2608,13 +2608,13 @@ default factory.
 
 ---
 
-##### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="@cdk-orchestration.ConstructTreeServiceProps.property.stopCondition"></a>
+##### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="cdk-orchestration.ConstructTreeServiceProps.property.stopCondition"></a>
 
 ```typescript
 public readonly stopCondition: IStopCondition;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Type:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 The `stopCondition` function is used in two cases:.
 
@@ -2640,14 +2640,14 @@ or {@link ConstructService.searchSelfOrCreate}.
 
 ---
 
-### InlineNodejsFunctionProps <a name="InlineNodejsFunctionProps" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps"></a>
+### InlineNodejsFunctionProps <a name="InlineNodejsFunctionProps" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps"></a>
 
 Properties for an InlineNodejsFunction.
 
-#### Initializer <a name="Initializer" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.Initializer"></a>
 
 ```typescript
-import { aws_lambda_nodejs } from '@cdk-orchestration'
+import { aws_lambda_nodejs } from 'cdk-orchestration'
 
 const inlineNodejsFunctionProps: aws_lambda_nodejs.InlineNodejsFunctionProps = { ... }
 ```
@@ -2656,58 +2656,58 @@ const inlineNodejsFunctionProps: aws_lambda_nodejs.InlineNodejsFunctionProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.maxEventAge">maxEventAge</a></code> | <code>aws-cdk-lib.Duration</code> | The maximum age of a request that Lambda sends to a function for processing. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.onFailure">onFailure</a></code> | <code>aws-cdk-lib.aws_lambda.IDestination</code> | The destination for failed invocations. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.onSuccess">onSuccess</a></code> | <code>aws-cdk-lib.aws_lambda.IDestination</code> | The destination for successful invocations. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.retryAttempts">retryAttempts</a></code> | <code>number</code> | The maximum number of times to retry when the function returns an error. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.adotInstrumentation">adotInstrumentation</a></code> | <code>aws-cdk-lib.aws_lambda.AdotInstrumentationConfig</code> | Specify the configuration of AWS Distro for OpenTelemetry (ADOT) instrumentation. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.allowAllOutbound">allowAllOutbound</a></code> | <code>boolean</code> | Whether to allow the Lambda to send all network traffic. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.allowPublicSubnet">allowPublicSubnet</a></code> | <code>boolean</code> | Lambda Functions in a public subnet can NOT access the internet. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.applicationLogLevel">applicationLogLevel</a></code> | <code>string</code> | Sets the application log level for the function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.architecture">architecture</a></code> | <code>aws-cdk-lib.aws_lambda.Architecture</code> | The system architectures compatible with this lambda function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.codeSigningConfig">codeSigningConfig</a></code> | <code>aws-cdk-lib.aws_lambda.ICodeSigningConfig</code> | Code signing config associated with this function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.currentVersionOptions">currentVersionOptions</a></code> | <code>aws-cdk-lib.aws_lambda.VersionOptions</code> | Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.deadLetterQueue">deadLetterQueue</a></code> | <code>aws-cdk-lib.aws_sqs.IQueue</code> | The SQS queue to use if DLQ is enabled. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.deadLetterQueueEnabled">deadLetterQueueEnabled</a></code> | <code>boolean</code> | Enabled DLQ. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.deadLetterTopic">deadLetterTopic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | The SNS topic to use as a DLQ. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.description">description</a></code> | <code>string</code> | A description of the function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.environment">environment</a></code> | <code>{[ key: string ]: string}</code> | Key-value pairs that Lambda caches and makes available for your Lambda functions. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.environmentEncryption">environmentEncryption</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | The AWS KMS key that's used to encrypt your function's environment variables. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.ephemeralStorageSize">ephemeralStorageSize</a></code> | <code>aws-cdk-lib.Size</code> | The size of the function’s /tmp directory in MiB. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.events">events</a></code> | <code>aws-cdk-lib.aws_lambda.IEventSource[]</code> | Event sources for this function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.filesystem">filesystem</a></code> | <code>aws-cdk-lib.aws_lambda.FileSystem</code> | The filesystem configuration for the lambda function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.functionName">functionName</a></code> | <code>string</code> | A name for the function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.initialPolicy">initialPolicy</a></code> | <code>aws-cdk-lib.aws_iam.PolicyStatement[]</code> | Initial policy statements to add to the created Lambda Role. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.insightsVersion">insightsVersion</a></code> | <code>aws-cdk-lib.aws_lambda.LambdaInsightsVersion</code> | Specify the version of CloudWatch Lambda insights to use for monitoring. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.layers">layers</a></code> | <code>aws-cdk-lib.aws_lambda.ILayerVersion[]</code> | A list of layers to add to the function's execution environment. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logFormat">logFormat</a></code> | <code>string</code> | Sets the logFormat for the function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | Sets the log group name for the function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetention">logRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | The number of days log events are kept in CloudWatch Logs. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetentionRetryOptions">logRetentionRetryOptions</a></code> | <code>aws-cdk-lib.aws_lambda.LogRetentionRetryOptions</code> | When log retention is specified, a custom resource attempts to create the CloudWatch log group. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetentionRole">logRetentionRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The IAM role for the Lambda function associated with the custom resource that sets the retention policy. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.memorySize">memorySize</a></code> | <code>number</code> | The amount of memory, in MB, that is allocated to your Lambda function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.paramsAndSecrets">paramsAndSecrets</a></code> | <code>aws-cdk-lib.aws_lambda.ParamsAndSecretsLayerVersion</code> | Specify the configuration of Parameters and Secrets Extension. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.profiling">profiling</a></code> | <code>boolean</code> | Enable profiling. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.profilingGroup">profilingGroup</a></code> | <code>aws-cdk-lib.aws_codeguruprofiler.IProfilingGroup</code> | Profiling Group. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.reservedConcurrentExecutions">reservedConcurrentExecutions</a></code> | <code>number</code> | The maximum of concurrent executions you want to reserve for the function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Lambda execution role. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.runtimeManagementMode">runtimeManagementMode</a></code> | <code>aws-cdk-lib.aws_lambda.RuntimeManagementMode</code> | Sets the runtime management configuration for a function's version. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | The list of security groups to associate with the Lambda's network interfaces. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.snapStart">snapStart</a></code> | <code>aws-cdk-lib.aws_lambda.SnapStartConf</code> | Enable SnapStart for Lambda Function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.systemLogLevel">systemLogLevel</a></code> | <code>string</code> | Sets the system log level for the function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The function execution time (in seconds) after which Lambda terminates the function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.tracing">tracing</a></code> | <code>aws-cdk-lib.aws_lambda.Tracing</code> | Enable AWS X-Ray Tracing for Lambda Function. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | VPC network to place Lambda network interfaces. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | Where to place the network interfaces within the VPC. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.entry">entry</a></code> | <code>string</code> | Path to the entry file (JavaScript only). |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.awsSdkConnectionReuse">awsSdkConnectionReuse</a></code> | <code>boolean</code> | Whether to automatically reuse TCP connections when working with the AWS SDK for JavaScript. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.handler">handler</a></code> | <code>string</code> | The name of the exported handler in the entry file. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.minifyEngine">minifyEngine</a></code> | <code>@cdk-orchestration.aws_lambda_nodejs.MinifyEngine</code> | Default is "SIMPLE". |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.runtime">runtime</a></code> | <code>aws-cdk-lib.aws_lambda.Runtime</code> | The runtime environment. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.maxEventAge">maxEventAge</a></code> | <code>aws-cdk-lib.Duration</code> | The maximum age of a request that Lambda sends to a function for processing. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.onFailure">onFailure</a></code> | <code>aws-cdk-lib.aws_lambda.IDestination</code> | The destination for failed invocations. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.onSuccess">onSuccess</a></code> | <code>aws-cdk-lib.aws_lambda.IDestination</code> | The destination for successful invocations. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.retryAttempts">retryAttempts</a></code> | <code>number</code> | The maximum number of times to retry when the function returns an error. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.adotInstrumentation">adotInstrumentation</a></code> | <code>aws-cdk-lib.aws_lambda.AdotInstrumentationConfig</code> | Specify the configuration of AWS Distro for OpenTelemetry (ADOT) instrumentation. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.allowAllOutbound">allowAllOutbound</a></code> | <code>boolean</code> | Whether to allow the Lambda to send all network traffic. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.allowPublicSubnet">allowPublicSubnet</a></code> | <code>boolean</code> | Lambda Functions in a public subnet can NOT access the internet. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.applicationLogLevel">applicationLogLevel</a></code> | <code>string</code> | Sets the application log level for the function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.architecture">architecture</a></code> | <code>aws-cdk-lib.aws_lambda.Architecture</code> | The system architectures compatible with this lambda function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.codeSigningConfig">codeSigningConfig</a></code> | <code>aws-cdk-lib.aws_lambda.ICodeSigningConfig</code> | Code signing config associated with this function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.currentVersionOptions">currentVersionOptions</a></code> | <code>aws-cdk-lib.aws_lambda.VersionOptions</code> | Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.deadLetterQueue">deadLetterQueue</a></code> | <code>aws-cdk-lib.aws_sqs.IQueue</code> | The SQS queue to use if DLQ is enabled. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.deadLetterQueueEnabled">deadLetterQueueEnabled</a></code> | <code>boolean</code> | Enabled DLQ. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.deadLetterTopic">deadLetterTopic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | The SNS topic to use as a DLQ. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.description">description</a></code> | <code>string</code> | A description of the function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.environment">environment</a></code> | <code>{[ key: string ]: string}</code> | Key-value pairs that Lambda caches and makes available for your Lambda functions. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.environmentEncryption">environmentEncryption</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | The AWS KMS key that's used to encrypt your function's environment variables. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.ephemeralStorageSize">ephemeralStorageSize</a></code> | <code>aws-cdk-lib.Size</code> | The size of the function’s /tmp directory in MiB. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.events">events</a></code> | <code>aws-cdk-lib.aws_lambda.IEventSource[]</code> | Event sources for this function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.filesystem">filesystem</a></code> | <code>aws-cdk-lib.aws_lambda.FileSystem</code> | The filesystem configuration for the lambda function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.functionName">functionName</a></code> | <code>string</code> | A name for the function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.initialPolicy">initialPolicy</a></code> | <code>aws-cdk-lib.aws_iam.PolicyStatement[]</code> | Initial policy statements to add to the created Lambda Role. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.insightsVersion">insightsVersion</a></code> | <code>aws-cdk-lib.aws_lambda.LambdaInsightsVersion</code> | Specify the version of CloudWatch Lambda insights to use for monitoring. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.layers">layers</a></code> | <code>aws-cdk-lib.aws_lambda.ILayerVersion[]</code> | A list of layers to add to the function's execution environment. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logFormat">logFormat</a></code> | <code>string</code> | Sets the logFormat for the function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | Sets the log group name for the function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetention">logRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | The number of days log events are kept in CloudWatch Logs. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetentionRetryOptions">logRetentionRetryOptions</a></code> | <code>aws-cdk-lib.aws_lambda.LogRetentionRetryOptions</code> | When log retention is specified, a custom resource attempts to create the CloudWatch log group. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetentionRole">logRetentionRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The IAM role for the Lambda function associated with the custom resource that sets the retention policy. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.memorySize">memorySize</a></code> | <code>number</code> | The amount of memory, in MB, that is allocated to your Lambda function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.paramsAndSecrets">paramsAndSecrets</a></code> | <code>aws-cdk-lib.aws_lambda.ParamsAndSecretsLayerVersion</code> | Specify the configuration of Parameters and Secrets Extension. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.profiling">profiling</a></code> | <code>boolean</code> | Enable profiling. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.profilingGroup">profilingGroup</a></code> | <code>aws-cdk-lib.aws_codeguruprofiler.IProfilingGroup</code> | Profiling Group. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.reservedConcurrentExecutions">reservedConcurrentExecutions</a></code> | <code>number</code> | The maximum of concurrent executions you want to reserve for the function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Lambda execution role. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.runtimeManagementMode">runtimeManagementMode</a></code> | <code>aws-cdk-lib.aws_lambda.RuntimeManagementMode</code> | Sets the runtime management configuration for a function's version. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | The list of security groups to associate with the Lambda's network interfaces. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.snapStart">snapStart</a></code> | <code>aws-cdk-lib.aws_lambda.SnapStartConf</code> | Enable SnapStart for Lambda Function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.systemLogLevel">systemLogLevel</a></code> | <code>string</code> | Sets the system log level for the function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The function execution time (in seconds) after which Lambda terminates the function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.tracing">tracing</a></code> | <code>aws-cdk-lib.aws_lambda.Tracing</code> | Enable AWS X-Ray Tracing for Lambda Function. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | VPC network to place Lambda network interfaces. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | Where to place the network interfaces within the VPC. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.entry">entry</a></code> | <code>string</code> | Path to the entry file (JavaScript only). |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.awsSdkConnectionReuse">awsSdkConnectionReuse</a></code> | <code>boolean</code> | Whether to automatically reuse TCP connections when working with the AWS SDK for JavaScript. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.handler">handler</a></code> | <code>string</code> | The name of the exported handler in the entry file. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.minifyEngine">minifyEngine</a></code> | <code>cdk-orchestration.aws_lambda_nodejs.MinifyEngine</code> | Default is "SIMPLE". |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.runtime">runtime</a></code> | <code>aws-cdk-lib.aws_lambda.Runtime</code> | The runtime environment. |
 
 ---
 
-##### `maxEventAge`<sup>Optional</sup> <a name="maxEventAge" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.maxEventAge"></a>
+##### `maxEventAge`<sup>Optional</sup> <a name="maxEventAge" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.maxEventAge"></a>
 
 ```typescript
 public readonly maxEventAge: Duration;
@@ -2723,7 +2723,7 @@ Maximum: 6 hours
 
 ---
 
-##### `onFailure`<sup>Optional</sup> <a name="onFailure" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.onFailure"></a>
+##### `onFailure`<sup>Optional</sup> <a name="onFailure" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.onFailure"></a>
 
 ```typescript
 public readonly onFailure: IDestination;
@@ -2736,7 +2736,7 @@ The destination for failed invocations.
 
 ---
 
-##### `onSuccess`<sup>Optional</sup> <a name="onSuccess" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.onSuccess"></a>
+##### `onSuccess`<sup>Optional</sup> <a name="onSuccess" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.onSuccess"></a>
 
 ```typescript
 public readonly onSuccess: IDestination;
@@ -2749,7 +2749,7 @@ The destination for successful invocations.
 
 ---
 
-##### `retryAttempts`<sup>Optional</sup> <a name="retryAttempts" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.retryAttempts"></a>
+##### `retryAttempts`<sup>Optional</sup> <a name="retryAttempts" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.retryAttempts"></a>
 
 ```typescript
 public readonly retryAttempts: number;
@@ -2765,7 +2765,7 @@ Maximum: 2
 
 ---
 
-##### `adotInstrumentation`<sup>Optional</sup> <a name="adotInstrumentation" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.adotInstrumentation"></a>
+##### `adotInstrumentation`<sup>Optional</sup> <a name="adotInstrumentation" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.adotInstrumentation"></a>
 
 ```typescript
 public readonly adotInstrumentation: AdotInstrumentationConfig;
@@ -2780,7 +2780,7 @@ Specify the configuration of AWS Distro for OpenTelemetry (ADOT) instrumentation
 
 ---
 
-##### `allowAllOutbound`<sup>Optional</sup> <a name="allowAllOutbound" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.allowAllOutbound"></a>
+##### `allowAllOutbound`<sup>Optional</sup> <a name="allowAllOutbound" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.allowAllOutbound"></a>
 
 ```typescript
 public readonly allowAllOutbound: boolean;
@@ -2799,7 +2799,7 @@ Instead, configure `allowAllOutbound` directly on the security group.
 
 ---
 
-##### `allowPublicSubnet`<sup>Optional</sup> <a name="allowPublicSubnet" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.allowPublicSubnet"></a>
+##### `allowPublicSubnet`<sup>Optional</sup> <a name="allowPublicSubnet" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.allowPublicSubnet"></a>
 
 ```typescript
 public readonly allowPublicSubnet: boolean;
@@ -2816,7 +2816,7 @@ Use this property to acknowledge this limitation and still place the function in
 
 ---
 
-##### `applicationLogLevel`<sup>Optional</sup> <a name="applicationLogLevel" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.applicationLogLevel"></a>
+##### `applicationLogLevel`<sup>Optional</sup> <a name="applicationLogLevel" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.applicationLogLevel"></a>
 
 ```typescript
 public readonly applicationLogLevel: string;
@@ -2829,7 +2829,7 @@ Sets the application log level for the function.
 
 ---
 
-##### `architecture`<sup>Optional</sup> <a name="architecture" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.architecture"></a>
+##### `architecture`<sup>Optional</sup> <a name="architecture" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.architecture"></a>
 
 ```typescript
 public readonly architecture: Architecture;
@@ -2842,7 +2842,7 @@ The system architectures compatible with this lambda function.
 
 ---
 
-##### `codeSigningConfig`<sup>Optional</sup> <a name="codeSigningConfig" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.codeSigningConfig"></a>
+##### `codeSigningConfig`<sup>Optional</sup> <a name="codeSigningConfig" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.codeSigningConfig"></a>
 
 ```typescript
 public readonly codeSigningConfig: ICodeSigningConfig;
@@ -2855,7 +2855,7 @@ Code signing config associated with this function.
 
 ---
 
-##### `currentVersionOptions`<sup>Optional</sup> <a name="currentVersionOptions" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.currentVersionOptions"></a>
+##### `currentVersionOptions`<sup>Optional</sup> <a name="currentVersionOptions" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.currentVersionOptions"></a>
 
 ```typescript
 public readonly currentVersionOptions: VersionOptions;
@@ -2868,7 +2868,7 @@ Options for the `lambda.Version` resource automatically created by the `fn.curre
 
 ---
 
-##### `deadLetterQueue`<sup>Optional</sup> <a name="deadLetterQueue" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.deadLetterQueue"></a>
+##### `deadLetterQueue`<sup>Optional</sup> <a name="deadLetterQueue" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.deadLetterQueue"></a>
 
 ```typescript
 public readonly deadLetterQueue: IQueue;
@@ -2883,7 +2883,7 @@ If SNS topic is desired, specify `deadLetterTopic` property instead.
 
 ---
 
-##### `deadLetterQueueEnabled`<sup>Optional</sup> <a name="deadLetterQueueEnabled" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.deadLetterQueueEnabled"></a>
+##### `deadLetterQueueEnabled`<sup>Optional</sup> <a name="deadLetterQueueEnabled" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.deadLetterQueueEnabled"></a>
 
 ```typescript
 public readonly deadLetterQueueEnabled: boolean;
@@ -2899,7 +2899,7 @@ an SQS queue with default options will be defined for your Function.
 
 ---
 
-##### `deadLetterTopic`<sup>Optional</sup> <a name="deadLetterTopic" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.deadLetterTopic"></a>
+##### `deadLetterTopic`<sup>Optional</sup> <a name="deadLetterTopic" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.deadLetterTopic"></a>
 
 ```typescript
 public readonly deadLetterTopic: ITopic;
@@ -2915,7 +2915,7 @@ rather than an SNS topic. Using an SNS topic as a DLQ requires this property to 
 
 ---
 
-##### `description`<sup>Optional</sup> <a name="description" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.description"></a>
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.description"></a>
 
 ```typescript
 public readonly description: string;
@@ -2928,7 +2928,7 @@ A description of the function.
 
 ---
 
-##### `environment`<sup>Optional</sup> <a name="environment" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.environment"></a>
+##### `environment`<sup>Optional</sup> <a name="environment" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.environment"></a>
 
 ```typescript
 public readonly environment: {[ key: string ]: string};
@@ -2945,7 +2945,7 @@ Lambda function source code.
 
 ---
 
-##### `environmentEncryption`<sup>Optional</sup> <a name="environmentEncryption" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.environmentEncryption"></a>
+##### `environmentEncryption`<sup>Optional</sup> <a name="environmentEncryption" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.environmentEncryption"></a>
 
 ```typescript
 public readonly environmentEncryption: IKey;
@@ -2958,7 +2958,7 @@ The AWS KMS key that's used to encrypt your function's environment variables.
 
 ---
 
-##### `ephemeralStorageSize`<sup>Optional</sup> <a name="ephemeralStorageSize" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.ephemeralStorageSize"></a>
+##### `ephemeralStorageSize`<sup>Optional</sup> <a name="ephemeralStorageSize" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.ephemeralStorageSize"></a>
 
 ```typescript
 public readonly ephemeralStorageSize: Size;
@@ -2971,7 +2971,7 @@ The size of the function’s /tmp directory in MiB.
 
 ---
 
-##### `events`<sup>Optional</sup> <a name="events" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.events"></a>
+##### `events`<sup>Optional</sup> <a name="events" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.events"></a>
 
 ```typescript
 public readonly events: IEventSource[];
@@ -2986,7 +2986,7 @@ You can also add event sources using `addEventSource`.
 
 ---
 
-##### `filesystem`<sup>Optional</sup> <a name="filesystem" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.filesystem"></a>
+##### `filesystem`<sup>Optional</sup> <a name="filesystem" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.filesystem"></a>
 
 ```typescript
 public readonly filesystem: FileSystem;
@@ -2999,7 +2999,7 @@ The filesystem configuration for the lambda function.
 
 ---
 
-##### `functionName`<sup>Optional</sup> <a name="functionName" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.functionName"></a>
+##### `functionName`<sup>Optional</sup> <a name="functionName" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.functionName"></a>
 
 ```typescript
 public readonly functionName: string;
@@ -3012,7 +3012,7 @@ A name for the function.
 
 ---
 
-##### `initialPolicy`<sup>Optional</sup> <a name="initialPolicy" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.initialPolicy"></a>
+##### `initialPolicy`<sup>Optional</sup> <a name="initialPolicy" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.initialPolicy"></a>
 
 ```typescript
 public readonly initialPolicy: PolicyStatement[];
@@ -3027,7 +3027,7 @@ You can call `addToRolePolicy` to the created lambda to add statements post crea
 
 ---
 
-##### `insightsVersion`<sup>Optional</sup> <a name="insightsVersion" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.insightsVersion"></a>
+##### `insightsVersion`<sup>Optional</sup> <a name="insightsVersion" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.insightsVersion"></a>
 
 ```typescript
 public readonly insightsVersion: LambdaInsightsVersion;
@@ -3042,7 +3042,7 @@ Specify the version of CloudWatch Lambda insights to use for monitoring.
 
 ---
 
-##### `layers`<sup>Optional</sup> <a name="layers" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.layers"></a>
+##### `layers`<sup>Optional</sup> <a name="layers" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.layers"></a>
 
 ```typescript
 public readonly layers: ILayerVersion[];
@@ -3059,7 +3059,7 @@ that can be used by multiple functions.
 
 ---
 
-##### `logFormat`<sup>Optional</sup> <a name="logFormat" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logFormat"></a>
+##### `logFormat`<sup>Optional</sup> <a name="logFormat" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logFormat"></a>
 
 ```typescript
 public readonly logFormat: string;
@@ -3072,7 +3072,7 @@ Sets the logFormat for the function.
 
 ---
 
-##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logGroup"></a>
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logGroup"></a>
 
 ```typescript
 public readonly logGroup: ILogGroup;
@@ -3085,7 +3085,7 @@ Sets the log group name for the function.
 
 ---
 
-##### `logRetention`<sup>Optional</sup> <a name="logRetention" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetention"></a>
+##### `logRetention`<sup>Optional</sup> <a name="logRetention" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetention"></a>
 
 ```typescript
 public readonly logRetention: RetentionDays;
@@ -3102,7 +3102,7 @@ remove the retention policy, set the value to `INFINITE`.
 
 ---
 
-##### `logRetentionRetryOptions`<sup>Optional</sup> <a name="logRetentionRetryOptions" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetentionRetryOptions"></a>
+##### `logRetentionRetryOptions`<sup>Optional</sup> <a name="logRetentionRetryOptions" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetentionRetryOptions"></a>
 
 ```typescript
 public readonly logRetentionRetryOptions: LogRetentionRetryOptions;
@@ -3117,7 +3117,7 @@ These options control the retry policy when interacting with CloudWatch APIs.
 
 ---
 
-##### `logRetentionRole`<sup>Optional</sup> <a name="logRetentionRole" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetentionRole"></a>
+##### `logRetentionRole`<sup>Optional</sup> <a name="logRetentionRole" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetentionRole"></a>
 
 ```typescript
 public readonly logRetentionRole: IRole;
@@ -3130,7 +3130,7 @@ The IAM role for the Lambda function associated with the custom resource that se
 
 ---
 
-##### `memorySize`<sup>Optional</sup> <a name="memorySize" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.memorySize"></a>
+##### `memorySize`<sup>Optional</sup> <a name="memorySize" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.memorySize"></a>
 
 ```typescript
 public readonly memorySize: number;
@@ -3147,7 +3147,7 @@ Developer Guide.
 
 ---
 
-##### `paramsAndSecrets`<sup>Optional</sup> <a name="paramsAndSecrets" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.paramsAndSecrets"></a>
+##### `paramsAndSecrets`<sup>Optional</sup> <a name="paramsAndSecrets" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.paramsAndSecrets"></a>
 
 ```typescript
 public readonly paramsAndSecrets: ParamsAndSecretsLayerVersion;
@@ -3162,7 +3162,7 @@ Specify the configuration of Parameters and Secrets Extension.
 
 ---
 
-##### `profiling`<sup>Optional</sup> <a name="profiling" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.profiling"></a>
+##### `profiling`<sup>Optional</sup> <a name="profiling" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.profiling"></a>
 
 ```typescript
 public readonly profiling: boolean;
@@ -3177,7 +3177,7 @@ Enable profiling.
 
 ---
 
-##### `profilingGroup`<sup>Optional</sup> <a name="profilingGroup" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.profilingGroup"></a>
+##### `profilingGroup`<sup>Optional</sup> <a name="profilingGroup" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.profilingGroup"></a>
 
 ```typescript
 public readonly profilingGroup: IProfilingGroup;
@@ -3192,7 +3192,7 @@ Profiling Group.
 
 ---
 
-##### `reservedConcurrentExecutions`<sup>Optional</sup> <a name="reservedConcurrentExecutions" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.reservedConcurrentExecutions"></a>
+##### `reservedConcurrentExecutions`<sup>Optional</sup> <a name="reservedConcurrentExecutions" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.reservedConcurrentExecutions"></a>
 
 ```typescript
 public readonly reservedConcurrentExecutions: number;
@@ -3207,7 +3207,7 @@ The maximum of concurrent executions you want to reserve for the function.
 
 ---
 
-##### `role`<sup>Optional</sup> <a name="role" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.role"></a>
+##### `role`<sup>Optional</sup> <a name="role" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.role"></a>
 
 ```typescript
 public readonly role: IRole;
@@ -3230,7 +3230,7 @@ The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 
 ---
 
-##### `runtimeManagementMode`<sup>Optional</sup> <a name="runtimeManagementMode" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.runtimeManagementMode"></a>
+##### `runtimeManagementMode`<sup>Optional</sup> <a name="runtimeManagementMode" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.runtimeManagementMode"></a>
 
 ```typescript
 public readonly runtimeManagementMode: RuntimeManagementMode;
@@ -3243,7 +3243,7 @@ Sets the runtime management configuration for a function's version.
 
 ---
 
-##### `securityGroups`<sup>Optional</sup> <a name="securityGroups" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.securityGroups"></a>
+##### `securityGroups`<sup>Optional</sup> <a name="securityGroups" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.securityGroups"></a>
 
 ```typescript
 public readonly securityGroups: ISecurityGroup[];
@@ -3258,7 +3258,7 @@ Only used if 'vpc' is supplied.
 
 ---
 
-##### `snapStart`<sup>Optional</sup> <a name="snapStart" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.snapStart"></a>
+##### `snapStart`<sup>Optional</sup> <a name="snapStart" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.snapStart"></a>
 
 ```typescript
 public readonly snapStart: SnapStartConf;
@@ -3273,7 +3273,7 @@ SnapStart is currently supported only for Java 11, 17 runtime
 
 ---
 
-##### `systemLogLevel`<sup>Optional</sup> <a name="systemLogLevel" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.systemLogLevel"></a>
+##### `systemLogLevel`<sup>Optional</sup> <a name="systemLogLevel" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.systemLogLevel"></a>
 
 ```typescript
 public readonly systemLogLevel: string;
@@ -3286,7 +3286,7 @@ Sets the system log level for the function.
 
 ---
 
-##### `timeout`<sup>Optional</sup> <a name="timeout" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.timeout"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.timeout"></a>
 
 ```typescript
 public readonly timeout: Duration;
@@ -3302,7 +3302,7 @@ based on the function's expected execution time.
 
 ---
 
-##### `tracing`<sup>Optional</sup> <a name="tracing" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.tracing"></a>
+##### `tracing`<sup>Optional</sup> <a name="tracing" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.tracing"></a>
 
 ```typescript
 public readonly tracing: Tracing;
@@ -3315,7 +3315,7 @@ Enable AWS X-Ray Tracing for Lambda Function.
 
 ---
 
-##### `vpc`<sup>Optional</sup> <a name="vpc" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.vpc"></a>
+##### `vpc`<sup>Optional</sup> <a name="vpc" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.vpc"></a>
 
 ```typescript
 public readonly vpc: IVpc;
@@ -3331,7 +3331,7 @@ This is required when `vpcSubnets` is specified.
 
 ---
 
-##### `vpcSubnets`<sup>Optional</sup> <a name="vpcSubnets" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.vpcSubnets"></a>
+##### `vpcSubnets`<sup>Optional</sup> <a name="vpcSubnets" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.vpcSubnets"></a>
 
 ```typescript
 public readonly vpcSubnets: SubnetSelection;
@@ -3350,7 +3350,7 @@ public subnets is not allowed (unless `allowPublicSubnet` is set to `true`).
 
 ---
 
-##### `entry`<sup>Required</sup> <a name="entry" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.entry"></a>
+##### `entry`<sup>Required</sup> <a name="entry" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.entry"></a>
 
 ```typescript
 public readonly entry: string;
@@ -3370,7 +3370,7 @@ Otherwise the unit tests may not be able to find the javascript file.
 
 ---
 
-##### `awsSdkConnectionReuse`<sup>Optional</sup> <a name="awsSdkConnectionReuse" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.awsSdkConnectionReuse"></a>
+##### `awsSdkConnectionReuse`<sup>Optional</sup> <a name="awsSdkConnectionReuse" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.awsSdkConnectionReuse"></a>
 
 ```typescript
 public readonly awsSdkConnectionReuse: boolean;
@@ -3388,7 +3388,7 @@ to `1`.
 
 ---
 
-##### `handler`<sup>Optional</sup> <a name="handler" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.handler"></a>
+##### `handler`<sup>Optional</sup> <a name="handler" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.handler"></a>
 
 ```typescript
 public readonly handler: string;
@@ -3404,13 +3404,13 @@ in which case it is used as-is.
 
 ---
 
-##### `minifyEngine`<sup>Optional</sup> <a name="minifyEngine" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.minifyEngine"></a>
+##### `minifyEngine`<sup>Optional</sup> <a name="minifyEngine" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.minifyEngine"></a>
 
 ```typescript
 public readonly minifyEngine: MinifyEngine;
 ```
 
-- *Type:* @cdk-orchestration.aws_lambda_nodejs.MinifyEngine
+- *Type:* cdk-orchestration.aws_lambda_nodejs.MinifyEngine
 
 Default is "SIMPLE".
 
@@ -3418,7 +3418,7 @@ See {@link MinifyEngine} for values.
 
 ---
 
-##### `runtime`<sup>Optional</sup> <a name="runtime" id="@cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.runtime"></a>
+##### `runtime`<sup>Optional</sup> <a name="runtime" id="cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.runtime"></a>
 
 ```typescript
 public readonly runtime: Runtime;
@@ -3434,14 +3434,14 @@ supported.
 
 ---
 
-### LateBoundStepFunctionsStartExecutionProps <a name="LateBoundStepFunctionsStartExecutionProps" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps"></a>
+### LateBoundStepFunctionsStartExecutionProps <a name="LateBoundStepFunctionsStartExecutionProps" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps"></a>
 
 Properties for LateBoundStepFunctionsStartExecution.
 
-#### Initializer <a name="Initializer" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.Initializer"></a>
 
 ```typescript
-import { aws_stepfunctions_tasks } from '@cdk-orchestration'
+import { aws_stepfunctions_tasks } from 'cdk-orchestration'
 
 const lateBoundStepFunctionsStartExecutionProps: aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps = { ... }
 ```
@@ -3450,26 +3450,26 @@ const lateBoundStepFunctionsStartExecutionProps: aws_stepfunctions_tasks.LateBou
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.comment">comment</a></code> | <code>string</code> | An optional description for this state. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.credentials">credentials</a></code> | <code>aws-cdk-lib.aws_stepfunctions.Credentials</code> | Credentials for an IAM Role that the State Machine assumes for executing the task. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.heartbeat">heartbeat</a></code> | <code>aws-cdk-lib.Duration</code> | Timeout for the heartbeat. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.heartbeatTimeout">heartbeatTimeout</a></code> | <code>aws-cdk-lib.aws_stepfunctions.Timeout</code> | Timeout for the heartbeat. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.inputPath">inputPath</a></code> | <code>string</code> | JSONPath expression to select part of the state to be the input to this state. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.integrationPattern">integrationPattern</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IntegrationPattern</code> | AWS Step Functions integrates with services directly in the Amazon States Language. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.outputPath">outputPath</a></code> | <code>string</code> | JSONPath expression to select select a portion of the state output to pass to the next state. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.resultPath">resultPath</a></code> | <code>string</code> | JSONPath expression to indicate where to inject the state's output. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.resultSelector">resultSelector</a></code> | <code>{[ key: string ]: any}</code> | The JSON that will replace the state's raw result and become the effective result before ResultPath is applied. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.stateName">stateName</a></code> | <code>string</code> | Optional name for this state. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.taskTimeout">taskTimeout</a></code> | <code>aws-cdk-lib.aws_stepfunctions.Timeout</code> | Timeout for the task. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | Timeout for the task. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.associateWithParent">associateWithParent</a></code> | <code>boolean</code> | Pass the execution ID from the context object to the execution input. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.input">input</a></code> | <code>aws-cdk-lib.aws_stepfunctions.TaskInput</code> | The JSON input for the execution, same as that of StartExecution. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.name">name</a></code> | <code>string</code> | The name of the execution, same as that of StartExecution. |
-| <code><a href="#@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.stateMachineArnPath">stateMachineArnPath</a></code> | <code>string</code> | Where in the event the arn of the stateMachine to call is stored. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.comment">comment</a></code> | <code>string</code> | An optional description for this state. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.credentials">credentials</a></code> | <code>aws-cdk-lib.aws_stepfunctions.Credentials</code> | Credentials for an IAM Role that the State Machine assumes for executing the task. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.heartbeat">heartbeat</a></code> | <code>aws-cdk-lib.Duration</code> | Timeout for the heartbeat. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.heartbeatTimeout">heartbeatTimeout</a></code> | <code>aws-cdk-lib.aws_stepfunctions.Timeout</code> | Timeout for the heartbeat. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.inputPath">inputPath</a></code> | <code>string</code> | JSONPath expression to select part of the state to be the input to this state. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.integrationPattern">integrationPattern</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IntegrationPattern</code> | AWS Step Functions integrates with services directly in the Amazon States Language. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.outputPath">outputPath</a></code> | <code>string</code> | JSONPath expression to select select a portion of the state output to pass to the next state. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.resultPath">resultPath</a></code> | <code>string</code> | JSONPath expression to indicate where to inject the state's output. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.resultSelector">resultSelector</a></code> | <code>{[ key: string ]: any}</code> | The JSON that will replace the state's raw result and become the effective result before ResultPath is applied. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.stateName">stateName</a></code> | <code>string</code> | Optional name for this state. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.taskTimeout">taskTimeout</a></code> | <code>aws-cdk-lib.aws_stepfunctions.Timeout</code> | Timeout for the task. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | Timeout for the task. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.associateWithParent">associateWithParent</a></code> | <code>boolean</code> | Pass the execution ID from the context object to the execution input. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.input">input</a></code> | <code>aws-cdk-lib.aws_stepfunctions.TaskInput</code> | The JSON input for the execution, same as that of StartExecution. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.name">name</a></code> | <code>string</code> | The name of the execution, same as that of StartExecution. |
+| <code><a href="#cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.stateMachineArnPath">stateMachineArnPath</a></code> | <code>string</code> | Where in the event the arn of the stateMachine to call is stored. |
 
 ---
 
-##### `comment`<sup>Optional</sup> <a name="comment" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.comment"></a>
+##### `comment`<sup>Optional</sup> <a name="comment" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.comment"></a>
 
 ```typescript
 public readonly comment: string;
@@ -3482,7 +3482,7 @@ An optional description for this state.
 
 ---
 
-##### `credentials`<sup>Optional</sup> <a name="credentials" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.credentials"></a>
+##### `credentials`<sup>Optional</sup> <a name="credentials" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.credentials"></a>
 
 ```typescript
 public readonly credentials: Credentials;
@@ -3499,7 +3499,7 @@ This enables cross-account resource invocations.
 
 ---
 
-##### ~~`heartbeat`~~<sup>Optional</sup> <a name="heartbeat" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.heartbeat"></a>
+##### ~~`heartbeat`~~<sup>Optional</sup> <a name="heartbeat" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.heartbeat"></a>
 
 - *Deprecated:* use `heartbeatTimeout`
 
@@ -3514,7 +3514,7 @@ Timeout for the heartbeat.
 
 ---
 
-##### `heartbeatTimeout`<sup>Optional</sup> <a name="heartbeatTimeout" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.heartbeatTimeout"></a>
+##### `heartbeatTimeout`<sup>Optional</sup> <a name="heartbeatTimeout" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.heartbeatTimeout"></a>
 
 ```typescript
 public readonly heartbeatTimeout: Timeout;
@@ -3530,7 +3530,7 @@ aws-stepfunctions-tasks extend this interface
 
 ---
 
-##### `inputPath`<sup>Optional</sup> <a name="inputPath" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.inputPath"></a>
+##### `inputPath`<sup>Optional</sup> <a name="inputPath" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.inputPath"></a>
 
 ```typescript
 public readonly inputPath: string;
@@ -3546,7 +3546,7 @@ input to be the empty object {}.
 
 ---
 
-##### `integrationPattern`<sup>Optional</sup> <a name="integrationPattern" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.integrationPattern"></a>
+##### `integrationPattern`<sup>Optional</sup> <a name="integrationPattern" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.integrationPattern"></a>
 
 ```typescript
 public readonly integrationPattern: IntegrationPattern;
@@ -3563,7 +3563,7 @@ You can control these AWS services using service integration patterns
 
 ---
 
-##### `outputPath`<sup>Optional</sup> <a name="outputPath" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.outputPath"></a>
+##### `outputPath`<sup>Optional</sup> <a name="outputPath" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.outputPath"></a>
 
 ```typescript
 public readonly outputPath: string;
@@ -3579,7 +3579,7 @@ output to be the empty object {}.
 
 ---
 
-##### `resultPath`<sup>Optional</sup> <a name="resultPath" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.resultPath"></a>
+##### `resultPath`<sup>Optional</sup> <a name="resultPath" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.resultPath"></a>
 
 ```typescript
 public readonly resultPath: string;
@@ -3595,7 +3595,7 @@ input to become its output.
 
 ---
 
-##### `resultSelector`<sup>Optional</sup> <a name="resultSelector" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.resultSelector"></a>
+##### `resultSelector`<sup>Optional</sup> <a name="resultSelector" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.resultSelector"></a>
 
 ```typescript
 public readonly resultSelector: {[ key: string ]: any};
@@ -3613,7 +3613,7 @@ or selected from the state's raw result.
 
 ---
 
-##### `stateName`<sup>Optional</sup> <a name="stateName" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.stateName"></a>
+##### `stateName`<sup>Optional</sup> <a name="stateName" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.stateName"></a>
 
 ```typescript
 public readonly stateName: string;
@@ -3626,7 +3626,7 @@ Optional name for this state.
 
 ---
 
-##### `taskTimeout`<sup>Optional</sup> <a name="taskTimeout" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.taskTimeout"></a>
+##### `taskTimeout`<sup>Optional</sup> <a name="taskTimeout" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.taskTimeout"></a>
 
 ```typescript
 public readonly taskTimeout: Timeout;
@@ -3642,7 +3642,7 @@ aws-stepfunctions-tasks extend this interface
 
 ---
 
-##### ~~`timeout`~~<sup>Optional</sup> <a name="timeout" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.timeout"></a>
+##### ~~`timeout`~~<sup>Optional</sup> <a name="timeout" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.timeout"></a>
 
 - *Deprecated:* use `taskTimeout`
 
@@ -3657,7 +3657,7 @@ Timeout for the task.
 
 ---
 
-##### `associateWithParent`<sup>Optional</sup> <a name="associateWithParent" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.associateWithParent"></a>
+##### `associateWithParent`<sup>Optional</sup> <a name="associateWithParent" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.associateWithParent"></a>
 
 ```typescript
 public readonly associateWithParent: boolean;
@@ -3676,7 +3676,7 @@ If you set this property to `true`, the `input` property must be an object (prov
 
 ---
 
-##### `input`<sup>Optional</sup> <a name="input" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.input"></a>
+##### `input`<sup>Optional</sup> <a name="input" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.input"></a>
 
 ```typescript
 public readonly input: TaskInput;
@@ -3691,7 +3691,7 @@ The JSON input for the execution, same as that of StartExecution.
 
 ---
 
-##### `name`<sup>Optional</sup> <a name="name" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.name"></a>
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -3706,7 +3706,7 @@ The name of the execution, same as that of StartExecution.
 
 ---
 
-##### `stateMachineArnPath`<sup>Optional</sup> <a name="stateMachineArnPath" id="@cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.stateMachineArnPath"></a>
+##### `stateMachineArnPath`<sup>Optional</sup> <a name="stateMachineArnPath" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps.property.stateMachineArnPath"></a>
 
 ```typescript
 public readonly stateMachineArnPath: string;
@@ -3719,12 +3719,12 @@ Where in the event the arn of the stateMachine to call is stored.
 
 ---
 
-### LoggerProps <a name="LoggerProps" id="@cdk-orchestration.LoggerProps"></a>
+### LoggerProps <a name="LoggerProps" id="cdk-orchestration.LoggerProps"></a>
 
-#### Initializer <a name="Initializer" id="@cdk-orchestration.LoggerProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="cdk-orchestration.LoggerProps.Initializer"></a>
 
 ```typescript
-import { LoggerProps } from '@cdk-orchestration'
+import { LoggerProps } from 'cdk-orchestration'
 
 const loggerProps: LoggerProps = { ... }
 ```
@@ -3733,11 +3733,11 @@ const loggerProps: LoggerProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.LoggerProps.property.logLevel">logLevel</a></code> | <code>number</code> | # Note: This is a number to support custom log levels (e.g. FATAL = 0.5). |
+| <code><a href="#cdk-orchestration.LoggerProps.property.logLevel">logLevel</a></code> | <code>number</code> | # Note: This is a number to support custom log levels (e.g. FATAL = 0.5). |
 
 ---
 
-##### `logLevel`<sup>Required</sup> <a name="logLevel" id="@cdk-orchestration.LoggerProps.property.logLevel"></a>
+##### `logLevel`<sup>Required</sup> <a name="logLevel" id="cdk-orchestration.LoggerProps.property.logLevel"></a>
 
 ```typescript
 public readonly logLevel: number;
@@ -3749,14 +3749,14 @@ public readonly logLevel: number;
 
 ---
 
-### ServiceQueryResult <a name="ServiceQueryResult" id="@cdk-orchestration.ServiceQueryResult"></a>
+### ServiceQueryResult <a name="ServiceQueryResult" id="cdk-orchestration.ServiceQueryResult"></a>
 
 The result of a service query.
 
-#### Initializer <a name="Initializer" id="@cdk-orchestration.ServiceQueryResult.Initializer"></a>
+#### Initializer <a name="Initializer" id="cdk-orchestration.ServiceQueryResult.Initializer"></a>
 
 ```typescript
-import { ServiceQueryResult } from '@cdk-orchestration'
+import { ServiceQueryResult } from 'cdk-orchestration'
 
 const serviceQueryResult: ServiceQueryResult = { ... }
 ```
@@ -3765,13 +3765,13 @@ const serviceQueryResult: ServiceQueryResult = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ServiceQueryResult.property.scope">scope</a></code> | <code>constructs.IConstruct</code> | A scope with that value for it's service property. |
-| <code><a href="#@cdk-orchestration.ServiceQueryResult.property.service">service</a></code> | <code>any</code> | The service property of the scope. |
-| <code><a href="#@cdk-orchestration.ServiceQueryResult.property.servicePropertyName">servicePropertyName</a></code> | <code>string</code> | The particular service that was queried. |
+| <code><a href="#cdk-orchestration.ServiceQueryResult.property.scope">scope</a></code> | <code>constructs.IConstruct</code> | A scope with that value for it's service property. |
+| <code><a href="#cdk-orchestration.ServiceQueryResult.property.service">service</a></code> | <code>any</code> | The service property of the scope. |
+| <code><a href="#cdk-orchestration.ServiceQueryResult.property.servicePropertyName">servicePropertyName</a></code> | <code>string</code> | The particular service that was queried. |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ServiceQueryResult.property.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ServiceQueryResult.property.scope"></a>
 
 ```typescript
 public readonly scope: IConstruct;
@@ -3783,7 +3783,7 @@ A scope with that value for it's service property.
 
 ---
 
-##### `service`<sup>Required</sup> <a name="service" id="@cdk-orchestration.ServiceQueryResult.property.service"></a>
+##### `service`<sup>Required</sup> <a name="service" id="cdk-orchestration.ServiceQueryResult.property.service"></a>
 
 ```typescript
 public readonly service: any;
@@ -3795,7 +3795,7 @@ The service property of the scope.
 
 ---
 
-##### `servicePropertyName`<sup>Required</sup> <a name="servicePropertyName" id="@cdk-orchestration.ServiceQueryResult.property.servicePropertyName"></a>
+##### `servicePropertyName`<sup>Required</sup> <a name="servicePropertyName" id="cdk-orchestration.ServiceQueryResult.property.servicePropertyName"></a>
 
 ```typescript
 public readonly servicePropertyName: string;
@@ -3807,14 +3807,14 @@ The particular service that was queried.
 
 ---
 
-### StepFunctionTaskProps <a name="StepFunctionTaskProps" id="@cdk-orchestration.orchestration.StepFunctionTaskProps"></a>
+### StepFunctionTaskProps <a name="StepFunctionTaskProps" id="cdk-orchestration.orchestration.StepFunctionTaskProps"></a>
 
 Properties for StepFunctionTask.
 
-#### Initializer <a name="Initializer" id="@cdk-orchestration.orchestration.StepFunctionTaskProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="cdk-orchestration.orchestration.StepFunctionTaskProps.Initializer"></a>
 
 ```typescript
-import { orchestration } from '@cdk-orchestration'
+import { orchestration } from 'cdk-orchestration'
 
 const stepFunctionTaskProps: orchestration.StepFunctionTaskProps = { ... }
 ```
@@ -3823,16 +3823,16 @@ const stepFunctionTaskProps: orchestration.StepFunctionTaskProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTaskProps.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | The state machine to execute. |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTaskProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the StepFunction output does not contain a requested value. |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTaskProps.property.inputEvent">inputEvent</a></code> | <code>any</code> | The event to start the state machine with. |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTaskProps.property.prefix">prefix</a></code> | <code>string</code> | Prefix for the execution. |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTaskProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Role for execution and monitoring.  Must have permission to execute and describe the state machine, as well as ```ManagedPolicy.fromAwsManagedPolicyName("service-role/AWSLambdaBasicExecutionRole")```. |
-| <code><a href="#@cdk-orchestration.orchestration.StepFunctionTaskProps.property.totalTimeout">totalTimeout</a></code> | <code>aws-cdk-lib.Duration</code> | Total timeout for the entire operation. |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTaskProps.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | The state machine to execute. |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTaskProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the StepFunction output does not contain a requested value. |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTaskProps.property.inputEvent">inputEvent</a></code> | <code>any</code> | The event to start the state machine with. |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTaskProps.property.prefix">prefix</a></code> | <code>string</code> | Prefix for the execution. |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTaskProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Role for execution and monitoring.  Must have permission to execute and describe the state machine, as well as ```ManagedPolicy.fromAwsManagedPolicyName("service-role/AWSLambdaBasicExecutionRole")```. |
+| <code><a href="#cdk-orchestration.orchestration.StepFunctionTaskProps.property.totalTimeout">totalTimeout</a></code> | <code>aws-cdk-lib.Duration</code> | Total timeout for the entire operation. |
 
 ---
 
-##### `stateMachine`<sup>Required</sup> <a name="stateMachine" id="@cdk-orchestration.orchestration.StepFunctionTaskProps.property.stateMachine"></a>
+##### `stateMachine`<sup>Required</sup> <a name="stateMachine" id="cdk-orchestration.orchestration.StepFunctionTaskProps.property.stateMachine"></a>
 
 ```typescript
 public readonly stateMachine: IStateMachine;
@@ -3844,7 +3844,7 @@ The state machine to execute.
 
 ---
 
-##### `defaults`<sup>Optional</sup> <a name="defaults" id="@cdk-orchestration.orchestration.StepFunctionTaskProps.property.defaults"></a>
+##### `defaults`<sup>Optional</sup> <a name="defaults" id="cdk-orchestration.orchestration.StepFunctionTaskProps.property.defaults"></a>
 
 ```typescript
 public readonly defaults: {[ key: string ]: string};
@@ -3856,7 +3856,7 @@ Default attribute values to use when the StepFunction output does not contain a 
 
 ---
 
-##### `inputEvent`<sup>Optional</sup> <a name="inputEvent" id="@cdk-orchestration.orchestration.StepFunctionTaskProps.property.inputEvent"></a>
+##### `inputEvent`<sup>Optional</sup> <a name="inputEvent" id="cdk-orchestration.orchestration.StepFunctionTaskProps.property.inputEvent"></a>
 
 ```typescript
 public readonly inputEvent: any;
@@ -3870,7 +3870,7 @@ Should only be provided with stateMachine, not with stateMachineExecutionArn.
 
 ---
 
-##### `prefix`<sup>Optional</sup> <a name="prefix" id="@cdk-orchestration.orchestration.StepFunctionTaskProps.property.prefix"></a>
+##### `prefix`<sup>Optional</sup> <a name="prefix" id="cdk-orchestration.orchestration.StepFunctionTaskProps.property.prefix"></a>
 
 ```typescript
 public readonly prefix: string;
@@ -3882,7 +3882,7 @@ Prefix for the execution.
 
 ---
 
-##### `role`<sup>Optional</sup> <a name="role" id="@cdk-orchestration.orchestration.StepFunctionTaskProps.property.role"></a>
+##### `role`<sup>Optional</sup> <a name="role" id="cdk-orchestration.orchestration.StepFunctionTaskProps.property.role"></a>
 
 ```typescript
 public readonly role: IRole;
@@ -3896,7 +3896,7 @@ If not provided, a role will be created.
 
 ---
 
-##### `totalTimeout`<sup>Optional</sup> <a name="totalTimeout" id="@cdk-orchestration.orchestration.StepFunctionTaskProps.property.totalTimeout"></a>
+##### `totalTimeout`<sup>Optional</sup> <a name="totalTimeout" id="cdk-orchestration.orchestration.StepFunctionTaskProps.property.totalTimeout"></a>
 
 ```typescript
 public readonly totalTimeout: Duration;
@@ -3914,29 +3914,29 @@ exceed the AWS Lambda 15 minutes)
 
 ## Classes <a name="Classes" id="Classes"></a>
 
-### AppConstructTreeService <a name="AppConstructTreeService" id="@cdk-orchestration.AppConstructTreeService"></a>
+### AppConstructTreeService <a name="AppConstructTreeService" id="cdk-orchestration.AppConstructTreeService"></a>
 
 An App-scoped service that is found by looking up the tree.
 
 Found services are cached on the querying scope to speed up subsequent lookups.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.AppConstructTreeService.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.AppConstructTreeService.Initializer"></a>
 
 ```typescript
-import { AppConstructTreeService } from '@cdk-orchestration'
+import { AppConstructTreeService } from 'cdk-orchestration'
 
 new AppConstructTreeService(treeServiceProps: ConstructTreeServiceProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.Initializer.parameter.treeServiceProps">treeServiceProps</a></code> | <code><a href="#@cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.Initializer.parameter.treeServiceProps">treeServiceProps</a></code> | <code><a href="#cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a></code> | *No description.* |
 
 ---
 
-##### `treeServiceProps`<sup>Required</sup> <a name="treeServiceProps" id="@cdk-orchestration.AppConstructTreeService.Initializer.parameter.treeServiceProps"></a>
+##### `treeServiceProps`<sup>Required</sup> <a name="treeServiceProps" id="cdk-orchestration.AppConstructTreeService.Initializer.parameter.treeServiceProps"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a>
 
 ---
 
@@ -3944,20 +3944,20 @@ new AppConstructTreeService(treeServiceProps: ConstructTreeServiceProps)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.get">get</a></code> | Gets the serviceSymbol property of the Construct. |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.has">has</a></code> | Returns the construct if the construct has the service, otherwise undefined; |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.searchDown">searchDown</a></code> | Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope). |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.searchSelf">searchSelf</a></code> | Returns a ServiceQueryResult if the scope has the service. |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.searchSelfOrCreate">searchSelfOrCreate</a></code> | Returns a ServiceQueryResult if the scope has the service. |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.searchUp">searchUp</a></code> | Check the hierarchy to see if there is an ascendent object of scope that defines the serviceProperty (including scope). |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.set">set</a></code> | Sets the given value on the scope as the serviceProperty property. |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.setFactory">setFactory</a></code> | Sets a construct service factory on a construct. |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.of">of</a></code> | Returns the cached service on an object, or creates one if none is available up the hierarchy. |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.searchUpOrCreate">searchUpOrCreate</a></code> | Searches towards the root for a value. |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.get">get</a></code> | Gets the serviceSymbol property of the Construct. |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.has">has</a></code> | Returns the construct if the construct has the service, otherwise undefined; |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.searchDown">searchDown</a></code> | Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope). |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.searchSelf">searchSelf</a></code> | Returns a ServiceQueryResult if the scope has the service. |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.searchSelfOrCreate">searchSelfOrCreate</a></code> | Returns a ServiceQueryResult if the scope has the service. |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.searchUp">searchUp</a></code> | Check the hierarchy to see if there is an ascendent object of scope that defines the serviceProperty (including scope). |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.set">set</a></code> | Sets the given value on the scope as the serviceProperty property. |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.setFactory">setFactory</a></code> | Sets a construct service factory on a construct. |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.of">of</a></code> | Returns the cached service on an object, or creates one if none is available up the hierarchy. |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.searchUpOrCreate">searchUpOrCreate</a></code> | Searches towards the root for a value. |
 
 ---
 
-##### `get` <a name="get" id="@cdk-orchestration.AppConstructTreeService.get"></a>
+##### `get` <a name="get" id="cdk-orchestration.AppConstructTreeService.get"></a>
 
 ```typescript
 public get(scope: IConstruct): any
@@ -3967,13 +3967,13 @@ Gets the serviceSymbol property of the Construct.
 
 Returns undefined if the service is not on the construct.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppConstructTreeService.get.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppConstructTreeService.get.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `has` <a name="has" id="@cdk-orchestration.AppConstructTreeService.has"></a>
+##### `has` <a name="has" id="cdk-orchestration.AppConstructTreeService.has"></a>
 
 ```typescript
 public has(scope: IConstruct): IConstruct
@@ -3981,13 +3981,13 @@ public has(scope: IConstruct): IConstruct
 
 Returns the construct if the construct has the service, otherwise undefined;
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppConstructTreeService.has.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppConstructTreeService.has.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchDown` <a name="searchDown" id="@cdk-orchestration.AppConstructTreeService.searchDown"></a>
+##### `searchDown` <a name="searchDown" id="cdk-orchestration.AppConstructTreeService.searchDown"></a>
 
 ```typescript
 public searchDown(scope: IConstruct, stopCondition?: IStopCondition): ServiceQueryResult[]
@@ -3995,19 +3995,19 @@ public searchDown(scope: IConstruct, stopCondition?: IStopCondition): ServiceQue
 
 Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope).
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppConstructTreeService.searchDown.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppConstructTreeService.searchDown.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="@cdk-orchestration.AppConstructTreeService.searchDown.parameter.stopCondition"></a>
+###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="cdk-orchestration.AppConstructTreeService.searchDown.parameter.stopCondition"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Type:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 ---
 
-##### `searchSelf` <a name="searchSelf" id="@cdk-orchestration.AppConstructTreeService.searchSelf"></a>
+##### `searchSelf` <a name="searchSelf" id="cdk-orchestration.AppConstructTreeService.searchSelf"></a>
 
 ```typescript
 public searchSelf(scope: IConstruct): ServiceQueryResult
@@ -4015,13 +4015,13 @@ public searchSelf(scope: IConstruct): ServiceQueryResult
 
 Returns a ServiceQueryResult if the scope has the service.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppConstructTreeService.searchSelf.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppConstructTreeService.searchSelf.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchSelfOrCreate` <a name="searchSelfOrCreate" id="@cdk-orchestration.AppConstructTreeService.searchSelfOrCreate"></a>
+##### `searchSelfOrCreate` <a name="searchSelfOrCreate" id="cdk-orchestration.AppConstructTreeService.searchSelfOrCreate"></a>
 
 ```typescript
 public searchSelfOrCreate(scope: IConstruct): ServiceQueryResult
@@ -4032,13 +4032,13 @@ Returns a ServiceQueryResult if the scope has the service.
 If the scope does not have the service, calls the factory to create the service
 and caches it on the scope.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppConstructTreeService.searchSelfOrCreate.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppConstructTreeService.searchSelfOrCreate.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchUp` <a name="searchUp" id="@cdk-orchestration.AppConstructTreeService.searchUp"></a>
+##### `searchUp` <a name="searchUp" id="cdk-orchestration.AppConstructTreeService.searchUp"></a>
 
 ```typescript
 public searchUp(scope: IConstruct, stopCondition?: IStopCondition): ServiceQueryResult
@@ -4048,19 +4048,19 @@ Check the hierarchy to see if there is an ascendent object of scope that defines
 
 Uses stopCondition to decide where to stop the searchUp.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppConstructTreeService.searchUp.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppConstructTreeService.searchUp.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="@cdk-orchestration.AppConstructTreeService.searchUp.parameter.stopCondition"></a>
+###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="cdk-orchestration.AppConstructTreeService.searchUp.parameter.stopCondition"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Type:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 ---
 
-##### `set` <a name="set" id="@cdk-orchestration.AppConstructTreeService.set"></a>
+##### `set` <a name="set" id="cdk-orchestration.AppConstructTreeService.set"></a>
 
 ```typescript
 public set(scope: IConstruct, service: any): any
@@ -4068,19 +4068,19 @@ public set(scope: IConstruct, service: any): any
 
 Sets the given value on the scope as the serviceProperty property.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppConstructTreeService.set.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppConstructTreeService.set.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `service`<sup>Required</sup> <a name="service" id="@cdk-orchestration.AppConstructTreeService.set.parameter.service"></a>
+###### `service`<sup>Required</sup> <a name="service" id="cdk-orchestration.AppConstructTreeService.set.parameter.service"></a>
 
 - *Type:* any
 
 ---
 
-##### `setFactory` <a name="setFactory" id="@cdk-orchestration.AppConstructTreeService.setFactory"></a>
+##### `setFactory` <a name="setFactory" id="cdk-orchestration.AppConstructTreeService.setFactory"></a>
 
 ```typescript
 public setFactory(scope: IConstruct, factory: IConstructServiceFactory): any
@@ -4091,19 +4091,19 @@ Sets a construct service factory on a construct.
 Use case: Set a factory for AWSCredentials on the app.  When a stack needs to make an AWS call, it gets credentials from the
 factory.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppConstructTreeService.setFactory.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppConstructTreeService.setFactory.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `factory`<sup>Required</sup> <a name="factory" id="@cdk-orchestration.AppConstructTreeService.setFactory.parameter.factory"></a>
+###### `factory`<sup>Required</sup> <a name="factory" id="cdk-orchestration.AppConstructTreeService.setFactory.parameter.factory"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
+- *Type:* <a href="#cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
 
 ---
 
-##### `of` <a name="of" id="@cdk-orchestration.AppConstructTreeService.of"></a>
+##### `of` <a name="of" id="cdk-orchestration.AppConstructTreeService.of"></a>
 
 ```typescript
 public of(scope: IConstruct): any
@@ -4111,13 +4111,13 @@ public of(scope: IConstruct): any
 
 Returns the cached service on an object, or creates one if none is available up the hierarchy.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppConstructTreeService.of.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppConstructTreeService.of.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchUpOrCreate` <a name="searchUpOrCreate" id="@cdk-orchestration.AppConstructTreeService.searchUpOrCreate"></a>
+##### `searchUpOrCreate` <a name="searchUpOrCreate" id="cdk-orchestration.AppConstructTreeService.searchUpOrCreate"></a>
 
 ```typescript
 public searchUpOrCreate(scope: IConstruct): ServiceQueryResult
@@ -4130,7 +4130,7 @@ cache the value on the scope (to speed up future gets) and
 return the pair.  If not, call the factory to create a value and
 cache it on the scope.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppConstructTreeService.searchUpOrCreate.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppConstructTreeService.searchUpOrCreate.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -4140,74 +4140,74 @@ cache it on the scope.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.isFactory">isFactory</a></code> | Returns true if a service value is actualy a factory. |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.scopeOf">scopeOf</a></code> | Returns the scope of the property from a ServiceQueryResult. |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.scopesOf">scopesOf</a></code> | Returns the scopes from an array of ServiceQueryResults. |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.serviceOf">serviceOf</a></code> | Returns the value of the property from a ServiceQueryResult. |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.isFactory">isFactory</a></code> | Returns true if a service value is actualy a factory. |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.scopeOf">scopeOf</a></code> | Returns the scope of the property from a ServiceQueryResult. |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.scopesOf">scopesOf</a></code> | Returns the scopes from an array of ServiceQueryResults. |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.serviceOf">serviceOf</a></code> | Returns the value of the property from a ServiceQueryResult. |
 
 ---
 
-##### `isFactory` <a name="isFactory" id="@cdk-orchestration.AppConstructTreeService.isFactory"></a>
+##### `isFactory` <a name="isFactory" id="cdk-orchestration.AppConstructTreeService.isFactory"></a>
 
 ```typescript
-import { AppConstructTreeService } from '@cdk-orchestration'
+import { AppConstructTreeService } from 'cdk-orchestration'
 
 AppConstructTreeService.isFactory(factory: any)
 ```
 
 Returns true if a service value is actualy a factory.
 
-###### `factory`<sup>Required</sup> <a name="factory" id="@cdk-orchestration.AppConstructTreeService.isFactory.parameter.factory"></a>
+###### `factory`<sup>Required</sup> <a name="factory" id="cdk-orchestration.AppConstructTreeService.isFactory.parameter.factory"></a>
 
 - *Type:* any
 
 ---
 
-##### `scopeOf` <a name="scopeOf" id="@cdk-orchestration.AppConstructTreeService.scopeOf"></a>
+##### `scopeOf` <a name="scopeOf" id="cdk-orchestration.AppConstructTreeService.scopeOf"></a>
 
 ```typescript
-import { AppConstructTreeService } from '@cdk-orchestration'
+import { AppConstructTreeService } from 'cdk-orchestration'
 
 AppConstructTreeService.scopeOf(found?: ServiceQueryResult)
 ```
 
 Returns the scope of the property from a ServiceQueryResult.
 
-###### `found`<sup>Optional</sup> <a name="found" id="@cdk-orchestration.AppConstructTreeService.scopeOf.parameter.found"></a>
+###### `found`<sup>Optional</sup> <a name="found" id="cdk-orchestration.AppConstructTreeService.scopeOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
 
 ---
 
-##### `scopesOf` <a name="scopesOf" id="@cdk-orchestration.AppConstructTreeService.scopesOf"></a>
+##### `scopesOf` <a name="scopesOf" id="cdk-orchestration.AppConstructTreeService.scopesOf"></a>
 
 ```typescript
-import { AppConstructTreeService } from '@cdk-orchestration'
+import { AppConstructTreeService } from 'cdk-orchestration'
 
 AppConstructTreeService.scopesOf(found: ServiceQueryResult[])
 ```
 
 Returns the scopes from an array of ServiceQueryResults.
 
-###### `found`<sup>Required</sup> <a name="found" id="@cdk-orchestration.AppConstructTreeService.scopesOf.parameter.found"></a>
+###### `found`<sup>Required</sup> <a name="found" id="cdk-orchestration.AppConstructTreeService.scopesOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>[]
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>[]
 
 ---
 
-##### `serviceOf` <a name="serviceOf" id="@cdk-orchestration.AppConstructTreeService.serviceOf"></a>
+##### `serviceOf` <a name="serviceOf" id="cdk-orchestration.AppConstructTreeService.serviceOf"></a>
 
 ```typescript
-import { AppConstructTreeService } from '@cdk-orchestration'
+import { AppConstructTreeService } from 'cdk-orchestration'
 
 AppConstructTreeService.serviceOf(found?: ServiceQueryResult)
 ```
 
 Returns the value of the property from a ServiceQueryResult.
 
-###### `found`<sup>Optional</sup> <a name="found" id="@cdk-orchestration.AppConstructTreeService.serviceOf.parameter.found"></a>
+###### `found`<sup>Optional</sup> <a name="found" id="cdk-orchestration.AppConstructTreeService.serviceOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
 
 ---
 
@@ -4215,42 +4215,42 @@ Returns the value of the property from a ServiceQueryResult.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.property.props">props</a></code> | <code><a href="#@cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.AppConstructTreeService.property.treeServiceProps">treeServiceProps</a></code> | <code><a href="#@cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.property.props">props</a></code> | <code><a href="#cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.AppConstructTreeService.property.treeServiceProps">treeServiceProps</a></code> | <code><a href="#cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a></code> | *No description.* |
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.AppConstructTreeService.property.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.AppConstructTreeService.property.props"></a>
 
 ```typescript
 public readonly props: ConstructServiceProps;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a>
 
 ---
 
-##### `treeServiceProps`<sup>Required</sup> <a name="treeServiceProps" id="@cdk-orchestration.AppConstructTreeService.property.treeServiceProps"></a>
+##### `treeServiceProps`<sup>Required</sup> <a name="treeServiceProps" id="cdk-orchestration.AppConstructTreeService.property.treeServiceProps"></a>
 
 ```typescript
 public readonly treeServiceProps: ConstructTreeServiceProps;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a>
 
 ---
 
 
-### AppToken <a name="AppToken" id="@cdk-orchestration.AppToken"></a>
+### AppToken <a name="AppToken" id="cdk-orchestration.AppToken"></a>
 
 Provides a way to map named tokens to their producers.
 
 Names should be unique within the app.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.AppToken.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.AppToken.Initializer"></a>
 
 ```typescript
-import { AppToken } from '@cdk-orchestration'
+import { AppToken } from 'cdk-orchestration'
 
 new AppToken()
 ```
@@ -4265,230 +4265,230 @@ new AppToken()
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.AppToken.any">any</a></code> | Creates a named token. |
-| <code><a href="#@cdk-orchestration.AppToken.list">list</a></code> | Creates a named token. |
-| <code><a href="#@cdk-orchestration.AppToken.number">number</a></code> | Creates a named token. |
-| <code><a href="#@cdk-orchestration.AppToken.resolveAny">resolveAny</a></code> | Registers a resolver for the named token. |
-| <code><a href="#@cdk-orchestration.AppToken.resolveList">resolveList</a></code> | Registers a resolver for the named token. |
-| <code><a href="#@cdk-orchestration.AppToken.resolveNumber">resolveNumber</a></code> | Registers a resolver for the named token. |
-| <code><a href="#@cdk-orchestration.AppToken.resolveString">resolveString</a></code> | Registers a resolver for the named token. |
-| <code><a href="#@cdk-orchestration.AppToken.string">string</a></code> | Creates a named token. |
+| <code><a href="#cdk-orchestration.AppToken.any">any</a></code> | Creates a named token. |
+| <code><a href="#cdk-orchestration.AppToken.list">list</a></code> | Creates a named token. |
+| <code><a href="#cdk-orchestration.AppToken.number">number</a></code> | Creates a named token. |
+| <code><a href="#cdk-orchestration.AppToken.resolveAny">resolveAny</a></code> | Registers a resolver for the named token. |
+| <code><a href="#cdk-orchestration.AppToken.resolveList">resolveList</a></code> | Registers a resolver for the named token. |
+| <code><a href="#cdk-orchestration.AppToken.resolveNumber">resolveNumber</a></code> | Registers a resolver for the named token. |
+| <code><a href="#cdk-orchestration.AppToken.resolveString">resolveString</a></code> | Registers a resolver for the named token. |
+| <code><a href="#cdk-orchestration.AppToken.string">string</a></code> | Creates a named token. |
 
 ---
 
-##### `any` <a name="any" id="@cdk-orchestration.AppToken.any"></a>
+##### `any` <a name="any" id="cdk-orchestration.AppToken.any"></a>
 
 ```typescript
-import { AppToken } from '@cdk-orchestration'
+import { AppToken } from 'cdk-orchestration'
 
 AppToken.any(scope: IConstruct, name: string, options?: LazyAnyValueOptions)
 ```
 
 Creates a named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppToken.any.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppToken.any.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.AppToken.any.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.AppToken.any.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@cdk-orchestration.AppToken.any.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-orchestration.AppToken.any.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.LazyAnyValueOptions
 
 ---
 
-##### `list` <a name="list" id="@cdk-orchestration.AppToken.list"></a>
+##### `list` <a name="list" id="cdk-orchestration.AppToken.list"></a>
 
 ```typescript
-import { AppToken } from '@cdk-orchestration'
+import { AppToken } from 'cdk-orchestration'
 
 AppToken.list(scope: IConstruct, name: string, options?: LazyListValueOptions)
 ```
 
 Creates a named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppToken.list.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppToken.list.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.AppToken.list.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.AppToken.list.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@cdk-orchestration.AppToken.list.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-orchestration.AppToken.list.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.LazyListValueOptions
 
 ---
 
-##### `number` <a name="number" id="@cdk-orchestration.AppToken.number"></a>
+##### `number` <a name="number" id="cdk-orchestration.AppToken.number"></a>
 
 ```typescript
-import { AppToken } from '@cdk-orchestration'
+import { AppToken } from 'cdk-orchestration'
 
 AppToken.number(scope: IConstruct, name: string)
 ```
 
 Creates a named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppToken.number.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppToken.number.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.AppToken.number.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.AppToken.number.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-##### `resolveAny` <a name="resolveAny" id="@cdk-orchestration.AppToken.resolveAny"></a>
+##### `resolveAny` <a name="resolveAny" id="cdk-orchestration.AppToken.resolveAny"></a>
 
 ```typescript
-import { AppToken } from '@cdk-orchestration'
+import { AppToken } from 'cdk-orchestration'
 
 AppToken.resolveAny(scope: IConstruct, name: string, producer: IStableAnyProducer)
 ```
 
 Registers a resolver for the named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppToken.resolveAny.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppToken.resolveAny.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.AppToken.resolveAny.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.AppToken.resolveAny.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `producer`<sup>Required</sup> <a name="producer" id="@cdk-orchestration.AppToken.resolveAny.parameter.producer"></a>
+###### `producer`<sup>Required</sup> <a name="producer" id="cdk-orchestration.AppToken.resolveAny.parameter.producer"></a>
 
 - *Type:* aws-cdk-lib.IStableAnyProducer
 
 ---
 
-##### `resolveList` <a name="resolveList" id="@cdk-orchestration.AppToken.resolveList"></a>
+##### `resolveList` <a name="resolveList" id="cdk-orchestration.AppToken.resolveList"></a>
 
 ```typescript
-import { AppToken } from '@cdk-orchestration'
+import { AppToken } from 'cdk-orchestration'
 
 AppToken.resolveList(scope: IConstruct, name: string, producer: IStableListProducer)
 ```
 
 Registers a resolver for the named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppToken.resolveList.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppToken.resolveList.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.AppToken.resolveList.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.AppToken.resolveList.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `producer`<sup>Required</sup> <a name="producer" id="@cdk-orchestration.AppToken.resolveList.parameter.producer"></a>
+###### `producer`<sup>Required</sup> <a name="producer" id="cdk-orchestration.AppToken.resolveList.parameter.producer"></a>
 
 - *Type:* aws-cdk-lib.IStableListProducer
 
 ---
 
-##### `resolveNumber` <a name="resolveNumber" id="@cdk-orchestration.AppToken.resolveNumber"></a>
+##### `resolveNumber` <a name="resolveNumber" id="cdk-orchestration.AppToken.resolveNumber"></a>
 
 ```typescript
-import { AppToken } from '@cdk-orchestration'
+import { AppToken } from 'cdk-orchestration'
 
 AppToken.resolveNumber(scope: IConstruct, name: string, producer: IStableNumberProducer)
 ```
 
 Registers a resolver for the named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppToken.resolveNumber.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppToken.resolveNumber.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.AppToken.resolveNumber.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.AppToken.resolveNumber.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `producer`<sup>Required</sup> <a name="producer" id="@cdk-orchestration.AppToken.resolveNumber.parameter.producer"></a>
+###### `producer`<sup>Required</sup> <a name="producer" id="cdk-orchestration.AppToken.resolveNumber.parameter.producer"></a>
 
 - *Type:* aws-cdk-lib.IStableNumberProducer
 
 ---
 
-##### `resolveString` <a name="resolveString" id="@cdk-orchestration.AppToken.resolveString"></a>
+##### `resolveString` <a name="resolveString" id="cdk-orchestration.AppToken.resolveString"></a>
 
 ```typescript
-import { AppToken } from '@cdk-orchestration'
+import { AppToken } from 'cdk-orchestration'
 
 AppToken.resolveString(scope: IConstruct, name: string, producer: IStableStringProducer)
 ```
 
 Registers a resolver for the named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppToken.resolveString.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppToken.resolveString.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.AppToken.resolveString.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.AppToken.resolveString.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `producer`<sup>Required</sup> <a name="producer" id="@cdk-orchestration.AppToken.resolveString.parameter.producer"></a>
+###### `producer`<sup>Required</sup> <a name="producer" id="cdk-orchestration.AppToken.resolveString.parameter.producer"></a>
 
 - *Type:* aws-cdk-lib.IStableStringProducer
 
 ---
 
-##### `string` <a name="string" id="@cdk-orchestration.AppToken.string"></a>
+##### `string` <a name="string" id="cdk-orchestration.AppToken.string"></a>
 
 ```typescript
-import { AppToken } from '@cdk-orchestration'
+import { AppToken } from 'cdk-orchestration'
 
 AppToken.string(scope: IConstruct, name: string, options?: LazyStringValueOptions)
 ```
 
 Creates a named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.AppToken.string.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.AppToken.string.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.AppToken.string.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.AppToken.string.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@cdk-orchestration.AppToken.string.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-orchestration.AppToken.string.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.LazyStringValueOptions
 
@@ -4496,14 +4496,14 @@ Creates a named token.
 
 
 
-### CfnElementUtilities <a name="CfnElementUtilities" id="@cdk-orchestration.CfnElementUtilities"></a>
+### CfnElementUtilities <a name="CfnElementUtilities" id="cdk-orchestration.CfnElementUtilities"></a>
 
 Utilities for use with CfnElement.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.CfnElementUtilities.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.CfnElementUtilities.Initializer"></a>
 
 ```typescript
-import { CfnElementUtilities } from '@cdk-orchestration'
+import { CfnElementUtilities } from 'cdk-orchestration'
 
 new CfnElementUtilities()
 ```
@@ -4517,12 +4517,12 @@ new CfnElementUtilities()
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.CfnElementUtilities.cfnElementHost">cfnElementHost</a></code> | Returns the antecedent cnfElement in the tree  (if any). |
-| <code><a href="#@cdk-orchestration.CfnElementUtilities.cfnElements">cfnElements</a></code> | Returns a list of all L1 construct descendents of the scope. |
+| <code><a href="#cdk-orchestration.CfnElementUtilities.cfnElementHost">cfnElementHost</a></code> | Returns the antecedent cnfElement in the tree  (if any). |
+| <code><a href="#cdk-orchestration.CfnElementUtilities.cfnElements">cfnElements</a></code> | Returns a list of all L1 construct descendents of the scope. |
 
 ---
 
-##### `cfnElementHost` <a name="cfnElementHost" id="@cdk-orchestration.CfnElementUtilities.cfnElementHost"></a>
+##### `cfnElementHost` <a name="cfnElementHost" id="cdk-orchestration.CfnElementUtilities.cfnElementHost"></a>
 
 ```typescript
 public cfnElementHost(scope: Construct): IConstruct
@@ -4532,13 +4532,13 @@ Returns the antecedent cnfElement in the tree  (if any).
 
 Basially, CfnElement.of (like Stack.of).
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.CfnElementUtilities.cfnElementHost.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.CfnElementUtilities.cfnElementHost.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `cfnElements` <a name="cfnElements" id="@cdk-orchestration.CfnElementUtilities.cfnElements"></a>
+##### `cfnElements` <a name="cfnElements" id="cdk-orchestration.CfnElementUtilities.cfnElements"></a>
 
 ```typescript
 public cfnElements(scope: Construct): CfnElement[]
@@ -4546,7 +4546,7 @@ public cfnElements(scope: Construct): CfnElement[]
 
 Returns a list of all L1 construct descendents of the scope.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.CfnElementUtilities.cfnElements.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.CfnElementUtilities.cfnElements.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
@@ -4555,14 +4555,14 @@ Returns a list of all L1 construct descendents of the scope.
 
 
 
-### CfnIncludeToCdk <a name="CfnIncludeToCdk" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk"></a>
+### CfnIncludeToCdk <a name="CfnIncludeToCdk" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk"></a>
 
 Utilities for converting resources from CfnInclude to a CDK L2-derived class.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@cdk-orchestration'
+import { cloudformation_include } from 'cdk-orchestration'
 
 new cloudformation_include.CfnIncludeToCdk()
 ```
@@ -4577,56 +4577,56 @@ new cloudformation_include.CfnIncludeToCdk()
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded">findIncluded</a></code> | Finds a construct from CfnIncludes in scope with the given logicalId. |
-| <code><a href="#@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude">isCfnInclude</a></code> | Returns true if the given construct is an instance of CfnInclude. |
-| <code><a href="#@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded">removeIncluded</a></code> | Removes a construct from CfnInclude with the given logicalId. |
-| <code><a href="#@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.replaceIncluded">replaceIncluded</a></code> | Replaces an L1 construct in a CfnInclude with an L1 or L2 CDK construct of your choosing. |
-| <code><a href="#@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId">setLogicalId</a></code> | Sets the logical ID of the resource to the Node ID of the construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded">findIncluded</a></code> | Finds a construct from CfnIncludes in scope with the given logicalId. |
+| <code><a href="#cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude">isCfnInclude</a></code> | Returns true if the given construct is an instance of CfnInclude. |
+| <code><a href="#cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded">removeIncluded</a></code> | Removes a construct from CfnInclude with the given logicalId. |
+| <code><a href="#cdk-orchestration.cloudformation_include.CfnIncludeToCdk.replaceIncluded">replaceIncluded</a></code> | Replaces an L1 construct in a CfnInclude with an L1 or L2 CDK construct of your choosing. |
+| <code><a href="#cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId">setLogicalId</a></code> | Sets the logical ID of the resource to the Node ID of the construct. |
 
 ---
 
-##### `findIncluded` <a name="findIncluded" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded"></a>
+##### `findIncluded` <a name="findIncluded" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded"></a>
 
 ```typescript
-import { cloudformation_include } from '@cdk-orchestration'
+import { cloudformation_include } from 'cdk-orchestration'
 
 cloudformation_include.CfnIncludeToCdk.findIncluded(logicalId: string, scope: Construct)
 ```
 
 Finds a construct from CfnIncludes in scope with the given logicalId.
 
-###### `logicalId`<sup>Required</sup> <a name="logicalId" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded.parameter.logicalId"></a>
+###### `logicalId`<sup>Required</sup> <a name="logicalId" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded.parameter.logicalId"></a>
 
 - *Type:* string
 
 ---
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `isCfnInclude` <a name="isCfnInclude" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude"></a>
+##### `isCfnInclude` <a name="isCfnInclude" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude"></a>
 
 ```typescript
-import { cloudformation_include } from '@cdk-orchestration'
+import { cloudformation_include } from 'cdk-orchestration'
 
 cloudformation_include.CfnIncludeToCdk.isCfnInclude(x?: IConstruct)
 ```
 
 Returns true if the given construct is an instance of CfnInclude.
 
-###### `x`<sup>Optional</sup> <a name="x" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude.parameter.x"></a>
+###### `x`<sup>Optional</sup> <a name="x" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude.parameter.x"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `removeIncluded` <a name="removeIncluded" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded"></a>
+##### `removeIncluded` <a name="removeIncluded" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded"></a>
 
 ```typescript
-import { cloudformation_include } from '@cdk-orchestration'
+import { cloudformation_include } from 'cdk-orchestration'
 
 cloudformation_include.CfnIncludeToCdk.removeIncluded(logicalId: string, scope: Construct)
 ```
@@ -4635,22 +4635,22 @@ Removes a construct from CfnInclude with the given logicalId.
 
 Finds the CfnInclude in the stack of the given scope.
 
-###### `logicalId`<sup>Required</sup> <a name="logicalId" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded.parameter.logicalId"></a>
+###### `logicalId`<sup>Required</sup> <a name="logicalId" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded.parameter.logicalId"></a>
 
 - *Type:* string
 
 ---
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `replaceIncluded` <a name="replaceIncluded" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.replaceIncluded"></a>
+##### `replaceIncluded` <a name="replaceIncluded" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.replaceIncluded"></a>
 
 ```typescript
-import { cloudformation_include } from '@cdk-orchestration'
+import { cloudformation_include } from 'cdk-orchestration'
 
 cloudformation_include.CfnIncludeToCdk.replaceIncluded(logicalId: string, replacementConstruct: Construct)
 ```
@@ -4665,7 +4665,7 @@ and was removed from the stack.
 
 FUTURE: Ensure the new construct is of the same resource type as the old one?  Is that useful?
 
-###### `logicalId`<sup>Required</sup> <a name="logicalId" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.replaceIncluded.parameter.logicalId"></a>
+###### `logicalId`<sup>Required</sup> <a name="logicalId" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.replaceIncluded.parameter.logicalId"></a>
 
 - *Type:* string
 
@@ -4673,7 +4673,7 @@ Logical ID of the construct we are replacing.
 
 ---
 
-###### `replacementConstruct`<sup>Required</sup> <a name="replacementConstruct" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.replaceIncluded.parameter.replacementConstruct"></a>
+###### `replacementConstruct`<sup>Required</sup> <a name="replacementConstruct" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.replaceIncluded.parameter.replacementConstruct"></a>
 
 - *Type:* constructs.Construct
 
@@ -4681,10 +4681,10 @@ Construct that should be replacing the included construct.
 
 ---
 
-##### `setLogicalId` <a name="setLogicalId" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId"></a>
+##### `setLogicalId` <a name="setLogicalId" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId"></a>
 
 ```typescript
-import { cloudformation_include } from '@cdk-orchestration'
+import { cloudformation_include } from 'cdk-orchestration'
 
 cloudformation_include.CfnIncludeToCdk.setLogicalId(construct: Construct, id?: string)
 ```
@@ -4697,7 +4697,7 @@ Such as when you are replicating an existing hand-crafted template.
 Note:  This function L1 or L2 constructs, or any case where there is one L1 in the
 sub-tree.
 
-###### `construct`<sup>Required</sup> <a name="construct" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId.parameter.construct"></a>
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId.parameter.construct"></a>
 
 - *Type:* constructs.Construct
 
@@ -4705,7 +4705,7 @@ The resource construct.
 
 ---
 
-###### `id`<sup>Optional</sup> <a name="id" id="@cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId.parameter.id"></a>
+###### `id`<sup>Optional</sup> <a name="id" id="cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId.parameter.id"></a>
 
 - *Type:* string
 
@@ -4713,27 +4713,27 @@ The resource construct.
 
 
 
-### ConstructHost <a name="ConstructHost" id="@cdk-orchestration.ConstructHost"></a>
+### ConstructHost <a name="ConstructHost" id="cdk-orchestration.ConstructHost"></a>
 
 Helper class to make it easier for a construct to "host" constructs of a specific type, as defined by Construct RTTI.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.ConstructHost.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.ConstructHost.Initializer"></a>
 
 ```typescript
-import { ConstructHost } from '@cdk-orchestration'
+import { ConstructHost } from 'cdk-orchestration'
 
 new ConstructHost(props: ConstructHostProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructHost.Initializer.parameter.props">props</a></code> | <code><a href="#@cdk-orchestration.ConstructHostProps">ConstructHostProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.ConstructHost.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-orchestration.ConstructHostProps">ConstructHostProps</a></code> | *No description.* |
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.ConstructHost.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.ConstructHost.Initializer.parameter.props"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ConstructHostProps">ConstructHostProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructHostProps">ConstructHostProps</a>
 
 ---
 
@@ -4741,11 +4741,11 @@ new ConstructHost(props: ConstructHostProps)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructHost.getHostedConstructs">getHostedConstructs</a></code> | Returns constructs that match the hosted type that are under scope. |
+| <code><a href="#cdk-orchestration.ConstructHost.getHostedConstructs">getHostedConstructs</a></code> | Returns constructs that match the hosted type that are under scope. |
 
 ---
 
-##### `getHostedConstructs` <a name="getHostedConstructs" id="@cdk-orchestration.ConstructHost.getHostedConstructs"></a>
+##### `getHostedConstructs` <a name="getHostedConstructs" id="cdk-orchestration.ConstructHost.getHostedConstructs"></a>
 
 ```typescript
 public getHostedConstructs(scope: IConstruct): IConstruct[]
@@ -4753,7 +4753,7 @@ public getHostedConstructs(scope: IConstruct): IConstruct[]
 
 Returns constructs that match the hosted type that are under scope.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructHost.getHostedConstructs.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructHost.getHostedConstructs.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -4768,42 +4768,42 @@ Not required to be the host.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructHost.property.props">props</a></code> | <code><a href="#@cdk-orchestration.ConstructHostProps">ConstructHostProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.ConstructHost.property.props">props</a></code> | <code><a href="#cdk-orchestration.ConstructHostProps">ConstructHostProps</a></code> | *No description.* |
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.ConstructHost.property.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.ConstructHost.property.props"></a>
 
 ```typescript
 public readonly props: ConstructHostProps;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.ConstructHostProps">ConstructHostProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructHostProps">ConstructHostProps</a>
 
 ---
 
 
-### ConstructRunTimeTypeInfo <a name="ConstructRunTimeTypeInfo" id="@cdk-orchestration.ConstructRunTimeTypeInfo"></a>
+### ConstructRunTimeTypeInfo <a name="ConstructRunTimeTypeInfo" id="cdk-orchestration.ConstructRunTimeTypeInfo"></a>
 
 This class should be used for symbol-based Construct RTTI.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.ConstructRunTimeTypeInfo.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.ConstructRunTimeTypeInfo.Initializer"></a>
 
 ```typescript
-import { ConstructRunTimeTypeInfo } from '@cdk-orchestration'
+import { ConstructRunTimeTypeInfo } from 'cdk-orchestration'
 
 new ConstructRunTimeTypeInfo(props: ConstructServiceProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.Initializer.parameter.props">props</a></code> | <code><a href="#@cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a></code> | *No description.* |
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.ConstructRunTimeTypeInfo.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.ConstructRunTimeTypeInfo.Initializer.parameter.props"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a>
 
 ---
 
@@ -4811,20 +4811,20 @@ new ConstructRunTimeTypeInfo(props: ConstructServiceProps)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.get">get</a></code> | Gets the serviceSymbol property of the Construct. |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.has">has</a></code> | Returns the construct if the construct has the service, otherwise undefined; |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.searchDown">searchDown</a></code> | Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope). |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.searchSelf">searchSelf</a></code> | Returns a ServiceQueryResult if the scope has the service. |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.searchSelfOrCreate">searchSelfOrCreate</a></code> | Returns a ServiceQueryResult if the scope has the service. |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.searchUp">searchUp</a></code> | Check the hierarchy to see if there is an ascendent object of scope that defines the serviceProperty (including scope). |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.set">set</a></code> | Sets the given value on the scope as the serviceProperty property. |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.setFactory">setFactory</a></code> | Sets a construct service factory on a construct. |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.addRtti">addRtti</a></code> | Sets the RTTI of the construct.  Should be called from a Construct constructor. |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.hasRtti">hasRtti</a></code> | Returns true if the construct has this RTTI set on it. |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.get">get</a></code> | Gets the serviceSymbol property of the Construct. |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.has">has</a></code> | Returns the construct if the construct has the service, otherwise undefined; |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.searchDown">searchDown</a></code> | Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope). |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.searchSelf">searchSelf</a></code> | Returns a ServiceQueryResult if the scope has the service. |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.searchSelfOrCreate">searchSelfOrCreate</a></code> | Returns a ServiceQueryResult if the scope has the service. |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.searchUp">searchUp</a></code> | Check the hierarchy to see if there is an ascendent object of scope that defines the serviceProperty (including scope). |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.set">set</a></code> | Sets the given value on the scope as the serviceProperty property. |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.setFactory">setFactory</a></code> | Sets a construct service factory on a construct. |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.addRtti">addRtti</a></code> | Sets the RTTI of the construct.  Should be called from a Construct constructor. |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.hasRtti">hasRtti</a></code> | Returns true if the construct has this RTTI set on it. |
 
 ---
 
-##### `get` <a name="get" id="@cdk-orchestration.ConstructRunTimeTypeInfo.get"></a>
+##### `get` <a name="get" id="cdk-orchestration.ConstructRunTimeTypeInfo.get"></a>
 
 ```typescript
 public get(scope: IConstruct): any
@@ -4834,13 +4834,13 @@ Gets the serviceSymbol property of the Construct.
 
 Returns undefined if the service is not on the construct.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructRunTimeTypeInfo.get.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructRunTimeTypeInfo.get.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `has` <a name="has" id="@cdk-orchestration.ConstructRunTimeTypeInfo.has"></a>
+##### `has` <a name="has" id="cdk-orchestration.ConstructRunTimeTypeInfo.has"></a>
 
 ```typescript
 public has(scope: IConstruct): IConstruct
@@ -4848,13 +4848,13 @@ public has(scope: IConstruct): IConstruct
 
 Returns the construct if the construct has the service, otherwise undefined;
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructRunTimeTypeInfo.has.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructRunTimeTypeInfo.has.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchDown` <a name="searchDown" id="@cdk-orchestration.ConstructRunTimeTypeInfo.searchDown"></a>
+##### `searchDown` <a name="searchDown" id="cdk-orchestration.ConstructRunTimeTypeInfo.searchDown"></a>
 
 ```typescript
 public searchDown(scope: IConstruct, stopCondition?: IStopCondition): ServiceQueryResult[]
@@ -4862,19 +4862,19 @@ public searchDown(scope: IConstruct, stopCondition?: IStopCondition): ServiceQue
 
 Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope).
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructRunTimeTypeInfo.searchDown.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructRunTimeTypeInfo.searchDown.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="@cdk-orchestration.ConstructRunTimeTypeInfo.searchDown.parameter.stopCondition"></a>
+###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="cdk-orchestration.ConstructRunTimeTypeInfo.searchDown.parameter.stopCondition"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Type:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 ---
 
-##### `searchSelf` <a name="searchSelf" id="@cdk-orchestration.ConstructRunTimeTypeInfo.searchSelf"></a>
+##### `searchSelf` <a name="searchSelf" id="cdk-orchestration.ConstructRunTimeTypeInfo.searchSelf"></a>
 
 ```typescript
 public searchSelf(scope: IConstruct): ServiceQueryResult
@@ -4882,13 +4882,13 @@ public searchSelf(scope: IConstruct): ServiceQueryResult
 
 Returns a ServiceQueryResult if the scope has the service.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructRunTimeTypeInfo.searchSelf.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructRunTimeTypeInfo.searchSelf.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchSelfOrCreate` <a name="searchSelfOrCreate" id="@cdk-orchestration.ConstructRunTimeTypeInfo.searchSelfOrCreate"></a>
+##### `searchSelfOrCreate` <a name="searchSelfOrCreate" id="cdk-orchestration.ConstructRunTimeTypeInfo.searchSelfOrCreate"></a>
 
 ```typescript
 public searchSelfOrCreate(scope: IConstruct): ServiceQueryResult
@@ -4899,13 +4899,13 @@ Returns a ServiceQueryResult if the scope has the service.
 If the scope does not have the service, calls the factory to create the service
 and caches it on the scope.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructRunTimeTypeInfo.searchSelfOrCreate.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructRunTimeTypeInfo.searchSelfOrCreate.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchUp` <a name="searchUp" id="@cdk-orchestration.ConstructRunTimeTypeInfo.searchUp"></a>
+##### `searchUp` <a name="searchUp" id="cdk-orchestration.ConstructRunTimeTypeInfo.searchUp"></a>
 
 ```typescript
 public searchUp(scope: IConstruct, stopCondition?: IStopCondition): ServiceQueryResult
@@ -4915,19 +4915,19 @@ Check the hierarchy to see if there is an ascendent object of scope that defines
 
 Uses stopCondition to decide where to stop the searchUp.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructRunTimeTypeInfo.searchUp.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructRunTimeTypeInfo.searchUp.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="@cdk-orchestration.ConstructRunTimeTypeInfo.searchUp.parameter.stopCondition"></a>
+###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="cdk-orchestration.ConstructRunTimeTypeInfo.searchUp.parameter.stopCondition"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Type:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 ---
 
-##### `set` <a name="set" id="@cdk-orchestration.ConstructRunTimeTypeInfo.set"></a>
+##### `set` <a name="set" id="cdk-orchestration.ConstructRunTimeTypeInfo.set"></a>
 
 ```typescript
 public set(scope: IConstruct, service: any): any
@@ -4935,19 +4935,19 @@ public set(scope: IConstruct, service: any): any
 
 Sets the given value on the scope as the serviceProperty property.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructRunTimeTypeInfo.set.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructRunTimeTypeInfo.set.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `service`<sup>Required</sup> <a name="service" id="@cdk-orchestration.ConstructRunTimeTypeInfo.set.parameter.service"></a>
+###### `service`<sup>Required</sup> <a name="service" id="cdk-orchestration.ConstructRunTimeTypeInfo.set.parameter.service"></a>
 
 - *Type:* any
 
 ---
 
-##### `setFactory` <a name="setFactory" id="@cdk-orchestration.ConstructRunTimeTypeInfo.setFactory"></a>
+##### `setFactory` <a name="setFactory" id="cdk-orchestration.ConstructRunTimeTypeInfo.setFactory"></a>
 
 ```typescript
 public setFactory(scope: IConstruct, factory: IConstructServiceFactory): any
@@ -4958,19 +4958,19 @@ Sets a construct service factory on a construct.
 Use case: Set a factory for AWSCredentials on the app.  When a stack needs to make an AWS call, it gets credentials from the
 factory.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructRunTimeTypeInfo.setFactory.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructRunTimeTypeInfo.setFactory.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `factory`<sup>Required</sup> <a name="factory" id="@cdk-orchestration.ConstructRunTimeTypeInfo.setFactory.parameter.factory"></a>
+###### `factory`<sup>Required</sup> <a name="factory" id="cdk-orchestration.ConstructRunTimeTypeInfo.setFactory.parameter.factory"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
+- *Type:* <a href="#cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
 
 ---
 
-##### `addRtti` <a name="addRtti" id="@cdk-orchestration.ConstructRunTimeTypeInfo.addRtti"></a>
+##### `addRtti` <a name="addRtti" id="cdk-orchestration.ConstructRunTimeTypeInfo.addRtti"></a>
 
 ```typescript
 public addRtti(scope: IConstruct): any
@@ -4980,13 +4980,13 @@ Sets the RTTI of the construct.  Should be called from a Construct constructor.
 
 Obviously a construct can have many of these, so be thoughtful.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructRunTimeTypeInfo.addRtti.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructRunTimeTypeInfo.addRtti.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `hasRtti` <a name="hasRtti" id="@cdk-orchestration.ConstructRunTimeTypeInfo.hasRtti"></a>
+##### `hasRtti` <a name="hasRtti" id="cdk-orchestration.ConstructRunTimeTypeInfo.hasRtti"></a>
 
 ```typescript
 public hasRtti(scope: IConstruct): boolean
@@ -4996,7 +4996,7 @@ Returns true if the construct has this RTTI set on it.
 
 Used to implement ConstructXXX:isConstructXXX functions.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructRunTimeTypeInfo.hasRtti.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructRunTimeTypeInfo.hasRtti.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -5006,74 +5006,74 @@ Used to implement ConstructXXX:isConstructXXX functions.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.isFactory">isFactory</a></code> | Returns true if a service value is actualy a factory. |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.scopeOf">scopeOf</a></code> | Returns the scope of the property from a ServiceQueryResult. |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.scopesOf">scopesOf</a></code> | Returns the scopes from an array of ServiceQueryResults. |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.serviceOf">serviceOf</a></code> | Returns the value of the property from a ServiceQueryResult. |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.isFactory">isFactory</a></code> | Returns true if a service value is actualy a factory. |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.scopeOf">scopeOf</a></code> | Returns the scope of the property from a ServiceQueryResult. |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.scopesOf">scopesOf</a></code> | Returns the scopes from an array of ServiceQueryResults. |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.serviceOf">serviceOf</a></code> | Returns the value of the property from a ServiceQueryResult. |
 
 ---
 
-##### `isFactory` <a name="isFactory" id="@cdk-orchestration.ConstructRunTimeTypeInfo.isFactory"></a>
+##### `isFactory` <a name="isFactory" id="cdk-orchestration.ConstructRunTimeTypeInfo.isFactory"></a>
 
 ```typescript
-import { ConstructRunTimeTypeInfo } from '@cdk-orchestration'
+import { ConstructRunTimeTypeInfo } from 'cdk-orchestration'
 
 ConstructRunTimeTypeInfo.isFactory(factory: any)
 ```
 
 Returns true if a service value is actualy a factory.
 
-###### `factory`<sup>Required</sup> <a name="factory" id="@cdk-orchestration.ConstructRunTimeTypeInfo.isFactory.parameter.factory"></a>
+###### `factory`<sup>Required</sup> <a name="factory" id="cdk-orchestration.ConstructRunTimeTypeInfo.isFactory.parameter.factory"></a>
 
 - *Type:* any
 
 ---
 
-##### `scopeOf` <a name="scopeOf" id="@cdk-orchestration.ConstructRunTimeTypeInfo.scopeOf"></a>
+##### `scopeOf` <a name="scopeOf" id="cdk-orchestration.ConstructRunTimeTypeInfo.scopeOf"></a>
 
 ```typescript
-import { ConstructRunTimeTypeInfo } from '@cdk-orchestration'
+import { ConstructRunTimeTypeInfo } from 'cdk-orchestration'
 
 ConstructRunTimeTypeInfo.scopeOf(found?: ServiceQueryResult)
 ```
 
 Returns the scope of the property from a ServiceQueryResult.
 
-###### `found`<sup>Optional</sup> <a name="found" id="@cdk-orchestration.ConstructRunTimeTypeInfo.scopeOf.parameter.found"></a>
+###### `found`<sup>Optional</sup> <a name="found" id="cdk-orchestration.ConstructRunTimeTypeInfo.scopeOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
 
 ---
 
-##### `scopesOf` <a name="scopesOf" id="@cdk-orchestration.ConstructRunTimeTypeInfo.scopesOf"></a>
+##### `scopesOf` <a name="scopesOf" id="cdk-orchestration.ConstructRunTimeTypeInfo.scopesOf"></a>
 
 ```typescript
-import { ConstructRunTimeTypeInfo } from '@cdk-orchestration'
+import { ConstructRunTimeTypeInfo } from 'cdk-orchestration'
 
 ConstructRunTimeTypeInfo.scopesOf(found: ServiceQueryResult[])
 ```
 
 Returns the scopes from an array of ServiceQueryResults.
 
-###### `found`<sup>Required</sup> <a name="found" id="@cdk-orchestration.ConstructRunTimeTypeInfo.scopesOf.parameter.found"></a>
+###### `found`<sup>Required</sup> <a name="found" id="cdk-orchestration.ConstructRunTimeTypeInfo.scopesOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>[]
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>[]
 
 ---
 
-##### `serviceOf` <a name="serviceOf" id="@cdk-orchestration.ConstructRunTimeTypeInfo.serviceOf"></a>
+##### `serviceOf` <a name="serviceOf" id="cdk-orchestration.ConstructRunTimeTypeInfo.serviceOf"></a>
 
 ```typescript
-import { ConstructRunTimeTypeInfo } from '@cdk-orchestration'
+import { ConstructRunTimeTypeInfo } from 'cdk-orchestration'
 
 ConstructRunTimeTypeInfo.serviceOf(found?: ServiceQueryResult)
 ```
 
 Returns the value of the property from a ServiceQueryResult.
 
-###### `found`<sup>Optional</sup> <a name="found" id="@cdk-orchestration.ConstructRunTimeTypeInfo.serviceOf.parameter.found"></a>
+###### `found`<sup>Optional</sup> <a name="found" id="cdk-orchestration.ConstructRunTimeTypeInfo.serviceOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
 
 ---
 
@@ -5081,22 +5081,22 @@ Returns the value of the property from a ServiceQueryResult.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructRunTimeTypeInfo.property.props">props</a></code> | <code><a href="#@cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.ConstructRunTimeTypeInfo.property.props">props</a></code> | <code><a href="#cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a></code> | *No description.* |
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.ConstructRunTimeTypeInfo.property.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.ConstructRunTimeTypeInfo.property.props"></a>
 
 ```typescript
 public readonly props: ConstructServiceProps;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a>
 
 ---
 
 
-### ConstructService <a name="ConstructService" id="@cdk-orchestration.ConstructService"></a>
+### ConstructService <a name="ConstructService" id="cdk-orchestration.ConstructService"></a>
 
 Defines a service (symbol-keyed property) that can be stored on a construct.
 
@@ -5105,23 +5105,23 @@ through construct methods, such as Stack.of and Stack.isStack in the CDK.
 
 This class and it's derivatives make it easier to use symbol-keyed properites in the CDK.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.ConstructService.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.ConstructService.Initializer"></a>
 
 ```typescript
-import { ConstructService } from '@cdk-orchestration'
+import { ConstructService } from 'cdk-orchestration'
 
 new ConstructService(props: ConstructServiceProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructService.Initializer.parameter.props">props</a></code> | <code><a href="#@cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.ConstructService.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a></code> | *No description.* |
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.ConstructService.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.ConstructService.Initializer.parameter.props"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a>
 
 ---
 
@@ -5129,18 +5129,18 @@ new ConstructService(props: ConstructServiceProps)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructService.get">get</a></code> | Gets the serviceSymbol property of the Construct. |
-| <code><a href="#@cdk-orchestration.ConstructService.has">has</a></code> | Returns the construct if the construct has the service, otherwise undefined; |
-| <code><a href="#@cdk-orchestration.ConstructService.searchDown">searchDown</a></code> | Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope). |
-| <code><a href="#@cdk-orchestration.ConstructService.searchSelf">searchSelf</a></code> | Returns a ServiceQueryResult if the scope has the service. |
-| <code><a href="#@cdk-orchestration.ConstructService.searchSelfOrCreate">searchSelfOrCreate</a></code> | Returns a ServiceQueryResult if the scope has the service. |
-| <code><a href="#@cdk-orchestration.ConstructService.searchUp">searchUp</a></code> | Check the hierarchy to see if there is an ascendent object of scope that defines the serviceProperty (including scope). |
-| <code><a href="#@cdk-orchestration.ConstructService.set">set</a></code> | Sets the given value on the scope as the serviceProperty property. |
-| <code><a href="#@cdk-orchestration.ConstructService.setFactory">setFactory</a></code> | Sets a construct service factory on a construct. |
+| <code><a href="#cdk-orchestration.ConstructService.get">get</a></code> | Gets the serviceSymbol property of the Construct. |
+| <code><a href="#cdk-orchestration.ConstructService.has">has</a></code> | Returns the construct if the construct has the service, otherwise undefined; |
+| <code><a href="#cdk-orchestration.ConstructService.searchDown">searchDown</a></code> | Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope). |
+| <code><a href="#cdk-orchestration.ConstructService.searchSelf">searchSelf</a></code> | Returns a ServiceQueryResult if the scope has the service. |
+| <code><a href="#cdk-orchestration.ConstructService.searchSelfOrCreate">searchSelfOrCreate</a></code> | Returns a ServiceQueryResult if the scope has the service. |
+| <code><a href="#cdk-orchestration.ConstructService.searchUp">searchUp</a></code> | Check the hierarchy to see if there is an ascendent object of scope that defines the serviceProperty (including scope). |
+| <code><a href="#cdk-orchestration.ConstructService.set">set</a></code> | Sets the given value on the scope as the serviceProperty property. |
+| <code><a href="#cdk-orchestration.ConstructService.setFactory">setFactory</a></code> | Sets a construct service factory on a construct. |
 
 ---
 
-##### `get` <a name="get" id="@cdk-orchestration.ConstructService.get"></a>
+##### `get` <a name="get" id="cdk-orchestration.ConstructService.get"></a>
 
 ```typescript
 public get(scope: IConstruct): any
@@ -5150,13 +5150,13 @@ Gets the serviceSymbol property of the Construct.
 
 Returns undefined if the service is not on the construct.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructService.get.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructService.get.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `has` <a name="has" id="@cdk-orchestration.ConstructService.has"></a>
+##### `has` <a name="has" id="cdk-orchestration.ConstructService.has"></a>
 
 ```typescript
 public has(scope: IConstruct): IConstruct
@@ -5164,13 +5164,13 @@ public has(scope: IConstruct): IConstruct
 
 Returns the construct if the construct has the service, otherwise undefined;
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructService.has.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructService.has.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchDown` <a name="searchDown" id="@cdk-orchestration.ConstructService.searchDown"></a>
+##### `searchDown` <a name="searchDown" id="cdk-orchestration.ConstructService.searchDown"></a>
 
 ```typescript
 public searchDown(scope: IConstruct, stopCondition?: IStopCondition): ServiceQueryResult[]
@@ -5178,19 +5178,19 @@ public searchDown(scope: IConstruct, stopCondition?: IStopCondition): ServiceQue
 
 Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope).
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructService.searchDown.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructService.searchDown.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="@cdk-orchestration.ConstructService.searchDown.parameter.stopCondition"></a>
+###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="cdk-orchestration.ConstructService.searchDown.parameter.stopCondition"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Type:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 ---
 
-##### `searchSelf` <a name="searchSelf" id="@cdk-orchestration.ConstructService.searchSelf"></a>
+##### `searchSelf` <a name="searchSelf" id="cdk-orchestration.ConstructService.searchSelf"></a>
 
 ```typescript
 public searchSelf(scope: IConstruct): ServiceQueryResult
@@ -5198,13 +5198,13 @@ public searchSelf(scope: IConstruct): ServiceQueryResult
 
 Returns a ServiceQueryResult if the scope has the service.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructService.searchSelf.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructService.searchSelf.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchSelfOrCreate` <a name="searchSelfOrCreate" id="@cdk-orchestration.ConstructService.searchSelfOrCreate"></a>
+##### `searchSelfOrCreate` <a name="searchSelfOrCreate" id="cdk-orchestration.ConstructService.searchSelfOrCreate"></a>
 
 ```typescript
 public searchSelfOrCreate(scope: IConstruct): ServiceQueryResult
@@ -5215,13 +5215,13 @@ Returns a ServiceQueryResult if the scope has the service.
 If the scope does not have the service, calls the factory to create the service
 and caches it on the scope.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructService.searchSelfOrCreate.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructService.searchSelfOrCreate.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchUp` <a name="searchUp" id="@cdk-orchestration.ConstructService.searchUp"></a>
+##### `searchUp` <a name="searchUp" id="cdk-orchestration.ConstructService.searchUp"></a>
 
 ```typescript
 public searchUp(scope: IConstruct, stopCondition?: IStopCondition): ServiceQueryResult
@@ -5231,19 +5231,19 @@ Check the hierarchy to see if there is an ascendent object of scope that defines
 
 Uses stopCondition to decide where to stop the searchUp.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructService.searchUp.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructService.searchUp.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="@cdk-orchestration.ConstructService.searchUp.parameter.stopCondition"></a>
+###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="cdk-orchestration.ConstructService.searchUp.parameter.stopCondition"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Type:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 ---
 
-##### `set` <a name="set" id="@cdk-orchestration.ConstructService.set"></a>
+##### `set` <a name="set" id="cdk-orchestration.ConstructService.set"></a>
 
 ```typescript
 public set(scope: IConstruct, service: any): any
@@ -5251,19 +5251,19 @@ public set(scope: IConstruct, service: any): any
 
 Sets the given value on the scope as the serviceProperty property.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructService.set.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructService.set.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `service`<sup>Required</sup> <a name="service" id="@cdk-orchestration.ConstructService.set.parameter.service"></a>
+###### `service`<sup>Required</sup> <a name="service" id="cdk-orchestration.ConstructService.set.parameter.service"></a>
 
 - *Type:* any
 
 ---
 
-##### `setFactory` <a name="setFactory" id="@cdk-orchestration.ConstructService.setFactory"></a>
+##### `setFactory` <a name="setFactory" id="cdk-orchestration.ConstructService.setFactory"></a>
 
 ```typescript
 public setFactory(scope: IConstruct, factory: IConstructServiceFactory): any
@@ -5274,15 +5274,15 @@ Sets a construct service factory on a construct.
 Use case: Set a factory for AWSCredentials on the app.  When a stack needs to make an AWS call, it gets credentials from the
 factory.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructService.setFactory.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructService.setFactory.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `factory`<sup>Required</sup> <a name="factory" id="@cdk-orchestration.ConstructService.setFactory.parameter.factory"></a>
+###### `factory`<sup>Required</sup> <a name="factory" id="cdk-orchestration.ConstructService.setFactory.parameter.factory"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
+- *Type:* <a href="#cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
 
 ---
 
@@ -5290,74 +5290,74 @@ factory.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructService.isFactory">isFactory</a></code> | Returns true if a service value is actualy a factory. |
-| <code><a href="#@cdk-orchestration.ConstructService.scopeOf">scopeOf</a></code> | Returns the scope of the property from a ServiceQueryResult. |
-| <code><a href="#@cdk-orchestration.ConstructService.scopesOf">scopesOf</a></code> | Returns the scopes from an array of ServiceQueryResults. |
-| <code><a href="#@cdk-orchestration.ConstructService.serviceOf">serviceOf</a></code> | Returns the value of the property from a ServiceQueryResult. |
+| <code><a href="#cdk-orchestration.ConstructService.isFactory">isFactory</a></code> | Returns true if a service value is actualy a factory. |
+| <code><a href="#cdk-orchestration.ConstructService.scopeOf">scopeOf</a></code> | Returns the scope of the property from a ServiceQueryResult. |
+| <code><a href="#cdk-orchestration.ConstructService.scopesOf">scopesOf</a></code> | Returns the scopes from an array of ServiceQueryResults. |
+| <code><a href="#cdk-orchestration.ConstructService.serviceOf">serviceOf</a></code> | Returns the value of the property from a ServiceQueryResult. |
 
 ---
 
-##### `isFactory` <a name="isFactory" id="@cdk-orchestration.ConstructService.isFactory"></a>
+##### `isFactory` <a name="isFactory" id="cdk-orchestration.ConstructService.isFactory"></a>
 
 ```typescript
-import { ConstructService } from '@cdk-orchestration'
+import { ConstructService } from 'cdk-orchestration'
 
 ConstructService.isFactory(factory: any)
 ```
 
 Returns true if a service value is actualy a factory.
 
-###### `factory`<sup>Required</sup> <a name="factory" id="@cdk-orchestration.ConstructService.isFactory.parameter.factory"></a>
+###### `factory`<sup>Required</sup> <a name="factory" id="cdk-orchestration.ConstructService.isFactory.parameter.factory"></a>
 
 - *Type:* any
 
 ---
 
-##### `scopeOf` <a name="scopeOf" id="@cdk-orchestration.ConstructService.scopeOf"></a>
+##### `scopeOf` <a name="scopeOf" id="cdk-orchestration.ConstructService.scopeOf"></a>
 
 ```typescript
-import { ConstructService } from '@cdk-orchestration'
+import { ConstructService } from 'cdk-orchestration'
 
 ConstructService.scopeOf(found?: ServiceQueryResult)
 ```
 
 Returns the scope of the property from a ServiceQueryResult.
 
-###### `found`<sup>Optional</sup> <a name="found" id="@cdk-orchestration.ConstructService.scopeOf.parameter.found"></a>
+###### `found`<sup>Optional</sup> <a name="found" id="cdk-orchestration.ConstructService.scopeOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
 
 ---
 
-##### `scopesOf` <a name="scopesOf" id="@cdk-orchestration.ConstructService.scopesOf"></a>
+##### `scopesOf` <a name="scopesOf" id="cdk-orchestration.ConstructService.scopesOf"></a>
 
 ```typescript
-import { ConstructService } from '@cdk-orchestration'
+import { ConstructService } from 'cdk-orchestration'
 
 ConstructService.scopesOf(found: ServiceQueryResult[])
 ```
 
 Returns the scopes from an array of ServiceQueryResults.
 
-###### `found`<sup>Required</sup> <a name="found" id="@cdk-orchestration.ConstructService.scopesOf.parameter.found"></a>
+###### `found`<sup>Required</sup> <a name="found" id="cdk-orchestration.ConstructService.scopesOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>[]
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>[]
 
 ---
 
-##### `serviceOf` <a name="serviceOf" id="@cdk-orchestration.ConstructService.serviceOf"></a>
+##### `serviceOf` <a name="serviceOf" id="cdk-orchestration.ConstructService.serviceOf"></a>
 
 ```typescript
-import { ConstructService } from '@cdk-orchestration'
+import { ConstructService } from 'cdk-orchestration'
 
 ConstructService.serviceOf(found?: ServiceQueryResult)
 ```
 
 Returns the value of the property from a ServiceQueryResult.
 
-###### `found`<sup>Optional</sup> <a name="found" id="@cdk-orchestration.ConstructService.serviceOf.parameter.found"></a>
+###### `found`<sup>Optional</sup> <a name="found" id="cdk-orchestration.ConstructService.serviceOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
 
 ---
 
@@ -5365,22 +5365,22 @@ Returns the value of the property from a ServiceQueryResult.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructService.property.props">props</a></code> | <code><a href="#@cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.ConstructService.property.props">props</a></code> | <code><a href="#cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a></code> | *No description.* |
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.ConstructService.property.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.ConstructService.property.props"></a>
 
 ```typescript
 public readonly props: ConstructServiceProps;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a>
 
 ---
 
 
-### ConstructTreeSearch <a name="ConstructTreeSearch" id="@cdk-orchestration.ConstructTreeSearch"></a>
+### ConstructTreeSearch <a name="ConstructTreeSearch" id="cdk-orchestration.ConstructTreeSearch"></a>
 
 Searches the construct tree based on predicate and stopConditions.
 
@@ -5390,23 +5390,23 @@ and {@link searchUp}.
 QueryResult should either be, or contain (as a property), the construct itself,
 so you know which construct to associate with the query result.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.ConstructTreeSearch.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.ConstructTreeSearch.Initializer"></a>
 
 ```typescript
-import { ConstructTreeSearch } from '@cdk-orchestration'
+import { ConstructTreeSearch } from 'cdk-orchestration'
 
 new ConstructTreeSearch(predicate: IConstructPredicate)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructTreeSearch.Initializer.parameter.predicate">predicate</a></code> | <code><a href="#@cdk-orchestration.IConstructPredicate">IConstructPredicate</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.ConstructTreeSearch.Initializer.parameter.predicate">predicate</a></code> | <code><a href="#cdk-orchestration.IConstructPredicate">IConstructPredicate</a></code> | *No description.* |
 
 ---
 
-##### `predicate`<sup>Required</sup> <a name="predicate" id="@cdk-orchestration.ConstructTreeSearch.Initializer.parameter.predicate"></a>
+##### `predicate`<sup>Required</sup> <a name="predicate" id="cdk-orchestration.ConstructTreeSearch.Initializer.parameter.predicate"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IConstructPredicate">IConstructPredicate</a>
+- *Type:* <a href="#cdk-orchestration.IConstructPredicate">IConstructPredicate</a>
 
 ---
 
@@ -5414,13 +5414,13 @@ new ConstructTreeSearch(predicate: IConstructPredicate)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructTreeSearch.searchDown">searchDown</a></code> | Returns array of results based on predicate, searching the sub-tree starting at scope. |
-| <code><a href="#@cdk-orchestration.ConstructTreeSearch.searchSelf">searchSelf</a></code> | Returns T or undefined for the scope, based on predicate. |
-| <code><a href="#@cdk-orchestration.ConstructTreeSearch.searchUp">searchUp</a></code> | Check the hierarchy to see if there is an ascendent object of scope that defines the serviceProperty. |
+| <code><a href="#cdk-orchestration.ConstructTreeSearch.searchDown">searchDown</a></code> | Returns array of results based on predicate, searching the sub-tree starting at scope. |
+| <code><a href="#cdk-orchestration.ConstructTreeSearch.searchSelf">searchSelf</a></code> | Returns T or undefined for the scope, based on predicate. |
+| <code><a href="#cdk-orchestration.ConstructTreeSearch.searchUp">searchUp</a></code> | Check the hierarchy to see if there is an ascendent object of scope that defines the serviceProperty. |
 
 ---
 
-##### `searchDown` <a name="searchDown" id="@cdk-orchestration.ConstructTreeSearch.searchDown"></a>
+##### `searchDown` <a name="searchDown" id="cdk-orchestration.ConstructTreeSearch.searchDown"></a>
 
 ```typescript
 public searchDown(scope: IConstruct, stopCondition?: IStopCondition, into?: IConstruct[]): IConstruct[]
@@ -5428,7 +5428,7 @@ public searchDown(scope: IConstruct, stopCondition?: IStopCondition, into?: ICon
 
 Returns array of results based on predicate, searching the sub-tree starting at scope.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructTreeSearch.searchDown.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructTreeSearch.searchDown.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -5436,15 +5436,15 @@ Start for search.
 
 ---
 
-###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="@cdk-orchestration.ConstructTreeSearch.searchDown.parameter.stopCondition"></a>
+###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="cdk-orchestration.ConstructTreeSearch.searchDown.parameter.stopCondition"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Type:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 End for search (such as sub stack).
 
 ---
 
-###### `into`<sup>Optional</sup> <a name="into" id="@cdk-orchestration.ConstructTreeSearch.searchDown.parameter.into"></a>
+###### `into`<sup>Optional</sup> <a name="into" id="cdk-orchestration.ConstructTreeSearch.searchDown.parameter.into"></a>
 
 - *Type:* constructs.IConstruct[]
 
@@ -5454,7 +5454,7 @@ Same as return value.
 
 ---
 
-##### `searchSelf` <a name="searchSelf" id="@cdk-orchestration.ConstructTreeSearch.searchSelf"></a>
+##### `searchSelf` <a name="searchSelf" id="cdk-orchestration.ConstructTreeSearch.searchSelf"></a>
 
 ```typescript
 public searchSelf(scope: IConstruct): IConstruct
@@ -5462,13 +5462,13 @@ public searchSelf(scope: IConstruct): IConstruct
 
 Returns T or undefined for the scope, based on predicate.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructTreeSearch.searchSelf.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructTreeSearch.searchSelf.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchUp` <a name="searchUp" id="@cdk-orchestration.ConstructTreeSearch.searchUp"></a>
+##### `searchUp` <a name="searchUp" id="cdk-orchestration.ConstructTreeSearch.searchUp"></a>
 
 ```typescript
 public searchUp(scope: IConstruct, stopCondition?: IStopCondition): IConstruct
@@ -5478,15 +5478,15 @@ Check the hierarchy to see if there is an ascendent object of scope that defines
 
 Uses stopCondition to decide where to stop the searchUp, defaults to root.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructTreeSearch.searchUp.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructTreeSearch.searchUp.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="@cdk-orchestration.ConstructTreeSearch.searchUp.parameter.stopCondition"></a>
+###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="cdk-orchestration.ConstructTreeSearch.searchUp.parameter.stopCondition"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Type:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 ---
 
@@ -5494,23 +5494,23 @@ Uses stopCondition to decide where to stop the searchUp, defaults to root.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructTreeSearch.for">for</a></code> | Helper for finding constructs using ConstructTreeSearch with XXX.isXXX functions (such as Stack.isStack and CfnElement.isCfnElement).  Returns a construct predicate that itself returns only the construct, as opposed to ConstructService which returns both the construct and the service. |
+| <code><a href="#cdk-orchestration.ConstructTreeSearch.for">for</a></code> | Helper for finding constructs using ConstructTreeSearch with XXX.isXXX functions (such as Stack.isStack and CfnElement.isCfnElement).  Returns a construct predicate that itself returns only the construct, as opposed to ConstructService which returns both the construct and the service. |
 
 ---
 
-##### `for` <a name="for" id="@cdk-orchestration.ConstructTreeSearch.for"></a>
+##### `for` <a name="for" id="cdk-orchestration.ConstructTreeSearch.for"></a>
 
 ```typescript
-import { ConstructTreeSearch } from '@cdk-orchestration'
+import { ConstructTreeSearch } from 'cdk-orchestration'
 
 ConstructTreeSearch.for(test: IConstuctTest)
 ```
 
 Helper for finding constructs using ConstructTreeSearch with XXX.isXXX functions (such as Stack.isStack and CfnElement.isCfnElement).  Returns a construct predicate that itself returns only the construct, as opposed to ConstructService which returns both the construct and the service.
 
-###### `test`<sup>Required</sup> <a name="test" id="@cdk-orchestration.ConstructTreeSearch.for.parameter.test"></a>
+###### `test`<sup>Required</sup> <a name="test" id="cdk-orchestration.ConstructTreeSearch.for.parameter.test"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IConstuctTest">IConstuctTest</a>
+- *Type:* <a href="#cdk-orchestration.IConstuctTest">IConstuctTest</a>
 
 Test to use when finding constructs.
 
@@ -5520,45 +5520,45 @@ Test to use when finding constructs.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructTreeSearch.property.predicate">predicate</a></code> | <code><a href="#@cdk-orchestration.IConstructPredicate">IConstructPredicate</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.ConstructTreeSearch.property.predicate">predicate</a></code> | <code><a href="#cdk-orchestration.IConstructPredicate">IConstructPredicate</a></code> | *No description.* |
 
 ---
 
-##### `predicate`<sup>Required</sup> <a name="predicate" id="@cdk-orchestration.ConstructTreeSearch.property.predicate"></a>
+##### `predicate`<sup>Required</sup> <a name="predicate" id="cdk-orchestration.ConstructTreeSearch.property.predicate"></a>
 
 ```typescript
 public readonly predicate: IConstructPredicate;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.IConstructPredicate">IConstructPredicate</a>
+- *Type:* <a href="#cdk-orchestration.IConstructPredicate">IConstructPredicate</a>
 
 ---
 
 
-### ConstructTreeService <a name="ConstructTreeService" id="@cdk-orchestration.ConstructTreeService"></a>
+### ConstructTreeService <a name="ConstructTreeService" id="cdk-orchestration.ConstructTreeService"></a>
 
 An IOC service stored in the construct tree with heirarchical lookup.
 
 If the service is not found on a consturct, it is looked for up the tree and then is cached on
 the construct.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.ConstructTreeService.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.ConstructTreeService.Initializer"></a>
 
 ```typescript
-import { ConstructTreeService } from '@cdk-orchestration'
+import { ConstructTreeService } from 'cdk-orchestration'
 
 new ConstructTreeService(treeServiceProps: ConstructTreeServiceProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.Initializer.parameter.treeServiceProps">treeServiceProps</a></code> | <code><a href="#@cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.ConstructTreeService.Initializer.parameter.treeServiceProps">treeServiceProps</a></code> | <code><a href="#cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a></code> | *No description.* |
 
 ---
 
-##### `treeServiceProps`<sup>Required</sup> <a name="treeServiceProps" id="@cdk-orchestration.ConstructTreeService.Initializer.parameter.treeServiceProps"></a>
+##### `treeServiceProps`<sup>Required</sup> <a name="treeServiceProps" id="cdk-orchestration.ConstructTreeService.Initializer.parameter.treeServiceProps"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a>
 
 ---
 
@@ -5566,20 +5566,20 @@ new ConstructTreeService(treeServiceProps: ConstructTreeServiceProps)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.get">get</a></code> | Gets the serviceSymbol property of the Construct. |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.has">has</a></code> | Returns the construct if the construct has the service, otherwise undefined; |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.searchDown">searchDown</a></code> | Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope). |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.searchSelf">searchSelf</a></code> | Returns a ServiceQueryResult if the scope has the service. |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.searchSelfOrCreate">searchSelfOrCreate</a></code> | Returns a ServiceQueryResult if the scope has the service. |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.searchUp">searchUp</a></code> | Check the hierarchy to see if there is an ascendent object of scope that defines the serviceProperty (including scope). |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.set">set</a></code> | Sets the given value on the scope as the serviceProperty property. |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.setFactory">setFactory</a></code> | Sets a construct service factory on a construct. |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.of">of</a></code> | Returns the cached service on an object, or creates one if none is available up the hierarchy. |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.searchUpOrCreate">searchUpOrCreate</a></code> | Searches towards the root for a value. |
+| <code><a href="#cdk-orchestration.ConstructTreeService.get">get</a></code> | Gets the serviceSymbol property of the Construct. |
+| <code><a href="#cdk-orchestration.ConstructTreeService.has">has</a></code> | Returns the construct if the construct has the service, otherwise undefined; |
+| <code><a href="#cdk-orchestration.ConstructTreeService.searchDown">searchDown</a></code> | Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope). |
+| <code><a href="#cdk-orchestration.ConstructTreeService.searchSelf">searchSelf</a></code> | Returns a ServiceQueryResult if the scope has the service. |
+| <code><a href="#cdk-orchestration.ConstructTreeService.searchSelfOrCreate">searchSelfOrCreate</a></code> | Returns a ServiceQueryResult if the scope has the service. |
+| <code><a href="#cdk-orchestration.ConstructTreeService.searchUp">searchUp</a></code> | Check the hierarchy to see if there is an ascendent object of scope that defines the serviceProperty (including scope). |
+| <code><a href="#cdk-orchestration.ConstructTreeService.set">set</a></code> | Sets the given value on the scope as the serviceProperty property. |
+| <code><a href="#cdk-orchestration.ConstructTreeService.setFactory">setFactory</a></code> | Sets a construct service factory on a construct. |
+| <code><a href="#cdk-orchestration.ConstructTreeService.of">of</a></code> | Returns the cached service on an object, or creates one if none is available up the hierarchy. |
+| <code><a href="#cdk-orchestration.ConstructTreeService.searchUpOrCreate">searchUpOrCreate</a></code> | Searches towards the root for a value. |
 
 ---
 
-##### `get` <a name="get" id="@cdk-orchestration.ConstructTreeService.get"></a>
+##### `get` <a name="get" id="cdk-orchestration.ConstructTreeService.get"></a>
 
 ```typescript
 public get(scope: IConstruct): any
@@ -5589,13 +5589,13 @@ Gets the serviceSymbol property of the Construct.
 
 Returns undefined if the service is not on the construct.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructTreeService.get.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructTreeService.get.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `has` <a name="has" id="@cdk-orchestration.ConstructTreeService.has"></a>
+##### `has` <a name="has" id="cdk-orchestration.ConstructTreeService.has"></a>
 
 ```typescript
 public has(scope: IConstruct): IConstruct
@@ -5603,13 +5603,13 @@ public has(scope: IConstruct): IConstruct
 
 Returns the construct if the construct has the service, otherwise undefined;
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructTreeService.has.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructTreeService.has.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchDown` <a name="searchDown" id="@cdk-orchestration.ConstructTreeService.searchDown"></a>
+##### `searchDown` <a name="searchDown" id="cdk-orchestration.ConstructTreeService.searchDown"></a>
 
 ```typescript
 public searchDown(scope: IConstruct, stopCondition?: IStopCondition): ServiceQueryResult[]
@@ -5617,19 +5617,19 @@ public searchDown(scope: IConstruct, stopCondition?: IStopCondition): ServiceQue
 
 Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope).
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructTreeService.searchDown.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructTreeService.searchDown.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="@cdk-orchestration.ConstructTreeService.searchDown.parameter.stopCondition"></a>
+###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="cdk-orchestration.ConstructTreeService.searchDown.parameter.stopCondition"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Type:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 ---
 
-##### `searchSelf` <a name="searchSelf" id="@cdk-orchestration.ConstructTreeService.searchSelf"></a>
+##### `searchSelf` <a name="searchSelf" id="cdk-orchestration.ConstructTreeService.searchSelf"></a>
 
 ```typescript
 public searchSelf(scope: IConstruct): ServiceQueryResult
@@ -5637,13 +5637,13 @@ public searchSelf(scope: IConstruct): ServiceQueryResult
 
 Returns a ServiceQueryResult if the scope has the service.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructTreeService.searchSelf.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructTreeService.searchSelf.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchSelfOrCreate` <a name="searchSelfOrCreate" id="@cdk-orchestration.ConstructTreeService.searchSelfOrCreate"></a>
+##### `searchSelfOrCreate` <a name="searchSelfOrCreate" id="cdk-orchestration.ConstructTreeService.searchSelfOrCreate"></a>
 
 ```typescript
 public searchSelfOrCreate(scope: IConstruct): ServiceQueryResult
@@ -5654,13 +5654,13 @@ Returns a ServiceQueryResult if the scope has the service.
 If the scope does not have the service, calls the factory to create the service
 and caches it on the scope.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructTreeService.searchSelfOrCreate.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructTreeService.searchSelfOrCreate.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchUp` <a name="searchUp" id="@cdk-orchestration.ConstructTreeService.searchUp"></a>
+##### `searchUp` <a name="searchUp" id="cdk-orchestration.ConstructTreeService.searchUp"></a>
 
 ```typescript
 public searchUp(scope: IConstruct, stopCondition?: IStopCondition): ServiceQueryResult
@@ -5670,19 +5670,19 @@ Check the hierarchy to see if there is an ascendent object of scope that defines
 
 Uses stopCondition to decide where to stop the searchUp.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructTreeService.searchUp.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructTreeService.searchUp.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="@cdk-orchestration.ConstructTreeService.searchUp.parameter.stopCondition"></a>
+###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="cdk-orchestration.ConstructTreeService.searchUp.parameter.stopCondition"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Type:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 ---
 
-##### `set` <a name="set" id="@cdk-orchestration.ConstructTreeService.set"></a>
+##### `set` <a name="set" id="cdk-orchestration.ConstructTreeService.set"></a>
 
 ```typescript
 public set(scope: IConstruct, service: any): any
@@ -5690,19 +5690,19 @@ public set(scope: IConstruct, service: any): any
 
 Sets the given value on the scope as the serviceProperty property.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructTreeService.set.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructTreeService.set.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `service`<sup>Required</sup> <a name="service" id="@cdk-orchestration.ConstructTreeService.set.parameter.service"></a>
+###### `service`<sup>Required</sup> <a name="service" id="cdk-orchestration.ConstructTreeService.set.parameter.service"></a>
 
 - *Type:* any
 
 ---
 
-##### `setFactory` <a name="setFactory" id="@cdk-orchestration.ConstructTreeService.setFactory"></a>
+##### `setFactory` <a name="setFactory" id="cdk-orchestration.ConstructTreeService.setFactory"></a>
 
 ```typescript
 public setFactory(scope: IConstruct, factory: IConstructServiceFactory): any
@@ -5713,19 +5713,19 @@ Sets a construct service factory on a construct.
 Use case: Set a factory for AWSCredentials on the app.  When a stack needs to make an AWS call, it gets credentials from the
 factory.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructTreeService.setFactory.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructTreeService.setFactory.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `factory`<sup>Required</sup> <a name="factory" id="@cdk-orchestration.ConstructTreeService.setFactory.parameter.factory"></a>
+###### `factory`<sup>Required</sup> <a name="factory" id="cdk-orchestration.ConstructTreeService.setFactory.parameter.factory"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
+- *Type:* <a href="#cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
 
 ---
 
-##### `of` <a name="of" id="@cdk-orchestration.ConstructTreeService.of"></a>
+##### `of` <a name="of" id="cdk-orchestration.ConstructTreeService.of"></a>
 
 ```typescript
 public of(scope: IConstruct): any
@@ -5733,13 +5733,13 @@ public of(scope: IConstruct): any
 
 Returns the cached service on an object, or creates one if none is available up the hierarchy.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructTreeService.of.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructTreeService.of.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchUpOrCreate` <a name="searchUpOrCreate" id="@cdk-orchestration.ConstructTreeService.searchUpOrCreate"></a>
+##### `searchUpOrCreate` <a name="searchUpOrCreate" id="cdk-orchestration.ConstructTreeService.searchUpOrCreate"></a>
 
 ```typescript
 public searchUpOrCreate(scope: IConstruct): ServiceQueryResult
@@ -5752,7 +5752,7 @@ cache the value on the scope (to speed up future gets) and
 return the pair.  If not, call the factory to create a value and
 cache it on the scope.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ConstructTreeService.searchUpOrCreate.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ConstructTreeService.searchUpOrCreate.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -5762,74 +5762,74 @@ cache it on the scope.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.isFactory">isFactory</a></code> | Returns true if a service value is actualy a factory. |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.scopeOf">scopeOf</a></code> | Returns the scope of the property from a ServiceQueryResult. |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.scopesOf">scopesOf</a></code> | Returns the scopes from an array of ServiceQueryResults. |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.serviceOf">serviceOf</a></code> | Returns the value of the property from a ServiceQueryResult. |
+| <code><a href="#cdk-orchestration.ConstructTreeService.isFactory">isFactory</a></code> | Returns true if a service value is actualy a factory. |
+| <code><a href="#cdk-orchestration.ConstructTreeService.scopeOf">scopeOf</a></code> | Returns the scope of the property from a ServiceQueryResult. |
+| <code><a href="#cdk-orchestration.ConstructTreeService.scopesOf">scopesOf</a></code> | Returns the scopes from an array of ServiceQueryResults. |
+| <code><a href="#cdk-orchestration.ConstructTreeService.serviceOf">serviceOf</a></code> | Returns the value of the property from a ServiceQueryResult. |
 
 ---
 
-##### `isFactory` <a name="isFactory" id="@cdk-orchestration.ConstructTreeService.isFactory"></a>
+##### `isFactory` <a name="isFactory" id="cdk-orchestration.ConstructTreeService.isFactory"></a>
 
 ```typescript
-import { ConstructTreeService } from '@cdk-orchestration'
+import { ConstructTreeService } from 'cdk-orchestration'
 
 ConstructTreeService.isFactory(factory: any)
 ```
 
 Returns true if a service value is actualy a factory.
 
-###### `factory`<sup>Required</sup> <a name="factory" id="@cdk-orchestration.ConstructTreeService.isFactory.parameter.factory"></a>
+###### `factory`<sup>Required</sup> <a name="factory" id="cdk-orchestration.ConstructTreeService.isFactory.parameter.factory"></a>
 
 - *Type:* any
 
 ---
 
-##### `scopeOf` <a name="scopeOf" id="@cdk-orchestration.ConstructTreeService.scopeOf"></a>
+##### `scopeOf` <a name="scopeOf" id="cdk-orchestration.ConstructTreeService.scopeOf"></a>
 
 ```typescript
-import { ConstructTreeService } from '@cdk-orchestration'
+import { ConstructTreeService } from 'cdk-orchestration'
 
 ConstructTreeService.scopeOf(found?: ServiceQueryResult)
 ```
 
 Returns the scope of the property from a ServiceQueryResult.
 
-###### `found`<sup>Optional</sup> <a name="found" id="@cdk-orchestration.ConstructTreeService.scopeOf.parameter.found"></a>
+###### `found`<sup>Optional</sup> <a name="found" id="cdk-orchestration.ConstructTreeService.scopeOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
 
 ---
 
-##### `scopesOf` <a name="scopesOf" id="@cdk-orchestration.ConstructTreeService.scopesOf"></a>
+##### `scopesOf` <a name="scopesOf" id="cdk-orchestration.ConstructTreeService.scopesOf"></a>
 
 ```typescript
-import { ConstructTreeService } from '@cdk-orchestration'
+import { ConstructTreeService } from 'cdk-orchestration'
 
 ConstructTreeService.scopesOf(found: ServiceQueryResult[])
 ```
 
 Returns the scopes from an array of ServiceQueryResults.
 
-###### `found`<sup>Required</sup> <a name="found" id="@cdk-orchestration.ConstructTreeService.scopesOf.parameter.found"></a>
+###### `found`<sup>Required</sup> <a name="found" id="cdk-orchestration.ConstructTreeService.scopesOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>[]
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>[]
 
 ---
 
-##### `serviceOf` <a name="serviceOf" id="@cdk-orchestration.ConstructTreeService.serviceOf"></a>
+##### `serviceOf` <a name="serviceOf" id="cdk-orchestration.ConstructTreeService.serviceOf"></a>
 
 ```typescript
-import { ConstructTreeService } from '@cdk-orchestration'
+import { ConstructTreeService } from 'cdk-orchestration'
 
 ConstructTreeService.serviceOf(found?: ServiceQueryResult)
 ```
 
 Returns the value of the property from a ServiceQueryResult.
 
-###### `found`<sup>Optional</sup> <a name="found" id="@cdk-orchestration.ConstructTreeService.serviceOf.parameter.found"></a>
+###### `found`<sup>Optional</sup> <a name="found" id="cdk-orchestration.ConstructTreeService.serviceOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
 
 ---
 
@@ -5837,40 +5837,40 @@ Returns the value of the property from a ServiceQueryResult.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.property.props">props</a></code> | <code><a href="#@cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.ConstructTreeService.property.treeServiceProps">treeServiceProps</a></code> | <code><a href="#@cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.ConstructTreeService.property.props">props</a></code> | <code><a href="#cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.ConstructTreeService.property.treeServiceProps">treeServiceProps</a></code> | <code><a href="#cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a></code> | *No description.* |
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.ConstructTreeService.property.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.ConstructTreeService.property.props"></a>
 
 ```typescript
 public readonly props: ConstructServiceProps;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a>
 
 ---
 
-##### `treeServiceProps`<sup>Required</sup> <a name="treeServiceProps" id="@cdk-orchestration.ConstructTreeService.property.treeServiceProps"></a>
+##### `treeServiceProps`<sup>Required</sup> <a name="treeServiceProps" id="cdk-orchestration.ConstructTreeService.property.treeServiceProps"></a>
 
 ```typescript
 public readonly treeServiceProps: ConstructTreeServiceProps;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a>
 
 ---
 
 
-### CustomResourceUtilities <a name="CustomResourceUtilities" id="@cdk-orchestration.custom_resources.CustomResourceUtilities"></a>
+### CustomResourceUtilities <a name="CustomResourceUtilities" id="cdk-orchestration.custom_resources.CustomResourceUtilities"></a>
 
 Utilities for creating custom resources.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.custom_resources.CustomResourceUtilities.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.custom_resources.CustomResourceUtilities.Initializer"></a>
 
 ```typescript
-import { custom_resources } from '@cdk-orchestration'
+import { custom_resources } from 'cdk-orchestration'
 
 new custom_resources.CustomResourceUtilities()
 ```
@@ -5884,12 +5884,12 @@ new custom_resources.CustomResourceUtilities()
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource">findCustomResource</a></code> | Returns the CfnResource that produces the custom resource. |
-| <code><a href="#@cdk-orchestration.custom_resources.CustomResourceUtilities.runResourceAlways">runResourceAlways</a></code> | Always run a custom resource. |
+| <code><a href="#cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource">findCustomResource</a></code> | Returns the CfnResource that produces the custom resource. |
+| <code><a href="#cdk-orchestration.custom_resources.CustomResourceUtilities.runResourceAlways">runResourceAlways</a></code> | Always run a custom resource. |
 
 ---
 
-##### `findCustomResource` <a name="findCustomResource" id="@cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource"></a>
+##### `findCustomResource` <a name="findCustomResource" id="cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource"></a>
 
 ```typescript
 public findCustomResource(target: Construct): CfnResource
@@ -5900,13 +5900,13 @@ Returns the CfnResource that produces the custom resource.
 This function throws
 if there are none (or more than one).
 
-###### `target`<sup>Required</sup> <a name="target" id="@cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource.parameter.target"></a>
+###### `target`<sup>Required</sup> <a name="target" id="cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource.parameter.target"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `runResourceAlways` <a name="runResourceAlways" id="@cdk-orchestration.custom_resources.CustomResourceUtilities.runResourceAlways"></a>
+##### `runResourceAlways` <a name="runResourceAlways" id="cdk-orchestration.custom_resources.CustomResourceUtilities.runResourceAlways"></a>
 
 ```typescript
 public runResourceAlways(target: Construct): void
@@ -5916,7 +5916,7 @@ Always run a custom resource.
 
 Throws if it cannot find one custom resource under target.
 
-###### `target`<sup>Required</sup> <a name="target" id="@cdk-orchestration.custom_resources.CustomResourceUtilities.runResourceAlways.parameter.target"></a>
+###### `target`<sup>Required</sup> <a name="target" id="cdk-orchestration.custom_resources.CustomResourceUtilities.runResourceAlways.parameter.target"></a>
 
 - *Type:* constructs.Construct
 
@@ -5928,19 +5928,19 @@ CustomResource, AwsCustomResource or similar.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.custom_resources.CustomResourceUtilities.isCustomResource">isCustomResource</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.custom_resources.CustomResourceUtilities.isCustomResource">isCustomResource</a></code> | *No description.* |
 
 ---
 
-##### `isCustomResource` <a name="isCustomResource" id="@cdk-orchestration.custom_resources.CustomResourceUtilities.isCustomResource"></a>
+##### `isCustomResource` <a name="isCustomResource" id="cdk-orchestration.custom_resources.CustomResourceUtilities.isCustomResource"></a>
 
 ```typescript
-import { custom_resources } from '@cdk-orchestration'
+import { custom_resources } from 'cdk-orchestration'
 
 custom_resources.CustomResourceUtilities.isCustomResource(elt: Construct)
 ```
 
-###### `elt`<sup>Required</sup> <a name="elt" id="@cdk-orchestration.custom_resources.CustomResourceUtilities.isCustomResource.parameter.elt"></a>
+###### `elt`<sup>Required</sup> <a name="elt" id="cdk-orchestration.custom_resources.CustomResourceUtilities.isCustomResource.parameter.elt"></a>
 
 - *Type:* constructs.Construct
 
@@ -5948,28 +5948,28 @@ custom_resources.CustomResourceUtilities.isCustomResource(elt: Construct)
 
 
 
-### Log <a name="Log" id="@cdk-orchestration.Log"></a>
+### Log <a name="Log" id="cdk-orchestration.Log"></a>
 
 Scoped logging.
 
 Allows users to turn logging on and off for individual constructs or whole sub-trees
 of the construct tree.  LoggingAspect will set the LogLevel of
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.Log.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.Log.Initializer"></a>
 
 ```typescript
-import { Log } from '@cdk-orchestration'
+import { Log } from 'cdk-orchestration'
 
 new Log(scope: Construct)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.Log.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.Log.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.Log.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.Log.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
@@ -5979,14 +5979,14 @@ new Log(scope: Construct)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.Log.debug">debug</a></code> | {@link Logger} will log this via {@link console.debug}. |
-| <code><a href="#@cdk-orchestration.Log.error">error</a></code> | {@link Logger} will log this via {@link console.error}. |
-| <code><a href="#@cdk-orchestration.Log.info">info</a></code> | {@link Logger} will log this via {@link console.info}. |
-| <code><a href="#@cdk-orchestration.Log.warn">warn</a></code> | {@link Logger} will log this via {@link console.warn}. |
+| <code><a href="#cdk-orchestration.Log.debug">debug</a></code> | {@link Logger} will log this via {@link console.debug}. |
+| <code><a href="#cdk-orchestration.Log.error">error</a></code> | {@link Logger} will log this via {@link console.error}. |
+| <code><a href="#cdk-orchestration.Log.info">info</a></code> | {@link Logger} will log this via {@link console.info}. |
+| <code><a href="#cdk-orchestration.Log.warn">warn</a></code> | {@link Logger} will log this via {@link console.warn}. |
 
 ---
 
-##### `debug` <a name="debug" id="@cdk-orchestration.Log.debug"></a>
+##### `debug` <a name="debug" id="cdk-orchestration.Log.debug"></a>
 
 ```typescript
 public debug(msg: string | IStringProvider): void
@@ -5994,13 +5994,13 @@ public debug(msg: string | IStringProvider): void
 
 {@link Logger} will log this via {@link console.debug}.
 
-###### `msg`<sup>Required</sup> <a name="msg" id="@cdk-orchestration.Log.debug.parameter.msg"></a>
+###### `msg`<sup>Required</sup> <a name="msg" id="cdk-orchestration.Log.debug.parameter.msg"></a>
 
-- *Type:* string | <a href="#@cdk-orchestration.IStringProvider">IStringProvider</a>
+- *Type:* string | <a href="#cdk-orchestration.IStringProvider">IStringProvider</a>
 
 ---
 
-##### `error` <a name="error" id="@cdk-orchestration.Log.error"></a>
+##### `error` <a name="error" id="cdk-orchestration.Log.error"></a>
 
 ```typescript
 public error(msg: string | IStringProvider): void
@@ -6008,13 +6008,13 @@ public error(msg: string | IStringProvider): void
 
 {@link Logger} will log this via {@link console.error}.
 
-###### `msg`<sup>Required</sup> <a name="msg" id="@cdk-orchestration.Log.error.parameter.msg"></a>
+###### `msg`<sup>Required</sup> <a name="msg" id="cdk-orchestration.Log.error.parameter.msg"></a>
 
-- *Type:* string | <a href="#@cdk-orchestration.IStringProvider">IStringProvider</a>
+- *Type:* string | <a href="#cdk-orchestration.IStringProvider">IStringProvider</a>
 
 ---
 
-##### `info` <a name="info" id="@cdk-orchestration.Log.info"></a>
+##### `info` <a name="info" id="cdk-orchestration.Log.info"></a>
 
 ```typescript
 public info(msg: string | IStringProvider): void
@@ -6022,13 +6022,13 @@ public info(msg: string | IStringProvider): void
 
 {@link Logger} will log this via {@link console.info}.
 
-###### `msg`<sup>Required</sup> <a name="msg" id="@cdk-orchestration.Log.info.parameter.msg"></a>
+###### `msg`<sup>Required</sup> <a name="msg" id="cdk-orchestration.Log.info.parameter.msg"></a>
 
-- *Type:* string | <a href="#@cdk-orchestration.IStringProvider">IStringProvider</a>
+- *Type:* string | <a href="#cdk-orchestration.IStringProvider">IStringProvider</a>
 
 ---
 
-##### `warn` <a name="warn" id="@cdk-orchestration.Log.warn"></a>
+##### `warn` <a name="warn" id="cdk-orchestration.Log.warn"></a>
 
 ```typescript
 public warn(msg: string | IStringProvider): void
@@ -6036,9 +6036,9 @@ public warn(msg: string | IStringProvider): void
 
 {@link Logger} will log this via {@link console.warn}.
 
-###### `msg`<sup>Required</sup> <a name="msg" id="@cdk-orchestration.Log.warn.parameter.msg"></a>
+###### `msg`<sup>Required</sup> <a name="msg" id="cdk-orchestration.Log.warn.parameter.msg"></a>
 
-- *Type:* string | <a href="#@cdk-orchestration.IStringProvider">IStringProvider</a>
+- *Type:* string | <a href="#cdk-orchestration.IStringProvider">IStringProvider</a>
 
 ---
 
@@ -6046,19 +6046,19 @@ public warn(msg: string | IStringProvider): void
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.Log.of">of</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.Log.of">of</a></code> | *No description.* |
 
 ---
 
-##### `of` <a name="of" id="@cdk-orchestration.Log.of"></a>
+##### `of` <a name="of" id="cdk-orchestration.Log.of"></a>
 
 ```typescript
-import { Log } from '@cdk-orchestration'
+import { Log } from 'cdk-orchestration'
 
 Log.of(scope: Construct)
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.Log.of.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.Log.of.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
@@ -6068,22 +6068,22 @@ Log.of(scope: Construct)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.Log.property.logger">logger</a></code> | <code><a href="#@cdk-orchestration.ILogger">ILogger</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.Log.property.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.Log.property.logger">logger</a></code> | <code><a href="#cdk-orchestration.ILogger">ILogger</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.Log.property.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 
 ---
 
-##### `logger`<sup>Required</sup> <a name="logger" id="@cdk-orchestration.Log.property.logger"></a>
+##### `logger`<sup>Required</sup> <a name="logger" id="cdk-orchestration.Log.property.logger"></a>
 
 ```typescript
 public readonly logger: ILogger;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.ILogger">ILogger</a>
+- *Type:* <a href="#cdk-orchestration.ILogger">ILogger</a>
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.Log.property.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.Log.property.scope"></a>
 
 ```typescript
 public readonly scope: Construct;
@@ -6094,31 +6094,31 @@ public readonly scope: Construct;
 ---
 
 
-### Logger <a name="Logger" id="@cdk-orchestration.Logger"></a>
+### Logger <a name="Logger" id="cdk-orchestration.Logger"></a>
 
-- *Implements:* <a href="#@cdk-orchestration.ILogger">ILogger</a>
+- *Implements:* <a href="#cdk-orchestration.ILogger">ILogger</a>
 
 Node console logger.
 
 Provides scoped logging to a construct.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.Logger.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.Logger.Initializer"></a>
 
 ```typescript
-import { Logger } from '@cdk-orchestration'
+import { Logger } from 'cdk-orchestration'
 
 new Logger(props?: LoggerProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.Logger.Initializer.parameter.props">props</a></code> | <code><a href="#@cdk-orchestration.LoggerProps">LoggerProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.Logger.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-orchestration.LoggerProps">LoggerProps</a></code> | *No description.* |
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="props" id="@cdk-orchestration.Logger.Initializer.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.Logger.Initializer.parameter.props"></a>
 
-- *Type:* <a href="#@cdk-orchestration.LoggerProps">LoggerProps</a>
+- *Type:* <a href="#cdk-orchestration.LoggerProps">LoggerProps</a>
 
 ---
 
@@ -6126,19 +6126,19 @@ new Logger(props?: LoggerProps)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.Logger.levelColor">levelColor</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.Logger.levelName">levelName</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.Logger.log">log</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.Logger.levelColor">levelColor</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.Logger.levelName">levelName</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.Logger.log">log</a></code> | *No description.* |
 
 ---
 
-##### `levelColor` <a name="levelColor" id="@cdk-orchestration.Logger.levelColor"></a>
+##### `levelColor` <a name="levelColor" id="cdk-orchestration.Logger.levelColor"></a>
 
 ```typescript
 public levelColor(logLevel: number): string
 ```
 
-###### `logLevel`<sup>Required</sup> <a name="logLevel" id="@cdk-orchestration.Logger.levelColor.parameter.logLevel"></a>
+###### `logLevel`<sup>Required</sup> <a name="logLevel" id="cdk-orchestration.Logger.levelColor.parameter.logLevel"></a>
 
 - *Type:* number
 
@@ -6146,13 +6146,13 @@ a number to support custom levels (e.g. FATAL = 0.5).
 
 ---
 
-##### `levelName` <a name="levelName" id="@cdk-orchestration.Logger.levelName"></a>
+##### `levelName` <a name="levelName" id="cdk-orchestration.Logger.levelName"></a>
 
 ```typescript
 public levelName(logLevel: number): string
 ```
 
-###### `logLevel`<sup>Required</sup> <a name="logLevel" id="@cdk-orchestration.Logger.levelName.parameter.logLevel"></a>
+###### `logLevel`<sup>Required</sup> <a name="logLevel" id="cdk-orchestration.Logger.levelName.parameter.logLevel"></a>
 
 - *Type:* number
 
@@ -6160,19 +6160,19 @@ a number to support custom levels (e.g. FATAL = 0.5).
 
 ---
 
-##### `log` <a name="log" id="@cdk-orchestration.Logger.log"></a>
+##### `log` <a name="log" id="cdk-orchestration.Logger.log"></a>
 
 ```typescript
 public log(scope: Construct, logLevel: number, message: string | IStringProvider): void
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.Logger.log.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.Logger.log.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `logLevel`<sup>Required</sup> <a name="logLevel" id="@cdk-orchestration.Logger.log.parameter.logLevel"></a>
+###### `logLevel`<sup>Required</sup> <a name="logLevel" id="cdk-orchestration.Logger.log.parameter.logLevel"></a>
 
 - *Type:* number
 
@@ -6180,9 +6180,9 @@ a number to support custom levels (e.g. FATAL = 0.5).
 
 ---
 
-###### `message`<sup>Required</sup> <a name="message" id="@cdk-orchestration.Logger.log.parameter.message"></a>
+###### `message`<sup>Required</sup> <a name="message" id="cdk-orchestration.Logger.log.parameter.message"></a>
 
-- *Type:* string | <a href="#@cdk-orchestration.IStringProvider">IStringProvider</a>
+- *Type:* string | <a href="#cdk-orchestration.IStringProvider">IStringProvider</a>
 
 ---
 
@@ -6190,42 +6190,42 @@ a number to support custom levels (e.g. FATAL = 0.5).
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.Logger.of">of</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.Logger.set">set</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.Logger.of">of</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.Logger.set">set</a></code> | *No description.* |
 
 ---
 
-##### `of` <a name="of" id="@cdk-orchestration.Logger.of"></a>
+##### `of` <a name="of" id="cdk-orchestration.Logger.of"></a>
 
 ```typescript
-import { Logger } from '@cdk-orchestration'
+import { Logger } from 'cdk-orchestration'
 
 Logger.of(scope: Construct)
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.Logger.of.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.Logger.of.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `set` <a name="set" id="@cdk-orchestration.Logger.set"></a>
+##### `set` <a name="set" id="cdk-orchestration.Logger.set"></a>
 
 ```typescript
-import { Logger } from '@cdk-orchestration'
+import { Logger } from 'cdk-orchestration'
 
 Logger.set(scope: Construct, logger: ILogger)
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.Logger.set.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.Logger.set.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `logger`<sup>Required</sup> <a name="logger" id="@cdk-orchestration.Logger.set.parameter.logger"></a>
+###### `logger`<sup>Required</sup> <a name="logger" id="cdk-orchestration.Logger.set.parameter.logger"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ILogger">ILogger</a>
+- *Type:* <a href="#cdk-orchestration.ILogger">ILogger</a>
 
 ---
 
@@ -6233,12 +6233,12 @@ Logger.set(scope: Construct, logger: ILogger)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.Logger.property.logLevel">logLevel</a></code> | <code>number</code> | Returns the current log level. |
-| <code><a href="#@cdk-orchestration.Logger.property.props">props</a></code> | <code><a href="#@cdk-orchestration.LoggerProps">LoggerProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.Logger.property.logLevel">logLevel</a></code> | <code>number</code> | Returns the current log level. |
+| <code><a href="#cdk-orchestration.Logger.property.props">props</a></code> | <code><a href="#cdk-orchestration.LoggerProps">LoggerProps</a></code> | *No description.* |
 
 ---
 
-##### `logLevel`<sup>Required</sup> <a name="logLevel" id="@cdk-orchestration.Logger.property.logLevel"></a>
+##### `logLevel`<sup>Required</sup> <a name="logLevel" id="cdk-orchestration.Logger.property.logLevel"></a>
 
 ```typescript
 public readonly logLevel: number;
@@ -6250,23 +6250,23 @@ Returns the current log level.
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.Logger.property.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.Logger.property.props"></a>
 
 ```typescript
 public readonly props: LoggerProps;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.LoggerProps">LoggerProps</a>
+- *Type:* <a href="#cdk-orchestration.LoggerProps">LoggerProps</a>
 
 ---
 
 
-### NoOpLogger <a name="NoOpLogger" id="@cdk-orchestration.NoOpLogger"></a>
+### NoOpLogger <a name="NoOpLogger" id="cdk-orchestration.NoOpLogger"></a>
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.NoOpLogger.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.NoOpLogger.Initializer"></a>
 
 ```typescript
-import { NoOpLogger } from '@cdk-orchestration'
+import { NoOpLogger } from 'cdk-orchestration'
 
 new NoOpLogger()
 ```
@@ -6280,19 +6280,19 @@ new NoOpLogger()
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.NoOpLogger.levelColor">levelColor</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.NoOpLogger.levelName">levelName</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.NoOpLogger.log">log</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.NoOpLogger.levelColor">levelColor</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.NoOpLogger.levelName">levelName</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.NoOpLogger.log">log</a></code> | *No description.* |
 
 ---
 
-##### `levelColor` <a name="levelColor" id="@cdk-orchestration.NoOpLogger.levelColor"></a>
+##### `levelColor` <a name="levelColor" id="cdk-orchestration.NoOpLogger.levelColor"></a>
 
 ```typescript
 public levelColor(logLevel: number): string
 ```
 
-###### `logLevel`<sup>Required</sup> <a name="logLevel" id="@cdk-orchestration.NoOpLogger.levelColor.parameter.logLevel"></a>
+###### `logLevel`<sup>Required</sup> <a name="logLevel" id="cdk-orchestration.NoOpLogger.levelColor.parameter.logLevel"></a>
 
 - *Type:* number
 
@@ -6300,13 +6300,13 @@ a number to support custom levels (e.g. FATAL = 0.5).
 
 ---
 
-##### `levelName` <a name="levelName" id="@cdk-orchestration.NoOpLogger.levelName"></a>
+##### `levelName` <a name="levelName" id="cdk-orchestration.NoOpLogger.levelName"></a>
 
 ```typescript
 public levelName(logLevel: number): string
 ```
 
-###### `logLevel`<sup>Required</sup> <a name="logLevel" id="@cdk-orchestration.NoOpLogger.levelName.parameter.logLevel"></a>
+###### `logLevel`<sup>Required</sup> <a name="logLevel" id="cdk-orchestration.NoOpLogger.levelName.parameter.logLevel"></a>
 
 - *Type:* number
 
@@ -6314,19 +6314,19 @@ a number to support custom levels (e.g. FATAL = 0.5).
 
 ---
 
-##### `log` <a name="log" id="@cdk-orchestration.NoOpLogger.log"></a>
+##### `log` <a name="log" id="cdk-orchestration.NoOpLogger.log"></a>
 
 ```typescript
 public log(scope: Construct, logLevel: number, message: string | IStringProvider): void
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.NoOpLogger.log.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.NoOpLogger.log.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `logLevel`<sup>Required</sup> <a name="logLevel" id="@cdk-orchestration.NoOpLogger.log.parameter.logLevel"></a>
+###### `logLevel`<sup>Required</sup> <a name="logLevel" id="cdk-orchestration.NoOpLogger.log.parameter.logLevel"></a>
 
 - *Type:* number
 
@@ -6334,9 +6334,9 @@ a number to support custom levels (e.g. FATAL = 0.5).
 
 ---
 
-###### `message`<sup>Required</sup> <a name="message" id="@cdk-orchestration.NoOpLogger.log.parameter.message"></a>
+###### `message`<sup>Required</sup> <a name="message" id="cdk-orchestration.NoOpLogger.log.parameter.message"></a>
 
-- *Type:* string | <a href="#@cdk-orchestration.IStringProvider">IStringProvider</a>
+- *Type:* string | <a href="#cdk-orchestration.IStringProvider">IStringProvider</a>
 
 ---
 
@@ -6344,42 +6344,42 @@ a number to support custom levels (e.g. FATAL = 0.5).
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.NoOpLogger.of">of</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.NoOpLogger.set">set</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.NoOpLogger.of">of</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.NoOpLogger.set">set</a></code> | *No description.* |
 
 ---
 
-##### `of` <a name="of" id="@cdk-orchestration.NoOpLogger.of"></a>
+##### `of` <a name="of" id="cdk-orchestration.NoOpLogger.of"></a>
 
 ```typescript
-import { NoOpLogger } from '@cdk-orchestration'
+import { NoOpLogger } from 'cdk-orchestration'
 
 NoOpLogger.of(scope: Construct)
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.NoOpLogger.of.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.NoOpLogger.of.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `set` <a name="set" id="@cdk-orchestration.NoOpLogger.set"></a>
+##### `set` <a name="set" id="cdk-orchestration.NoOpLogger.set"></a>
 
 ```typescript
-import { NoOpLogger } from '@cdk-orchestration'
+import { NoOpLogger } from 'cdk-orchestration'
 
 NoOpLogger.set(scope: Construct, logger: ILogger)
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.NoOpLogger.set.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.NoOpLogger.set.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `logger`<sup>Required</sup> <a name="logger" id="@cdk-orchestration.NoOpLogger.set.parameter.logger"></a>
+###### `logger`<sup>Required</sup> <a name="logger" id="cdk-orchestration.NoOpLogger.set.parameter.logger"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ILogger">ILogger</a>
+- *Type:* <a href="#cdk-orchestration.ILogger">ILogger</a>
 
 ---
 
@@ -6387,12 +6387,12 @@ NoOpLogger.set(scope: Construct, logger: ILogger)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.NoOpLogger.property.logLevel">logLevel</a></code> | <code>number</code> | Returns the current log level. |
-| <code><a href="#@cdk-orchestration.NoOpLogger.property.props">props</a></code> | <code><a href="#@cdk-orchestration.LoggerProps">LoggerProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.NoOpLogger.property.logLevel">logLevel</a></code> | <code>number</code> | Returns the current log level. |
+| <code><a href="#cdk-orchestration.NoOpLogger.property.props">props</a></code> | <code><a href="#cdk-orchestration.LoggerProps">LoggerProps</a></code> | *No description.* |
 
 ---
 
-##### `logLevel`<sup>Required</sup> <a name="logLevel" id="@cdk-orchestration.NoOpLogger.property.logLevel"></a>
+##### `logLevel`<sup>Required</sup> <a name="logLevel" id="cdk-orchestration.NoOpLogger.property.logLevel"></a>
 
 ```typescript
 public readonly logLevel: number;
@@ -6404,18 +6404,18 @@ Returns the current log level.
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.NoOpLogger.property.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.NoOpLogger.property.props"></a>
 
 ```typescript
 public readonly props: LoggerProps;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.LoggerProps">LoggerProps</a>
+- *Type:* <a href="#cdk-orchestration.LoggerProps">LoggerProps</a>
 
 ---
 
 
-### PostResolveToken <a name="PostResolveToken" id="@cdk-orchestration.PostResolveToken"></a>
+### PostResolveToken <a name="PostResolveToken" id="cdk-orchestration.PostResolveToken"></a>
 
 - *Implements:* aws-cdk-lib.IResolvable, aws-cdk-lib.IPostProcessor
 
@@ -6423,30 +6423,30 @@ Copied out of the CDK.
 
 Because not public.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.PostResolveToken.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.PostResolveToken.Initializer"></a>
 
 ```typescript
-import { PostResolveToken } from '@cdk-orchestration'
+import { PostResolveToken } from 'cdk-orchestration'
 
 new PostResolveToken(value: any, processor: IProcessor)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.PostResolveToken.Initializer.parameter.value">value</a></code> | <code>any</code> | *No description.* |
-| <code><a href="#@cdk-orchestration.PostResolveToken.Initializer.parameter.processor">processor</a></code> | <code><a href="#@cdk-orchestration.IProcessor">IProcessor</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.PostResolveToken.Initializer.parameter.value">value</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdk-orchestration.PostResolveToken.Initializer.parameter.processor">processor</a></code> | <code><a href="#cdk-orchestration.IProcessor">IProcessor</a></code> | *No description.* |
 
 ---
 
-##### `value`<sup>Required</sup> <a name="value" id="@cdk-orchestration.PostResolveToken.Initializer.parameter.value"></a>
+##### `value`<sup>Required</sup> <a name="value" id="cdk-orchestration.PostResolveToken.Initializer.parameter.value"></a>
 
 - *Type:* any
 
 ---
 
-##### `processor`<sup>Required</sup> <a name="processor" id="@cdk-orchestration.PostResolveToken.Initializer.parameter.processor"></a>
+##### `processor`<sup>Required</sup> <a name="processor" id="cdk-orchestration.PostResolveToken.Initializer.parameter.processor"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IProcessor">IProcessor</a>
+- *Type:* <a href="#cdk-orchestration.IProcessor">IProcessor</a>
 
 ---
 
@@ -6454,14 +6454,14 @@ new PostResolveToken(value: any, processor: IProcessor)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.PostResolveToken.postProcess">postProcess</a></code> | Process the completely resolved value, after full recursion/resolution has happened. |
-| <code><a href="#@cdk-orchestration.PostResolveToken.resolve">resolve</a></code> | Produce the Token's value at resolution time. |
-| <code><a href="#@cdk-orchestration.PostResolveToken.toJSON">toJSON</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.PostResolveToken.toString">toString</a></code> | Return a string representation of this resolvable object. |
+| <code><a href="#cdk-orchestration.PostResolveToken.postProcess">postProcess</a></code> | Process the completely resolved value, after full recursion/resolution has happened. |
+| <code><a href="#cdk-orchestration.PostResolveToken.resolve">resolve</a></code> | Produce the Token's value at resolution time. |
+| <code><a href="#cdk-orchestration.PostResolveToken.toJSON">toJSON</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.PostResolveToken.toString">toString</a></code> | Return a string representation of this resolvable object. |
 
 ---
 
-##### `postProcess` <a name="postProcess" id="@cdk-orchestration.PostResolveToken.postProcess"></a>
+##### `postProcess` <a name="postProcess" id="cdk-orchestration.PostResolveToken.postProcess"></a>
 
 ```typescript
 public postProcess(o: any, _context: IResolveContext): any
@@ -6469,19 +6469,19 @@ public postProcess(o: any, _context: IResolveContext): any
 
 Process the completely resolved value, after full recursion/resolution has happened.
 
-###### `o`<sup>Required</sup> <a name="o" id="@cdk-orchestration.PostResolveToken.postProcess.parameter.o"></a>
+###### `o`<sup>Required</sup> <a name="o" id="cdk-orchestration.PostResolveToken.postProcess.parameter.o"></a>
 
 - *Type:* any
 
 ---
 
-###### `_context`<sup>Required</sup> <a name="_context" id="@cdk-orchestration.PostResolveToken.postProcess.parameter._context"></a>
+###### `_context`<sup>Required</sup> <a name="_context" id="cdk-orchestration.PostResolveToken.postProcess.parameter._context"></a>
 
 - *Type:* aws-cdk-lib.IResolveContext
 
 ---
 
-##### `resolve` <a name="resolve" id="@cdk-orchestration.PostResolveToken.resolve"></a>
+##### `resolve` <a name="resolve" id="cdk-orchestration.PostResolveToken.resolve"></a>
 
 ```typescript
 public resolve(context: IResolveContext): any
@@ -6489,19 +6489,19 @@ public resolve(context: IResolveContext): any
 
 Produce the Token's value at resolution time.
 
-###### `context`<sup>Required</sup> <a name="context" id="@cdk-orchestration.PostResolveToken.resolve.parameter.context"></a>
+###### `context`<sup>Required</sup> <a name="context" id="cdk-orchestration.PostResolveToken.resolve.parameter.context"></a>
 
 - *Type:* aws-cdk-lib.IResolveContext
 
 ---
 
-##### `toJSON` <a name="toJSON" id="@cdk-orchestration.PostResolveToken.toJSON"></a>
+##### `toJSON` <a name="toJSON" id="cdk-orchestration.PostResolveToken.toJSON"></a>
 
 ```typescript
 public toJSON(): any
 ```
 
-##### `toString` <a name="toString" id="@cdk-orchestration.PostResolveToken.toString"></a>
+##### `toString` <a name="toString" id="cdk-orchestration.PostResolveToken.toString"></a>
 
 ```typescript
 public toString(): string
@@ -6516,11 +6516,11 @@ Returns a reversible string representation.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.PostResolveToken.property.creationStack">creationStack</a></code> | <code>string[]</code> | The creation stack of this resolvable which will be appended to errors thrown during resolution. |
+| <code><a href="#cdk-orchestration.PostResolveToken.property.creationStack">creationStack</a></code> | <code>string[]</code> | The creation stack of this resolvable which will be appended to errors thrown during resolution. |
 
 ---
 
-##### `creationStack`<sup>Required</sup> <a name="creationStack" id="@cdk-orchestration.PostResolveToken.property.creationStack"></a>
+##### `creationStack`<sup>Required</sup> <a name="creationStack" id="cdk-orchestration.PostResolveToken.property.creationStack"></a>
 
 ```typescript
 public readonly creationStack: string[];
@@ -6536,16 +6536,16 @@ to get this property populated, if it was skipped for performance reasons.
 ---
 
 
-### ServiceInspectorAspect <a name="ServiceInspectorAspect" id="@cdk-orchestration.ServiceInspectorAspect"></a>
+### ServiceInspectorAspect <a name="ServiceInspectorAspect" id="cdk-orchestration.ServiceInspectorAspect"></a>
 
 - *Implements:* aws-cdk-lib.IAspect
 
 Writes the names and types of all symbols on a construct to tree.json.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.ServiceInspectorAspect.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.ServiceInspectorAspect.Initializer"></a>
 
 ```typescript
-import { ServiceInspectorAspect } from '@cdk-orchestration'
+import { ServiceInspectorAspect } from 'cdk-orchestration'
 
 new ServiceInspectorAspect()
 ```
@@ -6559,11 +6559,11 @@ new ServiceInspectorAspect()
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.ServiceInspectorAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+| <code><a href="#cdk-orchestration.ServiceInspectorAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
 
 ---
 
-##### `visit` <a name="visit" id="@cdk-orchestration.ServiceInspectorAspect.visit"></a>
+##### `visit` <a name="visit" id="cdk-orchestration.ServiceInspectorAspect.visit"></a>
 
 ```typescript
 public visit(node: IConstruct): void
@@ -6571,7 +6571,7 @@ public visit(node: IConstruct): void
 
 All aspects can visit an IConstruct.
 
-###### `node`<sup>Required</sup> <a name="node" id="@cdk-orchestration.ServiceInspectorAspect.visit.parameter.node"></a>
+###### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.ServiceInspectorAspect.visit.parameter.node"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -6580,7 +6580,7 @@ All aspects can visit an IConstruct.
 
 
 
-### Singleton <a name="Singleton" id="@cdk-orchestration.Singleton"></a>
+### Singleton <a name="Singleton" id="cdk-orchestration.Singleton"></a>
 
 Manages singletons in the stack.
 
@@ -6589,16 +6589,16 @@ Manages singletons in the stack.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.Singleton.create">create</a></code> | Creates or returns a singleton object. |
-| <code><a href="#@cdk-orchestration.Singleton.isSingleton">isSingleton</a></code> | True if the construct has been marked as Singleton by this class. |
-| <code><a href="#@cdk-orchestration.Singleton.mark">mark</a></code> | Marks an existing construct as a singleton. |
+| <code><a href="#cdk-orchestration.Singleton.create">create</a></code> | Creates or returns a singleton object. |
+| <code><a href="#cdk-orchestration.Singleton.isSingleton">isSingleton</a></code> | True if the construct has been marked as Singleton by this class. |
+| <code><a href="#cdk-orchestration.Singleton.mark">mark</a></code> | Marks an existing construct as a singleton. |
 
 ---
 
-##### `create` <a name="create" id="@cdk-orchestration.Singleton.create"></a>
+##### `create` <a name="create" id="cdk-orchestration.Singleton.create"></a>
 
 ```typescript
-import { Singleton } from '@cdk-orchestration'
+import { Singleton } from 'cdk-orchestration'
 
 Singleton.create(scope: Construct, id: string, factory: IConstructFactory)
 ```
@@ -6607,44 +6607,44 @@ Creates or returns a singleton object.
 
 Throws if the existing object was not created or marked by this class.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.Singleton.create.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.Singleton.create.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `id`<sup>Required</sup> <a name="id" id="@cdk-orchestration.Singleton.create.parameter.id"></a>
+###### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.Singleton.create.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-###### `factory`<sup>Required</sup> <a name="factory" id="@cdk-orchestration.Singleton.create.parameter.factory"></a>
+###### `factory`<sup>Required</sup> <a name="factory" id="cdk-orchestration.Singleton.create.parameter.factory"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IConstructFactory">IConstructFactory</a>
+- *Type:* <a href="#cdk-orchestration.IConstructFactory">IConstructFactory</a>
 
 ---
 
-##### `isSingleton` <a name="isSingleton" id="@cdk-orchestration.Singleton.isSingleton"></a>
+##### `isSingleton` <a name="isSingleton" id="cdk-orchestration.Singleton.isSingleton"></a>
 
 ```typescript
-import { Singleton } from '@cdk-orchestration'
+import { Singleton } from 'cdk-orchestration'
 
 Singleton.isSingleton(x: IConstruct)
 ```
 
 True if the construct has been marked as Singleton by this class.
 
-###### `x`<sup>Required</sup> <a name="x" id="@cdk-orchestration.Singleton.isSingleton.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.Singleton.isSingleton.parameter.x"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `mark` <a name="mark" id="@cdk-orchestration.Singleton.mark"></a>
+##### `mark` <a name="mark" id="cdk-orchestration.Singleton.mark"></a>
 
 ```typescript
-import { Singleton } from '@cdk-orchestration'
+import { Singleton } from 'cdk-orchestration'
 
 Singleton.mark(scope: IConstruct)
 ```
@@ -6655,7 +6655,7 @@ This allows Singletons created outside this class to be used
 with this class.
 Throws if the construct is not a direct child of a stack.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.Singleton.mark.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.Singleton.mark.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -6663,29 +6663,29 @@ Throws if the construct is not a direct child of a stack.
 
 
 
-### StackConstructTreeService <a name="StackConstructTreeService" id="@cdk-orchestration.StackConstructTreeService"></a>
+### StackConstructTreeService <a name="StackConstructTreeService" id="cdk-orchestration.StackConstructTreeService"></a>
 
 A stack-scoped service that is found by looking up the tree.
 
 Found services are cached on the querying scope to speed up subsequent lookups.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.StackConstructTreeService.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.StackConstructTreeService.Initializer"></a>
 
 ```typescript
-import { StackConstructTreeService } from '@cdk-orchestration'
+import { StackConstructTreeService } from 'cdk-orchestration'
 
 new StackConstructTreeService(treeServiceProps: ConstructTreeServiceProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.Initializer.parameter.treeServiceProps">treeServiceProps</a></code> | <code><a href="#@cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.Initializer.parameter.treeServiceProps">treeServiceProps</a></code> | <code><a href="#cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a></code> | *No description.* |
 
 ---
 
-##### `treeServiceProps`<sup>Required</sup> <a name="treeServiceProps" id="@cdk-orchestration.StackConstructTreeService.Initializer.parameter.treeServiceProps"></a>
+##### `treeServiceProps`<sup>Required</sup> <a name="treeServiceProps" id="cdk-orchestration.StackConstructTreeService.Initializer.parameter.treeServiceProps"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a>
 
 ---
 
@@ -6693,20 +6693,20 @@ new StackConstructTreeService(treeServiceProps: ConstructTreeServiceProps)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.get">get</a></code> | Gets the serviceSymbol property of the Construct. |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.has">has</a></code> | Returns the construct if the construct has the service, otherwise undefined; |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.searchDown">searchDown</a></code> | Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope). |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.searchSelf">searchSelf</a></code> | Returns a ServiceQueryResult if the scope has the service. |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.searchSelfOrCreate">searchSelfOrCreate</a></code> | Returns a ServiceQueryResult if the scope has the service. |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.searchUp">searchUp</a></code> | Check the hierarchy to see if there is an ascendent object of scope that defines the serviceProperty (including scope). |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.set">set</a></code> | Sets the given value on the scope as the serviceProperty property. |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.setFactory">setFactory</a></code> | Sets a construct service factory on a construct. |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.of">of</a></code> | Return the stack service for the construct. |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.searchUpOrCreate">searchUpOrCreate</a></code> | Searches towards the root for a value. |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.get">get</a></code> | Gets the serviceSymbol property of the Construct. |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.has">has</a></code> | Returns the construct if the construct has the service, otherwise undefined; |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.searchDown">searchDown</a></code> | Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope). |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.searchSelf">searchSelf</a></code> | Returns a ServiceQueryResult if the scope has the service. |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.searchSelfOrCreate">searchSelfOrCreate</a></code> | Returns a ServiceQueryResult if the scope has the service. |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.searchUp">searchUp</a></code> | Check the hierarchy to see if there is an ascendent object of scope that defines the serviceProperty (including scope). |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.set">set</a></code> | Sets the given value on the scope as the serviceProperty property. |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.setFactory">setFactory</a></code> | Sets a construct service factory on a construct. |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.of">of</a></code> | Return the stack service for the construct. |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.searchUpOrCreate">searchUpOrCreate</a></code> | Searches towards the root for a value. |
 
 ---
 
-##### `get` <a name="get" id="@cdk-orchestration.StackConstructTreeService.get"></a>
+##### `get` <a name="get" id="cdk-orchestration.StackConstructTreeService.get"></a>
 
 ```typescript
 public get(scope: IConstruct): any
@@ -6716,13 +6716,13 @@ Gets the serviceSymbol property of the Construct.
 
 Returns undefined if the service is not on the construct.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackConstructTreeService.get.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackConstructTreeService.get.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `has` <a name="has" id="@cdk-orchestration.StackConstructTreeService.has"></a>
+##### `has` <a name="has" id="cdk-orchestration.StackConstructTreeService.has"></a>
 
 ```typescript
 public has(scope: IConstruct): IConstruct
@@ -6730,13 +6730,13 @@ public has(scope: IConstruct): IConstruct
 
 Returns the construct if the construct has the service, otherwise undefined;
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackConstructTreeService.has.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackConstructTreeService.has.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchDown` <a name="searchDown" id="@cdk-orchestration.StackConstructTreeService.searchDown"></a>
+##### `searchDown` <a name="searchDown" id="cdk-orchestration.StackConstructTreeService.searchDown"></a>
 
 ```typescript
 public searchDown(scope: IConstruct, stopCondition?: IStopCondition): ServiceQueryResult[]
@@ -6744,19 +6744,19 @@ public searchDown(scope: IConstruct, stopCondition?: IStopCondition): ServiceQue
 
 Returns array of ServiceQueryResult for constructs in the sub-tree that have the service (including the given scope).
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackConstructTreeService.searchDown.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackConstructTreeService.searchDown.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="@cdk-orchestration.StackConstructTreeService.searchDown.parameter.stopCondition"></a>
+###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="cdk-orchestration.StackConstructTreeService.searchDown.parameter.stopCondition"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Type:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 ---
 
-##### `searchSelf` <a name="searchSelf" id="@cdk-orchestration.StackConstructTreeService.searchSelf"></a>
+##### `searchSelf` <a name="searchSelf" id="cdk-orchestration.StackConstructTreeService.searchSelf"></a>
 
 ```typescript
 public searchSelf(scope: IConstruct): ServiceQueryResult
@@ -6764,13 +6764,13 @@ public searchSelf(scope: IConstruct): ServiceQueryResult
 
 Returns a ServiceQueryResult if the scope has the service.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackConstructTreeService.searchSelf.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackConstructTreeService.searchSelf.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchSelfOrCreate` <a name="searchSelfOrCreate" id="@cdk-orchestration.StackConstructTreeService.searchSelfOrCreate"></a>
+##### `searchSelfOrCreate` <a name="searchSelfOrCreate" id="cdk-orchestration.StackConstructTreeService.searchSelfOrCreate"></a>
 
 ```typescript
 public searchSelfOrCreate(scope: IConstruct): ServiceQueryResult
@@ -6781,13 +6781,13 @@ Returns a ServiceQueryResult if the scope has the service.
 If the scope does not have the service, calls the factory to create the service
 and caches it on the scope.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackConstructTreeService.searchSelfOrCreate.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackConstructTreeService.searchSelfOrCreate.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchUp` <a name="searchUp" id="@cdk-orchestration.StackConstructTreeService.searchUp"></a>
+##### `searchUp` <a name="searchUp" id="cdk-orchestration.StackConstructTreeService.searchUp"></a>
 
 ```typescript
 public searchUp(scope: IConstruct, stopCondition?: IStopCondition): ServiceQueryResult
@@ -6797,19 +6797,19 @@ Check the hierarchy to see if there is an ascendent object of scope that defines
 
 Uses stopCondition to decide where to stop the searchUp.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackConstructTreeService.searchUp.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackConstructTreeService.searchUp.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="@cdk-orchestration.StackConstructTreeService.searchUp.parameter.stopCondition"></a>
+###### `stopCondition`<sup>Optional</sup> <a name="stopCondition" id="cdk-orchestration.StackConstructTreeService.searchUp.parameter.stopCondition"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Type:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 ---
 
-##### `set` <a name="set" id="@cdk-orchestration.StackConstructTreeService.set"></a>
+##### `set` <a name="set" id="cdk-orchestration.StackConstructTreeService.set"></a>
 
 ```typescript
 public set(scope: IConstruct, service: any): any
@@ -6817,19 +6817,19 @@ public set(scope: IConstruct, service: any): any
 
 Sets the given value on the scope as the serviceProperty property.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackConstructTreeService.set.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackConstructTreeService.set.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `service`<sup>Required</sup> <a name="service" id="@cdk-orchestration.StackConstructTreeService.set.parameter.service"></a>
+###### `service`<sup>Required</sup> <a name="service" id="cdk-orchestration.StackConstructTreeService.set.parameter.service"></a>
 
 - *Type:* any
 
 ---
 
-##### `setFactory` <a name="setFactory" id="@cdk-orchestration.StackConstructTreeService.setFactory"></a>
+##### `setFactory` <a name="setFactory" id="cdk-orchestration.StackConstructTreeService.setFactory"></a>
 
 ```typescript
 public setFactory(scope: IConstruct, factory: IConstructServiceFactory): any
@@ -6840,19 +6840,19 @@ Sets a construct service factory on a construct.
 Use case: Set a factory for AWSCredentials on the app.  When a stack needs to make an AWS call, it gets credentials from the
 factory.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackConstructTreeService.setFactory.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackConstructTreeService.setFactory.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `factory`<sup>Required</sup> <a name="factory" id="@cdk-orchestration.StackConstructTreeService.setFactory.parameter.factory"></a>
+###### `factory`<sup>Required</sup> <a name="factory" id="cdk-orchestration.StackConstructTreeService.setFactory.parameter.factory"></a>
 
-- *Type:* <a href="#@cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
+- *Type:* <a href="#cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
 
 ---
 
-##### `of` <a name="of" id="@cdk-orchestration.StackConstructTreeService.of"></a>
+##### `of` <a name="of" id="cdk-orchestration.StackConstructTreeService.of"></a>
 
 ```typescript
 public of(construct: IConstruct): any
@@ -6860,13 +6860,13 @@ public of(construct: IConstruct): any
 
 Return the stack service for the construct.
 
-###### `construct`<sup>Required</sup> <a name="construct" id="@cdk-orchestration.StackConstructTreeService.of.parameter.construct"></a>
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-orchestration.StackConstructTreeService.of.parameter.construct"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `searchUpOrCreate` <a name="searchUpOrCreate" id="@cdk-orchestration.StackConstructTreeService.searchUpOrCreate"></a>
+##### `searchUpOrCreate` <a name="searchUpOrCreate" id="cdk-orchestration.StackConstructTreeService.searchUpOrCreate"></a>
 
 ```typescript
 public searchUpOrCreate(scope: IConstruct): ServiceQueryResult
@@ -6879,7 +6879,7 @@ cache the value on the scope (to speed up future gets) and
 return the pair.  If not, call the factory to create a value and
 cache it on the scope.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackConstructTreeService.searchUpOrCreate.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackConstructTreeService.searchUpOrCreate.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -6889,74 +6889,74 @@ cache it on the scope.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.isFactory">isFactory</a></code> | Returns true if a service value is actualy a factory. |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.scopeOf">scopeOf</a></code> | Returns the scope of the property from a ServiceQueryResult. |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.scopesOf">scopesOf</a></code> | Returns the scopes from an array of ServiceQueryResults. |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.serviceOf">serviceOf</a></code> | Returns the value of the property from a ServiceQueryResult. |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.isFactory">isFactory</a></code> | Returns true if a service value is actualy a factory. |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.scopeOf">scopeOf</a></code> | Returns the scope of the property from a ServiceQueryResult. |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.scopesOf">scopesOf</a></code> | Returns the scopes from an array of ServiceQueryResults. |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.serviceOf">serviceOf</a></code> | Returns the value of the property from a ServiceQueryResult. |
 
 ---
 
-##### `isFactory` <a name="isFactory" id="@cdk-orchestration.StackConstructTreeService.isFactory"></a>
+##### `isFactory` <a name="isFactory" id="cdk-orchestration.StackConstructTreeService.isFactory"></a>
 
 ```typescript
-import { StackConstructTreeService } from '@cdk-orchestration'
+import { StackConstructTreeService } from 'cdk-orchestration'
 
 StackConstructTreeService.isFactory(factory: any)
 ```
 
 Returns true if a service value is actualy a factory.
 
-###### `factory`<sup>Required</sup> <a name="factory" id="@cdk-orchestration.StackConstructTreeService.isFactory.parameter.factory"></a>
+###### `factory`<sup>Required</sup> <a name="factory" id="cdk-orchestration.StackConstructTreeService.isFactory.parameter.factory"></a>
 
 - *Type:* any
 
 ---
 
-##### `scopeOf` <a name="scopeOf" id="@cdk-orchestration.StackConstructTreeService.scopeOf"></a>
+##### `scopeOf` <a name="scopeOf" id="cdk-orchestration.StackConstructTreeService.scopeOf"></a>
 
 ```typescript
-import { StackConstructTreeService } from '@cdk-orchestration'
+import { StackConstructTreeService } from 'cdk-orchestration'
 
 StackConstructTreeService.scopeOf(found?: ServiceQueryResult)
 ```
 
 Returns the scope of the property from a ServiceQueryResult.
 
-###### `found`<sup>Optional</sup> <a name="found" id="@cdk-orchestration.StackConstructTreeService.scopeOf.parameter.found"></a>
+###### `found`<sup>Optional</sup> <a name="found" id="cdk-orchestration.StackConstructTreeService.scopeOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
 
 ---
 
-##### `scopesOf` <a name="scopesOf" id="@cdk-orchestration.StackConstructTreeService.scopesOf"></a>
+##### `scopesOf` <a name="scopesOf" id="cdk-orchestration.StackConstructTreeService.scopesOf"></a>
 
 ```typescript
-import { StackConstructTreeService } from '@cdk-orchestration'
+import { StackConstructTreeService } from 'cdk-orchestration'
 
 StackConstructTreeService.scopesOf(found: ServiceQueryResult[])
 ```
 
 Returns the scopes from an array of ServiceQueryResults.
 
-###### `found`<sup>Required</sup> <a name="found" id="@cdk-orchestration.StackConstructTreeService.scopesOf.parameter.found"></a>
+###### `found`<sup>Required</sup> <a name="found" id="cdk-orchestration.StackConstructTreeService.scopesOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>[]
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>[]
 
 ---
 
-##### `serviceOf` <a name="serviceOf" id="@cdk-orchestration.StackConstructTreeService.serviceOf"></a>
+##### `serviceOf` <a name="serviceOf" id="cdk-orchestration.StackConstructTreeService.serviceOf"></a>
 
 ```typescript
-import { StackConstructTreeService } from '@cdk-orchestration'
+import { StackConstructTreeService } from 'cdk-orchestration'
 
 StackConstructTreeService.serviceOf(found?: ServiceQueryResult)
 ```
 
 Returns the value of the property from a ServiceQueryResult.
 
-###### `found`<sup>Optional</sup> <a name="found" id="@cdk-orchestration.StackConstructTreeService.serviceOf.parameter.found"></a>
+###### `found`<sup>Optional</sup> <a name="found" id="cdk-orchestration.StackConstructTreeService.serviceOf.parameter.found"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
+- *Type:* <a href="#cdk-orchestration.ServiceQueryResult">ServiceQueryResult</a>
 
 ---
 
@@ -6964,42 +6964,42 @@ Returns the value of the property from a ServiceQueryResult.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.property.props">props</a></code> | <code><a href="#@cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.StackConstructTreeService.property.treeServiceProps">treeServiceProps</a></code> | <code><a href="#@cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.property.props">props</a></code> | <code><a href="#cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.StackConstructTreeService.property.treeServiceProps">treeServiceProps</a></code> | <code><a href="#cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a></code> | *No description.* |
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@cdk-orchestration.StackConstructTreeService.property.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.StackConstructTreeService.property.props"></a>
 
 ```typescript
 public readonly props: ConstructServiceProps;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructServiceProps">ConstructServiceProps</a>
 
 ---
 
-##### `treeServiceProps`<sup>Required</sup> <a name="treeServiceProps" id="@cdk-orchestration.StackConstructTreeService.property.treeServiceProps"></a>
+##### `treeServiceProps`<sup>Required</sup> <a name="treeServiceProps" id="cdk-orchestration.StackConstructTreeService.property.treeServiceProps"></a>
 
 ```typescript
 public readonly treeServiceProps: ConstructTreeServiceProps;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a>
+- *Type:* <a href="#cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a>
 
 ---
 
 
-### StackToken <a name="StackToken" id="@cdk-orchestration.StackToken"></a>
+### StackToken <a name="StackToken" id="cdk-orchestration.StackToken"></a>
 
 Provides a way to map named tokens to their producers.
 
 Names should be unique within a stack.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.StackToken.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.StackToken.Initializer"></a>
 
 ```typescript
-import { StackToken } from '@cdk-orchestration'
+import { StackToken } from 'cdk-orchestration'
 
 new StackToken()
 ```
@@ -7014,230 +7014,230 @@ new StackToken()
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.StackToken.any">any</a></code> | Creates a named token. |
-| <code><a href="#@cdk-orchestration.StackToken.list">list</a></code> | Creates a named token. |
-| <code><a href="#@cdk-orchestration.StackToken.number">number</a></code> | Creates a named token. |
-| <code><a href="#@cdk-orchestration.StackToken.resolveAny">resolveAny</a></code> | Registers a resolver for the named token. |
-| <code><a href="#@cdk-orchestration.StackToken.resolveList">resolveList</a></code> | Registers a resolver for the named token. |
-| <code><a href="#@cdk-orchestration.StackToken.resolveNumber">resolveNumber</a></code> | Registers a resolver for the named token. |
-| <code><a href="#@cdk-orchestration.StackToken.resolveString">resolveString</a></code> | Registers a resolver for the named token. |
-| <code><a href="#@cdk-orchestration.StackToken.string">string</a></code> | Creates a named token. |
+| <code><a href="#cdk-orchestration.StackToken.any">any</a></code> | Creates a named token. |
+| <code><a href="#cdk-orchestration.StackToken.list">list</a></code> | Creates a named token. |
+| <code><a href="#cdk-orchestration.StackToken.number">number</a></code> | Creates a named token. |
+| <code><a href="#cdk-orchestration.StackToken.resolveAny">resolveAny</a></code> | Registers a resolver for the named token. |
+| <code><a href="#cdk-orchestration.StackToken.resolveList">resolveList</a></code> | Registers a resolver for the named token. |
+| <code><a href="#cdk-orchestration.StackToken.resolveNumber">resolveNumber</a></code> | Registers a resolver for the named token. |
+| <code><a href="#cdk-orchestration.StackToken.resolveString">resolveString</a></code> | Registers a resolver for the named token. |
+| <code><a href="#cdk-orchestration.StackToken.string">string</a></code> | Creates a named token. |
 
 ---
 
-##### `any` <a name="any" id="@cdk-orchestration.StackToken.any"></a>
+##### `any` <a name="any" id="cdk-orchestration.StackToken.any"></a>
 
 ```typescript
-import { StackToken } from '@cdk-orchestration'
+import { StackToken } from 'cdk-orchestration'
 
 StackToken.any(scope: IConstruct, name: string, options?: LazyAnyValueOptions)
 ```
 
 Creates a named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackToken.any.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackToken.any.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.StackToken.any.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.StackToken.any.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@cdk-orchestration.StackToken.any.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-orchestration.StackToken.any.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.LazyAnyValueOptions
 
 ---
 
-##### `list` <a name="list" id="@cdk-orchestration.StackToken.list"></a>
+##### `list` <a name="list" id="cdk-orchestration.StackToken.list"></a>
 
 ```typescript
-import { StackToken } from '@cdk-orchestration'
+import { StackToken } from 'cdk-orchestration'
 
 StackToken.list(scope: IConstruct, name: string, options?: LazyListValueOptions)
 ```
 
 Creates a named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackToken.list.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackToken.list.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.StackToken.list.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.StackToken.list.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@cdk-orchestration.StackToken.list.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-orchestration.StackToken.list.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.LazyListValueOptions
 
 ---
 
-##### `number` <a name="number" id="@cdk-orchestration.StackToken.number"></a>
+##### `number` <a name="number" id="cdk-orchestration.StackToken.number"></a>
 
 ```typescript
-import { StackToken } from '@cdk-orchestration'
+import { StackToken } from 'cdk-orchestration'
 
 StackToken.number(scope: IConstruct, name: string)
 ```
 
 Creates a named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackToken.number.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackToken.number.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.StackToken.number.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.StackToken.number.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-##### `resolveAny` <a name="resolveAny" id="@cdk-orchestration.StackToken.resolveAny"></a>
+##### `resolveAny` <a name="resolveAny" id="cdk-orchestration.StackToken.resolveAny"></a>
 
 ```typescript
-import { StackToken } from '@cdk-orchestration'
+import { StackToken } from 'cdk-orchestration'
 
 StackToken.resolveAny(scope: IConstruct, name: string, producer: IStableAnyProducer)
 ```
 
 Registers a resolver for the named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackToken.resolveAny.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackToken.resolveAny.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.StackToken.resolveAny.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.StackToken.resolveAny.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `producer`<sup>Required</sup> <a name="producer" id="@cdk-orchestration.StackToken.resolveAny.parameter.producer"></a>
+###### `producer`<sup>Required</sup> <a name="producer" id="cdk-orchestration.StackToken.resolveAny.parameter.producer"></a>
 
 - *Type:* aws-cdk-lib.IStableAnyProducer
 
 ---
 
-##### `resolveList` <a name="resolveList" id="@cdk-orchestration.StackToken.resolveList"></a>
+##### `resolveList` <a name="resolveList" id="cdk-orchestration.StackToken.resolveList"></a>
 
 ```typescript
-import { StackToken } from '@cdk-orchestration'
+import { StackToken } from 'cdk-orchestration'
 
 StackToken.resolveList(scope: IConstruct, name: string, producer: IStableListProducer)
 ```
 
 Registers a resolver for the named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackToken.resolveList.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackToken.resolveList.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.StackToken.resolveList.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.StackToken.resolveList.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `producer`<sup>Required</sup> <a name="producer" id="@cdk-orchestration.StackToken.resolveList.parameter.producer"></a>
+###### `producer`<sup>Required</sup> <a name="producer" id="cdk-orchestration.StackToken.resolveList.parameter.producer"></a>
 
 - *Type:* aws-cdk-lib.IStableListProducer
 
 ---
 
-##### `resolveNumber` <a name="resolveNumber" id="@cdk-orchestration.StackToken.resolveNumber"></a>
+##### `resolveNumber` <a name="resolveNumber" id="cdk-orchestration.StackToken.resolveNumber"></a>
 
 ```typescript
-import { StackToken } from '@cdk-orchestration'
+import { StackToken } from 'cdk-orchestration'
 
 StackToken.resolveNumber(scope: IConstruct, name: string, producer: IStableNumberProducer)
 ```
 
 Registers a resolver for the named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackToken.resolveNumber.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackToken.resolveNumber.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.StackToken.resolveNumber.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.StackToken.resolveNumber.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `producer`<sup>Required</sup> <a name="producer" id="@cdk-orchestration.StackToken.resolveNumber.parameter.producer"></a>
+###### `producer`<sup>Required</sup> <a name="producer" id="cdk-orchestration.StackToken.resolveNumber.parameter.producer"></a>
 
 - *Type:* aws-cdk-lib.IStableNumberProducer
 
 ---
 
-##### `resolveString` <a name="resolveString" id="@cdk-orchestration.StackToken.resolveString"></a>
+##### `resolveString` <a name="resolveString" id="cdk-orchestration.StackToken.resolveString"></a>
 
 ```typescript
-import { StackToken } from '@cdk-orchestration'
+import { StackToken } from 'cdk-orchestration'
 
 StackToken.resolveString(scope: IConstruct, name: string, producer: IStableStringProducer)
 ```
 
 Registers a resolver for the named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackToken.resolveString.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackToken.resolveString.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.StackToken.resolveString.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.StackToken.resolveString.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `producer`<sup>Required</sup> <a name="producer" id="@cdk-orchestration.StackToken.resolveString.parameter.producer"></a>
+###### `producer`<sup>Required</sup> <a name="producer" id="cdk-orchestration.StackToken.resolveString.parameter.producer"></a>
 
 - *Type:* aws-cdk-lib.IStableStringProducer
 
 ---
 
-##### `string` <a name="string" id="@cdk-orchestration.StackToken.string"></a>
+##### `string` <a name="string" id="cdk-orchestration.StackToken.string"></a>
 
 ```typescript
-import { StackToken } from '@cdk-orchestration'
+import { StackToken } from 'cdk-orchestration'
 
 StackToken.string(scope: IConstruct, name: string, options?: LazyStringValueOptions)
 ```
 
 Creates a named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.StackToken.string.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.StackToken.string.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.StackToken.string.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.StackToken.string.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@cdk-orchestration.StackToken.string.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-orchestration.StackToken.string.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.LazyStringValueOptions
 
@@ -7245,30 +7245,30 @@ Creates a named token.
 
 
 
-### TokenService <a name="TokenService" id="@cdk-orchestration.TokenService"></a>
+### TokenService <a name="TokenService" id="cdk-orchestration.TokenService"></a>
 
 Service for tokens scoped to a construct.
 
 Allows the user to cleanly separate token usage and resolution.
 Users should use AppTokens or StackTokens instead of directly using this class.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.TokenService.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.TokenService.Initializer"></a>
 
 ```typescript
-import { TokenService } from '@cdk-orchestration'
+import { TokenService } from 'cdk-orchestration'
 
 new TokenService(service: ConstructTreeService)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.TokenService.Initializer.parameter.service">service</a></code> | <code><a href="#@cdk-orchestration.ConstructTreeService">ConstructTreeService</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.TokenService.Initializer.parameter.service">service</a></code> | <code><a href="#cdk-orchestration.ConstructTreeService">ConstructTreeService</a></code> | *No description.* |
 
 ---
 
-##### `service`<sup>Required</sup> <a name="service" id="@cdk-orchestration.TokenService.Initializer.parameter.service"></a>
+##### `service`<sup>Required</sup> <a name="service" id="cdk-orchestration.TokenService.Initializer.parameter.service"></a>
 
-- *Type:* <a href="#@cdk-orchestration.ConstructTreeService">ConstructTreeService</a>
+- *Type:* <a href="#cdk-orchestration.ConstructTreeService">ConstructTreeService</a>
 
 ---
 
@@ -7276,18 +7276,18 @@ new TokenService(service: ConstructTreeService)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.TokenService.any">any</a></code> | Creates a named token. |
-| <code><a href="#@cdk-orchestration.TokenService.list">list</a></code> | Creates a named token. |
-| <code><a href="#@cdk-orchestration.TokenService.number">number</a></code> | Creates a named token. |
-| <code><a href="#@cdk-orchestration.TokenService.resolveAny">resolveAny</a></code> | Registers a resolver for the named token. |
-| <code><a href="#@cdk-orchestration.TokenService.resolveList">resolveList</a></code> | Registers a resolver for the named token. |
-| <code><a href="#@cdk-orchestration.TokenService.resolveNumber">resolveNumber</a></code> | Registers a resolver for the named token. |
-| <code><a href="#@cdk-orchestration.TokenService.resolveString">resolveString</a></code> | Registers a resolver for the named token. |
-| <code><a href="#@cdk-orchestration.TokenService.string">string</a></code> | Creates a named token. |
+| <code><a href="#cdk-orchestration.TokenService.any">any</a></code> | Creates a named token. |
+| <code><a href="#cdk-orchestration.TokenService.list">list</a></code> | Creates a named token. |
+| <code><a href="#cdk-orchestration.TokenService.number">number</a></code> | Creates a named token. |
+| <code><a href="#cdk-orchestration.TokenService.resolveAny">resolveAny</a></code> | Registers a resolver for the named token. |
+| <code><a href="#cdk-orchestration.TokenService.resolveList">resolveList</a></code> | Registers a resolver for the named token. |
+| <code><a href="#cdk-orchestration.TokenService.resolveNumber">resolveNumber</a></code> | Registers a resolver for the named token. |
+| <code><a href="#cdk-orchestration.TokenService.resolveString">resolveString</a></code> | Registers a resolver for the named token. |
+| <code><a href="#cdk-orchestration.TokenService.string">string</a></code> | Creates a named token. |
 
 ---
 
-##### `any` <a name="any" id="@cdk-orchestration.TokenService.any"></a>
+##### `any` <a name="any" id="cdk-orchestration.TokenService.any"></a>
 
 ```typescript
 public any(scope: IConstruct, name: string, options?: LazyAnyValueOptions): IResolvable
@@ -7295,25 +7295,25 @@ public any(scope: IConstruct, name: string, options?: LazyAnyValueOptions): IRes
 
 Creates a named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.TokenService.any.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.TokenService.any.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.TokenService.any.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.TokenService.any.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@cdk-orchestration.TokenService.any.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-orchestration.TokenService.any.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.LazyAnyValueOptions
 
 ---
 
-##### `list` <a name="list" id="@cdk-orchestration.TokenService.list"></a>
+##### `list` <a name="list" id="cdk-orchestration.TokenService.list"></a>
 
 ```typescript
 public list(scope: IConstruct, name: string, options?: LazyListValueOptions): string[]
@@ -7321,25 +7321,25 @@ public list(scope: IConstruct, name: string, options?: LazyListValueOptions): st
 
 Creates a named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.TokenService.list.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.TokenService.list.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.TokenService.list.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.TokenService.list.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@cdk-orchestration.TokenService.list.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-orchestration.TokenService.list.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.LazyListValueOptions
 
 ---
 
-##### `number` <a name="number" id="@cdk-orchestration.TokenService.number"></a>
+##### `number` <a name="number" id="cdk-orchestration.TokenService.number"></a>
 
 ```typescript
 public number(scope: IConstruct, name: string): number
@@ -7347,19 +7347,19 @@ public number(scope: IConstruct, name: string): number
 
 Creates a named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.TokenService.number.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.TokenService.number.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.TokenService.number.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.TokenService.number.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-##### `resolveAny` <a name="resolveAny" id="@cdk-orchestration.TokenService.resolveAny"></a>
+##### `resolveAny` <a name="resolveAny" id="cdk-orchestration.TokenService.resolveAny"></a>
 
 ```typescript
 public resolveAny(scope: IConstruct, name: string, producer: IStableAnyProducer): void
@@ -7367,25 +7367,25 @@ public resolveAny(scope: IConstruct, name: string, producer: IStableAnyProducer)
 
 Registers a resolver for the named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.TokenService.resolveAny.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.TokenService.resolveAny.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.TokenService.resolveAny.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.TokenService.resolveAny.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `producer`<sup>Required</sup> <a name="producer" id="@cdk-orchestration.TokenService.resolveAny.parameter.producer"></a>
+###### `producer`<sup>Required</sup> <a name="producer" id="cdk-orchestration.TokenService.resolveAny.parameter.producer"></a>
 
 - *Type:* aws-cdk-lib.IStableAnyProducer
 
 ---
 
-##### `resolveList` <a name="resolveList" id="@cdk-orchestration.TokenService.resolveList"></a>
+##### `resolveList` <a name="resolveList" id="cdk-orchestration.TokenService.resolveList"></a>
 
 ```typescript
 public resolveList(scope: IConstruct, name: string, producer: IStableListProducer): void
@@ -7393,25 +7393,25 @@ public resolveList(scope: IConstruct, name: string, producer: IStableListProduce
 
 Registers a resolver for the named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.TokenService.resolveList.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.TokenService.resolveList.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.TokenService.resolveList.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.TokenService.resolveList.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `producer`<sup>Required</sup> <a name="producer" id="@cdk-orchestration.TokenService.resolveList.parameter.producer"></a>
+###### `producer`<sup>Required</sup> <a name="producer" id="cdk-orchestration.TokenService.resolveList.parameter.producer"></a>
 
 - *Type:* aws-cdk-lib.IStableListProducer
 
 ---
 
-##### `resolveNumber` <a name="resolveNumber" id="@cdk-orchestration.TokenService.resolveNumber"></a>
+##### `resolveNumber` <a name="resolveNumber" id="cdk-orchestration.TokenService.resolveNumber"></a>
 
 ```typescript
 public resolveNumber(scope: IConstruct, name: string, producer: IStableNumberProducer): void
@@ -7419,25 +7419,25 @@ public resolveNumber(scope: IConstruct, name: string, producer: IStableNumberPro
 
 Registers a resolver for the named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.TokenService.resolveNumber.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.TokenService.resolveNumber.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.TokenService.resolveNumber.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.TokenService.resolveNumber.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `producer`<sup>Required</sup> <a name="producer" id="@cdk-orchestration.TokenService.resolveNumber.parameter.producer"></a>
+###### `producer`<sup>Required</sup> <a name="producer" id="cdk-orchestration.TokenService.resolveNumber.parameter.producer"></a>
 
 - *Type:* aws-cdk-lib.IStableNumberProducer
 
 ---
 
-##### `resolveString` <a name="resolveString" id="@cdk-orchestration.TokenService.resolveString"></a>
+##### `resolveString` <a name="resolveString" id="cdk-orchestration.TokenService.resolveString"></a>
 
 ```typescript
 public resolveString(scope: IConstruct, name: string, producer: IStableStringProducer): void
@@ -7445,25 +7445,25 @@ public resolveString(scope: IConstruct, name: string, producer: IStableStringPro
 
 Registers a resolver for the named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.TokenService.resolveString.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.TokenService.resolveString.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.TokenService.resolveString.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.TokenService.resolveString.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `producer`<sup>Required</sup> <a name="producer" id="@cdk-orchestration.TokenService.resolveString.parameter.producer"></a>
+###### `producer`<sup>Required</sup> <a name="producer" id="cdk-orchestration.TokenService.resolveString.parameter.producer"></a>
 
 - *Type:* aws-cdk-lib.IStableStringProducer
 
 ---
 
-##### `string` <a name="string" id="@cdk-orchestration.TokenService.string"></a>
+##### `string` <a name="string" id="cdk-orchestration.TokenService.string"></a>
 
 ```typescript
 public string(scope: IConstruct, name: string, options?: LazyStringValueOptions): string
@@ -7471,19 +7471,19 @@ public string(scope: IConstruct, name: string, options?: LazyStringValueOptions)
 
 Creates a named token.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.TokenService.string.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.TokenService.string.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `name`<sup>Required</sup> <a name="name" id="@cdk-orchestration.TokenService.string.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="cdk-orchestration.TokenService.string.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@cdk-orchestration.TokenService.string.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-orchestration.TokenService.string.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.LazyStringValueOptions
 
@@ -7494,17 +7494,17 @@ Creates a named token.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.TokenService.property.service">service</a></code> | <code><a href="#@cdk-orchestration.ConstructTreeService">ConstructTreeService</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.TokenService.property.service">service</a></code> | <code><a href="#cdk-orchestration.ConstructTreeService">ConstructTreeService</a></code> | *No description.* |
 
 ---
 
-##### `service`<sup>Required</sup> <a name="service" id="@cdk-orchestration.TokenService.property.service"></a>
+##### `service`<sup>Required</sup> <a name="service" id="cdk-orchestration.TokenService.property.service"></a>
 
 ```typescript
 public readonly service: ConstructTreeService;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.ConstructTreeService">ConstructTreeService</a>
+- *Type:* <a href="#cdk-orchestration.ConstructTreeService">ConstructTreeService</a>
 
 ---
 
@@ -7512,28 +7512,28 @@ public readonly service: ConstructTreeService;
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.TokenService.property.TOKEN_SERVICE_FACTORY">TOKEN_SERVICE_FACTORY</a></code> | <code><a href="#@cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.TokenService.property.TOKEN_SERVICE_FACTORY">TOKEN_SERVICE_FACTORY</a></code> | <code><a href="#cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a></code> | *No description.* |
 
 ---
 
-##### `TOKEN_SERVICE_FACTORY`<sup>Required</sup> <a name="TOKEN_SERVICE_FACTORY" id="@cdk-orchestration.TokenService.property.TOKEN_SERVICE_FACTORY"></a>
+##### `TOKEN_SERVICE_FACTORY`<sup>Required</sup> <a name="TOKEN_SERVICE_FACTORY" id="cdk-orchestration.TokenService.property.TOKEN_SERVICE_FACTORY"></a>
 
 ```typescript
 public readonly TOKEN_SERVICE_FACTORY: IConstructServiceFactory;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
+- *Type:* <a href="#cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
 
 ---
 
-### TransformHost <a name="TransformHost" id="@cdk-orchestration.transforms.TransformHost"></a>
+### TransformHost <a name="TransformHost" id="cdk-orchestration.transforms.TransformHost"></a>
 
 Static helpers.
 
-#### Initializers <a name="Initializers" id="@cdk-orchestration.transforms.TransformHost.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-orchestration.transforms.TransformHost.Initializer"></a>
 
 ```typescript
-import { transforms } from '@cdk-orchestration'
+import { transforms } from 'cdk-orchestration'
 
 new transforms.TransformHost()
 ```
@@ -7548,18 +7548,18 @@ new transforms.TransformHost()
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.transforms.TransformHost.ensureHosted">ensureHosted</a></code> | Ensures that a Transform is hosted by modifying the ancestor CfnElement or Stack (if necessary) so they can host transforms. |
-| <code><a href="#@cdk-orchestration.transforms.TransformHost.hook">hook</a></code> | This turns a Stack or CfnElement into a transform host. |
-| <code><a href="#@cdk-orchestration.transforms.TransformHost.isTransformHost">isTransformHost</a></code> | Returns true for any Stack or CfnElement that is a transform host, as well as for all CfnTransformHost constructs. |
-| <code><a href="#@cdk-orchestration.transforms.TransformHost.mark">mark</a></code> | Marks a construct as a TransformHost, isolating the transforms under it from the Stack. |
-| <code><a href="#@cdk-orchestration.transforms.TransformHost.of">of</a></code> | Note: This returns the transform host, which may be either a Stack, a CfnElement, or a CfnTransformHost. |
+| <code><a href="#cdk-orchestration.transforms.TransformHost.ensureHosted">ensureHosted</a></code> | Ensures that a Transform is hosted by modifying the ancestor CfnElement or Stack (if necessary) so they can host transforms. |
+| <code><a href="#cdk-orchestration.transforms.TransformHost.hook">hook</a></code> | This turns a Stack or CfnElement into a transform host. |
+| <code><a href="#cdk-orchestration.transforms.TransformHost.isTransformHost">isTransformHost</a></code> | Returns true for any Stack or CfnElement that is a transform host, as well as for all CfnTransformHost constructs. |
+| <code><a href="#cdk-orchestration.transforms.TransformHost.mark">mark</a></code> | Marks a construct as a TransformHost, isolating the transforms under it from the Stack. |
+| <code><a href="#cdk-orchestration.transforms.TransformHost.of">of</a></code> | Note: This returns the transform host, which may be either a Stack, a CfnElement, or a CfnTransformHost. |
 
 ---
 
-##### `ensureHosted` <a name="ensureHosted" id="@cdk-orchestration.transforms.TransformHost.ensureHosted"></a>
+##### `ensureHosted` <a name="ensureHosted" id="cdk-orchestration.transforms.TransformHost.ensureHosted"></a>
 
 ```typescript
-import { transforms } from '@cdk-orchestration'
+import { transforms } from 'cdk-orchestration'
 
 transforms.TransformHost.ensureHosted(scope: Construct)
 ```
@@ -7571,16 +7571,16 @@ a Stack apply to the Stack.
 
 Not being able to do this may not be fatal, so we don't throw.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.transforms.TransformHost.ensureHosted.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.transforms.TransformHost.ensureHosted.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `hook` <a name="hook" id="@cdk-orchestration.transforms.TransformHost.hook"></a>
+##### `hook` <a name="hook" id="cdk-orchestration.transforms.TransformHost.hook"></a>
 
 ```typescript
-import { transforms } from '@cdk-orchestration'
+import { transforms } from 'cdk-orchestration'
 
 transforms.TransformHost.hook(construct: IConstruct)
 ```
@@ -7591,16 +7591,16 @@ Called from the ensureHosted, which itself is called from
 the CfnTransform constructor to ensure that the CfnTransform
 is hosted either by a CfnElement or a Stack.
 
-###### `construct`<sup>Required</sup> <a name="construct" id="@cdk-orchestration.transforms.TransformHost.hook.parameter.construct"></a>
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-orchestration.transforms.TransformHost.hook.parameter.construct"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `isTransformHost` <a name="isTransformHost" id="@cdk-orchestration.transforms.TransformHost.isTransformHost"></a>
+##### `isTransformHost` <a name="isTransformHost" id="cdk-orchestration.transforms.TransformHost.isTransformHost"></a>
 
 ```typescript
-import { transforms } from '@cdk-orchestration'
+import { transforms } from 'cdk-orchestration'
 
 transforms.TransformHost.isTransformHost(scope: Construct)
 ```
@@ -7609,16 +7609,16 @@ Returns true for any Stack or CfnElement that is a transform host, as well as fo
 
 It does NOT tell you that the object is of type CfnTransformHost.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.transforms.TransformHost.isTransformHost.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.transforms.TransformHost.isTransformHost.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `mark` <a name="mark" id="@cdk-orchestration.transforms.TransformHost.mark"></a>
+##### `mark` <a name="mark" id="cdk-orchestration.transforms.TransformHost.mark"></a>
 
 ```typescript
-import { transforms } from '@cdk-orchestration'
+import { transforms } from 'cdk-orchestration'
 
 transforms.TransformHost.mark(scope: Construct)
 ```
@@ -7627,23 +7627,23 @@ Marks a construct as a TransformHost, isolating the transforms under it from the
 
 Host decides when to apply the descendent transforms.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.transforms.TransformHost.mark.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.transforms.TransformHost.mark.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `of` <a name="of" id="@cdk-orchestration.transforms.TransformHost.of"></a>
+##### `of` <a name="of" id="cdk-orchestration.transforms.TransformHost.of"></a>
 
 ```typescript
-import { transforms } from '@cdk-orchestration'
+import { transforms } from 'cdk-orchestration'
 
 transforms.TransformHost.of(scope: Construct)
 ```
 
 Note: This returns the transform host, which may be either a Stack, a CfnElement, or a CfnTransformHost.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.transforms.TransformHost.of.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.transforms.TransformHost.of.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
@@ -7651,7 +7651,7 @@ Note: This returns the transform host, which may be either a Stack, a CfnElement
 
 
 
-### Transforms <a name="Transforms" id="@cdk-orchestration.transforms.Transforms"></a>
+### Transforms <a name="Transforms" id="cdk-orchestration.transforms.Transforms"></a>
 
 This helper class can extract ICfnTransforms from a construct tree so they can be applied to a template.
 
@@ -7662,12 +7662,12 @@ a CfnInclude construct.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.transforms.Transforms.apply">apply</a></code> | Applies the transforms on a scope to a template. |
-| <code><a href="#@cdk-orchestration.transforms.Transforms.get">get</a></code> | Returns all transforms attached to the scope as descendents. |
+| <code><a href="#cdk-orchestration.transforms.Transforms.apply">apply</a></code> | Applies the transforms on a scope to a template. |
+| <code><a href="#cdk-orchestration.transforms.Transforms.get">get</a></code> | Returns all transforms attached to the scope as descendents. |
 
 ---
 
-##### `apply` <a name="apply" id="@cdk-orchestration.transforms.Transforms.apply"></a>
+##### `apply` <a name="apply" id="cdk-orchestration.transforms.Transforms.apply"></a>
 
 ```typescript
 public apply(template: any): any
@@ -7675,13 +7675,13 @@ public apply(template: any): any
 
 Applies the transforms on a scope to a template.
 
-###### `template`<sup>Required</sup> <a name="template" id="@cdk-orchestration.transforms.Transforms.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.transforms.Transforms.apply.parameter.template"></a>
 
 - *Type:* any
 
 ---
 
-##### `get` <a name="get" id="@cdk-orchestration.transforms.Transforms.get"></a>
+##### `get` <a name="get" id="cdk-orchestration.transforms.Transforms.get"></a>
 
 ```typescript
 public get(): ICfnTransform[]
@@ -7693,14 +7693,14 @@ Returns all transforms attached to the scope as descendents.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.transforms.Transforms.of">of</a></code> | Returns a transforms object for the scope. |
+| <code><a href="#cdk-orchestration.transforms.Transforms.of">of</a></code> | Returns a transforms object for the scope. |
 
 ---
 
-##### `of` <a name="of" id="@cdk-orchestration.transforms.Transforms.of"></a>
+##### `of` <a name="of" id="cdk-orchestration.transforms.Transforms.of"></a>
 
 ```typescript
-import { transforms } from '@cdk-orchestration'
+import { transforms } from 'cdk-orchestration'
 
 transforms.Transforms.of(scope: IConstruct)
 ```
@@ -7710,7 +7710,7 @@ Returns a transforms object for the scope.
 This object has access to all transforms attached to the scope
 as descendents.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.transforms.Transforms.of.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.transforms.Transforms.of.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -7720,11 +7720,11 @@ as descendents.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.transforms.Transforms.property.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.Transforms.property.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.transforms.Transforms.property.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.transforms.Transforms.property.scope"></a>
 
 ```typescript
 public readonly scope: IConstruct;
@@ -7735,7 +7735,7 @@ public readonly scope: IConstruct;
 ---
 
 
-### TreeInspectable <a name="TreeInspectable" id="@cdk-orchestration.TreeInspectable"></a>
+### TreeInspectable <a name="TreeInspectable" id="cdk-orchestration.TreeInspectable"></a>
 
 - *Implements:* aws-cdk-lib.IInspectable
 
@@ -7745,12 +7745,12 @@ Makes any construct IInspectable so it can add metadata to the tree.json file wi
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.TreeInspectable.addAttribute">addAttribute</a></code> | Adds attribute to bag. |
-| <code><a href="#@cdk-orchestration.TreeInspectable.inspect">inspect</a></code> | Called by the CDK to write attribute to tree.json file. |
+| <code><a href="#cdk-orchestration.TreeInspectable.addAttribute">addAttribute</a></code> | Adds attribute to bag. |
+| <code><a href="#cdk-orchestration.TreeInspectable.inspect">inspect</a></code> | Called by the CDK to write attribute to tree.json file. |
 
 ---
 
-##### `addAttribute` <a name="addAttribute" id="@cdk-orchestration.TreeInspectable.addAttribute"></a>
+##### `addAttribute` <a name="addAttribute" id="cdk-orchestration.TreeInspectable.addAttribute"></a>
 
 ```typescript
 public addAttribute(key: string, value: any): void
@@ -7761,7 +7761,7 @@ Adds attribute to bag.
 Keys should be added by convention to prevent conflicts
 i.e. L1 constructs will contain attributes with keys prefixed with aws:cdk:cloudformation
 
-###### `key`<sup>Required</sup> <a name="key" id="@cdk-orchestration.TreeInspectable.addAttribute.parameter.key"></a>
+###### `key`<sup>Required</sup> <a name="key" id="cdk-orchestration.TreeInspectable.addAttribute.parameter.key"></a>
 
 - *Type:* string
 
@@ -7769,7 +7769,7 @@ key for metadata.
 
 ---
 
-###### `value`<sup>Required</sup> <a name="value" id="@cdk-orchestration.TreeInspectable.addAttribute.parameter.value"></a>
+###### `value`<sup>Required</sup> <a name="value" id="cdk-orchestration.TreeInspectable.addAttribute.parameter.value"></a>
 
 - *Type:* any
 
@@ -7777,7 +7777,7 @@ value of metadata.
 
 ---
 
-##### `inspect` <a name="inspect" id="@cdk-orchestration.TreeInspectable.inspect"></a>
+##### `inspect` <a name="inspect" id="cdk-orchestration.TreeInspectable.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -7785,7 +7785,7 @@ public inspect(inspector: TreeInspector): void
 
 Called by the CDK to write attribute to tree.json file.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@cdk-orchestration.TreeInspectable.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.TreeInspectable.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
@@ -7795,38 +7795,38 @@ Called by the CDK to write attribute to tree.json file.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.TreeInspectable.isInspectable">isInspectable</a></code> | True if a construct supports IInspectable interface. |
-| <code><a href="#@cdk-orchestration.TreeInspectable.of">of</a></code> | Returns or creates a TreeInspectable for the given construct. |
+| <code><a href="#cdk-orchestration.TreeInspectable.isInspectable">isInspectable</a></code> | True if a construct supports IInspectable interface. |
+| <code><a href="#cdk-orchestration.TreeInspectable.of">of</a></code> | Returns or creates a TreeInspectable for the given construct. |
 
 ---
 
-##### `isInspectable` <a name="isInspectable" id="@cdk-orchestration.TreeInspectable.isInspectable"></a>
+##### `isInspectable` <a name="isInspectable" id="cdk-orchestration.TreeInspectable.isInspectable"></a>
 
 ```typescript
-import { TreeInspectable } from '@cdk-orchestration'
+import { TreeInspectable } from 'cdk-orchestration'
 
 TreeInspectable.isInspectable(inspectable: any)
 ```
 
 True if a construct supports IInspectable interface.
 
-###### `inspectable`<sup>Required</sup> <a name="inspectable" id="@cdk-orchestration.TreeInspectable.isInspectable.parameter.inspectable"></a>
+###### `inspectable`<sup>Required</sup> <a name="inspectable" id="cdk-orchestration.TreeInspectable.isInspectable.parameter.inspectable"></a>
 
 - *Type:* any
 
 ---
 
-##### `of` <a name="of" id="@cdk-orchestration.TreeInspectable.of"></a>
+##### `of` <a name="of" id="cdk-orchestration.TreeInspectable.of"></a>
 
 ```typescript
-import { TreeInspectable } from '@cdk-orchestration'
+import { TreeInspectable } from 'cdk-orchestration'
 
 TreeInspectable.of(scope: IConstruct)
 ```
 
 Returns or creates a TreeInspectable for the given construct.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.TreeInspectable.of.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.TreeInspectable.of.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -7836,12 +7836,12 @@ Returns or creates a TreeInspectable for the given construct.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.TreeInspectable.property.attributes">attributes</a></code> | <code>{[ key: string ]: any}</code> | Represents the bag of attributes as key-value pairs. |
-| <code><a href="#@cdk-orchestration.TreeInspectable.property.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.TreeInspectable.property.attributes">attributes</a></code> | <code>{[ key: string ]: any}</code> | Represents the bag of attributes as key-value pairs. |
+| <code><a href="#cdk-orchestration.TreeInspectable.property.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
 
 ---
 
-##### `attributes`<sup>Required</sup> <a name="attributes" id="@cdk-orchestration.TreeInspectable.property.attributes"></a>
+##### `attributes`<sup>Required</sup> <a name="attributes" id="cdk-orchestration.TreeInspectable.property.attributes"></a>
 
 ```typescript
 public readonly attributes: {[ key: string ]: any};
@@ -7853,7 +7853,7 @@ Represents the bag of attributes as key-value pairs.
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.TreeInspectable.property.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.TreeInspectable.property.scope"></a>
 
 ```typescript
 public readonly scope: IConstruct;
@@ -7867,27 +7867,27 @@ public readonly scope: IConstruct;
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.TreeInspectable.property.TREE_INSPECTABLE_SERVICE">TREE_INSPECTABLE_SERVICE</a></code> | <code><a href="#@cdk-orchestration.ConstructService">ConstructService</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.TreeInspectable.property.TREE_INSPECTABLE_SERVICE">TREE_INSPECTABLE_SERVICE</a></code> | <code><a href="#cdk-orchestration.ConstructService">ConstructService</a></code> | *No description.* |
 
 ---
 
-##### `TREE_INSPECTABLE_SERVICE`<sup>Required</sup> <a name="TREE_INSPECTABLE_SERVICE" id="@cdk-orchestration.TreeInspectable.property.TREE_INSPECTABLE_SERVICE"></a>
+##### `TREE_INSPECTABLE_SERVICE`<sup>Required</sup> <a name="TREE_INSPECTABLE_SERVICE" id="cdk-orchestration.TreeInspectable.property.TREE_INSPECTABLE_SERVICE"></a>
 
 ```typescript
 public readonly TREE_INSPECTABLE_SERVICE: ConstructService;
 ```
 
-- *Type:* <a href="#@cdk-orchestration.ConstructService">ConstructService</a>
+- *Type:* <a href="#cdk-orchestration.ConstructService">ConstructService</a>
 
 ---
 
 ## Protocols <a name="Protocols" id="Protocols"></a>
 
-### ICfnTransform <a name="ICfnTransform" id="@cdk-orchestration.transforms.ICfnTransform"></a>
+### ICfnTransform <a name="ICfnTransform" id="cdk-orchestration.transforms.ICfnTransform"></a>
 
 - *Extends:* constructs.IConstruct
 
-- *Implemented By:* @cdk-orchestration.custom_resources.EncodeResource, @cdk-orchestration.transforms.CfnTransform, @cdk-orchestration.transforms.ICfnTransform
+- *Implemented By:* cdk-orchestration.custom_resources.EncodeResource, cdk-orchestration.transforms.CfnTransform, cdk-orchestration.transforms.ICfnTransform
 
 The base interface for CDK Transforms.
 
@@ -7902,17 +7902,17 @@ and post-processing CloudFormation produced by the CDK before it is written to a
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.transforms.ICfnTransform.apply">apply</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.ICfnTransform.apply">apply</a></code> | *No description.* |
 
 ---
 
-##### `apply` <a name="apply" id="@cdk-orchestration.transforms.ICfnTransform.apply"></a>
+##### `apply` <a name="apply" id="cdk-orchestration.transforms.ICfnTransform.apply"></a>
 
 ```typescript
 public apply(template: any): any
 ```
 
-###### `template`<sup>Required</sup> <a name="template" id="@cdk-orchestration.transforms.ICfnTransform.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.transforms.ICfnTransform.apply.parameter.template"></a>
 
 - *Type:* any
 
@@ -7922,11 +7922,11 @@ public apply(template: any): any
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.transforms.ICfnTransform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.transforms.ICfnTransform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@cdk-orchestration.transforms.ICfnTransform.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.transforms.ICfnTransform.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -7938,33 +7938,33 @@ The tree node.
 
 ---
 
-### IConstructFactory <a name="IConstructFactory" id="@cdk-orchestration.IConstructFactory"></a>
+### IConstructFactory <a name="IConstructFactory" id="cdk-orchestration.IConstructFactory"></a>
 
-- *Implemented By:* <a href="#@cdk-orchestration.IConstructFactory">IConstructFactory</a>
+- *Implemented By:* <a href="#cdk-orchestration.IConstructFactory">IConstructFactory</a>
 
 Interface for creating a construct.
 
 
 
-### IConstructPredicate <a name="IConstructPredicate" id="@cdk-orchestration.IConstructPredicate"></a>
+### IConstructPredicate <a name="IConstructPredicate" id="cdk-orchestration.IConstructPredicate"></a>
 
-- *Implemented By:* <a href="#@cdk-orchestration.IConstructPredicate">IConstructPredicate</a>
+- *Implemented By:* <a href="#cdk-orchestration.IConstructPredicate">IConstructPredicate</a>
 
 Generalized little-l lambda for a construct.
 
 
 
-### IConstructServiceFactory <a name="IConstructServiceFactory" id="@cdk-orchestration.IConstructServiceFactory"></a>
+### IConstructServiceFactory <a name="IConstructServiceFactory" id="cdk-orchestration.IConstructServiceFactory"></a>
 
-- *Implemented By:* <a href="#@cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
+- *Implemented By:* <a href="#cdk-orchestration.IConstructServiceFactory">IConstructServiceFactory</a>
 
 Factory for a construct service.
 
 
 
-### IConstuctTest <a name="IConstuctTest" id="@cdk-orchestration.IConstuctTest"></a>
+### IConstuctTest <a name="IConstuctTest" id="cdk-orchestration.IConstuctTest"></a>
 
-- *Implemented By:* <a href="#@cdk-orchestration.IConstuctTest">IConstuctTest</a>
+- *Implemented By:* <a href="#cdk-orchestration.IConstuctTest">IConstuctTest</a>
 
 A construct predicate type assertion.
 
@@ -7976,9 +7976,9 @@ Usage:
 
 
 
-### ILogger <a name="ILogger" id="@cdk-orchestration.ILogger"></a>
+### ILogger <a name="ILogger" id="cdk-orchestration.ILogger"></a>
 
-- *Implemented By:* <a href="#@cdk-orchestration.Logger">Logger</a>, <a href="#@cdk-orchestration.NoOpLogger">NoOpLogger</a>, <a href="#@cdk-orchestration.ILogger">ILogger</a>
+- *Implemented By:* <a href="#cdk-orchestration.Logger">Logger</a>, <a href="#cdk-orchestration.NoOpLogger">NoOpLogger</a>, <a href="#cdk-orchestration.ILogger">ILogger</a>
 
 Interface for scoped logging backend.
 
@@ -7988,17 +7988,17 @@ See {@link Logger}.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.ILogger.log">log</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.ILogger.log">log</a></code> | *No description.* |
 
 ---
 
-##### `log` <a name="log" id="@cdk-orchestration.ILogger.log"></a>
+##### `log` <a name="log" id="cdk-orchestration.ILogger.log"></a>
 
 ```typescript
 public log(scope: Construct, logLevel: number, message: string | IStringProvider): void
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@cdk-orchestration.ILogger.log.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.ILogger.log.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
@@ -8006,7 +8006,7 @@ Scope for the log line.
 
 ---
 
-###### `logLevel`<sup>Required</sup> <a name="logLevel" id="@cdk-orchestration.ILogger.log.parameter.logLevel"></a>
+###### `logLevel`<sup>Required</sup> <a name="logLevel" id="cdk-orchestration.ILogger.log.parameter.logLevel"></a>
 
 - *Type:* number
 
@@ -8014,9 +8014,9 @@ a number to support custom levels (e.g. FATAL = 0.5).
 
 ---
 
-###### `message`<sup>Required</sup> <a name="message" id="@cdk-orchestration.ILogger.log.parameter.message"></a>
+###### `message`<sup>Required</sup> <a name="message" id="cdk-orchestration.ILogger.log.parameter.message"></a>
 
-- *Type:* string | <a href="#@cdk-orchestration.IStringProvider">IStringProvider</a>
+- *Type:* string | <a href="#cdk-orchestration.IStringProvider">IStringProvider</a>
 
 The message.
 
@@ -8026,11 +8026,11 @@ The message.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@cdk-orchestration.ILogger.property.logLevel">logLevel</a></code> | <code>number</code> | Returns the current log level. |
+| <code><a href="#cdk-orchestration.ILogger.property.logLevel">logLevel</a></code> | <code>number</code> | Returns the current log level. |
 
 ---
 
-##### `logLevel`<sup>Required</sup> <a name="logLevel" id="@cdk-orchestration.ILogger.property.logLevel"></a>
+##### `logLevel`<sup>Required</sup> <a name="logLevel" id="cdk-orchestration.ILogger.property.logLevel"></a>
 
 ```typescript
 public readonly logLevel: number;
@@ -8042,34 +8042,34 @@ Returns the current log level.
 
 ---
 
-### IProcessor <a name="IProcessor" id="@cdk-orchestration.IProcessor"></a>
+### IProcessor <a name="IProcessor" id="cdk-orchestration.IProcessor"></a>
 
-- *Implemented By:* <a href="#@cdk-orchestration.IProcessor">IProcessor</a>
+- *Implemented By:* <a href="#cdk-orchestration.IProcessor">IProcessor</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.IProcessor.process">process</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.IProcessor.process">process</a></code> | *No description.* |
 
 ---
 
-##### `process` <a name="process" id="@cdk-orchestration.IProcessor.process"></a>
+##### `process` <a name="process" id="cdk-orchestration.IProcessor.process"></a>
 
 ```typescript
 public process(x: any): any
 ```
 
-###### `x`<sup>Required</sup> <a name="x" id="@cdk-orchestration.IProcessor.process.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.IProcessor.process.parameter.x"></a>
 
 - *Type:* any
 
 ---
 
 
-### IStopCondition <a name="IStopCondition" id="@cdk-orchestration.IStopCondition"></a>
+### IStopCondition <a name="IStopCondition" id="cdk-orchestration.IStopCondition"></a>
 
-- *Implemented By:* <a href="#@cdk-orchestration.IStopCondition">IStopCondition</a>
+- *Implemented By:* <a href="#cdk-orchestration.IStopCondition">IStopCondition</a>
 
 Defines where to stop when navigating the construct tree.
 
@@ -8078,9 +8078,9 @@ on search direction).
 
 
 
-### IStringProvider <a name="IStringProvider" id="@cdk-orchestration.IStringProvider"></a>
+### IStringProvider <a name="IStringProvider" id="cdk-orchestration.IStringProvider"></a>
 
-- *Implemented By:* <a href="#@cdk-orchestration.IStringProvider">IStringProvider</a>
+- *Implemented By:* <a href="#cdk-orchestration.IStringProvider">IStringProvider</a>
 
 Delayed log-line construction.
 
@@ -8088,7 +8088,7 @@ Delayed log-line construction.
 
 ## Enums <a name="Enums" id="Enums"></a>
 
-### LogLevel <a name="LogLevel" id="@cdk-orchestration.LogLevel"></a>
+### LogLevel <a name="LogLevel" id="cdk-orchestration.LogLevel"></a>
 
 The Node logging levels (from the console object).
 
@@ -8102,46 +8102,46 @@ FATAL = 0.5).  Subclass Log and Logger to support custom log levels.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.LogLevel.OFF">OFF</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.LogLevel.ERROR">ERROR</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.LogLevel.WARNING">WARNING</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.LogLevel.INFO">INFO</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.LogLevel.DEBUG">DEBUG</a></code> | *No description.* |
-| <code><a href="#@cdk-orchestration.LogLevel.ALL">ALL</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.LogLevel.OFF">OFF</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.LogLevel.ERROR">ERROR</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.LogLevel.WARNING">WARNING</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.LogLevel.INFO">INFO</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.LogLevel.DEBUG">DEBUG</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.LogLevel.ALL">ALL</a></code> | *No description.* |
 
 ---
 
-##### `OFF` <a name="OFF" id="@cdk-orchestration.LogLevel.OFF"></a>
-
----
-
-
-##### `ERROR` <a name="ERROR" id="@cdk-orchestration.LogLevel.ERROR"></a>
+##### `OFF` <a name="OFF" id="cdk-orchestration.LogLevel.OFF"></a>
 
 ---
 
 
-##### `WARNING` <a name="WARNING" id="@cdk-orchestration.LogLevel.WARNING"></a>
+##### `ERROR` <a name="ERROR" id="cdk-orchestration.LogLevel.ERROR"></a>
 
 ---
 
 
-##### `INFO` <a name="INFO" id="@cdk-orchestration.LogLevel.INFO"></a>
+##### `WARNING` <a name="WARNING" id="cdk-orchestration.LogLevel.WARNING"></a>
 
 ---
 
 
-##### `DEBUG` <a name="DEBUG" id="@cdk-orchestration.LogLevel.DEBUG"></a>
+##### `INFO` <a name="INFO" id="cdk-orchestration.LogLevel.INFO"></a>
 
 ---
 
 
-##### `ALL` <a name="ALL" id="@cdk-orchestration.LogLevel.ALL"></a>
+##### `DEBUG` <a name="DEBUG" id="cdk-orchestration.LogLevel.DEBUG"></a>
 
 ---
 
 
-### MinifyEngine <a name="MinifyEngine" id="@cdk-orchestration.aws_lambda_nodejs.MinifyEngine"></a>
+##### `ALL` <a name="ALL" id="cdk-orchestration.LogLevel.ALL"></a>
+
+---
+
+
+### MinifyEngine <a name="MinifyEngine" id="cdk-orchestration.aws_lambda_nodejs.MinifyEngine"></a>
 
 Minification engine enum.
 
@@ -8151,20 +8151,20 @@ The default minification engine is SIMPLE.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.MinifyEngine.NONE">NONE</a></code> | No minification. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.MinifyEngine.ES_BUILD">ES_BUILD</a></code> | Uses esbuild for minification. |
-| <code><a href="#@cdk-orchestration.aws_lambda_nodejs.MinifyEngine.SIMPLE">SIMPLE</a></code> | Removes comments and trims leading/trailing spaces from lines. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.MinifyEngine.NONE">NONE</a></code> | No minification. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.MinifyEngine.ES_BUILD">ES_BUILD</a></code> | Uses esbuild for minification. |
+| <code><a href="#cdk-orchestration.aws_lambda_nodejs.MinifyEngine.SIMPLE">SIMPLE</a></code> | Removes comments and trims leading/trailing spaces from lines. |
 
 ---
 
-##### `NONE` <a name="NONE" id="@cdk-orchestration.aws_lambda_nodejs.MinifyEngine.NONE"></a>
+##### `NONE` <a name="NONE" id="cdk-orchestration.aws_lambda_nodejs.MinifyEngine.NONE"></a>
 
 No minification.
 
 ---
 
 
-##### `ES_BUILD` <a name="ES_BUILD" id="@cdk-orchestration.aws_lambda_nodejs.MinifyEngine.ES_BUILD"></a>
+##### `ES_BUILD` <a name="ES_BUILD" id="cdk-orchestration.aws_lambda_nodejs.MinifyEngine.ES_BUILD"></a>
 
 Uses esbuild for minification.
 
@@ -8176,7 +8176,7 @@ Add the following to your package.json file:
 ---
 
 
-##### `SIMPLE` <a name="SIMPLE" id="@cdk-orchestration.aws_lambda_nodejs.MinifyEngine.SIMPLE"></a>
+##### `SIMPLE` <a name="SIMPLE" id="cdk-orchestration.aws_lambda_nodejs.MinifyEngine.SIMPLE"></a>
 
 Removes comments and trims leading/trailing spaces from lines.
 
