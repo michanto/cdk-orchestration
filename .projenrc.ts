@@ -1,6 +1,7 @@
 import { awscdk, github, javascript, release } from 'projen';
 import { NodePackageManager } from 'projen/lib/javascript';
 
+// See how to publish https://github.com/mikejgray/ovos-skill-projen/blob/main/.projenrc.ts
 let cdkVersion = '2.120.0';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Michael Antonio',
