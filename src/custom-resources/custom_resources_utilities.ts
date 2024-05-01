@@ -6,8 +6,9 @@ import { BUILD_TIME, ConstructTreeSearch } from '../core';
  * Utilities for creating custom resources
  */
 export class CustomResourceUtilities {
-  static isCustomResource(elt: Construct): elt is CfnResource {
-    return CfnResource.isCfnResource(elt) && (elt as any)._cfnProperties.ServiceToken;
+  static isCustomResource(elt: Construct): boolean {
+    return CfnResource.isCfnResource(elt) && (elt.cfnResourceType.startsWith("Custom::") ||
+    elt.cfnResourceType == "AWS::CloudFormation::CustomResource");
   }
   protected treeSearch = ConstructTreeSearch.for(CustomResourceUtilities.isCustomResource);
 

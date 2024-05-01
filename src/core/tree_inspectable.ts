@@ -35,9 +35,8 @@ export class TreeInspectable extends TreeInspector implements IInspectable {
    * Proxies or creates the inspect method on a construct.
    */
   private hook(scope: IConstruct) {
-    /* istanbul ignore if */
+    /* istanbul ignore next */
     if (TreeInspectable.TREE_INSPECTABLE_SERVICE.has(scope)) {
-      /* istanbul ignore next */
       throw new Error(`Should not be able to get here.  ${scope.node.path} is already inspectable.`);
     }
     let protoInspect = Object.getPrototypeOf(scope).inspect;

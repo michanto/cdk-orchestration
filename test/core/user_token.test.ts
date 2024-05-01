@@ -1,19 +1,10 @@
 import { App, CustomResource, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
-import { Code, Function, IFunction, Runtime } from 'aws-cdk-lib/aws-lambda';
+import { Function, IFunction } from 'aws-cdk-lib/aws-lambda';
 import { Bucket, IBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 import { AppToken, Singleton, StackToken } from '../../src';
-
-export class BadFunction extends Function {
-  constructor(scope: Construct, id: string ) {
-    super(scope, id, {
-      code: Code.fromInline('bad code'),
-      handler: 'handler',
-      runtime: Runtime.NODEJS_18_X,
-    });
-  }
-}
+import { BadFunction } from '../util';
 
 export class StackTokenCustomResource extends CustomResource {
   constructor(scope: Construct, id: string, fn: IFunction ) {
