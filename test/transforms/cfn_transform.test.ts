@@ -1,6 +1,6 @@
 import { App, Stack, StackProps } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
-import { Construct } from 'constructs';
+import { Construct, IConstruct } from 'constructs';
 import {
   CfnTransform,
   TransformHost,
@@ -120,4 +120,18 @@ describe('transform tests', () => {
     expect(() => Template.fromStack(stack)).toThrow();
     expect(CfnTransform.isCfnTransform(theBad)).toBeTruthy();
   });
+
+  test('hook tests', () => {
+    let stack = new Stack();
+    // Not a construct throws.
+    expect(() => TransformHost.hook(new Object() as unknown as IConstruct)).toThrow();
+    // No _toCloudFormation throws.
+    expect(() => TransformHost.hook(new Construct(stack, "id"))).toThrow();
+    // Not a Stack or L1 throws.
+    expect(() => TransformHost.hook(new class extends Construct {
+      protected _toCloudFormation() {
+        return {};
+      }
+    }(stack, "id2"))).toThrow();
+  })
 });

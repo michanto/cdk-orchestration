@@ -48,10 +48,6 @@ export class Transforms {
       let index = 0;
       let ids: string[] = [];
       for (const transform of transforms) {
-        /** istanbul ignore next */
-        if (!Construct.isConstruct(transform)) {
-          throw new Error('Transforms must be constructs.');
-        }
         try {
           log.debug(`Applying ${transform.node.path}.`);
           template = transform.apply(template);
@@ -67,7 +63,6 @@ export class Transforms {
             transform.node.path
           }  (${index}) failed to return a template.`;
           throw new Error(message);
-          break;
         }
         index++;
       }

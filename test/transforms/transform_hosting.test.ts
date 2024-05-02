@@ -57,4 +57,19 @@ describe('TransformHosting tests.', () => {
     expect(t3.applyCount).toBe(1);
     expect(t4.applyCount).toBe(1);
   });
+
+  it('Throwing transform causes error', () => {
+        let stack = new Stack();
+
+        let host = new CfnTransformHostTestSubject(stack, 'Host');
+        expect(TransformHost.isTransformHost(host)).toBeTruthy();
+        expect(CfnTransformHost.isCfnTransformHost(host)).toBeTruthy();
+        new class extends NoopTransform {
+            apply(template: any) {
+                super.apply(template);
+                throw new Error();
+            }
+        }(host, 't1');
+        expect(() => host.doApply({})).toThrow();
+    })
 });
