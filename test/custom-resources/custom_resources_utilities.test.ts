@@ -18,7 +18,6 @@ describe('Custom Resource Utilities tests.', () => {
         ServiceToken: serviceToken,
       },
     });
-    console.log(resource1.cfnResourceType);
     expect(CustomResourceUtilities.isCustomResource(resource1)).toBeTruthy();
     expect(CustomResourceUtilities.isCustomResource(resource2)).toBeTruthy();
   });

@@ -6464,7 +6464,7 @@ new PostResolveToken(value: any, processor: IProcessor)
 ##### `postProcess` <a name="postProcess" id="cdk-orchestration.PostResolveToken.postProcess"></a>
 
 ```typescript
-public postProcess(o: any, _context: IResolveContext): any
+public postProcess(o: any, context: IResolveContext): any
 ```
 
 Process the completely resolved value, after full recursion/resolution has happened.
@@ -6475,7 +6475,7 @@ Process the completely resolved value, after full recursion/resolution has happe
 
 ---
 
-###### `_context`<sup>Required</sup> <a name="_context" id="cdk-orchestration.PostResolveToken.postProcess.parameter._context"></a>
+###### `context`<sup>Required</sup> <a name="context" id="cdk-orchestration.PostResolveToken.postProcess.parameter.context"></a>
 
 - *Type:* aws-cdk-lib.IResolveContext
 
@@ -8057,12 +8057,18 @@ Returns the current log level.
 ##### `process` <a name="process" id="cdk-orchestration.IProcessor.process"></a>
 
 ```typescript
-public process(x: any): any
+public process(x: any, context: IResolveContext): any
 ```
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.IProcessor.process.parameter.x"></a>
 
 - *Type:* any
+
+---
+
+###### `context`<sup>Required</sup> <a name="context" id="cdk-orchestration.IProcessor.process.parameter.context"></a>
+
+- *Type:* aws-cdk-lib.IResolveContext
 
 ---
 

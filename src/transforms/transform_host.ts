@@ -1,4 +1,4 @@
-import { CfnElement, Stack } from 'aws-cdk-lib';
+import { CfnElement, IResolveContext, Stack } from 'aws-cdk-lib';
 import { Construct, IConstruct } from 'constructs';
 import { TRANSFORM_HOST_OF, CFN_TRANSFORM_HOST_RTTI } from './private/transform_rtti';
 import { Transforms } from './transforms';
@@ -80,12 +80,20 @@ export class TransformHost {
     if (protoToCloudFormation == undefined) {
       throw new Error(errorMsg);
     }
-    CFN_TRANSFORM_HOST_RTTI.addRtti(construct);
+    TransformHost.mark(construct);
 
     // PostResolve CfnElement (because CfnResource is always PostResolve)
     if (CfnElement.isCfnElement(construct)) {
       ;(construct as unknown as any)._toCloudFormation = function () {
-        return new PostResolveToken(protoToCloudFormation.call(construct), { process: (t: any) => Transforms.of(construct).apply(t) });
+        return new PostResolveToken(protoToCloudFormation.call(construct), {
+          process: (t: any, context: IResolveContext) => {
+            // Only apply during _toCloudFormation.
+            if (context.preparing) {
+              return t;
+            }
+            return Transforms.of(construct).apply(t);
+          },
+        });
       };
     } else if (Stack.isStack(construct)) {
       ;(construct as unknown as any)._toCloudFormation = function () {

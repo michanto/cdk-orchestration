@@ -1,7 +1,7 @@
 import { IResolvable, IResolveContext, IPostProcessor, Token } from 'aws-cdk-lib';
 
 export interface IProcessor {
-  process(x: any): any;
+  process(x: any, context: IResolveContext): any;
 }
 
 /**
@@ -19,8 +19,8 @@ export class PostResolveToken implements IResolvable, IPostProcessor {
     this.value = value;
   }
 
-  public postProcess(o: any, _context: IResolveContext): any {
-    return this.processor.process(o);
+  public postProcess(o: any, context: IResolveContext): any {
+    return this.processor.process(o, context);
   }
 
   public resolve(context: IResolveContext) {
