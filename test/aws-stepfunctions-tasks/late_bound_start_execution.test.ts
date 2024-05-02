@@ -29,7 +29,7 @@ describe('LateBoundStepFunctionsStartExecution tests', () => {
       definitionBody: DefinitionBody.fromChainable(chain),
     });
 
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     let stepFn = template.Resources.MyStateMachine6C968CA5;
     expect(JSON.stringify(stepFn.Properties)).toContain('$.stateMachineArn');
   });
@@ -56,7 +56,7 @@ describe('LateBoundStepFunctionsStartExecution tests', () => {
       definitionBody: DefinitionBody.fromChainable(chain),
     });
 
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     let stepFn = template.Resources.MyStateMachine6C968CA5;
     expect(JSON.stringify(stepFn.Properties)).toContain('$.stateMachineArn');
     expect(JSON.stringify(stepFn.Properties)).toContain('AWS_STEP_FUNCTIONS_STARTED_BY_EXECUTION_ID');

@@ -24,7 +24,7 @@ describe('CfnIncludeToCdk tests', () => {
 
     CfnIncludeToCdk.replaceIncluded('S3BucketNotification', bucket);
     let param = CfnIncludeToCdk.findIncluded('NotificationBucket', stack);
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     expect(param).toBeTruthy();
     expect(template).toMatchObject({
       Resources: {
@@ -45,7 +45,7 @@ describe('CfnIncludeToCdk tests', () => {
     const scope = new Construct(stack, 'Construct');
     let bucket = new CfnBucket(scope, 'MyBucket');
     CfnIncludeToCdk.setLogicalId(bucket, 'MyBucket');
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({
       Resources: {
         MyBucket: {
@@ -59,7 +59,7 @@ describe('CfnIncludeToCdk tests', () => {
     const scope = new Construct(stack, 'Construct');
     let bucket = new Bucket(scope, 'MyBucket');
     CfnIncludeToCdk.setLogicalId(bucket, 'MyBucket');
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({
       Resources: {
         MyBucket: {
@@ -73,7 +73,7 @@ describe('CfnIncludeToCdk tests', () => {
     const scope = new Construct(stack, 'Construct');
     new Bucket(scope, 'MyBucket');
     CfnIncludeToCdk.setLogicalId(scope, 'MyBucket');
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({
       Resources: {
         MyBucket: {

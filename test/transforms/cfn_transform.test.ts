@@ -65,7 +65,7 @@ describe('transform tests', () => {
     });
 
     let stackDescription = new StackDescription(stack, 'Description', 'This is the new stack description.');
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({ Description: 'This is the new stack description.' });
     expect(CfnTransform.isCfnTransform(stackDescription)).toBeTruthy();
     expect(TransformHost.isTransformHost(stack)).toBeTruthy();
@@ -74,7 +74,7 @@ describe('transform tests', () => {
   test('Test transform code from README.md file', () => {
     let app = new App();
     let stack = new MyStack(app, 'MyStack');
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({ Description: 'This description came from a transform.' });
   });
 
@@ -87,7 +87,7 @@ describe('transform tests', () => {
     });
 
     new StackDescription(stack, 'Description', 'This is the new stack description.');
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({ Description: 'This is the new stack description.' });
   });
 
@@ -101,7 +101,7 @@ describe('transform tests', () => {
 
     let transform1 = new StackDescription(stack, 'Description', 'This is stack description 1.');
     new StackDescription(transform1, 'Description', 'This is stack description 2.');
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({ Description: 'This is stack description 2.' });
   });
 

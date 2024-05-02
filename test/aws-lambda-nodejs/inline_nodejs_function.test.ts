@@ -27,7 +27,7 @@ describe('InlineNodeJsFunction tests', () => {
     new MyInlineFunction(stack, 'MyInlineFunction');
 
     // THEN
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({
       Resources: {
         MyInlineFunction9974A7D0: {
@@ -57,7 +57,7 @@ describe('InlineNodeJsFunction tests', () => {
     });
 
     // THEN
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({
       Resources: {
         MyInlineFunction9974A7D0: {
@@ -91,7 +91,7 @@ describe('InlineNodeJsFunction tests', () => {
     });
 
     // THEN
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({
       Resources: {
         MyInlineFunction9974A7D0: {
@@ -120,7 +120,7 @@ describe('InlineNodeJsFunction tests', () => {
     });
 
     // THEN
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({
       Resources: {
         MyInlineFunction9974A7D0: {
@@ -162,7 +162,7 @@ describe('InlineNodeJsFunction tests', () => {
       expect(inspector.attributes[InlineNodejsFunction.TMP_FILE_ATTRIBUTE_NAME]).toContain('-test_lambda.js');
     }
 
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({
       Resources: {
         MyInlineFunction9974A7D0: {
@@ -210,7 +210,7 @@ describe('InlineNodeJsFunction tests', () => {
     });
 
     // THEN
-    let template = JSON.parse(JSON.stringify(Template.fromStack(stack)));
+    let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({
       Resources: {
         MyInlineFunction9974A7D0: {
