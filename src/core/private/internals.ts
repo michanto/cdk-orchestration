@@ -1,1 +1,1 @@
-export const NAMESPACE = '@open-constructs/aws-cdk';
+export const NAMESPACE = 'cdk-orchestration';
