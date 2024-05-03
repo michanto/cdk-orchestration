@@ -46,6 +46,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   //   dotNetNamespace: 'Michanto.CdkOrchestration',
   // },
   devDeps: [
+    '@types/tmp@^0.2.1',
     `@aws-cdk/integ-runner@${cdkVersion}-alpha.0`,
     `@aws-cdk/integ-tests-alpha@${cdkVersion}-alpha.0`,
   ],
@@ -55,6 +56,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '@aws-sdk/client-sfn@3.501.0',
     '@aws-sdk/client-ec2@3.501.0',
     'esbuild@0.18.16',
+    'tmp@^0.2.1',
+    'yaml@^2.1.1',
   ],
 
   bundledDeps: [
@@ -62,6 +65,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '@aws-sdk/client-sfn@3.501.0',
     '@aws-sdk/client-ec2@3.501.0',
     'esbuild@0.18.16',
+    'tmp@^0.2.1',
+    'yaml@^2.1.1',
   ],
   // devDeps: [
 

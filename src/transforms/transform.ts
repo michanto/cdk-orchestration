@@ -1,12 +1,12 @@
 import { CfnElement, IInspectable, Resource, TreeInspector } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { ICfnTransform } from './icfn_transform';
 import { CfnTransform } from './cfn_transform';
-import { TransformHost } from './transform_host';
+import { ICfnTransform } from './icfn_transform';
 import { ImportOrders } from './import_orders';
+import { TransformHost } from './transform_host';
 
 export interface TransformBaseProps {
-    readonly order: string;
+  readonly order: string;
 }
 
 /**
@@ -15,7 +15,7 @@ export interface TransformBaseProps {
  *
  * TransformBase.getShimParent determines where to put the L1 shim in the construct tree.
  * There are three possibilites:
- * 
+ *
  * 1. The parent of the Transform is a Resource.  In this case, the shim is created as a child
  * of the Resources L1 construct (resource.node.defaultChild).
  * 2. The host is an ordered host, in which case Transform will attempt to parent the shim under
@@ -86,7 +86,7 @@ export abstract class TransformBase extends Construct implements IInspectable {
       && this.node.scope.node.defaultChild
       && CfnElement.isCfnElement(this.node.scope.node.defaultChild)) {
 
-        return this.node.scope.node.defaultChild;
+      return this.node.scope.node.defaultChild;
     }
 
     let host = TransformHost.of(this);
@@ -116,7 +116,7 @@ export abstract class TransformBase extends Construct implements IInspectable {
 
 /** This is what Template.fromStack().toJSON() returns */
 export type CfTemplateType = {
-    [key: string]: any;
+  [key: string]: any;
 }
 
 export interface TransformProps extends TransformBaseProps {
@@ -124,15 +124,15 @@ export interface TransformProps extends TransformBaseProps {
 
 export abstract class Transform extends TransformBase {
 
-    constructor(scope: Construct, id: string, props?: TransformProps) {
-        super(scope, id, props ??  { order: ImportOrders.TRANSFORMS })
-    }
-    public abstract apply(template: CfTemplateType): CfTemplateType;
+  constructor(scope: Construct, id: string, props?: TransformProps) {
+    super(scope, id, props ?? { order: ImportOrders.TRANSFORMS });
+  }
+  public abstract apply(template: CfTemplateType): CfTemplateType;
 
   /**
    * @internal
    */
   protected _apply(template: any) {
-        return this.apply(template);
-    }
+    return this.apply(template);
+  }
 }

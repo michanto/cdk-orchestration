@@ -126,12 +126,12 @@ describe('transform tests', () => {
     // Not a construct throws.
     expect(() => TransformHost.hook(new Object() as unknown as IConstruct)).toThrow();
     // No _toCloudFormation throws.
-    expect(() => TransformHost.hook(new Construct(stack, "id"))).toThrow();
+    expect(() => TransformHost.hook(new Construct(stack, 'id'))).toThrow();
     // Not a Stack or L1 throws.
     expect(() => TransformHost.hook(new class extends Construct {
       protected _toCloudFormation() {
         return {};
       }
-    }(stack, "id2"))).toThrow();
-  })
+    }(stack, 'id2'))).toThrow();
+  });
 });

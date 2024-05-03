@@ -1,4 +1,4 @@
-import {Construct} from 'constructs';
+import { Construct } from 'constructs';
 import { ImportOrders } from './import_orders';
 import { TransformBase, TransformBaseProps } from './transform';
 

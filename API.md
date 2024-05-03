@@ -2,6 +2,463 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
+### BaseImporter <a name="BaseImporter" id="cdk-orchestration.cloudformation_include.BaseImporter"></a>
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.cloudformation_include.BaseImporter.Initializer"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+new cloudformation_include.BaseImporter(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseImporter.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseImporter.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.BaseImporter.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.cloudformation_include.BaseImporter.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseImporter.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-orchestration.cloudformation_include.BaseImporter.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseImporter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseImporter.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.cloudformation_include.BaseImporter.isConstruct"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+cloudformation_include.BaseImporter.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.cloudformation_include.BaseImporter.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isCfnTransformHost` <a name="isCfnTransformHost" id="cdk-orchestration.cloudformation_include.BaseImporter.isCfnTransformHost"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+cloudformation_include.BaseImporter.isCfnTransformHost(scope: Construct)
+```
+
+Tells you if an object is a CfnTransformHost.
+
+Duck-typing.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.BaseImporter.isCfnTransformHost.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseImporter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseImporter.property.parserOrder">parserOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseImporter.property.readerOrder">readerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseImporter.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseImporter.property.imports">imports</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.cloudformation_include.BaseImporter.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="cdk-orchestration.cloudformation_include.BaseImporter.property.parserOrder"></a>
+
+```typescript
+public readonly parserOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="cdk-orchestration.cloudformation_include.BaseImporter.property.preReaderOrder"></a>
+
+```typescript
+public readonly preReaderOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="cdk-orchestration.cloudformation_include.BaseImporter.property.readerOrder"></a>
+
+```typescript
+public readonly readerOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="cdk-orchestration.cloudformation_include.BaseImporter.property.stringTransformOrder"></a>
+
+```typescript
+public readonly stringTransformOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="cdk-orchestration.cloudformation_include.BaseImporter.property.templateTransformOrder"></a>
+
+```typescript
+public readonly templateTransformOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="cdk-orchestration.cloudformation_include.BaseImporter.property.writerOrder"></a>
+
+```typescript
+public readonly writerOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `imports`<sup>Required</sup> <a name="imports" id="cdk-orchestration.cloudformation_include.BaseImporter.property.imports"></a>
+
+```typescript
+public readonly imports: number;
+```
+
+- *Type:* number
+
+---
+
+
+### BaseTemplateImporter <a name="BaseTemplateImporter" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter"></a>
+
+Base class for {@link TemplateImporter}.
+
+This is a TemplateImporter minus the transforms.
+
+Applies the import transforms on the given file and creates a new CfnInclude for the imported template.
+
+Transforms you might want to add to a BaseTemplateImporter subclass:
+
+- PreReader - PreReader transforms take an arbitrary string and return a CloudFormation file path.
+  A PreReader transform could call a python script, run a GetTemplateLongPromise, or otherwise
+  generate a CloudFormation file.
+- StringReplacer - Easy string replacement before the template is parsed.
+- Transform - Modify the parsed template before it is imported.
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.Initializer"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+new cloudformation_include.BaseTemplateImporter(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.importTemplate">importTemplate</a></code> | Applies the import transforms on the given file and creates a new CfnInclude for the imported template. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `importTemplate` <a name="importTemplate" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.importTemplate"></a>
+
+```typescript
+public importTemplate(templateFile: string, props?: ImportTemplateProps): CfnInclude
+```
+
+Applies the import transforms on the given file and creates a new CfnInclude for the imported template.
+
+###### `templateFile`<sup>Required</sup> <a name="templateFile" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.importTemplate.parameter.templateFile"></a>
+
+- *Type:* string
+
+Normally this is the file you wish to import, and is passed to the Reader step.
+
+However, if you have added any PreReader Transforms than this string is passed to those transforms,
+and the output of the PreReader transforms is passed to the Reader step.
+
+PreReader transforms are useful for calling scripts that write JSON files.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.importTemplate.parameter.props"></a>
+
+- *Type:* cdk-orchestration.cloudformation_include.ImportTemplateProps
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.isConstruct"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+cloudformation_include.BaseTemplateImporter.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isCfnTransformHost` <a name="isCfnTransformHost" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.isCfnTransformHost"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+cloudformation_include.BaseTemplateImporter.isCfnTransformHost(scope: Construct)
+```
+
+Tells you if an object is a CfnTransformHost.
+
+Duck-typing.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.isCfnTransformHost.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.parserOrder">parserOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.readerOrder">readerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.imports">imports</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.capture">capture</a></code> | <code>cdk-orchestration.cloudformation_include.TemplateCapture</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.parserOrder"></a>
+
+```typescript
+public readonly parserOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.preReaderOrder"></a>
+
+```typescript
+public readonly preReaderOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.readerOrder"></a>
+
+```typescript
+public readonly readerOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.stringTransformOrder"></a>
+
+```typescript
+public readonly stringTransformOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.templateTransformOrder"></a>
+
+```typescript
+public readonly templateTransformOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.writerOrder"></a>
+
+```typescript
+public readonly writerOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `imports`<sup>Required</sup> <a name="imports" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.imports"></a>
+
+```typescript
+public readonly imports: number;
+```
+
+- *Type:* number
+
+---
+
+##### `capture`<sup>Required</sup> <a name="capture" id="cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.capture"></a>
+
+```typescript
+public readonly capture: TemplateCapture;
+```
+
+- *Type:* cdk-orchestration.cloudformation_include.TemplateCapture
+
+---
+
+
 ### CfnTransform <a name="CfnTransform" id="cdk-orchestration.transforms.CfnTransform"></a>
 
 - *Implements:* cdk-orchestration.transforms.ICfnTransform
@@ -519,6 +976,184 @@ Which construct will apply this transform.
 
 ```typescript
 public readonly id: string;
+```
+
+- *Type:* string
+
+---
+
+
+### FileReader <a name="FileReader" id="cdk-orchestration.cloudformation_include.FileReader"></a>
+
+Reads a file (presumably one containing a template) and returns it as a string.
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.cloudformation_include.FileReader.Initializer"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+new cloudformation_include.FileReader(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.FileReader.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.FileReader.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.FileReader.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.cloudformation_include.FileReader.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.FileReader.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.FileReader.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#cdk-orchestration.cloudformation_include.FileReader.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.FileReader.apply">apply</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-orchestration.cloudformation_include.FileReader.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `findShimParent` <a name="findShimParent" id="cdk-orchestration.cloudformation_include.FileReader.findShimParent"></a>
+
+```typescript
+public findShimParent(): Construct
+```
+
+This function figures out which node in the tree should parent the shim (CfnTransform).
+
+Normally, the shim should be a child of this construct (TransformBase).  However,
+if the parent of this construct is an L2 resource, then the shim should be a child
+of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
+TransformBase to an L2 resource acts the same as adding the equivalent
+CfnTransform to an L1 resource, which is convinient.
+
+Otherwise, we want the shim to be under the child of the transform host specified by
+TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
+'_Transforms' exists under the transform host, then the '_Transforms' construct will be
+the shim parent.
+
+##### `inspect` <a name="inspect" id="cdk-orchestration.cloudformation_include.FileReader.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.cloudformation_include.FileReader.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+##### `apply` <a name="apply" id="cdk-orchestration.cloudformation_include.FileReader.apply"></a>
+
+```typescript
+public apply(template: string): string
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.cloudformation_include.FileReader.apply.parameter.template"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.FileReader.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.cloudformation_include.FileReader.isConstruct"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+cloudformation_include.FileReader.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.cloudformation_include.FileReader.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.FileReader.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.cloudformation_include.FileReader.property.cfnTransform">cfnTransform</a></code> | <code>cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.FileReader.property.order">order</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.cloudformation_include.FileReader.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="cdk-orchestration.cloudformation_include.FileReader.property.cfnTransform"></a>
+
+```typescript
+public readonly cfnTransform: ICfnTransform;
+```
+
+- *Type:* cdk-orchestration.transforms.ICfnTransform
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.cloudformation_include.FileReader.property.order"></a>
+
+```typescript
+public readonly order: string;
 ```
 
 - *Type:* string
@@ -1694,6 +2329,353 @@ Link in tree.json to the file used for inline code.
 
 ---
 
+### Inspectable <a name="Inspectable" id="cdk-orchestration.cloudformation_include.Inspectable"></a>
+
+- *Implements:* aws-cdk-lib.IInspectable
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.cloudformation_include.Inspectable.Initializer"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+new cloudformation_include.Inspectable(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.Inspectable.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.Inspectable.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.Inspectable.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.cloudformation_include.Inspectable.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.Inspectable.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.Inspectable.inspect">inspect</a></code> | Examines construct. |
+
+---
+
+##### ~~`toString`~~ <a name="toString" id="cdk-orchestration.cloudformation_include.Inspectable.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### ~~`inspect`~~ <a name="inspect" id="cdk-orchestration.cloudformation_include.Inspectable.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.cloudformation_include.Inspectable.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.Inspectable.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-orchestration.cloudformation_include.Inspectable.isConstruct"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+cloudformation_include.Inspectable.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.cloudformation_include.Inspectable.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.Inspectable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.cloudformation_include.Inspectable.property.attributes">attributes</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+
+---
+
+##### ~~`node`~~<sup>Required</sup> <a name="node" id="cdk-orchestration.cloudformation_include.Inspectable.property.node"></a>
+
+- *Deprecated:* Use TreeInspectable.of instead.
+This is used as a parent of a construct to add data to the construct tree.
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### ~~`attributes`~~<sup>Required</sup> <a name="attributes" id="cdk-orchestration.cloudformation_include.Inspectable.property.attributes"></a>
+
+- *Deprecated:* Use TreeInspectable.of instead.
+This is used as a parent of a construct to add data to the construct tree.
+
+```typescript
+public readonly attributes: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+
+### JsonParser <a name="JsonParser" id="cdk-orchestration.cloudformation_include.JsonParser"></a>
+
+Uses a yaml parser to parse a template.
+
+Takes in a template as a string either Yaml or JSON,
+and returns a parsed template.
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.cloudformation_include.JsonParser.Initializer"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+new cloudformation_include.JsonParser(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.JsonParser.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.JsonParser.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.JsonParser.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.cloudformation_include.JsonParser.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.JsonParser.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.JsonParser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#cdk-orchestration.cloudformation_include.JsonParser.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.JsonParser.apply">apply</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.JsonParser.validateInput">validateInput</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.JsonParser.validateOutput">validateOutput</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-orchestration.cloudformation_include.JsonParser.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `findShimParent` <a name="findShimParent" id="cdk-orchestration.cloudformation_include.JsonParser.findShimParent"></a>
+
+```typescript
+public findShimParent(): Construct
+```
+
+This function figures out which node in the tree should parent the shim (CfnTransform).
+
+Normally, the shim should be a child of this construct (TransformBase).  However,
+if the parent of this construct is an L2 resource, then the shim should be a child
+of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
+TransformBase to an L2 resource acts the same as adding the equivalent
+CfnTransform to an L1 resource, which is convinient.
+
+Otherwise, we want the shim to be under the child of the transform host specified by
+TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
+'_Transforms' exists under the transform host, then the '_Transforms' construct will be
+the shim parent.
+
+##### `inspect` <a name="inspect" id="cdk-orchestration.cloudformation_include.JsonParser.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.cloudformation_include.JsonParser.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+##### `apply` <a name="apply" id="cdk-orchestration.cloudformation_include.JsonParser.apply"></a>
+
+```typescript
+public apply(template: string): any
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.cloudformation_include.JsonParser.apply.parameter.template"></a>
+
+- *Type:* string
+
+---
+
+##### `validateInput` <a name="validateInput" id="cdk-orchestration.cloudformation_include.JsonParser.validateInput"></a>
+
+```typescript
+public validateInput(template: any): any
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.cloudformation_include.JsonParser.validateInput.parameter.template"></a>
+
+- *Type:* any
+
+---
+
+##### `validateOutput` <a name="validateOutput" id="cdk-orchestration.cloudformation_include.JsonParser.validateOutput"></a>
+
+```typescript
+public validateOutput(template: any): any
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.cloudformation_include.JsonParser.validateOutput.parameter.template"></a>
+
+- *Type:* any
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.JsonParser.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.cloudformation_include.JsonParser.isConstruct"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+cloudformation_include.JsonParser.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.cloudformation_include.JsonParser.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.JsonParser.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.cloudformation_include.JsonParser.property.cfnTransform">cfnTransform</a></code> | <code>cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.JsonParser.property.order">order</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.cloudformation_include.JsonParser.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="cdk-orchestration.cloudformation_include.JsonParser.property.cfnTransform"></a>
+
+```typescript
+public readonly cfnTransform: ICfnTransform;
+```
+
+- *Type:* cdk-orchestration.transforms.ICfnTransform
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.cloudformation_include.JsonParser.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+---
+
+
 ### LateBoundStepFunctionsStartExecution <a name="LateBoundStepFunctionsStartExecution" id="cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecution"></a>
 
 Calls a stepFunction who's ARN is not known until runtime.
@@ -2215,6 +3197,215 @@ Tokenized string that evaluates to the state's ID.
 ---
 
 
+### Parser <a name="Parser" id="cdk-orchestration.cloudformation_include.Parser"></a>
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.cloudformation_include.Parser.Initializer"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+new cloudformation_include.Parser(scope: Construct, id: string, props?: ParserProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.Parser.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.Parser.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.Parser.Initializer.parameter.props">props</a></code> | <code>cdk-orchestration.cloudformation_include.ParserProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.Parser.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.cloudformation_include.Parser.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.cloudformation_include.Parser.Initializer.parameter.props"></a>
+
+- *Type:* cdk-orchestration.cloudformation_include.ParserProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.Parser.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.Parser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#cdk-orchestration.cloudformation_include.Parser.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.Parser.apply">apply</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.Parser.validateInput">validateInput</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.Parser.validateOutput">validateOutput</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-orchestration.cloudformation_include.Parser.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `findShimParent` <a name="findShimParent" id="cdk-orchestration.cloudformation_include.Parser.findShimParent"></a>
+
+```typescript
+public findShimParent(): Construct
+```
+
+This function figures out which node in the tree should parent the shim (CfnTransform).
+
+Normally, the shim should be a child of this construct (TransformBase).  However,
+if the parent of this construct is an L2 resource, then the shim should be a child
+of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
+TransformBase to an L2 resource acts the same as adding the equivalent
+CfnTransform to an L1 resource, which is convinient.
+
+Otherwise, we want the shim to be under the child of the transform host specified by
+TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
+'_Transforms' exists under the transform host, then the '_Transforms' construct will be
+the shim parent.
+
+##### `inspect` <a name="inspect" id="cdk-orchestration.cloudformation_include.Parser.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.cloudformation_include.Parser.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+##### `apply` <a name="apply" id="cdk-orchestration.cloudformation_include.Parser.apply"></a>
+
+```typescript
+public apply(template: string): any
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.cloudformation_include.Parser.apply.parameter.template"></a>
+
+- *Type:* string
+
+---
+
+##### `validateInput` <a name="validateInput" id="cdk-orchestration.cloudformation_include.Parser.validateInput"></a>
+
+```typescript
+public validateInput(template: any): any
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.cloudformation_include.Parser.validateInput.parameter.template"></a>
+
+- *Type:* any
+
+---
+
+##### `validateOutput` <a name="validateOutput" id="cdk-orchestration.cloudformation_include.Parser.validateOutput"></a>
+
+```typescript
+public validateOutput(template: any): any
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.cloudformation_include.Parser.validateOutput.parameter.template"></a>
+
+- *Type:* any
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.Parser.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.cloudformation_include.Parser.isConstruct"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+cloudformation_include.Parser.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.cloudformation_include.Parser.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.Parser.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.cloudformation_include.Parser.property.cfnTransform">cfnTransform</a></code> | <code>cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.Parser.property.order">order</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.cloudformation_include.Parser.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="cdk-orchestration.cloudformation_include.Parser.property.cfnTransform"></a>
+
+```typescript
+public readonly cfnTransform: ICfnTransform;
+```
+
+- *Type:* cdk-orchestration.transforms.ICfnTransform
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.cloudformation_include.Parser.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+---
+
+
 ### StepFunctionTask <a name="StepFunctionTask" id="cdk-orchestration.orchestration.StepFunctionTask"></a>
 
 This class creates multiple StepFunctionTaskStep resources to monitor the execution of a long-running step function.
@@ -2407,6 +3598,1817 @@ public readonly role: IRole;
 - *Type:* aws-cdk-lib.aws_iam.IRole
 
 Execution role.
+
+---
+
+
+### Stringifier <a name="Stringifier" id="cdk-orchestration.cloudformation_include.Stringifier"></a>
+
+Stringifies the template so it can be written to a file.
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.cloudformation_include.Stringifier.Initializer"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+new cloudformation_include.Stringifier(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.Stringifier.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.Stringifier.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.Stringifier.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.cloudformation_include.Stringifier.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.Stringifier.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.Stringifier.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#cdk-orchestration.cloudformation_include.Stringifier.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.Stringifier.apply">apply</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-orchestration.cloudformation_include.Stringifier.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `findShimParent` <a name="findShimParent" id="cdk-orchestration.cloudformation_include.Stringifier.findShimParent"></a>
+
+```typescript
+public findShimParent(): Construct
+```
+
+This function figures out which node in the tree should parent the shim (CfnTransform).
+
+Normally, the shim should be a child of this construct (TransformBase).  However,
+if the parent of this construct is an L2 resource, then the shim should be a child
+of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
+TransformBase to an L2 resource acts the same as adding the equivalent
+CfnTransform to an L1 resource, which is convinient.
+
+Otherwise, we want the shim to be under the child of the transform host specified by
+TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
+'_Transforms' exists under the transform host, then the '_Transforms' construct will be
+the shim parent.
+
+##### `inspect` <a name="inspect" id="cdk-orchestration.cloudformation_include.Stringifier.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.cloudformation_include.Stringifier.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+##### `apply` <a name="apply" id="cdk-orchestration.cloudformation_include.Stringifier.apply"></a>
+
+```typescript
+public apply(template: any): string
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.cloudformation_include.Stringifier.apply.parameter.template"></a>
+
+- *Type:* any
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.Stringifier.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.cloudformation_include.Stringifier.isConstruct"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+cloudformation_include.Stringifier.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.cloudformation_include.Stringifier.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.Stringifier.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.cloudformation_include.Stringifier.property.cfnTransform">cfnTransform</a></code> | <code>cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.Stringifier.property.order">order</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.cloudformation_include.Stringifier.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="cdk-orchestration.cloudformation_include.Stringifier.property.cfnTransform"></a>
+
+```typescript
+public readonly cfnTransform: ICfnTransform;
+```
+
+- *Type:* cdk-orchestration.transforms.ICfnTransform
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.cloudformation_include.Stringifier.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+---
+
+
+### StringReplacer <a name="StringReplacer" id="cdk-orchestration.transforms.StringReplacer"></a>
+
+String handler that replaces strings in a template.
+
+Useful for renaming LogicalIDs, as long as they are reasonably
+unique.
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.transforms.StringReplacer.Initializer"></a>
+
+```typescript
+import { transforms } from 'cdk-orchestration'
+
+new transforms.StringReplacer(scope: Construct, id: string, props: StringReplacerProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.transforms.StringReplacer.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.StringReplacer.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.StringReplacer.Initializer.parameter.props">props</a></code> | <code>cdk-orchestration.transforms.StringReplacerProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.transforms.StringReplacer.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.transforms.StringReplacer.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.transforms.StringReplacer.Initializer.parameter.props"></a>
+
+- *Type:* cdk-orchestration.transforms.StringReplacerProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.transforms.StringReplacer.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.transforms.StringReplacer.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#cdk-orchestration.transforms.StringReplacer.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#cdk-orchestration.transforms.StringReplacer.apply">apply</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-orchestration.transforms.StringReplacer.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `findShimParent` <a name="findShimParent" id="cdk-orchestration.transforms.StringReplacer.findShimParent"></a>
+
+```typescript
+public findShimParent(): Construct
+```
+
+This function figures out which node in the tree should parent the shim (CfnTransform).
+
+Normally, the shim should be a child of this construct (TransformBase).  However,
+if the parent of this construct is an L2 resource, then the shim should be a child
+of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
+TransformBase to an L2 resource acts the same as adding the equivalent
+CfnTransform to an L1 resource, which is convinient.
+
+Otherwise, we want the shim to be under the child of the transform host specified by
+TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
+'_Transforms' exists under the transform host, then the '_Transforms' construct will be
+the shim parent.
+
+##### `inspect` <a name="inspect" id="cdk-orchestration.transforms.StringReplacer.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.transforms.StringReplacer.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+##### `apply` <a name="apply" id="cdk-orchestration.transforms.StringReplacer.apply"></a>
+
+```typescript
+public apply(template: string): string
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.transforms.StringReplacer.apply.parameter.template"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.transforms.StringReplacer.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.transforms.StringReplacer.isConstruct"></a>
+
+```typescript
+import { transforms } from 'cdk-orchestration'
+
+transforms.StringReplacer.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.transforms.StringReplacer.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.transforms.StringReplacer.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.transforms.StringReplacer.property.cfnTransform">cfnTransform</a></code> | <code>cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.StringReplacer.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.StringReplacer.property.props">props</a></code> | <code>cdk-orchestration.transforms.StringReplacerProps</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.transforms.StringReplacer.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="cdk-orchestration.transforms.StringReplacer.property.cfnTransform"></a>
+
+```typescript
+public readonly cfnTransform: ICfnTransform;
+```
+
+- *Type:* cdk-orchestration.transforms.ICfnTransform
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.transforms.StringReplacer.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.transforms.StringReplacer.property.props"></a>
+
+```typescript
+public readonly props: StringReplacerProps;
+```
+
+- *Type:* cdk-orchestration.transforms.StringReplacerProps
+
+---
+
+
+### StringTransform <a name="StringTransform" id="cdk-orchestration.transforms.StringTransform"></a>
+
+L2 transform that manipulates templates in string form.
+
+Ensures input and output are both string typed.
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.transforms.StringTransform.Initializer"></a>
+
+```typescript
+import { transforms } from 'cdk-orchestration'
+
+new transforms.StringTransform(scope: Construct, id: string, props?: StringTransformProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.transforms.StringTransform.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.StringTransform.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.StringTransform.Initializer.parameter.props">props</a></code> | <code>cdk-orchestration.transforms.StringTransformProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.transforms.StringTransform.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.transforms.StringTransform.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.transforms.StringTransform.Initializer.parameter.props"></a>
+
+- *Type:* cdk-orchestration.transforms.StringTransformProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.transforms.StringTransform.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.transforms.StringTransform.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#cdk-orchestration.transforms.StringTransform.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#cdk-orchestration.transforms.StringTransform.apply">apply</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-orchestration.transforms.StringTransform.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `findShimParent` <a name="findShimParent" id="cdk-orchestration.transforms.StringTransform.findShimParent"></a>
+
+```typescript
+public findShimParent(): Construct
+```
+
+This function figures out which node in the tree should parent the shim (CfnTransform).
+
+Normally, the shim should be a child of this construct (TransformBase).  However,
+if the parent of this construct is an L2 resource, then the shim should be a child
+of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
+TransformBase to an L2 resource acts the same as adding the equivalent
+CfnTransform to an L1 resource, which is convinient.
+
+Otherwise, we want the shim to be under the child of the transform host specified by
+TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
+'_Transforms' exists under the transform host, then the '_Transforms' construct will be
+the shim parent.
+
+##### `inspect` <a name="inspect" id="cdk-orchestration.transforms.StringTransform.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.transforms.StringTransform.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+##### `apply` <a name="apply" id="cdk-orchestration.transforms.StringTransform.apply"></a>
+
+```typescript
+public apply(template: string): string
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.transforms.StringTransform.apply.parameter.template"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.transforms.StringTransform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.transforms.StringTransform.isConstruct"></a>
+
+```typescript
+import { transforms } from 'cdk-orchestration'
+
+transforms.StringTransform.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.transforms.StringTransform.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.transforms.StringTransform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.transforms.StringTransform.property.cfnTransform">cfnTransform</a></code> | <code>cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.StringTransform.property.order">order</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.transforms.StringTransform.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="cdk-orchestration.transforms.StringTransform.property.cfnTransform"></a>
+
+```typescript
+public readonly cfnTransform: ICfnTransform;
+```
+
+- *Type:* cdk-orchestration.transforms.ICfnTransform
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.transforms.StringTransform.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+---
+
+
+### TempFileWriter <a name="TempFileWriter" id="cdk-orchestration.cloudformation_include.TempFileWriter"></a>
+
+Writes a template to a temp file, so it can be used with CfnInclude.
+
+This should be the LAST transform run before handing off to the CfnInclude.
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.cloudformation_include.TempFileWriter.Initializer"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+new cloudformation_include.TempFileWriter(scope: Construct, id: string, tmpDir?: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.TempFileWriter.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TempFileWriter.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TempFileWriter.Initializer.parameter.tmpDir">tmpDir</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.TempFileWriter.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.cloudformation_include.TempFileWriter.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `tmpDir`<sup>Optional</sup> <a name="tmpDir" id="cdk-orchestration.cloudformation_include.TempFileWriter.Initializer.parameter.tmpDir"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.TempFileWriter.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.TempFileWriter.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#cdk-orchestration.cloudformation_include.TempFileWriter.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.TempFileWriter.apply">apply</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TempFileWriter.writeTempFile">writeTempFile</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-orchestration.cloudformation_include.TempFileWriter.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `findShimParent` <a name="findShimParent" id="cdk-orchestration.cloudformation_include.TempFileWriter.findShimParent"></a>
+
+```typescript
+public findShimParent(): Construct
+```
+
+This function figures out which node in the tree should parent the shim (CfnTransform).
+
+Normally, the shim should be a child of this construct (TransformBase).  However,
+if the parent of this construct is an L2 resource, then the shim should be a child
+of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
+TransformBase to an L2 resource acts the same as adding the equivalent
+CfnTransform to an L1 resource, which is convinient.
+
+Otherwise, we want the shim to be under the child of the transform host specified by
+TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
+'_Transforms' exists under the transform host, then the '_Transforms' construct will be
+the shim parent.
+
+##### `inspect` <a name="inspect" id="cdk-orchestration.cloudformation_include.TempFileWriter.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.cloudformation_include.TempFileWriter.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+##### `apply` <a name="apply" id="cdk-orchestration.cloudformation_include.TempFileWriter.apply"></a>
+
+```typescript
+public apply(template: string): string
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.cloudformation_include.TempFileWriter.apply.parameter.template"></a>
+
+- *Type:* string
+
+---
+
+##### `writeTempFile` <a name="writeTempFile" id="cdk-orchestration.cloudformation_include.TempFileWriter.writeTempFile"></a>
+
+```typescript
+public writeTempFile(data: string, tmpDir?: string): string
+```
+
+###### `data`<sup>Required</sup> <a name="data" id="cdk-orchestration.cloudformation_include.TempFileWriter.writeTempFile.parameter.data"></a>
+
+- *Type:* string
+
+---
+
+###### `tmpDir`<sup>Optional</sup> <a name="tmpDir" id="cdk-orchestration.cloudformation_include.TempFileWriter.writeTempFile.parameter.tmpDir"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.TempFileWriter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.cloudformation_include.TempFileWriter.isConstruct"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+cloudformation_include.TempFileWriter.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.cloudformation_include.TempFileWriter.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.TempFileWriter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.cloudformation_include.TempFileWriter.property.cfnTransform">cfnTransform</a></code> | <code>cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TempFileWriter.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TempFileWriter.property.tmpDir">tmpDir</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.cloudformation_include.TempFileWriter.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="cdk-orchestration.cloudformation_include.TempFileWriter.property.cfnTransform"></a>
+
+```typescript
+public readonly cfnTransform: ICfnTransform;
+```
+
+- *Type:* cdk-orchestration.transforms.ICfnTransform
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.cloudformation_include.TempFileWriter.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tmpDir`<sup>Optional</sup> <a name="tmpDir" id="cdk-orchestration.cloudformation_include.TempFileWriter.property.tmpDir"></a>
+
+```typescript
+public readonly tmpDir: string;
+```
+
+- *Type:* string
+
+---
+
+
+### TemplateCapture <a name="TemplateCapture" id="cdk-orchestration.cloudformation_include.TemplateCapture"></a>
+
+Capture the template right before it is written to a file.
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.cloudformation_include.TemplateCapture.Initializer"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+new cloudformation_include.TemplateCapture(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateCapture.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateCapture.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.TemplateCapture.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.cloudformation_include.TemplateCapture.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateCapture.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateCapture.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateCapture.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateCapture.apply">apply</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-orchestration.cloudformation_include.TemplateCapture.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `findShimParent` <a name="findShimParent" id="cdk-orchestration.cloudformation_include.TemplateCapture.findShimParent"></a>
+
+```typescript
+public findShimParent(): Construct
+```
+
+This function figures out which node in the tree should parent the shim (CfnTransform).
+
+Normally, the shim should be a child of this construct (TransformBase).  However,
+if the parent of this construct is an L2 resource, then the shim should be a child
+of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
+TransformBase to an L2 resource acts the same as adding the equivalent
+CfnTransform to an L1 resource, which is convinient.
+
+Otherwise, we want the shim to be under the child of the transform host specified by
+TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
+'_Transforms' exists under the transform host, then the '_Transforms' construct will be
+the shim parent.
+
+##### `inspect` <a name="inspect" id="cdk-orchestration.cloudformation_include.TemplateCapture.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.cloudformation_include.TemplateCapture.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+##### `apply` <a name="apply" id="cdk-orchestration.cloudformation_include.TemplateCapture.apply"></a>
+
+```typescript
+public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.cloudformation_include.TemplateCapture.apply.parameter.template"></a>
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateCapture.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.cloudformation_include.TemplateCapture.isConstruct"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+cloudformation_include.TemplateCapture.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.cloudformation_include.TemplateCapture.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateCapture.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateCapture.property.cfnTransform">cfnTransform</a></code> | <code>cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateCapture.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateCapture.property.template">template</a></code> | <code>any</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.cloudformation_include.TemplateCapture.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="cdk-orchestration.cloudformation_include.TemplateCapture.property.cfnTransform"></a>
+
+```typescript
+public readonly cfnTransform: ICfnTransform;
+```
+
+- *Type:* cdk-orchestration.transforms.ICfnTransform
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.cloudformation_include.TemplateCapture.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+---
+
+##### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.cloudformation_include.TemplateCapture.property.template"></a>
+
+```typescript
+public readonly template: any;
+```
+
+- *Type:* any
+
+---
+
+
+### TemplateImporter <a name="TemplateImporter" id="cdk-orchestration.cloudformation_include.TemplateImporter"></a>
+
+This class uses Transforms to manage the process of importing external CloudFormation into the CDK.
+
+Import proceeds in a series of steps:  PreReader, Reader, StringTransforms, Parser,
+TemplateTransforms, Stringify and TempFile.  The reason for the Stringify and TempFile
+steps is that CfnInclude requires a file, so we need to write the template out to
+a temporary file so CfnInclude can include it.
+
+Three of these steps are defined extension points.  The "StringTransforms" step is extended by creating a
+transform of type {@link StringTransform} as a descendent of TemplateImporter, while the "TemplateTransforms" step
+is extended by creating a transform of type {@link Transform} as a descendent of TemplateImporter.
+
+This class exposes an additional insertion point:  PreReader, which comes before the
+Reader step.  This allows the user to add pre-reader-steps that output a template file, such as calling an
+external script that returns a template file name.  To extend PreReader, create a StringTransform with an
+{@link StringTransformProps.order } of "PreReader".
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.cloudformation_include.TemplateImporter.Initializer"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+new cloudformation_include.TemplateImporter(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.TemplateImporter.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.cloudformation_include.TemplateImporter.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.importTemplate">importTemplate</a></code> | Applies the import transforms on the given file and creates a new CfnInclude for the imported template. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-orchestration.cloudformation_include.TemplateImporter.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `importTemplate` <a name="importTemplate" id="cdk-orchestration.cloudformation_include.TemplateImporter.importTemplate"></a>
+
+```typescript
+public importTemplate(templateFile: string, props?: ImportTemplateProps): CfnInclude
+```
+
+Applies the import transforms on the given file and creates a new CfnInclude for the imported template.
+
+###### `templateFile`<sup>Required</sup> <a name="templateFile" id="cdk-orchestration.cloudformation_include.TemplateImporter.importTemplate.parameter.templateFile"></a>
+
+- *Type:* string
+
+Normally this is the file you wish to import, and is passed to the Reader step.
+
+However, if you have added any PreReader Transforms than this string is passed to those transforms,
+and the output of the PreReader transforms is passed to the Reader step.
+
+PreReader transforms are useful for calling scripts that write JSON files.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.cloudformation_include.TemplateImporter.importTemplate.parameter.props"></a>
+
+- *Type:* cdk-orchestration.cloudformation_include.ImportTemplateProps
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.cloudformation_include.TemplateImporter.isConstruct"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+cloudformation_include.TemplateImporter.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.cloudformation_include.TemplateImporter.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isCfnTransformHost` <a name="isCfnTransformHost" id="cdk-orchestration.cloudformation_include.TemplateImporter.isCfnTransformHost"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+cloudformation_include.TemplateImporter.isCfnTransformHost(scope: Construct)
+```
+
+Tells you if an object is a CfnTransformHost.
+
+Duck-typing.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.TemplateImporter.isCfnTransformHost.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.property.parserOrder">parserOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.property.readerOrder">readerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.property.imports">imports</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.TemplateImporter.property.capture">capture</a></code> | <code>cdk-orchestration.cloudformation_include.TemplateCapture</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.cloudformation_include.TemplateImporter.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="cdk-orchestration.cloudformation_include.TemplateImporter.property.parserOrder"></a>
+
+```typescript
+public readonly parserOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="cdk-orchestration.cloudformation_include.TemplateImporter.property.preReaderOrder"></a>
+
+```typescript
+public readonly preReaderOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="cdk-orchestration.cloudformation_include.TemplateImporter.property.readerOrder"></a>
+
+```typescript
+public readonly readerOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="cdk-orchestration.cloudformation_include.TemplateImporter.property.stringTransformOrder"></a>
+
+```typescript
+public readonly stringTransformOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="cdk-orchestration.cloudformation_include.TemplateImporter.property.templateTransformOrder"></a>
+
+```typescript
+public readonly templateTransformOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="cdk-orchestration.cloudformation_include.TemplateImporter.property.writerOrder"></a>
+
+```typescript
+public readonly writerOrder: Construct;
+```
+
+- *Type:* constructs.Construct
+
+---
+
+##### `imports`<sup>Required</sup> <a name="imports" id="cdk-orchestration.cloudformation_include.TemplateImporter.property.imports"></a>
+
+```typescript
+public readonly imports: number;
+```
+
+- *Type:* number
+
+---
+
+##### `capture`<sup>Required</sup> <a name="capture" id="cdk-orchestration.cloudformation_include.TemplateImporter.property.capture"></a>
+
+```typescript
+public readonly capture: TemplateCapture;
+```
+
+- *Type:* cdk-orchestration.cloudformation_include.TemplateCapture
+
+---
+
+
+### Transform <a name="Transform" id="cdk-orchestration.transforms.Transform"></a>
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.transforms.Transform.Initializer"></a>
+
+```typescript
+import { transforms } from 'cdk-orchestration'
+
+new transforms.Transform(scope: Construct, id: string, props?: TransformProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.transforms.Transform.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.Transform.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.Transform.Initializer.parameter.props">props</a></code> | <code>cdk-orchestration.transforms.TransformProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.transforms.Transform.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.transforms.Transform.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-orchestration.transforms.Transform.Initializer.parameter.props"></a>
+
+- *Type:* cdk-orchestration.transforms.TransformProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.transforms.Transform.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.transforms.Transform.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#cdk-orchestration.transforms.Transform.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#cdk-orchestration.transforms.Transform.apply">apply</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-orchestration.transforms.Transform.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `findShimParent` <a name="findShimParent" id="cdk-orchestration.transforms.Transform.findShimParent"></a>
+
+```typescript
+public findShimParent(): Construct
+```
+
+This function figures out which node in the tree should parent the shim (CfnTransform).
+
+Normally, the shim should be a child of this construct (TransformBase).  However,
+if the parent of this construct is an L2 resource, then the shim should be a child
+of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
+TransformBase to an L2 resource acts the same as adding the equivalent
+CfnTransform to an L1 resource, which is convinient.
+
+Otherwise, we want the shim to be under the child of the transform host specified by
+TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
+'_Transforms' exists under the transform host, then the '_Transforms' construct will be
+the shim parent.
+
+##### `inspect` <a name="inspect" id="cdk-orchestration.transforms.Transform.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.transforms.Transform.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+##### `apply` <a name="apply" id="cdk-orchestration.transforms.Transform.apply"></a>
+
+```typescript
+public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.transforms.Transform.apply.parameter.template"></a>
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.transforms.Transform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.transforms.Transform.isConstruct"></a>
+
+```typescript
+import { transforms } from 'cdk-orchestration'
+
+transforms.Transform.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.transforms.Transform.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.transforms.Transform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.transforms.Transform.property.cfnTransform">cfnTransform</a></code> | <code>cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.Transform.property.order">order</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.transforms.Transform.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="cdk-orchestration.transforms.Transform.property.cfnTransform"></a>
+
+```typescript
+public readonly cfnTransform: ICfnTransform;
+```
+
+- *Type:* cdk-orchestration.transforms.ICfnTransform
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.transforms.Transform.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+---
+
+
+### TransformBase <a name="TransformBase" id="cdk-orchestration.transforms.TransformBase"></a>
+
+- *Implements:* aws-cdk-lib.IInspectable
+
+TransformBase is the base class for L2 transforms.
+
+TransformBase creates an L1 shim CfnTransform
+that calls the _apply function of the L2 TransformBase that created it.
+
+TransformBase.getShimParent determines where to put the L1 shim in the construct tree.
+There are three possibilites:
+
+1. The parent of the Transform is a Resource.  In this case, the shim is created as a child
+of the Resources L1 construct (resource.node.defaultChild).
+2. The host is an ordered host, in which case Transform will attempt to parent the shim under
+one of the hosts children, as determined by TransformBase.order.  If the order does not exist,
+the shim transform is created normally (as a child of TransformBase).
+3. Neither of the above are true, in which case the shim transform is created as a child
+of TransformBase.
+
+The TransformBase._apply method should call a concretely typed "apply" method on the subclass.
+See {@link StringTransform } or {@link Transform} for examples.
+
+Ordering transforms is necessary when serializing and deserializing CloudFormation (CfnInclude scenarios),
+as then transforms can be written to handle CloudFormation as a filename, a string or a JSON object.
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.transforms.TransformBase.Initializer"></a>
+
+```typescript
+import { transforms } from 'cdk-orchestration'
+
+new transforms.TransformBase(scope: Construct, id: string, props: TransformBaseProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.transforms.TransformBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.TransformBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.TransformBase.Initializer.parameter.props">props</a></code> | <code>cdk-orchestration.transforms.TransformBaseProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.transforms.TransformBase.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.transforms.TransformBase.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-orchestration.transforms.TransformBase.Initializer.parameter.props"></a>
+
+- *Type:* cdk-orchestration.transforms.TransformBaseProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.transforms.TransformBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.transforms.TransformBase.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#cdk-orchestration.transforms.TransformBase.inspect">inspect</a></code> | Examines construct. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-orchestration.transforms.TransformBase.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `findShimParent` <a name="findShimParent" id="cdk-orchestration.transforms.TransformBase.findShimParent"></a>
+
+```typescript
+public findShimParent(): Construct
+```
+
+This function figures out which node in the tree should parent the shim (CfnTransform).
+
+Normally, the shim should be a child of this construct (TransformBase).  However,
+if the parent of this construct is an L2 resource, then the shim should be a child
+of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
+TransformBase to an L2 resource acts the same as adding the equivalent
+CfnTransform to an L1 resource, which is convinient.
+
+Otherwise, we want the shim to be under the child of the transform host specified by
+TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
+'_Transforms' exists under the transform host, then the '_Transforms' construct will be
+the shim parent.
+
+##### `inspect` <a name="inspect" id="cdk-orchestration.transforms.TransformBase.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.transforms.TransformBase.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.transforms.TransformBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.transforms.TransformBase.isConstruct"></a>
+
+```typescript
+import { transforms } from 'cdk-orchestration'
+
+transforms.TransformBase.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.transforms.TransformBase.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.transforms.TransformBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.transforms.TransformBase.property.cfnTransform">cfnTransform</a></code> | <code>cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.TransformBase.property.order">order</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.transforms.TransformBase.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="cdk-orchestration.transforms.TransformBase.property.cfnTransform"></a>
+
+```typescript
+public readonly cfnTransform: ICfnTransform;
+```
+
+- *Type:* cdk-orchestration.transforms.ICfnTransform
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.transforms.TransformBase.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+---
+
+
+### YamlParser <a name="YamlParser" id="cdk-orchestration.cloudformation_include.YamlParser"></a>
+
+Uses a yaml parser to parse a template.
+
+Takes in a template as a string either Yaml or JSON,
+and returns a parsed template.
+
+#### Initializers <a name="Initializers" id="cdk-orchestration.cloudformation_include.YamlParser.Initializer"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+new cloudformation_include.YamlParser(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.YamlParser.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.YamlParser.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.cloudformation_include.YamlParser.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.cloudformation_include.YamlParser.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.YamlParser.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.YamlParser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#cdk-orchestration.cloudformation_include.YamlParser.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#cdk-orchestration.cloudformation_include.YamlParser.apply">apply</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.YamlParser.validateInput">validateInput</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.YamlParser.validateOutput">validateOutput</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-orchestration.cloudformation_include.YamlParser.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `findShimParent` <a name="findShimParent" id="cdk-orchestration.cloudformation_include.YamlParser.findShimParent"></a>
+
+```typescript
+public findShimParent(): Construct
+```
+
+This function figures out which node in the tree should parent the shim (CfnTransform).
+
+Normally, the shim should be a child of this construct (TransformBase).  However,
+if the parent of this construct is an L2 resource, then the shim should be a child
+of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
+TransformBase to an L2 resource acts the same as adding the equivalent
+CfnTransform to an L1 resource, which is convinient.
+
+Otherwise, we want the shim to be under the child of the transform host specified by
+TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
+'_Transforms' exists under the transform host, then the '_Transforms' construct will be
+the shim parent.
+
+##### `inspect` <a name="inspect" id="cdk-orchestration.cloudformation_include.YamlParser.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.cloudformation_include.YamlParser.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+##### `apply` <a name="apply" id="cdk-orchestration.cloudformation_include.YamlParser.apply"></a>
+
+```typescript
+public apply(template: string): any
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.cloudformation_include.YamlParser.apply.parameter.template"></a>
+
+- *Type:* string
+
+---
+
+##### `validateInput` <a name="validateInput" id="cdk-orchestration.cloudformation_include.YamlParser.validateInput"></a>
+
+```typescript
+public validateInput(template: any): any
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.cloudformation_include.YamlParser.validateInput.parameter.template"></a>
+
+- *Type:* any
+
+---
+
+##### `validateOutput` <a name="validateOutput" id="cdk-orchestration.cloudformation_include.YamlParser.validateOutput"></a>
+
+```typescript
+public validateOutput(template: any): any
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.cloudformation_include.YamlParser.validateOutput.parameter.template"></a>
+
+- *Type:* any
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.YamlParser.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-orchestration.cloudformation_include.YamlParser.isConstruct"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+cloudformation_include.YamlParser.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.cloudformation_include.YamlParser.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.YamlParser.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-orchestration.cloudformation_include.YamlParser.property.cfnTransform">cfnTransform</a></code> | <code>cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#cdk-orchestration.cloudformation_include.YamlParser.property.order">order</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-orchestration.cloudformation_include.YamlParser.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="cdk-orchestration.cloudformation_include.YamlParser.property.cfnTransform"></a>
+
+```typescript
+public readonly cfnTransform: ICfnTransform;
+```
+
+- *Type:* cdk-orchestration.transforms.ICfnTransform
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.cloudformation_include.YamlParser.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -2637,6 +5639,76 @@ Which would cause the search to stop at a stack (or sub-stack depending on direc
 
 The stopCondition is not applied when calling  {@link ConstructService.searchSelf}
 or {@link ConstructService.searchSelfOrCreate}.
+
+---
+
+### ImportTemplateProps <a name="ImportTemplateProps" id="cdk-orchestration.cloudformation_include.ImportTemplateProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-orchestration.cloudformation_include.ImportTemplateProps.Initializer"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+const importTemplateProps: cloudformation_include.ImportTemplateProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.ImportTemplateProps.property.allowCyclicalReferences">allowCyclicalReferences</a></code> | <code>boolean</code> | See {@link CfnIncludeProps.allowCyclicalReferences}. |
+| <code><a href="#cdk-orchestration.cloudformation_include.ImportTemplateProps.property.loadNestedStacks">loadNestedStacks</a></code> | <code>{[ key: string ]: aws-cdk-lib.cloudformation_include.CfnIncludeProps}</code> | See {@link CfnIncludeProps.loadNestedStacks}. |
+| <code><a href="#cdk-orchestration.cloudformation_include.ImportTemplateProps.property.parameters">parameters</a></code> | <code>{[ key: string ]: any}</code> | See {@link CfnIncludeProps.parameters}. |
+| <code><a href="#cdk-orchestration.cloudformation_include.ImportTemplateProps.property.preserveLogicalIds">preserveLogicalIds</a></code> | <code>boolean</code> | See {@link CfnIncludeProps.preserveLogicalIds}. |
+
+---
+
+##### `allowCyclicalReferences`<sup>Optional</sup> <a name="allowCyclicalReferences" id="cdk-orchestration.cloudformation_include.ImportTemplateProps.property.allowCyclicalReferences"></a>
+
+```typescript
+public readonly allowCyclicalReferences: boolean;
+```
+
+- *Type:* boolean
+
+See {@link CfnIncludeProps.allowCyclicalReferences}.
+
+---
+
+##### `loadNestedStacks`<sup>Optional</sup> <a name="loadNestedStacks" id="cdk-orchestration.cloudformation_include.ImportTemplateProps.property.loadNestedStacks"></a>
+
+```typescript
+public readonly loadNestedStacks: {[ key: string ]: CfnIncludeProps};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.cloudformation_include.CfnIncludeProps}
+
+See {@link CfnIncludeProps.loadNestedStacks}.
+
+---
+
+##### `parameters`<sup>Optional</sup> <a name="parameters" id="cdk-orchestration.cloudformation_include.ImportTemplateProps.property.parameters"></a>
+
+```typescript
+public readonly parameters: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+See {@link CfnIncludeProps.parameters}.
+
+---
+
+##### `preserveLogicalIds`<sup>Optional</sup> <a name="preserveLogicalIds" id="cdk-orchestration.cloudformation_include.ImportTemplateProps.property.preserveLogicalIds"></a>
+
+```typescript
+public readonly preserveLogicalIds: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+See {@link CfnIncludeProps.preserveLogicalIds}.
 
 ---
 
@@ -3749,6 +6821,34 @@ public readonly logLevel: number;
 
 ---
 
+### ParserProps <a name="ParserProps" id="cdk-orchestration.cloudformation_include.ParserProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-orchestration.cloudformation_include.ParserProps.Initializer"></a>
+
+```typescript
+import { cloudformation_include } from 'cdk-orchestration'
+
+const parserProps: cloudformation_include.ParserProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.cloudformation_include.ParserProps.property.order">order</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.cloudformation_include.ParserProps.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+---
+
 ### ServiceQueryResult <a name="ServiceQueryResult" id="cdk-orchestration.ServiceQueryResult"></a>
 
 The result of a service query.
@@ -3909,6 +7009,142 @@ Total timeout for the entire operation.
 
 The maximum timeout is unknown, but less than 500 hours (yes, it can
 exceed the AWS Lambda 15 minutes)
+
+---
+
+### StringReplacerProps <a name="StringReplacerProps" id="cdk-orchestration.transforms.StringReplacerProps"></a>
+
+Properties for {@link StringReplacer}.
+
+#### Initializer <a name="Initializer" id="cdk-orchestration.transforms.StringReplacerProps.Initializer"></a>
+
+```typescript
+import { transforms } from 'cdk-orchestration'
+
+const stringReplacerProps: transforms.StringReplacerProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.transforms.StringReplacerProps.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.StringReplacerProps.property.joiner">joiner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.StringReplacerProps.property.splitter">splitter</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.transforms.StringReplacerProps.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+---
+
+##### `joiner`<sup>Required</sup> <a name="joiner" id="cdk-orchestration.transforms.StringReplacerProps.property.joiner"></a>
+
+```typescript
+public readonly joiner: string;
+```
+
+- *Type:* string
+
+---
+
+##### `splitter`<sup>Required</sup> <a name="splitter" id="cdk-orchestration.transforms.StringReplacerProps.property.splitter"></a>
+
+```typescript
+public readonly splitter: string;
+```
+
+- *Type:* string
+
+---
+
+### StringTransformProps <a name="StringTransformProps" id="cdk-orchestration.transforms.StringTransformProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-orchestration.transforms.StringTransformProps.Initializer"></a>
+
+```typescript
+import { transforms } from 'cdk-orchestration'
+
+const stringTransformProps: transforms.StringTransformProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.transforms.StringTransformProps.property.order">order</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.transforms.StringTransformProps.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+---
+
+### TransformBaseProps <a name="TransformBaseProps" id="cdk-orchestration.transforms.TransformBaseProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-orchestration.transforms.TransformBaseProps.Initializer"></a>
+
+```typescript
+import { transforms } from 'cdk-orchestration'
+
+const transformBaseProps: transforms.TransformBaseProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.transforms.TransformBaseProps.property.order">order</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.transforms.TransformBaseProps.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+---
+
+### TransformProps <a name="TransformProps" id="cdk-orchestration.transforms.TransformProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-orchestration.transforms.TransformProps.Initializer"></a>
+
+```typescript
+import { transforms } from 'cdk-orchestration'
+
+const transformProps: transforms.TransformProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-orchestration.transforms.TransformProps.property.order">order</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.transforms.TransformProps.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -8093,6 +11329,51 @@ Delayed log-line construction.
 
 
 ## Enums <a name="Enums" id="Enums"></a>
+
+### ImportOrders <a name="ImportOrders" id="cdk-orchestration.transforms.ImportOrders"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-orchestration.transforms.ImportOrders.PRE_READER">PRE_READER</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.ImportOrders.READER">READER</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.ImportOrders.STRING_TRANSFORMS">STRING_TRANSFORMS</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.ImportOrders.PARSER">PARSER</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.ImportOrders.TRANSFORMS">TRANSFORMS</a></code> | *No description.* |
+| <code><a href="#cdk-orchestration.transforms.ImportOrders.WRITER">WRITER</a></code> | *No description.* |
+
+---
+
+##### `PRE_READER` <a name="PRE_READER" id="cdk-orchestration.transforms.ImportOrders.PRE_READER"></a>
+
+---
+
+
+##### `READER` <a name="READER" id="cdk-orchestration.transforms.ImportOrders.READER"></a>
+
+---
+
+
+##### `STRING_TRANSFORMS` <a name="STRING_TRANSFORMS" id="cdk-orchestration.transforms.ImportOrders.STRING_TRANSFORMS"></a>
+
+---
+
+
+##### `PARSER` <a name="PARSER" id="cdk-orchestration.transforms.ImportOrders.PARSER"></a>
+
+---
+
+
+##### `TRANSFORMS` <a name="TRANSFORMS" id="cdk-orchestration.transforms.ImportOrders.TRANSFORMS"></a>
+
+---
+
+
+##### `WRITER` <a name="WRITER" id="cdk-orchestration.transforms.ImportOrders.WRITER"></a>
+
+---
+
 
 ### LogLevel <a name="LogLevel" id="cdk-orchestration.LogLevel"></a>
 

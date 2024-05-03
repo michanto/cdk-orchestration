@@ -20,6 +20,11 @@
       "type": "build"
     },
     {
+      "name": "@types/tmp",
+      "version": "^0.2.1",
+      "type": "build"
+    },
+    {
       "name": "@typescript-eslint/eslint-plugin",
       "version": "^6",
       "type": "build"
@@ -115,6 +120,16 @@
       "type": "bundled"
     },
     {
+      "name": "tmp",
+      "version": "^0.2.1",
+      "type": "bundled"
+    },
+    {
+      "name": "yaml",
+      "version": "^2.1.1",
+      "type": "bundled"
+    },
+    {
       "name": "aws-cdk-lib",
       "version": "^2.120.0",
       "type": "peer"
@@ -142,6 +157,16 @@
     {
       "name": "esbuild",
       "version": "0.18.16",
+      "type": "runtime"
+    },
+    {
+      "name": "tmp",
+      "version": "^0.2.1",
+      "type": "runtime"
+    },
+    {
+      "name": "yaml",
+      "version": "^2.1.1",
       "type": "runtime"
     }
   ],
