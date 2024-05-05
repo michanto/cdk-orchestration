@@ -3,6 +3,7 @@ import { Template } from 'aws-cdk-lib/assertions';
 import { CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 import { EncodeResource } from '../../src/custom-resources';
+import { CfTemplateType } from '../../src/transforms';
 import { BadFunction } from '../util';
 
 describe('Custom Resource Utilities tests.', () => {
@@ -16,9 +17,9 @@ describe('Custom Resource Utilities tests.', () => {
         this.addPropertyOverride('One', 1);
         this.addPropertyOverride('Two', true);
         this.addPropertyOverride('Three', 'Value');
-        EncodeResource.encodeCustomResource(this);
+        new EncodeResource(this);
         // Encode twice to test double-encoding works.
-        EncodeResource.encodeCustomResource(this, 'Encode2');
+        new EncodeResource(this, 'Encode2');
       }
     }(stack, 'Res1', {
       serviceToken: serviceToken,
@@ -46,25 +47,32 @@ describe('Custom Resource Utilities tests.', () => {
     });
   });
 
-  it('EncodeResource not custom resource does nothing.', () => {
+  it('EncodeResource not custom resource throws.', () => {
     // Given
     const stack = new Stack();
     let bucket = new CfnBucket(stack, 'Bucket', { bucketName: 'my_bucket' });
-    bucket.addPropertyDeletionOverride;
-    new EncodeResource(bucket, 'Encode');
+    expect(() => new EncodeResource(bucket, 'Encode')).toThrow();
+  });
 
-    // THEN
-    let template = Template.fromStack(stack).toJSON();
-
-    expect(template).toMatchObject({
-      Resources: {
-        Bucket: {
-          Properties: expect.not.objectContaining({
-            EncodedProperties: expect.anything(),
-            ServiceToken: expect.anything(),
-          }),
-        },
-      },
+  it('EncodeResource no ServiceToken does nothing', () => {
+    const stack = new Stack();
+    let serviceToken = new BadFunction(stack, 'Fun').functionArn;
+    new class extends CfnCustomResource {
+      constructor(scope: Construct, id: string, props: CfnCustomResourceProps) {
+        super(scope, id, props);
+        this.addPropertyOverride('One', 1);
+        this.addPropertyOverride('Two', true);
+        this.addPropertyOverride('Three', 'Value');
+        new class EncodeResourceEx extends EncodeResource {
+          apply(template: CfTemplateType): CfTemplateType {
+            return super.apply(template);
+          }
+        } (this);
+        this.addPropertyDeletionOverride('ServiceToken');
+      }
+    }(stack, 'Res1', {
+      serviceToken: serviceToken,
     });
+    Template.fromStack(stack);
   });
 });

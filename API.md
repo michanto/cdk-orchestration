@@ -796,7 +796,7 @@ Note that the lambda MUST base64 decode the EncodedProperties for use.  Example:
 ```typescript
 import { custom_resources } from 'cdk-orchestration'
 
-new custom_resources.EncodeResource(scope: Construct, id: string)
+new custom_resources.EncodeResource(scope: Construct, id?: string)
 ```
 
 | **Name** | **Type** | **Description** |
@@ -812,7 +812,7 @@ new custom_resources.EncodeResource(scope: Construct, id: string)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.custom_resources.EncodeResource.Initializer.parameter.id"></a>
+##### `id`<sup>Optional</sup> <a name="id" id="cdk-orchestration.custom_resources.EncodeResource.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -823,7 +823,9 @@ new custom_resources.EncodeResource(scope: Construct, id: string)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-orchestration.custom_resources.EncodeResource.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.apply">apply</a></code> | Modifies the template. |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.findShimParent">findShimParent</a></code> | Encodes an L1, L2 or L3 custom resource by finding the child custom resource of the scope of this transform. |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.apply">apply</a></code> | *No description.* |
 
 ---
 
@@ -835,17 +837,40 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `findShimParent` <a name="findShimParent" id="cdk-orchestration.custom_resources.EncodeResource.findShimParent"></a>
+
+```typescript
+public findShimParent(): Construct
+```
+
+Encodes an L1, L2 or L3 custom resource by finding the child custom resource of the scope of this transform.
+
+Throws if there are
+multiple custom resources under the scope.
+
+##### `inspect` <a name="inspect" id="cdk-orchestration.custom_resources.EncodeResource.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="cdk-orchestration.custom_resources.EncodeResource.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
 ##### `apply` <a name="apply" id="cdk-orchestration.custom_resources.EncodeResource.apply"></a>
 
 ```typescript
-public apply(template: any): any
+public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 ```
-
-Modifies the template.
 
 ###### `template`<sup>Required</sup> <a name="template" id="cdk-orchestration.custom_resources.EncodeResource.apply.parameter.template"></a>
 
-- *Type:* any
+- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -854,8 +879,6 @@ Modifies the template.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-orchestration.custom_resources.EncodeResource.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.isCfnTransform">isCfnTransform</a></code> | Returns `true` if a construct is a CfnTransform. |
-| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.encodeCustomResource">encodeCustomResource</a></code> | Encode an L1, L2 or L3 resource by calling this method instead of having to find the L1 yourself. |
 
 ---
 
@@ -891,60 +914,13 @@ Any object.
 
 ---
 
-##### `isCfnTransform` <a name="isCfnTransform" id="cdk-orchestration.custom_resources.EncodeResource.isCfnTransform"></a>
-
-```typescript
-import { custom_resources } from 'cdk-orchestration'
-
-custom_resources.EncodeResource.isCfnTransform(x: any)
-```
-
-Returns `true` if a construct is a CfnTransform.
-
-Uses duck-typing instead of `instanceof` to allow CfnTransforms from different
-versions of this library to be included in the same stack.
-
-###### `x`<sup>Required</sup> <a name="x" id="cdk-orchestration.custom_resources.EncodeResource.isCfnTransform.parameter.x"></a>
-
-- *Type:* any
-
----
-
-##### `encodeCustomResource` <a name="encodeCustomResource" id="cdk-orchestration.custom_resources.EncodeResource.encodeCustomResource"></a>
-
-```typescript
-import { custom_resources } from 'cdk-orchestration'
-
-custom_resources.EncodeResource.encodeCustomResource(scope: Construct, id?: string)
-```
-
-Encode an L1, L2 or L3 resource by calling this method instead of having to find the L1 yourself.
-
-Throws if there are multiple custom resources under scope.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="cdk-orchestration.custom_resources.EncodeResource.encodeCustomResource.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-Construct containing one L1 custom resource construct.
-
----
-
-###### `id`<sup>Optional</sup> <a name="id" id="cdk-orchestration.custom_resources.EncodeResource.encodeCustomResource.parameter.id"></a>
-
-- *Type:* string
-
-Id for the EncodeResource transform.
-
----
-
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-orchestration.custom_resources.EncodeResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.property.host">host</a></code> | <code>constructs.IConstruct</code> | Which construct will apply this transform. |
-| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.property.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.property.cfnTransform">cfnTransform</a></code> | <code>cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#cdk-orchestration.custom_resources.EncodeResource.property.order">order</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -960,22 +936,20 @@ The tree node.
 
 ---
 
-##### `host`<sup>Required</sup> <a name="host" id="cdk-orchestration.custom_resources.EncodeResource.property.host"></a>
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="cdk-orchestration.custom_resources.EncodeResource.property.cfnTransform"></a>
 
 ```typescript
-public readonly host: IConstruct;
+public readonly cfnTransform: ICfnTransform;
 ```
 
-- *Type:* constructs.IConstruct
-
-Which construct will apply this transform.
+- *Type:* cdk-orchestration.transforms.ICfnTransform
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="cdk-orchestration.custom_resources.EncodeResource.property.id"></a>
+##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.custom_resources.EncodeResource.property.order"></a>
 
 ```typescript
-public readonly id: string;
+public readonly order: string;
 ```
 
 - *Type:* string
@@ -11123,7 +11097,7 @@ public readonly TREE_INSPECTABLE_SERVICE: ConstructService;
 
 - *Extends:* constructs.IConstruct
 
-- *Implemented By:* cdk-orchestration.custom_resources.EncodeResource, cdk-orchestration.transforms.CfnTransform, cdk-orchestration.transforms.ICfnTransform
+- *Implemented By:* cdk-orchestration.transforms.CfnTransform, cdk-orchestration.transforms.ICfnTransform
 
 The base interface for CDK Transforms.
 

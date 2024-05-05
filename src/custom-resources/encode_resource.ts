@@ -1,7 +1,7 @@
 import { Fn, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { CustomResourceUtilities } from './custom_resources_utilities';
-import { CfnTransform } from '../transforms';
+import { CfTemplateType, Transform } from '../transforms';
 
 /**
  * This transform base64-encodes any CustomResource it is applied to
@@ -26,24 +26,23 @@ import { CfnTransform } from '../transforms';
  *  }
  * ```
  */
-export class EncodeResource extends CfnTransform {
-  /**
-   * Encode an L1, L2 or L3 resource by calling this method instead of having to
-   * find the L1 yourself.  Throws if there are multiple custom resources under scope.
-   *
-   * @param scope Construct containing one L1 custom resource construct.
-   * @param id Id for the EncodeResource transform.
-   */
-  static encodeCustomResource(scope: Construct, id?: string) {
-    let cfnCustomResource = new CustomResourceUtilities().findCustomResource(scope);
-    new EncodeResource(cfnCustomResource, id ?? 'EncodeResource');
-  }
-
-  constructor(scope: Construct, id: string) {
+export class EncodeResource extends Transform {
+  constructor(scope: Construct, id: string = 'EncodeResource') {
     super(scope, id);
   }
 
-  apply(template: any): any {
+  /**
+   * Encodes an L1, L2 or L3 custom resource by finding the child custom
+   * resource of the scope of this transform.  Throws if there are
+   * multiple custom resources under the scope.
+   */
+  findShimParent(): Construct {
+    // Ensure this is in a stack, ensuring this.node.scope exists.
+    Stack.of(this);
+    return new CustomResourceUtilities().findCustomResource(this.node.scope!);
+  }
+
+  apply(template: CfTemplateType): CfTemplateType {
     for (let resId in template.Resources) {
       let res = template.Resources[resId];
       if (res.Properties?.EncodedProperties) {

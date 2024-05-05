@@ -210,7 +210,7 @@ export class StepFunctionTaskStep extends Construct {
       removalPolicy: RemovalPolicy.RETAIN,
       properties: resourceProperties,
     });
-    EncodeResource.encodeCustomResource(this.resource);
+    new EncodeResource(this.resource);
     if (props.stateMachine) {
       this.resource.node.addDependency(props.stateMachine);
     }
