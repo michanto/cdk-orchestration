@@ -35,7 +35,7 @@
    "Type": "AWS::Lambda::Function",
    "Properties": {
     "Code": {
-     "ZipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.reverseGreeting = void 0;\nconst logger = process.env.LogLevel ? console : undefined;\nfunction log(message) {\nlogger?.log(JSON.stringify(message));\n}\n\nfunction reverseGreeting(event, context) {\nlog({ Event: event });\nlog({ Context: context });\nlet isCustomResource = event.ResourceProperties != undefined;\nif (isCustomResource && 'EncodedProperties' in event.ResourceProperties) {\nevent.ResourceProperties = {\n...event.ResourceProperties,\n...JSON.parse(Buffer.from(event.ResourceProperties.EncodedProperties, 'base64').toString('utf8')),\n};\nlog({ DecodedEvent: JSON.stringify(event) });\n}\nlet greeting = event.Greeting\n?? event.ResourceProperties.Greeting\n?? 'Hello, world';\nlet result = greeting.split('').reverse().join('');\nreturn isCustomResource ? {\nData: { Greeting: result },\n} : {\nGreeting: result,\n};\n}\nexports.reverseGreeting = reverseGreeting;"
+     "ZipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.reverseGreeting = void 0;\nconst logger = process.env.LogLevel ? console : undefined;\nfunction log(message) {\nlogger?.log(JSON.stringify(message));\n}\n\nasync function reverseGreeting(event, context) {\nlog({ Event: event });\nlog({ Context: context });\nlet isCustomResource = event.ResourceProperties != undefined;\nif (isCustomResource && 'EncodedProperties' in event.ResourceProperties) {\nevent.ResourceProperties = {\n...event.ResourceProperties,\n...JSON.parse(Buffer.from(event.ResourceProperties.EncodedProperties, 'base64').toString('utf8')),\n};\nlog({ DecodedEvent: JSON.stringify(event) });\n}\nlet greeting = event.Greeting\n?? event.ResourceProperties.Greeting\n?? 'Hello, world';\nlet result = greeting.split('').reverse().join('');\nreturn isCustomResource ? Promise.resolve({\nData: { Greeting: result },\n}) : Promise.resolve({\nGreeting: result,\n});\n}\nexports.reverseGreeting = reverseGreeting;"
     },
     "Environment": {
      "Variables": {
@@ -54,6 +54,19 @@
    "DependsOn": [
     "ReverseServiceRole25D1973A"
    ]
+  }
+ },
+ "Outputs": {
+  "ExportsOutputFnGetAttReverse87697EF5ArnE668E5F9": {
+   "Value": {
+    "Fn::GetAtt": [
+     "Reverse87697EF5",
+     "Arn"
+    ]
+   },
+   "Export": {
+    "Name": "IntegrationTestExampleStack:ExportsOutputFnGetAttReverse87697EF5ArnE668E5F9"
+   }
   }
  },
  "Parameters": {

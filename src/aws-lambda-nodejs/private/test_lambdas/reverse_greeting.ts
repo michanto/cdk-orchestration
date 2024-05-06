@@ -7,7 +7,7 @@ function log(message: Record<string, any>) {
 /**
  * Can be used as a custom resource lambda or as a lambda.
  */
-export function reverseGreeting(event: any, context: any) {
+export async function reverseGreeting(event: any, context: any) {
   log({ Event: event });
   log({ Context: context });
   let isCustomResource = event.ResourceProperties != undefined;
@@ -25,9 +25,9 @@ export function reverseGreeting(event: any, context: any) {
         ?? event.ResourceProperties.Greeting
         ?? 'Hello, world';
   let result = greeting.split('').reverse().join('');
-  return isCustomResource ? {
+  return isCustomResource ? Promise.resolve({
     Data: { Greeting: result },
-  } : {
+  }) : Promise.resolve({
     Greeting: result,
-  };
+  });
 }

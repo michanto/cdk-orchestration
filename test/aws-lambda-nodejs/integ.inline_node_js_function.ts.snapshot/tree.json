@@ -76,7 +76,7 @@
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
                     "code": {
-                      "zipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.reverseGreeting = void 0;\nconst logger = process.env.LogLevel ? console : undefined;\nfunction log(message) {\nlogger?.log(JSON.stringify(message));\n}\n\nfunction reverseGreeting(event, context) {\nlog({ Event: event });\nlog({ Context: context });\nlet isCustomResource = event.ResourceProperties != undefined;\nif (isCustomResource && 'EncodedProperties' in event.ResourceProperties) {\nevent.ResourceProperties = {\n...event.ResourceProperties,\n...JSON.parse(Buffer.from(event.ResourceProperties.EncodedProperties, 'base64').toString('utf8')),\n};\nlog({ DecodedEvent: JSON.stringify(event) });\n}\nlet greeting = event.Greeting\n?? event.ResourceProperties.Greeting\n?? 'Hello, world';\nlet result = greeting.split('').reverse().join('');\nreturn isCustomResource ? {\nData: { Greeting: result },\n} : {\nGreeting: result,\n};\n}\nexports.reverseGreeting = reverseGreeting;"
+                      "zipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.reverseGreeting = void 0;\nconst logger = process.env.LogLevel ? console : undefined;\nfunction log(message) {\nlogger?.log(JSON.stringify(message));\n}\n\nasync function reverseGreeting(event, context) {\nlog({ Event: event });\nlog({ Context: context });\nlet isCustomResource = event.ResourceProperties != undefined;\nif (isCustomResource && 'EncodedProperties' in event.ResourceProperties) {\nevent.ResourceProperties = {\n...event.ResourceProperties,\n...JSON.parse(Buffer.from(event.ResourceProperties.EncodedProperties, 'base64').toString('utf8')),\n};\nlog({ DecodedEvent: JSON.stringify(event) });\n}\nlet greeting = event.Greeting\n?? event.ResourceProperties.Greeting\n?? 'Hello, world';\nlet result = greeting.split('').reverse().join('');\nreturn isCustomResource ? Promise.resolve({\nData: { Greeting: result },\n}) : Promise.resolve({\nGreeting: result,\n});\n}\nexports.reverseGreeting = reverseGreeting;"
                     },
                     "environment": {
                       "variables": {
@@ -100,11 +100,29 @@
               }
             },
             "attributes": {
-              "@open-constructs/aws-cdk.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-GtwUlv/7be0d6b9-reverse_greeting.js"
+              "@open-constructs/aws-cdk.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-1lG83F/7be0d6b9-reverse_greeting.js"
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_lambda.Function",
               "version": "2.120.0"
+            }
+          },
+          "Exports": {
+            "id": "Exports",
+            "path": "IntegrationTestExampleStack/Exports",
+            "children": {
+              "Output{\"Fn::GetAtt\":[\"Reverse87697EF5\",\"Arn\"]}": {
+                "id": "Output{\"Fn::GetAtt\":[\"Reverse87697EF5\",\"Arn\"]}",
+                "path": "IntegrationTestExampleStack/Exports/Output{\"Fn::GetAtt\":[\"Reverse87697EF5\",\"Arn\"]}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
             }
           },
           "BootstrapVersion": {
@@ -149,6 +167,94 @@
                 "id": "DeployAssert",
                 "path": "IntegTestExample/DefaultTest/DeployAssert",
                 "children": {
+                  "AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765": {
+                    "id": "AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765",
+                    "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765",
+                    "children": {
+                      "SdkProvider": {
+                        "id": "SdkProvider",
+                        "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/SdkProvider",
+                        "children": {
+                          "AssertionsProvider": {
+                            "id": "AssertionsProvider",
+                            "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/SdkProvider/AssertionsProvider",
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/integ-tests-alpha.AssertionsProvider",
+                          "version": "2.120.0-alpha.0"
+                        }
+                      },
+                      "Default": {
+                        "id": "Default",
+                        "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/Default",
+                        "children": {
+                          "Default": {
+                            "id": "Default",
+                            "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/Default/Default",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.CfnResource",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CustomResource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "AssertionResults": {
+                        "id": "AssertionResults",
+                        "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/AssertionResults",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnOutput",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/integ-tests-alpha.AwsApiCall",
+                      "version": "2.120.0-alpha.0"
+                    }
+                  },
+                  "SingletonFunction1488541a7b23466481b69b4408076b81": {
+                    "id": "SingletonFunction1488541a7b23466481b69b4408076b81",
+                    "path": "IntegTestExample/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81",
+                    "children": {
+                      "Staging": {
+                        "id": "Staging",
+                        "path": "IntegTestExample/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Staging",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Role": {
+                        "id": "Role",
+                        "path": "IntegTestExample/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Role",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Handler": {
+                        "id": "Handler",
+                        "path": "IntegTestExample/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Handler",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
                   "BootstrapVersion": {
                     "id": "BootstrapVersion",
                     "path": "IntegTestExample/DefaultTest/DeployAssert/BootstrapVersion",
