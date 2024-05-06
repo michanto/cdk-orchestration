@@ -11,7 +11,7 @@ export function reverseGreeting(event: any, context: any) {
   log({ Event: event });
   log({ Context: context });
   let isCustomResource = event.ResourceProperties != undefined;
-  if ('EncodedProperties' in event.ResourceProperties) {
+  if (isCustomResource && 'EncodedProperties' in event.ResourceProperties) {
     event.ResourceProperties = {
       ...event.ResourceProperties,
       ...JSON.parse(
@@ -26,8 +26,8 @@ export function reverseGreeting(event: any, context: any) {
         ?? 'Hello, world';
   let result = greeting.split('').reverse().join('');
   return isCustomResource ? {
-    Data: { greeting: result },
+    Data: { Greeting: result },
   } : {
-    greeting: result,
+    Greeting: result,
   };
 }
