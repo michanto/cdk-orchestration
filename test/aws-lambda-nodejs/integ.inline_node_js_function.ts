@@ -25,9 +25,9 @@ let integ = new IntegTest(app, 'InlineNodejsIntegTest', {
   regions: ['us-east-1'],
 });
 
-integ.assertions.awsApiCall('Lambda', 'invoke', {
-  FunctionName: fun.functionArn,
-  Payload: JSON.stringify({ Greeting: 'Hello, inline nodejs function!' }),
+integ.assertions.invokeFunction({
+  functionName: fun.functionArn,
+  payload: JSON.stringify({ Greeting: 'Hello, inline nodejs function!' }),
 }).expect(ExpectedResult.objectLike({
   Payload: JSON.stringify({ Greeting: '!noitcnuf sjedon enilni ,olleH' }),
 })).provider.addToRolePolicy({
