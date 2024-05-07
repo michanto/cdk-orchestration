@@ -4,27 +4,27 @@
     "id": "App",
     "path": "",
     "children": {
-      "IntegrationTestExampleStack": {
-        "id": "IntegrationTestExampleStack",
-        "path": "IntegrationTestExampleStack",
+      "EncodeResourcesInteg": {
+        "id": "EncodeResourcesInteg",
+        "path": "EncodeResourcesInteg",
         "children": {
           "Greeting": {
             "id": "Greeting",
-            "path": "IntegrationTestExampleStack/Greeting",
+            "path": "EncodeResourcesInteg/Greeting",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "IntegrationTestExampleStack/Greeting/Resource",
+                "path": "EncodeResourcesInteg/Greeting/Resource",
                 "children": {
                   "Default": {
                     "id": "Default",
-                    "path": "IntegrationTestExampleStack/Greeting/Resource/Default",
+                    "path": "EncodeResourcesInteg/Greeting/Resource/Default",
                     "children": {
                       "EncodeResourceShim0": {
                         "id": "EncodeResourceShim0",
-                        "path": "IntegrationTestExampleStack/Greeting/Resource/Default/EncodeResourceShim0",
+                        "path": "EncodeResourcesInteg/Greeting/Resource/Default/EncodeResourceShim0",
                         "attributes": {
-                          "CfnTransformShim.transformPath": "IntegrationTestExampleStack/Greeting/EncodeResource"
+                          "CfnTransformShim.transformPath": "EncodeResourcesInteg/Greeting/EncodeResource"
                         },
                         "constructInfo": {
                           "fqn": "constructs.Construct",
@@ -45,9 +45,9 @@
               },
               "EncodeResource": {
                 "id": "EncodeResource",
-                "path": "IntegrationTestExampleStack/Greeting/EncodeResource",
+                "path": "EncodeResourcesInteg/Greeting/EncodeResource",
                 "attributes": {
-                  "TransformBase.cfnTransformPath": "IntegrationTestExampleStack/Greeting/Resource/Default/EncodeResourceShim0"
+                  "TransformBase.cfnTransformPath": "EncodeResourcesInteg/Greeting/Resource/Default/EncodeResourceShim0"
                 },
                 "constructInfo": {
                   "fqn": "constructs.Construct",
@@ -62,19 +62,19 @@
           },
           "Resources": {
             "id": "Resources",
-            "path": "IntegrationTestExampleStack/Resources",
+            "path": "EncodeResourcesInteg/Resources",
             "children": {
               "Reverse": {
                 "id": "Reverse",
-                "path": "IntegrationTestExampleStack/Resources/Reverse",
+                "path": "EncodeResourcesInteg/Resources/Reverse",
                 "children": {
                   "ServiceRole": {
                     "id": "ServiceRole",
-                    "path": "IntegrationTestExampleStack/Resources/Reverse/ServiceRole",
+                    "path": "EncodeResourcesInteg/Resources/Reverse/ServiceRole",
                     "children": {
                       "ImportServiceRole": {
                         "id": "ImportServiceRole",
-                        "path": "IntegrationTestExampleStack/Resources/Reverse/ServiceRole/ImportServiceRole",
+                        "path": "EncodeResourcesInteg/Resources/Reverse/ServiceRole/ImportServiceRole",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.Resource",
                           "version": "2.120.0"
@@ -82,7 +82,7 @@
                       },
                       "Resource": {
                         "id": "Resource",
-                        "path": "IntegrationTestExampleStack/Resources/Reverse/ServiceRole/Resource",
+                        "path": "EncodeResourcesInteg/Resources/Reverse/ServiceRole/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                           "aws:cdk:cloudformation:props": {
@@ -127,7 +127,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "IntegrationTestExampleStack/Resources/Reverse/Resource",
+                    "path": "EncodeResourcesInteg/Resources/Reverse/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                       "aws:cdk:cloudformation:props": {
@@ -156,7 +156,7 @@
                   }
                 },
                 "attributes": {
-                  "@open-constructs/aws-cdk.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-V6fQwq/3652e899-reverse_greeting.js"
+                  "cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-S6v9M4/98be4783-reverse_greeting.js"
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_lambda.Function",
@@ -165,19 +165,19 @@
               },
               "Provider": {
                 "id": "Provider",
-                "path": "IntegrationTestExampleStack/Resources/Provider",
+                "path": "EncodeResourcesInteg/Resources/Provider",
                 "children": {
                   "framework-onEvent": {
                     "id": "framework-onEvent",
-                    "path": "IntegrationTestExampleStack/Resources/Provider/framework-onEvent",
+                    "path": "EncodeResourcesInteg/Resources/Provider/framework-onEvent",
                     "children": {
                       "ServiceRole": {
                         "id": "ServiceRole",
-                        "path": "IntegrationTestExampleStack/Resources/Provider/framework-onEvent/ServiceRole",
+                        "path": "EncodeResourcesInteg/Resources/Provider/framework-onEvent/ServiceRole",
                         "children": {
                           "ImportServiceRole": {
                             "id": "ImportServiceRole",
-                            "path": "IntegrationTestExampleStack/Resources/Provider/framework-onEvent/ServiceRole/ImportServiceRole",
+                            "path": "EncodeResourcesInteg/Resources/Provider/framework-onEvent/ServiceRole/ImportServiceRole",
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.Resource",
                               "version": "2.120.0"
@@ -185,7 +185,7 @@
                           },
                           "Resource": {
                             "id": "Resource",
-                            "path": "IntegrationTestExampleStack/Resources/Provider/framework-onEvent/ServiceRole/Resource",
+                            "path": "EncodeResourcesInteg/Resources/Provider/framework-onEvent/ServiceRole/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                               "aws:cdk:cloudformation:props": {
@@ -224,11 +224,11 @@
                           },
                           "DefaultPolicy": {
                             "id": "DefaultPolicy",
-                            "path": "IntegrationTestExampleStack/Resources/Provider/framework-onEvent/ServiceRole/DefaultPolicy",
+                            "path": "EncodeResourcesInteg/Resources/Provider/framework-onEvent/ServiceRole/DefaultPolicy",
                             "children": {
                               "Resource": {
                                 "id": "Resource",
-                                "path": "IntegrationTestExampleStack/Resources/Provider/framework-onEvent/ServiceRole/DefaultPolicy/Resource",
+                                "path": "EncodeResourcesInteg/Resources/Provider/framework-onEvent/ServiceRole/DefaultPolicy/Resource",
                                 "attributes": {
                                   "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                                   "aws:cdk:cloudformation:props": {
@@ -290,11 +290,11 @@
                       },
                       "Code": {
                         "id": "Code",
-                        "path": "IntegrationTestExampleStack/Resources/Provider/framework-onEvent/Code",
+                        "path": "EncodeResourcesInteg/Resources/Provider/framework-onEvent/Code",
                         "children": {
                           "Stage": {
                             "id": "Stage",
-                            "path": "IntegrationTestExampleStack/Resources/Provider/framework-onEvent/Code/Stage",
+                            "path": "EncodeResourcesInteg/Resources/Provider/framework-onEvent/Code/Stage",
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.AssetStaging",
                               "version": "2.120.0"
@@ -302,7 +302,7 @@
                           },
                           "AssetBucket": {
                             "id": "AssetBucket",
-                            "path": "IntegrationTestExampleStack/Resources/Provider/framework-onEvent/Code/AssetBucket",
+                            "path": "EncodeResourcesInteg/Resources/Provider/framework-onEvent/Code/AssetBucket",
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                               "version": "2.120.0"
@@ -316,7 +316,7 @@
                       },
                       "Resource": {
                         "id": "Resource",
-                        "path": "IntegrationTestExampleStack/Resources/Provider/framework-onEvent/Resource",
+                        "path": "EncodeResourcesInteg/Resources/Provider/framework-onEvent/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                           "aws:cdk:cloudformation:props": {
@@ -326,7 +326,7 @@
                               },
                               "s3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
                             },
-                            "description": "AWS CDK resource provider framework - onEvent (IntegrationTestExampleStack/Resources/Provider)",
+                            "description": "AWS CDK resource provider framework - onEvent (EncodeResourcesInteg/Resources/Provider)",
                             "environment": {
                               "variables": {
                                 "USER_ON_EVENT_FUNCTION_ARN": {
@@ -373,7 +373,7 @@
           },
           "AnOutput": {
             "id": "AnOutput",
-            "path": "IntegrationTestExampleStack/AnOutput",
+            "path": "EncodeResourcesInteg/AnOutput",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.120.0"
@@ -381,7 +381,7 @@
           },
           "BootstrapVersion": {
             "id": "BootstrapVersion",
-            "path": "IntegrationTestExampleStack/BootstrapVersion",
+            "path": "EncodeResourcesInteg/BootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.120.0"
@@ -389,7 +389,7 @@
           },
           "CheckBootstrapVersion": {
             "id": "CheckBootstrapVersion",
-            "path": "IntegrationTestExampleStack/CheckBootstrapVersion",
+            "path": "EncodeResourcesInteg/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
               "version": "2.120.0"
@@ -401,17 +401,17 @@
           "version": "2.120.0"
         }
       },
-      "IntegTestExample": {
-        "id": "IntegTestExample",
-        "path": "IntegTestExample",
+      "EncodeResourcesIntegTest": {
+        "id": "EncodeResourcesIntegTest",
+        "path": "EncodeResourcesIntegTest",
         "children": {
           "DefaultTest": {
             "id": "DefaultTest",
-            "path": "IntegTestExample/DefaultTest",
+            "path": "EncodeResourcesIntegTest/DefaultTest",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "IntegTestExample/DefaultTest/Default",
+                "path": "EncodeResourcesIntegTest/DefaultTest/Default",
                 "constructInfo": {
                   "fqn": "constructs.Construct",
                   "version": "10.3.0"
@@ -419,19 +419,19 @@
               },
               "DeployAssert": {
                 "id": "DeployAssert",
-                "path": "IntegTestExample/DefaultTest/DeployAssert",
+                "path": "EncodeResourcesIntegTest/DefaultTest/DeployAssert",
                 "children": {
                   "AwsApiCallCloudFormationlistExports": {
                     "id": "AwsApiCallCloudFormationlistExports",
-                    "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports",
+                    "path": "EncodeResourcesIntegTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports",
                     "children": {
                       "SdkProvider": {
                         "id": "SdkProvider",
-                        "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/SdkProvider",
+                        "path": "EncodeResourcesIntegTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/SdkProvider",
                         "children": {
                           "AssertionsProvider": {
                             "id": "AssertionsProvider",
-                            "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/SdkProvider/AssertionsProvider",
+                            "path": "EncodeResourcesIntegTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/SdkProvider/AssertionsProvider",
                             "constructInfo": {
                               "fqn": "constructs.Construct",
                               "version": "10.3.0"
@@ -445,11 +445,11 @@
                       },
                       "Default": {
                         "id": "Default",
-                        "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/Default",
+                        "path": "EncodeResourcesIntegTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/Default",
                         "children": {
                           "Default": {
                             "id": "Default",
-                            "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/Default/Default",
+                            "path": "EncodeResourcesIntegTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/Default/Default",
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.CfnResource",
                               "version": "2.120.0"
@@ -463,7 +463,7 @@
                       },
                       "AssertionResults": {
                         "id": "AssertionResults",
-                        "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/AssertionResults",
+                        "path": "EncodeResourcesIntegTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/AssertionResults",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.CfnOutput",
                           "version": "2.120.0"
@@ -477,11 +477,11 @@
                   },
                   "SingletonFunction1488541a7b23466481b69b4408076b81": {
                     "id": "SingletonFunction1488541a7b23466481b69b4408076b81",
-                    "path": "IntegTestExample/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81",
+                    "path": "EncodeResourcesIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81",
                     "children": {
                       "Staging": {
                         "id": "Staging",
-                        "path": "IntegTestExample/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Staging",
+                        "path": "EncodeResourcesIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Staging",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.AssetStaging",
                           "version": "2.120.0"
@@ -489,7 +489,7 @@
                       },
                       "Role": {
                         "id": "Role",
-                        "path": "IntegTestExample/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Role",
+                        "path": "EncodeResourcesIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Role",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.CfnResource",
                           "version": "2.120.0"
@@ -497,7 +497,7 @@
                       },
                       "Handler": {
                         "id": "Handler",
-                        "path": "IntegTestExample/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Handler",
+                        "path": "EncodeResourcesIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Handler",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.CfnResource",
                           "version": "2.120.0"
@@ -511,7 +511,7 @@
                   },
                   "BootstrapVersion": {
                     "id": "BootstrapVersion",
-                    "path": "IntegTestExample/DefaultTest/DeployAssert/BootstrapVersion",
+                    "path": "EncodeResourcesIntegTest/DefaultTest/DeployAssert/BootstrapVersion",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.CfnParameter",
                       "version": "2.120.0"
@@ -519,7 +519,7 @@
                   },
                   "CheckBootstrapVersion": {
                     "id": "CheckBootstrapVersion",
-                    "path": "IntegTestExample/DefaultTest/DeployAssert/CheckBootstrapVersion",
+                    "path": "EncodeResourcesIntegTest/DefaultTest/DeployAssert/CheckBootstrapVersion",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.CfnRule",
                       "version": "2.120.0"

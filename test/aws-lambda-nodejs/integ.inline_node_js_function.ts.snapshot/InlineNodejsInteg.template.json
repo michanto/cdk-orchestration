@@ -65,7 +65,7 @@
     ]
    },
    "Export": {
-    "Name": "IntegrationTestExampleStack:ExportsOutputFnGetAttReverse87697EF5ArnE668E5F9"
+    "Name": "InlineNodejsInteg:ExportsOutputFnGetAttReverse87697EF5ArnE668E5F9"
    }
   }
  },

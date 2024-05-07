@@ -1,28 +1,28 @@
 {
   "version": "36.0.0",
   "artifacts": {
-    "IntegrationTestExampleStack.assets": {
+    "InlineNodejsInteg.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "IntegrationTestExampleStack.assets.json",
+        "file": "InlineNodejsInteg.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "IntegrationTestExampleStack": {
+    "InlineNodejsInteg": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://unknown-account/unknown-region",
       "properties": {
-        "templateFile": "IntegrationTestExampleStack.template.json",
+        "templateFile": "InlineNodejsInteg.template.json",
         "terminationProtection": false,
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3359c0c6c3c4e544436b9b49ae827092dde81d41c5953d09f4bea59235f8fc1d.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/12709d209b92bfd2adac7eeb2d0d2bf2e554be439cb2d1670558e176ab6f7b1a.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "IntegrationTestExampleStack.assets"
+          "InlineNodejsInteg.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
@@ -31,64 +31,64 @@
         }
       },
       "dependencies": [
-        "IntegrationTestExampleStack.assets"
+        "InlineNodejsInteg.assets"
       ],
       "metadata": {
-        "/IntegrationTestExampleStack/Reverse/ServiceRole/Resource": [
+        "/InlineNodejsInteg/Reverse/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "ReverseServiceRole25D1973A"
           }
         ],
-        "/IntegrationTestExampleStack/Reverse/Resource": [
+        "/InlineNodejsInteg/Reverse/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "Reverse87697EF5"
           }
         ],
-        "/IntegrationTestExampleStack/Exports/Output{\"Fn::GetAtt\":[\"Reverse87697EF5\",\"Arn\"]}": [
+        "/InlineNodejsInteg/Exports/Output{\"Fn::GetAtt\":[\"Reverse87697EF5\",\"Arn\"]}": [
           {
             "type": "aws:cdk:logicalId",
             "data": "ExportsOutputFnGetAttReverse87697EF5ArnE668E5F9"
           }
         ],
-        "/IntegrationTestExampleStack/BootstrapVersion": [
+        "/InlineNodejsInteg/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/IntegrationTestExampleStack/CheckBootstrapVersion": [
+        "/InlineNodejsInteg/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "IntegrationTestExampleStack"
+      "displayName": "InlineNodejsInteg"
     },
-    "IntegTestExampleDefaultTestDeployAssertB2D38A87.assets": {
+    "InlineNodejsIntegTestDefaultTestDeployAssert7BA456A7.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "IntegTestExampleDefaultTestDeployAssertB2D38A87.assets.json",
+        "file": "InlineNodejsIntegTestDefaultTestDeployAssert7BA456A7.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "IntegTestExampleDefaultTestDeployAssertB2D38A87": {
+    "InlineNodejsIntegTestDefaultTestDeployAssert7BA456A7": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://unknown-account/unknown-region",
       "properties": {
-        "templateFile": "IntegTestExampleDefaultTestDeployAssertB2D38A87.template.json",
+        "templateFile": "InlineNodejsIntegTestDefaultTestDeployAssert7BA456A7.template.json",
         "terminationProtection": false,
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/bda27f9e09ecd4add4c170138b73a65345e3a517067b12164cc93480792b982e.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/a1b4bf9f6af14ac4ee9c0f56bc74eb2abc4a4591499cd392d821ad6357b44626.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "IntegTestExampleDefaultTestDeployAssertB2D38A87.assets"
+          "InlineNodejsIntegTestDefaultTestDeployAssert7BA456A7.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
@@ -97,48 +97,48 @@
         }
       },
       "dependencies": [
-        "IntegrationTestExampleStack",
-        "IntegTestExampleDefaultTestDeployAssertB2D38A87.assets"
+        "InlineNodejsInteg",
+        "InlineNodejsIntegTestDefaultTestDeployAssert7BA456A7.assets"
       ],
       "metadata": {
-        "/IntegTestExample/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/Default/Default": [
+        "/InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/Default/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765"
           }
         ],
-        "/IntegTestExample/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/AssertionResults": [
+        "/InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/AssertionResults": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AssertionResultsAwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765"
           }
         ],
-        "/IntegTestExample/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Role": [
+        "/InlineNodejsIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Role": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SingletonFunction1488541a7b23466481b69b4408076b81Role37ABCE73"
           }
         ],
-        "/IntegTestExample/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Handler": [
+        "/InlineNodejsIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Handler": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SingletonFunction1488541a7b23466481b69b4408076b81HandlerCD40AE9F"
           }
         ],
-        "/IntegTestExample/DefaultTest/DeployAssert/BootstrapVersion": [
+        "/InlineNodejsIntegTest/DefaultTest/DeployAssert/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/IntegTestExample/DefaultTest/DeployAssert/CheckBootstrapVersion": [
+        "/InlineNodejsIntegTest/DefaultTest/DeployAssert/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "IntegTestExample/DefaultTest/DeployAssert"
+      "displayName": "InlineNodejsIntegTest/DefaultTest/DeployAssert"
     },
     "Tree": {
       "type": "cdk:tree",

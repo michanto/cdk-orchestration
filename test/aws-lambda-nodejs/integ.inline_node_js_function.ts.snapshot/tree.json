@@ -4,21 +4,21 @@
     "id": "App",
     "path": "",
     "children": {
-      "IntegrationTestExampleStack": {
-        "id": "IntegrationTestExampleStack",
-        "path": "IntegrationTestExampleStack",
+      "InlineNodejsInteg": {
+        "id": "InlineNodejsInteg",
+        "path": "InlineNodejsInteg",
         "children": {
           "Reverse": {
             "id": "Reverse",
-            "path": "IntegrationTestExampleStack/Reverse",
+            "path": "InlineNodejsInteg/Reverse",
             "children": {
               "ServiceRole": {
                 "id": "ServiceRole",
-                "path": "IntegrationTestExampleStack/Reverse/ServiceRole",
+                "path": "InlineNodejsInteg/Reverse/ServiceRole",
                 "children": {
                   "ImportServiceRole": {
                     "id": "ImportServiceRole",
-                    "path": "IntegrationTestExampleStack/Reverse/ServiceRole/ImportServiceRole",
+                    "path": "InlineNodejsInteg/Reverse/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.120.0"
@@ -26,7 +26,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "IntegrationTestExampleStack/Reverse/ServiceRole/Resource",
+                    "path": "InlineNodejsInteg/Reverse/ServiceRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -71,7 +71,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "IntegrationTestExampleStack/Reverse/Resource",
+                "path": "InlineNodejsInteg/Reverse/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
@@ -100,7 +100,7 @@
               }
             },
             "attributes": {
-              "@open-constructs/aws-cdk.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-1lG83F/7be0d6b9-reverse_greeting.js"
+              "cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-kXQ3It/ca13d0d9-reverse_greeting.js"
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_lambda.Function",
@@ -109,11 +109,11 @@
           },
           "Exports": {
             "id": "Exports",
-            "path": "IntegrationTestExampleStack/Exports",
+            "path": "InlineNodejsInteg/Exports",
             "children": {
               "Output{\"Fn::GetAtt\":[\"Reverse87697EF5\",\"Arn\"]}": {
                 "id": "Output{\"Fn::GetAtt\":[\"Reverse87697EF5\",\"Arn\"]}",
-                "path": "IntegrationTestExampleStack/Exports/Output{\"Fn::GetAtt\":[\"Reverse87697EF5\",\"Arn\"]}",
+                "path": "InlineNodejsInteg/Exports/Output{\"Fn::GetAtt\":[\"Reverse87697EF5\",\"Arn\"]}",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnOutput",
                   "version": "2.120.0"
@@ -127,7 +127,7 @@
           },
           "BootstrapVersion": {
             "id": "BootstrapVersion",
-            "path": "IntegrationTestExampleStack/BootstrapVersion",
+            "path": "InlineNodejsInteg/BootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.120.0"
@@ -135,7 +135,7 @@
           },
           "CheckBootstrapVersion": {
             "id": "CheckBootstrapVersion",
-            "path": "IntegrationTestExampleStack/CheckBootstrapVersion",
+            "path": "InlineNodejsInteg/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
               "version": "2.120.0"
@@ -147,17 +147,17 @@
           "version": "2.120.0"
         }
       },
-      "IntegTestExample": {
-        "id": "IntegTestExample",
-        "path": "IntegTestExample",
+      "InlineNodejsIntegTest": {
+        "id": "InlineNodejsIntegTest",
+        "path": "InlineNodejsIntegTest",
         "children": {
           "DefaultTest": {
             "id": "DefaultTest",
-            "path": "IntegTestExample/DefaultTest",
+            "path": "InlineNodejsIntegTest/DefaultTest",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "IntegTestExample/DefaultTest/Default",
+                "path": "InlineNodejsIntegTest/DefaultTest/Default",
                 "constructInfo": {
                   "fqn": "constructs.Construct",
                   "version": "10.3.0"
@@ -165,19 +165,19 @@
               },
               "DeployAssert": {
                 "id": "DeployAssert",
-                "path": "IntegTestExample/DefaultTest/DeployAssert",
+                "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert",
                 "children": {
                   "AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765": {
                     "id": "AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765",
-                    "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765",
+                    "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765",
                     "children": {
                       "SdkProvider": {
                         "id": "SdkProvider",
-                        "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/SdkProvider",
+                        "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/SdkProvider",
                         "children": {
                           "AssertionsProvider": {
                             "id": "AssertionsProvider",
-                            "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/SdkProvider/AssertionsProvider",
+                            "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/SdkProvider/AssertionsProvider",
                             "constructInfo": {
                               "fqn": "constructs.Construct",
                               "version": "10.3.0"
@@ -191,11 +191,11 @@
                       },
                       "Default": {
                         "id": "Default",
-                        "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/Default",
+                        "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/Default",
                         "children": {
                           "Default": {
                             "id": "Default",
-                            "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/Default/Default",
+                            "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/Default/Default",
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.CfnResource",
                               "version": "2.120.0"
@@ -209,7 +209,7 @@
                       },
                       "AssertionResults": {
                         "id": "AssertionResults",
-                        "path": "IntegTestExample/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/AssertionResults",
+                        "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/AssertionResults",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.CfnOutput",
                           "version": "2.120.0"
@@ -223,11 +223,11 @@
                   },
                   "SingletonFunction1488541a7b23466481b69b4408076b81": {
                     "id": "SingletonFunction1488541a7b23466481b69b4408076b81",
-                    "path": "IntegTestExample/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81",
+                    "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81",
                     "children": {
                       "Staging": {
                         "id": "Staging",
-                        "path": "IntegTestExample/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Staging",
+                        "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Staging",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.AssetStaging",
                           "version": "2.120.0"
@@ -235,7 +235,7 @@
                       },
                       "Role": {
                         "id": "Role",
-                        "path": "IntegTestExample/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Role",
+                        "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Role",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.CfnResource",
                           "version": "2.120.0"
@@ -243,7 +243,7 @@
                       },
                       "Handler": {
                         "id": "Handler",
-                        "path": "IntegTestExample/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Handler",
+                        "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Handler",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.CfnResource",
                           "version": "2.120.0"
@@ -257,7 +257,7 @@
                   },
                   "BootstrapVersion": {
                     "id": "BootstrapVersion",
-                    "path": "IntegTestExample/DefaultTest/DeployAssert/BootstrapVersion",
+                    "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/BootstrapVersion",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.CfnParameter",
                       "version": "2.120.0"
@@ -265,7 +265,7 @@
                   },
                   "CheckBootstrapVersion": {
                     "id": "CheckBootstrapVersion",
-                    "path": "IntegTestExample/DefaultTest/DeployAssert/CheckBootstrapVersion",
+                    "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/CheckBootstrapVersion",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.CfnRule",
                       "version": "2.120.0"

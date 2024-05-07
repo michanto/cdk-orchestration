@@ -4,14 +4,14 @@ import { Effect } from 'aws-cdk-lib/aws-iam';
 import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
 
 const app = new App();
-const stack = new Stack(app, 'IntegrationTestExampleStack', {});
+const stack = new Stack(app, 'InlineNodejsInteg', {});
 const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 let fun = new InlineNodejsFunction(stack, 'Reverse', {
   entry: `${LAMBDA_PATH}reverse_greeting.js`,
   handler: 'reverseGreeting',
 });
 
-let integ = new IntegTest(app, 'IntegTestExample', {
+let integ = new IntegTest(app, 'InlineNodejsIntegTest', {
   testCases: [
     stack,
   ],

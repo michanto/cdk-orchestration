@@ -153,7 +153,7 @@
      },
      "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
     },
-    "Description": "AWS CDK resource provider framework - onEvent (IntegrationTestExampleStack/Resources/Provider)",
+    "Description": "AWS CDK resource provider framework - onEvent (EncodeResourcesInteg/Resources/Provider)",
     "Environment": {
      "Variables": {
       "USER_ON_EVENT_FUNCTION_ARN": {

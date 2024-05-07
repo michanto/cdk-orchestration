@@ -19,7 +19,7 @@
        [
         "\"",
         {
-         "Fn::ImportValue": "IntegrationTestExampleStack:ExportsOutputFnGetAttReverse87697EF5ArnE668E5F9"
+         "Fn::ImportValue": "InlineNodejsInteg:ExportsOutputFnGetAttReverse87697EF5ArnE668E5F9"
         },
         "\""
        ]
@@ -28,7 +28,7 @@
      "Payload": "\"{\\\"Greeting\\\":\\\"Hello, inline nodejs function!\\\"}\""
     },
     "flattenResponse": "false",
-    "salt": "1715025338512"
+    "salt": "1715099690210"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"
@@ -75,7 +75,7 @@
          ],
          "Resource": [
           {
-           "Fn::ImportValue": "IntegrationTestExampleStack:ExportsOutputFnGetAttReverse87697EF5ArnE668E5F9"
+           "Fn::ImportValue": "InlineNodejsInteg:ExportsOutputFnGetAttReverse87697EF5ArnE668E5F9"
           }
          ]
         }

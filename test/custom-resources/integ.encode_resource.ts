@@ -48,13 +48,14 @@ export class GreetingCustomResource extends Construct {
 }
 
 const app = new App();
-const stack = new Stack(app, 'IntegrationTestExampleStack', {});
+const stack = new Stack(app, 'EncodeResourcesInteg', {});
 let greeting = new GreetingCustomResource(stack, 'Greeting').resource.getAttString('Greeting');
 new CfnOutput(stack, 'AnOutput', {
   exportName: 'GreetingExport',
   value: greeting,
 });
-let integ = new IntegTest(app, 'IntegTestExample', {
+
+let integ = new IntegTest(app, 'EncodeResourcesIntegTest', {
   testCases: [
     stack,
   ],

@@ -1,9 +1,9 @@
 {
   "version": "36.0.0",
   "testCases": {
-    "IntegTestExample/DefaultTest": {
+    "InlineNodejsIntegTest/DefaultTest": {
       "stacks": [
-        "IntegrationTestExampleStack"
+        "InlineNodejsInteg"
       ],
       "regions": [
         "us-east-1"
@@ -15,8 +15,8 @@
           }
         }
       },
-      "assertionStack": "IntegTestExample/DefaultTest/DeployAssert",
-      "assertionStackName": "IntegTestExampleDefaultTestDeployAssertB2D38A87"
+      "assertionStack": "InlineNodejsIntegTest/DefaultTest/DeployAssert",
+      "assertionStackName": "InlineNodejsIntegTestDefaultTestDeployAssert7BA456A7"
     }
   }
 }

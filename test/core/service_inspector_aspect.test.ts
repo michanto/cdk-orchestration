@@ -10,11 +10,12 @@ describe('ServiceInspectorAspect tests', () => {
     let aspect = new ServiceInspectorAspect();
     Aspects.of(app).add(aspect);
     app.node.findAll().forEach(x => aspect.visit(x));
+    console.log(TreeInspectable.of(bucket).attributes);
     expect(TreeInspectable.of(bucket).attributes).toMatchObject({
       '@aws-cdk/core.DependableTrait': 'object',
       '@aws-cdk/core.Resource': 'boolean',
       '@aws-cdk/core.Stack.myStack': 'object',
-      '@open-constructs/aws-cdk.TreeInspectable': 'object',
+      'cdk-orchestration.TreeInspectable': 'object',
     });
   });
 });
