@@ -1,0 +1,12 @@
+"Parameters":
+  "FlowLogsRetentionInDays":
+    "Default": !!int "365"
+    "Description": "number of days to retain vpc flow logs in cloudwatch logs"
+    "Type": "Number"
+"Resources":
+  "FlowLogsGroup":
+    "DeletionPolicy": "Retain"
+    "Properties":
+      "RetentionInDays":
+        "Ref": "FlowLogsRetentionInDays"
+    "Type": "AWS::Logs::LogGroup"

@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation template for AWS Step Functions - State Machine
+Resources:
+  StateMachineComponent:
+    Type: AWS::StepFunctions::StateMachine
+    Properties:
+      StateMachineName: MyWorkflow
+      DefinitionString: |-
+        {
+          "StartAt": "MyPassState",
+          "States": {
+            "MyPassState": {
+              "Type": "Pass",
+              "Next": "Wait for 3 seconds"
+            },
+            "Wait for 3 seconds": {
+              "Seconds": 3,
+              "Type": "Wait",
+              "Next": "Convert HelloWorld to Base64"
+            },
+            "Convert HelloWorld to Base64": {
+              "Parameters": {
+                "FunctionName": "MyLambda",
+                "Payload": {
+                  "input": "HelloWorld"
+                }
+              },
+              "Resource": "arn:aws:states:::lambda:invoke",
+              "Type": "Task",
+              "End": true,
+              "Retry": [
+                {
+                  "ErrorEquals": [
+                    "States.TaskFailed"
+                  ],
+                  "IntervalSeconds": 15,
+                  "MaxAttempts": 2,
+                  "BackoffRate": 4.0
+                }
+              ],
+              "Catch": [
+                {
+                  "ErrorEquals": [
+                    "States.TaskFailed"
+                  ],
+                  "Next": "LambdaTaskFailed"
+                }
+              ]
+            },
+            "LambdaTaskFailed": {
+              "Type": "Fail"
+            }
+          }
+        }
+      RoleArn: arn:aws:iam::541289198167:role/MyRole

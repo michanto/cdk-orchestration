@@ -1,0 +1,14 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "CloudFormation template for AWS Step Functions - State Machine",
+  "Resources": {
+    "StateMachineComponent": {
+      "Type": "AWS::StepFunctions::StateMachine",
+      "Properties": {
+        "StateMachineName": "MyWorkflow",
+        "DefinitionString": "{\n  \"StartAt\": \"MyPassState\",\n  \"States\": {\n    \"MyPassState\": {\n      \"Type\": \"Pass\",\n      \"Next\": \"Wait for 3 seconds\"\n    },\n    \"Wait for 3 seconds\": {\n      \"Seconds\": 3,\n      \"Type\": \"Wait\",\n      \"Next\": \"Convert HelloWorld to Base64\"\n    },\n    \"Convert HelloWorld to Base64\": {\n      \"Parameters\": {\n        \"FunctionName\": \"MyLambda\",\n        \"Payload\": {\n          \"input\": \"HelloWorld\"\n        }\n      },\n      \"Resource\": \"arn:aws:states:::lambda:invoke\",\n      \"Type\": \"Task\",\n      \"End\": true,\n      \"Retry\": [\n        {\n          \"ErrorEquals\": [\n            \"States.TaskFailed\"\n          ],\n          \"IntervalSeconds\": 15,\n          \"MaxAttempts\": 2,\n          \"BackoffRate\": 4.0\n        }\n      ],\n      \"Catch\": [\n        {\n          \"ErrorEquals\": [\n            \"States.TaskFailed\"\n          ],\n          \"Next\": \"LambdaTaskFailed\"\n        }\n      ]\n    },\n    \"LambdaTaskFailed\": {\n      \"Type\": \"Fail\"\n    }\n  }\n}",
+        "RoleArn": "arn:aws:iam::541289198167:role/MyRole"
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@ import { ImportOrders } from './import_orders';
 import { TransformHost } from './transform_host';
 
 export interface TransformBaseProps {
-  readonly order: string;
+  readonly order?: string;
 }
 
 /**
@@ -36,7 +36,7 @@ export abstract class TransformBase extends Construct implements IInspectable {
 
   protected constructor(scope: Construct, id: string, props: TransformBaseProps) {
     super(scope, id);
-    this.order = props.order;
+    this.order = props.order ?? ImportOrders.TRANSFORMS;
     // This will make any antecedent CfnElement or Stack a TransformHost.
     TransformHost.ensureHosted(scope);
     let parent = this.findShimParent();
