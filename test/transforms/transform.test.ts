@@ -9,7 +9,6 @@ export class BucketNameTransform extends Transform {
     super(scope, id);
   }
   public apply(template: CfTemplateType): CfTemplateType {
-    console.log(template);
     for (let resId in template.Resources) {
       if (template.Resources[resId].Type == 'AWS::S3::Bucket') {
         if (!template.Resources[resId].Properties) {

@@ -1,6 +1,6 @@
 import { App, RemovalPolicy, Stack } from 'aws-cdk-lib';
 import { IRole, Role } from 'aws-cdk-lib/aws-iam';
-import { CfnStateMachine, Pass, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
+import { CfnStateMachine, DefinitionBody, Pass, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 import {
   CfnTransformHost,
@@ -211,12 +211,11 @@ describe('Import transform tests', () => {
     });
     let resource = importer.importTemplate(templateFileName).getResource(newResourceName) as CfnStateMachine;
     CfnIncludeToCdk.replaceIncluded(newResourceName, new StateMachine(stack, newResourceName, {
-      definition: new Pass(stack, "PassStep"),
+      definitionBody: DefinitionBody.fromChainable(new Pass(stack, "PassStep")),
       role: role
     }))
 
     let template = Template.fromStack(stack).toJSON();
-    console.log(JSON.stringify(template))
     expect(resource).not.toBeUndefined();
     expect(template).toMatchObject({
       // Description: 'CloudFormation template for AWS Step Functions - State Machine',
