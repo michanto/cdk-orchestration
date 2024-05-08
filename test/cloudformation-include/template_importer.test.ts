@@ -1,19 +1,19 @@
 import { App, RemovalPolicy, Stack } from 'aws-cdk-lib';
+import { Template } from 'aws-cdk-lib/assertions';
 import { IRole, Role } from 'aws-cdk-lib/aws-iam';
 import { CfnStateMachine, DefinitionBody, Pass, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
+import {
+  CfnIncludeToCdk,
+  TemplateImporter,
+} from '../../lib/cloudformation-include';
 import {
   CfnTransformHost,
   StringReplacer,
   Transform, TransformHost, Transforms,
 } from '../../lib/transforms';
-import {
-    CfnIncludeToCdk,
-    TemplateImporter,
-} from '../../lib/cloudformation-include'
-import { Template } from 'aws-cdk-lib/assertions';
 
-const env =  {account: '000000000000', region: 'us-west-2'};
+const env = { account: '000000000000', region: 'us-west-2' };
 
 const newResourceName = 'MyStepFunction';
 function capitalizeFirstLetter(data: string) {
@@ -169,16 +169,16 @@ describe('Import transform tests', () => {
     let importer = new TemplateImporter(stack, 'Importer');
     // Just ensure it does not throw.
     importer.importTemplate(templateFileName, {
-      parameters: {"NotAParameter": "value"}
+      parameters: { NotAParameter: 'value' },
     });
 
-    let stackTransforms = Transforms.of(stack).get().map(t => t.node.id)
+    let stackTransforms = Transforms.of(stack).get().map(t => t.node.id);
     expect(stackTransforms.length).toBe(0);
 
-    let importTransforms = Transforms.of(importer).get().map(t => t.node.id)
+    let importTransforms = Transforms.of(importer).get().map(t => t.node.id);
     expect(importTransforms.length).toBe(5);
 
-  })
+  });
 
   test('Import transform not a parameter.', () => {
     let app = new App();
@@ -190,7 +190,7 @@ describe('Import transform tests', () => {
     let importer = new TemplateImporter(stack, 'Importer');
     // Just ensure it does not throw.
     importer.importTemplate(templateFileName, {
-      parameters: {"NotAParameter": "value"}
+      parameters: { NotAParameter: 'value' },
     });
   });
 
@@ -203,7 +203,7 @@ describe('Import transform tests', () => {
 
     let importer = new TemplateImporter(stack, 'Importer');
     let roleArn = `arn:aws:iam::${env.account}:role/CustomSolonExecutionRole`;
-    let role =  Role.fromRoleArn(importer, 'Role', roleArn)
+    let role = Role.fromRoleArn(importer, 'Role', roleArn);
     new PyStepFunctionsCleanup(importer, 'Cleanup', {
       resourceName: newResourceName,
       removalPolicy: RemovalPolicy.RETAIN,
@@ -211,9 +211,9 @@ describe('Import transform tests', () => {
     });
     let resource = importer.importTemplate(templateFileName).getResource(newResourceName) as CfnStateMachine;
     CfnIncludeToCdk.replaceIncluded(newResourceName, new StateMachine(stack, newResourceName, {
-      definitionBody: DefinitionBody.fromChainable(new Pass(stack, "PassStep")),
-      role: role
-    }))
+      definitionBody: DefinitionBody.fromChainable(new Pass(stack, 'PassStep')),
+      role: role,
+    }));
 
     let template = Template.fromStack(stack).toJSON();
     expect(resource).not.toBeUndefined();
@@ -224,8 +224,8 @@ describe('Import transform tests', () => {
           Type: 'AWS::StepFunctions::StateMachine',
           Properties: {
             RoleArn: roleArn,
-            DefinitionString: "{\"StartAt\":\"PassStep\",\"States\":{\"PassStep\":{\"Type\":\"Pass\",\"End\":true}}}"
-          }
+            DefinitionString: '{"StartAt":"PassStep","States":{"PassStep":{"Type":"Pass","End":true}}}',
+          },
         },
       },
     });

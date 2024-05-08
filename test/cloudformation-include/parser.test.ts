@@ -1,5 +1,6 @@
-import {App, Stack} from 'aws-cdk-lib';
-import {Construct} from 'constructs';
+import { App, Stack } from 'aws-cdk-lib';
+import { Template } from 'aws-cdk-lib/assertions';
+import { Construct } from 'constructs';
 import {
   BaseTemplateImporter,
   FileReader,
@@ -7,11 +8,10 @@ import {
   Parser,
   Stringifier,
   TempFileWriter,
-  TemplateImporter
+  TemplateImporter,
 } from '../../lib/cloudformation-include';
-import { Template } from 'aws-cdk-lib/assertions';
 
-const env =  {account: '000000000000', region: 'us-west-2'};
+const env = { account: '000000000000', region: 'us-west-2' };
 
 describe('Parser tests', () => {
   test('Parser input test.', () => {

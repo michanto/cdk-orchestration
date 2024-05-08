@@ -1,4 +1,4 @@
-import { awscdk, github, javascript, release } from 'projen';
+import { ReleasableCommits, awscdk, github, javascript, release } from 'projen';
 import { NodePackageManager } from 'projen/lib/javascript';
 
 // See how to publish https://github.com/mikejgray/ovos-skill-projen/blob/main/.projenrc.ts
@@ -28,8 +28,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
       },
     },
   },
-  releaseTrigger: release.ReleaseTrigger.manual(),
+  releaseTrigger: release.ReleaseTrigger.continuous(),
+  releasableCommits: ReleasableCommits.ofType(['feat', 'fix', 'revert', 'Revert']),
   gitpod: true,
+  npmAccess: javascript.NpmAccess.PUBLIC,
   publishToPypi: {
     distName: 'cdk-orchestration',
     module: 'cdk_orchestration',

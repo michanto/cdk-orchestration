@@ -1,8 +1,8 @@
-import {App, Stack} from "aws-cdk-lib";
-import {TemplateImporter} from "../../lib/cloudformation-include";
-import { Template } from "aws-cdk-lib/assertions";
+import { App, Stack } from 'aws-cdk-lib';
+import { Template } from 'aws-cdk-lib/assertions';
+import { TemplateImporter } from '../../lib/cloudformation-include';
 
-const env =  {account: '000000000000', region: 'us-west-2'};
+const env = { account: '000000000000', region: 'us-west-2' };
 
 describe('Import weird', () => {
   test('Import bang bang test.', () => {
@@ -16,17 +16,17 @@ describe('Import weird', () => {
 
     let importer = new TemplateImporter(stack, 'Importer');
     importer.importTemplate(templateFileName, {
-      parameters: {}
-    })
+      parameters: {},
+    });
     let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({
       Resources: {
         FlowLogsGroup: {
           Properties: {
             RetentionInDays: 365,
-          }
+          },
         },
       },
     });
   });
-})
+});

@@ -6813,7 +6813,7 @@ const parserProps: cloudformation_include.ParserProps = { ... }
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.cloudformation_include.ParserProps.property.order"></a>
+##### `order`<sup>Optional</sup> <a name="order" id="cdk-orchestration.cloudformation_include.ParserProps.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -7008,7 +7008,7 @@ const stringReplacerProps: transforms.StringReplacerProps = { ... }
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.transforms.StringReplacerProps.property.order"></a>
+##### `order`<sup>Optional</sup> <a name="order" id="cdk-orchestration.transforms.StringReplacerProps.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -7056,7 +7056,7 @@ const stringTransformProps: transforms.StringTransformProps = { ... }
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.transforms.StringTransformProps.property.order"></a>
+##### `order`<sup>Optional</sup> <a name="order" id="cdk-orchestration.transforms.StringTransformProps.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -7084,7 +7084,7 @@ const transformBaseProps: transforms.TransformBaseProps = { ... }
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.transforms.TransformBaseProps.property.order"></a>
+##### `order`<sup>Optional</sup> <a name="order" id="cdk-orchestration.transforms.TransformBaseProps.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -7112,7 +7112,7 @@ const transformProps: transforms.TransformProps = { ... }
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="cdk-orchestration.transforms.TransformProps.property.order"></a>
+##### `order`<sup>Optional</sup> <a name="order" id="cdk-orchestration.transforms.TransformProps.property.order"></a>
 
 ```typescript
 public readonly order: string;
