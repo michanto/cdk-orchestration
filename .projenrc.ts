@@ -10,7 +10,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.3.0',
   constructsVersion: '10.3.0',
-  name: 'cdk-orchestration',
+  name: '@michanto/cdk-orchestration',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/michanto/cdk-orchestration.git',
   licensed: true,
