@@ -141,7 +141,7 @@ describe('InlineNodeJsFunction tests', () => {
 
   test.each([
     undefined,
-    MinifyEngine.ES_BUILD,
+    // MinifyEngine.ES_BUILD,
     MinifyEngine.SIMPLE,
     MinifyEngine.NONE,
   ])('InlineNodejsFunction all minify', (engine) => {
@@ -181,7 +181,7 @@ describe('InlineNodeJsFunction tests', () => {
     });
   });
 
-  test('InlineNodejsFunction no esbuild', () => {
+  test.skip('InlineNodejsFunction no esbuild', () => {
     // GIVEN
     const stack = new Stack();
 

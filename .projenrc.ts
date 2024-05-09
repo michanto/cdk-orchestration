@@ -32,10 +32,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   releasableCommits: ReleasableCommits.ofType(['feat', 'fix', 'revert', 'Revert']),
   gitpod: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
+  /*
   publishToPypi: {
     distName: 'cdk-orchestration',
     module: 'cdk_orchestration',
-  },
+  }, */
   workflowNodeVersion: '18.x',
   minNodeVersion: '18.0.0',
   // publishToMaven: {
@@ -57,7 +58,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '@aws-sdk/client-s3@3.6.1',
     '@aws-sdk/client-sfn@3.501.0',
     '@aws-sdk/client-ec2@3.501.0',
-    'esbuild@0.18.16',
     'tmp@^0.2.1',
     'yaml@^2.1.1',
   ],
@@ -66,7 +66,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '@aws-sdk/client-s3@3.6.1',
     '@aws-sdk/client-sfn@3.501.0',
     '@aws-sdk/client-ec2@3.501.0',
-    'esbuild@0.18.16',
     'tmp@^0.2.1',
     'yaml@^2.1.1',
   ],

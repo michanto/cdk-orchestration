@@ -19,7 +19,6 @@
     "package": "npx projen package",
     "package-all": "npx projen package-all",
     "package:js": "npx projen package:js",
-    "package:python": "npx projen package:python",
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
@@ -69,7 +68,6 @@
     "@aws-sdk/client-ec2": "3.501.0",
     "@aws-sdk/client-s3": "3.6.1",
     "@aws-sdk/client-sfn": "3.501.0",
-    "esbuild": "0.18.16",
     "tmp": "^0.2.1",
     "yaml": "^2.1.1"
   },
@@ -77,7 +75,6 @@
     "@aws-sdk/client-ec2",
     "@aws-sdk/client-s3",
     "@aws-sdk/client-sfn",
-    "esbuild",
     "tmp",
     "yaml"
   ],
@@ -139,12 +136,7 @@
   "stability": "stable",
   "jsii": {
     "outdir": "dist",
-    "targets": {
-      "python": {
-        "distName": "cdk-orchestration",
-        "module": "cdk_orchestration"
-      }
-    },
+    "targets": {},
     "tsc": {
       "outDir": "lib",
       "rootDir": "src"

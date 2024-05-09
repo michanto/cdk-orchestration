@@ -115,11 +115,6 @@
       "type": "bundled"
     },
     {
-      "name": "esbuild",
-      "version": "0.18.16",
-      "type": "bundled"
-    },
-    {
       "name": "tmp",
       "version": "^0.2.1",
       "type": "bundled"
@@ -152,11 +147,6 @@
     {
       "name": "@aws-sdk/client-sfn",
       "version": "3.501.0",
-      "type": "runtime"
-    },
-    {
-      "name": "esbuild",
-      "version": "0.18.16",
       "type": "runtime"
     },
     {
