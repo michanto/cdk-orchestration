@@ -1,8 +1,7 @@
-import { Stack } from 'aws-cdk-lib';
-import { Construct, IConstruct } from 'constructs';
+import { IConstruct } from 'constructs';
 import { ICfnTransform } from './icfn_transform';
-import { CFN_TRANSFORM_HOST_RTTI, CFN_TRANSFORM_RTTI, isTransformHost } from './private/transform_rtti';
-import { ConstructHost, Log } from '../core';
+import { TRANSFORM_CONSTRUCT_HOST } from './private/transform_rtti';
+import { Log } from '../core';
 
 /**
  * This helper class can extract ICfnTransforms from a construct tree so they can be applied to a template.
@@ -20,13 +19,6 @@ export class Transforms {
     return new Transforms(scope);
   }
 
-  private readonly constructHost = new ConstructHost({
-    hostConstructTypeInfo: CFN_TRANSFORM_HOST_RTTI,
-    hostedConstructTypeInfo: CFN_TRANSFORM_RTTI,
-    // Don't recurse into a stack or transform host.
-    stopCondition: (s: Construct) => Stack.isStack(s) || isTransformHost(s),
-  });
-
   private constructor(readonly scope: IConstruct) {
   }
 
@@ -34,7 +26,7 @@ export class Transforms {
    * Returns all transforms attached to the scope as descendents.
    */
   get(): ICfnTransform[] {
-    return this.constructHost.getHostedConstructs(this.scope) as ICfnTransform[];
+    return TRANSFORM_CONSTRUCT_HOST.getHostedConstructs(this.scope) as ICfnTransform[];
   }
 
   /**

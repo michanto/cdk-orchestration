@@ -2303,151 +2303,11 @@ Link in tree.json to the file used for inline code.
 
 ---
 
-### Inspectable <a name="Inspectable" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable"></a>
-
-- *Implements:* aws-cdk-lib.IInspectable
-
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.Initializer"></a>
-
-```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
-
-new cloudformation_include.Inspectable(scope: Construct, id: string)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Inspectable.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Inspectable.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Inspectable.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Inspectable.inspect">inspect</a></code> | Examines construct. |
-
----
-
-##### ~~`toString`~~ <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### ~~`inspect`~~ <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.inspect"></a>
-
-```typescript
-public inspect(inspector: TreeInspector): void
-```
-
-Examines construct.
-
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.inspect.parameter.inspector"></a>
-
-- *Type:* aws-cdk-lib.TreeInspector
-
----
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Inspectable.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.isConstruct"></a>
-
-```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
-
-cloudformation_include.Inspectable.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
-
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Inspectable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Inspectable.property.attributes">attributes</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-
----
-
-##### ~~`node`~~<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.property.node"></a>
-
-- *Deprecated:* Use TreeInspectable.of instead.
-This is used as a parent of a construct to add data to the construct tree.
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### ~~`attributes`~~<sup>Required</sup> <a name="attributes" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.property.attributes"></a>
-
-- *Deprecated:* Use TreeInspectable.of instead.
-This is used as a parent of a construct to add data to the construct tree.
-
-```typescript
-public readonly attributes: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-
 ### JsonParser <a name="JsonParser" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser"></a>
 
 Uses a yaml parser to parse a template.
 
-Takes in a template as a string either Yaml or JSON,
+Takes in a template as a string JSON,
 and returns a parsed template.
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.Initializer"></a>
@@ -2485,8 +2345,6 @@ new cloudformation_include.JsonParser(scope: Construct, id: string)
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.apply">apply</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.validateInput">validateInput</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.validateOutput">validateOutput</a></code> | *No description.* |
 
 ---
 
@@ -2540,30 +2398,6 @@ public apply(template: string): any
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.apply.parameter.template"></a>
 
 - *Type:* string
-
----
-
-##### `validateInput` <a name="validateInput" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.validateInput"></a>
-
-```typescript
-public validateInput(template: any): any
-```
-
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.validateInput.parameter.template"></a>
-
-- *Type:* any
-
----
-
-##### `validateOutput` <a name="validateOutput" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.validateOutput"></a>
-
-```typescript
-public validateOutput(template: any): any
-```
-
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.validateOutput.parameter.template"></a>
-
-- *Type:* any
 
 ---
 
@@ -3173,6 +3007,8 @@ Tokenized string that evaluates to the state's ID.
 
 ### Parser <a name="Parser" id="@michanto/cdk-orchestration.cloudformation_include.Parser"></a>
 
+Base class for JsonParser and YamlParser transforms.
+
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.Parser.Initializer"></a>
 
 ```typescript
@@ -3215,8 +3051,6 @@ new cloudformation_include.Parser(scope: Construct, id: string, props?: ParserPr
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.apply">apply</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.validateInput">validateInput</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.validateOutput">validateOutput</a></code> | *No description.* |
 
 ---
 
@@ -3270,30 +3104,6 @@ public apply(template: string): any
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.Parser.apply.parameter.template"></a>
 
 - *Type:* string
-
----
-
-##### `validateInput` <a name="validateInput" id="@michanto/cdk-orchestration.cloudformation_include.Parser.validateInput"></a>
-
-```typescript
-public validateInput(template: any): any
-```
-
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.Parser.validateInput.parameter.template"></a>
-
-- *Type:* any
-
----
-
-##### `validateOutput` <a name="validateOutput" id="@michanto/cdk-orchestration.cloudformation_include.Parser.validateOutput"></a>
-
-```typescript
-public validateOutput(template: any): any
-```
-
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.Parser.validateOutput.parameter.template"></a>
-
-- *Type:* any
 
 ---
 
@@ -5222,8 +5032,6 @@ new cloudformation_include.YamlParser(scope: Construct, id: string)
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.apply">apply</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.validateInput">validateInput</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.validateOutput">validateOutput</a></code> | *No description.* |
 
 ---
 
@@ -5277,30 +5085,6 @@ public apply(template: string): any
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.apply.parameter.template"></a>
 
 - *Type:* string
-
----
-
-##### `validateInput` <a name="validateInput" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.validateInput"></a>
-
-```typescript
-public validateInput(template: any): any
-```
-
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.validateInput.parameter.template"></a>
-
-- *Type:* any
-
----
-
-##### `validateOutput` <a name="validateOutput" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.validateOutput"></a>
-
-```typescript
-public validateOutput(template: any): any
-```
-
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.validateOutput.parameter.template"></a>
-
-- *Type:* any
 
 ---
 

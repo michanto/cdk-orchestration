@@ -87,7 +87,7 @@ describe('Custom Resource Utilities tests.', () => {
         Res1: {
           Type: 'AWS::CloudFormation::CustomResource',
           Properties: {
-            Version: expect.any(Number),
+            salt: expect.any(Number),
           },
         },
       },

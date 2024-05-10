@@ -36,6 +36,6 @@ export class CustomResourceUtilities {
   runResourceAlways(target: Construct) {
     let resource = this.findCustomResource(target);
 
-    resource.addPropertyOverride('Version', BUILD_TIME);
+    resource.addPropertyOverride('salt', BUILD_TIME);
   }
 }

@@ -1,5 +1,4 @@
 import * as fs from 'fs';
-import { IInspectable, TreeInspector } from 'aws-cdk-lib';
 import { CfnInclude, CfnIncludeProps } from 'aws-cdk-lib/cloudformation-include';
 import { Construct } from 'constructs';
 import { tmpNameSync } from 'tmp';
@@ -132,23 +131,6 @@ export class TemplateCapture extends Transform {
   apply(template: CfTemplateType): CfTemplateType {
     this.template = template;
     return template;
-  }
-}
-
-/**
- * @deprecated Use TreeInspectable.of instead.
- * This is used as a parent of a construct to add data to the construct tree.
- */
-export class Inspectable extends Construct implements IInspectable {
-  readonly attributes: Record<string, any> = {};
-
-  constructor(scope: Construct, id: string) {
-    super(scope, id);
-    throw new Error('Deprecated, use TreeInspectable.of instead.');
-  }
-
-  inspect(inspector: TreeInspector): void {
-    for (let attr in this.attributes) {inspector.addAttribute(attr, this.attributes[attr]);}
   }
 }
 

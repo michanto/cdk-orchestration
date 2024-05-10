@@ -76,6 +76,8 @@ function getSimpleMinification(entry: string) {
  * @param entry Javascript file path.
  * @returns Minified code.
  */
+// NOTE:  Cannot be tested due to esbuild install limitations.
+// istanbul ignore next
 function getInlineCodeEsBuild(entry: string) {
   let esBuild: any;
   try {
@@ -105,6 +107,7 @@ function getInlineCodeEsBuild(entry: string) {
 function getInlineCode(constructPath: string, entry: string, minifyEngine: MinifyEngine): string {
   let inlineCode: string | undefined;
 
+  // istanbul ignore next
   if (!inlineCode && minifyEngine == MinifyEngine.ES_BUILD) {
     inlineCode = getInlineCodeEsBuild(entry);
   }

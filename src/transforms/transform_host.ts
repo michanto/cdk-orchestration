@@ -1,6 +1,6 @@
 import { CfnElement, IResolveContext, Stack } from 'aws-cdk-lib';
 import { Construct, IConstruct } from 'constructs';
-import { TRANSFORM_HOST_OF, CFN_TRANSFORM_HOST_RTTI } from './private/transform_rtti';
+import { TRANSFORM_HOST_OF, TRANSFORM_HOST_RTTI } from './private/transform_rtti';
 import { Transforms } from './transforms';
 import { CfnElementUtilities, ConstructService, PostResolveToken } from '../core';
 
@@ -16,7 +16,7 @@ export class TransformHost {
    * It does NOT tell you that the object is of type CfnTransformHost.
    */
   static isTransformHost(scope: Construct): boolean {
-    return CFN_TRANSFORM_HOST_RTTI.hasRtti(scope);
+    return TRANSFORM_HOST_RTTI.hasRtti(scope);
   }
 
   /**
@@ -54,7 +54,7 @@ export class TransformHost {
    * Host decides when to apply the descendent transforms.
    */
   public static mark(scope: Construct) {
-    CFN_TRANSFORM_HOST_RTTI.addRtti(scope);
+    TRANSFORM_HOST_RTTI.addRtti(scope);
   }
 
 
@@ -72,7 +72,7 @@ export class TransformHost {
       throw new Error(errorMsg);
     }
 
-    if (CFN_TRANSFORM_HOST_RTTI.hasRtti(construct)) {
+    if (TRANSFORM_HOST_RTTI.hasRtti(construct)) {
       return;
     }
 
