@@ -2,7 +2,7 @@ import { CustomResource, RemovalPolicy } from 'aws-cdk-lib';
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { AwsCustomResource, AwsCustomResourcePolicy, AwsSdkCall, PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
-import { CustomResourceUtilities } from '../custom-resources';
+import { RunResourceAlways } from '../custom-resources';
 
 export interface ConfigFileResourceProps {
   readonly purpose: string;
@@ -54,8 +54,7 @@ export class ConfigFileResource extends Construct {
     });
 
     // Force re-running every deployment.
-    let utils = new CustomResourceUtilities();
-    utils.runResourceAlways(this);
+    new RunResourceAlways(this);
   }
 
   applyRemovalPolicy(policy: RemovalPolicy) {
