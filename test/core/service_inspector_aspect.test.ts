@@ -15,7 +15,7 @@ describe('ServiceInspectorAspect tests', () => {
       '@aws-cdk/core.DependableTrait': 'object',
       '@aws-cdk/core.Resource': 'boolean',
       '@aws-cdk/core.Stack.myStack': 'object',
-      'cdk-orchestration.TreeInspectable': 'object',
+      '@michanto/cdk-orchestration.TreeInspectable': 'object',
     });
   });
 });

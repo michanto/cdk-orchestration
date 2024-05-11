@@ -128,7 +128,7 @@ export interface TransformProps extends TransformBaseProps {
 export abstract class Transform extends TransformBase {
 
   constructor(scope: Construct, id: string, props?: TransformProps) {
-    super(scope, id, props ?? { order: ImportOrders.TRANSFORMS });
+    super(scope, id, props ? { ...props, order: props.order ?? ImportOrders.TRANSFORMS } : { order: ImportOrders.TRANSFORMS });
   }
   public abstract apply(template: CfTemplateType): CfTemplateType;
 

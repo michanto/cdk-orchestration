@@ -41,7 +41,7 @@ export interface ConstructServiceProps {
    * unique, so namespacing symobls is recommended:
    * ```
    * // Your package name
-   * const NAMESPACE = "@open-constructs/aws-cdk"
+   * const NAMESPACE = "@michanto/cdk-orchestration"
    * // PackageName.ServiceName
    * Symbol.for(`${NAMESPACE}.CfnTransform`)
    * ```

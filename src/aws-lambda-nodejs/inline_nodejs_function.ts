@@ -281,7 +281,7 @@ export class InlineNodejsFunction extends Function implements IInspectable {
   /**
    * Path to the temporary file with the minified code (if any).
    * This path is also published via IInspectiable, and thus will appear in
-   * the tree.json file as attribute "@open-constructs/aws-cdk.InlineNodejsFunction.tmpfile".
+   * the tree.json file as attribute "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile".
    *
    * This makes it possible to get quick development turn around by
    * compiling your project and copying the minified code to the console.

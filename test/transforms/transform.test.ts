@@ -54,6 +54,7 @@ describe('Transform tests.', () => {
       },
     });
   });
+
   it('Transform applied to Order works', () => {
     let stack = new Stack();
     let importer = new CfnTransformHost(stack, 'Importer');
@@ -61,16 +62,39 @@ describe('Transform tests.', () => {
     new BucketNameTransform(importer, 'BucketName', 'my_bucket');
     expect(CfnTransform.isCfnTransform(order.node.children[0])).toBeTruthy();
   });
-  it('Transform applied to stack with Order works', () => {
+
+  it('Transform applied to stack Order works', () => {
     let stack = new Stack();
     let order = new Construct(stack, ImportOrders.TRANSFORMS);
     new BucketNameTransform(stack, 'BucketName', 'my_bucket');
     expect(CfnTransform.isCfnTransform(order.node.children[0])).toBeTruthy();
   });
+
   it('Transform applied to Order directly works', () => {
     let stack = new Stack();
     let order = new Construct(stack, ImportOrders.TRANSFORMS);
     let transform = new BucketNameTransform(order, 'BucketName', 'my_bucket');
     expect(CfnTransform.isCfnTransform(transform.node.children[0])).toBeTruthy();
   });
+
+  it('Transform applied to L1 Order works', () => {
+    let stack = new Stack();
+    let bucket = new Bucket(stack, "Bucket");
+    let order = new Construct(bucket.node.defaultChild!, ImportOrders.TRANSFORMS);
+    new BucketNameTransform(bucket, 'BucketName', 'my_bucket');
+    expect(CfnTransform.isCfnTransform(order.node.children[0])).toBeTruthy();
+  });
+
+  it('TransformProps all ways', () => {
+    class NopropTransform extends Transform {
+      public apply(template: CfTemplateType): CfTemplateType {
+        return template
+      }
+    }
+    let stack = new Stack();
+    ;
+    expect(new NopropTransform(stack, "One").order).toBe(ImportOrders.TRANSFORMS);
+    expect(new NopropTransform(stack, "Two", {}).order).toBe(ImportOrders.TRANSFORMS);
+    expect(new NopropTransform(stack, "Three", { order: "newOrder" }).order).toBe("newOrder");
+  })
 });

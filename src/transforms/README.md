@@ -35,7 +35,7 @@ export class StackDescription extends Transform {
     super(scope, id);
   }
 
-  transform(template: CfTemplateType): CfTemplateType {
+  apply(template: CfTemplateType): CfTemplateType {
     // Any change to the template is allowed.
     template.Description = this.description;
     // Always return the altered template.
