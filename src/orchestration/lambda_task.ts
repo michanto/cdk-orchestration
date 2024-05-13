@@ -11,8 +11,8 @@ import {
   PhysicalResourceId,
 } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
-import { LambdaCustomResource } from './lambda_custom_resource';
 import { RunResourceAlways } from '../custom-resources';
+import { LambdaCustomResource } from '../custom-resources/lambda_custom_resource';
 // import { CustomRe } from "../core";
 
 /**

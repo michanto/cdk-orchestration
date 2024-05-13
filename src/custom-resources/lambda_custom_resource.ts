@@ -4,9 +4,9 @@ import { Effect, IRole, ManagedPolicy, PolicyDocument, PolicyStatement, Role, Se
 import { IFunction } from 'aws-cdk-lib/aws-lambda';
 import { AwsCustomResourceProps, AwsCustomResource, AwsSdkCall, Provider } from 'aws-cdk-lib/custom-resources';
 import { Construct, IConstruct } from 'constructs';
+import { EncodeResource } from '.';
 import { InlineNodejsFunction } from '../aws-lambda-nodejs';
 import { BUILD_TIME, Singleton } from '../core';
-import { EncodeResource } from '../custom-resources';
 
 const LAMBDA_PATH = `${__dirname}/../../../dist/lib/lambdas/lambdas`;
 

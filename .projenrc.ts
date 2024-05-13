@@ -55,17 +55,23 @@ const project = new awscdk.AwsCdkConstructLibrary({
   ],
 
   deps: [
+    'aws-lambda@0.1.1',
+    '@types/aws-lambda@^8.10.137',
     '@aws-sdk/client-s3@3.6.1',
     '@aws-sdk/client-sfn@3.501.0',
     '@aws-sdk/client-ec2@3.501.0',
+    '@aws-sdk/credential-providers@3.501.0',
     'tmp@^0.2.1',
     'yaml@^2.1.1',
   ],
 
   bundledDeps: [
+    'aws-lambda@0.1.1',
+    '@types/aws-lambda@^8.10.137',
     '@aws-sdk/client-s3@3.6.1',
     '@aws-sdk/client-sfn@3.501.0',
     '@aws-sdk/client-ec2@3.501.0',
+    '@aws-sdk/credential-providers@3.501.0',
     'tmp@^0.2.1',
     'yaml@^2.1.1',
   ],
