@@ -105,6 +105,11 @@
       "type": "bundled"
     },
     {
+      "name": "@aws-sdk/client-lambda",
+      "version": "3.501.0",
+      "type": "bundled"
+    },
+    {
       "name": "@aws-sdk/client-s3",
       "version": "3.6.1",
       "type": "bundled"
@@ -151,6 +156,11 @@
     },
     {
       "name": "@aws-sdk/client-ec2",
+      "version": "3.501.0",
+      "type": "runtime"
+    },
+    {
+      "name": "@aws-sdk/client-lambda",
       "version": "3.501.0",
       "type": "runtime"
     },

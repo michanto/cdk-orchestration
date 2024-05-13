@@ -54,7 +54,7 @@ export class LambdaCustomResourceResources extends Construct {
 
   createOnEventFunction(props: LambdaCustomResourceResourcesProps) {
     return new Function(this, `${props.purpose}OnEvent`, {
-      code: Code.fromAsset(`${__dirname}/handlers`),
+      code: Code.fromAsset(`${__dirname}../../../lib/custom-resources/handlers`),
       handler: 'index.handler',
       role: this.role,
       runtime: Runtime.NODEJS_20_X,

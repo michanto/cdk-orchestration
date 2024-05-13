@@ -12015,6 +12015,50 @@ public readonly props: LoggerProps;
 ---
 
 
+### LoggingAspect <a name="LoggingAspect" id="@michanto/cdk-orchestration.LoggingAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Adds a LogLevel environment variable to each Function based on the construct log level.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.LoggingAspect.Initializer"></a>
+
+```typescript
+import { LoggingAspect } from '@michanto/cdk-orchestration'
+
+new LoggingAspect()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.LoggingAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@michanto/cdk-orchestration.LoggingAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.LoggingAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
 ### NoOpLogger <a name="NoOpLogger" id="@michanto/cdk-orchestration.NoOpLogger"></a>
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.NoOpLogger.Initializer"></a>
