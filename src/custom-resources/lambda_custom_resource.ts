@@ -1,14 +1,10 @@
 import { CfnResource, CustomResource, Duration, Fn } from 'aws-cdk-lib';
-// @ts-ignore TS6133
 import { Effect, IRole, ManagedPolicy, PolicyDocument, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
-import { IFunction } from 'aws-cdk-lib/aws-lambda';
+import { Code, IFunction, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { AwsCustomResourceProps, AwsCustomResource, AwsSdkCall, Provider } from 'aws-cdk-lib/custom-resources';
 import { Construct, IConstruct } from 'constructs';
 import { EncodeResource } from '.';
-import { InlineNodejsFunction } from '../aws-lambda-nodejs';
 import { BUILD_TIME, Singleton } from '../core';
-
-const LAMBDA_PATH = `${__dirname}/../../../dist/lib/lambdas/lambdas`;
 
 /**
  * Props for LambdaCustomResourceResources
@@ -57,9 +53,11 @@ export class LambdaCustomResourceResources extends Construct {
   }
 
   createOnEventFunction(props: LambdaCustomResourceResourcesProps) {
-    return new InlineNodejsFunction(this, `${props.purpose}OnEvent`, {
-      entry: `${LAMBDA_PATH}/lambda_custom_resource_handler.js`,
+    return new Function(this, `${props.purpose}OnEvent`, {
+      code: Code.fromAsset(`${__dirname}/handlers`),
+      handler: 'index.handler',
       role: this.role,
+      runtime: Runtime.NODEJS_20_X,
       timeout: props.timeout ?? Duration.minutes(1),
     });
   }

@@ -3522,7 +3522,7 @@ Returns a string representation of this construct.
 ##### `createOnEventFunction` <a name="createOnEventFunction" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.createOnEventFunction"></a>
 
 ```typescript
-public createOnEventFunction(props: LambdaCustomResourceResourcesProps): InlineNodejsFunction
+public createOnEventFunction(props: LambdaCustomResourceResourcesProps): Function
 ```
 
 ###### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.createOnEventFunction.parameter.props"></a>

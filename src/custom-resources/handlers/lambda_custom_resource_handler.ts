@@ -222,7 +222,3 @@ export class CustomResourceHandler {
     }
   }
 }
-
-export const handler = async (event: any, context: any) => {
-  return new CustomResourceHandler().handle(event, context);
-};
