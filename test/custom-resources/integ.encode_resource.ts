@@ -49,7 +49,7 @@ export class GreetingCustomResource extends Construct {
 
 const app = new App();
 const stack = new Stack(app, 'EncodeResourcesInteg', {});
-let greetingResource = new GreetingCustomResource(stack, 'Greeting').resource
+let greetingResource = new GreetingCustomResource(stack, 'Greeting').resource;
 let greeting = greetingResource.getAttString('Greeting');
 new CfnOutput(stack, 'AnOutput', {
   exportName: 'GreetingExport',

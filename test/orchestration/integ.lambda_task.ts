@@ -1,11 +1,11 @@
 import { ExpectedResult, IntegTest, Match } from '@aws-cdk/integ-tests-alpha';
 import { App, Aspects, CfnOutput, Stack } from 'aws-cdk-lib';
+import { Effect } from 'aws-cdk-lib/aws-iam';
 import { Function } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
 import { LoggingAspect } from '../../src/core';
 import { LambdaTask } from '../../src/orchestration';
-import { Effect } from 'aws-cdk-lib/aws-iam';
 const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
 export class GreetingLambdaTask extends Construct {

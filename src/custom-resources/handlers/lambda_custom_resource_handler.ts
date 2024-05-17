@@ -30,7 +30,7 @@ export interface CustomResourceHandlerProps {
  * adds the following features:
  * - Default values for attributes.
  * - ResponseBufferField for deserlializing streamed return values.
- * 
+ *
  * Most of this code was copied from the CDK here:
  *
  * https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/custom-resource-handlers/lib/custom-resources/aws-custom-resource-handler/aws-sdk-v3-handler.ts
