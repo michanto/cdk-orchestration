@@ -4,22 +4,12 @@ import { ImportOrders, TransformBase, TransformBaseProps } from '../transforms';
 
 export interface ParserProps extends TransformBaseProps {}
 
+/**
+ * Base class for JsonParser and YamlParser transforms.
+ */
 export abstract class Parser extends TransformBase {
   protected constructor(scope: Construct, id: string, props?: ParserProps) {
     super(scope, id, { order: props?.order ?? ImportOrders.PARSER });
-  }
-
-  validateInput(template: any): any {
-    if (typeof template != 'string') {
-      throw new Error(`Parser ${this.node.id} input must be a string.`);
-    }
-    return template;
-  }
-  validateOutput(template: any): any {
-    if (typeof template != 'object') {
-      throw new Error(`Parser ${this.node.id} output must be an object.`);
-    }
-    return template;
   }
 
   abstract apply(template: string): any;
@@ -30,7 +20,6 @@ export abstract class Parser extends TransformBase {
   protected _apply(template: any): any {
     return this.apply(template);
   }
-
 }
 
 /**
@@ -48,7 +37,7 @@ export class YamlParser extends Parser {
 }
 
 /**
- * Uses a yaml parser to parse a template.  Takes in a template as a string either Yaml or JSON,
+ * Uses a yaml parser to parse a template.  Takes in a template as a string JSON,
  * and returns a parsed template.
  */
 export class JsonParser extends Parser {

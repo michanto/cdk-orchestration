@@ -86,7 +86,10 @@ export abstract class TransformBase extends Construct implements IInspectable {
       && this.node.scope.node.defaultChild
       && CfnElement.isCfnElement(this.node.scope.node.defaultChild)) {
 
-      return this.node.scope.node.defaultChild;
+      let l1Construct = this.node.scope.node.defaultChild;
+      // Allow the L1 construct to use orders.
+      let orderSubTree = l1Construct.node.tryFindChild(this.order);
+      return orderSubTree ? orderSubTree : l1Construct;
     }
 
     let host = TransformHost.of(this);
@@ -125,7 +128,7 @@ export interface TransformProps extends TransformBaseProps {
 export abstract class Transform extends TransformBase {
 
   constructor(scope: Construct, id: string, props?: TransformProps) {
-    super(scope, id, props ?? { order: ImportOrders.TRANSFORMS });
+    super(scope, id, props ? { ...props, order: props.order ?? ImportOrders.TRANSFORMS } : { order: ImportOrders.TRANSFORMS });
   }
   public abstract apply(template: CfTemplateType): CfTemplateType;
 

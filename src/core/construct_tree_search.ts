@@ -17,15 +17,13 @@ export interface IStopCondition {
 }
 
 /**
- * A construct predicate type assertion.
- *
  * Enables using CDK XXX.isXXX methods with ConstructTreeSearch and
  * IConstructPredicate.
- * Such as CfnElement.isCfnElement or Stack.isStack.
  *
- * Usage:
+ * Example Usage:
+ * `let stackSearch = ConstructTreeSearch.for(Stack.isStack)`
  */
-export interface IConstuctTest {
+export interface IConstructTest {
   (x: IConstruct): boolean;
 }
 
@@ -48,7 +46,7 @@ export class ConstructTreeSearch {
    * @param test Test to use when finding constructs.
    * @returns Construct predicate for the test.
    */
-  static for(test: IConstuctTest) {
+  static for(test: IConstructTest) {
     return new ConstructTreeSearch((scope: IConstruct) => test(scope) ? scope: undefined);
   }
 

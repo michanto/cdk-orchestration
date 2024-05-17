@@ -18,24 +18,24 @@ for the stack.  Then it finds all the L1 constructs in the
 stack, calls _toCloudFormation on each CfnElement, and merges the
 resulting CloudFormation into the base template.
 
-With Transforms, a Stack, a CfnElement, or any other Construct
-can be a TransformHost, (by calling TransformHost.mark).
+A Stack, a CfnElement, or a CfnTransformHost
+can host transforms.
 
 - When a Stack or CfnElement hosts Transforms, the Transforms are applied after
   the base _toCloudFormation function is called.
 
-- With custom transform hosts, the host itself
+- With CfnTransformHost, the host itself
   defines when and how they apply any Transform descendents (transforms in the sub-tree
-  of the host construct).  
+  of the host construct).  See TemplateImporter for an example.
 Example transform usage:
 
 ```typescript
-export class StackDescription extends CfnTransform {
+export class StackDescription extends Transform {
   constructor(scope: Construct, id: string, readonly description: string) {
     super(scope, id);
   }
 
-  transform(template: any): any {
+  apply(template: CfTemplateType): CfTemplateType {
     // Any change to the template is allowed.
     template.Description = this.description;
     // Always return the altered template.
@@ -63,7 +63,7 @@ the StackDescription transform.
 ### Using Transforms
 
 Any Stack or CfnElement can become a Transform host simply by
-adding transforms to it.  TransformHost.hook shims the
+adding transforms to it.  The Transform constructor shims the
 _toCloudFormation function to apply transforms at synthesis
 time.
 
@@ -87,7 +87,7 @@ class MyStack extends Stack {
 
 ```
 class AuthTypeForCors extends CfnTransform {
-  transform(template: any): any {
+  apply(template: CfTemplateType): CfTemplateType {
     for (let resId in template.Resources) {
       let resource = template.Resources[resId]
       if (resource.Type == "AWS::ApiGateway::Method" &&

@@ -1,0 +1,14 @@
+#!/bin/sh
+mkdir -p ./aws-custom-resource-sdk-adapter
+curl https://raw.githubusercontent.com/aws/aws-cdk/main/packages/%40aws-cdk/aws-custom-resource-sdk-adapter/lib/index.ts --output ./aws-custom-resource-sdk-adapter/index.ts
+curl https://raw.githubusercontent.com/aws/aws-cdk/main/packages/%40aws-cdk/aws-custom-resource-sdk-adapter/lib/api-call.ts --output ./aws-custom-resource-sdk-adapter/api-call.ts
+curl https://raw.githubusercontent.com/aws/aws-cdk/main/packages/%40aws-cdk/aws-custom-resource-sdk-adapter/lib/coerce-api-parameters.ts --output ./aws-custom-resource-sdk-adapter/coerce-api-parameters.ts
+curl https://raw.githubusercontent.com/aws/aws-cdk/main/packages/%40aws-cdk/aws-custom-resource-sdk-adapter/lib/find-client-constructor.ts --output ./aws-custom-resource-sdk-adapter/find-client-constructor.ts
+curl https://raw.githubusercontent.com/aws/aws-cdk/main/packages/%40aws-cdk/aws-custom-resource-sdk-adapter/lib/parameter-types.ts --output ./aws-custom-resource-sdk-adapter/parameter-types.ts
+curl https://raw.githubusercontent.com/aws/aws-cdk/main/packages/%40aws-cdk/aws-custom-resource-sdk-adapter/lib/sdk-info.ts --output ./aws-custom-resource-sdk-adapter/sdk-info.ts
+curl https://raw.githubusercontent.com/aws/aws-cdk/main/packages/%40aws-cdk/aws-custom-resource-sdk-adapter/lib/sdk-v2-to-v3.json --output ./aws-custom-resource-sdk-adapter/sdk-v2-to-v3.json
+curl https://raw.githubusercontent.com/aws/aws-cdk/main/packages/%40aws-cdk/aws-custom-resource-sdk-adapter/lib/sdk-v3-metadata.json --output ./aws-custom-resource-sdk-adapter/sdk-v3-metadata.json
+
+
+curl https://raw.githubusercontent.com/aws/aws-cdk/main/packages/%40aws-cdk/custom-resource-handlers/lib/custom-resources/aws-custom-resource-handler/construct-types.ts --output ./aws-custom-resource-handler/construct-types.ts
+curl https://raw.githubusercontent.com/aws/aws-cdk/main/packages/%40aws-cdk/custom-resource-handlers/lib/custom-resources/aws-custom-resource-handler/shared.ts --output ./aws-custom-resource-handler/shared.ts

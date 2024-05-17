@@ -9,6 +9,7 @@ export * from './construct_rtti';
 export * from './construct_host';
 export * from './logger';
 export * from './log';
+export * from './logging_aspect';
 export * from './user_tokens';
 export * from './singleton';
 export * from './tree_inspectable';

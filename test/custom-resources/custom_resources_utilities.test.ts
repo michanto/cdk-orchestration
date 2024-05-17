@@ -1,7 +1,7 @@
 import { CfnCustomResource, CfnResource, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { AwsCustomResource, AwsCustomResourcePolicy, AwsSdkCall, PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
-import { CustomResourceUtilities } from '../../src/custom-resources';
+import { CustomResourceUtilities, RunResourceAlways } from '../../src/custom-resources';
 import { BadFunction } from '../util';
 
 describe('Custom Resource Utilities tests.', () => {
@@ -71,14 +71,13 @@ describe('Custom Resource Utilities tests.', () => {
     expect(() => utils.findCustomResource(stack)).toThrow();
   });
 
-  it('runResourceAlways works.', () => {
+  it('RunResourceAlways works.', () => {
     const stack = new Stack();
-    let utils = new CustomResourceUtilities();
     let serviceToken = new BadFunction(stack, 'Fun').functionArn;
-
-    utils.runResourceAlways(new CfnCustomResource(stack, 'Res1', {
+    let customResource = new CfnCustomResource(stack, 'Res1', {
       serviceToken: serviceToken,
-    }));
+    });
+    new RunResourceAlways(customResource);
     // THEN
     let template = Template.fromStack(stack).toJSON();
 
@@ -87,7 +86,7 @@ describe('Custom Resource Utilities tests.', () => {
         Res1: {
           Type: 'AWS::CloudFormation::CustomResource',
           Properties: {
-            Version: expect.any(Number),
+            salt: expect.any(Number),
           },
         },
       },

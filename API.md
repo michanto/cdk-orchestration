@@ -772,6 +772,811 @@ The tree node.
 ---
 
 
+### ConfigFileMetadata <a name="ConfigFileMetadata" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadata"></a>
+
+This construct reads the metadata from an S3 file and makes them available as resource attributes (Fn.getAtt).
+
+Supports passing default values for the attributes if they are not specified
+on the file, or if the file/bucket does not exist.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.ConfigFileMetadata(scope: Construct, id: string, props: ConfigFileReaderProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.ConfigFileReaderProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.ConfigFileReaderProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.getAtt">getAtt</a></code> | Returns a top-level JSON key from the file. |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.getAtt"></a>
+
+```typescript
+public getAtt(attributeName: string): IResolvable
+```
+
+Returns a top-level JSON key from the file.
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.getAtt.parameter.attributeName"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.isConstruct"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.ConfigFileMetadata.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.property.resource">resource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.property.resources">resources</a></code> | <code>@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.property.resource"></a>
+
+```typescript
+public readonly resource: CustomResource;
+```
+
+- *Type:* aws-cdk-lib.CustomResource
+
+---
+
+##### `resources`<sup>Required</sup> <a name="resources" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadata.property.resources"></a>
+
+```typescript
+public readonly resources: ConfigFileReaderResources;
+```
+
+- *Type:* @michanto/cdk-orchestration.orchestration.ConfigFileReaderResources
+
+---
+
+
+### ConfigFileMetadataResources <a name="ConfigFileMetadataResources" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources"></a>
+
+Support resources for ConfigFileReader.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.ConfigFileMetadataResources(scope: Construct, id: string, props: ConfigFileMetadataResourcesProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResourcesProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.ConfigFileMetadataResourcesProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.createOnEventFunction">createOnEventFunction</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.createRole">createRole</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `createOnEventFunction` <a name="createOnEventFunction" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.createOnEventFunction"></a>
+
+```typescript
+public createOnEventFunction(props: ConfigFileReaderResourcesProps): InlineNodejsFunction
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.createOnEventFunction.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.ConfigFileReaderResourcesProps
+
+---
+
+##### `createRole` <a name="createRole" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.createRole"></a>
+
+```typescript
+public createRole(props: ConfigFileReaderResourcesProps): Role
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.createRole.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.ConfigFileReaderResourcesProps
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.isConstruct"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.ConfigFileMetadataResources.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.property.onEvent">onEvent</a></code> | <code>aws-cdk-lib.aws_lambda.Function</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.property.provider">provider</a></code> | <code>aws-cdk-lib.custom_resources.Provider</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `onEvent`<sup>Required</sup> <a name="onEvent" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.property.onEvent"></a>
+
+```typescript
+public readonly onEvent: Function;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.Function
+
+---
+
+##### `provider`<sup>Required</sup> <a name="provider" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.property.provider"></a>
+
+```typescript
+public readonly provider: Provider;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.Provider
+
+---
+
+##### `role`<sup>Required</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResources.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+---
+
+
+### ConfigFileReader <a name="ConfigFileReader" id="@michanto/cdk-orchestration.orchestration.ConfigFileReader"></a>
+
+Where ConfigFileResource WRITES a JSON file to S3, this construct READS the file from S3 and makes the contents of the file available as attributes.
+
+Attributes in the file need to be at the top level of the document,
+since CFN doesn't support heirarchical attributes.  Also, CFN
+has limits to how large the data returned can be. To support scenarios
+with heirarchical data and/or returning a subset of the data or specify default
+values, you can overwrite createResources and
+ConfigFileReaderResources.createOnEventFunction to re-use most of this
+construct to support your specific scenario with a custom handler.
+
+Note that if the data is not in the file, or the file does not exist,
+then accessing the attribute will result in a CFN deployment error.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.ConfigFileReader.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.ConfigFileReader(scope: Construct, id: string, props: ConfigFileReaderProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReader.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReader.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReader.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.ConfigFileReaderProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.ConfigFileReader.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.ConfigFileReader.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.ConfigFileReader.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.ConfigFileReaderProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReader.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReader.getAtt">getAtt</a></code> | Returns a top-level JSON key from the file. |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.ConfigFileReader.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.ConfigFileReader.getAtt"></a>
+
+```typescript
+public getAtt(attributeName: string): IResolvable
+```
+
+Returns a top-level JSON key from the file.
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.ConfigFileReader.getAtt.parameter.attributeName"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReader.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.ConfigFileReader.isConstruct"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.ConfigFileReader.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.ConfigFileReader.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReader.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReader.property.resource">resource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReader.property.resources">resources</a></code> | <code>@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.ConfigFileReader.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.ConfigFileReader.property.resource"></a>
+
+```typescript
+public readonly resource: CustomResource;
+```
+
+- *Type:* aws-cdk-lib.CustomResource
+
+---
+
+##### `resources`<sup>Required</sup> <a name="resources" id="@michanto/cdk-orchestration.orchestration.ConfigFileReader.property.resources"></a>
+
+```typescript
+public readonly resources: ConfigFileReaderResources;
+```
+
+- *Type:* @michanto/cdk-orchestration.orchestration.ConfigFileReaderResources
+
+---
+
+
+### ConfigFileReaderResources <a name="ConfigFileReaderResources" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources"></a>
+
+Support resources for ConfigFileReader.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.ConfigFileReaderResources(scope: Construct, id: string, props: ConfigFileReaderResourcesProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.ConfigFileReaderResourcesProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.ConfigFileReaderResourcesProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.createOnEventFunction">createOnEventFunction</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.createRole">createRole</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `createOnEventFunction` <a name="createOnEventFunction" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.createOnEventFunction"></a>
+
+```typescript
+public createOnEventFunction(props: ConfigFileReaderResourcesProps): InlineNodejsFunction
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.createOnEventFunction.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.ConfigFileReaderResourcesProps
+
+---
+
+##### `createRole` <a name="createRole" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.createRole"></a>
+
+```typescript
+public createRole(props: ConfigFileReaderResourcesProps): Role
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.createRole.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.ConfigFileReaderResourcesProps
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.isConstruct"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.ConfigFileReaderResources.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.property.onEvent">onEvent</a></code> | <code>aws-cdk-lib.aws_lambda.Function</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.property.provider">provider</a></code> | <code>aws-cdk-lib.custom_resources.Provider</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `onEvent`<sup>Required</sup> <a name="onEvent" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.property.onEvent"></a>
+
+```typescript
+public readonly onEvent: Function;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.Function
+
+---
+
+##### `provider`<sup>Required</sup> <a name="provider" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.property.provider"></a>
+
+```typescript
+public readonly provider: Provider;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.Provider
+
+---
+
+##### `role`<sup>Required</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResources.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+---
+
+
+### ConfigFileResource <a name="ConfigFileResource" id="@michanto/cdk-orchestration.orchestration.ConfigFileResource"></a>
+
+A resources that is represented by a JSON S3 file.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.ConfigFileResource.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.ConfigFileResource(scope: Construct, id: string, props: ConfigFileResourceProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileResource.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileResource.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileResource.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.ConfigFileResourceProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.ConfigFileResource.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.ConfigFileResource.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.ConfigFileResource.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.ConfigFileResourceProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileResource.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileResource.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.ConfigFileResource.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@michanto/cdk-orchestration.orchestration.ConfigFileResource.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.ConfigFileResource.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileResource.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.ConfigFileResource.isConstruct"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.ConfigFileResource.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.ConfigFileResource.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileResource.property.resource">resource</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResource</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.ConfigFileResource.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.ConfigFileResource.property.resource"></a>
+
+```typescript
+public readonly resource: AwsCustomResource;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.AwsCustomResource
+
+---
+
+
 ### EncodeResource <a name="EncodeResource" id="@michanto/cdk-orchestration.custom_resources.EncodeResource"></a>
 
 This transform base64-encodes any CustomResource it is applied to by moving all properties (other than ServiceToken) to EncodedProperties and applying {@link Fn.base64}. This resource will encode it's properties as a post-resolve step, It is meant to be used on CfnCustomResource (or any CfnResource with a ServiceToken), as it does not encode the ServiceToken.  If there is no ServiceToken, the resource is not encoded.
@@ -2274,7 +3079,7 @@ public readonly tmpFile: string;
 Path to the temporary file with the minified code (if any).
 
 This path is also published via IInspectiable, and thus will appear in
-the tree.json file as attribute "@open-constructs/aws-cdk.InlineNodejsFunction.tmpfile".
+the tree.json file as attribute "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile".
 
 This makes it possible to get quick development turn around by
 compiling your project and copying the minified code to the console.
@@ -2303,151 +3108,11 @@ Link in tree.json to the file used for inline code.
 
 ---
 
-### Inspectable <a name="Inspectable" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable"></a>
-
-- *Implements:* aws-cdk-lib.IInspectable
-
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.Initializer"></a>
-
-```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
-
-new cloudformation_include.Inspectable(scope: Construct, id: string)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Inspectable.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Inspectable.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Inspectable.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Inspectable.inspect">inspect</a></code> | Examines construct. |
-
----
-
-##### ~~`toString`~~ <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### ~~`inspect`~~ <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.inspect"></a>
-
-```typescript
-public inspect(inspector: TreeInspector): void
-```
-
-Examines construct.
-
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.inspect.parameter.inspector"></a>
-
-- *Type:* aws-cdk-lib.TreeInspector
-
----
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Inspectable.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.isConstruct"></a>
-
-```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
-
-cloudformation_include.Inspectable.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
-
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Inspectable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Inspectable.property.attributes">attributes</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-
----
-
-##### ~~`node`~~<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.property.node"></a>
-
-- *Deprecated:* Use TreeInspectable.of instead.
-This is used as a parent of a construct to add data to the construct tree.
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### ~~`attributes`~~<sup>Required</sup> <a name="attributes" id="@michanto/cdk-orchestration.cloudformation_include.Inspectable.property.attributes"></a>
-
-- *Deprecated:* Use TreeInspectable.of instead.
-This is used as a parent of a construct to add data to the construct tree.
-
-```typescript
-public readonly attributes: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-
 ### JsonParser <a name="JsonParser" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser"></a>
 
 Uses a yaml parser to parse a template.
 
-Takes in a template as a string either Yaml or JSON,
+Takes in a template as a string JSON,
 and returns a parsed template.
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.Initializer"></a>
@@ -2485,8 +3150,6 @@ new cloudformation_include.JsonParser(scope: Construct, id: string)
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.apply">apply</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.validateInput">validateInput</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.validateOutput">validateOutput</a></code> | *No description.* |
 
 ---
 
@@ -2540,30 +3203,6 @@ public apply(template: string): any
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.apply.parameter.template"></a>
 
 - *Type:* string
-
----
-
-##### `validateInput` <a name="validateInput" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.validateInput"></a>
-
-```typescript
-public validateInput(template: any): any
-```
-
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.validateInput.parameter.template"></a>
-
-- *Type:* any
-
----
-
-##### `validateOutput` <a name="validateOutput" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.validateOutput"></a>
-
-```typescript
-public validateOutput(template: any): any
-```
-
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.validateOutput.parameter.template"></a>
-
-- *Type:* any
 
 ---
 
@@ -2646,6 +3285,508 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+---
+
+
+### LambdaCustomResource <a name="LambdaCustomResource" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource"></a>
+
+This is a drop-in replacement for AwsCustomResource (not yet fully featured).
+
+Provides it's own runtime similar to that of AwsCustomResource, but deserializes
+the Lambda return value when the responseBufferField property is set to Payload.
+For S3 GetObject, responseBufferField should be set to Body).
+- Supports flattening of lambda return values (see {@link AwsCustomResource.getResponseField}).
+- Supports filtering (see {@link AwsSdkCall.outputPaths).} * - Support deserlializing via LambdaCustomResourceProps.responseBufferField.
+- Supports default values for response fields as LambdaCustomResourceProps.defaults.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.LambdaCustomResource(scope: Construct, id: string, props: LambdaCustomResourceProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getAtt">getAtt</a></code> | Returns a flattened JSON key from the resource response. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getResponseField">getResponseField</a></code> | Returns a flattened JSON key from the resource response. |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getAtt"></a>
+
+```typescript
+public getAtt(attributeName: string): IResolvable
+```
+
+Returns a flattened JSON key from the resource response.
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getAtt.parameter.attributeName"></a>
+
+- *Type:* string
+
+---
+
+##### `getResponseField` <a name="getResponseField" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getResponseField"></a>
+
+```typescript
+public getResponseField(dataPath: string): string
+```
+
+Returns a flattened JSON key from the resource response.
+
+###### `dataPath`<sup>Required</sup> <a name="dataPath" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getResponseField.parameter.dataPath"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.isConstruct"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.LambdaCustomResource.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.resource">resource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.resources">resources</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.resource"></a>
+
+```typescript
+public readonly resource: CustomResource;
+```
+
+- *Type:* aws-cdk-lib.CustomResource
+
+---
+
+##### `resources`<sup>Required</sup> <a name="resources" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.resources"></a>
+
+```typescript
+public readonly resources: LambdaCustomResourceResources;
+```
+
+- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources
+
+---
+
+
+### LambdaCustomResourceResources <a name="LambdaCustomResourceResources" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources"></a>
+
+Support resources for LambdaCustomResource.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.LambdaCustomResourceResources(scope: Construct, id: string, props: LambdaCustomResourceResourcesProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.createOnEventFunction">createOnEventFunction</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.createRole">createRole</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `createOnEventFunction` <a name="createOnEventFunction" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.createOnEventFunction"></a>
+
+```typescript
+public createOnEventFunction(props: LambdaCustomResourceResourcesProps): Function
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.createOnEventFunction.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps
+
+---
+
+##### `createRole` <a name="createRole" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.createRole"></a>
+
+```typescript
+public createRole(props: LambdaCustomResourceResourcesProps): Role
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.createRole.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.isConstruct"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.LambdaCustomResourceResources.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.onEvent">onEvent</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.provider">provider</a></code> | <code>aws-cdk-lib.custom_resources.Provider</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `onEvent`<sup>Required</sup> <a name="onEvent" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.onEvent"></a>
+
+```typescript
+public readonly onEvent: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+---
+
+##### `provider`<sup>Required</sup> <a name="provider" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.provider"></a>
+
+```typescript
+public readonly provider: Provider;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.Provider
+
+---
+
+##### `role`<sup>Required</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+---
+
+
+### LambdaTask <a name="LambdaTask" id="@michanto/cdk-orchestration.orchestration.LambdaTask"></a>
+
+Easily turn any lambda into a custom resource, similar to how AwsCustomResource works, but with a slighly altered runtime.
+
+See {@link LambdaTaskProps} for details.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.LambdaTask.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.LambdaTask(scope: Construct, id: string, props: LambdaTaskProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaTaskProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.LambdaTask.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.LambdaTask.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.LambdaTask.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.LambdaTaskProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.getAtt">getAtt</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.getResponseField">getResponseField</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.LambdaTask.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getAtt"></a>
+
+```typescript
+public getAtt(name: string): IResolvable
+```
+
+###### `name`<sup>Required</sup> <a name="name" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getAtt.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `getResponseField` <a name="getResponseField" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getResponseField"></a>
+
+```typescript
+public getResponseField(name: string): string
+```
+
+###### `name`<sup>Required</sup> <a name="name" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getResponseField.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.LambdaTask.isConstruct"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.LambdaTask.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.LambdaTask.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.LambdaTask.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="@michanto/cdk-orchestration.orchestration.LambdaTask.property.lambdaFunction"></a>
+
+```typescript
+public readonly lambdaFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
 
 ---
 
@@ -3173,6 +4314,8 @@ Tokenized string that evaluates to the state's ID.
 
 ### Parser <a name="Parser" id="@michanto/cdk-orchestration.cloudformation_include.Parser"></a>
 
+Base class for JsonParser and YamlParser transforms.
+
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.Parser.Initializer"></a>
 
 ```typescript
@@ -3215,8 +4358,6 @@ new cloudformation_include.Parser(scope: Construct, id: string, props?: ParserPr
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.apply">apply</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.validateInput">validateInput</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.validateOutput">validateOutput</a></code> | *No description.* |
 
 ---
 
@@ -3270,30 +4411,6 @@ public apply(template: string): any
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.Parser.apply.parameter.template"></a>
 
 - *Type:* string
-
----
-
-##### `validateInput` <a name="validateInput" id="@michanto/cdk-orchestration.cloudformation_include.Parser.validateInput"></a>
-
-```typescript
-public validateInput(template: any): any
-```
-
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.Parser.validateInput.parameter.template"></a>
-
-- *Type:* any
-
----
-
-##### `validateOutput` <a name="validateOutput" id="@michanto/cdk-orchestration.cloudformation_include.Parser.validateOutput"></a>
-
-```typescript
-public validateOutput(template: any): any
-```
-
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.Parser.validateOutput.parameter.template"></a>
-
-- *Type:* any
 
 ---
 
@@ -3376,6 +4493,116 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+---
+
+
+### RunResourceAlways <a name="RunResourceAlways" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlways"></a>
+
+Always run a custom resource.
+
+Throws if it cannot find one custom resource under target.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlways.Initializer"></a>
+
+```typescript
+import { custom_resources } from '@michanto/cdk-orchestration'
+
+new custom_resources.RunResourceAlways(scope: Construct, id?: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlways.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlways.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlways.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Optional</sup> <a name="id" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlways.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlways.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlways.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlways.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlways.isConstruct"></a>
+
+```typescript
+import { custom_resources } from '@michanto/cdk-orchestration'
+
+custom_resources.RunResourceAlways.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlways.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlways.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlways.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
 
 ---
 
@@ -3575,6 +4802,368 @@ Execution role.
 
 ---
 
+
+### StepFunctionTaskStep <a name="StepFunctionTaskStep" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep"></a>
+
+Executes a StepFunction as part of a stack deployment.
+
+This construct executes and monitors a StepFunction for up to 2 hours.
+
+End users should use StepFunctionTask.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.StepFunctionTaskStep(scope: Construct, id: string, props: StepFunctionTaskStepProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.getAtt">getAtt</a></code> | See {@link CustomResource.getAtt}. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.getAttString">getAttString</a></code> | See {@link CustomResource.getAttString}. |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.getAtt"></a>
+
+```typescript
+public getAtt(attributeName: string): Reference
+```
+
+See {@link CustomResource.getAtt}.
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.getAtt.parameter.attributeName"></a>
+
+- *Type:* string
+
+---
+
+##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.getAttString"></a>
+
+```typescript
+public getAttString(attributeName: string): string
+```
+
+See {@link CustomResource.getAttString}.
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.getAttString.parameter.attributeName"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.isConstruct"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.StepFunctionTaskStep.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.property.resource">resource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.property.resources">resources</a></code> | <code>@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `ref`<sup>Required</sup> <a name="ref" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.property.ref"></a>
+
+```typescript
+public readonly ref: string;
+```
+
+- *Type:* string
+
+The physical name of this custom resource.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.property.resource"></a>
+
+```typescript
+public readonly resource: CustomResource;
+```
+
+- *Type:* aws-cdk-lib.CustomResource
+
+---
+
+##### `resources`<sup>Required</sup> <a name="resources" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.property.resources"></a>
+
+```typescript
+public readonly resources: StepFunctionTaskStepResources;
+```
+
+- *Type:* @michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources
+
+---
+
+
+### StepFunctionTaskStepResources <a name="StepFunctionTaskStepResources" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources"></a>
+
+Internal resources for StepFunctionTaskStep.
+
+Created as a Singleton.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.StepFunctionTaskStepResources(scope: Construct, id: string, props: StepFunctionTaskStepResourcesProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResourcesProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResourcesProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.isConstruct"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.StepFunctionTaskStepResources.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.isComplete">isComplete</a></code> | <code>aws-cdk-lib.aws_lambda.Function</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.onEvent">onEvent</a></code> | <code>aws-cdk-lib.aws_lambda.Function</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.provider">provider</a></code> | <code>aws-cdk-lib.custom_resources.Provider</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `isComplete`<sup>Required</sup> <a name="isComplete" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.isComplete"></a>
+
+```typescript
+public readonly isComplete: Function;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.Function
+
+---
+
+##### `onEvent`<sup>Required</sup> <a name="onEvent" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.onEvent"></a>
+
+```typescript
+public readonly onEvent: Function;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.Function
+
+---
+
+##### `provider`<sup>Required</sup> <a name="provider" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.provider"></a>
+
+```typescript
+public readonly provider: Provider;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.Provider
+
+---
+
+##### `role`<sup>Required</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.PURPOSE">PURPOSE</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `PURPOSE`<sup>Required</sup> <a name="PURPOSE" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.PURPOSE"></a>
+
+```typescript
+public readonly PURPOSE: string;
+```
+
+- *Type:* string
+
+---
 
 ### Stringifier <a name="Stringifier" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier"></a>
 
@@ -5222,8 +6811,6 @@ new cloudformation_include.YamlParser(scope: Construct, id: string)
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.apply">apply</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.validateInput">validateInput</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.validateOutput">validateOutput</a></code> | *No description.* |
 
 ---
 
@@ -5277,30 +6864,6 @@ public apply(template: string): any
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.apply.parameter.template"></a>
 
 - *Type:* string
-
----
-
-##### `validateInput` <a name="validateInput" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.validateInput"></a>
-
-```typescript
-public validateInput(template: any): any
-```
-
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.validateInput.parameter.template"></a>
-
-- *Type:* any
-
----
-
-##### `validateOutput` <a name="validateOutput" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.validateOutput"></a>
-
-```typescript
-public validateOutput(template: any): any
-```
-
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.validateOutput.parameter.template"></a>
-
-- *Type:* any
 
 ---
 
@@ -5388,6 +6951,308 @@ public readonly order: string;
 
 
 ## Structs <a name="Structs" id="Structs"></a>
+
+### ConfigFileMetadataProps <a name="ConfigFileMetadataProps" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataProps"></a>
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataProps.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+const configFileMetadataProps: orchestration.ConfigFileMetadataProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataProps.property.key">key</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: any}</code> | Default values to use if the file/properties can't be found. |
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `purpose`<sup>Required</sup> <a name="purpose" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataProps.property.purpose"></a>
+
+```typescript
+public readonly purpose: string;
+```
+
+- *Type:* string
+
+---
+
+##### `key`<sup>Required</sup> <a name="key" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataProps.property.key"></a>
+
+```typescript
+public readonly key: string;
+```
+
+- *Type:* string
+
+---
+
+##### `physicalResourceId`<sup>Required</sup> <a name="physicalResourceId" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataProps.property.physicalResourceId"></a>
+
+```typescript
+public readonly physicalResourceId: PhysicalResourceId;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.PhysicalResourceId
+
+---
+
+##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataProps.property.defaults"></a>
+
+```typescript
+public readonly defaults: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+Default values to use if the file/properties can't be found.
+
+If not specified the default is undefined.
+
+---
+
+### ConfigFileMetadataResourcesProps <a name="ConfigFileMetadataResourcesProps" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResourcesProps"></a>
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResourcesProps.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+const configFileMetadataResourcesProps: orchestration.ConfigFileMetadataResourcesProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResourcesProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResourcesProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResourcesProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `purpose`<sup>Required</sup> <a name="purpose" id="@michanto/cdk-orchestration.orchestration.ConfigFileMetadataResourcesProps.property.purpose"></a>
+
+```typescript
+public readonly purpose: string;
+```
+
+- *Type:* string
+
+---
+
+### ConfigFileReaderProps <a name="ConfigFileReaderProps" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderProps"></a>
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderProps.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+const configFileReaderProps: orchestration.ConfigFileReaderProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderProps.property.key">key</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: any}</code> | Default values to use if the file/properties can't be found. |
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `purpose`<sup>Required</sup> <a name="purpose" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderProps.property.purpose"></a>
+
+```typescript
+public readonly purpose: string;
+```
+
+- *Type:* string
+
+---
+
+##### `key`<sup>Required</sup> <a name="key" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderProps.property.key"></a>
+
+```typescript
+public readonly key: string;
+```
+
+- *Type:* string
+
+---
+
+##### `physicalResourceId`<sup>Required</sup> <a name="physicalResourceId" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderProps.property.physicalResourceId"></a>
+
+```typescript
+public readonly physicalResourceId: PhysicalResourceId;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.PhysicalResourceId
+
+---
+
+##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderProps.property.defaults"></a>
+
+```typescript
+public readonly defaults: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+Default values to use if the file/properties can't be found.
+
+If not specified the default is undefined.
+
+---
+
+### ConfigFileReaderResourcesProps <a name="ConfigFileReaderResourcesProps" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResourcesProps"></a>
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResourcesProps.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+const configFileReaderResourcesProps: orchestration.ConfigFileReaderResourcesProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderResourcesProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileReaderResourcesProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResourcesProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `purpose`<sup>Required</sup> <a name="purpose" id="@michanto/cdk-orchestration.orchestration.ConfigFileReaderResourcesProps.property.purpose"></a>
+
+```typescript
+public readonly purpose: string;
+```
+
+- *Type:* string
+
+---
+
+### ConfigFileResourceProps <a name="ConfigFileResourceProps" id="@michanto/cdk-orchestration.orchestration.ConfigFileResourceProps"></a>
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.ConfigFileResourceProps.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+const configFileResourceProps: orchestration.ConfigFileResourceProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileResourceProps.property.body">body</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileResourceProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileResourceProps.property.key">key</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileResourceProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.ConfigFileResourceProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `body`<sup>Required</sup> <a name="body" id="@michanto/cdk-orchestration.orchestration.ConfigFileResourceProps.property.body"></a>
+
+```typescript
+public readonly body: any;
+```
+
+- *Type:* any
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="@michanto/cdk-orchestration.orchestration.ConfigFileResourceProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `key`<sup>Required</sup> <a name="key" id="@michanto/cdk-orchestration.orchestration.ConfigFileResourceProps.property.key"></a>
+
+```typescript
+public readonly key: string;
+```
+
+- *Type:* string
+
+---
+
+##### `physicalResourceId`<sup>Required</sup> <a name="physicalResourceId" id="@michanto/cdk-orchestration.orchestration.ConfigFileResourceProps.property.physicalResourceId"></a>
+
+```typescript
+public readonly physicalResourceId: PhysicalResourceId;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.PhysicalResourceId
+
+---
+
+##### `purpose`<sup>Required</sup> <a name="purpose" id="@michanto/cdk-orchestration.orchestration.ConfigFileResourceProps.property.purpose"></a>
+
+```typescript
+public readonly purpose: string;
+```
+
+- *Type:* string
+
+---
 
 ### ConstructHostProps <a name="ConstructHostProps" id="@michanto/cdk-orchestration.ConstructHostProps"></a>
 
@@ -5500,7 +7365,7 @@ This needs to be
 unique, so namespacing symobls is recommended:
 ```
 // Your package name
-const NAMESPACE = "@open-constructs/aws-cdk"
+const NAMESPACE = "@michanto/cdk-orchestration"
 // PackageName.ServiceName
 Symbol.for(`${NAMESPACE}.CfnTransform`)
 ```
@@ -5560,7 +7425,7 @@ This needs to be
 unique, so namespacing symobls is recommended:
 ```
 // Your package name
-const NAMESPACE = "@open-constructs/aws-cdk"
+const NAMESPACE = "@michanto/cdk-orchestration"
 // PackageName.ServiceName
 Symbol.for(`${NAMESPACE}.CfnTransform`)
 ```
@@ -6480,6 +8345,525 @@ supported.
 
 ---
 
+### LambdaCustomResourceProps <a name="LambdaCustomResourceProps" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps"></a>
+
+Properties for LambdaCustomResource.
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+const lambdaCustomResourceProps: orchestration.LambdaCustomResourceProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.functionName">functionName</a></code> | <code>string</code> | A name for the singleton Lambda function implementing this custom resource. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.installLatestAwsSdk">installLatestAwsSdk</a></code> | <code>boolean</code> | Whether to install the latest AWS SDK v2. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.logRetention">logRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | The number of days log events of the singleton Lambda function implementing this custom resource are kept in CloudWatch Logs. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.onCreate">onCreate</a></code> | <code>aws-cdk-lib.custom_resources.AwsSdkCall</code> | The AWS SDK call to make when the resource is created. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.onDelete">onDelete</a></code> | <code>aws-cdk-lib.custom_resources.AwsSdkCall</code> | The AWS SDK call to make when the resource is deleted. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.onUpdate">onUpdate</a></code> | <code>aws-cdk-lib.custom_resources.AwsSdkCall</code> | The AWS SDK call to make when the resource is updated. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.policy">policy</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResourcePolicy</code> | The policy that will be added to the execution role of the Lambda function implementing this custom resource provider. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.removalPolicy">removalPolicy</a></code> | <code>aws-cdk-lib.RemovalPolicy</code> | The policy to apply when this resource is removed from the application. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.resourceType">resourceType</a></code> | <code>string</code> | Cloudformation Resource type. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The execution role for the singleton Lambda function implementing this custom resource provider. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The timeout for the singleton Lambda function implementing this custom resource. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The vpc to provision the lambda function in. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | Which subnets from the VPC to place the lambda function in. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the underlying API fails to return expected values. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.responseBufferField">responseBufferField</a></code> | <code>string</code> | Specifies a field in the API response that should be deserlized, such as Payload when calling lambda:Invoke, or Body when calling s3:GetObject. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.runAlways">runAlways</a></code> | <code>boolean</code> | Whether to run the lambda every time the stack is updated. |
+
+---
+
+##### `functionName`<sup>Optional</sup> <a name="functionName" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.functionName"></a>
+
+```typescript
+public readonly functionName: string;
+```
+
+- *Type:* string
+- *Default:* AWS CloudFormation generates a unique physical ID and uses that ID for the function's name. For more information, see Name Type.
+
+A name for the singleton Lambda function implementing this custom resource.
+
+The function name will remain the same after the first AwsCustomResource is created in a stack.
+
+---
+
+##### `installLatestAwsSdk`<sup>Optional</sup> <a name="installLatestAwsSdk" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.installLatestAwsSdk"></a>
+
+```typescript
+public readonly installLatestAwsSdk: boolean;
+```
+
+- *Type:* boolean
+- *Default:* The value of `@aws-cdk/customresources:installLatestAwsSdkDefault`, otherwise `true`
+
+Whether to install the latest AWS SDK v2.
+
+If not specified, this uses whatever JavaScript SDK version is the default in
+AWS Lambda at the time of execution.
+
+Otherwise, installs the latest version from 'npmjs.com'. The installation takes
+around 60 seconds and requires internet connectivity.
+
+The default can be controlled using the context key
+`@aws-cdk/customresources:installLatestAwsSdkDefault` is.
+
+---
+
+##### `logRetention`<sup>Optional</sup> <a name="logRetention" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.logRetention"></a>
+
+```typescript
+public readonly logRetention: RetentionDays;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.RetentionDays
+- *Default:* logs.RetentionDays.INFINITE
+
+The number of days log events of the singleton Lambda function implementing this custom resource are kept in CloudWatch Logs.
+
+---
+
+##### `onCreate`<sup>Optional</sup> <a name="onCreate" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.onCreate"></a>
+
+```typescript
+public readonly onCreate: AwsSdkCall;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.AwsSdkCall
+- *Default:* the call when the resource is updated
+
+The AWS SDK call to make when the resource is created.
+
+---
+
+##### `onDelete`<sup>Optional</sup> <a name="onDelete" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.onDelete"></a>
+
+```typescript
+public readonly onDelete: AwsSdkCall;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.AwsSdkCall
+- *Default:* no call
+
+The AWS SDK call to make when the resource is deleted.
+
+---
+
+##### `onUpdate`<sup>Optional</sup> <a name="onUpdate" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.onUpdate"></a>
+
+```typescript
+public readonly onUpdate: AwsSdkCall;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.AwsSdkCall
+- *Default:* no call
+
+The AWS SDK call to make when the resource is updated.
+
+---
+
+##### `policy`<sup>Optional</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.policy"></a>
+
+```typescript
+public readonly policy: AwsCustomResourcePolicy;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.AwsCustomResourcePolicy
+- *Default:* no policy added
+
+The policy that will be added to the execution role of the Lambda function implementing this custom resource provider.
+
+The custom resource also implements `iam.IGrantable`, making it possible
+to use the `grantXxx()` methods.
+
+As this custom resource uses a singleton Lambda function, it's important
+to note the that function's role will eventually accumulate the
+permissions/grants from all resources.
+
+Note that a policy must be specified if `role` is not provided, as
+by default a new role is created which requires policy changes to access
+resources.
+
+> [Policy.fromSdkCalls](Policy.fromSdkCalls)
+
+---
+
+##### `removalPolicy`<sup>Optional</sup> <a name="removalPolicy" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.removalPolicy"></a>
+
+```typescript
+public readonly removalPolicy: RemovalPolicy;
+```
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+- *Default:* cdk.RemovalPolicy.Destroy
+
+The policy to apply when this resource is removed from the application.
+
+---
+
+##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.resourceType"></a>
+
+```typescript
+public readonly resourceType: string;
+```
+
+- *Type:* string
+- *Default:* Custom::AWS
+
+Cloudformation Resource type.
+
+---
+
+##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+- *Default:* a new role is created
+
+The execution role for the singleton Lambda function implementing this custom resource provider.
+
+This role will apply to all `AwsCustomResource`
+instances in the stack. The role must be assumable by the
+`lambda.amazonaws.com` service principal.
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(2)
+
+The timeout for the singleton Lambda function implementing this custom resource.
+
+---
+
+##### `vpc`<sup>Optional</sup> <a name="vpc" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+- *Default:* the function is not provisioned inside a vpc.
+
+The vpc to provision the lambda function in.
+
+---
+
+##### `vpcSubnets`<sup>Optional</sup> <a name="vpcSubnets" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.vpcSubnets"></a>
+
+```typescript
+public readonly vpcSubnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+- *Default:* the Vpc default strategy if not specified
+
+Which subnets from the VPC to place the lambda function in.
+
+Only used if 'vpc' is supplied. Note: internet access for Lambdas
+requires a NAT gateway, so picking Public subnets is not allowed.
+
+---
+
+##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.defaults"></a>
+
+```typescript
+public readonly defaults: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Default attribute values to use when the underlying API fails to return expected values.
+
+---
+
+##### `responseBufferField`<sup>Optional</sup> <a name="responseBufferField" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.responseBufferField"></a>
+
+```typescript
+public readonly responseBufferField: string;
+```
+
+- *Type:* string
+
+Specifies a field in the API response that should be deserlized, such as Payload when calling lambda:Invoke, or Body when calling s3:GetObject.
+
+---
+
+##### `runAlways`<sup>Optional</sup> <a name="runAlways" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.runAlways"></a>
+
+```typescript
+public readonly runAlways: boolean;
+```
+
+- *Type:* boolean
+
+Whether to run the lambda every time the stack is updated.
+
+---
+
+### LambdaCustomResourceResourcesProps <a name="LambdaCustomResourceResourcesProps" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps"></a>
+
+Props for LambdaCustomResourceResources.
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+const lambdaCustomResourceResourcesProps: orchestration.LambdaCustomResourceResourcesProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `purpose`<sup>Required</sup> <a name="purpose" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.property.purpose"></a>
+
+```typescript
+public readonly purpose: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+### LambdaTaskProps <a name="LambdaTaskProps" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps"></a>
+
+Properties for LambdaTask.
+
+Basically these are used to create AwsCustomResource input for the LambdaCustomResource.
+They work very similar to how AwsCustomResource and AwsSdkCall work.
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+const lambdaTaskProps: orchestration.LambdaTaskProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The lambda function to invoke. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.payload">payload</a></code> | <code>string</code> | The payload to send to the lambda. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attributes values for the resource. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.functionName">functionName</a></code> | <code>string</code> | See {@link AwsCustomResourceProps.functionName}. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.logRetention">logRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | See {@link AwsCustomResourceProps.logRetention}. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.outputPaths">outputPaths</a></code> | <code>string[]</code> | See {@link AwsSdkCall.outputPaths}. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | See {@link AwsSdkCall.physicalResourceId}. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.policy">policy</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResourcePolicy</code> | See {@link AwsCustomResourceProps.policy}. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.resourceType">resourceType</a></code> | <code>string</code> | See {@link AwsCustomResourceProps.resourceType}. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | See {@link AwsCustomResourceProps.role}. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.runAlways">runAlways</a></code> | <code>boolean</code> | Whether to run the lambda every time the stack is updated. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | See {@link AwsCustomResourceProps.timeout}. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | See {@link AwsCustomResourceProps.vpc}. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | See {@link AwsCustomResourceProps.vpcSubnets}. |
+
+---
+
+##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.lambdaFunction"></a>
+
+```typescript
+public readonly lambdaFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The lambda function to invoke.
+
+---
+
+##### `payload`<sup>Required</sup> <a name="payload" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.payload"></a>
+
+```typescript
+public readonly payload: string;
+```
+
+- *Type:* string
+
+The payload to send to the lambda.
+
+---
+
+##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.defaults"></a>
+
+```typescript
+public readonly defaults: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Default attributes values for the resource.
+
+If the resource/Lambda does not provide these values,
+the defaults will be used.
+
+---
+
+##### `functionName`<sup>Optional</sup> <a name="functionName" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.functionName"></a>
+
+```typescript
+public readonly functionName: string;
+```
+
+- *Type:* string
+
+See {@link AwsCustomResourceProps.functionName}.
+
+---
+
+##### `logRetention`<sup>Optional</sup> <a name="logRetention" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.logRetention"></a>
+
+```typescript
+public readonly logRetention: RetentionDays;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.RetentionDays
+
+See {@link AwsCustomResourceProps.logRetention}.
+
+---
+
+##### `outputPaths`<sup>Optional</sup> <a name="outputPaths" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.outputPaths"></a>
+
+```typescript
+public readonly outputPaths: string[];
+```
+
+- *Type:* string[]
+
+See {@link AwsSdkCall.outputPaths}.
+
+---
+
+##### `physicalResourceId`<sup>Optional</sup> <a name="physicalResourceId" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.physicalResourceId"></a>
+
+```typescript
+public readonly physicalResourceId: PhysicalResourceId;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.PhysicalResourceId
+
+See {@link AwsSdkCall.physicalResourceId}.
+
+---
+
+##### `policy`<sup>Optional</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.policy"></a>
+
+```typescript
+public readonly policy: AwsCustomResourcePolicy;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.AwsCustomResourcePolicy
+
+See {@link AwsCustomResourceProps.policy}.
+
+---
+
+##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.resourceType"></a>
+
+```typescript
+public readonly resourceType: string;
+```
+
+- *Type:* string
+
+See {@link AwsCustomResourceProps.resourceType}.
+
+---
+
+##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+See {@link AwsCustomResourceProps.role}.
+
+---
+
+##### `runAlways`<sup>Optional</sup> <a name="runAlways" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.runAlways"></a>
+
+```typescript
+public readonly runAlways: boolean;
+```
+
+- *Type:* boolean
+
+Whether to run the lambda every time the stack is updated.
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+See {@link AwsCustomResourceProps.timeout}.
+
+---
+
+##### `vpc`<sup>Optional</sup> <a name="vpc" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+See {@link AwsCustomResourceProps.vpc}.
+
+---
+
+##### `vpcSubnets`<sup>Optional</sup> <a name="vpcSubnets" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.vpcSubnets"></a>
+
+```typescript
+public readonly vpcSubnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+See {@link AwsCustomResourceProps.vpcSubnets}.
+
+---
+
 ### LateBoundStepFunctionsStartExecutionProps <a name="LateBoundStepFunctionsStartExecutionProps" id="@michanto/cdk-orchestration.aws_stepfunctions_tasks.LateBoundStepFunctionsStartExecutionProps"></a>
 
 Properties for LateBoundStepFunctionsStartExecution.
@@ -6983,6 +9367,172 @@ Total timeout for the entire operation.
 
 The maximum timeout is unknown, but less than 500 hours (yes, it can
 exceed the AWS Lambda 15 minutes)
+
+---
+
+### StepFunctionTaskStepProps <a name="StepFunctionTaskStepProps" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps"></a>
+
+This class should not be public and should only be used by StepFunctionTask.
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+const stepFunctionTaskStepProps: orchestration.StepFunctionTaskStepProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the StepFunction output does not contain a requested value. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.executionArn">executionArn</a></code> | <code>string</code> | If we are just waiting for an already-existing execution, what is the ARN of that execution? |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.inputEvent">inputEvent</a></code> | <code>any</code> | The event to start the state machine with. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.prefix">prefix</a></code> | <code>string</code> | Prefix for the execution name. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Role for execution and monitoring.  Must have permission to execute and describe the state machine, as well as ```ManagedPolicy.fromAwsManagedPolicyName("service-role/AWSLambdaBasicExecutionRole")```. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | The state machine to execute. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.succeedAfterMs">succeedAfterMs</a></code> | <code>number</code> | Succeeds the resource if the StepFunction has been running for at least this may milliseconds. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.suffix">suffix</a></code> | <code>string</code> | Suffix for the physical resource ID. |
+
+---
+
+##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.defaults"></a>
+
+```typescript
+public readonly defaults: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Default attribute values to use when the StepFunction output does not contain a requested value.
+
+---
+
+##### `executionArn`<sup>Optional</sup> <a name="executionArn" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.executionArn"></a>
+
+```typescript
+public readonly executionArn: string;
+```
+
+- *Type:* string
+
+If we are just waiting for an already-existing execution, what is the ARN of that execution?
+
+---
+
+##### `inputEvent`<sup>Optional</sup> <a name="inputEvent" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.inputEvent"></a>
+
+```typescript
+public readonly inputEvent: any;
+```
+
+- *Type:* any
+
+The event to start the state machine with.
+
+Should only be provided with stateMachine, not with executionArn.
+
+---
+
+##### `prefix`<sup>Optional</sup> <a name="prefix" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.prefix"></a>
+
+```typescript
+public readonly prefix: string;
+```
+
+- *Type:* string
+
+Prefix for the execution name.
+
+Name will be `${prefix}_${guid}`.
+If undefined then StepFunctions defines the execution name as a guid.
+
+---
+
+##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+Role for execution and monitoring.  Must have permission to execute and describe the state machine, as well as ```ManagedPolicy.fromAwsManagedPolicyName("service-role/AWSLambdaBasicExecutionRole")```.
+
+If not provided, a role will be created.
+
+---
+
+##### `stateMachine`<sup>Optional</sup> <a name="stateMachine" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.stateMachine"></a>
+
+```typescript
+public readonly stateMachine: IStateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IStateMachine
+
+The state machine to execute.
+
+---
+
+##### `succeedAfterMs`<sup>Optional</sup> <a name="succeedAfterMs" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.succeedAfterMs"></a>
+
+```typescript
+public readonly succeedAfterMs: number;
+```
+
+- *Type:* number
+
+Succeeds the resource if the StepFunction has been running for at least this may milliseconds.
+
+---
+
+##### `suffix`<sup>Optional</sup> <a name="suffix" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepProps.property.suffix"></a>
+
+```typescript
+public readonly suffix: string;
+```
+
+- *Type:* string
+
+Suffix for the physical resource ID.
+
+Required when using exeuctionArn.
+
+---
+
+### StepFunctionTaskStepResourcesProps <a name="StepFunctionTaskStepResourcesProps" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResourcesProps"></a>
+
+Properties for StepFunctionTaskStepResources.
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResourcesProps.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+const stepFunctionTaskStepResourcesProps: orchestration.StepFunctionTaskStepResourcesProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResourcesProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Role for execution and monitoring.  Must have permission to execute and describe the state machine, as well as ```ManagedPolicy.fromAwsManagedPolicyName("service-role/AWSLambdaBasicExecutionRole")```. |
+
+---
+
+##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResourcesProps.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+Role for execution and monitoring.  Must have permission to execute and describe the state machine, as well as ```ManagedPolicy.fromAwsManagedPolicyName("service-role/AWSLambdaBasicExecutionRole")```.
+
+If not provided, a role will be created.
 
 ---
 
@@ -8713,14 +11263,14 @@ Uses stopCondition to decide where to stop the searchUp, defaults to root.
 ```typescript
 import { ConstructTreeSearch } from '@michanto/cdk-orchestration'
 
-ConstructTreeSearch.for(test: IConstuctTest)
+ConstructTreeSearch.for(test: IConstructTest)
 ```
 
 Helper for finding constructs using ConstructTreeSearch with XXX.isXXX functions (such as Stack.isStack and CfnElement.isCfnElement).  Returns a construct predicate that itself returns only the construct, as opposed to ConstructService which returns both the construct and the service.
 
 ###### `test`<sup>Required</sup> <a name="test" id="@michanto/cdk-orchestration.ConstructTreeSearch.for.parameter.test"></a>
 
-- *Type:* <a href="#@michanto/cdk-orchestration.IConstuctTest">IConstuctTest</a>
+- *Type:* <a href="#@michanto/cdk-orchestration.IConstructTest">IConstructTest</a>
 
 Test to use when finding constructs.
 
@@ -9095,7 +11645,7 @@ new custom_resources.CustomResourceUtilities()
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource">findCustomResource</a></code> | Returns the CfnResource that produces the custom resource. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.runResourceAlways">runResourceAlways</a></code> | Always run a custom resource. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.runResourceAlways">runResourceAlways</a></code> | *No description.* |
 
 ---
 
@@ -9122,15 +11672,9 @@ if there are none (or more than one).
 public runResourceAlways(target: Construct): void
 ```
 
-Always run a custom resource.
-
-Throws if it cannot find one custom resource under target.
-
 ###### `target`<sup>Required</sup> <a name="target" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.runResourceAlways.parameter.target"></a>
 
 - *Type:* constructs.Construct
-
-CustomResource, AwsCustomResource or similar.
 
 ---
 
@@ -9469,6 +12013,50 @@ public readonly props: LoggerProps;
 - *Type:* <a href="#@michanto/cdk-orchestration.LoggerProps">LoggerProps</a>
 
 ---
+
+
+### LoggingAspect <a name="LoggingAspect" id="@michanto/cdk-orchestration.LoggingAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Adds a LogLevel environment variable to each Function based on the construct log level.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.LoggingAspect.Initializer"></a>
+
+```typescript
+import { LoggingAspect } from '@michanto/cdk-orchestration'
+
+new LoggingAspect()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.LoggingAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@michanto/cdk-orchestration.LoggingAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.LoggingAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
 
 
 ### NoOpLogger <a name="NoOpLogger" id="@michanto/cdk-orchestration.NoOpLogger"></a>
@@ -10455,6 +13043,71 @@ Creates a named token.
 
 
 
+### StepFunctionTaskStepConstants <a name="StepFunctionTaskStepConstants" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants"></a>
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.StepFunctionTaskStepConstants()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants.property.QUERY_INTERVAL">QUERY_INTERVAL</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants.property.SUCCEED_AFTER_MS">SUCCEED_AFTER_MS</a></code> | <code>aws-cdk-lib.Duration</code> | Only used by StepFunctionTask. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants.property.TOTAL_TIMEOUT">TOTAL_TIMEOUT</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `QUERY_INTERVAL`<sup>Required</sup> <a name="QUERY_INTERVAL" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants.property.QUERY_INTERVAL"></a>
+
+```typescript
+public readonly QUERY_INTERVAL: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `SUCCEED_AFTER_MS`<sup>Required</sup> <a name="SUCCEED_AFTER_MS" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants.property.SUCCEED_AFTER_MS"></a>
+
+```typescript
+public readonly SUCCEED_AFTER_MS: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+Only used by StepFunctionTask.
+
+This is how long the resource should monitor the step function.
+So it ends up being 59 minutes, after which the resource will
+succeed and presumably hand off to the next StepFunctionTaskStep, which
+will continue monitoring the step function.
+
+---
+
+##### `TOTAL_TIMEOUT`<sup>Required</sup> <a name="TOTAL_TIMEOUT" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants.property.TOTAL_TIMEOUT"></a>
+
+```typescript
+public readonly TOTAL_TIMEOUT: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
 ### TokenService <a name="TokenService" id="@michanto/cdk-orchestration.TokenService"></a>
 
 Service for tokens scoped to a construct.
@@ -11172,17 +13825,14 @@ Factory for a construct service.
 
 
 
-### IConstuctTest <a name="IConstuctTest" id="@michanto/cdk-orchestration.IConstuctTest"></a>
+### IConstructTest <a name="IConstructTest" id="@michanto/cdk-orchestration.IConstructTest"></a>
 
-- *Implemented By:* <a href="#@michanto/cdk-orchestration.IConstuctTest">IConstuctTest</a>
+- *Implemented By:* <a href="#@michanto/cdk-orchestration.IConstructTest">IConstructTest</a>
 
-A construct predicate type assertion.
+Enables using CDK XXX.isXXX methods with ConstructTreeSearch and IConstructPredicate.
 
-Enables using CDK XXX.isXXX methods with ConstructTreeSearch and
-IConstructPredicate.
-Such as CfnElement.isCfnElement or Stack.isStack.
-
-Usage:
+Example Usage:
+`let stackSearch = ConstructTreeSearch.for(Stack.isStack)`
 
 
 

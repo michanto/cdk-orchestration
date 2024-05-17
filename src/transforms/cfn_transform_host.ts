@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { CFN_TRANSFORM_HOST_RTTI } from './private/transform_rtti';
+import { TRANSFORM_HOST_RTTI } from './private/transform_rtti';
 import { TransformHost } from './transform_host';
 import { Transforms } from './transforms';
 
@@ -26,7 +26,7 @@ export class CfnTransformHost extends Construct {
 
   constructor(scope: Construct, id: string) {
     super(scope, id);
-    CFN_TRANSFORM_HOST_RTTI.addRtti(this);
+    TRANSFORM_HOST_RTTI.addRtti(this);
   }
 
   /**

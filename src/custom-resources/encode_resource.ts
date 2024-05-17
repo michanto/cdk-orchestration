@@ -37,8 +37,7 @@ export class EncodeResource extends Transform {
    * multiple custom resources under the scope.
    */
   findShimParent(): Construct {
-    // Ensure this is in a stack, ensuring this.node.scope exists.
-    Stack.of(this);
+    // Note:  We know this.node.scope exists because of the constructor.
     return new CustomResourceUtilities().findCustomResource(this.node.scope!);
   }
 
