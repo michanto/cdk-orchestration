@@ -5,6 +5,7 @@ import { CfnStateMachine, DefinitionBody, Pass, StateMachine } from 'aws-cdk-lib
 import { Construct } from 'constructs';
 import {
   CfnIncludeToCdk,
+  TempFileWriter,
   TemplateImporter,
 } from '../../lib/cloudformation-include';
 import {
@@ -12,6 +13,7 @@ import {
   StringReplacer,
   Transform, TransformHost, Transforms,
 } from '../../lib/transforms';
+import * as fs from 'fs';
 
 const env = { account: '000000000000', region: 'us-west-2' };
 
@@ -229,5 +231,19 @@ describe('Import transform tests', () => {
         },
       },
     });
+  });
+  test('TempFileWriter happy path.', () => {
+    let app = new App();
+
+    let stack = new Stack(app, 'TestStack', {
+      env: env,
+    });
+
+    let host = new CfnTransformHost(stack, "Host");
+    let tmpDir = `${__dirname}/test_tmp`
+    let tmpFileWriter = new TempFileWriter(host, "Temp", tmpDir);
+    let fileName = tmpFileWriter.apply("some data");
+    expect(fs.existsSync(fileName)).toBeTruthy()
+    fs.rmSync(tmpDir, {recursive: true});
   });
 });

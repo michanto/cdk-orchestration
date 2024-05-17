@@ -3,6 +3,9 @@
     "Default": !!int "365"
     "Description": "number of days to retain vpc flow logs in cloudwatch logs"
     "Type": "Number"
+  "DnsServers":
+    "Type": CommaDelimitedList
+    "Default": "8.8.8.8,5.5.5.5"
 "Resources":
   "FlowLogsGroup":
     "DeletionPolicy": "Retain"

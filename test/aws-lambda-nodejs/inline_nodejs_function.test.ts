@@ -1,8 +1,9 @@
-import { FeatureFlags, Stack, TreeInspector } from 'aws-cdk-lib';
+import { Aspects, FeatureFlags, Stack, TreeInspector } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { Runtime } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 import { InlineNodejsFunction, InlineNodejsFunctionProps, MinifyEngine } from '../../src/aws-lambda-nodejs';
+import { Logger, LoggingAspect } from '../../src/core';
 
 describe('InlineNodeJsFunction tests', () => {
   class MyInlineFunction extends InlineNodejsFunction {
@@ -113,6 +114,8 @@ describe('InlineNodeJsFunction tests', () => {
   test('InlineNodejsFunction handler specified without "."', () => {
     // GIVEN
     const stack = new Stack();
+    Logger.set(stack, new Logger());
+    Aspects.of(stack).add(new LoggingAspect());
 
     // WHEN
     new MyInlineFunction(stack, 'MyInlineFunction', {
@@ -133,6 +136,11 @@ describe('InlineNodeJsFunction tests', () => {
             },
             Handler: 'index.handler',
             Runtime: 'nodejs18.x',
+            Environment: {
+              Variables: {
+                LogLevel: '18446744073709552000'
+              }
+            }
           },
         },
       },
