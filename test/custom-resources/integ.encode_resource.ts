@@ -49,7 +49,8 @@ export class GreetingCustomResource extends Construct {
 
 const app = new App();
 const stack = new Stack(app, 'EncodeResourcesInteg', {});
-let greeting = new GreetingCustomResource(stack, 'Greeting').resource.getAttString('Greeting');
+let greetingResource = new GreetingCustomResource(stack, 'Greeting').resource
+let greeting = greetingResource.getAttString('Greeting');
 new CfnOutput(stack, 'AnOutput', {
   exportName: 'GreetingExport',
   value: greeting,
@@ -69,6 +70,8 @@ let integ = new IntegTest(app, 'EncodeResourcesIntegTest', {
   regions: ['us-east-1'],
 });
 
+
+// integ.assertions.expect('Check', ExpectedResult.exact('ereht ,olleH'), ActualResult.fromCustomResource(greetingResource, 'Greeting'));
 
 integ.assertions.awsApiCall('CloudFormation', 'listExports', {
 }).expect(ExpectedResult.objectLike({

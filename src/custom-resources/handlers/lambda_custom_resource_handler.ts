@@ -4,14 +4,6 @@
 import { decodeSpecialValues, filterKeys, startsWithOneOf } from './private/from_cdk/aws-custom-resource-handler/shared';
 import { ApiCall, flatten } from './private/from_cdk/aws-custom-resource-sdk-adapter';
 
-if (process.env.LogLevel) {
-  // config.logger = console;
-}
-
-interface AwsSdk {
-  [key: string]: any;
-}
-
 function log(message: Record<string, any>) {
   if (process.env.LogLevel) {
     console.log(JSON.stringify(message));
@@ -33,6 +25,16 @@ export interface CustomResourceHandlerProps {
   autoPaginate?: boolean;
 }
 
+/**
+ * Class to create AwsCustomResource based handlers.  Copies the functionality of AwsCustomResource and
+ * adds the following features:
+ * - Default values for attributes.
+ * - ResponseBufferField for deserlializing streamed return values.
+ * 
+ * Most of this code was copied from the CDK here:
+ *
+ * https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/custom-resource-handlers/lib/custom-resources/aws-custom-resource-handler/aws-sdk-v3-handler.ts
+ */
 export class CustomResourceHandler {
   constructor(readonly props?: CustomResourceHandlerProps) {}
 
@@ -74,7 +76,6 @@ export class CustomResourceHandler {
 
   async getResponse(call: any) {
     const apiCall = new ApiCall(call.service, call.action);
-    let awsSdk: AwsSdk | Promise<AwsSdk> = this.loadAwsSdk(apiCall.v3PackageName);
 
     let responseBufferField = call.responseBufferField;
     let credentials;
@@ -99,7 +100,8 @@ export class CustomResourceHandler {
     const flatData: { [key: string]: string } = {};
     try {
       let response = await apiCall.invoke({
-        sdkPackage: awsSdk,
+        // FUTURE:  Copy code to install latest SDK from CDK
+        // sdkPackage: awsSdk,
         apiVersion: call.apiVersion,
         credentials: credentials,
         region: call.region,
@@ -175,13 +177,6 @@ export class CustomResourceHandler {
     }
     log({ Filtered: data });
     return data;
-  }
-
-  async loadAwsSdk(
-    packageName: string,
-    _installLatestAwsSdk?: 'true' | 'false',
-  ) {
-    return require(packageName); // Fallback to pre-installed version
   }
 
   async handle(event: any, context: any) {

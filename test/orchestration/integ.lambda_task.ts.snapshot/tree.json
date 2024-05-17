@@ -1,0 +1,728 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "LambdaTaskInteg": {
+        "id": "LambdaTaskInteg",
+        "path": "LambdaTaskInteg",
+        "children": {
+          "Greeting": {
+            "id": "Greeting",
+            "path": "LambdaTaskInteg/Greeting",
+            "children": {
+              "Reverse": {
+                "id": "Reverse",
+                "path": "LambdaTaskInteg/Greeting/Reverse",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "LambdaTaskInteg/Greeting/Reverse/ServiceRole",
+                    "children": {
+                      "ImportServiceRole": {
+                        "id": "ImportServiceRole",
+                        "path": "LambdaTaskInteg/Greeting/Reverse/ServiceRole/ImportServiceRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "LambdaTaskInteg/Greeting/Reverse/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "LambdaTaskInteg/Greeting/Reverse/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "zipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.reverseGreeting = void 0;\nconst logger = process.env.LogLevel ? console : undefined;\nfunction log(message) {\nlogger?.log(JSON.stringify(message));\n}\n\nasync function reverseGreeting(event, context) {\nlog({ Event: event });\nlog({ Context: context });\nlet isCustomResource = event.ResourceProperties != undefined;\nif (isCustomResource && 'EncodedProperties' in event.ResourceProperties) {\nevent.ResourceProperties = {\n...event.ResourceProperties,\n...JSON.parse(Buffer.from(event.ResourceProperties.EncodedProperties, 'base64').toString('utf8')),\n};\nlog({ DecodedEvent: JSON.stringify(event) });\n}\nlet greeting = event.Greeting\n?? event.ResourceProperties.Greeting\n?? 'Hello, world';\nlet result = greeting.split('').reverse().join('');\nreturn isCustomResource ? Promise.resolve({\nData: { Greeting: result },\n}) : Promise.resolve({\nGreeting: result,\n});\n}\nexports.reverseGreeting = reverseGreeting;"
+                        },
+                        "environment": {
+                          "variables": {
+                            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+                          }
+                        },
+                        "handler": "index.reverseGreeting",
+                        "role": {
+                          "Fn::GetAtt": [
+                            "GreetingReverseServiceRole4C8C16C6",
+                            "Arn"
+                          ]
+                        },
+                        "runtime": "nodejs18.x"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "attributes": {
+                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-ASIcdc/538aa93a-reverse_greeting.js"
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.120.0"
+                }
+              },
+              "LambdaTask": {
+                "id": "LambdaTask",
+                "path": "LambdaTaskInteg/Greeting/LambdaTask",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "LambdaTaskInteg/Greeting/LambdaTask/Resource",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "LambdaTaskInteg/Greeting/LambdaTask/Resource/Resource",
+                        "children": {
+                          "Default": {
+                            "id": "Default",
+                            "path": "LambdaTaskInteg/Greeting/LambdaTask/Resource/Resource/Default",
+                            "children": {
+                              "EncodeResourceShim0": {
+                                "id": "EncodeResourceShim0",
+                                "path": "LambdaTaskInteg/Greeting/LambdaTask/Resource/Resource/Default/EncodeResourceShim0",
+                                "attributes": {
+                                  "CfnTransformShim.transformPath": "LambdaTaskInteg/Greeting/LambdaTask/Resource/Resource/EncodeResource"
+                                },
+                                "constructInfo": {
+                                  "fqn": "constructs.Construct",
+                                  "version": "10.3.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.CfnResource",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "EncodeResource": {
+                            "id": "EncodeResource",
+                            "path": "LambdaTaskInteg/Greeting/LambdaTask/Resource/Resource/EncodeResource",
+                            "attributes": {
+                              "TransformBase.cfnTransformPath": "LambdaTaskInteg/Greeting/LambdaTask/Resource/Resource/Default/EncodeResourceShim0"
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CustomResource",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "LambdaTask::Resources": {
+            "id": "LambdaTask::Resources",
+            "path": "LambdaTaskInteg/LambdaTask::Resources",
+            "children": {
+              "LambdaTaskRole": {
+                "id": "LambdaTaskRole",
+                "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskRole",
+                "children": {
+                  "ImportLambdaTaskRole": {
+                    "id": "ImportLambdaTaskRole",
+                    "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskRole/ImportLambdaTaskRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          },
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaRole"
+                              ]
+                            ]
+                          }
+                        ],
+                        "policies": [
+                          {
+                            "policyName": "CFRPolicy",
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "lambda:Invoke*",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.120.0"
+                }
+              },
+              "LambdaTaskOnEvent": {
+                "id": "LambdaTaskOnEvent",
+                "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskOnEvent",
+                "children": {
+                  "Code": {
+                    "id": "Code",
+                    "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskOnEvent/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskOnEvent/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskOnEvent/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskOnEvent/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "s3Bucket": {
+                            "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                          },
+                          "s3Key": "5ee71826c445dc8adb1b9c1dac5d180408a46a1b6210ab537ee2a7528b4930b8.zip"
+                        },
+                        "handler": "index.handler",
+                        "role": {
+                          "Fn::GetAtt": [
+                            "LambdaTaskResourcesLambdaTaskRoleBA629521",
+                            "Arn"
+                          ]
+                        },
+                        "runtime": "nodejs20.x",
+                        "timeout": 60
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.120.0"
+                }
+              },
+              "LambdaTaskProvider": {
+                "id": "LambdaTaskProvider",
+                "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskProvider",
+                "children": {
+                  "framework-onEvent": {
+                    "id": "framework-onEvent",
+                    "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskProvider/framework-onEvent",
+                    "children": {
+                      "ServiceRole": {
+                        "id": "ServiceRole",
+                        "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskProvider/framework-onEvent/ServiceRole",
+                        "children": {
+                          "ImportServiceRole": {
+                            "id": "ImportServiceRole",
+                            "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskProvider/framework-onEvent/ServiceRole/ImportServiceRole",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.Resource",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskProvider/framework-onEvent/ServiceRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "lambda.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "managedPolicyArns": [
+                                  {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                      ]
+                                    ]
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "DefaultPolicy": {
+                            "id": "DefaultPolicy",
+                            "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskProvider/framework-onEvent/ServiceRole/DefaultPolicy",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskProvider/framework-onEvent/ServiceRole/DefaultPolicy/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "policyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": "lambda:InvokeFunction",
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "LambdaTaskResourcesLambdaTaskOnEventAE4BACF4",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "LambdaTaskResourcesLambdaTaskOnEventAE4BACF4",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  ":*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    },
+                                    "policyName": "LambdaTaskResourcesLambdaTaskProviderframeworkonEventServiceRoleDefaultPolicy28D4F0E8",
+                                    "roles": [
+                                      {
+                                        "Ref": "LambdaTaskResourcesLambdaTaskProviderframeworkonEventServiceRole04C5F110"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                                  "version": "2.120.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.Policy",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Role",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Code": {
+                        "id": "Code",
+                        "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskProvider/framework-onEvent/Code",
+                        "children": {
+                          "Stage": {
+                            "id": "Stage",
+                            "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskProvider/framework-onEvent/Code/Stage",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.AssetStaging",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "AssetBucket": {
+                            "id": "AssetBucket",
+                            "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskProvider/framework-onEvent/Code/AssetBucket",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "LambdaTaskInteg/LambdaTask::Resources/LambdaTaskProvider/framework-onEvent/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                          "aws:cdk:cloudformation:props": {
+                            "code": {
+                              "s3Bucket": {
+                                "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                              },
+                              "s3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+                            },
+                            "description": "AWS CDK resource provider framework - onEvent (LambdaTaskInteg/LambdaTask::Resources/LambdaTaskProvider)",
+                            "environment": {
+                              "variables": {
+                                "USER_ON_EVENT_FUNCTION_ARN": {
+                                  "Fn::GetAtt": [
+                                    "LambdaTaskResourcesLambdaTaskOnEventAE4BACF4",
+                                    "Arn"
+                                  ]
+                                }
+                              }
+                            },
+                            "handler": "framework.onEvent",
+                            "role": {
+                              "Fn::GetAtt": [
+                                "LambdaTaskResourcesLambdaTaskProviderframeworkonEventServiceRole04C5F110",
+                                "Arn"
+                              ]
+                            },
+                            "runtime": "nodejs18.x",
+                            "timeout": 900
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.Function",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.custom_resources.Provider",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "AnOutput": {
+            "id": "AnOutput",
+            "path": "LambdaTaskInteg/AnOutput",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.120.0"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "LambdaTaskInteg/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.120.0"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "LambdaTaskInteg/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.120.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.120.0"
+        }
+      },
+      "LambdaTaskIntegTest": {
+        "id": "LambdaTaskIntegTest",
+        "path": "LambdaTaskIntegTest",
+        "children": {
+          "DefaultTest": {
+            "id": "DefaultTest",
+            "path": "LambdaTaskIntegTest/DefaultTest",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "LambdaTaskIntegTest/DefaultTest/Default",
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              },
+              "DeployAssert": {
+                "id": "DeployAssert",
+                "path": "LambdaTaskIntegTest/DefaultTest/DeployAssert",
+                "children": {
+                  "AwsApiCallCloudFormationlistExports": {
+                    "id": "AwsApiCallCloudFormationlistExports",
+                    "path": "LambdaTaskIntegTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports",
+                    "children": {
+                      "SdkProvider": {
+                        "id": "SdkProvider",
+                        "path": "LambdaTaskIntegTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/SdkProvider",
+                        "children": {
+                          "AssertionsProvider": {
+                            "id": "AssertionsProvider",
+                            "path": "LambdaTaskIntegTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/SdkProvider/AssertionsProvider",
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/integ-tests-alpha.AssertionsProvider",
+                          "version": "2.120.0-alpha.0"
+                        }
+                      },
+                      "Default": {
+                        "id": "Default",
+                        "path": "LambdaTaskIntegTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/Default",
+                        "children": {
+                          "Default": {
+                            "id": "Default",
+                            "path": "LambdaTaskIntegTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/Default/Default",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.CfnResource",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CustomResource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "AssertionResults": {
+                        "id": "AssertionResults",
+                        "path": "LambdaTaskIntegTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/AssertionResults",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnOutput",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/integ-tests-alpha.AwsApiCall",
+                      "version": "2.120.0-alpha.0"
+                    }
+                  },
+                  "SingletonFunction1488541a7b23466481b69b4408076b81": {
+                    "id": "SingletonFunction1488541a7b23466481b69b4408076b81",
+                    "path": "LambdaTaskIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81",
+                    "children": {
+                      "Staging": {
+                        "id": "Staging",
+                        "path": "LambdaTaskIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Staging",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Role": {
+                        "id": "Role",
+                        "path": "LambdaTaskIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Role",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Handler": {
+                        "id": "Handler",
+                        "path": "LambdaTaskIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Handler",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "BootstrapVersion": {
+                    "id": "BootstrapVersion",
+                    "path": "LambdaTaskIntegTest/DefaultTest/DeployAssert/BootstrapVersion",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnParameter",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "CheckBootstrapVersion": {
+                    "id": "CheckBootstrapVersion",
+                    "path": "LambdaTaskIntegTest/DefaultTest/DeployAssert/CheckBootstrapVersion",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnRule",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Stack",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/integ-tests-alpha.IntegTestCase",
+              "version": "2.120.0-alpha.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "@aws-cdk/integ-tests-alpha.IntegTest",
+          "version": "2.120.0-alpha.0"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.3.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.120.0"
+    }
+  }
+}

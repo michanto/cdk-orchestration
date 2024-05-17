@@ -1,0 +1,22 @@
+{
+  "version": "36.0.0",
+  "testCases": {
+    "LambdaTaskIntegTest/DefaultTest": {
+      "stacks": [
+        "LambdaTaskInteg"
+      ],
+      "regions": [
+        "us-east-1"
+      ],
+      "cdkCommandOptions": {
+        "destroy": {
+          "args": {
+            "force": true
+          }
+        }
+      },
+      "assertionStack": "LambdaTaskIntegTest/DefaultTest/DeployAssert",
+      "assertionStackName": "LambdaTaskIntegTestDefaultTestDeployAssert4C9CB59C"
+    }
+  }
+}
