@@ -1,8 +1,9 @@
-import { ActualResult, EqualsAssertion, ExpectedResult, IntegTest } from '@aws-cdk/integ-tests-alpha';
-import { App, Stack } from 'aws-cdk-lib';
+import { ExpectedResult, IntegTest, Match } from '@aws-cdk/integ-tests-alpha';
+import { App, CfnOutput, Stack } from 'aws-cdk-lib';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { S3FileReader, S3FileResource } from '../../src/orchestration';
 import { PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
+import { Effect } from 'aws-cdk-lib/aws-iam';
 export const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
 const app = new App();
@@ -28,23 +29,32 @@ let reader = new S3FileReader(stack, "Reader", {
   physicalResourceId: PhysicalResourceId.of("Reader")
 })
 
-let metadata = new S3FileReader(stack, "Reader", {
+let metadata = new S3FileReader(stack, "MdReader", {
   purpose: "ToReadMd",
   bucket: bucket,
   key: key,
   physicalResourceId: PhysicalResourceId.of("Reader")
 })
 
+new CfnOutput(stack, 'AnOutput', {
+  exportName: 'ReaderExport',
+  value: reader.getAttString("Some"),
+});
+new CfnOutput(stack, 'AnOutput2', {
+  exportName: 'MetadataExport',
+  value: metadata.getAttString("Metadata.MyMetadata"),
+});
+/*
 new EqualsAssertion(stack, "ContentsAreEqual", {
   actual: ActualResult.fromCustomResource(reader.resource.resource, "Some"),
   expected: ExpectedResult.exact("Data")
 })
 new EqualsAssertion(stack, "MetadataAreEqual", {
-  actual: ActualResult.fromCustomResource(metadata.resource.resource, "MyMetadata"),
+  actual: ActualResult.fromCustomResource(metadata.resource.resource, "Metadata.MyMetadata"),
   expected: ExpectedResult.exact("Michael")
-})
+}) */
 
-new IntegTest(app, 'S3FileResourcesTest', {
+let integ = new IntegTest(app, 'S3FileResourcesTest', {
   testCases: [
     stack,
   ],
@@ -56,4 +66,22 @@ new IntegTest(app, 'S3FileResourcesTest', {
     },
   },
   regions: ['us-east-1'],
+});
+
+integ.assertions.awsApiCall('CloudFormation', 'listExports', {
+}).expect(ExpectedResult.objectLike({
+  Exports: Match.arrayWith([Match.objectLike({}), {
+    ExportingStackId: Match.stringLikeRegexp('.*'),
+    Name: 'ReaderExport',
+    Value: 'Data',
+  }, {
+    ExportingStackId: Match.stringLikeRegexp('.*'),
+    Name: 'MetadataExport',
+    Value: 'Michael',
+  }]),
+},
+)).provider.addToRolePolicy({
+  Effect: Effect.ALLOW,
+  Action: ['cloudFormation:List*'],
+  Resource: ['*'],
 });
