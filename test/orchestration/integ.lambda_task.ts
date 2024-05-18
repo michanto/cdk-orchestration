@@ -6,6 +6,7 @@ import { Construct } from 'constructs';
 import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
 import { LoggingAspect } from '../../src/core';
 import { LambdaTask } from '../../src/orchestration';
+import { CustomResourceUtilities } from '../../src/custom-resources';
 const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
 export class GreetingLambdaTask extends Construct {
@@ -24,6 +25,8 @@ export class GreetingLambdaTask extends Construct {
         Greeting: 'Hello, world.',
       }),
     });
+    let resource = new CustomResourceUtilities().findCustomResource(this);
+    resource.addPropertyDeletionOverride('salt');
 
     Aspects.of(this).add(new LoggingAspect());
   }

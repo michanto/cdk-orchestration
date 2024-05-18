@@ -104,7 +104,7 @@
                   }
                 },
                 "attributes": {
-                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-ASIcdc/538aa93a-reverse_greeting.js"
+                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-xUznns/538aa93a-reverse_greeting.js"
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_lambda.Function",
@@ -159,6 +159,14 @@
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.CustomResource",
                           "version": "2.120.0"
+                        }
+                      },
+                      "RunResourceAlways": {
+                        "id": "RunResourceAlways",
+                        "path": "LambdaTaskInteg/Greeting/LambdaTask/Resource/RunResourceAlways",
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
                         }
                       }
                     },
@@ -307,7 +315,7 @@
                           "s3Bucket": {
                             "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                           },
-                          "s3Key": "5ee71826c445dc8adb1b9c1dac5d180408a46a1b6210ab537ee2a7528b4930b8.zip"
+                          "s3Key": "62d103595cdf02d7b2364a1c874cf227544265165cf75e19627ce8bc7a988dfd.zip"
                         },
                         "handler": "index.handler",
                         "role": {

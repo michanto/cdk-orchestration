@@ -85,7 +85,7 @@
         {
          "Ref": "GreetingReverse971E718C"
         },
-        "-64559cce0e0f36293b0927ac50c7f942\"}},\"Version\":1715961292190,\"ResponseBufferField\":\"Payload\"}"
+        "-64559cce0e0f36293b0927ac50c7f942\"}},\"ResponseBufferField\":\"Payload\",\"RequestedOutputs\":[\"Greeting\"]}"
        ]
       ]
      }
@@ -159,7 +159,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "5ee71826c445dc8adb1b9c1dac5d180408a46a1b6210ab537ee2a7528b4930b8.zip"
+     "S3Key": "62d103595cdf02d7b2364a1c874cf227544265165cf75e19627ce8bc7a988dfd.zip"
     },
     "Handler": "index.handler",
     "Role": {

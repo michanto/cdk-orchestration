@@ -1,10 +1,10 @@
-import { CfnResource, CustomResource, Duration, Fn } from 'aws-cdk-lib';
+import { CfnResource, CustomResource, Duration, Fn, Lazy } from 'aws-cdk-lib';
 import { Effect, IRole, ManagedPolicy, PolicyDocument, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Code, IFunction, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { AwsCustomResourceProps, AwsCustomResource, AwsSdkCall, Provider } from 'aws-cdk-lib/custom-resources';
 import { Construct, IConstruct } from 'constructs';
-import { EncodeResource } from '.';
-import { BUILD_TIME, Singleton } from '../core';
+import { EncodeResource, RunResourceAlways } from '.';
+import { Singleton } from '../core';
 
 /**
  * Props for LambdaCustomResourceResources
@@ -96,6 +96,7 @@ export interface LambdaCustomResourceProps extends AwsCustomResourceProps {
 export class LambdaCustomResource extends Construct {
   readonly resources: LambdaCustomResourceResources;
   readonly resource: CustomResource;
+  readonly requestedOutputs: string[] = [];
 
 
   constructor(scope: Construct, id: string, props: LambdaCustomResourceProps) {
@@ -113,10 +114,6 @@ export class LambdaCustomResource extends Construct {
       Update: props.onUpdate,
       Delete: props.onDelete,
     };
-    if (props.runAlways == undefined || props.runAlways) {
-      crProps.Version = BUILD_TIME;
-    }
-
 
     if (props.responseBufferField) {
       crProps.ResponseBufferField = props.responseBufferField;
@@ -125,12 +122,17 @@ export class LambdaCustomResource extends Construct {
     if (props.defaults) {
       crProps.Defaults = props.defaults;
     }
+    crProps.RequestedOutputs = Lazy.list({ produce: () => this.requestedOutputs });
 
     this.resource = new CustomResource(this, 'Resource', {
       serviceToken: this.resources.provider.serviceToken,
       resourceType: `Custom::${purpose}`,
       properties: crProps,
     });
+
+    if (props.runAlways == undefined || props.runAlways) {
+      new RunResourceAlways(this);
+    }
 
     new EncodeResource(this.resource);
   }
@@ -153,7 +155,12 @@ export class LambdaCustomResource extends Construct {
    * @returns An IResolvable for the resource attribute.
    */
   getAtt(attributeName: string) {
+    this.requestedOutputs.push(attributeName);
     return Fn.getAtt(this.cfnResource.logicalId, attributeName);
+  }
+
+  getAttString(attributeName: string) {
+    return this.getResponseField(attributeName);
   }
 
   /**

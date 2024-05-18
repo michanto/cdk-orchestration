@@ -165,15 +165,13 @@ export class CustomResourceHandler {
   filter(call: any, flattened: any) {
     let data: { [key: string]: string } = {};
     let outputPaths: string[] | undefined;
-    if (call.outputPath) {
-      outputPaths = [call.outputPath];
-    } else if (call.outputPaths) {
+    if (call.outputPaths) {
       outputPaths = call.outputPaths;
     }
+
+    // Don't return anything if the user didn't request anything.
     if (outputPaths) {
       data = filterKeys(flattened, startsWithOneOf(outputPaths));
-    } else {
-      data = flattened;
     }
     log({ Filtered: data });
     return data;
@@ -186,8 +184,18 @@ export class CustomResourceHandler {
     event = this.decodeProperties(event);
     let physicalResourceId = this.getPhysicalResourceId(event);
     let call = this.getCall(event);
+    let requestedOutputs = event.ResourceProperties.RequestedOutputs
+    if (requestedOutputs && requestedOutputs.length == 0) {
+      requestedOutputs = undefined;
+    }
 
     if (call) {
+      if (call.outputPaths && requestedOutputs) {
+        call.outputPaths = [...call.outputPaths, ...requestedOutputs];
+      } else if (requestedOutputs) {
+        call.outputPaths = requestedOutputs;
+      }
+
       call.parameters = decodeSpecialValues(call.parameters, physicalResourceId);
       console.log(JSON.stringify({ ...event, ResponseURL: '...' }));
       if (event.ResourceProperties.ResponseBufferField) {
@@ -196,15 +204,18 @@ export class CustomResourceHandler {
       let response = await this.getResponse(call);
       let flattened = this.flatten(response);
       let filtered = this.filter(call, flattened);
-      let data: any = {
-        ...(event.ResourceProperties.Defaults ?? {}),
-        ...filtered,
-      };
-      let reply = {
-        Data: data,
+      let defaults = event.ResourceProperties.Defaults
+      let data: any = filtered || defaults ? {
+        ...(defaults ?? {}),
+        ...(filtered ?? {}),
+      } : undefined;
+      let reply: any = {
         IsComplete: true,
         PhysicalResourceId: physicalResourceId,
       };
+      if (data) {
+        reply.Data = data;
+      }
       log({ Reply: reply });
       return Promise.resolve(reply);
     } else {
