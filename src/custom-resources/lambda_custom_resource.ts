@@ -1,4 +1,4 @@
-import { CfnResource, CustomResource, Duration, Fn, Lazy } from 'aws-cdk-lib';
+import { CfnResource, CustomResource, Duration, Fn, Lazy, Reference } from 'aws-cdk-lib';
 import { Effect, IRole, ManagedPolicy, PolicyDocument, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Code, IFunction, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { AwsCustomResourceProps, AwsCustomResource, AwsSdkCall, Provider } from 'aws-cdk-lib/custom-resources';
@@ -123,8 +123,18 @@ export class LambdaCustomResource extends Construct {
       crProps.Defaults = props.defaults;
     }
     crProps.RequestedOutputs = Lazy.list({ produce: () => this.requestedOutputs });
+    let theThis = this
 
-    this.resource = new CustomResource(this, 'Resource', {
+    this.resource = new class InnerCustomResource extends CustomResource{
+      getAtt(attributeName: string): Reference {
+        theThis.requestedOutputs.push(attributeName);
+        return super.getAtt(attributeName);
+      }
+      getAttString(attributeName: string): string {
+        theThis.requestedOutputs.push(attributeName);
+        return super.getAttString(attributeName);        
+      }
+    }(this, 'Resource', {
       serviceToken: this.resources.provider.serviceToken,
       resourceType: `Custom::${purpose}`,
       properties: crProps,

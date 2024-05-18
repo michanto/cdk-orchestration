@@ -91,6 +91,7 @@ export interface LambdaTaskProps {
  */
 export class LambdaTask extends Construct {
   readonly lambdaFunction: IFunction;
+  readonly resource: LambdaCustomResource;
 
   constructor(scope: Construct, id: string, props: LambdaTaskProps) {
     super(scope, id);
@@ -107,7 +108,7 @@ export class LambdaTask extends Construct {
     };
     this.lambdaFunction = props.lambdaFunction;
 
-    let resource = new LambdaCustomResource(this, 'Resource', {
+    this.resource = new LambdaCustomResource(this, 'Resource', {
       ...(props as AwsCustomResourceProps),
       policy: props.policy ?? (props.role ? undefined : (AwsCustomResourcePolicy.fromSdkCalls({
         resources: AwsCustomResourcePolicy.ANY_RESOURCE,
@@ -122,7 +123,7 @@ export class LambdaTask extends Construct {
     });
     // Run every time.
     if (props.runAlways) {
-      new RunResourceAlways(resource);
+      new RunResourceAlways(this.resource);
     }
   }
 

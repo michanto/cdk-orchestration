@@ -104,7 +104,7 @@
                   }
                 },
                 "attributes": {
-                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-xUznns/538aa93a-reverse_greeting.js"
+                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-GHuKZN/538aa93a-reverse_greeting.js"
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_lambda.Function",
