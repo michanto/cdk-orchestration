@@ -7,7 +7,7 @@ import { Effect } from 'aws-cdk-lib/aws-iam';
 export const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
 const app = new App();
-const stack = new Stack(app, 'LambdaTaskInteg', {});
+const stack = new Stack(app, 'S3ResourcesInteg', {});
 
 let bucket = new Bucket(stack, "MyBucket");
 let key = 'foo/bar/baz.json';

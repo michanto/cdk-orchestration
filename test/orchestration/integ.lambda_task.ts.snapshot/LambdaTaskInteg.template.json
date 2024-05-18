@@ -242,7 +242,7 @@
      },
      "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
     },
-    "Description": "AWS CDK resource provider framework - onEvent (LambdaTaskInteg4/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider)",
+    "Description": "AWS CDK resource provider framework - onEvent (LambdaTaskInteg/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider)",
     "Environment": {
      "Variables": {
       "USER_ON_EVENT_FUNCTION_ARN": {

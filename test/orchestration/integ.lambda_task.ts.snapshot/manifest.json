@@ -1,28 +1,28 @@
 {
   "version": "36.0.0",
   "artifacts": {
-    "LambdaTaskInteg4.assets": {
+    "LambdaTaskInteg.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "LambdaTaskInteg4.assets.json",
+        "file": "LambdaTaskInteg.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "LambdaTaskInteg4": {
+    "LambdaTaskInteg": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://unknown-account/unknown-region",
       "properties": {
-        "templateFile": "LambdaTaskInteg4.template.json",
+        "templateFile": "LambdaTaskInteg.template.json",
         "terminationProtection": false,
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3c37480ae304d3a510727c5e92b9ba19beb4904b05fbf36ddebf9785c1fd1373.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/70c520c76265f8d28f79d2ac5815d20e788c839e3107d0f658bdb6b2f1ceadd1.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "LambdaTaskInteg4.assets"
+          "LambdaTaskInteg.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
@@ -31,77 +31,77 @@
         }
       },
       "dependencies": [
-        "LambdaTaskInteg4.assets"
+        "LambdaTaskInteg.assets"
       ],
       "metadata": {
-        "/LambdaTaskInteg4/Greeting/Reverse/ServiceRole/Resource": [
+        "/LambdaTaskInteg/Greeting/Reverse/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "GreetingReverseServiceRole4C8C16C6"
           }
         ],
-        "/LambdaTaskInteg4/Greeting/Reverse/Resource": [
+        "/LambdaTaskInteg/Greeting/Reverse/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "GreetingReverse971E718C"
           }
         ],
-        "/LambdaTaskInteg4/Greeting/LambdaTask/Resource/Resource/Default": [
+        "/LambdaTaskInteg/Greeting/LambdaTask/Resource/Resource/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "GreetingLambdaTask1569D06A"
           }
         ],
-        "/LambdaTaskInteg4/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCERole/Resource": [
+        "/LambdaTaskInteg/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCERole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2"
           }
         ],
-        "/LambdaTaskInteg4/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEOnEvent/Resource": [
+        "/LambdaTaskInteg/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEOnEvent/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEOnEventB60C9E76"
           }
         ],
-        "/LambdaTaskInteg4/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/ServiceRole/Resource": [
+        "/LambdaTaskInteg/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleCBAF3CDB"
           }
         ],
-        "/LambdaTaskInteg4/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/ServiceRole/DefaultPolicy/Resource": [
+        "/LambdaTaskInteg/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/ServiceRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleDefaultPolicy9B953B1F"
           }
         ],
-        "/LambdaTaskInteg4/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/Resource": [
+        "/LambdaTaskInteg/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEvent4AE15604"
           }
         ],
-        "/LambdaTaskInteg4/AnOutput": [
+        "/LambdaTaskInteg/AnOutput": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AnOutput"
           }
         ],
-        "/LambdaTaskInteg4/BootstrapVersion": [
+        "/LambdaTaskInteg/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/LambdaTaskInteg4/CheckBootstrapVersion": [
+        "/LambdaTaskInteg/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "LambdaTaskInteg4"
+      "displayName": "LambdaTaskInteg"
     },
     "LambdaTaskIntegTestDefaultTestDeployAssert4C9CB59C.assets": {
       "type": "cdk:asset-manifest",
@@ -120,7 +120,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/378da5de9f8cd711254b727dbc94a77c2685357e48182e9df67af48d2935badf.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f4866d18f60157c409033ed44e1d504a51ce643f3cc8d0171846dfd7e95bd628.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
