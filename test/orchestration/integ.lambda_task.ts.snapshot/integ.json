@@ -3,7 +3,7 @@
   "testCases": {
     "LambdaTaskIntegTest/DefaultTest": {
       "stacks": [
-        "LambdaTaskInteg"
+        "LambdaTaskInteg4"
       ],
       "regions": [
         "us-east-1"

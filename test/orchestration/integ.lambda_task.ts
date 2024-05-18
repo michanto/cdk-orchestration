@@ -5,7 +5,7 @@ import { GreetingLambdaTask } from './greeting_lambda_task';
 
 
 const app = new App();
-const stack = new Stack(app, 'LambdaTaskInteg', {});
+const stack = new Stack(app, 'LambdaTaskInteg4', {});
 
 let greetingTask = new GreetingLambdaTask(stack, 'Greeting', true)
 let greeting = greetingTask.task.getAtt('Greeting').toString();

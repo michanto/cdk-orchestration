@@ -60,7 +60,7 @@
    "Properties": {
     "ServiceToken": {
      "Fn::GetAtt": [
-      "LambdaTaskResourcesLambdaTaskProviderframeworkonEventF2CD8AD5",
+      "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEvent4AE15604",
       "Arn"
      ]
     },
@@ -94,7 +94,7 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"
   },
-  "LambdaTaskResourcesLambdaTaskRoleBA629521": {
+  "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -134,48 +134,33 @@
        ]
       ]
      }
-    ],
-    "Policies": [
-     {
-      "PolicyDocument": {
-       "Statement": [
-        {
-         "Action": "lambda:Invoke*",
-         "Effect": "Allow",
-         "Resource": "*"
-        }
-       ],
-       "Version": "2012-10-17"
-      },
-      "PolicyName": "CFRPolicy"
-     }
     ]
    }
   },
-  "LambdaTaskResourcesLambdaTaskOnEventAE4BACF4": {
+  "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEOnEventB60C9E76": {
    "Type": "AWS::Lambda::Function",
    "Properties": {
     "Code": {
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "62d103595cdf02d7b2364a1c874cf227544265165cf75e19627ce8bc7a988dfd.zip"
+     "S3Key": "6034e6a5a3d042b3a133c031be8c79113e87d7eaaadc314a18d1669cf211e12e.zip"
     },
     "Handler": "index.handler",
     "Role": {
      "Fn::GetAtt": [
-      "LambdaTaskResourcesLambdaTaskRoleBA629521",
+      "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2",
       "Arn"
      ]
     },
     "Runtime": "nodejs20.x",
-    "Timeout": 60
+    "Timeout": 120
    },
    "DependsOn": [
-    "LambdaTaskResourcesLambdaTaskRoleBA629521"
+    "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2"
    ]
   },
-  "LambdaTaskResourcesLambdaTaskProviderframeworkonEventServiceRole04C5F110": {
+  "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleCBAF3CDB": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -206,7 +191,7 @@
     ]
    }
   },
-  "LambdaTaskResourcesLambdaTaskProviderframeworkonEventServiceRoleDefaultPolicy28D4F0E8": {
+  "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleDefaultPolicy9B953B1F": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -217,7 +202,7 @@
        "Resource": [
         {
          "Fn::GetAtt": [
-          "LambdaTaskResourcesLambdaTaskOnEventAE4BACF4",
+          "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEOnEventB60C9E76",
           "Arn"
          ]
         },
@@ -227,7 +212,7 @@
           [
            {
             "Fn::GetAtt": [
-             "LambdaTaskResourcesLambdaTaskOnEventAE4BACF4",
+             "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEOnEventB60C9E76",
              "Arn"
             ]
            },
@@ -240,15 +225,15 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "LambdaTaskResourcesLambdaTaskProviderframeworkonEventServiceRoleDefaultPolicy28D4F0E8",
+    "PolicyName": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleDefaultPolicy9B953B1F",
     "Roles": [
      {
-      "Ref": "LambdaTaskResourcesLambdaTaskProviderframeworkonEventServiceRole04C5F110"
+      "Ref": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleCBAF3CDB"
      }
     ]
    }
   },
-  "LambdaTaskResourcesLambdaTaskProviderframeworkonEventF2CD8AD5": {
+  "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEvent4AE15604": {
    "Type": "AWS::Lambda::Function",
    "Properties": {
     "Code": {
@@ -257,12 +242,12 @@
      },
      "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
     },
-    "Description": "AWS CDK resource provider framework - onEvent (LambdaTaskInteg/LambdaTask::Resources/LambdaTaskProvider)",
+    "Description": "AWS CDK resource provider framework - onEvent (LambdaTaskInteg4/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider)",
     "Environment": {
      "Variables": {
       "USER_ON_EVENT_FUNCTION_ARN": {
        "Fn::GetAtt": [
-        "LambdaTaskResourcesLambdaTaskOnEventAE4BACF4",
+        "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEOnEventB60C9E76",
         "Arn"
        ]
       }
@@ -271,7 +256,7 @@
     "Handler": "framework.onEvent",
     "Role": {
      "Fn::GetAtt": [
-      "LambdaTaskResourcesLambdaTaskProviderframeworkonEventServiceRole04C5F110",
+      "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleCBAF3CDB",
       "Arn"
      ]
     },
@@ -279,8 +264,8 @@
     "Timeout": 900
    },
    "DependsOn": [
-    "LambdaTaskResourcesLambdaTaskProviderframeworkonEventServiceRoleDefaultPolicy28D4F0E8",
-    "LambdaTaskResourcesLambdaTaskProviderframeworkonEventServiceRole04C5F110"
+    "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleDefaultPolicy9B953B1F",
+    "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleCBAF3CDB"
    ]
   }
  },
