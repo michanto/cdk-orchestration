@@ -5,9 +5,9 @@ import { GreetingLambdaTask } from './greeting_lambda_task';
 
 
 const app = new App();
-const stack = new Stack(app, 'LambdaTaskInteg', {});
+const stack = new Stack(app, 'LambdaTaskIntegration', {});
 
-let greetingTask = new GreetingLambdaTask(stack, 'Greeting', true)
+let greetingTask = new GreetingLambdaTask(stack, 'Greeting', true);
 let greeting = greetingTask.task.getAtt('Greeting').toString();
 /*
 new EqualsAssertion(stack, "GreetingIsReversed", {
@@ -20,7 +20,7 @@ new CfnOutput(stack, 'AnOutput', {
   value: greeting,
 });
 
-let integ = new IntegTest(app, 'LambdaTaskIntegTest', {
+let integ = new IntegTest(app, 'LambdaTaskIntegrationTest', {
   testCases: [
     stack,
   ],

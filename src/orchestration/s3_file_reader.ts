@@ -1,8 +1,8 @@
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { AwsCustomResourcePolicy, AwsSdkCall, PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
-import { LambdaCustomResource } from '../custom-resources/lambda_custom_resource';
 import { RunResourceAlways } from '../custom-resources';
+import { LambdaCustomResource } from '../custom-resources/lambda_custom_resource';
 
 /**
  * Properties for S3FileReader
@@ -36,30 +36,30 @@ export class S3FileReader extends Construct {
     super(scope, id);
 
     let onCreate: AwsSdkCall = {
-        service: 'S3',
-        action: 'getObject',
-        parameters: {
-          Bucket: props.bucket.bucketName,
-          Key: props.key,
-        },
-        physicalResourceId: props.physicalResourceId,
-        // If the object does not exist, can return given defaults.
-        ignoreErrorCodesMatching: 'NoSuchKey|NoSuchBucket'
-      };
-    
-      this.resource = new LambdaCustomResource(this, 'Resource', {
-        resourceType: `Custom::${props.purpose}`,
-        onCreate: onCreate,
-        onUpdate: onCreate,
-        policy: AwsCustomResourcePolicy.fromSdkCalls({
-          resources: [props.bucket.bucketArn, `${props.bucket.bucketArn}/*`],
-        }),
-        // Mostly to remove the warning.  I've tested it both ways and it works.
-        installLatestAwsSdk: false,
-      });
-  
-      // Force re-running every deployment.
-      new RunResourceAlways(this);
+      service: 'S3',
+      action: 'getObject',
+      parameters: {
+        Bucket: props.bucket.bucketName,
+        Key: props.key,
+      },
+      physicalResourceId: props.physicalResourceId,
+      // If the object does not exist, can return given defaults.
+      ignoreErrorCodesMatching: 'NoSuchKey|NoSuchBucket',
+    };
+
+    this.resource = new LambdaCustomResource(this, 'Resource', {
+      resourceType: `Custom::${props.purpose}`,
+      onCreate: onCreate,
+      onUpdate: onCreate,
+      policy: AwsCustomResourcePolicy.fromSdkCalls({
+        resources: [props.bucket.bucketArn, `${props.bucket.bucketArn}/*`],
+      }),
+      // Mostly to remove the warning.  I've tested it both ways and it works.
+      installLatestAwsSdk: false,
+    });
+
+    // Force re-running every deployment.
+    new RunResourceAlways(this);
   }
 
   /**

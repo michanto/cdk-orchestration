@@ -3,10 +3,10 @@ import { Function } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
 import { LoggingAspect } from '../../src/core';
-import { LambdaTask } from '../../src/orchestration';
 import { CustomResourceUtilities } from '../../src/custom-resources';
+import { LambdaTask } from '../../src/orchestration';
 
-const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`
+const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
 export class GreetingLambdaTask extends Construct {
   readonly handler: Function;

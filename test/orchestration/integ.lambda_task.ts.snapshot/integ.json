@@ -1,9 +1,9 @@
 {
   "version": "36.0.0",
   "testCases": {
-    "LambdaTaskIntegTest/DefaultTest": {
+    "LambdaTaskIntegrationTest/DefaultTest": {
       "stacks": [
-        "LambdaTaskInteg"
+        "LambdaTaskIntegration"
       ],
       "regions": [
         "us-east-1"
@@ -15,8 +15,8 @@
           }
         }
       },
-      "assertionStack": "LambdaTaskIntegTest/DefaultTest/DeployAssert",
-      "assertionStackName": "LambdaTaskIntegTestDefaultTestDeployAssert4C9CB59C"
+      "assertionStack": "LambdaTaskIntegrationTest/DefaultTest/DeployAssert",
+      "assertionStackName": "LambdaTaskIntegrationTestDefaultTestDeployAssert3E3AF2C7"
     }
   }
 }

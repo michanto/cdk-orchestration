@@ -1,3 +1,4 @@
+import * as fs from 'fs';
 import { App, RemovalPolicy, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { IRole, Role } from 'aws-cdk-lib/aws-iam';
@@ -13,7 +14,6 @@ import {
   StringReplacer,
   Transform, TransformHost, Transforms,
 } from '../../lib/transforms';
-import * as fs from 'fs';
 
 const env = { account: '000000000000', region: 'us-west-2' };
 
@@ -239,11 +239,11 @@ describe('Import transform tests', () => {
       env: env,
     });
 
-    let host = new CfnTransformHost(stack, "Host");
-    let tmpDir = `${__dirname}/test_tmp`
-    let tmpFileWriter = new TempFileWriter(host, "Temp", tmpDir);
-    let fileName = tmpFileWriter.apply("some data");
-    expect(fs.existsSync(fileName)).toBeTruthy()
-    fs.rmSync(tmpDir, {recursive: true});
+    let host = new CfnTransformHost(stack, 'Host');
+    let tmpDir = `${__dirname}/test_tmp`;
+    let tmpFileWriter = new TempFileWriter(host, 'Temp', tmpDir);
+    let fileName = tmpFileWriter.apply('some data');
+    expect(fs.existsSync(fileName)).toBeTruthy();
+    fs.rmSync(tmpDir, { recursive: true });
   });
 });

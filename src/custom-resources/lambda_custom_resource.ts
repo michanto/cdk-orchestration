@@ -4,8 +4,8 @@ import { Code, IFunction, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { AwsCustomResourceProps, AwsCustomResource, AwsSdkCall, Provider } from 'aws-cdk-lib/custom-resources';
 import { Construct, IConstruct } from 'constructs';
 import { EncodeResource, RunResourceAlways } from '.';
+import { awsSdkToIamAction } from './handlers/private/from_cdk/aws-custom-resource-sdk-adapter/cdk-sdk-info';
 import { Singleton } from '../core';
-import { awsSdkToIamAction } from './handlers/private/from_cdk/aws-custom-resource-sdk-adapter/cdk-sdk-info'
 
 /**
  * Props for LambdaCustomResourceResources
@@ -91,17 +91,6 @@ export class LambdaCustomResource extends Construct {
   readonly customResource: CustomResource;
   readonly requestedOutputs: string[] = [];
 
-/*
-  inlinePolicies: {
-    CFRPolicy: new PolicyDocument({
-      statements: [new PolicyStatement({
-        actions: ['lambda:Invoke*'],
-        effect: Effect.ALLOW,
-        resources: ['*'],
-      })],
-    }),
-  },
-*/
   constructor(scope: Construct, id: string, readonly props: LambdaCustomResourceProps) {
     super(scope, id);
 
@@ -126,7 +115,7 @@ export class LambdaCustomResource extends Construct {
     this.resources = this.createResources({
       purpose: 'CDKORCHCUSTOMRESOURCE',
       timeout: props.timeout,
-      role: props.role
+      role: props.role,
     });
 
     const create = props.onCreate || props.onUpdate;
@@ -144,16 +133,16 @@ export class LambdaCustomResource extends Construct {
       crProps.Defaults = props.defaults;
     }
     crProps.RequestedOutputs = Lazy.list({ produce: () => this.requestedOutputs });
-    let theThis = this
+    let theThis = this;
 
-    this.customResource = new class InnerCustomResource extends CustomResource{
+    this.customResource = new class InnerCustomResource extends CustomResource {
       getAtt(attributeName: string): Reference {
         theThis.requestedOutputs.push(attributeName);
         return super.getAtt(attributeName);
       }
       getAttString(attributeName: string): string {
         theThis.requestedOutputs.push(attributeName);
-        return super.getAttString(attributeName);        
+        return super.getAttString(attributeName);
       }
     }(this, 'Resource', {
       serviceToken: this.resources.provider.serviceToken,
@@ -213,7 +202,7 @@ export class LambdaCustomResource extends Construct {
       if (this.resources.role !== undefined) {
         policy.attachToRole(this.resources.role);
       }
-  
+
       // If the policy was deleted first, then the function might lose permissions to delete the custom resource
       // This is here so that the policy doesn't get removed before onDelete is called
       this.customResource.node.addDependency(policy);

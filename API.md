@@ -3340,6 +3340,7 @@ new orchestration.LambdaCustomResource(scope: Construct, id: string, props: Lamb
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getAtt">getAtt</a></code> | Returns a flattened JSON key from the resource response. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getAttString">getAttString</a></code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getResponseField">getResponseField</a></code> | Returns a flattened JSON key from the resource response. |
 
 ---
@@ -3361,6 +3362,18 @@ public getAtt(attributeName: string): IResolvable
 Returns a flattened JSON key from the resource response.
 
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getAtt.parameter.attributeName"></a>
+
+- *Type:* string
+
+---
+
+##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getAttString"></a>
+
+```typescript
+public getAttString(attributeName: string): string
+```
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
 
@@ -3425,7 +3438,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.resource">resource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.requestedOutputs">requestedOutputs</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.resources">resources</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources</code> | *No description.* |
 
 ---
@@ -3442,13 +3457,33 @@ The tree node.
 
 ---
 
-##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.resource"></a>
+##### `customResource`<sup>Required</sup> <a name="customResource" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.customResource"></a>
 
 ```typescript
-public readonly resource: CustomResource;
+public readonly customResource: CustomResource;
 ```
 
 - *Type:* aws-cdk-lib.CustomResource
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.props"></a>
+
+```typescript
+public readonly props: LambdaCustomResourceProps;
+```
+
+- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps
+
+---
+
+##### `requestedOutputs`<sup>Required</sup> <a name="requestedOutputs" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.requestedOutputs"></a>
+
+```typescript
+public readonly requestedOutputs: string[];
+```
+
+- *Type:* string[]
 
 ---
 
@@ -3765,6 +3800,7 @@ Any object.
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.resource">resource</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResource</code> | *No description.* |
 
 ---
 
@@ -3787,6 +3823,16 @@ public readonly lambdaFunction: IFunction;
 ```
 
 - *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.LambdaTask.property.resource"></a>
+
+```typescript
+public readonly resource: LambdaCustomResource;
+```
+
+- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResource
 
 ---
 
@@ -4603,6 +4649,467 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+
+### S3FileMetadata <a name="S3FileMetadata" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata"></a>
+
+Where S3FileResource WRITES a JSON file (with optional metadata) to S3, this construct READS the METADATA from an S3 and makes them available as attributes.
+
+Attributes are flattened as per AwsCustomResource.
+
+You MUST request attributes from this class, otherwise there
+is no purpose in creating it.  An error will result.
+
+CFN has limits to how much data can be returned.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.S3FileMetadata(scope: Construct, id: string, props: S3FileReaderProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.S3FileReaderProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.S3FileReaderProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAtt">getAtt</a></code> | Returns a top-level JSON key from the file. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAttString">getAttString</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAtt"></a>
+
+```typescript
+public getAtt(attributeName: string): IResolvable
+```
+
+Returns a top-level JSON key from the file.
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAtt.parameter.attributeName"></a>
+
+- *Type:* string
+
+---
+
+##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAttString"></a>
+
+```typescript
+public getAttString(attributeName: string): string
+```
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAttString.parameter.attributeName"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.isConstruct"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.S3FileMetadata.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.resource">resource</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResource</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.resource"></a>
+
+```typescript
+public readonly resource: LambdaCustomResource;
+```
+
+- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResource
+
+---
+
+
+### S3FileReader <a name="S3FileReader" id="@michanto/cdk-orchestration.orchestration.S3FileReader"></a>
+
+Where S3FileResource WRITES a JSON file to S3, this construct READS a JSON file from S3 and makes the contents of the file available as attributes.
+
+Attributes are flattened as per AwsCustomResource.
+
+You MUST request attributes from this class, otherwise there
+is no purpose in creating it.  An error will result.
+
+CFN has limits to how much data can be returned.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.S3FileReader.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.S3FileReader(scope: Construct, id: string, props: S3FileReaderProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.S3FileReaderProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.S3FileReader.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.S3FileReader.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.S3FileReader.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.S3FileReaderProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.getAtt">getAtt</a></code> | Returns a top-level JSON key from the file. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.getAttString">getAttString</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.S3FileReader.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.S3FileReader.getAtt"></a>
+
+```typescript
+public getAtt(attributeName: string): IResolvable
+```
+
+Returns a top-level JSON key from the file.
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileReader.getAtt.parameter.attributeName"></a>
+
+- *Type:* string
+
+---
+
+##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.S3FileReader.getAttString"></a>
+
+```typescript
+public getAttString(attributeName: string): string
+```
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileReader.getAttString.parameter.attributeName"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.S3FileReader.isConstruct"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.S3FileReader.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.S3FileReader.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.resource">resource</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResource</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.S3FileReader.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.S3FileReader.property.resource"></a>
+
+```typescript
+public readonly resource: LambdaCustomResource;
+```
+
+- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResource
+
+---
+
+
+### S3FileResource <a name="S3FileResource" id="@michanto/cdk-orchestration.orchestration.S3FileResource"></a>
+
+A resources that writes an S3 JSON file.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.S3FileResource.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.S3FileResource(scope: Construct, id: string, props: S3FileResourceProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.S3FileResourceProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.S3FileResource.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.S3FileResource.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.S3FileResource.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.orchestration.S3FileResourceProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.S3FileResource.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@michanto/cdk-orchestration.orchestration.S3FileResource.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.S3FileResource.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.S3FileResource.isConstruct"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.S3FileResource.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.S3FileResource.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.property.resource">resource</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResource</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.S3FileResource.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.S3FileResource.property.resource"></a>
+
+```typescript
+public readonly resource: AwsCustomResource;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.AwsCustomResource
 
 ---
 
@@ -8633,6 +9140,7 @@ const lambdaCustomResourceResourcesProps: orchestration.LambdaCustomResourceReso
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
 
 ---
@@ -8644,6 +9152,16 @@ public readonly purpose: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
 
 ---
 
@@ -9204,6 +9722,245 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+---
+
+### S3FileMetadataProps <a name="S3FileMetadataProps" id="@michanto/cdk-orchestration.orchestration.S3FileMetadataProps"></a>
+
+Properties for S3FileMetadata.
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+const s3FileMetadataProps: orchestration.S3FileMetadataProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.key">key</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: any}</code> | Default values to use if the file/properties can't be found. |
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `key`<sup>Required</sup> <a name="key" id="@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.key"></a>
+
+```typescript
+public readonly key: string;
+```
+
+- *Type:* string
+
+---
+
+##### `physicalResourceId`<sup>Required</sup> <a name="physicalResourceId" id="@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.physicalResourceId"></a>
+
+```typescript
+public readonly physicalResourceId: PhysicalResourceId;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.PhysicalResourceId
+
+---
+
+##### `purpose`<sup>Required</sup> <a name="purpose" id="@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.purpose"></a>
+
+```typescript
+public readonly purpose: string;
+```
+
+- *Type:* string
+
+---
+
+##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.defaults"></a>
+
+```typescript
+public readonly defaults: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+Default values to use if the file/properties can't be found.
+
+If not specified the default is undefined.
+
+---
+
+### S3FileReaderProps <a name="S3FileReaderProps" id="@michanto/cdk-orchestration.orchestration.S3FileReaderProps"></a>
+
+Properties for S3FileReader.
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.S3FileReaderProps.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+const s3FileReaderProps: orchestration.S3FileReaderProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.key">key</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: any}</code> | Default values to use if the file/properties can't be found. |
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `key`<sup>Required</sup> <a name="key" id="@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.key"></a>
+
+```typescript
+public readonly key: string;
+```
+
+- *Type:* string
+
+---
+
+##### `physicalResourceId`<sup>Required</sup> <a name="physicalResourceId" id="@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.physicalResourceId"></a>
+
+```typescript
+public readonly physicalResourceId: PhysicalResourceId;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.PhysicalResourceId
+
+---
+
+##### `purpose`<sup>Required</sup> <a name="purpose" id="@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.purpose"></a>
+
+```typescript
+public readonly purpose: string;
+```
+
+- *Type:* string
+
+---
+
+##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.defaults"></a>
+
+```typescript
+public readonly defaults: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+Default values to use if the file/properties can't be found.
+
+If not specified the default is undefined.
+
+---
+
+### S3FileResourceProps <a name="S3FileResourceProps" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps"></a>
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+const s3FileResourceProps: orchestration.S3FileResourceProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.body">body</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.key">key</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.metadata">metadata</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
+
+---
+
+##### `body`<sup>Required</sup> <a name="body" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.body"></a>
+
+```typescript
+public readonly body: any;
+```
+
+- *Type:* any
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `key`<sup>Required</sup> <a name="key" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.key"></a>
+
+```typescript
+public readonly key: string;
+```
+
+- *Type:* string
+
+---
+
+##### `physicalResourceId`<sup>Required</sup> <a name="physicalResourceId" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.physicalResourceId"></a>
+
+```typescript
+public readonly physicalResourceId: PhysicalResourceId;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.PhysicalResourceId
+
+---
+
+##### `purpose`<sup>Required</sup> <a name="purpose" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.purpose"></a>
+
+```typescript
+public readonly purpose: string;
+```
+
+- *Type:* string
+
+---
+
+##### `metadata`<sup>Optional</sup> <a name="metadata" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.metadata"></a>
+
+```typescript
+public readonly metadata: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
 
 ---
 
@@ -11645,7 +12402,6 @@ new custom_resources.CustomResourceUtilities()
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource">findCustomResource</a></code> | Returns the CfnResource that produces the custom resource. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.runResourceAlways">runResourceAlways</a></code> | *No description.* |
 
 ---
 
@@ -11661,18 +12417,6 @@ This function throws
 if there are none (or more than one).
 
 ###### `target`<sup>Required</sup> <a name="target" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource.parameter.target"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `runResourceAlways` <a name="runResourceAlways" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.runResourceAlways"></a>
-
-```typescript
-public runResourceAlways(target: Construct): void
-```
-
-###### `target`<sup>Required</sup> <a name="target" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.runResourceAlways.parameter.target"></a>
 
 - *Type:* constructs.Construct
 

@@ -144,7 +144,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "6034e6a5a3d042b3a133c031be8c79113e87d7eaaadc314a18d1669cf211e12e.zip"
+     "S3Key": "806f0db687ce7fea002bc217b77d5adfdbf6e18db741cf2606c91abae7ec22e9.zip"
     },
     "Handler": "index.handler",
     "Role": {
@@ -242,7 +242,7 @@
      },
      "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
     },
-    "Description": "AWS CDK resource provider framework - onEvent (LambdaTaskInteg/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider)",
+    "Description": "AWS CDK resource provider framework - onEvent (LambdaTaskIntegration/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider)",
     "Environment": {
      "Variables": {
       "USER_ON_EVENT_FUNCTION_ARN": {

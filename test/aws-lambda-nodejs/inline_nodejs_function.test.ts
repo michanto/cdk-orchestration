@@ -138,9 +138,9 @@ describe('InlineNodeJsFunction tests', () => {
             Runtime: 'nodejs18.x',
             Environment: {
               Variables: {
-                LogLevel: '18446744073709552000'
-              }
-            }
+                LogLevel: '18446744073709552000',
+              },
+            },
           },
         },
       },

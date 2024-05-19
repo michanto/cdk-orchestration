@@ -184,7 +184,7 @@ export class CustomResourceHandler {
     event = this.decodeProperties(event);
     let physicalResourceId = this.getPhysicalResourceId(event);
     let call = this.getCall(event);
-    let requestedOutputs = event.ResourceProperties.RequestedOutputs
+    let requestedOutputs = event.ResourceProperties.RequestedOutputs;
     if (requestedOutputs && requestedOutputs.length == 0) {
       requestedOutputs = undefined;
     }
@@ -204,7 +204,7 @@ export class CustomResourceHandler {
       let response = await this.getResponse(call);
       let flattened = this.flatten(response);
       let filtered = this.filter(call, flattened);
-      let defaults = event.ResourceProperties.Defaults
+      let defaults = event.ResourceProperties.Defaults;
       let data: any = filtered || defaults ? {
         ...(defaults ?? {}),
         ...(filtered ?? {}),

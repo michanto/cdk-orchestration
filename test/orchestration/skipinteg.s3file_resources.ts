@@ -1,48 +1,48 @@
 import { ExpectedResult, IntegTest, Match } from '@aws-cdk/integ-tests-alpha';
 import { App, CfnOutput, Stack } from 'aws-cdk-lib';
-import { Bucket } from 'aws-cdk-lib/aws-s3';
-import { S3FileReader, S3FileResource } from '../../src/orchestration';
-import { PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
 import { Effect } from 'aws-cdk-lib/aws-iam';
+import { Bucket } from 'aws-cdk-lib/aws-s3';
+import { PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
+import { S3FileMetadata, S3FileReader, S3FileResource } from '../../src/orchestration';
 export const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
 const app = new App();
 const stack = new Stack(app, 'S3ResourcesInteg', {});
 
-let bucket = new Bucket(stack, "MyBucket");
+let bucket = new Bucket(stack, 'MyBucket');
 let key = 'foo/bar/baz.json';
-new S3FileResource(stack, "Writer", {
-  purpose: "ToWrite",
-  body: { Some: "Data" },
+new S3FileResource(stack, 'Writer', {
+  purpose: 'ToWrite',
+  body: { Some: 'Data' },
   bucket: bucket,
   metadata: {
-    MyMetadata: "Michael"
+    MyMetadata: 'Michael',
   },
   key: key,
-  physicalResourceId: PhysicalResourceId.of("Writer")
-})
+  physicalResourceId: PhysicalResourceId.of('Writer'),
+});
 
-let reader = new S3FileReader(stack, "Reader", {
-  purpose: "ToRead",
+let reader = new S3FileReader(stack, 'Reader', {
+  purpose: 'ToRead',
   bucket: bucket,
   key: key,
-  physicalResourceId: PhysicalResourceId.of("Reader")
-})
+  physicalResourceId: PhysicalResourceId.of('Reader'),
+});
 
-let metadata = new S3FileReader(stack, "MdReader", {
-  purpose: "ToReadMd",
+let metadata = new S3FileMetadata(stack, 'MdReader', {
+  purpose: 'ToReadMd',
   bucket: bucket,
   key: key,
-  physicalResourceId: PhysicalResourceId.of("Reader")
-})
+  physicalResourceId: PhysicalResourceId.of('Reader'),
+});
 
 new CfnOutput(stack, 'AnOutput', {
   exportName: 'ReaderExport',
-  value: reader.getAttString("Some"),
+  value: reader.getAttString('Some'),
 });
 new CfnOutput(stack, 'AnOutput2', {
   exportName: 'MetadataExport',
-  value: metadata.getAttString("Metadata.MyMetadata"),
+  value: metadata.getAttString('Metadata.MyMetadata'),
 });
 /*
 new EqualsAssertion(stack, "ContentsAreEqual", {
