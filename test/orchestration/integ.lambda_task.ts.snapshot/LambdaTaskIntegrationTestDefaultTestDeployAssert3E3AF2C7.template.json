@@ -14,7 +14,7 @@
     "expected": "{\"$ObjectLike\":{\"Exports\":{\"$ArrayWith\":[{\"$ObjectLike\":{}},{\"ExportingStackId\":{\"$StringLike\":\".*\"},\"Name\":\"LambdaTaskGreetingExport\",\"Value\":\".dlrow ,olleH\"}]}}}",
     "parameters": {},
     "flattenResponse": "false",
-    "salt": "1716157412925"
+    "salt": "1716222279574"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"

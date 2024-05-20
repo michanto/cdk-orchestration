@@ -1,0 +1,22 @@
+{
+  "version": "36.0.0",
+  "testCases": {
+    "S3FileResourcesTest/DefaultTest": {
+      "stacks": [
+        "S3ResourcesInteg"
+      ],
+      "regions": [
+        "us-east-1"
+      ],
+      "cdkCommandOptions": {
+        "destroy": {
+          "args": {
+            "force": true
+          }
+        }
+      },
+      "assertionStack": "S3FileResourcesTest/DefaultTest/DeployAssert",
+      "assertionStackName": "S3FileResourcesTestDefaultTestDeployAssert0CFEE71A"
+    }
+  }
+}

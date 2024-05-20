@@ -153,6 +153,7 @@ export class LambdaCustomResource extends Construct {
     if (props.runAlways == undefined || props.runAlways) {
       new RunResourceAlways(this);
     }
+    this.createPolicy(props);
 
     new EncodeResource(this.customResource);
   }

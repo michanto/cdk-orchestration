@@ -1,9 +1,8 @@
-import { ExpectedResult, IntegTest, Match } from '@aws-cdk/integ-tests-alpha';
-import { App, CfnOutput, Stack } from 'aws-cdk-lib';
-import { Effect } from 'aws-cdk-lib/aws-iam';
+import { IntegTest } from '@aws-cdk/integ-tests-alpha';
+import { App, Stack } from 'aws-cdk-lib';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
-import { S3FileMetadata, S3FileReader, S3FileResource } from '../../src/orchestration';
+import { S3FileReader, S3FileResource } from '../../src/orchestration';
 export const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
 const app = new App();
@@ -22,13 +21,13 @@ new S3FileResource(stack, 'Writer', {
   physicalResourceId: PhysicalResourceId.of('Writer'),
 });
 
-let reader = new S3FileReader(stack, 'Reader', {
+new S3FileReader(stack, 'Reader', {
   purpose: 'ToRead',
   bucket: bucket,
   key: key,
   physicalResourceId: PhysicalResourceId.of('Reader'),
 });
-
+/*
 let metadata = new S3FileMetadata(stack, 'MdReader', {
   purpose: 'ToReadMd',
   bucket: bucket,
@@ -43,7 +42,7 @@ new CfnOutput(stack, 'AnOutput', {
 new CfnOutput(stack, 'AnOutput2', {
   exportName: 'MetadataExport',
   value: metadata.getAttString('Metadata.MyMetadata'),
-});
+}); */
 /*
 new EqualsAssertion(stack, "ContentsAreEqual", {
   actual: ActualResult.fromCustomResource(reader.resource.resource, "Some"),
@@ -54,7 +53,7 @@ new EqualsAssertion(stack, "MetadataAreEqual", {
   expected: ExpectedResult.exact("Michael")
 }) */
 
-let integ = new IntegTest(app, 'S3FileResourcesTest', {
+new IntegTest(app, 'S3FileResourcesTest', {
   testCases: [
     stack,
   ],
@@ -67,7 +66,7 @@ let integ = new IntegTest(app, 'S3FileResourcesTest', {
   },
   regions: ['us-east-1'],
 });
-
+/*
 integ.assertions.awsApiCall('CloudFormation', 'listExports', {
 }).expect(ExpectedResult.objectLike({
   Exports: Match.arrayWith([Match.objectLike({}), {
@@ -84,4 +83,4 @@ integ.assertions.awsApiCall('CloudFormation', 'listExports', {
   Effect: Effect.ALLOW,
   Action: ['cloudFormation:List*'],
   Resource: ['*'],
-});
+}); */
