@@ -1,3 +1,4 @@
+import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { AwsCustomResourcePolicy, AwsSdkCall, PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
@@ -51,9 +52,17 @@ export class S3FileReader extends Construct {
       resourceType: `Custom::${props.purpose}`,
       onCreate: onCreate,
       onUpdate: onCreate,
-      policy: AwsCustomResourcePolicy.fromSdkCalls({
-        resources: [props.bucket.bucketArn, `${props.bucket.bucketArn}/*`],
-      }),
+      responseBufferField: 'Body',
+      policy: AwsCustomResourcePolicy.fromStatements([
+        new PolicyStatement({
+          actions: ['s3:HeadObject', 's3:ListObjects', 's3:GetObject'],
+          effect: Effect.ALLOW,
+          resources: [
+            props.bucket.bucketArn,
+            `${props.bucket.bucketArn}/*`,
+          ],
+        }),
+      ]),
       // Mostly to remove the warning.  I've tested it both ways and it works.
       installLatestAwsSdk: false,
     });

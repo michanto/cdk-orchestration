@@ -1,48 +1,56 @@
-import { IntegTest } from '@aws-cdk/integ-tests-alpha';
-import { App, Stack } from 'aws-cdk-lib';
+import { ExpectedResult, IntegTest, Match } from '@aws-cdk/integ-tests-alpha';
+import { App, Aspects, CfnOutput, Stack } from 'aws-cdk-lib';
+import { Effect } from 'aws-cdk-lib/aws-iam';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
-import { S3FileReader, S3FileResource } from '../../src/orchestration';
+import { Logger, LoggingAspect } from '../../src/core';
+import { S3FileMetadata, S3FileReader, S3FileResource } from '../../src/orchestration';
+
 export const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
 const app = new App();
 const stack = new Stack(app, 'S3ResourcesInteg', {});
-
+Logger.set(stack, new Logger());
+Aspects.of(stack).add(new LoggingAspect());
 let bucket = new Bucket(stack, 'MyBucket');
 let key = 'foo/bar/baz.json';
-new S3FileResource(stack, 'Writer', {
+let writer = new S3FileResource(stack, 'Writer', {
   purpose: 'ToWrite',
   body: { Some: 'Data' },
   bucket: bucket,
   metadata: {
-    MyMetadata: 'Michael',
+    mymetadata: 'Michael',
   },
   key: key,
   physicalResourceId: PhysicalResourceId.of('Writer'),
 });
 
-new S3FileReader(stack, 'Reader', {
+let reader = new S3FileReader(stack, 'Reader', {
   purpose: 'ToRead',
   bucket: bucket,
   key: key,
   physicalResourceId: PhysicalResourceId.of('Reader'),
 });
-/*
+
+reader.node.addDependency(writer);
+
 let metadata = new S3FileMetadata(stack, 'MdReader', {
   purpose: 'ToReadMd',
   bucket: bucket,
   key: key,
   physicalResourceId: PhysicalResourceId.of('Reader'),
 });
+metadata.node.addDependency(writer);
 
-new CfnOutput(stack, 'AnOutput', {
+let output1 = new CfnOutput(stack, 'AnOutput', {
   exportName: 'ReaderExport',
   value: reader.getAttString('Some'),
 });
-new CfnOutput(stack, 'AnOutput2', {
+let output2 = new CfnOutput(stack, 'AnOutput2', {
   exportName: 'MetadataExport',
-  value: metadata.getAttString('Metadata.MyMetadata'),
-}); */
+  value: metadata.getAttString('Metadata.mymetadata'),
+});
+output2.node.addDependency(output1);
 /*
 new EqualsAssertion(stack, "ContentsAreEqual", {
   actual: ActualResult.fromCustomResource(reader.resource.resource, "Some"),
@@ -53,7 +61,7 @@ new EqualsAssertion(stack, "MetadataAreEqual", {
   expected: ExpectedResult.exact("Michael")
 }) */
 
-new IntegTest(app, 'S3FileResourcesTest', {
+let integ = new IntegTest(app, 'S3FileResourcesTest', {
   testCases: [
     stack,
   ],
@@ -66,21 +74,22 @@ new IntegTest(app, 'S3FileResourcesTest', {
   },
   regions: ['us-east-1'],
 });
-/*
+
 integ.assertions.awsApiCall('CloudFormation', 'listExports', {
 }).expect(ExpectedResult.objectLike({
-  Exports: Match.arrayWith([Match.objectLike({}), {
-    ExportingStackId: Match.stringLikeRegexp('.*'),
-    Name: 'ReaderExport',
-    Value: 'Data',
-  }, {
-    ExportingStackId: Match.stringLikeRegexp('.*'),
-    Name: 'MetadataExport',
-    Value: 'Michael',
-  }]),
+  Exports: Match.arrayWith([Match.objectLike({}),
+    {
+      ExportingStackId: Match.stringLikeRegexp('.*'),
+      Name: 'MetadataExport',
+      Value: 'Michael',
+    }, {
+      ExportingStackId: Match.stringLikeRegexp('.*'),
+      Name: 'ReaderExport',
+      Value: 'Data',
+    }]),
 },
 )).provider.addToRolePolicy({
   Effect: Effect.ALLOW,
   Action: ['cloudFormation:List*'],
   Resource: ['*'],
-}); */
+});

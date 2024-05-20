@@ -3,8 +3,8 @@ import { Function } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
 import { LoggingAspect } from '../../src/core';
-import { CustomResourceUtilities } from '../../src/custom-resources';
 import { LambdaTask } from '../../src/orchestration';
+import { RemoveSalt } from '../util';
 
 const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
@@ -26,8 +26,7 @@ export class GreetingLambdaTask extends Construct {
     });
 
     if (removeSalt) {
-      let resource = new CustomResourceUtilities().findCustomResource(this);
-      resource.addPropertyDeletionOverride('salt');
+      new RemoveSalt(this);
     }
 
     Aspects.of(this).add(new LoggingAspect());

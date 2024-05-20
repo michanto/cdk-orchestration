@@ -246,6 +246,11 @@
                       },
                       "s3Key": "ed6cd104ff5f101d06dae8cb2b87cc6e6d69b9a22055b467ea6cae10ff023023.zip"
                     },
+                    "environment": {
+                      "variables": {
+                        "LogLevel": "18446744073709552000"
+                      }
+                    },
                     "handler": "index.handler",
                     "role": {
                       "Fn::GetAtt": [
@@ -339,7 +344,11 @@
                             "policyDocument": {
                               "Statement": [
                                 {
-                                  "Action": "s3:GetObject",
+                                  "Action": [
+                                    "s3:GetObject",
+                                    "s3:HeadObject",
+                                    "s3:ListObjects"
+                                  ],
                                   "Effect": "Allow",
                                   "Resource": [
                                     {
@@ -519,7 +528,12 @@
                           "s3Bucket": {
                             "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                           },
-                          "s3Key": "806f0db687ce7fea002bc217b77d5adfdbf6e18db741cf2606c91abae7ec22e9.zip"
+                          "s3Key": "342e2d5c7a957763117875787d90f7f0e153680c3ce36793d634c1f2f171863d.zip"
+                        },
+                        "environment": {
+                          "variables": {
+                            "LogLevel": "18446744073709552000"
+                          }
                         },
                         "handler": "index.handler",
                         "role": {
@@ -714,7 +728,8 @@
                                     "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEOnEventB60C9E76",
                                     "Arn"
                                   ]
-                                }
+                                },
+                                "LogLevel": "18446744073709552000"
                               }
                             },
                             "handler": "framework.onEvent",
@@ -749,6 +764,164 @@
             "constructInfo": {
               "fqn": "constructs.Construct",
               "version": "10.3.0"
+            }
+          },
+          "MdReader": {
+            "id": "MdReader",
+            "path": "S3ResourcesInteg/MdReader",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "S3ResourcesInteg/MdReader/Resource",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "S3ResourcesInteg/MdReader/Resource/Resource",
+                    "children": {
+                      "Default": {
+                        "id": "Default",
+                        "path": "S3ResourcesInteg/MdReader/Resource/Resource/Default",
+                        "children": {
+                          "EncodeResourceShim0": {
+                            "id": "EncodeResourceShim0",
+                            "path": "S3ResourcesInteg/MdReader/Resource/Resource/Default/EncodeResourceShim0",
+                            "attributes": {
+                              "CfnTransformShim.transformPath": "S3ResourcesInteg/MdReader/Resource/Resource/EncodeResource"
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "EncodeResource": {
+                        "id": "EncodeResource",
+                        "path": "S3ResourcesInteg/MdReader/Resource/Resource/EncodeResource",
+                        "attributes": {
+                          "TransformBase.cfnTransformPath": "S3ResourcesInteg/MdReader/Resource/Resource/Default/EncodeResourceShim0"
+                        },
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CustomResource",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "RunResourceAlways": {
+                    "id": "RunResourceAlways",
+                    "path": "S3ResourcesInteg/MdReader/Resource/RunResourceAlways",
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "CustomResourcePolicy": {
+                    "id": "CustomResourcePolicy",
+                    "path": "S3ResourcesInteg/MdReader/Resource/CustomResourcePolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "S3ResourcesInteg/MdReader/Resource/CustomResourcePolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "s3:GetObject",
+                                    "s3:HeadObject",
+                                    "s3:ListObjects"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "MyBucketF68F3FF0",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "MyBucketF68F3FF0",
+                                              "Arn"
+                                            ]
+                                          },
+                                          "/*"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "MdReaderCustomResourcePolicy06FFE51D",
+                            "roles": [
+                              {
+                                "Ref": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              },
+              "RunResourceAlways": {
+                "id": "RunResourceAlways",
+                "path": "S3ResourcesInteg/MdReader/RunResourceAlways",
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "AnOutput": {
+            "id": "AnOutput",
+            "path": "S3ResourcesInteg/AnOutput",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.120.0"
+            }
+          },
+          "AnOutput2": {
+            "id": "AnOutput2",
+            "path": "S3ResourcesInteg/AnOutput2",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.120.0"
             }
           },
           "BootstrapVersion": {
@@ -793,6 +966,94 @@
                 "id": "DeployAssert",
                 "path": "S3FileResourcesTest/DefaultTest/DeployAssert",
                 "children": {
+                  "AwsApiCallCloudFormationlistExports": {
+                    "id": "AwsApiCallCloudFormationlistExports",
+                    "path": "S3FileResourcesTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports",
+                    "children": {
+                      "SdkProvider": {
+                        "id": "SdkProvider",
+                        "path": "S3FileResourcesTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/SdkProvider",
+                        "children": {
+                          "AssertionsProvider": {
+                            "id": "AssertionsProvider",
+                            "path": "S3FileResourcesTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/SdkProvider/AssertionsProvider",
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/integ-tests-alpha.AssertionsProvider",
+                          "version": "2.120.0-alpha.0"
+                        }
+                      },
+                      "Default": {
+                        "id": "Default",
+                        "path": "S3FileResourcesTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/Default",
+                        "children": {
+                          "Default": {
+                            "id": "Default",
+                            "path": "S3FileResourcesTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/Default/Default",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.CfnResource",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CustomResource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "AssertionResults": {
+                        "id": "AssertionResults",
+                        "path": "S3FileResourcesTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/AssertionResults",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnOutput",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/integ-tests-alpha.AwsApiCall",
+                      "version": "2.120.0-alpha.0"
+                    }
+                  },
+                  "SingletonFunction1488541a7b23466481b69b4408076b81": {
+                    "id": "SingletonFunction1488541a7b23466481b69b4408076b81",
+                    "path": "S3FileResourcesTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81",
+                    "children": {
+                      "Staging": {
+                        "id": "Staging",
+                        "path": "S3FileResourcesTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Staging",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Role": {
+                        "id": "Role",
+                        "path": "S3FileResourcesTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Role",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Handler": {
+                        "id": "Handler",
+                        "path": "S3FileResourcesTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Handler",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
                   "BootstrapVersion": {
                     "id": "BootstrapVersion",
                     "path": "S3FileResourcesTest/DefaultTest/DeployAssert/BootstrapVersion",

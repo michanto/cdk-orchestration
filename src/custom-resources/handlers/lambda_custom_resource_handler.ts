@@ -106,7 +106,7 @@ export class CustomResourceHandler {
         credentials: credentials,
         region: call.region,
         parameters: call.parameters,
-        flattenResponse: true,
+        flattenResponse: false,
       });
       const logApiResponseData = call?.logApiResponseData ?? true;
       if (logApiResponseData) {
@@ -114,7 +114,7 @@ export class CustomResourceHandler {
       }
       flatData.apiVersion = apiCall.client.config.apiVersion; // For test purposes: check if apiVersion was correctly passed.
       flatData.region = await apiCall.client.config.region().catch(() => undefined); // For test purposes: check if region was correctly passed.
-      Object.assign(flatData, response);
+      Object.assign(response, flatData);
 
       /* FUTURE:  AutoPaginate.
       if (response.NextToken && this.props?.autoPaginate) {
@@ -138,10 +138,13 @@ export class CustomResourceHandler {
         delete response.NextToken;
       } */
 
+      log({ responseBufferField: responseBufferField });
+      log({ response: response });
       if (responseBufferField && response[responseBufferField]) {
         let body = (response[responseBufferField] as any).toString('utf-8');
-        response = this.flatten(JSON.parse(body));
+        Object.assign(response, this.flatten(JSON.parse(body)));
       }
+      log({ response: response });
       return await Promise.resolve(response);
     } catch (e) {
       let error = e as any;

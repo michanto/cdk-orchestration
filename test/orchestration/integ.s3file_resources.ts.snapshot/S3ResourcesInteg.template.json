@@ -22,7 +22,7 @@
        {
         "Ref": "MyBucketF68F3FF0"
        },
-       "\",\"Key\":\"foo/bar/baz.json\",\"Metadata\":{\"MyMetadata\":\"Michael\"}},\"physicalResourceId\":{\"id\":\"Writer\"}}"
+       "\",\"Key\":\"foo/bar/baz.json\",\"Metadata\":{\"mymetadata\":\"Michael\"}},\"physicalResourceId\":{\"id\":\"Writer\"}}"
       ]
      ]
     },
@@ -34,7 +34,7 @@
        {
         "Ref": "MyBucketF68F3FF0"
        },
-       "\",\"Key\":\"foo/bar/baz.json\",\"Metadata\":{\"MyMetadata\":\"Michael\"}},\"physicalResourceId\":{\"id\":\"Writer\"}}"
+       "\",\"Key\":\"foo/bar/baz.json\",\"Metadata\":{\"mymetadata\":\"Michael\"}},\"physicalResourceId\":{\"id\":\"Writer\"}}"
       ]
      ]
     },
@@ -51,7 +51,7 @@
      ]
     },
     "InstallLatestAwsSdk": false,
-    "salt": 1716222149303
+    "salt": 1716243744778
    },
    "DependsOn": [
     "WriterCustomResourcePolicy72926270"
@@ -144,6 +144,11 @@
      },
      "S3Key": "ed6cd104ff5f101d06dae8cb2b87cc6e6d69b9a22055b467ea6cae10ff023023.zip"
     },
+    "Environment": {
+     "Variables": {
+      "LogLevel": "18446744073709552000"
+     }
+    },
     "Handler": "index.handler",
     "Role": {
      "Fn::GetAtt": [
@@ -180,14 +185,16 @@
         {
          "Ref": "MyBucketF68F3FF0"
         },
-        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"RequestedOutputs\":[],\"salt\":1716222149303}"
+        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"ResponseBufferField\":\"Body\",\"RequestedOutputs\":[\"Some\"],\"salt\":1716243744778}"
        ]
       ]
      }
     }
    },
    "DependsOn": [
-    "ReaderCustomResourcePolicy61FE32A3"
+    "ReaderCustomResourcePolicy61FE32A3",
+    "WriterCustomResourcePolicy72926270",
+    "Writer3D545CAD"
    ],
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"
@@ -198,7 +205,11 @@
     "PolicyDocument": {
      "Statement": [
       {
-       "Action": "s3:GetObject",
+       "Action": [
+        "s3:GetObject",
+        "s3:HeadObject",
+        "s3:ListObjects"
+       ],
        "Effect": "Allow",
        "Resource": [
         {
@@ -232,7 +243,11 @@
       "Ref": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2"
      }
     ]
-   }
+   },
+   "DependsOn": [
+    "WriterCustomResourcePolicy72926270",
+    "Writer3D545CAD"
+   ]
   },
   "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2": {
    "Type": "AWS::IAM::Role",
@@ -284,7 +299,12 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "806f0db687ce7fea002bc217b77d5adfdbf6e18db741cf2606c91abae7ec22e9.zip"
+     "S3Key": "342e2d5c7a957763117875787d90f7f0e153680c3ce36793d634c1f2f171863d.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "LogLevel": "18446744073709552000"
+     }
     },
     "Handler": "index.handler",
     "Role": {
@@ -390,7 +410,8 @@
         "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEOnEventB60C9E76",
         "Arn"
        ]
-      }
+      },
+      "LogLevel": "18446744073709552000"
      }
     },
     "Handler": "framework.onEvent",
@@ -407,6 +428,116 @@
     "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleDefaultPolicy9B953B1F",
     "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleCBAF3CDB"
    ]
+  },
+  "MdReader891AE0B9": {
+   "Type": "Custom::ToReadMd",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEvent4AE15604",
+      "Arn"
+     ]
+    },
+    "EncodedProperties": {
+     "Fn::Base64": {
+      "Fn::Join": [
+       "",
+       [
+        "{\"Create\":{\"service\":\"S3\",\"action\":\"headObject\",\"parameters\":{\"Bucket\":\"",
+        {
+         "Ref": "MyBucketF68F3FF0"
+        },
+        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"Update\":{\"service\":\"S3\",\"action\":\"headObject\",\"parameters\":{\"Bucket\":\"",
+        {
+         "Ref": "MyBucketF68F3FF0"
+        },
+        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"RequestedOutputs\":[\"Metadata.mymetadata\"],\"salt\":1716243744778}"
+       ]
+      ]
+     }
+    }
+   },
+   "DependsOn": [
+    "MdReaderCustomResourcePolicy06FFE51D",
+    "WriterCustomResourcePolicy72926270",
+    "Writer3D545CAD"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "MdReaderCustomResourcePolicy06FFE51D": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:GetObject",
+        "s3:HeadObject",
+        "s3:ListObjects"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "MyBucketF68F3FF0",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "MyBucketF68F3FF0",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "MdReaderCustomResourcePolicy06FFE51D",
+    "Roles": [
+     {
+      "Ref": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2"
+     }
+    ]
+   },
+   "DependsOn": [
+    "WriterCustomResourcePolicy72926270",
+    "Writer3D545CAD"
+   ]
+  }
+ },
+ "Outputs": {
+  "AnOutput": {
+   "Value": {
+    "Fn::GetAtt": [
+     "ReaderC968FCB1",
+     "Some"
+    ]
+   },
+   "Export": {
+    "Name": "ReaderExport"
+   }
+  },
+  "AnOutput2": {
+   "Value": {
+    "Fn::GetAtt": [
+     "MdReader891AE0B9",
+     "Metadata.mymetadata"
+    ]
+   },
+   "Export": {
+    "Name": "MetadataExport"
+   }
   }
  },
  "Parameters": {

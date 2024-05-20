@@ -1,9 +1,9 @@
+import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { AwsCustomResourcePolicy, AwsSdkCall } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
 import { S3FileReaderProps } from './s3_file_reader';
 import { RunResourceAlways } from '../custom-resources';
 import { LambdaCustomResource } from '../custom-resources/lambda_custom_resource';
-import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 
 /**
  * Properties for S3FileMetadata
@@ -51,7 +51,7 @@ export class S3FileMetadata extends Construct {
             props.bucket.bucketArn,
             `${props.bucket.bucketArn}/*`,
           ],
-        })
+        }),
       ]),
       // Mostly to remove the warning.  I've tested it both ways and it works.
       installLatestAwsSdk: false,
