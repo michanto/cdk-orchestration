@@ -2,7 +2,7 @@ import { App, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
-import { S3FileMetadata, S3FileReader } from '../../src/orchestration';
+import { S3FileMetadata, S3FileReader, S3FileResource } from '../../src/orchestration';
 
 describe('S3 File Resources tests', () => {
   test('S3FileReader creates expected policies.', async () => {
@@ -10,6 +10,14 @@ describe('S3 File Resources tests', () => {
     let stack = new Stack(app, 'MyStack');
     let bucket = Bucket.fromBucketName(stack, 'my_bucket', 'my-bucket');
     let key = 'foo/bar/baz.json';
+
+    new S3FileResource(stack, 'Writer', {
+      purpose: 'ToWrite',
+      bucket: bucket,
+      key: key,
+      body: { some: 'data' },
+      physicalResourceId: PhysicalResourceId.of('Writer'),
+    });
 
     new S3FileReader(stack, 'Reader', {
       purpose: 'ToRead',
@@ -24,7 +32,7 @@ describe('S3 File Resources tests', () => {
       physicalResourceId: PhysicalResourceId.of('Metadata'),
     });
     let template = Template.fromStack(stack).toJSON();
-    console.log(JSON.stringify(template, undefined, 2));
+
     expect(template).toMatchObject({
       Resources: {
         CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleDefaultPolicy9B953B1F: {

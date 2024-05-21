@@ -22,7 +22,7 @@ export interface CustomResourceHandlerProps {
    *
    * Default is false.
    */
-  autoPaginate?: boolean;
+  readonly autoPaginate?: boolean;
 }
 
 /**
@@ -154,8 +154,7 @@ export class CustomResourceHandler {
         return Promise.reject(error);
       }
     }
-
-    return Promise.resolve({});
+    throw new Error('Should have returned a response or thrown.');
   }
 
   flatten(response: any) {

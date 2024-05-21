@@ -2484,7 +2484,7 @@ public readonly order: string;
 ---
 
 
-### LambdaCustomResource <a name="LambdaCustomResource" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource"></a>
+### LambdaCustomResource <a name="LambdaCustomResource" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource"></a>
 
 This is a drop-in replacement for AwsCustomResource (not yet fully featured).
 
@@ -2495,37 +2495,37 @@ For S3 GetObject, responseBufferField should be set to Body).
 - Supports filtering (see {@link AwsSdkCall.outputPaths).} * - Support deserlializing via LambdaCustomResourceProps.responseBufferField.
 - Supports default values for response fields as LambdaCustomResourceProps.defaults.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.Initializer"></a>
 
 ```typescript
-import { orchestration } from '@michanto/cdk-orchestration'
+import { custom_resources } from '@michanto/cdk-orchestration'
 
-new orchestration.LambdaCustomResource(scope: Construct, id: string, props: LambdaCustomResourceProps)
+new custom_resources.LambdaCustomResource(scope: Construct, id: string, props: LambdaCustomResourceProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.Initializer.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.Initializer.parameter.props"></a>
 
-- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps
+- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps
 
 ---
 
@@ -2533,14 +2533,14 @@ new orchestration.LambdaCustomResource(scope: Construct, id: string, props: Lamb
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getAtt">getAtt</a></code> | Returns a flattened JSON key from the resource response. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getAttString">getAttString</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getResponseField">getResponseField</a></code> | Returns a flattened JSON key from the resource response. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAtt">getAtt</a></code> | Returns a flattened JSON key from the resource response. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAttString">getAttString</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseField">getResponseField</a></code> | Returns a flattened JSON key from the resource response. |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.toString"></a>
 
 ```typescript
 public toString(): string
@@ -2548,33 +2548,33 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getAtt"></a>
+##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAtt"></a>
 
 ```typescript
-public getAtt(attributeName: string): IResolvable
+public getAtt(attributeName: string): Reference
 ```
 
 Returns a flattened JSON key from the resource response.
 
-###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getAtt.parameter.attributeName"></a>
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAtt.parameter.attributeName"></a>
 
 - *Type:* string
 
 ---
 
-##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getAttString"></a>
+##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAttString"></a>
 
 ```typescript
 public getAttString(attributeName: string): string
 ```
 
-###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getAttString.parameter.attributeName"></a>
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
 
 ---
 
-##### `getResponseField` <a name="getResponseField" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getResponseField"></a>
+##### `getResponseField` <a name="getResponseField" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseField"></a>
 
 ```typescript
 public getResponseField(dataPath: string): string
@@ -2582,7 +2582,7 @@ public getResponseField(dataPath: string): string
 
 Returns a flattened JSON key from the resource response.
 
-###### `dataPath`<sup>Required</sup> <a name="dataPath" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.getResponseField.parameter.dataPath"></a>
+###### `dataPath`<sup>Required</sup> <a name="dataPath" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseField.parameter.dataPath"></a>
 
 - *Type:* string
 
@@ -2592,16 +2592,16 @@ Returns a flattened JSON key from the resource response.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.isConstruct"></a>
 
 ```typescript
-import { orchestration } from '@michanto/cdk-orchestration'
+import { custom_resources } from '@michanto/cdk-orchestration'
 
-orchestration.LambdaCustomResource.isConstruct(x: any)
+custom_resources.LambdaCustomResource.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -2620,7 +2620,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -2632,15 +2632,15 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.requestedOutputs">requestedOutputs</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.resources">resources</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.props">props</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.requestedOutputs">requestedOutputs</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.resources">resources</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -2652,7 +2652,7 @@ The tree node.
 
 ---
 
-##### `customResource`<sup>Required</sup> <a name="customResource" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.customResource"></a>
+##### `customResource`<sup>Required</sup> <a name="customResource" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.customResource"></a>
 
 ```typescript
 public readonly customResource: CustomResource;
@@ -2662,17 +2662,17 @@ public readonly customResource: CustomResource;
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.props"></a>
 
 ```typescript
 public readonly props: LambdaCustomResourceProps;
 ```
 
-- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps
+- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps
 
 ---
 
-##### `requestedOutputs`<sup>Required</sup> <a name="requestedOutputs" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.requestedOutputs"></a>
+##### `requestedOutputs`<sup>Required</sup> <a name="requestedOutputs" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.requestedOutputs"></a>
 
 ```typescript
 public readonly requestedOutputs: string[];
@@ -2682,52 +2682,52 @@ public readonly requestedOutputs: string[];
 
 ---
 
-##### `resources`<sup>Required</sup> <a name="resources" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResource.property.resources"></a>
+##### `resources`<sup>Required</sup> <a name="resources" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.resources"></a>
 
 ```typescript
 public readonly resources: LambdaCustomResourceResources;
 ```
 
-- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources
+- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources
 
 ---
 
 
-### LambdaCustomResourceResources <a name="LambdaCustomResourceResources" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources"></a>
+### LambdaCustomResourceResources <a name="LambdaCustomResourceResources" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources"></a>
 
 Support resources for LambdaCustomResource.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.Initializer"></a>
 
 ```typescript
-import { orchestration } from '@michanto/cdk-orchestration'
+import { custom_resources } from '@michanto/cdk-orchestration'
 
-new orchestration.LambdaCustomResourceResources(scope: Construct, id: string, props: LambdaCustomResourceResourcesProps)
+new custom_resources.LambdaCustomResourceResources(scope: Construct, id: string, props: LambdaCustomResourceResourcesProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.Initializer.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.Initializer.parameter.props"></a>
 
-- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps
+- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps
 
 ---
 
@@ -2735,13 +2735,13 @@ new orchestration.LambdaCustomResourceResources(scope: Construct, id: string, pr
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.createOnEventFunction">createOnEventFunction</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.createRole">createRole</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.createOnEventFunction">createOnEventFunction</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.createRole">createRole</a></code> | *No description.* |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.toString"></a>
 
 ```typescript
 public toString(): string
@@ -2749,27 +2749,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `createOnEventFunction` <a name="createOnEventFunction" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.createOnEventFunction"></a>
+##### `createOnEventFunction` <a name="createOnEventFunction" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.createOnEventFunction"></a>
 
 ```typescript
 public createOnEventFunction(props: LambdaCustomResourceResourcesProps): Function
 ```
 
-###### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.createOnEventFunction.parameter.props"></a>
+###### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.createOnEventFunction.parameter.props"></a>
 
-- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps
+- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps
 
 ---
 
-##### `createRole` <a name="createRole" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.createRole"></a>
+##### `createRole` <a name="createRole" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.createRole"></a>
 
 ```typescript
 public createRole(props: LambdaCustomResourceResourcesProps): Role
 ```
 
-###### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.createRole.parameter.props"></a>
+###### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.createRole.parameter.props"></a>
 
-- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps
+- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps
 
 ---
 
@@ -2777,16 +2777,16 @@ public createRole(props: LambdaCustomResourceResourcesProps): Role
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.isConstruct"></a>
 
 ```typescript
-import { orchestration } from '@michanto/cdk-orchestration'
+import { custom_resources } from '@michanto/cdk-orchestration'
 
-orchestration.LambdaCustomResourceResources.isConstruct(x: any)
+custom_resources.LambdaCustomResourceResources.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -2805,7 +2805,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -2817,14 +2817,14 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.onEvent">onEvent</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.provider">provider</a></code> | <code>aws-cdk-lib.custom_resources.Provider</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.onEvent">onEvent</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.provider">provider</a></code> | <code>aws-cdk-lib.custom_resources.Provider</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -2836,7 +2836,7 @@ The tree node.
 
 ---
 
-##### `onEvent`<sup>Required</sup> <a name="onEvent" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.onEvent"></a>
+##### `onEvent`<sup>Required</sup> <a name="onEvent" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.onEvent"></a>
 
 ```typescript
 public readonly onEvent: IFunction;
@@ -2846,7 +2846,7 @@ public readonly onEvent: IFunction;
 
 ---
 
-##### `provider`<sup>Required</sup> <a name="provider" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.provider"></a>
+##### `provider`<sup>Required</sup> <a name="provider" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.provider"></a>
 
 ```typescript
 public readonly provider: Provider;
@@ -2856,7 +2856,7 @@ public readonly provider: Provider;
 
 ---
 
-##### `role`<sup>Required</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResources.property.role"></a>
+##### `role`<sup>Required</sup> <a name="role" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.role"></a>
 
 ```typescript
 public readonly role: IRole;
@@ -2928,7 +2928,7 @@ Returns a string representation of this construct.
 ##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getAtt"></a>
 
 ```typescript
-public getAtt(name: string): IResolvable
+public getAtt(name: string): Reference
 ```
 
 ###### `name`<sup>Required</sup> <a name="name" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getAtt.parameter.name"></a>
@@ -2995,7 +2995,7 @@ Any object.
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.resource">resource</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.resource">resource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
 
 ---
 
@@ -3027,7 +3027,7 @@ public readonly lambdaFunction: IFunction;
 public readonly resource: LambdaCustomResource;
 ```
 
-- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResource
+- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource
 
 ---
 
@@ -3914,7 +3914,7 @@ Returns a string representation of this construct.
 ##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAtt"></a>
 
 ```typescript
-public getAtt(attributeName: string): IResolvable
+public getAtt(attributeName: string): Reference
 ```
 
 Returns a top-level JSON key from the file.
@@ -3982,7 +3982,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.resource">resource</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.resource">resource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
 
 ---
 
@@ -4004,7 +4004,7 @@ The tree node.
 public readonly resource: LambdaCustomResource;
 ```
 
-- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResource
+- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource
 
 ---
 
@@ -4075,7 +4075,7 @@ Returns a string representation of this construct.
 ##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.S3FileReader.getAtt"></a>
 
 ```typescript
-public getAtt(attributeName: string): IResolvable
+public getAtt(attributeName: string): Reference
 ```
 
 Returns a top-level JSON key from the file.
@@ -4143,7 +4143,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.resource">resource</a></code> | <code>@michanto/cdk-orchestration.orchestration.LambdaCustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.resource">resource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
 
 ---
 
@@ -4165,7 +4165,7 @@ The tree node.
 public readonly resource: LambdaCustomResource;
 ```
 
-- *Type:* @michanto/cdk-orchestration.orchestration.LambdaCustomResource
+- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource
 
 ---
 
@@ -6881,6 +6881,43 @@ or {@link ConstructService.searchSelfOrCreate}.
 
 ---
 
+### CustomResourceHandlerProps <a name="CustomResourceHandlerProps" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps"></a>
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps.Initializer"></a>
+
+```typescript
+import { custom_resources } from '@michanto/cdk-orchestration'
+
+const customResourceHandlerProps: custom_resources.CustomResourceHandlerProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps.property.autoPaginate">autoPaginate</a></code> | <code>boolean</code> | If true we will auto-paginate the response for as many pages as there are. |
+
+---
+
+##### `autoPaginate`<sup>Optional</sup> <a name="autoPaginate" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps.property.autoPaginate"></a>
+
+```typescript
+public readonly autoPaginate: boolean;
+```
+
+- *Type:* boolean
+
+If true we will auto-paginate the response for as many pages as there are.
+
+Auto-paginate feature relies on the existance of a NextToken in
+the response.  All array fields in the response will be appended to,
+which may or may not be the desired result.  No per-API logic has been
+implemented.
+
+Default is false.
+
+---
+
 ### ImportTemplateProps <a name="ImportTemplateProps" id="@michanto/cdk-orchestration.cloudformation_include.ImportTemplateProps"></a>
 
 #### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.cloudformation_include.ImportTemplateProps.Initializer"></a>
@@ -7745,42 +7782,42 @@ supported.
 
 ---
 
-### LambdaCustomResourceProps <a name="LambdaCustomResourceProps" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps"></a>
+### LambdaCustomResourceProps <a name="LambdaCustomResourceProps" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps"></a>
 
 Properties for LambdaCustomResource.
 
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.Initializer"></a>
 
 ```typescript
-import { orchestration } from '@michanto/cdk-orchestration'
+import { custom_resources } from '@michanto/cdk-orchestration'
 
-const lambdaCustomResourceProps: orchestration.LambdaCustomResourceProps = { ... }
+const lambdaCustomResourceProps: custom_resources.LambdaCustomResourceProps = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.functionName">functionName</a></code> | <code>string</code> | A name for the singleton Lambda function implementing this custom resource. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.installLatestAwsSdk">installLatestAwsSdk</a></code> | <code>boolean</code> | Whether to install the latest AWS SDK v2. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.logRetention">logRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | The number of days log events of the singleton Lambda function implementing this custom resource are kept in CloudWatch Logs. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.onCreate">onCreate</a></code> | <code>aws-cdk-lib.custom_resources.AwsSdkCall</code> | The AWS SDK call to make when the resource is created. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.onDelete">onDelete</a></code> | <code>aws-cdk-lib.custom_resources.AwsSdkCall</code> | The AWS SDK call to make when the resource is deleted. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.onUpdate">onUpdate</a></code> | <code>aws-cdk-lib.custom_resources.AwsSdkCall</code> | The AWS SDK call to make when the resource is updated. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.policy">policy</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResourcePolicy</code> | The policy that will be added to the execution role of the Lambda function implementing this custom resource provider. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.removalPolicy">removalPolicy</a></code> | <code>aws-cdk-lib.RemovalPolicy</code> | The policy to apply when this resource is removed from the application. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.resourceType">resourceType</a></code> | <code>string</code> | Cloudformation Resource type. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The execution role for the singleton Lambda function implementing this custom resource provider. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The timeout for the singleton Lambda function implementing this custom resource. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The vpc to provision the lambda function in. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | Which subnets from the VPC to place the lambda function in. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the underlying API fails to return expected values. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.responseBufferField">responseBufferField</a></code> | <code>string</code> | Specifies a field in the API response that should be deserlized, such as Payload when calling lambda:Invoke, or Body when calling s3:GetObject. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.runAlways">runAlways</a></code> | <code>boolean</code> | Whether to run the lambda every time the stack is updated. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.functionName">functionName</a></code> | <code>string</code> | A name for the singleton Lambda function implementing this custom resource. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.installLatestAwsSdk">installLatestAwsSdk</a></code> | <code>boolean</code> | Whether to install the latest AWS SDK v2. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.logRetention">logRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | The number of days log events of the singleton Lambda function implementing this custom resource are kept in CloudWatch Logs. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.onCreate">onCreate</a></code> | <code>aws-cdk-lib.custom_resources.AwsSdkCall</code> | The AWS SDK call to make when the resource is created. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.onDelete">onDelete</a></code> | <code>aws-cdk-lib.custom_resources.AwsSdkCall</code> | The AWS SDK call to make when the resource is deleted. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.onUpdate">onUpdate</a></code> | <code>aws-cdk-lib.custom_resources.AwsSdkCall</code> | The AWS SDK call to make when the resource is updated. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.policy">policy</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResourcePolicy</code> | The policy that will be added to the execution role of the Lambda function implementing this custom resource provider. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.removalPolicy">removalPolicy</a></code> | <code>aws-cdk-lib.RemovalPolicy</code> | The policy to apply when this resource is removed from the application. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.resourceType">resourceType</a></code> | <code>string</code> | Cloudformation Resource type. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The execution role for the singleton Lambda function implementing this custom resource provider. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The timeout for the singleton Lambda function implementing this custom resource. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The vpc to provision the lambda function in. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | Which subnets from the VPC to place the lambda function in. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the underlying API fails to return expected values. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.responseBufferField">responseBufferField</a></code> | <code>string</code> | Specifies a field in the API response that should be deserlized, such as Payload when calling lambda:Invoke, or Body when calling s3:GetObject. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.runAlways">runAlways</a></code> | <code>boolean</code> | Whether to run the lambda every time the stack is updated. |
 
 ---
 
-##### `functionName`<sup>Optional</sup> <a name="functionName" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.functionName"></a>
+##### `functionName`<sup>Optional</sup> <a name="functionName" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.functionName"></a>
 
 ```typescript
 public readonly functionName: string;
@@ -7795,7 +7832,7 @@ The function name will remain the same after the first AwsCustomResource is crea
 
 ---
 
-##### `installLatestAwsSdk`<sup>Optional</sup> <a name="installLatestAwsSdk" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.installLatestAwsSdk"></a>
+##### `installLatestAwsSdk`<sup>Optional</sup> <a name="installLatestAwsSdk" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.installLatestAwsSdk"></a>
 
 ```typescript
 public readonly installLatestAwsSdk: boolean;
@@ -7817,7 +7854,7 @@ The default can be controlled using the context key
 
 ---
 
-##### `logRetention`<sup>Optional</sup> <a name="logRetention" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.logRetention"></a>
+##### `logRetention`<sup>Optional</sup> <a name="logRetention" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.logRetention"></a>
 
 ```typescript
 public readonly logRetention: RetentionDays;
@@ -7830,7 +7867,7 @@ The number of days log events of the singleton Lambda function implementing this
 
 ---
 
-##### `onCreate`<sup>Optional</sup> <a name="onCreate" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.onCreate"></a>
+##### `onCreate`<sup>Optional</sup> <a name="onCreate" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.onCreate"></a>
 
 ```typescript
 public readonly onCreate: AwsSdkCall;
@@ -7843,7 +7880,7 @@ The AWS SDK call to make when the resource is created.
 
 ---
 
-##### `onDelete`<sup>Optional</sup> <a name="onDelete" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.onDelete"></a>
+##### `onDelete`<sup>Optional</sup> <a name="onDelete" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.onDelete"></a>
 
 ```typescript
 public readonly onDelete: AwsSdkCall;
@@ -7856,7 +7893,7 @@ The AWS SDK call to make when the resource is deleted.
 
 ---
 
-##### `onUpdate`<sup>Optional</sup> <a name="onUpdate" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.onUpdate"></a>
+##### `onUpdate`<sup>Optional</sup> <a name="onUpdate" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.onUpdate"></a>
 
 ```typescript
 public readonly onUpdate: AwsSdkCall;
@@ -7869,7 +7906,7 @@ The AWS SDK call to make when the resource is updated.
 
 ---
 
-##### `policy`<sup>Optional</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.policy"></a>
+##### `policy`<sup>Optional</sup> <a name="policy" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.policy"></a>
 
 ```typescript
 public readonly policy: AwsCustomResourcePolicy;
@@ -7895,7 +7932,7 @@ resources.
 
 ---
 
-##### `removalPolicy`<sup>Optional</sup> <a name="removalPolicy" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.removalPolicy"></a>
+##### `removalPolicy`<sup>Optional</sup> <a name="removalPolicy" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.removalPolicy"></a>
 
 ```typescript
 public readonly removalPolicy: RemovalPolicy;
@@ -7908,7 +7945,7 @@ The policy to apply when this resource is removed from the application.
 
 ---
 
-##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.resourceType"></a>
+##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.resourceType"></a>
 
 ```typescript
 public readonly resourceType: string;
@@ -7921,7 +7958,7 @@ Cloudformation Resource type.
 
 ---
 
-##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.role"></a>
+##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.role"></a>
 
 ```typescript
 public readonly role: IRole;
@@ -7938,7 +7975,7 @@ instances in the stack. The role must be assumable by the
 
 ---
 
-##### `timeout`<sup>Optional</sup> <a name="timeout" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.timeout"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.timeout"></a>
 
 ```typescript
 public readonly timeout: Duration;
@@ -7951,7 +7988,7 @@ The timeout for the singleton Lambda function implementing this custom resource.
 
 ---
 
-##### `vpc`<sup>Optional</sup> <a name="vpc" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.vpc"></a>
+##### `vpc`<sup>Optional</sup> <a name="vpc" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.vpc"></a>
 
 ```typescript
 public readonly vpc: IVpc;
@@ -7964,7 +8001,7 @@ The vpc to provision the lambda function in.
 
 ---
 
-##### `vpcSubnets`<sup>Optional</sup> <a name="vpcSubnets" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.vpcSubnets"></a>
+##### `vpcSubnets`<sup>Optional</sup> <a name="vpcSubnets" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.vpcSubnets"></a>
 
 ```typescript
 public readonly vpcSubnets: SubnetSelection;
@@ -7980,7 +8017,7 @@ requires a NAT gateway, so picking Public subnets is not allowed.
 
 ---
 
-##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.defaults"></a>
+##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.defaults"></a>
 
 ```typescript
 public readonly defaults: {[ key: string ]: string};
@@ -7992,7 +8029,7 @@ Default attribute values to use when the underlying API fails to return expected
 
 ---
 
-##### `responseBufferField`<sup>Optional</sup> <a name="responseBufferField" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.responseBufferField"></a>
+##### `responseBufferField`<sup>Optional</sup> <a name="responseBufferField" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.responseBufferField"></a>
 
 ```typescript
 public readonly responseBufferField: string;
@@ -8004,7 +8041,7 @@ Specifies a field in the API response that should be deserlized, such as Payload
 
 ---
 
-##### `runAlways`<sup>Optional</sup> <a name="runAlways" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceProps.property.runAlways"></a>
+##### `runAlways`<sup>Optional</sup> <a name="runAlways" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.runAlways"></a>
 
 ```typescript
 public readonly runAlways: boolean;
@@ -8016,29 +8053,29 @@ Whether to run the lambda every time the stack is updated.
 
 ---
 
-### LambdaCustomResourceResourcesProps <a name="LambdaCustomResourceResourcesProps" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps"></a>
+### LambdaCustomResourceResourcesProps <a name="LambdaCustomResourceResourcesProps" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps"></a>
 
 Props for LambdaCustomResourceResources.
 
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.Initializer"></a>
 
 ```typescript
-import { orchestration } from '@michanto/cdk-orchestration'
+import { custom_resources } from '@michanto/cdk-orchestration'
 
-const lambdaCustomResourceResourcesProps: orchestration.LambdaCustomResourceResourcesProps = { ... }
+const lambdaCustomResourceResourcesProps: custom_resources.LambdaCustomResourceResourcesProps = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
 
 ---
 
-##### `purpose`<sup>Required</sup> <a name="purpose" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.property.purpose"></a>
+##### `purpose`<sup>Required</sup> <a name="purpose" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.purpose"></a>
 
 ```typescript
 public readonly purpose: string;
@@ -8048,7 +8085,7 @@ public readonly purpose: string;
 
 ---
 
-##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.property.role"></a>
+##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.role"></a>
 
 ```typescript
 public readonly role: IRole;
@@ -8058,7 +8095,7 @@ public readonly role: IRole;
 
 ---
 
-##### `timeout`<sup>Optional</sup> <a name="timeout" id="@michanto/cdk-orchestration.orchestration.LambdaCustomResourceResourcesProps.property.timeout"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.timeout"></a>
 
 ```typescript
 public readonly timeout: Duration;
@@ -11269,6 +11306,169 @@ public readonly treeServiceProps: ConstructTreeServiceProps;
 ```
 
 - *Type:* <a href="#@michanto/cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a>
+
+---
+
+
+### CustomResourceHandler <a name="CustomResourceHandler" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler"></a>
+
+Class to create AwsCustomResource based handlers.
+
+Copies the functionality of AwsCustomResource and
+adds the following features:
+- Default values for attributes.
+- ResponseBufferField for deserlializing streamed return values.
+
+Most of this code was copied from the CDK here:
+
+https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/custom-resource-handlers/lib/custom-resources/aws-custom-resource-handler/aws-sdk-v3-handler.ts
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.Initializer"></a>
+
+```typescript
+import { custom_resources } from '@michanto/cdk-orchestration'
+
+new custom_resources.CustomResourceHandler(props?: CustomResourceHandlerProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps</code> | *No description.* |
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.decodeProperties">decodeProperties</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.filter">filter</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.flatten">flatten</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getCall">getCall</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getPhysicalResourceId">getPhysicalResourceId</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getResponse">getResponse</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.handle">handle</a></code> | *No description.* |
+
+---
+
+##### `decodeProperties` <a name="decodeProperties" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.decodeProperties"></a>
+
+```typescript
+public decodeProperties(event: any): any
+```
+
+###### `event`<sup>Required</sup> <a name="event" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.decodeProperties.parameter.event"></a>
+
+- *Type:* any
+
+---
+
+##### `filter` <a name="filter" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.filter"></a>
+
+```typescript
+public filter(call: any, flattened: any): {[ key: string ]: string}
+```
+
+###### `call`<sup>Required</sup> <a name="call" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.filter.parameter.call"></a>
+
+- *Type:* any
+
+---
+
+###### `flattened`<sup>Required</sup> <a name="flattened" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.filter.parameter.flattened"></a>
+
+- *Type:* any
+
+---
+
+##### `flatten` <a name="flatten" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.flatten"></a>
+
+```typescript
+public flatten(response: any): {[ key: string ]: any}
+```
+
+###### `response`<sup>Required</sup> <a name="response" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.flatten.parameter.response"></a>
+
+- *Type:* any
+
+---
+
+##### `getCall` <a name="getCall" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getCall"></a>
+
+```typescript
+public getCall(event: any): any
+```
+
+###### `event`<sup>Required</sup> <a name="event" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getCall.parameter.event"></a>
+
+- *Type:* any
+
+---
+
+##### `getPhysicalResourceId` <a name="getPhysicalResourceId" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getPhysicalResourceId"></a>
+
+```typescript
+public getPhysicalResourceId(event: any): string
+```
+
+###### `event`<sup>Required</sup> <a name="event" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getPhysicalResourceId.parameter.event"></a>
+
+- *Type:* any
+
+---
+
+##### `getResponse` <a name="getResponse" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getResponse"></a>
+
+```typescript
+public getResponse(call: any): {[ key: string ]: any}
+```
+
+###### `call`<sup>Required</sup> <a name="call" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getResponse.parameter.call"></a>
+
+- *Type:* any
+
+---
+
+##### `handle` <a name="handle" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.handle"></a>
+
+```typescript
+public handle(event: any, context: any): any
+```
+
+###### `event`<sup>Required</sup> <a name="event" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.handle.parameter.event"></a>
+
+- *Type:* any
+
+---
+
+###### `context`<sup>Required</sup> <a name="context" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.handle.parameter.context"></a>
+
+- *Type:* any
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.property.props">props</a></code> | <code>@michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps</code> | *No description.* |
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.property.props"></a>
+
+```typescript
+public readonly props: CustomResourceHandlerProps;
+```
+
+- *Type:* @michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps
 
 ---
 

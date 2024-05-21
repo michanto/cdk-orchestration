@@ -95,4 +95,15 @@ project.addTask('integ:update', {
   receiveArgs: true,
 });
 
+const packageJson = project.tryFindObjectFile('package.json');
+
+// Use dot notation to address inside the object
+packageJson?.addOverride('jest.coveragePathIgnorePatterns',
+  [
+    '/node_modules/',
+    '/from_cdk/',
+  ],
+);
+packageJson?.addOverride('scripts.test', 'npx jest');
+
 project.synth();

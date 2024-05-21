@@ -1,4 +1,4 @@
-import { CfnResource, CustomResource, Duration, Fn, Lazy, Reference } from 'aws-cdk-lib';
+import { CustomResource, Duration, Lazy, Reference } from 'aws-cdk-lib';
 import { IRole, ManagedPolicy, Policy, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Code, IFunction, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { AwsCustomResourceProps, AwsCustomResource, AwsSdkCall, Provider } from 'aws-cdk-lib/custom-resources';
@@ -141,8 +141,7 @@ export class LambdaCustomResource extends Construct {
         return super.getAtt(attributeName);
       }
       getAttString(attributeName: string): string {
-        theThis.requestedOutputs.push(attributeName);
-        return super.getAttString(attributeName);
+        return this.getAtt(attributeName).toString();
       }
     }(this, 'Resource', {
       serviceToken: this.resources.provider.serviceToken,
@@ -156,10 +155,6 @@ export class LambdaCustomResource extends Construct {
     this.createPolicy(props);
 
     new EncodeResource(this.customResource);
-  }
-
-  protected get cfnResource() {
-    return this.customResource.node.tryFindChild('Default') as CfnResource;
   }
 
   protected createResources(props: LambdaCustomResourceResourcesProps): LambdaCustomResourceResources {
@@ -216,8 +211,7 @@ export class LambdaCustomResource extends Construct {
    * @returns An IResolvable for the resource attribute.
    */
   getAtt(attributeName: string) {
-    this.requestedOutputs.push(attributeName);
-    return Fn.getAtt(this.cfnResource.logicalId, attributeName);
+    return this.customResource.getAtt(attributeName);
   }
 
   getAttString(attributeName: string) {

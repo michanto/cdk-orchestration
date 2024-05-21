@@ -43,6 +43,7 @@ export class S3FileMetadata extends Construct {
       resourceType: `Custom::${props.purpose}`,
       onCreate: onCreate,
       onUpdate: onCreate,
+      defaults: props.defaults,
       policy: AwsCustomResourcePolicy.fromStatements([
         new PolicyStatement({
           actions: ['s3:HeadObject', 's3:ListObjects', 's3:GetObject'],

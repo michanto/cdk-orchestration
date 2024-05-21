@@ -52,6 +52,7 @@ export class S3FileReader extends Construct {
       resourceType: `Custom::${props.purpose}`,
       onCreate: onCreate,
       onUpdate: onCreate,
+      defaults: props.defaults,
       responseBufferField: 'Body',
       policy: AwsCustomResourcePolicy.fromStatements([
         new PolicyStatement({
