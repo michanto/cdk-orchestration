@@ -1,17 +1,21 @@
-import { ExpectedResult, IntegTest, Match } from '@aws-cdk/integ-tests-alpha';
-import { App, Aspects, CfnOutput, Stack } from 'aws-cdk-lib';
+import { ActualResult, ExpectedResult, IntegTest, Match } from '@aws-cdk/integ-tests-alpha';
+import { App, Aspects, Stack } from 'aws-cdk-lib';
 import { Effect } from 'aws-cdk-lib/aws-iam';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
 import { Logger, LoggingAspect } from '../../src/core';
 import { S3FileMetadata, S3FileReader, S3FileResource } from '../../src/orchestration';
+import { EqualsComparisonAssertion } from '../util/assertions';
 
 export const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
 const app = new App();
-const stack = new Stack(app, 'S3ResourcesInteg', {});
-Logger.set(stack, new Logger());
-Aspects.of(stack).add(new LoggingAspect());
+const stack = new Stack(app, 'S3ResourcesInteg', {stackName: 'S3ResourcesInteg'});
+const assertionStack = new Stack(app, 'S3ResourcesAssertions', {});
+
+Logger.set(app, new Logger());
+Aspects.of(app).add(new LoggingAspect());
+
 let bucket = new Bucket(stack, 'MyBucket');
 let key = 'foo/bar/baz.json';
 let writer = new S3FileResource(stack, 'Writer', {
@@ -42,29 +46,20 @@ let metadata = new S3FileMetadata(stack, 'MdReader', {
 });
 metadata.node.addDependency(writer);
 
-let output1 = new CfnOutput(stack, 'AnOutput', {
-  exportName: 'ReaderExport',
-  value: reader.getAttString('Some'),
-});
-let output2 = new CfnOutput(stack, 'AnOutput2', {
-  exportName: 'MetadataExport',
-  value: metadata.getAttString('Metadata.mymetadata'),
-});
-output2.node.addDependency(output1);
-/*
-new EqualsAssertion(stack, "ContentsAreEqual", {
-  actual: ActualResult.fromCustomResource(reader.resource.resource, "Some"),
+new EqualsComparisonAssertion(assertionStack, "ContentsAreEqual", {
+  actual: ActualResult.fromCustomResource(reader.resource.customResource, "Some"),
   expected: ExpectedResult.exact("Data")
 })
-new EqualsAssertion(stack, "MetadataAreEqual", {
-  actual: ActualResult.fromCustomResource(metadata.resource.resource, "Metadata.MyMetadata"),
+new EqualsComparisonAssertion(assertionStack, "MetadataAreEqual", {
+  actual: ActualResult.fromCustomResource(metadata.resource.customResource, "Metadata.mymetadata"),
   expected: ExpectedResult.exact("Michael")
-}) */
+})
 
 let integ = new IntegTest(app, 'S3FileResourcesTest', {
   testCases: [
     stack,
   ],
+  assertionStack: assertionStack,
   cdkCommandOptions: {
     destroy: {
       args: {
@@ -77,16 +72,7 @@ let integ = new IntegTest(app, 'S3FileResourcesTest', {
 
 integ.assertions.awsApiCall('CloudFormation', 'listExports', {
 }).expect(ExpectedResult.objectLike({
-  Exports: Match.arrayWith([Match.objectLike({}),
-    {
-      ExportingStackId: Match.stringLikeRegexp('.*'),
-      Name: 'MetadataExport',
-      Value: 'Michael',
-    }, {
-      ExportingStackId: Match.stringLikeRegexp('.*'),
-      Name: 'ReaderExport',
-      Value: 'Data',
-    }]),
+  Exports: Match.arrayWith([Match.objectLike({})]),
 },
 )).provider.addToRolePolicy({
   Effect: Effect.ALLOW,

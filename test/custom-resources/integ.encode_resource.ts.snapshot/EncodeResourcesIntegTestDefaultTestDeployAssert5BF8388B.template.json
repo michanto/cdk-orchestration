@@ -14,7 +14,7 @@
     "expected": "{\"$ObjectLike\":{\"Exports\":{\"$ArrayWith\":[{\"$ObjectLike\":{}},{\"ExportingStackId\":{\"$StringLike\":\".*\"},\"Name\":\"GreetingExport\",\"Value\":\"ereht ,olleH\"}]}}}",
     "parameters": {},
     "flattenResponse": "false",
-    "salt": "1716157047982"
+    "salt": "1716416512589"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"

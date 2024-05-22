@@ -28,7 +28,7 @@
      "Payload": "\"{\\\"Greeting\\\":\\\"Hello, inline nodejs function!\\\"}\""
     },
     "flattenResponse": "false",
-    "salt": "1716157218520"
+    "salt": "1716416690617"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"

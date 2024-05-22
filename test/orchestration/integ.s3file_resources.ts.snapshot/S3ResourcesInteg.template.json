@@ -51,7 +51,7 @@
      ]
     },
     "InstallLatestAwsSdk": false,
-    "salt": 1716396757507
+    "salt": 1716416931084
    },
    "DependsOn": [
     "WriterCustomResourcePolicy72926270"
@@ -185,7 +185,7 @@
         {
          "Ref": "MyBucketF68F3FF0"
         },
-        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"ResponseBufferField\":\"Body\",\"RequestedOutputs\":[\"Some\"],\"salt\":1716396757507}"
+        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"ResponseBufferField\":\"Body\",\"RequestedOutputs\":[\"Some\"],\"salt\":1716416931084}"
        ]
       ]
      }
@@ -299,7 +299,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "554a13b036c88c01c500466c3b387095b02aa8422ee7bb3fb1552dbe24ca9ca6.zip"
+     "S3Key": "bb4acc28699b92231855ea05193fbb17a2fe62445f61983472fc49e74a237347.zip"
     },
     "Environment": {
      "Variables": {
@@ -451,7 +451,7 @@
         {
          "Ref": "MyBucketF68F3FF0"
         },
-        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"RequestedOutputs\":[\"Metadata.mymetadata\"],\"salt\":1716396757507}"
+        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"RequestedOutputs\":[\"Metadata.mymetadata\"],\"salt\":1716416931084}"
        ]
       ]
      }
@@ -517,7 +517,7 @@
   }
  },
  "Outputs": {
-  "AnOutput": {
+  "ExportsOutputFnGetAttReaderC968FCB1Some184BF997": {
    "Value": {
     "Fn::GetAtt": [
      "ReaderC968FCB1",
@@ -525,10 +525,10 @@
     ]
    },
    "Export": {
-    "Name": "ReaderExport"
+    "Name": "S3ResourcesInteg:ExportsOutputFnGetAttReaderC968FCB1Some184BF997"
    }
   },
-  "AnOutput2": {
+  "ExportsOutputFnGetAttMdReader891AE0B9MetadatamymetadataE62E86E6": {
    "Value": {
     "Fn::GetAtt": [
      "MdReader891AE0B9",
@@ -536,7 +536,7 @@
     ]
    },
    "Export": {
-    "Name": "MetadataExport"
+    "Name": "S3ResourcesInteg:ExportsOutputFnGetAttMdReader891AE0B9MetadatamymetadataE62E86E6"
    }
   }
  },

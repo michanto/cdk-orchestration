@@ -528,7 +528,7 @@
                           "s3Bucket": {
                             "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                           },
-                          "s3Key": "554a13b036c88c01c500466c3b387095b02aa8422ee7bb3fb1552dbe24ca9ca6.zip"
+                          "s3Key": "bb4acc28699b92231855ea05193fbb17a2fe62445f61983472fc49e74a237347.zip"
                         },
                         "environment": {
                           "variables": {
@@ -908,20 +908,30 @@
               "version": "10.3.0"
             }
           },
-          "AnOutput": {
-            "id": "AnOutput",
-            "path": "S3ResourcesInteg/AnOutput",
+          "Exports": {
+            "id": "Exports",
+            "path": "S3ResourcesInteg/Exports",
+            "children": {
+              "Output{\"Fn::GetAtt\":[\"ReaderC968FCB1\",\"Some\"]}": {
+                "id": "Output{\"Fn::GetAtt\":[\"ReaderC968FCB1\",\"Some\"]}",
+                "path": "S3ResourcesInteg/Exports/Output{\"Fn::GetAtt\":[\"ReaderC968FCB1\",\"Some\"]}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.120.0"
+                }
+              },
+              "Output{\"Fn::GetAtt\":[\"MdReader891AE0B9\",\"Metadata.mymetadata\"]}": {
+                "id": "Output{\"Fn::GetAtt\":[\"MdReader891AE0B9\",\"Metadata.mymetadata\"]}",
+                "path": "S3ResourcesInteg/Exports/Output{\"Fn::GetAtt\":[\"MdReader891AE0B9\",\"Metadata.mymetadata\"]}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.120.0"
+                }
+              }
+            },
             "constructInfo": {
-              "fqn": "aws-cdk-lib.CfnOutput",
-              "version": "2.120.0"
-            }
-          },
-          "AnOutput2": {
-            "id": "AnOutput2",
-            "path": "S3ResourcesInteg/AnOutput2",
-            "constructInfo": {
-              "fqn": "aws-cdk-lib.CfnOutput",
-              "version": "2.120.0"
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
             }
           },
           "BootstrapVersion": {
@@ -935,6 +945,817 @@
           "CheckBootstrapVersion": {
             "id": "CheckBootstrapVersion",
             "path": "S3ResourcesInteg/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.120.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.120.0"
+        }
+      },
+      "S3ResourcesAssertions": {
+        "id": "S3ResourcesAssertions",
+        "path": "S3ResourcesAssertions",
+        "children": {
+          "ContentsAreEqual": {
+            "id": "ContentsAreEqual",
+            "path": "S3ResourcesAssertions/ContentsAreEqual",
+            "children": {
+              "Task": {
+                "id": "Task",
+                "path": "S3ResourcesAssertions/ContentsAreEqual/Task",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "S3ResourcesAssertions/ContentsAreEqual/Task/Resource",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "S3ResourcesAssertions/ContentsAreEqual/Task/Resource/Resource",
+                        "children": {
+                          "Default": {
+                            "id": "Default",
+                            "path": "S3ResourcesAssertions/ContentsAreEqual/Task/Resource/Resource/Default",
+                            "children": {
+                              "EncodeResourceShim0": {
+                                "id": "EncodeResourceShim0",
+                                "path": "S3ResourcesAssertions/ContentsAreEqual/Task/Resource/Resource/Default/EncodeResourceShim0",
+                                "attributes": {
+                                  "CfnTransformShim.transformPath": "S3ResourcesAssertions/ContentsAreEqual/Task/Resource/Resource/EncodeResource"
+                                },
+                                "constructInfo": {
+                                  "fqn": "constructs.Construct",
+                                  "version": "10.3.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.CfnResource",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "EncodeResource": {
+                            "id": "EncodeResource",
+                            "path": "S3ResourcesAssertions/ContentsAreEqual/Task/Resource/Resource/EncodeResource",
+                            "attributes": {
+                              "TransformBase.cfnTransformPath": "S3ResourcesAssertions/ContentsAreEqual/Task/Resource/Resource/Default/EncodeResourceShim0"
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CustomResource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "RunResourceAlways": {
+                        "id": "RunResourceAlways",
+                        "path": "S3ResourcesAssertions/ContentsAreEqual/Task/Resource/RunResourceAlways",
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      },
+                      "CustomResourcePolicy": {
+                        "id": "CustomResourcePolicy",
+                        "path": "S3ResourcesAssertions/ContentsAreEqual/Task/Resource/CustomResourcePolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "S3ResourcesAssertions/ContentsAreEqual/Task/Resource/CustomResourcePolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "lambda:Invoke",
+                                      "Effect": "Allow",
+                                      "Resource": "*"
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "ContentsAreEqualTaskCustomResourcePolicyDD806DC2",
+                                "roles": [
+                                  {
+                                    "Ref": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "EqualsComparisonResources": {
+            "id": "EqualsComparisonResources",
+            "path": "S3ResourcesAssertions/EqualsComparisonResources",
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "EqualsFunction": {
+            "id": "EqualsFunction",
+            "path": "S3ResourcesAssertions/EqualsFunction",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "S3ResourcesAssertions/EqualsFunction/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "S3ResourcesAssertions/EqualsFunction/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "S3ResourcesAssertions/EqualsFunction/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.120.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "S3ResourcesAssertions/EqualsFunction/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "zipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.equalsComparison = void 0;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\n\nasync function equalsComparison(event, context) {\nlog({ Event: event });\nlog({ Context: context });\nlet expected = JSON.parse(event.expected.result)?.['$Exact'];\nif (!expected) {\nthrow new Error('Did not get an expected.');\n}\nlet actual = event.actual.result;\nif (!actual) {\nthrow new Error('Did not get an actual.');\n}\nif (expected != actual) {\nthrow new Error(`Expected ${expected}, got ${actual}.`);\n}\n}\nexports.equalsComparison = equalsComparison;"
+                    },
+                    "environment": {
+                      "variables": {
+                        "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+                        "LogLevel": "18446744073709552000"
+                      }
+                    },
+                    "handler": "index.equalsComparison",
+                    "role": {
+                      "Fn::GetAtt": [
+                        "EqualsFunctionServiceRole1952C691",
+                        "Arn"
+                      ]
+                    },
+                    "runtime": "nodejs18.x"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "attributes": {
+              "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-HOQHV9/effdb475-equals_comparison.js"
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.120.0"
+            }
+          },
+          "CDKORCHCUSTOMRESOURCE::Resources": {
+            "id": "CDKORCHCUSTOMRESOURCE::Resources",
+            "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources",
+            "children": {
+              "CDKORCHCUSTOMRESOURCERole": {
+                "id": "CDKORCHCUSTOMRESOURCERole",
+                "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCERole",
+                "children": {
+                  "ImportCDKORCHCUSTOMRESOURCERole": {
+                    "id": "ImportCDKORCHCUSTOMRESOURCERole",
+                    "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCERole/ImportCDKORCHCUSTOMRESOURCERole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCERole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          },
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.120.0"
+                }
+              },
+              "CDKORCHCUSTOMRESOURCEOnEvent": {
+                "id": "CDKORCHCUSTOMRESOURCEOnEvent",
+                "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEOnEvent",
+                "children": {
+                  "Code": {
+                    "id": "Code",
+                    "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEOnEvent/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEOnEvent/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEOnEvent/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEOnEvent/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "s3Bucket": {
+                            "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                          },
+                          "s3Key": "bb4acc28699b92231855ea05193fbb17a2fe62445f61983472fc49e74a237347.zip"
+                        },
+                        "environment": {
+                          "variables": {
+                            "LogLevel": "18446744073709552000"
+                          }
+                        },
+                        "handler": "index.handler",
+                        "role": {
+                          "Fn::GetAtt": [
+                            "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2",
+                            "Arn"
+                          ]
+                        },
+                        "runtime": "nodejs20.x",
+                        "timeout": 120
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.120.0"
+                }
+              },
+              "CDKORCHCUSTOMRESOURCEProvider": {
+                "id": "CDKORCHCUSTOMRESOURCEProvider",
+                "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider",
+                "children": {
+                  "framework-onEvent": {
+                    "id": "framework-onEvent",
+                    "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent",
+                    "children": {
+                      "ServiceRole": {
+                        "id": "ServiceRole",
+                        "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/ServiceRole",
+                        "children": {
+                          "ImportServiceRole": {
+                            "id": "ImportServiceRole",
+                            "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/ServiceRole/ImportServiceRole",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.Resource",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/ServiceRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "lambda.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "managedPolicyArns": [
+                                  {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                      ]
+                                    ]
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "DefaultPolicy": {
+                            "id": "DefaultPolicy",
+                            "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/ServiceRole/DefaultPolicy",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/ServiceRole/DefaultPolicy/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "policyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": "lambda:InvokeFunction",
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEOnEventB60C9E76",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEOnEventB60C9E76",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  ":*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    },
+                                    "policyName": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleDefaultPolicy9B953B1F",
+                                    "roles": [
+                                      {
+                                        "Ref": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleCBAF3CDB"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                                  "version": "2.120.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.Policy",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Role",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Code": {
+                        "id": "Code",
+                        "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/Code",
+                        "children": {
+                          "Stage": {
+                            "id": "Stage",
+                            "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/Code/Stage",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.AssetStaging",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "AssetBucket": {
+                            "id": "AssetBucket",
+                            "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/Code/AssetBucket",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                          "aws:cdk:cloudformation:props": {
+                            "code": {
+                              "s3Bucket": {
+                                "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                              },
+                              "s3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+                            },
+                            "description": "AWS CDK resource provider framework - onEvent (S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider)",
+                            "environment": {
+                              "variables": {
+                                "USER_ON_EVENT_FUNCTION_ARN": {
+                                  "Fn::GetAtt": [
+                                    "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEOnEventB60C9E76",
+                                    "Arn"
+                                  ]
+                                },
+                                "LogLevel": "18446744073709552000"
+                              }
+                            },
+                            "handler": "framework.onEvent",
+                            "role": {
+                              "Fn::GetAtt": [
+                                "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleCBAF3CDB",
+                                "Arn"
+                              ]
+                            },
+                            "runtime": "nodejs18.x",
+                            "timeout": 900
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.Function",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.custom_resources.Provider",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "MetadataAreEqual": {
+            "id": "MetadataAreEqual",
+            "path": "S3ResourcesAssertions/MetadataAreEqual",
+            "children": {
+              "Task": {
+                "id": "Task",
+                "path": "S3ResourcesAssertions/MetadataAreEqual/Task",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "S3ResourcesAssertions/MetadataAreEqual/Task/Resource",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "S3ResourcesAssertions/MetadataAreEqual/Task/Resource/Resource",
+                        "children": {
+                          "Default": {
+                            "id": "Default",
+                            "path": "S3ResourcesAssertions/MetadataAreEqual/Task/Resource/Resource/Default",
+                            "children": {
+                              "EncodeResourceShim0": {
+                                "id": "EncodeResourceShim0",
+                                "path": "S3ResourcesAssertions/MetadataAreEqual/Task/Resource/Resource/Default/EncodeResourceShim0",
+                                "attributes": {
+                                  "CfnTransformShim.transformPath": "S3ResourcesAssertions/MetadataAreEqual/Task/Resource/Resource/EncodeResource"
+                                },
+                                "constructInfo": {
+                                  "fqn": "constructs.Construct",
+                                  "version": "10.3.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.CfnResource",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "EncodeResource": {
+                            "id": "EncodeResource",
+                            "path": "S3ResourcesAssertions/MetadataAreEqual/Task/Resource/Resource/EncodeResource",
+                            "attributes": {
+                              "TransformBase.cfnTransformPath": "S3ResourcesAssertions/MetadataAreEqual/Task/Resource/Resource/Default/EncodeResourceShim0"
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CustomResource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "RunResourceAlways": {
+                        "id": "RunResourceAlways",
+                        "path": "S3ResourcesAssertions/MetadataAreEqual/Task/Resource/RunResourceAlways",
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      },
+                      "CustomResourcePolicy": {
+                        "id": "CustomResourcePolicy",
+                        "path": "S3ResourcesAssertions/MetadataAreEqual/Task/Resource/CustomResourcePolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "S3ResourcesAssertions/MetadataAreEqual/Task/Resource/CustomResourcePolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "lambda:Invoke",
+                                      "Effect": "Allow",
+                                      "Resource": "*"
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "MetadataAreEqualTaskCustomResourcePolicyF7CA1266",
+                                "roles": [
+                                  {
+                                    "Ref": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "AwsApiCallCloudFormationlistExports": {
+            "id": "AwsApiCallCloudFormationlistExports",
+            "path": "S3ResourcesAssertions/AwsApiCallCloudFormationlistExports",
+            "children": {
+              "SdkProvider": {
+                "id": "SdkProvider",
+                "path": "S3ResourcesAssertions/AwsApiCallCloudFormationlistExports/SdkProvider",
+                "children": {
+                  "AssertionsProvider": {
+                    "id": "AssertionsProvider",
+                    "path": "S3ResourcesAssertions/AwsApiCallCloudFormationlistExports/SdkProvider/AssertionsProvider",
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/integ-tests-alpha.AssertionsProvider",
+                  "version": "2.120.0-alpha.0"
+                }
+              },
+              "Default": {
+                "id": "Default",
+                "path": "S3ResourcesAssertions/AwsApiCallCloudFormationlistExports/Default",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "S3ResourcesAssertions/AwsApiCallCloudFormationlistExports/Default/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.120.0"
+                }
+              },
+              "AssertionResults": {
+                "id": "AssertionResults",
+                "path": "S3ResourcesAssertions/AwsApiCallCloudFormationlistExports/AssertionResults",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/integ-tests-alpha.AwsApiCall",
+              "version": "2.120.0-alpha.0"
+            }
+          },
+          "SingletonFunction1488541a7b23466481b69b4408076b81": {
+            "id": "SingletonFunction1488541a7b23466481b69b4408076b81",
+            "path": "S3ResourcesAssertions/SingletonFunction1488541a7b23466481b69b4408076b81",
+            "children": {
+              "Staging": {
+                "id": "Staging",
+                "path": "S3ResourcesAssertions/SingletonFunction1488541a7b23466481b69b4408076b81/Staging",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.AssetStaging",
+                  "version": "2.120.0"
+                }
+              },
+              "Role": {
+                "id": "Role",
+                "path": "S3ResourcesAssertions/SingletonFunction1488541a7b23466481b69b4408076b81/Role",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.120.0"
+                }
+              },
+              "Handler": {
+                "id": "Handler",
+                "path": "S3ResourcesAssertions/SingletonFunction1488541a7b23466481b69b4408076b81/Handler",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "S3ResourcesAssertions/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.120.0"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "S3ResourcesAssertions/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
               "version": "2.120.0"
@@ -960,120 +1781,6 @@
                 "constructInfo": {
                   "fqn": "constructs.Construct",
                   "version": "10.3.0"
-                }
-              },
-              "DeployAssert": {
-                "id": "DeployAssert",
-                "path": "S3FileResourcesTest/DefaultTest/DeployAssert",
-                "children": {
-                  "AwsApiCallCloudFormationlistExports": {
-                    "id": "AwsApiCallCloudFormationlistExports",
-                    "path": "S3FileResourcesTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports",
-                    "children": {
-                      "SdkProvider": {
-                        "id": "SdkProvider",
-                        "path": "S3FileResourcesTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/SdkProvider",
-                        "children": {
-                          "AssertionsProvider": {
-                            "id": "AssertionsProvider",
-                            "path": "S3FileResourcesTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/SdkProvider/AssertionsProvider",
-                            "constructInfo": {
-                              "fqn": "constructs.Construct",
-                              "version": "10.3.0"
-                            }
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "@aws-cdk/integ-tests-alpha.AssertionsProvider",
-                          "version": "2.120.0-alpha.0"
-                        }
-                      },
-                      "Default": {
-                        "id": "Default",
-                        "path": "S3FileResourcesTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/Default",
-                        "children": {
-                          "Default": {
-                            "id": "Default",
-                            "path": "S3FileResourcesTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/Default/Default",
-                            "constructInfo": {
-                              "fqn": "aws-cdk-lib.CfnResource",
-                              "version": "2.120.0"
-                            }
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.CustomResource",
-                          "version": "2.120.0"
-                        }
-                      },
-                      "AssertionResults": {
-                        "id": "AssertionResults",
-                        "path": "S3FileResourcesTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/AssertionResults",
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.CfnOutput",
-                          "version": "2.120.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "@aws-cdk/integ-tests-alpha.AwsApiCall",
-                      "version": "2.120.0-alpha.0"
-                    }
-                  },
-                  "SingletonFunction1488541a7b23466481b69b4408076b81": {
-                    "id": "SingletonFunction1488541a7b23466481b69b4408076b81",
-                    "path": "S3FileResourcesTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81",
-                    "children": {
-                      "Staging": {
-                        "id": "Staging",
-                        "path": "S3FileResourcesTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Staging",
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.AssetStaging",
-                          "version": "2.120.0"
-                        }
-                      },
-                      "Role": {
-                        "id": "Role",
-                        "path": "S3FileResourcesTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Role",
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.CfnResource",
-                          "version": "2.120.0"
-                        }
-                      },
-                      "Handler": {
-                        "id": "Handler",
-                        "path": "S3FileResourcesTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Handler",
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.CfnResource",
-                          "version": "2.120.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "constructs.Construct",
-                      "version": "10.3.0"
-                    }
-                  },
-                  "BootstrapVersion": {
-                    "id": "BootstrapVersion",
-                    "path": "S3FileResourcesTest/DefaultTest/DeployAssert/BootstrapVersion",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.CfnParameter",
-                      "version": "2.120.0"
-                    }
-                  },
-                  "CheckBootstrapVersion": {
-                    "id": "CheckBootstrapVersion",
-                    "path": "S3FileResourcesTest/DefaultTest/DeployAssert/CheckBootstrapVersion",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.CfnRule",
-                      "version": "2.120.0"
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.Stack",
-                  "version": "2.120.0"
                 }
               }
             },

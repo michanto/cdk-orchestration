@@ -1,6 +1,6 @@
 {
  "Resources": {
-  "GreetingIsReversedTask23AECE9D": {
+  "ContentsAreEqualTask6E9A79F0": {
    "Type": "Custom::EqualsComparisonAssertion",
    "Properties": {
     "ServiceToken": {
@@ -18,39 +18,39 @@
         {
          "Ref": "EqualsFunction495237D7"
         },
-        "\",\"Payload\":\"{\\\"expected\\\":{\\\"result\\\":\\\"{\\\\\\\"$Exact\\\\\\\":\\\\\\\".dlrow ,olleH\\\\\\\"}\\\"},\\\"actual\\\":{\\\"result\\\":\\\"",
+        "\",\"Payload\":\"{\\\"expected\\\":{\\\"result\\\":\\\"{\\\\\\\"$Exact\\\\\\\":\\\\\\\"Data\\\\\\\"}\\\"},\\\"actual\\\":{\\\"result\\\":\\\"",
         {
-         "Fn::ImportValue": "LambdaTaskIntegration:ExportsOutputFnGetAttGreetingLambdaTask1569D06AGreetingE43E7DD8"
+         "Fn::ImportValue": "S3ResourcesInteg:ExportsOutputFnGetAttReaderC968FCB1Some184BF997"
         },
         "\\\"}}\"},\"physicalResourceId\":{\"id\":\"Invoke",
         {
          "Ref": "EqualsFunction495237D7"
         },
-        "-25a5b79848f5ee3a8b7f3b17156a41a7\"}},\"Update\":{\"service\":\"Lambda\",\"action\":\"invoke\",\"parameters\":{\"FunctionName\":\"",
+        "-8bbad989f17f31a4d42a98db1c66ba63\"}},\"Update\":{\"service\":\"Lambda\",\"action\":\"invoke\",\"parameters\":{\"FunctionName\":\"",
         {
          "Ref": "EqualsFunction495237D7"
         },
-        "\",\"Payload\":\"{\\\"expected\\\":{\\\"result\\\":\\\"{\\\\\\\"$Exact\\\\\\\":\\\\\\\".dlrow ,olleH\\\\\\\"}\\\"},\\\"actual\\\":{\\\"result\\\":\\\"",
+        "\",\"Payload\":\"{\\\"expected\\\":{\\\"result\\\":\\\"{\\\\\\\"$Exact\\\\\\\":\\\\\\\"Data\\\\\\\"}\\\"},\\\"actual\\\":{\\\"result\\\":\\\"",
         {
-         "Fn::ImportValue": "LambdaTaskIntegration:ExportsOutputFnGetAttGreetingLambdaTask1569D06AGreetingE43E7DD8"
+         "Fn::ImportValue": "S3ResourcesInteg:ExportsOutputFnGetAttReaderC968FCB1Some184BF997"
         },
         "\\\"}}\"},\"physicalResourceId\":{\"id\":\"Invoke",
         {
          "Ref": "EqualsFunction495237D7"
         },
-        "-25a5b79848f5ee3a8b7f3b17156a41a7\"}},\"ResponseBufferField\":\"Payload\",\"RequestedOutputs\":[],\"salt\":1716417190779}"
+        "-8bbad989f17f31a4d42a98db1c66ba63\"}},\"ResponseBufferField\":\"Payload\",\"RequestedOutputs\":[],\"salt\":1716416931084}"
        ]
       ]
      }
     }
    },
    "DependsOn": [
-    "GreetingIsReversedTaskCustomResourcePolicy22A0F722"
+    "ContentsAreEqualTaskCustomResourcePolicyDD806DC2"
    ],
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"
   },
-  "GreetingIsReversedTaskCustomResourcePolicy22A0F722": {
+  "ContentsAreEqualTaskCustomResourcePolicyDD806DC2": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -63,7 +63,7 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "GreetingIsReversedTaskCustomResourcePolicy22A0F722",
+    "PolicyName": "ContentsAreEqualTaskCustomResourcePolicyDD806DC2",
     "Roles": [
      {
       "Ref": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2"
@@ -280,7 +280,7 @@
      },
      "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
     },
-    "Description": "AWS CDK resource provider framework - onEvent (LambdaTaskAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider)",
+    "Description": "AWS CDK resource provider framework - onEvent (S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider)",
     "Environment": {
      "Variables": {
       "USER_ON_EVENT_FUNCTION_ARN": {
@@ -307,6 +307,77 @@
     "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleCBAF3CDB"
    ]
   },
+  "MetadataAreEqualTaskADCEB8FB": {
+   "Type": "Custom::EqualsComparisonAssertion",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEvent4AE15604",
+      "Arn"
+     ]
+    },
+    "EncodedProperties": {
+     "Fn::Base64": {
+      "Fn::Join": [
+       "",
+       [
+        "{\"Create\":{\"service\":\"Lambda\",\"action\":\"invoke\",\"parameters\":{\"FunctionName\":\"",
+        {
+         "Ref": "EqualsFunction495237D7"
+        },
+        "\",\"Payload\":\"{\\\"expected\\\":{\\\"result\\\":\\\"{\\\\\\\"$Exact\\\\\\\":\\\\\\\"Michael\\\\\\\"}\\\"},\\\"actual\\\":{\\\"result\\\":\\\"",
+        {
+         "Fn::ImportValue": "S3ResourcesInteg:ExportsOutputFnGetAttMdReader891AE0B9MetadatamymetadataE62E86E6"
+        },
+        "\\\"}}\"},\"physicalResourceId\":{\"id\":\"Invoke",
+        {
+         "Ref": "EqualsFunction495237D7"
+        },
+        "-bf5c419d30b76d4755bb9507a76655a3\"}},\"Update\":{\"service\":\"Lambda\",\"action\":\"invoke\",\"parameters\":{\"FunctionName\":\"",
+        {
+         "Ref": "EqualsFunction495237D7"
+        },
+        "\",\"Payload\":\"{\\\"expected\\\":{\\\"result\\\":\\\"{\\\\\\\"$Exact\\\\\\\":\\\\\\\"Michael\\\\\\\"}\\\"},\\\"actual\\\":{\\\"result\\\":\\\"",
+        {
+         "Fn::ImportValue": "S3ResourcesInteg:ExportsOutputFnGetAttMdReader891AE0B9MetadatamymetadataE62E86E6"
+        },
+        "\\\"}}\"},\"physicalResourceId\":{\"id\":\"Invoke",
+        {
+         "Ref": "EqualsFunction495237D7"
+        },
+        "-bf5c419d30b76d4755bb9507a76655a3\"}},\"ResponseBufferField\":\"Payload\",\"RequestedOutputs\":[],\"salt\":1716416931084}"
+       ]
+      ]
+     }
+    }
+   },
+   "DependsOn": [
+    "MetadataAreEqualTaskCustomResourcePolicyF7CA1266"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "MetadataAreEqualTaskCustomResourcePolicyF7CA1266": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:Invoke",
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "MetadataAreEqualTaskCustomResourcePolicyF7CA1266",
+    "Roles": [
+     {
+      "Ref": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2"
+     }
+    ]
+   }
+  },
   "AwsApiCallCloudFormationlistExports": {
    "Type": "Custom::DeployAssert@SdkCallCloudFormationlistExports",
    "Properties": {
@@ -321,7 +392,7 @@
     "expected": "{\"$ObjectLike\":{\"Exports\":{\"$ArrayWith\":[{\"$ObjectLike\":{}}]}}}",
     "parameters": {},
     "flattenResponse": "false",
-    "salt": "1716417191914"
+    "salt": "1716416932192"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"

@@ -1,13 +1,17 @@
 import { ActualResult, ExpectedResult, IntegTest, Match } from '@aws-cdk/integ-tests-alpha';
-import { App, Stack } from 'aws-cdk-lib';
+import { App, Aspects, Stack } from 'aws-cdk-lib';
 import { Effect } from 'aws-cdk-lib/aws-iam';
 import { GreetingLambdaTask } from './greeting_lambda_task';
 import { EqualsComparisonAssertion } from '../util/assertions';
+import { Logger, LoggingAspect } from '../../src/core';
 
 
 const app = new App();
 const stack = new Stack(app, 'LambdaTaskIntegration', {stackName: 'LambdaTaskIntegration'});
 const assertionStack = new Stack(app, 'LambdaTaskAssertions', {});
+
+Logger.set(app, new Logger());
+Aspects.of(app).add(new LoggingAspect());
 
 let greetingTask = new GreetingLambdaTask(stack, 'Greeting', true);
 

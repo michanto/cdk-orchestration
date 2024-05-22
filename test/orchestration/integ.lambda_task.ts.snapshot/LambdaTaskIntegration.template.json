@@ -39,7 +39,8 @@
     },
     "Environment": {
      "Variables": {
-      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+      "LogLevel": "18446744073709552000"
      }
     },
     "Handler": "index.reverseGreeting",
@@ -168,7 +169,12 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "554a13b036c88c01c500466c3b387095b02aa8422ee7bb3fb1552dbe24ca9ca6.zip"
+     "S3Key": "bb4acc28699b92231855ea05193fbb17a2fe62445f61983472fc49e74a237347.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "LogLevel": "18446744073709552000"
+     }
     },
     "Handler": "index.handler",
     "Role": {
@@ -274,7 +280,8 @@
         "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEOnEventB60C9E76",
         "Arn"
        ]
-      }
+      },
+      "LogLevel": "18446744073709552000"
      }
     },
     "Handler": "framework.onEvent",

@@ -108,6 +108,7 @@ export class CustomResourceHandler {
         parameters: call.parameters,
         flattenResponse: false,
       });
+
       const logApiResponseData = call?.logApiResponseData ?? true;
       if (logApiResponseData) {
         console.log('API response', response);
@@ -142,6 +143,9 @@ export class CustomResourceHandler {
       log({ response: response });
       if (responseBufferField && response[responseBufferField]) {
         let body = (response[responseBufferField] as any).toString('utf-8');
+        if (response.FunctionError) {
+          throw new Error(body);
+        }  
         Object.assign(response, this.flatten(JSON.parse(body)));
       }
       log({ response: response });

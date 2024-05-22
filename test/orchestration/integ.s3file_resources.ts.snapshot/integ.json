@@ -15,8 +15,8 @@
           }
         }
       },
-      "assertionStack": "S3FileResourcesTest/DefaultTest/DeployAssert",
-      "assertionStackName": "S3FileResourcesTestDefaultTestDeployAssert0CFEE71A"
+      "assertionStack": "S3ResourcesAssertions",
+      "assertionStackName": "S3ResourcesAssertions"
     }
   }
 }
