@@ -1,29 +1,26 @@
-import { ExpectedResult, IntegTest, Match } from '@aws-cdk/integ-tests-alpha';
-import { App, CfnOutput, Stack } from 'aws-cdk-lib';
+import { ActualResult, ExpectedResult, IntegTest, Match } from '@aws-cdk/integ-tests-alpha';
+import { App, Stack } from 'aws-cdk-lib';
 import { Effect } from 'aws-cdk-lib/aws-iam';
 import { GreetingLambdaTask } from './greeting_lambda_task';
+import { EqualsComparisonAssertion } from '../util/assertions';
 
 
 const app = new App();
-const stack = new Stack(app, 'LambdaTaskIntegration', {});
+const stack = new Stack(app, 'LambdaTaskIntegration', {stackName: 'LambdaTaskIntegration'});
+const assertionStack = new Stack(app, 'LambdaTaskAssertions', {});
 
 let greetingTask = new GreetingLambdaTask(stack, 'Greeting', true);
-let greeting = greetingTask.task.getAtt('Greeting').toString();
-/*
-new EqualsAssertion(stack, "GreetingIsReversed", {
-  actual: ActualResult.fromCustomResource(greetingTask.task.resource.resource, "Greeting"),
-  expected: ExpectedResult.exact(".dlrow ,olleH")
-}) */
 
-new CfnOutput(stack, 'AnOutput', {
-  exportName: 'LambdaTaskGreetingExport',
-  value: greeting,
-});
+new EqualsComparisonAssertion(assertionStack, "GreetingIsReversed", {
+  actual: ActualResult.fromCustomResource(greetingTask.task.resource.customResource, "Greeting"),
+  expected: ExpectedResult.exact(".dlrow ,olleH")
+})
 
 let integ = new IntegTest(app, 'LambdaTaskIntegrationTest', {
   testCases: [
     stack,
   ],
+  assertionStack: assertionStack,
   cdkCommandOptions: {
     destroy: {
       args: {
@@ -34,13 +31,10 @@ let integ = new IntegTest(app, 'LambdaTaskIntegrationTest', {
   regions: ['us-east-1'],
 });
 
+
 integ.assertions.awsApiCall('CloudFormation', 'listExports', {
 }).expect(ExpectedResult.objectLike({
-  Exports: Match.arrayWith([Match.objectLike({}), {
-    ExportingStackId: Match.stringLikeRegexp('.*'),
-    Name: 'LambdaTaskGreetingExport',
-    Value: '.dlrow ,olleH',
-  }]),
+  Exports: Match.arrayWith([Match.objectLike({})]),
 },
 )).provider.addToRolePolicy({
   Effect: Effect.ALLOW,

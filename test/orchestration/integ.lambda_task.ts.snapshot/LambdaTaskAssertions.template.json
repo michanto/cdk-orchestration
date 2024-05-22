@@ -1,6 +1,77 @@
 {
  "Resources": {
-  "GreetingReverseServiceRole4C8C16C6": {
+  "GreetingIsReversedTask23AECE9D": {
+   "Type": "Custom::EqualsComparisonAssertion",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEvent4AE15604",
+      "Arn"
+     ]
+    },
+    "EncodedProperties": {
+     "Fn::Base64": {
+      "Fn::Join": [
+       "",
+       [
+        "{\"Create\":{\"service\":\"Lambda\",\"action\":\"invoke\",\"parameters\":{\"FunctionName\":\"",
+        {
+         "Ref": "EqualsFunction495237D7"
+        },
+        "\",\"Payload\":\"{\\\"expected\\\":{\\\"result\\\":\\\"{\\\\\\\"$Exact\\\\\\\":\\\\\\\".dlrow ,olleH\\\\\\\"}\\\"},\\\"actual\\\":{\\\"result\\\":\\\"",
+        {
+         "Fn::ImportValue": "LambdaTaskIntegration:ExportsOutputFnGetAttGreetingLambdaTask1569D06AGreetingE43E7DD8"
+        },
+        "\\\"}}\"},\"physicalResourceId\":{\"id\":\"Invoke",
+        {
+         "Ref": "EqualsFunction495237D7"
+        },
+        "-25579f8ba76cc05a1e32f0b0e9b3060b\"}},\"Update\":{\"service\":\"Lambda\",\"action\":\"invoke\",\"parameters\":{\"FunctionName\":\"",
+        {
+         "Ref": "EqualsFunction495237D7"
+        },
+        "\",\"Payload\":\"{\\\"expected\\\":{\\\"result\\\":\\\"{\\\\\\\"$Exact\\\\\\\":\\\\\\\".dlrow ,olleH\\\\\\\"}\\\"},\\\"actual\\\":{\\\"result\\\":\\\"",
+        {
+         "Fn::ImportValue": "LambdaTaskIntegration:ExportsOutputFnGetAttGreetingLambdaTask1569D06AGreetingE43E7DD8"
+        },
+        "\\\"}}\"},\"physicalResourceId\":{\"id\":\"Invoke",
+        {
+         "Ref": "EqualsFunction495237D7"
+        },
+        "-25579f8ba76cc05a1e32f0b0e9b3060b\"}},\"ResponseBufferField\":\"Payload\",\"RequestedOutputs\":[],\"salt\":1716396963766}"
+       ]
+      ]
+     }
+    }
+   },
+   "DependsOn": [
+    "GreetingIsReversedTaskCustomResourcePolicy22A0F722"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "GreetingIsReversedTaskCustomResourcePolicy22A0F722": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:Invoke",
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "GreetingIsReversedTaskCustomResourcePolicy22A0F722",
+    "Roles": [
+     {
+      "Ref": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2"
+     }
+    ]
+   }
+  },
+  "EqualsFunctionServiceRole1952C691": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -31,92 +102,29 @@
     ]
    }
   },
-  "GreetingReverse971E718C": {
+  "EqualsFunction495237D7": {
    "Type": "AWS::Lambda::Function",
    "Properties": {
     "Code": {
-     "ZipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.reverseGreeting = void 0;\nconst logger = process.env.LogLevel ? console : undefined;\nfunction log(message) {\nlogger?.log(JSON.stringify(message));\n}\n\nasync function reverseGreeting(event, context) {\nlog({ Event: event });\nlog({ Context: context });\nlet isCustomResource = event.ResourceProperties != undefined;\nif (isCustomResource && 'EncodedProperties' in event.ResourceProperties) {\nevent.ResourceProperties = {\n...event.ResourceProperties,\n...JSON.parse(Buffer.from(event.ResourceProperties.EncodedProperties, 'base64').toString('utf8')),\n};\nlog({ DecodedEvent: JSON.stringify(event) });\n}\nlet greeting = event.Greeting\n?? event.ResourceProperties.Greeting\n?? 'Hello, world';\nlet result = greeting.split('').reverse().join('');\nreturn isCustomResource ? Promise.resolve({\nData: { Greeting: result },\n}) : Promise.resolve({\nGreeting: result,\n});\n}\nexports.reverseGreeting = reverseGreeting;"
+     "ZipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.equalsComparison = void 0;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\n\nasync function equalsComparison(event, context) {\nlog({ Event: event });\nlog({ Context: context });\nlet expected = JSON.parse(event.expected)?.['$Expect'];\nlet actual = event.actual;\nif (expected != actual) {\nthrow new Error(`Expected ${expected}, got ${actual}.`);\n}\n}\nexports.equalsComparison = equalsComparison;"
     },
     "Environment": {
      "Variables": {
       "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
      }
     },
-    "Handler": "index.reverseGreeting",
+    "Handler": "index.equalsComparison",
     "Role": {
      "Fn::GetAtt": [
-      "GreetingReverseServiceRole4C8C16C6",
+      "EqualsFunctionServiceRole1952C691",
       "Arn"
      ]
     },
     "Runtime": "nodejs18.x"
    },
    "DependsOn": [
-    "GreetingReverseServiceRole4C8C16C6"
+    "EqualsFunctionServiceRole1952C691"
    ]
-  },
-  "GreetingLambdaTask1569D06A": {
-   "Type": "Custom::LambdaTask",
-   "Properties": {
-    "ServiceToken": {
-     "Fn::GetAtt": [
-      "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEvent4AE15604",
-      "Arn"
-     ]
-    },
-    "EncodedProperties": {
-     "Fn::Base64": {
-      "Fn::Join": [
-       "",
-       [
-        "{\"Create\":{\"service\":\"Lambda\",\"action\":\"invoke\",\"parameters\":{\"FunctionName\":\"",
-        {
-         "Ref": "GreetingReverse971E718C"
-        },
-        "\",\"Payload\":\"{\\\"Greeting\\\":\\\"Hello, world.\\\"}\"},\"physicalResourceId\":{\"id\":\"Invoke",
-        {
-         "Ref": "GreetingReverse971E718C"
-        },
-        "-64559cce0e0f36293b0927ac50c7f942\"}},\"Update\":{\"service\":\"Lambda\",\"action\":\"invoke\",\"parameters\":{\"FunctionName\":\"",
-        {
-         "Ref": "GreetingReverse971E718C"
-        },
-        "\",\"Payload\":\"{\\\"Greeting\\\":\\\"Hello, world.\\\"}\"},\"physicalResourceId\":{\"id\":\"Invoke",
-        {
-         "Ref": "GreetingReverse971E718C"
-        },
-        "-64559cce0e0f36293b0927ac50c7f942\"}},\"ResponseBufferField\":\"Payload\",\"RequestedOutputs\":[\"Greeting\"]}"
-       ]
-      ]
-     }
-    }
-   },
-   "DependsOn": [
-    "GreetingLambdaTaskCustomResourcePolicy36297AA7"
-   ],
-   "UpdateReplacePolicy": "Delete",
-   "DeletionPolicy": "Delete"
-  },
-  "GreetingLambdaTaskCustomResourcePolicy36297AA7": {
-   "Type": "AWS::IAM::Policy",
-   "Properties": {
-    "PolicyDocument": {
-     "Statement": [
-      {
-       "Action": "lambda:Invoke",
-       "Effect": "Allow",
-       "Resource": "*"
-      }
-     ],
-     "Version": "2012-10-17"
-    },
-    "PolicyName": "GreetingLambdaTaskCustomResourcePolicy36297AA7",
-    "Roles": [
-     {
-      "Ref": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2"
-     }
-    ]
-   }
   },
   "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2": {
    "Type": "AWS::IAM::Role",
@@ -266,7 +274,7 @@
      },
      "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
     },
-    "Description": "AWS CDK resource provider framework - onEvent (LambdaTaskIntegration/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider)",
+    "Description": "AWS CDK resource provider framework - onEvent (LambdaTaskAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider)",
     "Environment": {
      "Variables": {
       "USER_ON_EVENT_FUNCTION_ARN": {
@@ -291,18 +299,104 @@
     "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleDefaultPolicy9B953B1F",
     "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleCBAF3CDB"
    ]
+  },
+  "AwsApiCallCloudFormationlistExports": {
+   "Type": "Custom::DeployAssert@SdkCallCloudFormationlistExports",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "SingletonFunction1488541a7b23466481b69b4408076b81HandlerCD40AE9F",
+      "Arn"
+     ]
+    },
+    "service": "CloudFormation",
+    "api": "listExports",
+    "expected": "{\"$ObjectLike\":{\"Exports\":{\"$ArrayWith\":[{\"$ObjectLike\":{}}]}}}",
+    "parameters": {},
+    "flattenResponse": "false",
+    "salt": "1716396964941"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "SingletonFunction1488541a7b23466481b69b4408076b81Role37ABCE73": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+     }
+    ],
+    "Policies": [
+     {
+      "PolicyName": "Inline",
+      "PolicyDocument": {
+       "Version": "2012-10-17",
+       "Statement": [
+        {
+         "Action": [
+          "cloudformation:ListExports"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          "*"
+         ]
+        },
+        {
+         "Effect": "Allow",
+         "Action": [
+          "cloudFormation:List*"
+         ],
+         "Resource": [
+          "*"
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "SingletonFunction1488541a7b23466481b69b4408076b81HandlerCD40AE9F": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Runtime": "nodejs18.x",
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "4984c845346313a408899c8ff361d3b7b97953a9d4202e47694ef2a101f4b5c3.zip"
+    },
+    "Timeout": 120,
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "SingletonFunction1488541a7b23466481b69b4408076b81Role37ABCE73",
+      "Arn"
+     ]
+    }
+   }
   }
  },
  "Outputs": {
-  "ExportsOutputFnGetAttGreetingLambdaTask1569D06AGreetingE43E7DD8": {
+  "AssertionResultsAwsApiCallCloudFormationlistExports": {
    "Value": {
     "Fn::GetAtt": [
-     "GreetingLambdaTask1569D06A",
-     "Greeting"
+     "AwsApiCallCloudFormationlistExports",
+     "assertion"
     ]
-   },
-   "Export": {
-    "Name": "LambdaTaskIntegration:ExportsOutputFnGetAttGreetingLambdaTask1569D06AGreetingE43E7DD8"
    }
   }
  },

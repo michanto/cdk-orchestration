@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/aa2e3bbd76a4047bca560dc95de8fb2125a4ea6896859010d9248f4b5d55e793.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/788389ce578a8e765358098ecdf8747b83c9a8375792c57a75dcec05e8cf5dd7.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -88,10 +88,10 @@
             "data": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEvent4AE15604"
           }
         ],
-        "/LambdaTaskIntegration/AnOutput": [
+        "/LambdaTaskIntegration/Exports/Output{\"Fn::GetAtt\":[\"GreetingLambdaTask1569D06A\",\"Greeting\"]}": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AnOutput"
+            "data": "ExportsOutputFnGetAttGreetingLambdaTask1569D06AGreetingE43E7DD8"
           }
         ],
         "/LambdaTaskIntegration/BootstrapVersion": [
@@ -109,28 +109,28 @@
       },
       "displayName": "LambdaTaskIntegration"
     },
-    "LambdaTaskIntegrationTestDefaultTestDeployAssert3E3AF2C7.assets": {
+    "LambdaTaskAssertions.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "LambdaTaskIntegrationTestDefaultTestDeployAssert3E3AF2C7.assets.json",
+        "file": "LambdaTaskAssertions.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "LambdaTaskIntegrationTestDefaultTestDeployAssert3E3AF2C7": {
+    "LambdaTaskAssertions": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://unknown-account/unknown-region",
       "properties": {
-        "templateFile": "LambdaTaskIntegrationTestDefaultTestDeployAssert3E3AF2C7.template.json",
+        "templateFile": "LambdaTaskAssertions.template.json",
         "terminationProtection": false,
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/b0a2d18d3071e784d7cbd2dc736d680fda89af871a0fa62629cbc089a2f94a9a.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/2fb6c27276f0c25b17546685a1e3cf5da829178cb10811eab6b6ce0b6aa14f12.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "LambdaTaskIntegrationTestDefaultTestDeployAssert3E3AF2C7.assets"
+          "LambdaTaskAssertions.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
@@ -139,47 +139,102 @@
         }
       },
       "dependencies": [
-        "LambdaTaskIntegrationTestDefaultTestDeployAssert3E3AF2C7.assets"
+        "LambdaTaskIntegration",
+        "LambdaTaskAssertions.assets"
       ],
       "metadata": {
-        "/LambdaTaskIntegrationTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/Default/Default": [
+        "/LambdaTaskAssertions/GreetingIsReversed/Task/Resource/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GreetingIsReversedTask23AECE9D"
+          }
+        ],
+        "/LambdaTaskAssertions/GreetingIsReversed/Task/Resource/CustomResourcePolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GreetingIsReversedTaskCustomResourcePolicy22A0F722"
+          }
+        ],
+        "/LambdaTaskAssertions/EqualsFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EqualsFunctionServiceRole1952C691"
+          }
+        ],
+        "/LambdaTaskAssertions/EqualsFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EqualsFunction495237D7"
+          }
+        ],
+        "/LambdaTaskAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCERole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2"
+          }
+        ],
+        "/LambdaTaskAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEOnEvent/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEOnEventB60C9E76"
+          }
+        ],
+        "/LambdaTaskAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleCBAF3CDB"
+          }
+        ],
+        "/LambdaTaskAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleDefaultPolicy9B953B1F"
+          }
+        ],
+        "/LambdaTaskAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider/framework-onEvent/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEvent4AE15604"
+          }
+        ],
+        "/LambdaTaskAssertions/AwsApiCallCloudFormationlistExports/Default/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AwsApiCallCloudFormationlistExports"
           }
         ],
-        "/LambdaTaskIntegrationTest/DefaultTest/DeployAssert/AwsApiCallCloudFormationlistExports/AssertionResults": [
+        "/LambdaTaskAssertions/AwsApiCallCloudFormationlistExports/AssertionResults": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AssertionResultsAwsApiCallCloudFormationlistExports"
           }
         ],
-        "/LambdaTaskIntegrationTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Role": [
+        "/LambdaTaskAssertions/SingletonFunction1488541a7b23466481b69b4408076b81/Role": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SingletonFunction1488541a7b23466481b69b4408076b81Role37ABCE73"
           }
         ],
-        "/LambdaTaskIntegrationTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Handler": [
+        "/LambdaTaskAssertions/SingletonFunction1488541a7b23466481b69b4408076b81/Handler": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SingletonFunction1488541a7b23466481b69b4408076b81HandlerCD40AE9F"
           }
         ],
-        "/LambdaTaskIntegrationTest/DefaultTest/DeployAssert/BootstrapVersion": [
+        "/LambdaTaskAssertions/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/LambdaTaskIntegrationTest/DefaultTest/DeployAssert/CheckBootstrapVersion": [
+        "/LambdaTaskAssertions/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "LambdaTaskIntegrationTest/DefaultTest/DeployAssert"
+      "displayName": "LambdaTaskAssertions"
     },
     "Tree": {
       "type": "cdk:tree",

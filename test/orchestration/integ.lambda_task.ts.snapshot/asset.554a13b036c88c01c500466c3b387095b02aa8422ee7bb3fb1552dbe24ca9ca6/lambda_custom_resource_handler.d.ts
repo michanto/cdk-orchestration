@@ -10,7 +10,7 @@ export interface CustomResourceHandlerProps {
      *
      * Default is false.
      */
-    autoPaginate?: boolean;
+    readonly autoPaginate?: boolean;
 }
 /**
  * Class to create AwsCustomResource based handlers.  Copies the functionality of AwsCustomResource and
@@ -28,7 +28,7 @@ export declare class CustomResourceHandler {
     decodeProperties(event: any): any;
     getPhysicalResourceId(event: any): string;
     getCall(event: any): any;
-    getResponse(call: any): Promise<{}>;
+    getResponse(call: any): Promise<Record<string, unknown>>;
     flatten(response: any): {
         [key: string]: any;
     };

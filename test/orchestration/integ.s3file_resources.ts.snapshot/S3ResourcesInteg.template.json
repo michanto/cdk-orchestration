@@ -51,7 +51,7 @@
      ]
     },
     "InstallLatestAwsSdk": false,
-    "salt": 1716243744778
+    "salt": 1716396757507
    },
    "DependsOn": [
     "WriterCustomResourcePolicy72926270"
@@ -185,7 +185,7 @@
         {
          "Ref": "MyBucketF68F3FF0"
         },
-        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"ResponseBufferField\":\"Body\",\"RequestedOutputs\":[\"Some\"],\"salt\":1716243744778}"
+        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"ResponseBufferField\":\"Body\",\"RequestedOutputs\":[\"Some\"],\"salt\":1716396757507}"
        ]
       ]
      }
@@ -299,7 +299,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "342e2d5c7a957763117875787d90f7f0e153680c3ce36793d634c1f2f171863d.zip"
+     "S3Key": "554a13b036c88c01c500466c3b387095b02aa8422ee7bb3fb1552dbe24ca9ca6.zip"
     },
     "Environment": {
      "Variables": {
@@ -451,7 +451,7 @@
         {
          "Ref": "MyBucketF68F3FF0"
         },
-        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"RequestedOutputs\":[\"Metadata.mymetadata\"],\"salt\":1716243744778}"
+        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"RequestedOutputs\":[\"Metadata.mymetadata\"],\"salt\":1716396757507}"
        ]
       ]
      }

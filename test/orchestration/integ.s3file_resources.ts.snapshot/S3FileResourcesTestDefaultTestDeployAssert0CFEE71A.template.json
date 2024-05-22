@@ -14,7 +14,7 @@
     "expected": "{\"$ObjectLike\":{\"Exports\":{\"$ArrayWith\":[{\"$ObjectLike\":{}},{\"ExportingStackId\":{\"$StringLike\":\".*\"},\"Name\":\"MetadataExport\",\"Value\":\"Michael\"},{\"ExportingStackId\":{\"$StringLike\":\".*\"},\"Name\":\"ReaderExport\",\"Value\":\"Data\"}]}}}",
     "parameters": {},
     "flattenResponse": "false",
-    "salt": "1716243745622"
+    "salt": "1716396758600"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"

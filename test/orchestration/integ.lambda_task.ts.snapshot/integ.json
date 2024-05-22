@@ -15,8 +15,8 @@
           }
         }
       },
-      "assertionStack": "LambdaTaskIntegrationTest/DefaultTest/DeployAssert",
-      "assertionStackName": "LambdaTaskIntegrationTestDefaultTestDeployAssert3E3AF2C7"
+      "assertionStack": "LambdaTaskAssertions",
+      "assertionStackName": "LambdaTaskAssertions"
     }
   }
 }
