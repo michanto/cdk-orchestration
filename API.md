@@ -6881,43 +6881,6 @@ or {@link ConstructService.searchSelfOrCreate}.
 
 ---
 
-### CustomResourceHandlerProps <a name="CustomResourceHandlerProps" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps"></a>
-
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps.Initializer"></a>
-
-```typescript
-import { custom_resources } from '@michanto/cdk-orchestration'
-
-const customResourceHandlerProps: custom_resources.CustomResourceHandlerProps = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps.property.autoPaginate">autoPaginate</a></code> | <code>boolean</code> | If true we will auto-paginate the response for as many pages as there are. |
-
----
-
-##### `autoPaginate`<sup>Optional</sup> <a name="autoPaginate" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps.property.autoPaginate"></a>
-
-```typescript
-public readonly autoPaginate: boolean;
-```
-
-- *Type:* boolean
-
-If true we will auto-paginate the response for as many pages as there are.
-
-Auto-paginate feature relies on the existance of a NextToken in
-the response.  All array fields in the response will be appended to,
-which may or may not be the desired result.  No per-API logic has been
-implemented.
-
-Default is false.
-
----
-
 ### ImportTemplateProps <a name="ImportTemplateProps" id="@michanto/cdk-orchestration.cloudformation_include.ImportTemplateProps"></a>
 
 #### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.cloudformation_include.ImportTemplateProps.Initializer"></a>
@@ -11328,18 +11291,11 @@ https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/custom-resource-han
 ```typescript
 import { custom_resources } from '@michanto/cdk-orchestration'
 
-new custom_resources.CustomResourceHandler(props?: CustomResourceHandlerProps)
+new custom_resources.CustomResourceHandler()
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps</code> | *No description.* |
-
----
-
-##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.Initializer.parameter.props"></a>
-
-- *Type:* @michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps
 
 ---
 
@@ -11454,23 +11410,6 @@ public handle(event: any, context: any): any
 ---
 
 
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.property.props">props</a></code> | <code>@michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps</code> | *No description.* |
-
----
-
-##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.property.props"></a>
-
-```typescript
-public readonly props: CustomResourceHandlerProps;
-```
-
-- *Type:* @michanto/cdk-orchestration.custom_resources.CustomResourceHandlerProps
-
----
 
 
 ### CustomResourceUtilities <a name="CustomResourceUtilities" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities"></a>

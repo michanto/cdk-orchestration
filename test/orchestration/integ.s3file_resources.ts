@@ -10,7 +10,7 @@ import { EqualsComparisonAssertion } from '../util/assertions';
 export const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
 const app = new App();
-const stack = new Stack(app, 'S3ResourcesInteg', {stackName: 'S3ResourcesInteg'});
+const stack = new Stack(app, 'S3ResourcesInteg', { stackName: 'S3ResourcesInteg' });
 const assertionStack = new Stack(app, 'S3ResourcesAssertions', {});
 
 Logger.set(app, new Logger());
@@ -46,14 +46,14 @@ let metadata = new S3FileMetadata(stack, 'MdReader', {
 });
 metadata.node.addDependency(writer);
 
-new EqualsComparisonAssertion(assertionStack, "ContentsAreEqual", {
-  actual: ActualResult.fromCustomResource(reader.resource.customResource, "Some"),
-  expected: ExpectedResult.exact("Data")
-})
-new EqualsComparisonAssertion(assertionStack, "MetadataAreEqual", {
-  actual: ActualResult.fromCustomResource(metadata.resource.customResource, "Metadata.mymetadata"),
-  expected: ExpectedResult.exact("Michael")
-})
+new EqualsComparisonAssertion(assertionStack, 'ContentsAreEqual', {
+  actual: ActualResult.fromCustomResource(reader.resource.customResource, 'Some'),
+  expected: ExpectedResult.exact('Data'),
+});
+new EqualsComparisonAssertion(assertionStack, 'MetadataAreEqual', {
+  actual: ActualResult.fromCustomResource(metadata.resource.customResource, 'Metadata.mymetadata'),
+  expected: ExpectedResult.exact('Michael'),
+});
 
 let integ = new IntegTest(app, 'S3FileResourcesTest', {
   testCases: [

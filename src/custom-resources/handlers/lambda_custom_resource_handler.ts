@@ -10,21 +10,6 @@ function log(message: Record<string, any>) {
   }
 }
 
-export interface CustomResourceHandlerProps {
-  /**
-   * If true we will auto-paginate the response for
-   * as many pages as there are.
-   *
-   * Auto-paginate feature relies on the existance of a NextToken in
-   * the response.  All array fields in the response will be appended to,
-   * which may or may not be the desired result.  No per-API logic has been
-   * implemented.
-   *
-   * Default is false.
-   */
-  readonly autoPaginate?: boolean;
-}
-
 /**
  * Class to create AwsCustomResource based handlers.  Copies the functionality of AwsCustomResource and
  * adds the following features:
@@ -36,8 +21,6 @@ export interface CustomResourceHandlerProps {
  * https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/custom-resource-handlers/lib/custom-resources/aws-custom-resource-handler/aws-sdk-v3-handler.ts
  */
 export class CustomResourceHandler {
-  constructor(readonly props?: CustomResourceHandlerProps) {}
-
   decodeProperties(event: any) {
     let encoded = event.ResourceProperties.EncodedProperties;
     if (encoded) {
@@ -77,7 +60,6 @@ export class CustomResourceHandler {
   async getResponse(call: any) {
     const apiCall = new ApiCall(call.service, call.action);
 
-    let responseBufferField = call.responseBufferField;
     let credentials;
     if (call.assumedRoleArn) {
       const timestamp = (new Date()).getTime();
@@ -85,10 +67,7 @@ export class CustomResourceHandler {
         RoleArn: call.assumedRoleArn,
         RoleSessionName: `AwsSdkCall-${timestamp}`,
       };
-      // TODO:  Remove.
       log({ params: params });
-      log({ responseBufferField: responseBufferField });
-
 
       const { fromTemporaryCredentials } = await import('@aws-sdk/credential-providers');
       credentials = fromTemporaryCredentials({
@@ -107,7 +86,7 @@ export class CustomResourceHandler {
         region: call.region,
         parameters: call.parameters,
         flattenResponse: false,
-      });
+      }) as Record<string, any>;
 
       const logApiResponseData = call?.logApiResponseData ?? true;
       if (logApiResponseData) {
@@ -117,16 +96,22 @@ export class CustomResourceHandler {
       flatData.region = await apiCall.client.config.region().catch(() => undefined); // For test purposes: check if region was correctly passed.
       Object.assign(response, flatData);
 
-      /* FUTURE:  AutoPaginate.
-      if (response.NextToken && this.props?.autoPaginate) {
+      if (response.NextToken && call.autoPaginate) {
         let nextToken = response.NextToken;
         while (nextToken) {
           let parameters = {
             ...call.parameters,
             NextToken: nextToken,
           };
-          const nextPage = await awsService[call.action](
-            parameters).promise();
+          let nextPage = await apiCall.invoke({
+            // FUTURE:  Copy code to install latest SDK from CDK
+            // sdkPackage: awsSdk,
+            apiVersion: call.apiVersion,
+            credentials: credentials,
+            region: call.region,
+            parameters: parameters,
+            flattenResponse: false,
+          }) as Record<string, any>;
           for (let field in nextPage) {
             if (Array.isArray(nextPage[field]) && Array.isArray(response[field])) {
               response[field] = [...response[field],
@@ -137,15 +122,17 @@ export class CustomResourceHandler {
         }
         // Since it's now undefined, don't return it.
         delete response.NextToken;
-      } */
+      }
 
-      log({ responseBufferField: responseBufferField });
+      let responseBufferField = call.responseBufferField;
       log({ response: response });
+      log({ responseBufferField: responseBufferField });
       if (responseBufferField && response[responseBufferField]) {
         let body = (response[responseBufferField] as any).toString('utf-8');
+        // For lambda calls, throw if there is an error.
         if (response.FunctionError) {
-          throw new Error(body);
-        }  
+          throw new Error(`${response.FunctionError} Cause:${body}`);
+        }
         Object.assign(response, this.flatten(JSON.parse(body)));
       }
       log({ response: response });
@@ -196,6 +183,9 @@ export class CustomResourceHandler {
     }
 
     if (call) {
+      if (event.ResourceProperties.AutoPaginate) {
+        call.autoPaginate = event.ResourceProperties.AutoPaginate;
+      }
       if (call.outputPaths && requestedOutputs) {
         call.outputPaths = [...call.outputPaths, ...requestedOutputs];
       } else if (requestedOutputs) {
@@ -225,10 +215,14 @@ export class CustomResourceHandler {
       log({ Reply: reply });
       return Promise.resolve(reply);
     } else {
-      let reply = {
+      let reply: any = {
         IsComplete: true,
         PhysicalResourceId: physicalResourceId,
       };
+      let defaults = event.ResourceProperties.Defaults;
+      if (defaults) {
+        reply.Data = defaults;
+      }
       log({ Reply: reply });
       return Promise.resolve(reply);
     }
