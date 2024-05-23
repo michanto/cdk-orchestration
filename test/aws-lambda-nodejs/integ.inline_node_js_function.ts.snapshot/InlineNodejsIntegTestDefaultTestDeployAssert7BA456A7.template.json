@@ -1,6 +1,6 @@
 {
  "Resources": {
-  "AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765": {
+  "LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d": {
    "Type": "Custom::DeployAssert@SdkCallLambdainvoke",
    "Properties": {
     "ServiceToken": {
@@ -28,10 +28,25 @@
      "Payload": "\"{\\\"Greeting\\\":\\\"Hello, inline nodejs function!\\\"}\""
     },
     "flattenResponse": "false",
-    "salt": "1715099690210"
+    "salt": "1716416690617"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"
+  },
+  "LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87dInvoke07B3C849": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::ImportValue": "InlineNodejsInteg:ExportsOutputFnGetAttReverse87697EF5ArnE668E5F9"
+    },
+    "Principal": {
+     "Fn::GetAtt": [
+      "SingletonFunction1488541a7b23466481b69b4408076b81Role37ABCE73",
+      "Arn"
+     ]
+    }
+   }
   },
   "SingletonFunction1488541a7b23466481b69b4408076b81Role37ABCE73": {
    "Type": "AWS::IAM::Role",
@@ -66,6 +81,37 @@
          "Effect": "Allow",
          "Resource": [
           "*"
+         ]
+        },
+        {
+         "Action": [
+          "lambda:InvokeFunction"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          {
+           "Fn::Join": [
+            "",
+            [
+             "arn:",
+             {
+              "Ref": "AWS::Partition"
+             },
+             ":lambda:",
+             {
+              "Ref": "AWS::Region"
+             },
+             ":",
+             {
+              "Ref": "AWS::AccountId"
+             },
+             ":function:",
+             {
+              "Fn::ImportValue": "InlineNodejsInteg:ExportsOutputFnGetAttReverse87697EF5ArnE668E5F9"
+             }
+            ]
+           ]
+          }
          ]
         },
         {
@@ -107,10 +153,10 @@
   }
  },
  "Outputs": {
-  "AssertionResultsAwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765": {
+  "AssertionResultsLambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d": {
    "Value": {
     "Fn::GetAtt": [
-     "AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765",
+     "LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d",
      "assertion"
     ]
    }

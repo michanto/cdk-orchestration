@@ -10,21 +10,6 @@ function log(message: Record<string, any>) {
   }
 }
 
-export interface CustomResourceHandlerProps {
-  /**
-   * If true we will auto-paginate the response for
-   * as many pages as there are.
-   *
-   * Auto-paginate feature relies on the existance of a NextToken in
-   * the response.  All array fields in the response will be appended to,
-   * which may or may not be the desired result.  No per-API logic has been
-   * implemented.
-   *
-   * Default is false.
-   */
-  autoPaginate?: boolean;
-}
-
 /**
  * Class to create AwsCustomResource based handlers.  Copies the functionality of AwsCustomResource and
  * adds the following features:
@@ -36,8 +21,6 @@ export interface CustomResourceHandlerProps {
  * https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/custom-resource-handlers/lib/custom-resources/aws-custom-resource-handler/aws-sdk-v3-handler.ts
  */
 export class CustomResourceHandler {
-  constructor(readonly props?: CustomResourceHandlerProps) {}
-
   decodeProperties(event: any) {
     let encoded = event.ResourceProperties.EncodedProperties;
     if (encoded) {
@@ -77,7 +60,6 @@ export class CustomResourceHandler {
   async getResponse(call: any) {
     const apiCall = new ApiCall(call.service, call.action);
 
-    let responseBufferField = call.responseBufferField;
     let credentials;
     if (call.assumedRoleArn) {
       const timestamp = (new Date()).getTime();
@@ -85,10 +67,7 @@ export class CustomResourceHandler {
         RoleArn: call.assumedRoleArn,
         RoleSessionName: `AwsSdkCall-${timestamp}`,
       };
-      // TODO:  Remove.
       log({ params: params });
-      log({ responseBufferField: responseBufferField });
-
 
       const { fromTemporaryCredentials } = await import('@aws-sdk/credential-providers');
       credentials = fromTemporaryCredentials({
@@ -106,26 +85,33 @@ export class CustomResourceHandler {
         credentials: credentials,
         region: call.region,
         parameters: call.parameters,
-        flattenResponse: true,
-      });
+        flattenResponse: false,
+      }) as Record<string, any>;
+
       const logApiResponseData = call?.logApiResponseData ?? true;
       if (logApiResponseData) {
         console.log('API response', response);
       }
       flatData.apiVersion = apiCall.client.config.apiVersion; // For test purposes: check if apiVersion was correctly passed.
       flatData.region = await apiCall.client.config.region().catch(() => undefined); // For test purposes: check if region was correctly passed.
-      Object.assign(flatData, response);
+      Object.assign(response, flatData);
 
-      /* FUTURE:  AutoPaginate.
-      if (response.NextToken && this.props?.autoPaginate) {
+      if (response.NextToken && call.autoPaginate) {
         let nextToken = response.NextToken;
         while (nextToken) {
           let parameters = {
             ...call.parameters,
             NextToken: nextToken,
           };
-          const nextPage = await awsService[call.action](
-            parameters).promise();
+          let nextPage = await apiCall.invoke({
+            // FUTURE:  Copy code to install latest SDK from CDK
+            // sdkPackage: awsSdk,
+            apiVersion: call.apiVersion,
+            credentials: credentials,
+            region: call.region,
+            parameters: parameters,
+            flattenResponse: false,
+          }) as Record<string, any>;
           for (let field in nextPage) {
             if (Array.isArray(nextPage[field]) && Array.isArray(response[field])) {
               response[field] = [...response[field],
@@ -136,12 +122,20 @@ export class CustomResourceHandler {
         }
         // Since it's now undefined, don't return it.
         delete response.NextToken;
-      } */
+      }
 
+      let responseBufferField = call.responseBufferField;
+      log({ response: response });
+      log({ responseBufferField: responseBufferField });
       if (responseBufferField && response[responseBufferField]) {
         let body = (response[responseBufferField] as any).toString('utf-8');
-        response = this.flatten(JSON.parse(body));
+        // For lambda calls, throw if there is an error.
+        if (response.FunctionError) {
+          throw new Error(`${response.FunctionError} Cause:${body}`);
+        }
+        Object.assign(response, this.flatten(JSON.parse(body)));
       }
+      log({ response: response });
       return await Promise.resolve(response);
     } catch (e) {
       let error = e as any;
@@ -151,8 +145,7 @@ export class CustomResourceHandler {
         return Promise.reject(error);
       }
     }
-
-    return Promise.resolve({});
+    throw new Error('Should have returned a response or thrown.');
   }
 
   flatten(response: any) {
@@ -165,15 +158,13 @@ export class CustomResourceHandler {
   filter(call: any, flattened: any) {
     let data: { [key: string]: string } = {};
     let outputPaths: string[] | undefined;
-    if (call.outputPath) {
-      outputPaths = [call.outputPath];
-    } else if (call.outputPaths) {
+    if (call.outputPaths) {
       outputPaths = call.outputPaths;
     }
+
+    // Don't return anything if the user didn't request anything.
     if (outputPaths) {
       data = filterKeys(flattened, startsWithOneOf(outputPaths));
-    } else {
-      data = flattened;
     }
     log({ Filtered: data });
     return data;
@@ -186,8 +177,21 @@ export class CustomResourceHandler {
     event = this.decodeProperties(event);
     let physicalResourceId = this.getPhysicalResourceId(event);
     let call = this.getCall(event);
+    let requestedOutputs = event.ResourceProperties.RequestedOutputs;
+    if (requestedOutputs && requestedOutputs.length == 0) {
+      requestedOutputs = undefined;
+    }
 
     if (call) {
+      if (event.ResourceProperties.AutoPaginate) {
+        call.autoPaginate = event.ResourceProperties.AutoPaginate;
+      }
+      if (call.outputPaths && requestedOutputs) {
+        call.outputPaths = [...call.outputPaths, ...requestedOutputs];
+      } else if (requestedOutputs) {
+        call.outputPaths = requestedOutputs;
+      }
+
       call.parameters = decodeSpecialValues(call.parameters, physicalResourceId);
       console.log(JSON.stringify({ ...event, ResponseURL: '...' }));
       if (event.ResourceProperties.ResponseBufferField) {
@@ -196,22 +200,29 @@ export class CustomResourceHandler {
       let response = await this.getResponse(call);
       let flattened = this.flatten(response);
       let filtered = this.filter(call, flattened);
-      let data: any = {
-        ...(event.ResourceProperties.Defaults ?? {}),
-        ...filtered,
-      };
-      let reply = {
-        Data: data,
+      let defaults = event.ResourceProperties.Defaults;
+      let data: any = filtered || defaults ? {
+        ...(defaults ?? {}),
+        ...(filtered ?? {}),
+      } : undefined;
+      let reply: any = {
         IsComplete: true,
         PhysicalResourceId: physicalResourceId,
       };
+      if (data) {
+        reply.Data = data;
+      }
       log({ Reply: reply });
       return Promise.resolve(reply);
     } else {
-      let reply = {
+      let reply: any = {
         IsComplete: true,
         PhysicalResourceId: physicalResourceId,
       };
+      let defaults = event.ResourceProperties.Defaults;
+      if (defaults) {
+        reply.Data = defaults;
+      }
       log({ Reply: reply });
       return Promise.resolve(reply);
     }

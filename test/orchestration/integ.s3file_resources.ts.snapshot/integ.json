@@ -1,9 +1,9 @@
 {
   "version": "36.0.0",
   "testCases": {
-    "LambdaTaskIntegrationTest/DefaultTest": {
+    "S3FileResourcesTest/DefaultTest": {
       "stacks": [
-        "LambdaTaskIntegration"
+        "S3ResourcesInteg"
       ],
       "regions": [
         "us-east-1"
@@ -15,8 +15,8 @@
           }
         }
       },
-      "assertionStack": "LambdaTaskAssertions",
-      "assertionStackName": "LambdaTaskAssertions"
+      "assertionStack": "S3ResourcesAssertions",
+      "assertionStackName": "S3ResourcesAssertions"
     }
   }
 }

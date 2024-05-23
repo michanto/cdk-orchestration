@@ -28,12 +28,6 @@ export class CustomResourceUtilities {
 
     return elements.pop() as CfnResource;
   }
-
-  runResourceAlways(target: Construct) {
-    let resource = this.findCustomResource(target);
-
-    resource.addPropertyOverride('salt', BUILD_TIME);
-  }
 }
 
 /**

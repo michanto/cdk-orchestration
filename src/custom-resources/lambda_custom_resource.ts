@@ -1,10 +1,11 @@
-import { CfnResource, CustomResource, Duration, Fn } from 'aws-cdk-lib';
-import { Effect, IRole, ManagedPolicy, PolicyDocument, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
+import { CustomResource, Duration, Lazy, Reference } from 'aws-cdk-lib';
+import { IRole, ManagedPolicy, Policy, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Code, IFunction, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { AwsCustomResourceProps, AwsCustomResource, AwsSdkCall, Provider } from 'aws-cdk-lib/custom-resources';
 import { Construct, IConstruct } from 'constructs';
-import { EncodeResource } from '.';
-import { BUILD_TIME, Singleton } from '../core';
+import { EncodeResource, RunResourceAlways } from '.';
+import { awsSdkToIamAction } from './handlers/private/from_cdk/aws-custom-resource-sdk-adapter/cdk-sdk-info';
+import { Singleton } from '../core';
 
 /**
  * Props for LambdaCustomResourceResources
@@ -12,6 +13,7 @@ import { BUILD_TIME, Singleton } from '../core';
 export interface LambdaCustomResourceResourcesProps {
   readonly purpose: string;
   readonly timeout?: Duration;
+  readonly role?: IRole;
 }
 
 /**
@@ -25,7 +27,7 @@ export class LambdaCustomResourceResources extends Construct {
   constructor(scope: Construct, id: string, props: LambdaCustomResourceResourcesProps) {
     super(scope, id);
     let purpose = props.purpose;
-    this.role = this.createRole(props);
+    this.role = props.role ?? this.createRole(props);
 
     this.onEvent = this.createOnEventFunction(props);
 
@@ -37,15 +39,6 @@ export class LambdaCustomResourceResources extends Construct {
   createRole(props: LambdaCustomResourceResourcesProps) {
     return new Role(this, `${props.purpose}Role`, {
       assumedBy: new ServicePrincipal('lambda.amazonaws.com'),
-      inlinePolicies: {
-        CFRPolicy: new PolicyDocument({
-          statements: [new PolicyStatement({
-            actions: ['lambda:Invoke*'],
-            effect: Effect.ALLOW,
-            resources: ['*'],
-          })],
-        }),
-      },
       managedPolicies: [ManagedPolicy.fromAwsManagedPolicyName(
         'service-role/AWSLambdaBasicExecutionRole'), ManagedPolicy.fromAwsManagedPolicyName(
         'service-role/AWSLambdaRole')],
@@ -58,7 +51,7 @@ export class LambdaCustomResourceResources extends Construct {
       handler: 'index.handler',
       role: this.role,
       runtime: Runtime.NODEJS_20_X,
-      timeout: props.timeout ?? Duration.minutes(1),
+      timeout: props.timeout ?? Duration.minutes(2),
     });
   }
 }
@@ -95,16 +88,34 @@ export interface LambdaCustomResourceProps extends AwsCustomResourceProps {
  */
 export class LambdaCustomResource extends Construct {
   readonly resources: LambdaCustomResourceResources;
-  readonly resource: CustomResource;
+  readonly customResource: CustomResource;
+  readonly requestedOutputs: string[] = [];
 
-
-  constructor(scope: Construct, id: string, props: LambdaCustomResourceProps) {
+  constructor(scope: Construct, id: string, readonly props: LambdaCustomResourceProps) {
     super(scope, id);
+
+    if (!props.onCreate && !props.onUpdate && !props.onDelete) {
+      throw new Error('At least `onCreate`, `onUpdate` or `onDelete` must be specified.');
+    }
+
+    if (!props.role && !props.policy) {
+      throw new Error('At least one of `policy` or `role` (or both) must be specified.');
+    }
+
+    if (props.onCreate && !props.onCreate.physicalResourceId) {
+      throw new Error("'physicalResourceId' must be specified for 'onCreate' call.");
+    }
+
+    if (!props.onCreate && props.onUpdate && !props.onUpdate.physicalResourceId) {
+      throw new Error("'physicalResourceId' must be specified for 'onUpdate' call when 'onCreate' is omitted.");
+    }
+
     let purpose = props.resourceType?.replace('Custom::', '') ?? 'LambdaCustomResource';
 
     this.resources = this.createResources({
-      purpose: purpose,
+      purpose: 'CDKORCHCUSTOMRESOURCE',
       timeout: props.timeout,
+      role: props.role,
     });
 
     const create = props.onCreate || props.onUpdate;
@@ -113,10 +124,6 @@ export class LambdaCustomResource extends Construct {
       Update: props.onUpdate,
       Delete: props.onDelete,
     };
-    if (props.runAlways == undefined || props.runAlways) {
-      crProps.Version = BUILD_TIME;
-    }
-
 
     if (props.responseBufferField) {
       crProps.ResponseBufferField = props.responseBufferField;
@@ -125,18 +132,29 @@ export class LambdaCustomResource extends Construct {
     if (props.defaults) {
       crProps.Defaults = props.defaults;
     }
+    crProps.RequestedOutputs = Lazy.list({ produce: () => this.requestedOutputs });
+    let theThis = this;
 
-    this.resource = new CustomResource(this, 'Resource', {
+    this.customResource = new class InnerCustomResource extends CustomResource {
+      getAtt(attributeName: string): Reference {
+        theThis.requestedOutputs.push(attributeName);
+        return super.getAtt(attributeName);
+      }
+      getAttString(attributeName: string): string {
+        return this.getAtt(attributeName).toString();
+      }
+    }(this, 'Resource', {
       serviceToken: this.resources.provider.serviceToken,
       resourceType: `Custom::${purpose}`,
       properties: crProps,
     });
 
-    new EncodeResource(this.resource);
-  }
+    if (props.runAlways == undefined || props.runAlways) {
+      new RunResourceAlways(this);
+    }
+    this.createPolicy(props);
 
-  protected get cfnResource() {
-    return this.resource.node.tryFindChild('Default') as CfnResource;
+    new EncodeResource(this.customResource);
   }
 
   protected createResources(props: LambdaCustomResourceResourcesProps): LambdaCustomResourceResources {
@@ -147,13 +165,57 @@ export class LambdaCustomResource extends Construct {
     ) as LambdaCustomResourceResources;
   }
 
+  protected createPolicy(props: LambdaCustomResourceProps) {
+    // Create the policy statements for the custom resource function role, or use the user-provided ones
+    if (props.policy) {
+      const statements = [];
+      if (props.policy.statements.length !== 0) {
+        // Use custom statements provided by the user
+        for (const statement of props.policy.statements) {
+          statements.push(statement);
+        }
+      } else {
+        // Derive statements from AWS SDK calls
+        for (const call of [props.onCreate, props.onUpdate, props.onDelete]) {
+          if (call && call.assumedRoleArn == null) {
+            const statement = new PolicyStatement({
+              actions: [awsSdkToIamAction(call.service, call.action)],
+              resources: props.policy.resources,
+            });
+            statements.push(statement);
+          } else if (call && call.assumedRoleArn != null) {
+            const statement = new PolicyStatement({
+              actions: ['sts:AssumeRole'],
+              resources: [call.assumedRoleArn],
+            });
+            statements.push(statement);
+          }
+        }
+      }
+      const policy = new Policy(this, 'CustomResourcePolicy', {
+        statements: statements,
+      });
+      if (this.resources.role !== undefined) {
+        policy.attachToRole(this.resources.role);
+      }
+
+      // If the policy was deleted first, then the function might lose permissions to delete the custom resource
+      // This is here so that the policy doesn't get removed before onDelete is called
+      this.customResource.node.addDependency(policy);
+    }
+  }
+
   /**
    * Returns a flattened JSON key from the resource response.
    * @param attributeName
    * @returns An IResolvable for the resource attribute.
    */
   getAtt(attributeName: string) {
-    return Fn.getAtt(this.cfnResource.logicalId, attributeName);
+    return this.customResource.getAtt(attributeName);
+  }
+
+  getAttString(attributeName: string) {
+    return this.getResponseField(attributeName);
   }
 
   /**

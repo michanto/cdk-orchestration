@@ -100,7 +100,7 @@
               }
             },
             "attributes": {
-              "cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-kXQ3It/ca13d0d9-reverse_greeting.js"
+              "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-zhJyMW/ca13d0d9-reverse_greeting.js"
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_lambda.Function",
@@ -167,17 +167,17 @@
                 "id": "DeployAssert",
                 "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert",
                 "children": {
-                  "AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765": {
-                    "id": "AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765",
-                    "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765",
+                  "LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d": {
+                    "id": "LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d",
+                    "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d",
                     "children": {
                       "SdkProvider": {
                         "id": "SdkProvider",
-                        "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/SdkProvider",
+                        "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d/SdkProvider",
                         "children": {
                           "AssertionsProvider": {
                             "id": "AssertionsProvider",
-                            "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/SdkProvider/AssertionsProvider",
+                            "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d/SdkProvider/AssertionsProvider",
                             "constructInfo": {
                               "fqn": "constructs.Construct",
                               "version": "10.3.0"
@@ -191,11 +191,11 @@
                       },
                       "Default": {
                         "id": "Default",
-                        "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/Default",
+                        "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d/Default",
                         "children": {
                           "Default": {
                             "id": "Default",
-                            "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/Default/Default",
+                            "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d/Default/Default",
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.CfnResource",
                               "version": "2.120.0"
@@ -207,9 +207,17 @@
                           "version": "2.120.0"
                         }
                       },
+                      "Invoke": {
+                        "id": "Invoke",
+                        "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d/Invoke",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.120.0"
+                        }
+                      },
                       "AssertionResults": {
                         "id": "AssertionResults",
-                        "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/AssertionResults",
+                        "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d/AssertionResults",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.CfnOutput",
                           "version": "2.120.0"
@@ -217,7 +225,7 @@
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/integ-tests-alpha.AwsApiCall",
+                      "fqn": "@aws-cdk/integ-tests-alpha.LambdaInvokeFunction",
                       "version": "2.120.0-alpha.0"
                     }
                   },

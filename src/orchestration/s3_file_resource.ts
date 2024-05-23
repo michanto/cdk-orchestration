@@ -4,21 +4,22 @@ import { AwsCustomResource, AwsCustomResourcePolicy, AwsSdkCall, PhysicalResourc
 import { Construct } from 'constructs';
 import { RunResourceAlways } from '../custom-resources';
 
-export interface ConfigFileResourceProps {
+export interface S3FileResourceProps {
   readonly purpose: string;
   readonly body: any;
+  readonly metadata?: Record<string, string>;
   readonly bucket: IBucket;
   readonly key: string;
   readonly physicalResourceId: PhysicalResourceId;
 }
 
 /**
- * A resources that is represented by a JSON S3 file.
+ * A resources that writes an S3 JSON file.
  */
-export class ConfigFileResource extends Construct {
+export class S3FileResource extends Construct {
   readonly resource: AwsCustomResource;
 
-  constructor(scope: Construct, id: string, props: ConfigFileResourceProps) {
+  constructor(scope: Construct, id: string, props: S3FileResourceProps) {
     super(scope, id);
     let onCreate: AwsSdkCall = {
       service: 'S3',
@@ -30,6 +31,9 @@ export class ConfigFileResource extends Construct {
       },
       physicalResourceId: props.physicalResourceId,
     };
+    if (props.metadata) {
+      onCreate.parameters.Metadata = props.metadata;
+    }
 
     let onDelete: AwsSdkCall = {
       service: 'S3',

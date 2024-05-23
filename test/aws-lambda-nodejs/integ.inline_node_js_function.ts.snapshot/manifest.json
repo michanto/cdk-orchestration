@@ -84,7 +84,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/a1b4bf9f6af14ac4ee9c0f56bc74eb2abc4a4591499cd392d821ad6357b44626.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c97f80487db119959e960c0ebec4f60d4aa24342ead8ba391acff961f3fed761.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -101,16 +101,22 @@
         "InlineNodejsIntegTestDefaultTestDeployAssert7BA456A7.assets"
       ],
       "metadata": {
-        "/InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/Default/Default": [
+        "/InlineNodejsIntegTest/DefaultTest/DeployAssert/LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d/Default/Default": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765"
+            "data": "LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d"
           }
         ],
-        "/InlineNodejsIntegTest/DefaultTest/DeployAssert/AwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765/AssertionResults": [
+        "/InlineNodejsIntegTest/DefaultTest/DeployAssert/LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d/Invoke": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssertionResultsAwsApiCallLambdainvoke06012edfd257fdcbac1f687d03146765"
+            "data": "LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87dInvoke07B3C849"
+          }
+        ],
+        "/InlineNodejsIntegTest/DefaultTest/DeployAssert/LambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d/AssertionResults": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssertionResultsLambdaInvoke18d23c5d8051e789659e5fb0ee2bc87d"
           }
         ],
         "/InlineNodejsIntegTest/DefaultTest/DeployAssert/SingletonFunction1488541a7b23466481b69b4408076b81/Role": [
