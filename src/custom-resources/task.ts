@@ -1,28 +1,15 @@
 import { CustomResource, Reference, RemovalPolicy } from 'aws-cdk-lib';
-import { IRole } from 'aws-cdk-lib/aws-iam';
-import { AwsCustomResourcePolicy } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
+import { CustomResourceUtilities } from './custom_resources_utilities';
 import { ConstructRunTimeTypeInfo } from '../core';
-import { CustomResourceUtilities } from '../custom-resources';
 import { NAMESPACE } from '../private/internals';
 
-export interface TaskProperties {
-  readonly resourceType?: string;
-  /**
-   * See {@link AwsCustomResourceProps.policy}
-   */
-  readonly policy?: AwsCustomResourcePolicy;
-  /**
-   * See {@link AwsCustomResourceProps.role}
-   */
-  readonly role?: IRole;
-  /**
-   * Default attribute values to use when the underlying task fails to return expected
-   * values.
-   */
-  readonly defaults?: Record<string, string>;
-}
-
+/**
+ * An L3 custom resource based on the CustomResource class.
+ *
+ * Makes it easier to access CustomResource methods without
+ * having to navigate the construct tree.
+ */
 export abstract class Task extends Construct {
   static isTask(x: Construct): x is Task {
     return Task.TASK_RTTI.hasRtti(x);

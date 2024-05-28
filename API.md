@@ -2535,8 +2535,8 @@ new custom_resources.LambdaCustomResource(scope: Construct, id: string, props: L
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAtt">getAtt</a></code> | Returns a flattened JSON key from the resource response. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAttString">getAttString</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseField">getResponseField</a></code> | Returns a flattened JSON key from the resource response. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseFieldReference">getResponseFieldReference</a></code> | *No description.* |
 
@@ -2568,11 +2568,16 @@ public applyRemovalPolicy(policy: RemovalPolicy): void
 public getAtt(attributeName: string): Reference
 ```
 
-Returns a flattened JSON key from the resource response.
+Returns the value of an attribute of the custom resource of an arbitrary type.
+
+Attributes are returned from the custom resource provider through the
+`Data` map where the key is the attribute name.
 
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAtt.parameter.attributeName"></a>
 
 - *Type:* string
+
+the name of the attribute.
 
 ---
 
@@ -2582,9 +2587,16 @@ Returns a flattened JSON key from the resource response.
 public getAttString(attributeName: string): string
 ```
 
+Returns the value of an attribute of the custom resource of type string.
+
+Attributes are returned from the custom resource provider through the
+`Data` map where the key is the attribute name.
+
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
+
+the name of the attribute.
 
 ---
 
@@ -2619,6 +2631,7 @@ public getResponseFieldReference(dataPath: string): Reference
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.isTask">isTask</a></code> | *No description.* |
 
 ---
 
@@ -2654,14 +2667,28 @@ Any object.
 
 ---
 
+##### `isTask` <a name="isTask" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.isTask"></a>
+
+```typescript
+import { custom_resources } from '@michanto/cdk-orchestration'
+
+custom_resources.LambdaCustomResource.isTask(x: Construct)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.isTask.parameter.x"></a>
+
+- *Type:* constructs.Construct
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.props">props</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.props">props</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.resource">resource</a></code> | <code>aws-cdk-lib.CfnResource</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.resources">resources</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources</code> | *No description.* |
 
@@ -2689,16 +2716,6 @@ public readonly customResource: CustomResource;
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.props"></a>
-
-```typescript
-public readonly props: LambdaCustomResourceProps;
-```
-
-- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps
-
----
-
 ##### `ref`<sup>Required</sup> <a name="ref" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.ref"></a>
 
 ```typescript
@@ -2708,6 +2725,16 @@ public readonly ref: string;
 - *Type:* string
 
 The physical name of this custom resource.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.props"></a>
+
+```typescript
+public readonly props: LambdaCustomResourceProps;
+```
+
+- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps
 
 ---
 
@@ -4004,8 +4031,8 @@ new orchestration.S3FileMetadata(scope: Construct, id: string, props: S3FileRead
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAtt">getAtt</a></code> | Returns a top-level JSON key from the file. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAttString">getAttString</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
 ---
 
@@ -4035,11 +4062,16 @@ public applyRemovalPolicy(policy: RemovalPolicy): void
 public getAtt(attributeName: string): Reference
 ```
 
-Returns a top-level JSON key from the file.
+Returns the value of an attribute of the custom resource of an arbitrary type.
+
+Attributes are returned from the custom resource provider through the
+`Data` map where the key is the attribute name.
 
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAtt.parameter.attributeName"></a>
 
 - *Type:* string
+
+the name of the attribute.
 
 ---
 
@@ -4049,9 +4081,16 @@ Returns a top-level JSON key from the file.
 public getAttString(attributeName: string): string
 ```
 
+Returns the value of an attribute of the custom resource of type string.
+
+Attributes are returned from the custom resource provider through the
+`Data` map where the key is the attribute name.
+
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
+
+the name of the attribute.
 
 ---
 
@@ -4060,6 +4099,7 @@ public getAttString(attributeName: string): string
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.isTask">isTask</a></code> | *No description.* |
 
 ---
 
@@ -4095,13 +4135,28 @@ Any object.
 
 ---
 
+##### `isTask` <a name="isTask" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.isTask"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.S3FileMetadata.isTask(x: Construct)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.isTask.parameter.x"></a>
+
+- *Type:* constructs.Construct
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.lambdaCustomResource">lambdaCustomResource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.lambdaCustomResource">lambdaCustomResource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
 
 ---
 
@@ -4117,13 +4172,13 @@ The tree node.
 
 ---
 
-##### `lambdaCustomResource`<sup>Required</sup> <a name="lambdaCustomResource" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.lambdaCustomResource"></a>
+##### `customResource`<sup>Required</sup> <a name="customResource" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.customResource"></a>
 
 ```typescript
-public readonly lambdaCustomResource: LambdaCustomResource;
+public readonly customResource: CustomResource;
 ```
 
-- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource
+- *Type:* aws-cdk-lib.CustomResource
 
 ---
 
@@ -4136,6 +4191,16 @@ public readonly ref: string;
 - *Type:* string
 
 The physical name of this custom resource.
+
+---
+
+##### `lambdaCustomResource`<sup>Required</sup> <a name="lambdaCustomResource" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.lambdaCustomResource"></a>
+
+```typescript
+public readonly lambdaCustomResource: LambdaCustomResource;
+```
+
+- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource
 
 ---
 
@@ -4191,8 +4256,8 @@ new orchestration.S3FileReader(scope: Construct, id: string, props: S3FileReader
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.getAtt">getAtt</a></code> | Returns a top-level JSON key from the file. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.getAttString">getAttString</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
 ---
 
@@ -4222,11 +4287,16 @@ public applyRemovalPolicy(policy: RemovalPolicy): void
 public getAtt(attributeName: string): Reference
 ```
 
-Returns a top-level JSON key from the file.
+Returns the value of an attribute of the custom resource of an arbitrary type.
+
+Attributes are returned from the custom resource provider through the
+`Data` map where the key is the attribute name.
 
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileReader.getAtt.parameter.attributeName"></a>
 
 - *Type:* string
+
+the name of the attribute.
 
 ---
 
@@ -4236,9 +4306,16 @@ Returns a top-level JSON key from the file.
 public getAttString(attributeName: string): string
 ```
 
+Returns the value of an attribute of the custom resource of type string.
+
+Attributes are returned from the custom resource provider through the
+`Data` map where the key is the attribute name.
+
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileReader.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
+
+the name of the attribute.
 
 ---
 
@@ -4247,6 +4324,7 @@ public getAttString(attributeName: string): string
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.isTask">isTask</a></code> | *No description.* |
 
 ---
 
@@ -4282,13 +4360,28 @@ Any object.
 
 ---
 
+##### `isTask` <a name="isTask" id="@michanto/cdk-orchestration.orchestration.S3FileReader.isTask"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.S3FileReader.isTask(x: Construct)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.S3FileReader.isTask.parameter.x"></a>
+
+- *Type:* constructs.Construct
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.lambdaCustomResource">lambdaCustomResource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.lambdaCustomResource">lambdaCustomResource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
 
 ---
 
@@ -4304,13 +4397,13 @@ The tree node.
 
 ---
 
-##### `lambdaCustomResource`<sup>Required</sup> <a name="lambdaCustomResource" id="@michanto/cdk-orchestration.orchestration.S3FileReader.property.lambdaCustomResource"></a>
+##### `customResource`<sup>Required</sup> <a name="customResource" id="@michanto/cdk-orchestration.orchestration.S3FileReader.property.customResource"></a>
 
 ```typescript
-public readonly lambdaCustomResource: LambdaCustomResource;
+public readonly customResource: CustomResource;
 ```
 
-- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource
+- *Type:* aws-cdk-lib.CustomResource
 
 ---
 
@@ -4323,6 +4416,16 @@ public readonly ref: string;
 - *Type:* string
 
 The physical name of this custom resource.
+
+---
+
+##### `lambdaCustomResource`<sup>Required</sup> <a name="lambdaCustomResource" id="@michanto/cdk-orchestration.orchestration.S3FileReader.property.lambdaCustomResource"></a>
+
+```typescript
+public readonly lambdaCustomResource: LambdaCustomResource;
+```
+
+- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource
 
 ---
 
@@ -4371,8 +4474,8 @@ new orchestration.S3FileResource(scope: Construct, id: string, props: S3FileReso
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.getAtt">getAtt</a></code> | Returns a top-level JSON key from the file. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.getAttString">getAttString</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
 ---
 
@@ -4399,26 +4502,38 @@ public applyRemovalPolicy(policy: RemovalPolicy): void
 ##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.S3FileResource.getAtt"></a>
 
 ```typescript
-public getAtt(attributeName: string): string
+public getAtt(attributeName: string): Reference
 ```
 
-Returns a top-level JSON key from the file.
+Returns the value of an attribute of the custom resource of an arbitrary type.
+
+Attributes are returned from the custom resource provider through the
+`Data` map where the key is the attribute name.
 
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileResource.getAtt.parameter.attributeName"></a>
 
 - *Type:* string
+
+the name of the attribute.
 
 ---
 
 ##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.S3FileResource.getAttString"></a>
 
 ```typescript
-public getAttString(attributeName: string): Reference
+public getAttString(attributeName: string): string
 ```
+
+Returns the value of an attribute of the custom resource of type string.
+
+Attributes are returned from the custom resource provider through the
+`Data` map where the key is the attribute name.
 
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileResource.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
+
+the name of the attribute.
 
 ---
 
@@ -4427,6 +4542,7 @@ public getAttString(attributeName: string): Reference
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.isTask">isTask</a></code> | *No description.* |
 
 ---
 
@@ -4459,6 +4575,20 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTask` <a name="isTask" id="@michanto/cdk-orchestration.orchestration.S3FileResource.isTask"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.S3FileResource.isTask(x: Construct)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.S3FileResource.isTask.parameter.x"></a>
+
+- *Type:* constructs.Construct
 
 ---
 
@@ -5727,30 +5857,35 @@ public readonly order: string;
 ---
 
 
-### Task <a name="Task" id="@michanto/cdk-orchestration.orchestration.Task"></a>
+### Task <a name="Task" id="@michanto/cdk-orchestration.custom_resources.Task"></a>
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.Task.Initializer"></a>
+An L3 custom resource based on the CustomResource class.
+
+Makes it easier to access CustomResource methods without
+having to navigate the construct tree.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.custom_resources.Task.Initializer"></a>
 
 ```typescript
-import { orchestration } from '@michanto/cdk-orchestration'
+import { custom_resources } from '@michanto/cdk-orchestration'
 
-new orchestration.Task(scope: Construct, id: string)
+new custom_resources.Task(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.Task.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.custom_resources.Task.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.Task.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.custom_resources.Task.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -5760,14 +5895,14 @@ new orchestration.Task(scope: Construct, id: string)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.Task.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.custom_resources.Task.toString"></a>
 
 ```typescript
 public toString(): string
@@ -5775,19 +5910,19 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@michanto/cdk-orchestration.orchestration.Task.applyRemovalPolicy"></a>
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@michanto/cdk-orchestration.custom_resources.Task.applyRemovalPolicy"></a>
 
 ```typescript
 public applyRemovalPolicy(policy: RemovalPolicy): void
 ```
 
-###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.Task.applyRemovalPolicy.parameter.policy"></a>
+###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.custom_resources.Task.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
 
 ---
 
-##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.Task.getAtt"></a>
+##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.custom_resources.Task.getAtt"></a>
 
 ```typescript
 public getAtt(attributeName: string): Reference
@@ -5798,7 +5933,7 @@ Returns the value of an attribute of the custom resource of an arbitrary type.
 Attributes are returned from the custom resource provider through the
 `Data` map where the key is the attribute name.
 
-###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.Task.getAtt.parameter.attributeName"></a>
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.custom_resources.Task.getAtt.parameter.attributeName"></a>
 
 - *Type:* string
 
@@ -5806,7 +5941,7 @@ the name of the attribute.
 
 ---
 
-##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.Task.getAttString"></a>
+##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.custom_resources.Task.getAttString"></a>
 
 ```typescript
 public getAttString(attributeName: string): string
@@ -5817,7 +5952,7 @@ Returns the value of an attribute of the custom resource of type string.
 Attributes are returned from the custom resource provider through the
 `Data` map where the key is the attribute name.
 
-###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.Task.getAttString.parameter.attributeName"></a>
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.custom_resources.Task.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
 
@@ -5829,17 +5964,17 @@ the name of the attribute.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.isTask">isTask</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.isTask">isTask</a></code> | *No description.* |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.Task.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.custom_resources.Task.isConstruct"></a>
 
 ```typescript
-import { orchestration } from '@michanto/cdk-orchestration'
+import { custom_resources } from '@michanto/cdk-orchestration'
 
-orchestration.Task.isConstruct(x: any)
+custom_resources.Task.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -5858,7 +5993,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.Task.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.custom_resources.Task.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -5866,15 +6001,15 @@ Any object.
 
 ---
 
-##### `isTask` <a name="isTask" id="@michanto/cdk-orchestration.orchestration.Task.isTask"></a>
+##### `isTask` <a name="isTask" id="@michanto/cdk-orchestration.custom_resources.Task.isTask"></a>
 
 ```typescript
-import { orchestration } from '@michanto/cdk-orchestration'
+import { custom_resources } from '@michanto/cdk-orchestration'
 
-orchestration.Task.isTask(x: Construct)
+custom_resources.Task.isTask(x: Construct)
 ```
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.Task.isTask.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.custom_resources.Task.isTask.parameter.x"></a>
 
 - *Type:* constructs.Construct
 
@@ -5884,13 +6019,13 @@ orchestration.Task.isTask(x: Construct)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.Task.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.custom_resources.Task.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -5902,7 +6037,7 @@ The tree node.
 
 ---
 
-##### `customResource`<sup>Required</sup> <a name="customResource" id="@michanto/cdk-orchestration.orchestration.Task.property.customResource"></a>
+##### `customResource`<sup>Required</sup> <a name="customResource" id="@michanto/cdk-orchestration.custom_resources.Task.property.customResource"></a>
 
 ```typescript
 public readonly customResource: CustomResource;
@@ -5912,7 +6047,7 @@ public readonly customResource: CustomResource;
 
 ---
 
-##### `ref`<sup>Required</sup> <a name="ref" id="@michanto/cdk-orchestration.orchestration.Task.property.ref"></a>
+##### `ref`<sup>Required</sup> <a name="ref" id="@michanto/cdk-orchestration.custom_resources.Task.property.ref"></a>
 
 ```typescript
 public readonly ref: string;
@@ -6777,8 +6912,11 @@ public readonly order: string;
 
 TransformBase is the base class for L2 transforms.
 
-TransformBase creates an L1 shim CfnTransform
-that calls the _apply function of the L2 TransformBase that created it.
+L2 transforms exist to make it possible to apply Transforms directly to L2 and L3 constructs,
+without having to navigate to the underlying L1 construct.
+
+TransformBase creates an L1 shim CfnTransform that calls the _apply function of the
+L2 TransformBase that created it.
 
 TransformBase.getShimParent determines where to put the L1 shim in the construct tree.
 There are three possibilites:
@@ -6790,6 +6928,7 @@ one of the hosts children, as determined by TransformBase.order.  If the order d
 the shim transform is created normally (as a child of TransformBase).
 3. Neither of the above are true, in which case the shim transform is created as a child
 of TransformBase.
+4. getShimParent can also be overridden to support specific use-cases.
 
 The TransformBase._apply method should call a concretely typed "apply" method on the subclass.
 See {@link StringTransform } or {@link Transform} for examples.
@@ -8583,66 +8722,20 @@ const lambdaTaskProps: orchestration.LambdaTaskProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the underlying task fails to return expected values. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.policy">policy</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResourcePolicy</code> | See {@link AwsCustomResourceProps.policy }. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | See {@link AwsCustomResourceProps.role }. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The lambda function to invoke. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.payload">payload</a></code> | <code>string</code> | The payload to send to the lambda. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the underlying task fails to return expected values. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.functionName">functionName</a></code> | <code>string</code> | See {@link AwsCustomResourceProps.functionName}. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.logRetention">logRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | See {@link AwsCustomResourceProps.logRetention}. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.outputPaths">outputPaths</a></code> | <code>string[]</code> | See {@link AwsSdkCall.outputPaths}. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | See {@link AwsSdkCall.physicalResourceId}. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.policy">policy</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResourcePolicy</code> | See {@link AwsCustomResourceProps.policy}. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | See {@link AwsCustomResourceProps.role}. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.runAlways">runAlways</a></code> | <code>boolean</code> | Whether to run the task every time the stack is updated. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | See {@link AwsCustomResourceProps.timeout}. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | See {@link AwsCustomResourceProps.vpc}. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | See {@link AwsCustomResourceProps.vpcSubnets}. |
-
----
-
-##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.defaults"></a>
-
-```typescript
-public readonly defaults: {[ key: string ]: string};
-```
-
-- *Type:* {[ key: string ]: string}
-
-Default attribute values to use when the underlying task fails to return expected values.
-
----
-
-##### `policy`<sup>Optional</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.policy"></a>
-
-```typescript
-public readonly policy: AwsCustomResourcePolicy;
-```
-
-- *Type:* aws-cdk-lib.custom_resources.AwsCustomResourcePolicy
-
-See {@link AwsCustomResourceProps.policy }.
-
----
-
-##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.resourceType"></a>
-
-```typescript
-public readonly resourceType: string;
-```
-
-- *Type:* string
-
----
-
-##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.role"></a>
-
-```typescript
-public readonly role: IRole;
-```
-
-- *Type:* aws-cdk-lib.aws_iam.IRole
-
-See {@link AwsCustomResourceProps.role }.
 
 ---
 
@@ -8667,6 +8760,18 @@ public readonly payload: string;
 - *Type:* string
 
 The payload to send to the lambda.
+
+---
+
+##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.defaults"></a>
+
+```typescript
+public readonly defaults: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Default attribute values to use when the underlying task fails to return expected values.
 
 ---
 
@@ -8715,6 +8820,40 @@ public readonly physicalResourceId: PhysicalResourceId;
 - *Type:* aws-cdk-lib.custom_resources.PhysicalResourceId
 
 See {@link AwsSdkCall.physicalResourceId}.
+
+---
+
+##### `policy`<sup>Optional</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.policy"></a>
+
+```typescript
+public readonly policy: AwsCustomResourcePolicy;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.AwsCustomResourcePolicy
+
+See {@link AwsCustomResourceProps.policy}.
+
+---
+
+##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.resourceType"></a>
+
+```typescript
+public readonly resourceType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+See {@link AwsCustomResourceProps.role}.
 
 ---
 
@@ -9769,73 +9908,6 @@ public readonly order: string;
 ```
 
 - *Type:* string
-
----
-
-### TaskProperties <a name="TaskProperties" id="@michanto/cdk-orchestration.orchestration.TaskProperties"></a>
-
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.TaskProperties.Initializer"></a>
-
-```typescript
-import { orchestration } from '@michanto/cdk-orchestration'
-
-const taskProperties: orchestration.TaskProperties = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.TaskProperties.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the underlying task fails to return expected values. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.TaskProperties.property.policy">policy</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResourcePolicy</code> | See {@link AwsCustomResourceProps.policy }. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.TaskProperties.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.TaskProperties.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | See {@link AwsCustomResourceProps.role }. |
-
----
-
-##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.TaskProperties.property.defaults"></a>
-
-```typescript
-public readonly defaults: {[ key: string ]: string};
-```
-
-- *Type:* {[ key: string ]: string}
-
-Default attribute values to use when the underlying task fails to return expected values.
-
----
-
-##### `policy`<sup>Optional</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.TaskProperties.property.policy"></a>
-
-```typescript
-public readonly policy: AwsCustomResourcePolicy;
-```
-
-- *Type:* aws-cdk-lib.custom_resources.AwsCustomResourcePolicy
-
-See {@link AwsCustomResourceProps.policy }.
-
----
-
-##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.orchestration.TaskProperties.property.resourceType"></a>
-
-```typescript
-public readonly resourceType: string;
-```
-
-- *Type:* string
-
----
-
-##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.TaskProperties.property.role"></a>
-
-```typescript
-public readonly role: IRole;
-```
-
-- *Type:* aws-cdk-lib.aws_iam.IRole
-
-See {@link AwsCustomResourceProps.role }.
 
 ---
 

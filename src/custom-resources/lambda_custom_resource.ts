@@ -1,11 +1,14 @@
-import { CfnResource, CustomResource, Duration, Lazy, RemovalPolicy } from 'aws-cdk-lib';
+import { CfnResource, CustomResource, Duration, Lazy } from 'aws-cdk-lib';
 import { IRole, ManagedPolicy, Policy, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Code, IFunction, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { AwsCustomResourceProps, AwsCustomResource, AwsSdkCall, Provider } from 'aws-cdk-lib/custom-resources';
 import { Construct, IConstruct } from 'constructs';
-import { CustomResourceUtilities, EncodeResource, RunResourceAlways } from '.';
+import { CustomResourceUtilities } from './custom_resources_utilities';
+import { EncodeResource } from './encode_resource';
 import { awsSdkToIamAction } from './handlers/private/from_cdk/aws-custom-resource-sdk-adapter/cdk-sdk-info';
 import { InnerCustomResource } from './private/inner_custom_resource';
+import { RunResourceAlways } from './run_resource_always';
+import { Task } from './task';
 import { Singleton } from '../core';
 
 /**
@@ -88,7 +91,7 @@ export interface LambdaCustomResourceProps extends AwsCustomResourceProps {
  * - Support deserlializing via LambdaCustomResourceProps.responseBufferField.
  * - Supports default values for response fields as LambdaCustomResourceProps.defaults.
  */
-export class LambdaCustomResource extends Construct {
+export class LambdaCustomResource extends Task {
   readonly resources: LambdaCustomResourceResources;
   readonly customResource: CustomResource;
   readonly resource: CfnResource;
@@ -199,28 +202,6 @@ export class LambdaCustomResource extends Construct {
       // This is here so that the policy doesn't get removed before onDelete is called
       this.customResource.node.addDependency(policy);
     }
-  }
-
-  applyRemovalPolicy(policy: RemovalPolicy): void {
-    this.customResource.applyRemovalPolicy(policy);
-  }
-
-  /** The physical name of this custom resource */
-  get ref(): string {
-    return this.customResource.ref;
-  }
-
-  /**
-   * Returns a flattened JSON key from the resource response.
-   * @param attributeName
-   * @returns An IResolvable for the resource attribute.
-   */
-  getAtt(attributeName: string) {
-    return this.customResource.getAtt(attributeName);
-  }
-
-  getAttString(attributeName: string) {
-    return this.getResponseField(attributeName);
   }
 
   /**

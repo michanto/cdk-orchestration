@@ -1,8 +1,9 @@
-import { CustomResource, RemovalPolicy } from 'aws-cdk-lib';
+import { CustomResource } from 'aws-cdk-lib';
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { AwsCustomResource, AwsCustomResourcePolicy, AwsSdkCall, PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
 import { RunResourceAlways } from '../custom-resources';
+import { Task } from '../custom-resources/task';
 
 export interface S3FileResourceProps {
   readonly resourceType?: string;
@@ -16,7 +17,7 @@ export interface S3FileResourceProps {
 /**
  * A resources that writes an S3 JSON file.
  */
-export class S3FileResource extends Construct {
+export class S3FileResource extends Task {
   readonly resource: AwsCustomResource;
 
   constructor(scope: Construct, id: string, props: S3FileResourceProps) {
@@ -63,26 +64,5 @@ export class S3FileResource extends Construct {
 
   get customResource() {
     return (this.resource as any).customResource as CustomResource;
-  }
-
-  /** The physical name of this custom resource */
-  get ref(): string {
-    return this.customResource.ref;
-  }
-
-  /**
-   * Returns a top-level JSON key from the file.
-   * @param attributeName
-   * @returns An IResolvable for the resource attribute.
-   */
-  getAtt(attributeName: string) {
-    return this.resource.getResponseField(attributeName);
-  }
-
-  getAttString(attributeName: string) {
-    return this.resource.getResponseFieldReference(attributeName);
-  }
-  applyRemovalPolicy(policy: RemovalPolicy) {
-    this.customResource.applyRemovalPolicy(policy);
   }
 }

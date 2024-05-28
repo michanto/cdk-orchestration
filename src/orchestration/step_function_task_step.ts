@@ -4,11 +4,11 @@ import { Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { IStateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { Provider } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
-import { Task } from './task';
 import { InlineNodejsFunction } from '../aws-lambda-nodejs';
 import { Singleton } from '../core';
 import { EncodeResource, RunResourceAlways } from '../custom-resources';
 import { InnerCustomResource } from '../custom-resources/private/inner_custom_resource';
+import { Task } from '../custom-resources/task';
 
 /**
  * This class should not be public and should only be used by StepFunctionTask.

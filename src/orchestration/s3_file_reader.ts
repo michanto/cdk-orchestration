@@ -1,10 +1,11 @@
-import { RemovalPolicy } from 'aws-cdk-lib';
+import { CustomResource } from 'aws-cdk-lib';
 import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { AwsCustomResourcePolicy, AwsSdkCall, PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
 import { RunResourceAlways } from '../custom-resources';
 import { LambdaCustomResource } from '../custom-resources/lambda_custom_resource';
+import { Task } from '../custom-resources/task';
 
 /**
  * Properties for S3FileReader
@@ -31,8 +32,9 @@ export interface S3FileReaderProps {
  *
  * CFN has limits to how much data can be returned.
  */
-export class S3FileReader extends Construct {
+export class S3FileReader extends Task {
   readonly lambdaCustomResource: LambdaCustomResource;
+  readonly customResource: CustomResource;
 
   constructor(scope: Construct, id: string, props: S3FileReaderProps) {
     super(scope, id);
@@ -68,30 +70,9 @@ export class S3FileReader extends Construct {
       // Mostly to remove the warning.  I've tested it both ways and it works.
       installLatestAwsSdk: false,
     });
+    this.customResource = this.lambdaCustomResource.customResource;
 
     // Force re-running every deployment.
     new RunResourceAlways(this);
-  }
-
-  applyRemovalPolicy(policy: RemovalPolicy): void {
-    this.lambdaCustomResource.applyRemovalPolicy(policy);
-  }
-
-  /** The physical name of this custom resource */
-  get ref(): string {
-    return this.lambdaCustomResource.ref;
-  }
-
-  /**
-   * Returns a top-level JSON key from the file.
-   * @param attributeName
-   * @returns An IResolvable for the resource attribute.
-   */
-  getAtt(attributeName: string) {
-    return this.lambdaCustomResource.getAtt(attributeName);
-  }
-
-  getAttString(attributeName: string) {
-    return this.lambdaCustomResource.getAttString(attributeName);
   }
 }

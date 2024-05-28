@@ -1,4 +1,3 @@
-export * from './task';
 export * from './lambda_task';
 export * from './step_function_task_step';
 export * from './step_function_task';

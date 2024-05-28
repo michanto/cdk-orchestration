@@ -1,4 +1,5 @@
 import { IVpc, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
+import { IRole } from 'aws-cdk-lib/aws-iam';
 import { IFunction } from 'aws-cdk-lib/aws-lambda';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { CustomResource, Duration } from 'aws-cdk-lib/core';
@@ -10,8 +11,8 @@ import {
   PhysicalResourceId,
 } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
-import { Task, TaskProperties } from './task';
 import { LambdaCustomResource, LambdaCustomResourceProps } from '../custom-resources/lambda_custom_resource';
+import { Task } from '../custom-resources/task';
 
 /**
  * Properties for LambdaTask.
@@ -19,7 +20,21 @@ import { LambdaCustomResource, LambdaCustomResourceProps } from '../custom-resou
  * Basically these are used to create AwsCustomResource input for the LambdaCustomResource.
  * They work very similar to how AwsCustomResource and AwsSdkCall work.
  */
-export interface LambdaTaskProps extends TaskProperties {
+export interface LambdaTaskProps {
+  readonly resourceType?: string;
+  /**
+   * See {@link AwsCustomResourceProps.policy}
+   */
+  readonly policy?: AwsCustomResourcePolicy;
+  /**
+   * See {@link AwsCustomResourceProps.role}
+   */
+  readonly role?: IRole;
+  /**
+   * Default attribute values to use when the underlying task fails to return expected
+   * values.
+   */
+  readonly defaults?: Record<string, string>;
   /**
    * The lambda function to invoke.
    */

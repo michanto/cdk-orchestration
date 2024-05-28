@@ -3,7 +3,7 @@ import { IRole } from 'aws-cdk-lib/aws-iam';
 import { IStateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 import { StepFunctionTaskStep, StepFunctionTaskStepConstants } from './step_function_task_step';
-import { Task } from './task';
+import { Task } from '../custom-resources/task';
 
 /**
  * Properties for StepFunctionTask.
