@@ -1,4 +1,4 @@
-import { CfnResource, CustomResource, Duration, Lazy } from 'aws-cdk-lib';
+import { CfnResource, CustomResource, Duration, Lazy, RemovalPolicy } from 'aws-cdk-lib';
 import { IRole, ManagedPolicy, Policy, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Code, IFunction, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { AwsCustomResourceProps, AwsCustomResource, AwsSdkCall, Provider } from 'aws-cdk-lib/custom-resources';
@@ -199,6 +199,15 @@ export class LambdaCustomResource extends Construct {
       // This is here so that the policy doesn't get removed before onDelete is called
       this.customResource.node.addDependency(policy);
     }
+  }
+
+  applyRemovalPolicy(policy: RemovalPolicy): void {
+    this.customResource.applyRemovalPolicy(policy);
+  }
+
+  /** The physical name of this custom resource */
+  get ref(): string {
+    return this.customResource.ref;
   }
 
   /**

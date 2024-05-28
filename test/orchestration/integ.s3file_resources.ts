@@ -19,7 +19,7 @@ Aspects.of(app).add(new LoggingAspect());
 let bucket = new Bucket(stack, 'MyBucket');
 let key = 'foo/bar/baz.json';
 let writer = new S3FileResource(stack, 'Writer', {
-  purpose: 'ToWrite',
+  resourceType: 'Custom::ToWrite',
   body: { Some: 'Data' },
   bucket: bucket,
   metadata: {
@@ -30,7 +30,7 @@ let writer = new S3FileResource(stack, 'Writer', {
 });
 
 let reader = new S3FileReader(stack, 'Reader', {
-  purpose: 'ToRead',
+  resourceType: 'Custon::ToRead',
   bucket: bucket,
   key: key,
   physicalResourceId: PhysicalResourceId.of('Reader'),
@@ -39,7 +39,7 @@ let reader = new S3FileReader(stack, 'Reader', {
 reader.node.addDependency(writer);
 
 let metadata = new S3FileMetadata(stack, 'MdReader', {
-  purpose: 'ToReadMd',
+  resourceType: 'Custom::ToReadMd',
   bucket: bucket,
   key: key,
   physicalResourceId: PhysicalResourceId.of('Reader'),

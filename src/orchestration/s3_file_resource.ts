@@ -5,7 +5,7 @@ import { Construct } from 'constructs';
 import { RunResourceAlways } from '../custom-resources';
 
 export interface S3FileResourceProps {
-  readonly purpose: string;
+  readonly resourceType?: string;
   readonly body: any;
   readonly metadata?: Record<string, string>;
   readonly bucket: IBucket;
@@ -46,7 +46,7 @@ export class S3FileResource extends Construct {
     };
 
     this.resource = new AwsCustomResource(this, 'Resource', {
-      resourceType: `Custom::${props.purpose}`,
+      resourceType: props.resourceType ?? 'Custom::S3FileResource',
       onCreate: onCreate,
       onDelete: onDelete,
       onUpdate: onCreate,
@@ -61,8 +61,28 @@ export class S3FileResource extends Construct {
     new RunResourceAlways(this);
   }
 
+  get customResource() {
+    return (this.resource as any).customResource as CustomResource;
+  }
+
+  /** The physical name of this custom resource */
+  get ref(): string {
+    return this.customResource.ref;
+  }
+
+  /**
+   * Returns a top-level JSON key from the file.
+   * @param attributeName
+   * @returns An IResolvable for the resource attribute.
+   */
+  getAtt(attributeName: string) {
+    return this.resource.getResponseField(attributeName);
+  }
+
+  getAttString(attributeName: string) {
+    return this.resource.getResponseFieldReference(attributeName);
+  }
   applyRemovalPolicy(policy: RemovalPolicy) {
-    let resource = (this.resource as any).customResource as CustomResource;
-    resource.applyRemovalPolicy(policy);
+    this.customResource.applyRemovalPolicy(policy);
   }
 }

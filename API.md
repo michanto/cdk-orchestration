@@ -2534,6 +2534,7 @@ new custom_resources.LambdaCustomResource(scope: Construct, id: string, props: L
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAtt">getAtt</a></code> | Returns a flattened JSON key from the resource response. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAttString">getAttString</a></code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseField">getResponseField</a></code> | Returns a flattened JSON key from the resource response. |
@@ -2548,6 +2549,18 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
 
 ##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAtt"></a>
 
@@ -2648,6 +2661,7 @@ Any object.
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.props">props</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.resource">resource</a></code> | <code>aws-cdk-lib.CfnResource</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.resources">resources</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources</code> | *No description.* |
 
@@ -2682,6 +2696,18 @@ public readonly props: LambdaCustomResourceProps;
 ```
 
 - *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps
+
+---
+
+##### `ref`<sup>Required</sup> <a name="ref" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.ref"></a>
+
+```typescript
+public readonly ref: string;
+```
+
+- *Type:* string
+
+The physical name of this custom resource.
 
 ---
 
@@ -3977,6 +4003,7 @@ new orchestration.S3FileMetadata(scope: Construct, id: string, props: S3FileRead
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAtt">getAtt</a></code> | Returns a top-level JSON key from the file. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAttString">getAttString</a></code> | *No description.* |
 
@@ -3989,6 +4016,18 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
 
 ##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAtt"></a>
 
@@ -4061,7 +4100,8 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.resource">resource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.lambdaCustomResource">lambdaCustomResource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
 
 ---
 
@@ -4077,13 +4117,25 @@ The tree node.
 
 ---
 
-##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.resource"></a>
+##### `lambdaCustomResource`<sup>Required</sup> <a name="lambdaCustomResource" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.lambdaCustomResource"></a>
 
 ```typescript
-public readonly resource: LambdaCustomResource;
+public readonly lambdaCustomResource: LambdaCustomResource;
 ```
 
 - *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource
+
+---
+
+##### `ref`<sup>Required</sup> <a name="ref" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.ref"></a>
+
+```typescript
+public readonly ref: string;
+```
+
+- *Type:* string
+
+The physical name of this custom resource.
 
 ---
 
@@ -4138,6 +4190,7 @@ new orchestration.S3FileReader(scope: Construct, id: string, props: S3FileReader
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.getAtt">getAtt</a></code> | Returns a top-level JSON key from the file. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.getAttString">getAttString</a></code> | *No description.* |
 
@@ -4150,6 +4203,18 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@michanto/cdk-orchestration.orchestration.S3FileReader.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.S3FileReader.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
 
 ##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.S3FileReader.getAtt"></a>
 
@@ -4222,7 +4287,8 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.resource">resource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.lambdaCustomResource">lambdaCustomResource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
 
 ---
 
@@ -4238,13 +4304,25 @@ The tree node.
 
 ---
 
-##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.S3FileReader.property.resource"></a>
+##### `lambdaCustomResource`<sup>Required</sup> <a name="lambdaCustomResource" id="@michanto/cdk-orchestration.orchestration.S3FileReader.property.lambdaCustomResource"></a>
 
 ```typescript
-public readonly resource: LambdaCustomResource;
+public readonly lambdaCustomResource: LambdaCustomResource;
 ```
 
 - *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource
+
+---
+
+##### `ref`<sup>Required</sup> <a name="ref" id="@michanto/cdk-orchestration.orchestration.S3FileReader.property.ref"></a>
+
+```typescript
+public readonly ref: string;
+```
+
+- *Type:* string
+
+The physical name of this custom resource.
 
 ---
 
@@ -4293,6 +4371,8 @@ new orchestration.S3FileResource(scope: Construct, id: string, props: S3FileReso
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.getAtt">getAtt</a></code> | Returns a top-level JSON key from the file. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.getAttString">getAttString</a></code> | *No description.* |
 
 ---
 
@@ -4313,6 +4393,32 @@ public applyRemovalPolicy(policy: RemovalPolicy): void
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.S3FileResource.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.S3FileResource.getAtt"></a>
+
+```typescript
+public getAtt(attributeName: string): string
+```
+
+Returns a top-level JSON key from the file.
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileResource.getAtt.parameter.attributeName"></a>
+
+- *Type:* string
+
+---
+
+##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.S3FileResource.getAttString"></a>
+
+```typescript
+public getAttString(attributeName: string): Reference
+```
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileResource.getAttString.parameter.attributeName"></a>
+
+- *Type:* string
 
 ---
 
@@ -4361,6 +4467,8 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.property.resource">resource</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResource</code> | *No description.* |
 
 ---
@@ -4374,6 +4482,28 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `customResource`<sup>Required</sup> <a name="customResource" id="@michanto/cdk-orchestration.orchestration.S3FileResource.property.customResource"></a>
+
+```typescript
+public readonly customResource: CustomResource;
+```
+
+- *Type:* aws-cdk-lib.CustomResource
+
+---
+
+##### `ref`<sup>Required</sup> <a name="ref" id="@michanto/cdk-orchestration.orchestration.S3FileResource.property.ref"></a>
+
+```typescript
+public readonly ref: string;
+```
+
+- *Type:* string
+
+The physical name of this custom resource.
 
 ---
 
@@ -9000,8 +9130,8 @@ const s3FileMetadataProps: orchestration.S3FileMetadataProps = { ... }
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.key">key</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: any}</code> | Default values to use if the file/properties can't be found. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -9035,16 +9165,6 @@ public readonly physicalResourceId: PhysicalResourceId;
 
 ---
 
-##### `purpose`<sup>Required</sup> <a name="purpose" id="@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.purpose"></a>
-
-```typescript
-public readonly purpose: string;
-```
-
-- *Type:* string
-
----
-
 ##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.defaults"></a>
 
 ```typescript
@@ -9056,6 +9176,16 @@ public readonly defaults: {[ key: string ]: any};
 Default values to use if the file/properties can't be found.
 
 If not specified the default is undefined.
+
+---
+
+##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.resourceType"></a>
+
+```typescript
+public readonly resourceType: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -9078,8 +9208,8 @@ const s3FileReaderProps: orchestration.S3FileReaderProps = { ... }
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.key">key</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: any}</code> | Default values to use if the file/properties can't be found. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -9113,16 +9243,6 @@ public readonly physicalResourceId: PhysicalResourceId;
 
 ---
 
-##### `purpose`<sup>Required</sup> <a name="purpose" id="@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.purpose"></a>
-
-```typescript
-public readonly purpose: string;
-```
-
-- *Type:* string
-
----
-
 ##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.defaults"></a>
 
 ```typescript
@@ -9134,6 +9254,16 @@ public readonly defaults: {[ key: string ]: any};
 Default values to use if the file/properties can't be found.
 
 If not specified the default is undefined.
+
+---
+
+##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.resourceType"></a>
+
+```typescript
+public readonly resourceType: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -9155,8 +9285,8 @@ const s3FileResourceProps: orchestration.S3FileResourceProps = { ... }
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.key">key</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.metadata">metadata</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -9200,16 +9330,6 @@ public readonly physicalResourceId: PhysicalResourceId;
 
 ---
 
-##### `purpose`<sup>Required</sup> <a name="purpose" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.purpose"></a>
-
-```typescript
-public readonly purpose: string;
-```
-
-- *Type:* string
-
----
-
 ##### `metadata`<sup>Optional</sup> <a name="metadata" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.metadata"></a>
 
 ```typescript
@@ -9217,6 +9337,16 @@ public readonly metadata: {[ key: string ]: string};
 ```
 
 - *Type:* {[ key: string ]: string}
+
+---
+
+##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.resourceType"></a>
+
+```typescript
+public readonly resourceType: string;
+```
+
+- *Type:* string
 
 ---
 

@@ -1,3 +1,4 @@
+import { RemovalPolicy } from 'aws-cdk-lib';
 import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { AwsCustomResourcePolicy, AwsSdkCall } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
@@ -22,7 +23,7 @@ export interface S3FileMetadataProps extends S3FileReaderProps {
  * CFN has limits to how much data can be returned.
  */
 export class S3FileMetadata extends Construct {
-  readonly resource: LambdaCustomResource;
+  readonly lambdaCustomResource: LambdaCustomResource;
 
   constructor(scope: Construct, id: string, props: S3FileReaderProps) {
     super(scope, id);
@@ -39,8 +40,8 @@ export class S3FileMetadata extends Construct {
       ignoreErrorCodesMatching: 'NoSuchKey|NoSuchBucket',
     };
 
-    this.resource = new LambdaCustomResource(this, 'Resource', {
-      resourceType: `Custom::${props.purpose}`,
+    this.lambdaCustomResource = new LambdaCustomResource(this, 'Resource', {
+      resourceType: props.resourceType ?? 'Custom::S3FileMetadata',
       onCreate: onCreate,
       onUpdate: onCreate,
       defaults: props.defaults,
@@ -62,16 +63,25 @@ export class S3FileMetadata extends Construct {
     new RunResourceAlways(this);
   }
 
+  applyRemovalPolicy(policy: RemovalPolicy): void {
+    this.lambdaCustomResource.applyRemovalPolicy(policy);
+  }
+
+  /** The physical name of this custom resource */
+  get ref(): string {
+    return this.lambdaCustomResource.ref;
+  }
+
   /**
    * Returns a top-level JSON key from the file.
    * @param attributeName
    * @returns An IResolvable for the resource attribute.
    */
   getAtt(attributeName: string) {
-    return this.resource.getAtt(attributeName);
+    return this.lambdaCustomResource.getAtt(attributeName);
   }
 
   getAttString(attributeName: string) {
-    return this.resource.getAttString(attributeName);
+    return this.lambdaCustomResource.getAttString(attributeName);
   }
 }

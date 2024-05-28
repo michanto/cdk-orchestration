@@ -12,7 +12,7 @@ describe('S3 File Resources tests', () => {
     let key = 'foo/bar/baz.json';
 
     new S3FileResource(stack, 'Writer', {
-      purpose: 'ToWrite',
+      resourceType: 'Custom::ToWrite',
       bucket: bucket,
       key: key,
       body: { some: 'data' },
@@ -20,13 +20,13 @@ describe('S3 File Resources tests', () => {
     });
 
     new S3FileReader(stack, 'Reader', {
-      purpose: 'ToRead',
+      resourceType: 'Custom::ToRead',
       bucket: bucket,
       key: key,
       physicalResourceId: PhysicalResourceId.of('Reader'),
     });
     new S3FileMetadata(stack, 'Metadata', {
-      purpose: 'ToReadMd',
+      resourceType: 'Custom::ToReadMd',
       bucket: bucket,
       key: key,
       physicalResourceId: PhysicalResourceId.of('Metadata'),
