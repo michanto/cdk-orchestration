@@ -1,12 +1,30 @@
-import { CustomResource, Duration, Lazy, Reference } from 'aws-cdk-lib';
+import { CfnResource, CustomResource, CustomResourceProps, Duration, Lazy, Reference } from 'aws-cdk-lib';
 import { IRole, ManagedPolicy, Policy, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Code, IFunction, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { AwsCustomResourceProps, AwsCustomResource, AwsSdkCall, Provider } from 'aws-cdk-lib/custom-resources';
 import { Construct, IConstruct } from 'constructs';
-import { EncodeResource, RunResourceAlways } from '.';
+import { CustomResourceUtilities, EncodeResource, RunResourceAlways } from '.';
 import { awsSdkToIamAction } from './handlers/private/from_cdk/aws-custom-resource-sdk-adapter/cdk-sdk-info';
 import { Singleton } from '../core';
 
+
+/**
+ * Custom resource class that writes attribute requests
+ * to the scope property.
+ */
+class InnerCustomResource extends CustomResource {
+  readonly requestedOutputs: string[] = [];
+  constructor(readonly scope: Construct, id: string, props: CustomResourceProps) {
+    super(scope, id, props);
+  }
+  getAtt(attributeName: string): Reference {
+    this.requestedOutputs.push(attributeName);
+    return super.getAtt(attributeName);
+  }
+  getAttString(attributeName: string): string {
+    return this.getAtt(attributeName).toString();
+  }
+}
 /**
  * Props for LambdaCustomResourceResources
  */
@@ -66,14 +84,15 @@ export interface LambdaCustomResourceProps extends AwsCustomResourceProps {
    */
   readonly responseBufferField?: string;
   /**
-   * Default attribute values to use when the underlying API fails to return expected
+   * Whether to run the task every time the stack is updated.
+   * Default is true.
+   */
+  readonly runAlways?: boolean;
+  /**
+   * Default attribute values to use when the underlying task fails to return expected
    * values.
    */
   readonly defaults?: Record<string, string>;
-  /**
-   * Whether to run the lambda every time the stack is updated.
-   */
-  readonly runAlways?: boolean;
 }
 
 /**
@@ -89,7 +108,7 @@ export interface LambdaCustomResourceProps extends AwsCustomResourceProps {
 export class LambdaCustomResource extends Construct {
   readonly resources: LambdaCustomResourceResources;
   readonly customResource: CustomResource;
-  readonly requestedOutputs: string[] = [];
+  readonly resource: CfnResource;
 
   constructor(scope: Construct, id: string, readonly props: LambdaCustomResourceProps) {
     super(scope, id);
@@ -132,22 +151,16 @@ export class LambdaCustomResource extends Construct {
     if (props.defaults) {
       crProps.Defaults = props.defaults;
     }
-    crProps.RequestedOutputs = Lazy.list({ produce: () => this.requestedOutputs });
-    let theThis = this;
+    crProps.RequestedOutputs = Lazy.list({
+      produce: () => (this.customResource as InnerCustomResource).requestedOutputs,
+    });
 
-    this.customResource = new class InnerCustomResource extends CustomResource {
-      getAtt(attributeName: string): Reference {
-        theThis.requestedOutputs.push(attributeName);
-        return super.getAtt(attributeName);
-      }
-      getAttString(attributeName: string): string {
-        return this.getAtt(attributeName).toString();
-      }
-    }(this, 'Resource', {
+    this.customResource = new InnerCustomResource(this, 'Resource', {
       serviceToken: this.resources.provider.serviceToken,
       resourceType: `Custom::${purpose}`,
       properties: crProps,
     });
+    this.resource = new CustomResourceUtilities().findCustomResource(this);
 
     if (props.runAlways == undefined || props.runAlways) {
       new RunResourceAlways(this);
@@ -223,7 +236,11 @@ export class LambdaCustomResource extends Construct {
    * @param dataPath
    * @returns
    */
-  getResponseField(dataPath: string): string {
+  getResponseField(dataPath: string) {
     return this.getAtt(dataPath).toString();
+  }
+
+  getResponseFieldReference(dataPath: string) {
+    return this.getAtt(dataPath);
   }
 }

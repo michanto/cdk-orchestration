@@ -38,6 +38,10 @@ export interface StepFunctionTaskProps {
    * If not provided, a role will be created.
    */
   readonly role?: IRole;
+  /**
+   * See {@link AwsSdkCall.outputPaths}
+   */
+  readonly outputPaths?: string[];
 
   /**
    * Default attribute values to use when the StepFunction output does not contain a requested value.

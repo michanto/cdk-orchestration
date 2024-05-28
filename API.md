@@ -2537,6 +2537,7 @@ new custom_resources.LambdaCustomResource(scope: Construct, id: string, props: L
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAtt">getAtt</a></code> | Returns a flattened JSON key from the resource response. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAttString">getAttString</a></code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseField">getResponseField</a></code> | Returns a flattened JSON key from the resource response. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseFieldReference">getResponseFieldReference</a></code> | *No description.* |
 
 ---
 
@@ -2583,6 +2584,18 @@ public getResponseField(dataPath: string): string
 Returns a flattened JSON key from the resource response.
 
 ###### `dataPath`<sup>Required</sup> <a name="dataPath" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseField.parameter.dataPath"></a>
+
+- *Type:* string
+
+---
+
+##### `getResponseFieldReference` <a name="getResponseFieldReference" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseFieldReference"></a>
+
+```typescript
+public getResponseFieldReference(dataPath: string): Reference
+```
+
+###### `dataPath`<sup>Required</sup> <a name="dataPath" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseFieldReference.parameter.dataPath"></a>
 
 - *Type:* string
 
@@ -2635,7 +2648,7 @@ Any object.
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.props">props</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.requestedOutputs">requestedOutputs</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.resource">resource</a></code> | <code>aws-cdk-lib.CfnResource</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.resources">resources</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources</code> | *No description.* |
 
 ---
@@ -2672,13 +2685,13 @@ public readonly props: LambdaCustomResourceProps;
 
 ---
 
-##### `requestedOutputs`<sup>Required</sup> <a name="requestedOutputs" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.requestedOutputs"></a>
+##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.resource"></a>
 
 ```typescript
-public readonly requestedOutputs: string[];
+public readonly resource: CfnResource;
 ```
 
-- *Type:* string[]
+- *Type:* aws-cdk-lib.CfnResource
 
 ---
 
@@ -2912,8 +2925,9 @@ new orchestration.LambdaTask(scope: Construct, id: string, props: LambdaTaskProp
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.getAtt">getAtt</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.getResponseField">getResponseField</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.getAttString">getAttString</a></code> | *No description.* |
 
 ---
 
@@ -2925,25 +2939,37 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@michanto/cdk-orchestration.orchestration.LambdaTask.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.LambdaTask.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
 ##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getAtt"></a>
 
 ```typescript
-public getAtt(name: string): Reference
+public getAtt(attributeName: string): Reference
 ```
 
-###### `name`<sup>Required</sup> <a name="name" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getAtt.parameter.name"></a>
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getAtt.parameter.attributeName"></a>
 
 - *Type:* string
 
 ---
 
-##### `getResponseField` <a name="getResponseField" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getResponseField"></a>
+##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getAttString"></a>
 
 ```typescript
-public getResponseField(name: string): string
+public getAttString(attributeName: string): string
 ```
 
-###### `name`<sup>Required</sup> <a name="name" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getResponseField.parameter.name"></a>
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
 
@@ -2994,8 +3020,11 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.ref">ref</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.resource">resource</a></code> | <code>aws-cdk-lib.CfnResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.lambdaCustomResource">lambdaCustomResource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.resource">resource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
 
 ---
 
@@ -3011,6 +3040,46 @@ The tree node.
 
 ---
 
+##### `customResource`<sup>Required</sup> <a name="customResource" id="@michanto/cdk-orchestration.orchestration.LambdaTask.property.customResource"></a>
+
+```typescript
+public readonly customResource: CustomResource;
+```
+
+- *Type:* aws-cdk-lib.CustomResource
+
+---
+
+##### `ref`<sup>Required</sup> <a name="ref" id="@michanto/cdk-orchestration.orchestration.LambdaTask.property.ref"></a>
+
+```typescript
+public readonly ref: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.LambdaTask.property.resource"></a>
+
+```typescript
+public readonly resource: CfnResource;
+```
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+##### `lambdaCustomResource`<sup>Required</sup> <a name="lambdaCustomResource" id="@michanto/cdk-orchestration.orchestration.LambdaTask.property.lambdaCustomResource"></a>
+
+```typescript
+public readonly lambdaCustomResource: LambdaCustomResource;
+```
+
+- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource
+
+---
+
 ##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="@michanto/cdk-orchestration.orchestration.LambdaTask.property.lambdaFunction"></a>
 
 ```typescript
@@ -3018,16 +3087,6 @@ public readonly lambdaFunction: IFunction;
 ```
 
 - *Type:* aws-cdk-lib.aws_lambda.IFunction
-
----
-
-##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.LambdaTask.property.resource"></a>
-
-```typescript
-public readonly resource: LambdaCustomResource;
-```
-
-- *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource
 
 ---
 
@@ -5431,6 +5490,184 @@ public readonly order: string;
 ---
 
 
+### Task <a name="Task" id="@michanto/cdk-orchestration.orchestration.Task"></a>
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.Task.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+new orchestration.Task(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.orchestration.Task.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.orchestration.Task.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.getAtt">getAtt</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.getAttString">getAttString</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.orchestration.Task.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@michanto/cdk-orchestration.orchestration.Task.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.Task.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.orchestration.Task.getAtt"></a>
+
+```typescript
+public getAtt(attributeName: string): Reference
+```
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.Task.getAtt.parameter.attributeName"></a>
+
+- *Type:* string
+
+---
+
+##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.Task.getAttString"></a>
+
+```typescript
+public getAttString(attributeName: string): string
+```
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.Task.getAttString.parameter.attributeName"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.orchestration.Task.isConstruct"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+orchestration.Task.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.Task.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.property.ref">ref</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.Task.property.resource">resource</a></code> | <code>aws-cdk-lib.CfnResource</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.orchestration.Task.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `customResource`<sup>Required</sup> <a name="customResource" id="@michanto/cdk-orchestration.orchestration.Task.property.customResource"></a>
+
+```typescript
+public readonly customResource: CustomResource;
+```
+
+- *Type:* aws-cdk-lib.CustomResource
+
+---
+
+##### `ref`<sup>Required</sup> <a name="ref" id="@michanto/cdk-orchestration.orchestration.Task.property.ref"></a>
+
+```typescript
+public readonly ref: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="@michanto/cdk-orchestration.orchestration.Task.property.resource"></a>
+
+```typescript
+public readonly resource: CfnResource;
+```
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+
 ### TempFileWriter <a name="TempFileWriter" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter"></a>
 
 Writes a template to a temp file, so it can be used with CfnInclude.
@@ -7774,9 +8011,9 @@ const lambdaCustomResourceProps: custom_resources.LambdaCustomResourceProps = { 
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The timeout for the singleton Lambda function implementing this custom resource. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The vpc to provision the lambda function in. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | Which subnets from the VPC to place the lambda function in. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the underlying API fails to return expected values. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the underlying task fails to return expected values. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.responseBufferField">responseBufferField</a></code> | <code>string</code> | Specifies a field in the API response that should be deserlized, such as Payload when calling lambda:Invoke, or Body when calling s3:GetObject. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.runAlways">runAlways</a></code> | <code>boolean</code> | Whether to run the lambda every time the stack is updated. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.runAlways">runAlways</a></code> | <code>boolean</code> | Whether to run the task every time the stack is updated. |
 
 ---
 
@@ -7988,7 +8225,7 @@ public readonly defaults: {[ key: string ]: string};
 
 - *Type:* {[ key: string ]: string}
 
-Default attribute values to use when the underlying API fails to return expected values.
+Default attribute values to use when the underlying task fails to return expected values.
 
 ---
 
@@ -8012,7 +8249,9 @@ public readonly runAlways: boolean;
 
 - *Type:* boolean
 
-Whether to run the lambda every time the stack is updated.
+Whether to run the task every time the stack is updated.
+
+Default is true.
 
 ---
 
@@ -8087,20 +8326,80 @@ const lambdaTaskProps: orchestration.LambdaTaskProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the underlying task fails to return expected values. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.policy">policy</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResourcePolicy</code> | See {@link AwsCustomResourceProps.policy }. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | See {@link AwsCustomResourceProps.role }. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.runAlways">runAlways</a></code> | <code>boolean</code> | Whether to run the task every time the stack is updated. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The lambda function to invoke. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.payload">payload</a></code> | <code>string</code> | The payload to send to the lambda. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attributes values for the resource. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.functionName">functionName</a></code> | <code>string</code> | See {@link AwsCustomResourceProps.functionName}. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.logRetention">logRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | See {@link AwsCustomResourceProps.logRetention}. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.outputPaths">outputPaths</a></code> | <code>string[]</code> | See {@link AwsSdkCall.outputPaths}. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | See {@link AwsSdkCall.physicalResourceId}. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.policy">policy</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResourcePolicy</code> | See {@link AwsCustomResourceProps.policy}. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.resourceType">resourceType</a></code> | <code>string</code> | See {@link AwsCustomResourceProps.resourceType}. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | See {@link AwsCustomResourceProps.role}. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.runAlways">runAlways</a></code> | <code>boolean</code> | Whether to run the lambda every time the stack is updated. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | See {@link AwsCustomResourceProps.timeout}. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | See {@link AwsCustomResourceProps.vpc}. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | See {@link AwsCustomResourceProps.vpcSubnets}. |
+
+---
+
+##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.defaults"></a>
+
+```typescript
+public readonly defaults: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Default attribute values to use when the underlying task fails to return expected values.
+
+---
+
+##### `policy`<sup>Optional</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.policy"></a>
+
+```typescript
+public readonly policy: AwsCustomResourcePolicy;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.AwsCustomResourcePolicy
+
+See {@link AwsCustomResourceProps.policy }.
+
+---
+
+##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.resourceType"></a>
+
+```typescript
+public readonly resourceType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+See {@link AwsCustomResourceProps.role }.
+
+---
+
+##### `runAlways`<sup>Optional</sup> <a name="runAlways" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.runAlways"></a>
+
+```typescript
+public readonly runAlways: boolean;
+```
+
+- *Type:* boolean
+
+Whether to run the task every time the stack is updated.
+
+Default is true.
 
 ---
 
@@ -8125,21 +8424,6 @@ public readonly payload: string;
 - *Type:* string
 
 The payload to send to the lambda.
-
----
-
-##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.defaults"></a>
-
-```typescript
-public readonly defaults: {[ key: string ]: string};
-```
-
-- *Type:* {[ key: string ]: string}
-
-Default attributes values for the resource.
-
-If the resource/Lambda does not provide these values,
-the defaults will be used.
 
 ---
 
@@ -8188,54 +8472,6 @@ public readonly physicalResourceId: PhysicalResourceId;
 - *Type:* aws-cdk-lib.custom_resources.PhysicalResourceId
 
 See {@link AwsSdkCall.physicalResourceId}.
-
----
-
-##### `policy`<sup>Optional</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.policy"></a>
-
-```typescript
-public readonly policy: AwsCustomResourcePolicy;
-```
-
-- *Type:* aws-cdk-lib.custom_resources.AwsCustomResourcePolicy
-
-See {@link AwsCustomResourceProps.policy}.
-
----
-
-##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.resourceType"></a>
-
-```typescript
-public readonly resourceType: string;
-```
-
-- *Type:* string
-
-See {@link AwsCustomResourceProps.resourceType}.
-
----
-
-##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.role"></a>
-
-```typescript
-public readonly role: IRole;
-```
-
-- *Type:* aws-cdk-lib.aws_iam.IRole
-
-See {@link AwsCustomResourceProps.role}.
-
----
-
-##### `runAlways`<sup>Optional</sup> <a name="runAlways" id="@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.runAlways"></a>
-
-```typescript
-public readonly runAlways: boolean;
-```
-
-- *Type:* boolean
-
-Whether to run the lambda every time the stack is updated.
 
 ---
 
@@ -8934,6 +9170,7 @@ const stepFunctionTaskProps: orchestration.StepFunctionTaskProps = { ... }
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskProps.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | The state machine to execute. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the StepFunction output does not contain a requested value. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskProps.property.inputEvent">inputEvent</a></code> | <code>any</code> | The event to start the state machine with. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskProps.property.outputPaths">outputPaths</a></code> | <code>string[]</code> | See {@link AwsSdkCall.outputPaths }. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskProps.property.prefix">prefix</a></code> | <code>string</code> | Prefix for the execution. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Role for execution and monitoring.  Must have permission to execute and describe the state machine, as well as ```ManagedPolicy.fromAwsManagedPolicyName("service-role/AWSLambdaBasicExecutionRole")```. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskProps.property.totalTimeout">totalTimeout</a></code> | <code>aws-cdk-lib.Duration</code> | Total timeout for the entire operation. |
@@ -8975,6 +9212,18 @@ public readonly inputEvent: any;
 The event to start the state machine with.
 
 Should only be provided with stateMachine, not with stateMachineExecutionArn.
+
+---
+
+##### `outputPaths`<sup>Optional</sup> <a name="outputPaths" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskProps.property.outputPaths"></a>
+
+```typescript
+public readonly outputPaths: string[];
+```
+
+- *Type:* string[]
+
+See {@link AwsSdkCall.outputPaths }.
 
 ---
 
@@ -9263,6 +9512,88 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+---
+
+### TaskProperties <a name="TaskProperties" id="@michanto/cdk-orchestration.orchestration.TaskProperties"></a>
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.orchestration.TaskProperties.Initializer"></a>
+
+```typescript
+import { orchestration } from '@michanto/cdk-orchestration'
+
+const taskProperties: orchestration.TaskProperties = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.TaskProperties.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the underlying task fails to return expected values. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.TaskProperties.property.policy">policy</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResourcePolicy</code> | See {@link AwsCustomResourceProps.policy }. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.TaskProperties.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.TaskProperties.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | See {@link AwsCustomResourceProps.role }. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.TaskProperties.property.runAlways">runAlways</a></code> | <code>boolean</code> | Whether to run the task every time the stack is updated. |
+
+---
+
+##### `defaults`<sup>Optional</sup> <a name="defaults" id="@michanto/cdk-orchestration.orchestration.TaskProperties.property.defaults"></a>
+
+```typescript
+public readonly defaults: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Default attribute values to use when the underlying task fails to return expected values.
+
+---
+
+##### `policy`<sup>Optional</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.TaskProperties.property.policy"></a>
+
+```typescript
+public readonly policy: AwsCustomResourcePolicy;
+```
+
+- *Type:* aws-cdk-lib.custom_resources.AwsCustomResourcePolicy
+
+See {@link AwsCustomResourceProps.policy }.
+
+---
+
+##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.orchestration.TaskProperties.property.resourceType"></a>
+
+```typescript
+public readonly resourceType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `role`<sup>Optional</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.TaskProperties.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+See {@link AwsCustomResourceProps.role }.
+
+---
+
+##### `runAlways`<sup>Optional</sup> <a name="runAlways" id="@michanto/cdk-orchestration.orchestration.TaskProperties.property.runAlways"></a>
+
+```typescript
+public readonly runAlways: boolean;
+```
+
+- *Type:* boolean
+
+Whether to run the task every time the stack is updated.
+
+Default is true.
 
 ---
 
@@ -11797,16 +12128,29 @@ public readonly props: LoggerProps;
 
 Adds a LogLevel environment variable to each Function based on the construct log level.
 
+logLevel parameter defaults to `Logger.of(node)?.logLevel`.
+
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.LoggingAspect.Initializer"></a>
 
 ```typescript
 import { LoggingAspect } from '@michanto/cdk-orchestration'
 
-new LoggingAspect()
+new LoggingAspect(logLevel?: number)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.LoggingAspect.Initializer.parameter.logLevel">logLevel</a></code> | <code>number</code> | The log level. |
+
+---
+
+##### `logLevel`<sup>Optional</sup> <a name="logLevel" id="@michanto/cdk-orchestration.LoggingAspect.Initializer.parameter.logLevel"></a>
+
+- *Type:* number
+
+The log level.
+
+Default is `Logger.of(node)?.logLevel`.
 
 ---
 
@@ -11833,6 +12177,27 @@ All aspects can visit an IConstruct.
 ---
 
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.LoggingAspect.property.logLevel">logLevel</a></code> | <code>number</code> | The log level. |
+
+---
+
+##### `logLevel`<sup>Optional</sup> <a name="logLevel" id="@michanto/cdk-orchestration.LoggingAspect.property.logLevel"></a>
+
+```typescript
+public readonly logLevel: number;
+```
+
+- *Type:* number
+
+The log level.
+
+Default is `Logger.of(node)?.logLevel`.
+
+---
 
 
 ### NoOpLogger <a name="NoOpLogger" id="@michanto/cdk-orchestration.NoOpLogger"></a>
