@@ -11,11 +11,11 @@ export class PostResolveToken implements IResolvable, IPostProcessor {
   public readonly creationStack: string[] = [];
 
   constructor(private readonly value: any, private readonly processor: IProcessor) {
-    /* istanbul ignore next */
+    /* c8 ignore start */
     if (typeof value == 'function') {
       throw new Error(`Argument to PostResolveToken must be a plain value object, got ${value}`);
     }
-
+    /* c8 ignore end */
     this.value = value;
   }
 
@@ -28,12 +28,11 @@ export class PostResolveToken implements IResolvable, IPostProcessor {
     return this.value;
   }
 
-  /* istanbul ignore next */
+  /* c8 ignore start */
   public toString(): string {
     return Token.asString(this);
   }
 
-  /* istanbul ignore next */
   public toJSON(): any {
     // We can't do the right work here because in case we contain a function, we
     // won't know the type of value that function represents (in the simplest
@@ -46,4 +45,5 @@ export class PostResolveToken implements IResolvable, IPostProcessor {
     // and needs resolving.
     return '<unresolved-token>';
   }
+  /* c8 ignore end */
 }
