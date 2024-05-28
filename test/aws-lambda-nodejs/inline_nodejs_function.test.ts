@@ -5,7 +5,7 @@ import { Construct } from 'constructs';
 import { InlineNodejsFunction, InlineNodejsFunctionProps, MinifyEngine } from '../../src/aws-lambda-nodejs';
 import { Logger, LoggingAspect } from '../../src/core';
 
-const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas`
+const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas`;
 describe('InlineNodeJsFunction tests', () => {
   class MyInlineFunction extends InlineNodejsFunction {
     constructor(scope: Construct, id: string, props?: Partial<InlineNodejsFunctionProps>) {
