@@ -1,8 +1,9 @@
-import { Duration } from 'aws-cdk-lib';
+import { CustomResource, Duration } from 'aws-cdk-lib';
 import { IRole } from 'aws-cdk-lib/aws-iam';
 import { IStateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 import { StepFunctionTaskStep, StepFunctionTaskStepConstants } from './step_function_task_step';
+import { Task } from '../custom-resources/task';
 
 /**
  * Properties for StepFunctionTask.
@@ -38,6 +39,10 @@ export interface StepFunctionTaskProps {
    * If not provided, a role will be created.
    */
   readonly role?: IRole;
+  /**
+   * See {@link AwsSdkCall.outputPaths}
+   */
+  readonly outputPaths?: string[];
 
   /**
    * Default attribute values to use when the StepFunction output does not contain a requested value.
@@ -61,7 +66,9 @@ export interface StepFunctionTaskProps {
  * If the StepFunction fails, the subsequent StepFunctionTaskStep
  * resources will fast-fail.
  */
-export class StepFunctionTask extends Construct {
+export class StepFunctionTask extends Task {
+  readonly customResource: CustomResource;
+
   /**
    * Execution role.
    */
@@ -120,20 +127,12 @@ export class StepFunctionTask extends Construct {
       previousStep = waitForIt;
     }
     this.lastStep = previousStep;
+
+    this.customResource = this.lastStep.customResource;
   }
 
   /** The physical name of this custom resource */
   get ref() {
     return this.startExecution.ref;
-  }
-
-  /** See {@link CustomResource.getAtt} */
-  getAtt(attributeName: string) {
-    return this.lastStep.getAtt(attributeName);
-  }
-
-  /** See {@link CustomResource.getAttString} */
-  getAttString(attributeName: string) {
-    return this.lastStep.getAttString(attributeName);
   }
 }

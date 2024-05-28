@@ -7,7 +7,7 @@ describe('LambdaTask tests.', () => {
 
     const app = new App();
     const stack = new Stack(app, 'LambdaTaskStack', {});
-    let greeting = new GreetingLambdaTask(stack, 'Greeting', false).task.getResponseField('Greeting');
+    let greeting = new GreetingLambdaTask(stack, 'Greeting', false).task.getAttString('Greeting');
     new CfnOutput(stack, 'AnOutput', {
       exportName: 'LambdaTaskGreetingExport',
       value: greeting,

@@ -1,9 +1,11 @@
+import { CustomResource } from 'aws-cdk-lib';
 import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { AwsCustomResourcePolicy, AwsSdkCall } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
 import { S3FileReaderProps } from './s3_file_reader';
 import { RunResourceAlways } from '../custom-resources';
 import { LambdaCustomResource } from '../custom-resources/lambda_custom_resource';
+import { Task } from '../custom-resources/task';
 
 /**
  * Properties for S3FileMetadata
@@ -21,8 +23,9 @@ export interface S3FileMetadataProps extends S3FileReaderProps {
  *
  * CFN has limits to how much data can be returned.
  */
-export class S3FileMetadata extends Construct {
-  readonly resource: LambdaCustomResource;
+export class S3FileMetadata extends Task {
+  readonly lambdaCustomResource: LambdaCustomResource;
+  readonly customResource: CustomResource;
 
   constructor(scope: Construct, id: string, props: S3FileReaderProps) {
     super(scope, id);
@@ -39,8 +42,8 @@ export class S3FileMetadata extends Construct {
       ignoreErrorCodesMatching: 'NoSuchKey|NoSuchBucket',
     };
 
-    this.resource = new LambdaCustomResource(this, 'Resource', {
-      resourceType: `Custom::${props.purpose}`,
+    this.lambdaCustomResource = new LambdaCustomResource(this, 'Resource', {
+      resourceType: props.resourceType ?? 'Custom::S3FileMetadata',
       onCreate: onCreate,
       onUpdate: onCreate,
       defaults: props.defaults,
@@ -57,21 +60,9 @@ export class S3FileMetadata extends Construct {
       // Mostly to remove the warning.  I've tested it both ways and it works.
       installLatestAwsSdk: false,
     });
+    this.customResource = this.lambdaCustomResource.customResource;
 
     // Force re-running every deployment.
     new RunResourceAlways(this);
-  }
-
-  /**
-   * Returns a top-level JSON key from the file.
-   * @param attributeName
-   * @returns An IResolvable for the resource attribute.
-   */
-  getAtt(attributeName: string) {
-    return this.resource.getAtt(attributeName);
-  }
-
-  getAttString(attributeName: string) {
-    return this.resource.getAttString(attributeName);
   }
 }

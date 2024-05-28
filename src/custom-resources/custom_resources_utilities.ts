@@ -1,6 +1,6 @@
 import { CfnResource } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { BUILD_TIME, ConstructTreeSearch } from '../core';
+import { ConstructTreeSearch } from '../core';
 
 /**
  * Utilities for creating custom resources
@@ -30,15 +30,3 @@ export class CustomResourceUtilities {
   }
 }
 
-/**
- * Always run a custom resource.  Throws if it cannot find one custom resource under target.
- * @param target - CustomResource, AwsCustomResource or similar.
- */
-export class RunResourceAlways extends Construct {
-  constructor(scope: Construct, id: string = 'RunResourceAlways') {
-    super(scope, id);
-    let resource = new CustomResourceUtilities().findCustomResource(scope);
-    resource.addPropertyOverride('salt', BUILD_TIME);
-
-  }
-}

@@ -5,8 +5,10 @@ import { IStateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { Provider } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
 import { InlineNodejsFunction } from '../aws-lambda-nodejs';
-import { BUILD_TIME, Singleton } from '../core';
-import { EncodeResource } from '../custom-resources';
+import { Singleton } from '../core';
+import { EncodeResource, RunResourceAlways } from '../custom-resources';
+import { InnerCustomResource } from '../custom-resources/private/inner_custom_resource';
+import { Task } from '../custom-resources/task';
 
 /**
  * This class should not be public and should only be used by StepFunctionTask.
@@ -147,10 +149,9 @@ export class StepFunctionTaskStepResources extends Construct {
  *
  * End users should use StepFunctionTask.
  */
-export class StepFunctionTaskStep extends Construct {
+export class StepFunctionTaskStep extends Task {
   readonly resources: StepFunctionTaskStepResources;
-  readonly resource: CustomResource;
-  protected outputPaths: string[] = [];
+  readonly customResource: CustomResource;
 
   constructor(scope: Construct, id: string, props: StepFunctionTaskStepProps) {
     super(scope, id);
@@ -197,46 +198,27 @@ export class StepFunctionTaskStep extends Construct {
     }
 
     // Ensures that changes to the list are reflected in the template.
-    resourceProperties.OutputPaths = Lazy.list({ produce: () => this.outputPaths });
+    resourceProperties.OutputPaths = Lazy.list({
+      produce: () => [
+        ...(this.customResource as InnerCustomResource).requestedOutputs,
+      ],
+    });
 
-    // Force re-running every deployment.
-    resourceProperties.Version = BUILD_TIME;
     if (props.defaults) {
       resourceProperties.Defaults = props.defaults;
     }
-    this.resource = new CustomResource(this, 'Resource', {
+    this.customResource = new InnerCustomResource(this, 'Resource', {
       serviceToken: this.resources.provider.serviceToken,
       resourceType: resourceType,
       removalPolicy: RemovalPolicy.RETAIN,
       properties: resourceProperties,
     });
-    new EncodeResource(this.resource);
+
+    new EncodeResource(this.customResource);
+    new RunResourceAlways(this);
+
     if (props.stateMachine) {
-      this.resource.node.addDependency(props.stateMachine);
-    }
-  }
-
-  /** The physical name of this custom resource */
-  get ref() {
-    return this.resource.ref;
-  }
-
-  /** See {@link CustomResource.getAtt} */
-  getAtt(attributeName: string) {
-    this.addToOutputPaths(attributeName);
-    return this.resource.getAtt(attributeName);
-  }
-
-  /** See {@link CustomResource.getAttString} */
-  getAttString(attributeName: string) {
-    this.addToOutputPaths(attributeName);
-    return this.resource.getAttString(attributeName);
-  }
-
-  /** Only return requested data. */
-  protected addToOutputPaths(attributeName: string) {
-    if (this.outputPaths.indexOf(attributeName) < 0) {
-      this.outputPaths.push(attributeName);
+      this.customResource.node.addDependency(props.stateMachine);
     }
   }
 }

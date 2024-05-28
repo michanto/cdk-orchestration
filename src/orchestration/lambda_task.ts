@@ -1,8 +1,8 @@
-import * as ec2 from 'aws-cdk-lib/aws-ec2';
-import * as iam from 'aws-cdk-lib/aws-iam';
+import { IVpc, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
+import { IRole } from 'aws-cdk-lib/aws-iam';
 import { IFunction } from 'aws-cdk-lib/aws-lambda';
-import * as logs from 'aws-cdk-lib/aws-logs';
-import * as cdk from 'aws-cdk-lib/core';
+import { RetentionDays } from 'aws-cdk-lib/aws-logs';
+import { CustomResource, Duration } from 'aws-cdk-lib/core';
 import { md5hash } from 'aws-cdk-lib/core/lib/helpers-internal';
 import {
   AwsCustomResourcePolicy,
@@ -11,9 +11,8 @@ import {
   PhysicalResourceId,
 } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
-import { RunResourceAlways } from '../custom-resources';
-import { LambdaCustomResource } from '../custom-resources/lambda_custom_resource';
-// import { CustomRe } from "../core";
+import { LambdaCustomResource, LambdaCustomResourceProps } from '../custom-resources/lambda_custom_resource';
+import { Task } from '../custom-resources/task';
 
 /**
  * Properties for LambdaTask.
@@ -22,6 +21,20 @@ import { LambdaCustomResource } from '../custom-resources/lambda_custom_resource
  * They work very similar to how AwsCustomResource and AwsSdkCall work.
  */
 export interface LambdaTaskProps {
+  readonly resourceType?: string;
+  /**
+   * See {@link AwsCustomResourceProps.policy}
+   */
+  readonly policy?: AwsCustomResourcePolicy;
+  /**
+   * See {@link AwsCustomResourceProps.role}
+   */
+  readonly role?: IRole;
+  /**
+   * Default attribute values to use when the underlying task fails to return expected
+   * values.
+   */
+  readonly defaults?: Record<string, string>;
   /**
    * The lambda function to invoke.
    */
@@ -31,38 +44,21 @@ export interface LambdaTaskProps {
    */
   readonly payload: string;
   /**
-   * Whether to run the lambda every time the stack is updated.
-   */
-  readonly runAlways?: boolean;
-
-  /**
-   * See {@link AwsCustomResourceProps.resourceType}
-   */
-  readonly resourceType?: string;
-  /**
-   * See {@link AwsCustomResourceProps.policy}
-   */
-  readonly policy?: AwsCustomResourcePolicy;
-  /**
-   * See {@link AwsCustomResourceProps.role}
-   */
-  readonly role?: iam.IRole;
-  /**
    * See {@link AwsCustomResourceProps.timeout}
    */
-  readonly timeout?: cdk.Duration;
+  readonly timeout?: Duration;
   /**
    * See {@link AwsCustomResourceProps.logRetention}
    */
-  readonly logRetention?: logs.RetentionDays;
+  readonly logRetention?: RetentionDays;
   /**
    * See {@link AwsCustomResourceProps.vpc}
    */
-  readonly vpc?: ec2.IVpc;
+  readonly vpc?: IVpc;
   /**
    * See {@link AwsCustomResourceProps.vpcSubnets}
    */
-  readonly vpcSubnets?: ec2.SubnetSelection;
+  readonly vpcSubnets?: SubnetSelection;
   /**
    * See {@link AwsCustomResourceProps.functionName}
    */
@@ -76,11 +72,10 @@ export interface LambdaTaskProps {
    */
   readonly outputPaths?: string[];
   /**
-   * Default attributes values for the resource.
-   * If the resource/Lambda does not provide these values,
-   * the defaults will be used.
+   * Whether to run the task every time the stack is updated.
+   * Default is true.
    */
-  readonly defaults?: Record<string, string>;
+  readonly runAlways?: boolean;
 }
 
 /**
@@ -89,9 +84,10 @@ export interface LambdaTaskProps {
  *
  * See {@link LambdaTaskProps} for details.
  */
-export class LambdaTask extends Construct {
+export class LambdaTask extends Task {
+  readonly customResource: CustomResource;
   readonly lambdaFunction: IFunction;
-  readonly resource: LambdaCustomResource;
+  readonly lambdaCustomResource: LambdaCustomResource;
 
   constructor(scope: Construct, id: string, props: LambdaTaskProps) {
     super(scope, id);
@@ -108,8 +104,8 @@ export class LambdaTask extends Construct {
     };
     this.lambdaFunction = props.lambdaFunction;
 
-    this.resource = new LambdaCustomResource(this, 'Resource', {
-      ...(props as AwsCustomResourceProps),
+    this.lambdaCustomResource = new LambdaCustomResource(this, 'Resource', {
+      ...(props as LambdaCustomResourceProps),
       policy: props.policy ?? (props.role ? undefined : (AwsCustomResourcePolicy.fromSdkCalls({
         resources: AwsCustomResourcePolicy.ANY_RESOURCE,
       }))),
@@ -121,19 +117,6 @@ export class LambdaTask extends Construct {
       defaults: props.defaults,
       timeout: props.timeout,
     });
-    // Run every time.
-    if (props.runAlways) {
-      new RunResourceAlways(this.resource);
-    }
-  }
-
-  getAtt(name: string) {
-    let resource = this.node.tryFindChild('Resource') as LambdaCustomResource;
-    return resource.getAtt(name);
-  }
-
-  getResponseField(name: string) {
-    let resource = this.node.tryFindChild('Resource') as LambdaCustomResource;
-    return resource.getResponseField(name);
+    this.customResource = this.lambdaCustomResource.customResource;
   }
 }

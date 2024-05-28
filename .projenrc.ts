@@ -104,6 +104,5 @@ packageJson?.addOverride('jest.coveragePathIgnorePatterns',
     '/from_cdk/',
   ],
 );
-packageJson?.addOverride('scripts.test', 'npx jest');
 
 project.synth();

@@ -10,8 +10,13 @@ export interface TransformBaseProps {
 }
 
 /**
- * TransformBase is the base class for L2 transforms.  TransformBase creates an L1 shim CfnTransform
- * that calls the _apply function of the L2 TransformBase that created it.
+ * TransformBase is the base class for L2 transforms.
+ *
+ * L2 transforms exist to make it possible to apply Transforms directly to L2 and L3 constructs,
+ * without having to navigate to the underlying L1 construct.
+ *
+ * TransformBase creates an L1 shim CfnTransform that calls the _apply function of the
+ * L2 TransformBase that created it.
  *
  * TransformBase.getShimParent determines where to put the L1 shim in the construct tree.
  * There are three possibilites:
@@ -23,6 +28,7 @@ export interface TransformBaseProps {
  * the shim transform is created normally (as a child of TransformBase).
  * 3. Neither of the above are true, in which case the shim transform is created as a child
  * of TransformBase.
+ * 4. getShimParent can also be overridden to support specific use-cases.
  *
  * The TransformBase._apply method should call a concretely typed "apply" method on the subclass.
  * See {@link StringTransform} or {@link Transform} for examples.

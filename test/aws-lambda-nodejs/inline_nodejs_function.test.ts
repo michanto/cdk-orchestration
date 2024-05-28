@@ -5,11 +5,12 @@ import { Construct } from 'constructs';
 import { InlineNodejsFunction, InlineNodejsFunctionProps, MinifyEngine } from '../../src/aws-lambda-nodejs';
 import { Logger, LoggingAspect } from '../../src/core';
 
+const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas`;
 describe('InlineNodeJsFunction tests', () => {
   class MyInlineFunction extends InlineNodejsFunction {
     constructor(scope: Construct, id: string, props?: Partial<InlineNodejsFunctionProps>) {
       super(scope, id, {
-        entry: `${__dirname}/test_lambda.js`,
+        entry: `${LAMBDA_PATH}/echo.js`,
         ...props,
       });
     }
@@ -167,7 +168,7 @@ describe('InlineNodeJsFunction tests', () => {
     if (engine == MinifyEngine.NONE) {
       expect(inspector.attributes[InlineNodejsFunction.TMP_FILE_ATTRIBUTE_NAME]).toBeUndefined();
     } else {
-      expect(inspector.attributes[InlineNodejsFunction.TMP_FILE_ATTRIBUTE_NAME]).toContain('-test_lambda.js');
+      expect(inspector.attributes[InlineNodejsFunction.TMP_FILE_ATTRIBUTE_NAME]).toContain('-echo.js');
     }
 
     let template = Template.fromStack(stack).toJSON();
