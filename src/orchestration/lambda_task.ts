@@ -1,7 +1,7 @@
 import { IVpc, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
 import { IFunction } from 'aws-cdk-lib/aws-lambda';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
-import { CfnResource, CustomResource, Duration } from 'aws-cdk-lib/core';
+import { CustomResource, Duration } from 'aws-cdk-lib/core';
 import { md5hash } from 'aws-cdk-lib/core/lib/helpers-internal';
 import {
   AwsCustomResourcePolicy,
@@ -11,7 +11,6 @@ import {
 } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
 import { Task, TaskProperties } from './task';
-import { CustomResourceUtilities } from '../custom-resources';
 import { LambdaCustomResource, LambdaCustomResourceProps } from '../custom-resources/lambda_custom_resource';
 
 /**
@@ -57,6 +56,11 @@ export interface LambdaTaskProps extends TaskProperties {
    * See {@link AwsSdkCall.outputPaths}
    */
   readonly outputPaths?: string[];
+  /**
+   * Whether to run the task every time the stack is updated.
+   * Default is true.
+   */
+  readonly runAlways?: boolean;
 }
 
 /**
@@ -67,7 +71,6 @@ export interface LambdaTaskProps extends TaskProperties {
  */
 export class LambdaTask extends Task {
   readonly customResource: CustomResource;
-  readonly resource: CfnResource;
   readonly lambdaFunction: IFunction;
   readonly lambdaCustomResource: LambdaCustomResource;
 
@@ -100,6 +103,5 @@ export class LambdaTask extends Task {
       timeout: props.timeout,
     });
     this.customResource = this.lambdaCustomResource.customResource;
-    this.resource = new CustomResourceUtilities().findCustomResource(this);
   }
 }

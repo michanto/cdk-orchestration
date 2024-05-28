@@ -1,30 +1,13 @@
-import { CfnResource, CustomResource, CustomResourceProps, Duration, Lazy, Reference } from 'aws-cdk-lib';
+import { CfnResource, CustomResource, Duration, Lazy } from 'aws-cdk-lib';
 import { IRole, ManagedPolicy, Policy, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Code, IFunction, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { AwsCustomResourceProps, AwsCustomResource, AwsSdkCall, Provider } from 'aws-cdk-lib/custom-resources';
 import { Construct, IConstruct } from 'constructs';
 import { CustomResourceUtilities, EncodeResource, RunResourceAlways } from '.';
 import { awsSdkToIamAction } from './handlers/private/from_cdk/aws-custom-resource-sdk-adapter/cdk-sdk-info';
+import { InnerCustomResource } from './private/inner_custom_resource';
 import { Singleton } from '../core';
 
-
-/**
- * Custom resource class that writes attribute requests
- * to the scope property.
- */
-class InnerCustomResource extends CustomResource {
-  readonly requestedOutputs: string[] = [];
-  constructor(readonly scope: Construct, id: string, props: CustomResourceProps) {
-    super(scope, id, props);
-  }
-  getAtt(attributeName: string): Reference {
-    this.requestedOutputs.push(attributeName);
-    return super.getAtt(attributeName);
-  }
-  getAttString(attributeName: string): string {
-    return this.getAtt(attributeName).toString();
-  }
-}
 /**
  * Props for LambdaCustomResourceResources
  */
