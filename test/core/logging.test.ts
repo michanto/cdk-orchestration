@@ -18,10 +18,10 @@ describe('Logging tests', () => {
     }
   }
   it.each([
-    [LogLevel.DEBUG, 5],
-    [LogLevel.ERROR, 1],
-    [LogLevel.WARNING, 2],
-    [LogLevel.INFO, 3],
+    [LogLevel.DEBUG, 8],
+    [LogLevel.ERROR, 2],
+    [LogLevel.WARNING, 4],
+    [LogLevel.INFO, 6],
   ])('Logging tests', (logLevel, expected) => {
     const app = new App();
     let capture = new Capture({
@@ -31,8 +31,11 @@ describe('Logging tests', () => {
     Log.of(app).debug('debug line');
     Log.of(app).debug(() => 'produced debug line');
     Log.of(app).info('info line');
+    Log.of(app).info(() => 'produced info line');
     Log.of(app).warn('warn line');
+    Log.of(app).warn(() => 'produced warn line');
     Log.of(app).error('error line');
+    Log.of(app).error(() => 'produced error line');
     expect(capture.captured.length).toEqual(expected);
   });
   it.each([

@@ -16,7 +16,7 @@ Aspects.of(app).add(new LoggingAspect());
 let greetingTask = new GreetingLambdaTask(stack, 'Greeting', true);
 
 new EqualsComparisonAssertion(assertionStack, 'GreetingIsReversed', {
-  actual: ActualResult.fromCustomResource(greetingTask.task.resource.customResource, 'Greeting'),
+  actual: ActualResult.fromCustomResource(greetingTask.customResource, 'Greeting'),
   expected: ExpectedResult.exact('.dlrow ,olleH'),
 });
 

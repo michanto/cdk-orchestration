@@ -1,16 +1,19 @@
-import { Aspects } from 'aws-cdk-lib';
+import { Aspects, CustomResource } from 'aws-cdk-lib';
 import { Function } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
 import { LoggingAspect } from '../../src/core';
+import { Task } from '../../src/custom-resources';
 import { LambdaTask } from '../../src/orchestration';
 import { RemoveSalt } from '../util';
 
 const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
-export class GreetingLambdaTask extends Construct {
+export class GreetingLambdaTask extends Task {
   readonly handler: Function;
   readonly task: LambdaTask;
+  readonly customResource: CustomResource;
+
   constructor(scope: Construct, id: string, removeSalt: boolean) {
     super(scope, id);
     this.handler = new InlineNodejsFunction(this, 'Reverse', {
@@ -24,6 +27,7 @@ export class GreetingLambdaTask extends Construct {
         Greeting: 'Hello, world.',
       }),
     });
+    this.customResource = this.task.customResource;
 
     if (removeSalt) {
       new RemoveSalt(this);

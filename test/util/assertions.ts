@@ -1,8 +1,10 @@
 import { ActualResult, ExpectedResult } from '@aws-cdk/integ-tests-alpha';
+import { CustomResource } from 'aws-cdk-lib';
 import { IFunction } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
 import { Singleton } from '../../src/core';
+import { Task } from '../../src/custom-resources';
 import { LambdaTask } from '../../src/orchestration';
 
 export interface EqualsComparisonAssertionProps {
@@ -14,6 +16,7 @@ const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambd
 
 export class EqualsComparisonResources extends Construct {
   readonly equalsFunction: IFunction;
+
   constructor(scope: Construct, id: string) {
     super(scope, id);
     this.equalsFunction = new InlineNodejsFunction(scope, 'EqualsFunction', {
@@ -23,8 +26,9 @@ export class EqualsComparisonResources extends Construct {
   }
 }
 
-export class EqualsComparisonAssertion extends Construct {
+export class EqualsComparisonAssertion extends Task {
   readonly resources: EqualsComparisonResources;
+  readonly customResource: CustomResource;
   readonly task: LambdaTask;
 
   constructor(scope: Construct, id: string, props: EqualsComparisonAssertionProps) {
@@ -40,5 +44,6 @@ export class EqualsComparisonAssertion extends Construct {
         actual: props.actual,
       }),
     });
+    this.customResource = this.task.customResource;
   }
 }

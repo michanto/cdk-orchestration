@@ -164,7 +164,7 @@ export class ConstructService {
   }
 
   /**
-   * Note:  Switch to Construct.isConstruct once we upgrade constructs to 10.0.92
+   *
    */
   protected validateConstruct(scope: IConstruct): scope is Construct {
     if (!Construct.isConstruct(scope)) {

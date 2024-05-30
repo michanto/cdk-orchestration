@@ -42,8 +42,25 @@ describe('ConstructService tests', () => {
     let notConstruct = new Object();
     expect(testService.get(undefined as unknown as IConstruct)).toBeUndefined();
     expect(() => testService.set(undefined as unknown as IConstruct, true)).toThrow();
-    expect(() => testService.set(notConstruct as IConstruct, true)).toThrow();
+    expect(() => testService.set(notConstruct as IConstruct, true)).toThrow('Construct services must be attached to constructs.');
     expect(() => testService.get(notConstruct as IConstruct)).toThrow();
+  });
+
+  it('set twice test.', () => {
+    let app = new App();
+    let construct = new Construct(app, 'AConstruct');
+    expect(testService.get(construct)).toBeUndefined();
+    expect(testService.set(construct, 'first')).toEqual('first');
+    expect(testService.set(construct, 'second')).toEqual('second');
+  });
+
+  it('set same object twice test.', () => {
+    let app = new App();
+    let construct = new Construct(app, 'AConstruct');
+    expect(testService.get(construct)).toBeUndefined();
+    let value = 'first';
+    expect(testService.set(construct, value)).toEqual('first');
+    expect(testService.set(construct, value)).toEqual('first');
   });
 
   it('get/set/setFactory tests.', () => {
