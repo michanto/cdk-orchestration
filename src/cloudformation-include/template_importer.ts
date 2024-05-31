@@ -1,73 +1,17 @@
-import * as fs from 'fs';
 import { CfnInclude, CfnIncludeProps } from 'aws-cdk-lib/cloudformation-include';
 import { Construct } from 'constructs';
-import { tmpNameSync } from 'tmp';
+import { FileReader } from './file_reader';
 import { YamlParser } from './parser';
+import { Stringifier } from './stringifier';
+import { TempFileWriter } from './temp_file_writer';
+import { TemplateCapture } from './template_capture';
 import { Log } from '../core';
-import { CfnTransformHost, ImportOrders, TransformBase, Transform, StringTransform, CfTemplateType } from '../transforms';
+import { CfnTransformHost, ImportOrders } from '../transforms';
 
 /**
- * Writes a template to a temp file, so it can be used with CfnInclude.
- *
- * This should be the LAST transform run before handing off to the CfnInclude.
+ * Base class for JSON processors.  Has orders that
+ * allow L2 transforms to be applied in the correct order.
  */
-export class TempFileWriter extends StringTransform {
-  constructor(scope: Construct, id: string, readonly tmpDir?: string) {
-    super(scope, id, { order: ImportOrders.WRITER });
-  }
-
-  writeTempFile(data: string, tmpDir?: string): string {
-    if (tmpDir && !fs.existsSync(tmpDir)) {
-      fs.mkdirSync(tmpDir);
-    }
-
-    const tmpFile = tmpNameSync({ tmpdir: tmpDir });
-    fs.writeFileSync(tmpFile, data);
-    return tmpFile;
-  }
-
-  apply(template: string): string {
-    return this.writeTempFile(template, this.tmpDir);
-  }
-}
-
-/**
- * Stringifies the template so it can be written to a file.
- */
-export class Stringifier extends TransformBase {
-  constructor(scope: Construct, id: string) {
-    super(scope, id, { order: ImportOrders.WRITER });
-  }
-
-  /** @internal */
-  protected _apply(template: any): any {
-    return this.apply(template);
-  }
-
-  apply(template: any): string {
-    return JSON.stringify(template);
-  }
-}
-
-/**
- * Reads a file (presumably one containing a template) and returns it as a string.
- */
-export class FileReader extends StringTransform {
-  constructor(scope: Construct, id: string) {
-    super(scope, id, { order: ImportOrders.READER });
-  }
-
-  apply(template: string): string {
-    try {
-      return fs.readFileSync(template).toString();
-    } catch (e) {
-      throw new Error(`Template input ${template} must be file name.  Read file threw ${
-        (e as any).toString()
-      }`);
-    }
-  }
-}
-
 export class BaseImporter extends CfnTransformHost {
   imports: number = 0;
   public readonly preReaderOrder: Construct;
@@ -116,25 +60,6 @@ export interface ImportTemplateProps {
 }
 
 /**
- * Capture the template right before it is written to a file.
- */
-export class TemplateCapture extends Transform {
-  template: any;
-
-  constructor(scope: Construct, id: string) {
-    super(scope, id, {
-      order: ImportOrders.WRITER,
-    });
-  }
-
-
-  apply(template: CfTemplateType): CfTemplateType {
-    this.template = template;
-    return template;
-  }
-}
-
-/**
  * Base class for {@link TemplateImporter}.
  *
  * This is a TemplateImporter minus the transforms.
@@ -174,6 +99,7 @@ export abstract class BaseTemplateImporter extends BaseImporter {
       let filtered: {[p: string]: any} = {};
       for (let param in templateParameters) {
         log.debug(() => `Given: ${param} = '${(props?.parameters?.[param]) ?? 'undefined'}'`);
+        // c8 ignore next
         log.debug(() => `Template: ${param}: ${
           JSON.stringify(this.capture.template.Parameters[param], undefined, 2)
         }`);
