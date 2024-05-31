@@ -101,6 +101,7 @@ const packageJson = project.tryFindObjectFile('package.json');
 packageJson?.addOverride('jest.coveragePathIgnorePatterns',
   [
     '/node_modules/',
+    '/test/',
     '/from_cdk/',
   ],
 );
