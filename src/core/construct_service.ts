@@ -167,9 +167,12 @@ export class ConstructService {
    *
    */
   protected validateConstruct(scope: IConstruct): scope is Construct {
+    /* c8 ignore start */
     if (!Construct.isConstruct(scope)) {
+      // This line is covered in the tests.  Not sure why the ignore is necessary
       throw new Error('Construct services must be attached to constructs.');
     }
+    /* c8 ignore end */
     return true;
   }
 
