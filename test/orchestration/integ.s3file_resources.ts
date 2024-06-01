@@ -47,11 +47,11 @@ let metadata = new S3FileMetadata(stack, 'MdReader', {
 metadata.node.addDependency(writer);
 
 new EqualsComparisonAssertion(assertionStack, 'ContentsAreEqual', {
-  actual: ActualResult.fromCustomResource(reader.resource.customResource, 'Some'),
+  actual: ActualResult.fromCustomResource(reader.customResource, 'Some'),
   expected: ExpectedResult.exact('Data'),
 });
 new EqualsComparisonAssertion(assertionStack, 'MetadataAreEqual', {
-  actual: ActualResult.fromCustomResource(metadata.resource.customResource, 'Metadata.mymetadata'),
+  actual: ActualResult.fromCustomResource(metadata.customResource, 'Metadata.mymetadata'),
   expected: ExpectedResult.exact('Michael'),
 });
 

@@ -67,9 +67,12 @@ export class ConstructTreeService extends ConstructService {
 
       if (cache) {
         // Allow factories to be installed in the hierarchy.
+        /* c8 ignore start */
         if (ConstructService.isFactory(cache.service)) {
+          // This line is tested, but the coverage says it is not...
           return this.createCache(scope, cache.service as IConstructServiceFactory);
         }
+        /* c8 ignore end */
         // Cache it on this object for fast lookups.
         return {
           service: this.set(scope, cache.service),

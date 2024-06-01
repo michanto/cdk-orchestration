@@ -1,10 +1,17 @@
 import { App } from 'aws-cdk-lib';
 import { Construct, IConstruct } from 'constructs';
-import { ConstructService, ConstructTreeService, IConstructServiceFactory } from '../../src';
+import { ConstructService, ConstructTreeService, IConstructServiceFactory, ServiceQueryResult } from '../../src';
 import { NAMESPACE } from '../../src/private/internals';
 
 // Service for tests.
-const testService = new ConstructTreeService({
+const testService = new class extends ConstructTreeService {
+  protected onCreateCache(cache: ServiceQueryResult): ServiceQueryResult {
+    // NOTE:  We are getting here, so the coverage should say we are testing all lines.
+    // console.log('onCreateCache');
+    // console.log(new Error().stack);
+    return super.onCreateCache(cache);
+  }
+}({
   servicePropertyName: `${NAMESPACE}.test.TestTreeService`,
   factory: _x => 'TestTreeService from service factory',
 });

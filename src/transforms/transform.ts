@@ -37,6 +37,21 @@ export interface TransformBaseProps {
  * as then transforms can be written to handle CloudFormation as a filename, a string or a JSON object.
  */
 export abstract class TransformBase extends Construct implements IInspectable {
+  private static CfnTransformShim = class CfnTransformShim extends CfnTransform implements IInspectable {
+    constructor(scope: Construct, id: string, readonly wrapper: TransformBase) {
+      super(scope, id);
+    }
+
+    inspect(inspector: TreeInspector) {
+      inspector.addAttribute('CfnTransformShim.transformPath', this.wrapper.node.path);
+    }
+
+    apply(template: any): any {
+      template = this.wrapper._apply(template);
+      return template;
+    }
+  };
+
   readonly cfnTransform: ICfnTransform;
   readonly order: string;
 
@@ -48,23 +63,7 @@ export abstract class TransformBase extends Construct implements IInspectable {
     let parent = this.findShimParent();
     // Id for the transform shim
     let shimId = `${id}Shim${parent.node.children.length}`;
-    let theThis = this;
-    this.cfnTransform = new class CfnTransformShim extends CfnTransform implements IInspectable {
-      readonly wrapper = theThis;
-
-      constructor() {
-        super(parent, shimId);
-      }
-
-      inspect(inspector: TreeInspector) {
-        inspector.addAttribute('CfnTransformShim.transformPath', this.wrapper.node.path);
-      }
-
-      apply(template: any): any {
-        template = this.wrapper._apply(template);
-        return template;
-      }
-    }();
+    this.cfnTransform = new TransformBase.CfnTransformShim(parent, shimId, this);
   }
 
   inspect(inspector: TreeInspector) {

@@ -116,6 +116,7 @@
     "coverageDirectory": "coverage",
     "coveragePathIgnorePatterns": [
       "/node_modules/",
+      "/test/",
       "/from_cdk/"
     ],
     "testPathIgnorePatterns": [

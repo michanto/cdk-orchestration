@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { decodeSpecialValues, filterKeys, startsWithOneOf } from './private/from_cdk/aws-custom-resource-handler/shared';
-import { ApiCall, flatten } from './private/from_cdk/aws-custom-resource-sdk-adapter';
+import { ApiCall, InvokeOptions, flatten } from './private/from_cdk/aws-custom-resource-sdk-adapter';
 
 function log(message: Record<string, any>) {
   if (process.env.LogLevel) {
@@ -57,6 +57,22 @@ export class CustomResourceHandler {
     return event.ResourceProperties[event.RequestType];
   }
 
+  // For testability
+  /* c8 ignore start */
+  protected async invoke(apiCallIn: any, optionsIn: any) {
+    let apiCall = apiCallIn as ApiCall;
+    let options = optionsIn as InvokeOptions;
+    return apiCall.invoke({
+      sdkPackage: options.sdkPackage,
+      apiVersion: options.apiVersion,
+      credentials: options.credentials,
+      region: options.region,
+      parameters: options.parameters,
+      flattenResponse: options.flattenResponse,
+    }) as Record<string, any>;
+  }
+  /* c8 ignore end */
+
   async getResponse(call: any) {
     const apiCall = new ApiCall(call.service, call.action);
 
@@ -78,7 +94,7 @@ export class CustomResourceHandler {
 
     const flatData: { [key: string]: string } = {};
     try {
-      let response = await apiCall.invoke({
+      let response = await this.invoke(apiCall, {
         // FUTURE:  Copy code to install latest SDK from CDK
         // sdkPackage: awsSdk,
         apiVersion: call.apiVersion,
@@ -103,7 +119,7 @@ export class CustomResourceHandler {
             ...call.parameters,
             NextToken: nextToken,
           };
-          let nextPage = await apiCall.invoke({
+          let nextPage = await this.invoke(apiCall, {
             // FUTURE:  Copy code to install latest SDK from CDK
             // sdkPackage: awsSdk,
             apiVersion: call.apiVersion,

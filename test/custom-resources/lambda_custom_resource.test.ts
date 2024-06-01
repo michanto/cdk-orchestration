@@ -16,6 +16,8 @@ export interface S3FileReadingProps {
    * If not specified the default is undefined.
    */
   readonly defaults?: Record<string, any>;
+
+  readonly policyFromCalls: boolean;
 }
 
 function getCall(params: any = { MyProp: 'MyVal' }, physicalResourceId: PhysicalResourceId = PhysicalResourceId.of('Something')): AwsSdkCall {
@@ -42,19 +44,28 @@ export class S3FileReading extends Construct {
     this.resource = new LambdaCustomResource(this, 'Resource', {
       resourceType: `Custom::${props.purpose}`,
       onCreate: onCreate,
-      onUpdate: onCreate,
+      onUpdate: {
+        ...onCreate,
+        assumedRoleArn: 'arn:aws:iam::000000000000:role/role-name-with-path',
+      },
       defaults: props.defaults,
       responseBufferField: 'Body',
-      policy: AwsCustomResourcePolicy.fromStatements([
-        new PolicyStatement({
-          actions: ['s3:HeadObject', 's3:ListObjects', 's3:GetObject'],
-          effect: Effect.ALLOW,
-          resources: [
-            props.bucket.bucketArn,
-            `${props.bucket.bucketArn}/*`,
-          ],
-        }),
-      ]),
+      policy: props.policyFromCalls ? AwsCustomResourcePolicy.fromSdkCalls({
+        resources: [
+          props.bucket.bucketArn,
+          `${props.bucket.bucketArn}/*`,
+        ],
+      }) :
+        AwsCustomResourcePolicy.fromStatements([
+          new PolicyStatement({
+            actions: ['s3:HeadObject', 's3:ListObjects', 's3:GetObject'],
+            effect: Effect.ALLOW,
+            resources: [
+              props.bucket.bucketArn,
+              `${props.bucket.bucketArn}/*`,
+            ],
+          }),
+        ]),
       // Mostly to remove the warning.  I've tested it both ways and it works.
       installLatestAwsSdk: false,
     });
@@ -88,10 +99,22 @@ describe('LambdaCustomResource tests.', () => {
       key: key,
       physicalResourceId: PhysicalResourceId.of('Reading'),
       defaults: { Some: 'Data' },
+      policyFromCalls: true,
     });
     customResource.getAttString('Some');
     customResource.resource.customResource.getAttString('Some');
-    if (!customResource) { throw new Error('badness'); }
+
+    let customResource2 = new S3FileReading(stack, 'Reading2', {
+      purpose: 'ToDoReading',
+      bucket: bucket,
+      key: key,
+      physicalResourceId: PhysicalResourceId.of('Reading2'),
+      defaults: { Some: 'Data' },
+      policyFromCalls: false,
+    });
+    customResource.resource.getResponseField('Some');
+    customResource.resource.getResponseFieldReference('Some');
+    if (!customResource2) { throw new Error('badness'); }
     Template.fromStack(stack);
   });
 

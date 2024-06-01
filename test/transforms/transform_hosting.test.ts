@@ -1,6 +1,7 @@
 import { Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { CfnBucket } from 'aws-cdk-lib/aws-s3';
+import { IConstruct } from 'constructs';
 import { CfnTransformHost, TransformHost, Transforms } from '../../src/transforms';
 import { NoopTransform } from '../util';
 
@@ -71,5 +72,11 @@ describe('TransformHosting tests.', () => {
       }
     }(host, 't1');
     expect(() => host.doApply({})).toThrow();
+  });
+
+  it('hook tests', () => {
+    let obj = new Object();
+    expect(() => TransformHost.hook(null as unknown as IConstruct)).toThrow();
+    expect(() => TransformHost.hook(obj as unknown as IConstruct)).toThrow();
   });
 });
