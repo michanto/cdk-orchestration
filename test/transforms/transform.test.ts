@@ -86,15 +86,15 @@ describe('Transform tests.', () => {
   });
 
   it('TransformProps all ways', () => {
-    class NopropTransform extends Transform {
+    class NoopTransform extends Transform {
       public apply(template: CfTemplateType): CfTemplateType {
         return template;
       }
     }
     let stack = new Stack();
     ;
-    expect(new NopropTransform(stack, 'One').order).toBe(ImportOrders.TRANSFORMS);
-    expect(new NopropTransform(stack, 'Two', {}).order).toBe(ImportOrders.TRANSFORMS);
-    expect(new NopropTransform(stack, 'Three', { order: 'newOrder' }).order).toBe('newOrder');
+    expect(new NoopTransform(stack, 'One').order).toBe(ImportOrders.TRANSFORMS);
+    expect(new NoopTransform(stack, 'Two', {}).order).toBe(ImportOrders.TRANSFORMS);
+    expect(new NoopTransform(stack, 'Three', { order: 'newOrder' }).order).toBe('newOrder');
   });
 });

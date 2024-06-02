@@ -4,7 +4,7 @@ import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { Chain, DefinitionBody, JsonPath, StateMachine, TaskInput } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 import { LateBoundStepFunctionsStartExecution } from '../../src/aws-stepfunctions-tasks';
-import { StepFunctionTask } from '../../src/orchestration';
+import { StepFunctionTask, StepFunctionTaskStep } from '../../src/orchestration';
 
 /**
  * Shim step function that adds an S3 URI to be used as a return value.
@@ -42,13 +42,29 @@ describe('StepFunctionTask tests', () => {
     let stateMachine = new StepFunctionShimStateMachine(stack);
 
     // Just ensure it can render.
-    new StepFunctionTask(stack, 'RunIt', {
+    let task = new StepFunctionTask(stack, 'RunIt', {
       stateMachine: stateMachine,
       inputEvent: {
         value: 'value',
       },
+      prefix: 'test',
+      defaults: { test: 'test defaults' },
     });
+    task.ref;
     Template.fromStack(stack);
   });
   // TODO:  Tests that validate the number of steps created.
+
+  test('StepFunctionTaskStep no stateMachine no execution.', async () => {
+    let app = new App();
+
+    let stack: Stack = new Stack(app, 'MyId', {
+      env: {
+        region: 'us-west-2',
+        account: '000000000000',
+      },
+    });
+
+    expect(() => new StepFunctionTaskStep(stack, 'Step', {})).toThrow();
+  });
 });

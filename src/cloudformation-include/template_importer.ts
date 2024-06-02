@@ -99,10 +99,11 @@ export abstract class BaseTemplateImporter extends BaseImporter {
       let filtered: {[p: string]: any} = {};
       for (let param in templateParameters) {
         log.debug(() => `Given: ${param} = '${(props?.parameters?.[param]) ?? 'undefined'}'`);
-        // c8 ignore next
+        /* c8 ignore start */
         log.debug(() => `Template: ${param}: ${
           JSON.stringify(this.capture.template.Parameters[param], undefined, 2)
         }`);
+        /* c8 ignore end */
         let value = props?.parameters?.[param];
         // If we are not given a value, use the default value in the template.
         // That way CfnInclude can delete the parameter for us.

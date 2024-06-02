@@ -37,9 +37,22 @@ let testData = {
   aNumber: 7,
 };
 
-
+const originalEnv = process.env;
 describe('CustomResourceHandler test', () => {
+  beforeEach(() => {
+    jest.resetModules();
+    process.env = originalEnv;
+  });
+
+  afterEach(() => {
+    process.env = originalEnv;
+  });
+
   test('DecodeProperties test.', async () => {
+    process.env = {
+      ...originalEnv,
+      LogLevel: '1',
+    };
     let handler = new CustomResourceHandler();
     let event = {
       ResourceProperties: {
