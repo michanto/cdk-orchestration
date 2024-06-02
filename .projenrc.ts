@@ -97,14 +97,15 @@ project.addTask('integ:update', {
 const packageJson = project.tryFindObjectFile('package.json');
 
 packageJson?.addOverride('exports', {
-  '.': './src',
-  './transforms': './src/transforms',
-  './cloudformation-include': './src/cloudformation-include',
-  './aws-lambda-nodejs': './src/aws-lambda-nodejs',
-  './aws-stepfunctions': './src/aws-stepfunctions',
-  './aws-stepfunctions-tasks': './src/aws-stepfunctions-tasks',
-  './custom-resources': './src/custom-resources',
-  './orchestration': './src/orchestration',
+  '.': './lib/index.js',
+  './transforms': './lib/transforms/index.js',
+  './cloudformation-include': './lib/cloudformation-include/index.js',
+  './aws-lambda-nodejs': './lib/aws-lambda-nodejs/index.js',
+  './aws-stepfunctions': './lib/aws-stepfunctions/index.js',
+  './aws-stepfunctions-tasks': './lib/aws-stepfunctions-tasks/index.js',
+  './custom-resources': './lib/custom-resources/index.js',
+  './orchestration': './lib/orchestration/index.js',
+  './core': './lib/core/index.js',
 });
 
 // Use dot notation to address inside the object
