@@ -17,7 +17,7 @@ import {
 } from 'aws-cdk-lib/aws-stepfunctions';
 import { LambdaInvoke } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { Construct } from 'constructs';
-import { InlineNodejsFunction, MinifyEngine } from '../../src/aws-lambda-nodejs';
+import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
 import { InsertStepFunctionState } from '../../src/aws-stepfunctions';
 
 const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas`;
@@ -51,7 +51,6 @@ export class HitlTestStepFunctionDefinition extends Construct implements IChaina
 
     const echoLambda = new InlineNodejsFunction(this, 'EchoLambda', {
       entry: `${LAMBDA_PATH}/echo.js`,
-      minifyEngine: MinifyEngine.NONE,
       environment: {
         LogLevel: '1',
       },
@@ -103,7 +102,6 @@ export class CreateConsoleLink extends Construct {
     this.s3UrlLambda = new InlineNodejsFunction(this, 'S3UrlLambda', {
       entry: `${LAMBDA_PATH}/console_link.js`,
       handler: 'index.s3UriToConsoleUri',
-      minifyEngine: MinifyEngine.NONE,
       environment: {
         LogLevel: '1',
       },

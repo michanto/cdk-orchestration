@@ -22,10 +22,24 @@ describe('Singleton tests', () => {
     expect(Stack.isStack(fn.node.scope)).toBeTruthy();
   });
 
-  test('Throws when not at stack level.', () => {
+  test('Create throws when not at stack level.', () => {
     let stack = new Stack();
     let construct = new Construct(stack, 'AConstruct');
     expect(() => Singleton.create(construct, 'Function', (_s, id) => new TestFunction(construct, id))).toThrow();
+  });
+
+  test('Mark throws when not at stack level.', () => {
+    let stack = new Stack();
+    let parent = new Construct(stack, 'AConstruct');
+    let child = new Construct(parent, 'MakeMeSingleton');
+    expect(() => Singleton.mark(child)).toThrow();
+  });
+
+  test('Throws when not a singleton.', () => {
+    let stack = new Stack();
+    let construct = new Construct(stack, 'NotSingleton');
+    expect(() => Singleton.create(construct, 'NotSingleton',
+      (s, id) => new Construct(s, id))).toThrow();
   });
 
   test('Marked singleton is a singleton.', () => {
