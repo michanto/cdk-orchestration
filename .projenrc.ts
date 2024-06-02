@@ -80,7 +80,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // devDeps: [
 
   // ],
-
 });
 
 project.addTask('integ', {
@@ -96,6 +95,17 @@ project.addTask('integ:update', {
 });
 
 const packageJson = project.tryFindObjectFile('package.json');
+
+packageJson?.addOverride('exports', {
+  '.': './src',
+  'transforms': './src/transforms',
+  'cloudformation-include': './src/cloudformation-include',
+  'aws-lambda-nodejs': './src/aws-lambda-nodejs',
+  'aws-stepfunctions': './src/aws-stepfunctions',
+  'aws-stepfunctions-tasks': './src/aws-stepfunctions-tasks',
+  'custom-resources': './src/custom-resources',
+  'orchestration': './src/orchestration',
+});
 
 // Use dot notation to address inside the object
 packageJson?.addOverride('jest.coveragePathIgnorePatterns',
