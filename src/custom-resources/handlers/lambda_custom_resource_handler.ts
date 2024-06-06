@@ -73,6 +73,11 @@ export class CustomResourceHandler {
   }
   /* c8 ignore end */
 
+  /**
+   * Makes the call encapsulated by an AwsApiCall.
+   * @param call AwsApiCall
+   * @returns
+   */
   async getResponse(call: any) {
     const apiCall = new ApiCall(call.service, call.action);
 

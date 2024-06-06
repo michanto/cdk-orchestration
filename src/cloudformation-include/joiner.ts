@@ -3,6 +3,11 @@ import { Construct } from 'constructs';
 import { ImportOrders, TransformBase, TransformBaseProps } from '../transforms';
 
 /**
+ * Props for Joiner
+ */
+export interface JoinerProps extends TransformBaseProps {}
+
+/**
  * JSON resource properties can be stored in CloudFormation either as a string,
  * or as an Fn.join of strings and objects.
  *
@@ -14,19 +19,16 @@ import { ImportOrders, TransformBase, TransformBaseProps } from '../transforms';
  * During synthesis, the CDK will turn the tokenized string back into an Fn.join before
  * writing it to the template.
  */
-export class StringifyJoin extends TransformBase {
-  constructor(scope: Construct, id: string, props?: TransformBaseProps) {
+export class Joiner extends TransformBase {
+  constructor(scope: Construct, id: string, props?: JoinerProps) {
     super(scope, id, props ?? {
       order: ImportOrders.PRE_READER,
     });
   }
 
   /** @internal */
-  protected _apply(template: any): string {
-    if (typeof template == 'string') {
-      return template;
-    }
-    if (template['Fn::Join']) {
+  protected _apply(template: any): any {
+    if (typeof template == 'object' && template['Fn::Join']) {
       let delimiter = template['Fn::Join'][0];
       // Turn any non-strings into "any" tokens that resolve to the original object.
       let parts = template['Fn::Join'][1].map((part: any) =>
@@ -34,7 +36,7 @@ export class StringifyJoin extends TransformBase {
           produce: () => part,
         }, {
           displayHint: 'JoinPart',
-        }), { displayHint: 'JoinPart' }));
+        }), { displayHint: 'JoinPart' })) as string[];
       // Concatenate the strings and the tokenized objects.
       template = parts.join(delimiter);
     }

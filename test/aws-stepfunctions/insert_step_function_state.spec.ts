@@ -1,8 +1,10 @@
 import { App, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
+import { CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { DefinitionBody, Fail, Pass, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { CreateConsoleLink, HitlTestStack } from './hitl_test_stack';
-import { InsertStepFunctionState, StatesTransformApplier } from '../../src/aws-stepfunctions';
+import { InsertStepFunctionState } from '../../src/aws-stepfunctions';
+import { PropertyTransformApplier } from '../../src/cloudformation-include';
 
 describe('InsertStepFunctionState integration tests', () => {
   test('InsertStepFunctionState integration test stack synthesizes.', () => {
@@ -68,12 +70,12 @@ describe('InsertStepFunctionState integration tests', () => {
     })).toThrow();
   });
 
-  test('StatesTransformApplier without host fails.', () => {
+  test('StatesTransformApplier without host throws.', () => {
     const app = new App();
     const stack = new Stack(app, 'TestStack', {
       env: { account: '000000000000', region: 'us-west-2' },
     });
-    new StatesTransformApplier(stack, 'WillFail');
+    new PropertyTransformApplier(stack, 'WillFail', CfnBucket.CFN_RESOURCE_TYPE_NAME);
     expect(() => Template.fromStack(stack)).toThrow();
   });
 });

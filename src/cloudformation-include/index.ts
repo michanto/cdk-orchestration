@@ -4,5 +4,6 @@ export * from './parser';
 export * from './stringifier';
 export * from './temp_file_writer';
 export * from './template_capture';
-export * from './stringify_join';
+export * from './joiner';
 export * from './template_importer';
+export * from './property_transform';

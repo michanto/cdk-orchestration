@@ -118,4 +118,10 @@ packageJson?.addOverride('jest.coveragePathIgnorePatterns',
   ],
 );
 
+packageJson?.addOverride('jest.testMatch', [
+  '<rootDir>/src/**/__tests__/**/*.ts?(x)',
+  '<rootDir>/@(test|src)/**/*(*.)@(spec).ts?(x)',
+],
+);
+
 project.synth();

@@ -1,4 +1,4 @@
-import { CfnResource } from 'aws-cdk-lib';
+import { CfnElement, CfnResource } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { ConstructTreeSearch } from '../core';
 
@@ -7,7 +7,9 @@ import { ConstructTreeSearch } from '../core';
  */
 export class CustomResourceUtilities {
   static isCustomResource(elt: Construct): boolean {
-    return CfnResource.isCfnResource(elt) && (elt.cfnResourceType.startsWith('Custom::') ||
+    return CfnResource.isCfnResource(elt)
+      && CfnElement.isCfnElement(elt) // isCfnResource isn't good enough by itself.
+      && (elt.cfnResourceType.startsWith('Custom::') ||
     elt.cfnResourceType == 'AWS::CloudFormation::CustomResource');
   }
   protected treeSearch = ConstructTreeSearch.for(CustomResourceUtilities.isCustomResource);

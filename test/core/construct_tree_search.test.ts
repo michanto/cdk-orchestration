@@ -1,4 +1,4 @@
-import { App, CfnResource, Resource, Stack } from 'aws-cdk-lib';
+import { App, CfnElement, CfnResource, Resource, Stack } from 'aws-cdk-lib';
 import { Bucket, CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { IConstruct } from 'constructs';
 import { ConstructTreeSearch } from '../../src';
@@ -25,7 +25,8 @@ describe('ConstructTreeSearch tests', () => {
 
     // WHEN
     let stackSearch = new ConstructTreeSearch(x => Stack.isStack(x) ? x : undefined);
-    let l1seearch = new ConstructTreeSearch(x => CfnResource.isCfnResource(x) ? x : undefined);
+    let l1seearch = new ConstructTreeSearch(x =>
+      (CfnResource.isCfnResource(x) && CfnElement.isCfnElement(x)) ? x : undefined);
     let l2seearch = new ConstructTreeSearch(x => Resource.isResource(x) ? x : undefined);
     let stackSearchFor = ConstructTreeSearch.for(Stack.isStack);
     let frankensteinSearch = ConstructTreeSearch.for(isFrankenstein);
