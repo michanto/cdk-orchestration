@@ -3,7 +3,7 @@ import { Construct } from 'constructs';
 
 /**
  * Custom resource class that writes attribute requests
- * to the scope property.
+ * to the requestedOutputs property.
  */
 export class InnerCustomResource extends CustomResource {
   readonly requestedOutputs: string[] = [];

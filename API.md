@@ -3146,7 +3146,7 @@ new custom_resources.LambdaCustomResource(scope: Construct, id: string, props: L
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseField">getResponseField</a></code> | Returns a flattened JSON key from the resource response. |
@@ -3167,6 +3167,8 @@ Returns a string representation of this construct.
 ```typescript
 public applyRemovalPolicy(policy: RemovalPolicy): void
 ```
+
+Sets the deletion policy of the resource based on the removal policy specified.
 
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.applyRemovalPolicy.parameter.policy"></a>
 
@@ -3189,8 +3191,6 @@ Attributes are returned from the custom resource provider through the
 
 - *Type:* string
 
-the name of the attribute.
-
 ---
 
 ##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAttString"></a>
@@ -3207,8 +3207,6 @@ Attributes are returned from the custom resource provider through the
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
-
-the name of the attribute.
 
 ---
 
@@ -3590,7 +3588,7 @@ new orchestration.LambdaTask(scope: Construct, id: string, props: LambdaTaskProp
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
@@ -3609,6 +3607,8 @@ Returns a string representation of this construct.
 ```typescript
 public applyRemovalPolicy(policy: RemovalPolicy): void
 ```
+
+Sets the deletion policy of the resource based on the removal policy specified.
 
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.LambdaTask.applyRemovalPolicy.parameter.policy"></a>
 
@@ -3631,8 +3631,6 @@ Attributes are returned from the custom resource provider through the
 
 - *Type:* string
 
-the name of the attribute.
-
 ---
 
 ##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getAttString"></a>
@@ -3649,8 +3647,6 @@ Attributes are returned from the custom resource provider through the
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.LambdaTask.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
-
-the name of the attribute.
 
 ---
 
@@ -5363,7 +5359,7 @@ new orchestration.S3FileMetadata(scope: Construct, id: string, props: S3FileRead
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
@@ -5382,6 +5378,8 @@ Returns a string representation of this construct.
 ```typescript
 public applyRemovalPolicy(policy: RemovalPolicy): void
 ```
+
+Sets the deletion policy of the resource based on the removal policy specified.
 
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.applyRemovalPolicy.parameter.policy"></a>
 
@@ -5404,8 +5402,6 @@ Attributes are returned from the custom resource provider through the
 
 - *Type:* string
 
-the name of the attribute.
-
 ---
 
 ##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAttString"></a>
@@ -5422,8 +5418,6 @@ Attributes are returned from the custom resource provider through the
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
-
-the name of the attribute.
 
 ---
 
@@ -5588,7 +5582,7 @@ new orchestration.S3FileReader(scope: Construct, id: string, props: S3FileReader
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
@@ -5607,6 +5601,8 @@ Returns a string representation of this construct.
 ```typescript
 public applyRemovalPolicy(policy: RemovalPolicy): void
 ```
+
+Sets the deletion policy of the resource based on the removal policy specified.
 
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.S3FileReader.applyRemovalPolicy.parameter.policy"></a>
 
@@ -5629,8 +5625,6 @@ Attributes are returned from the custom resource provider through the
 
 - *Type:* string
 
-the name of the attribute.
-
 ---
 
 ##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.S3FileReader.getAttString"></a>
@@ -5647,8 +5641,6 @@ Attributes are returned from the custom resource provider through the
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileReader.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
-
-the name of the attribute.
 
 ---
 
@@ -5806,7 +5798,7 @@ new orchestration.S3FileResource(scope: Construct, id: string, props: S3FileReso
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
@@ -5825,6 +5817,8 @@ Returns a string representation of this construct.
 ```typescript
 public applyRemovalPolicy(policy: RemovalPolicy): void
 ```
+
+Sets the deletion policy of the resource based on the removal policy specified.
 
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.S3FileResource.applyRemovalPolicy.parameter.policy"></a>
 
@@ -5847,8 +5841,6 @@ Attributes are returned from the custom resource provider through the
 
 - *Type:* string
 
-the name of the attribute.
-
 ---
 
 ##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.S3FileResource.getAttString"></a>
@@ -5865,8 +5857,6 @@ Attributes are returned from the custom resource provider through the
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.S3FileResource.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
-
-the name of the attribute.
 
 ---
 
@@ -6249,7 +6239,7 @@ new orchestration.StepFunctionTask(scope: Construct, id: string, props: StepFunc
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
@@ -6268,6 +6258,8 @@ Returns a string representation of this construct.
 ```typescript
 public applyRemovalPolicy(policy: RemovalPolicy): void
 ```
+
+Sets the deletion policy of the resource based on the removal policy specified.
 
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.applyRemovalPolicy.parameter.policy"></a>
 
@@ -6290,8 +6282,6 @@ Attributes are returned from the custom resource provider through the
 
 - *Type:* string
 
-the name of the attribute.
-
 ---
 
 ##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.getAttString"></a>
@@ -6308,8 +6298,6 @@ Attributes are returned from the custom resource provider through the
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
-
-the name of the attribute.
 
 ---
 
@@ -6486,7 +6474,7 @@ new orchestration.StepFunctionTaskStep(scope: Construct, id: string, props: Step
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
@@ -6505,6 +6493,8 @@ Returns a string representation of this construct.
 ```typescript
 public applyRemovalPolicy(policy: RemovalPolicy): void
 ```
+
+Sets the deletion policy of the resource based on the removal policy specified.
 
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.applyRemovalPolicy.parameter.policy"></a>
 
@@ -6527,8 +6517,6 @@ Attributes are returned from the custom resource provider through the
 
 - *Type:* string
 
-the name of the attribute.
-
 ---
 
 ##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.getAttString"></a>
@@ -6545,8 +6533,6 @@ Attributes are returned from the custom resource provider through the
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
-
-the name of the attribute.
 
 ---
 
@@ -7019,7 +7005,7 @@ public readonly order: string;
 
 ### StringReplacer <a name="StringReplacer" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer"></a>
 
-String handler that replaces strings in a template.
+StringTransform that replaces strings in a template.
 
 Useful for renaming LogicalIDs, as long as they are reasonably
 unique.
@@ -7405,6 +7391,8 @@ public readonly order: string;
 
 ### Task <a name="Task" id="@michanto/cdk-orchestration.custom_resources.Task"></a>
 
+- *Implements:* @michanto/cdk-orchestration.custom_resources.ITask
+
 An L3 custom resource based on the CustomResource class.
 
 Makes it easier to access CustomResource methods without
@@ -7442,7 +7430,7 @@ new custom_resources.Task(scope: Construct, id: string)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.applyRemovalPolicy">applyRemovalPolicy</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
@@ -7461,6 +7449,8 @@ Returns a string representation of this construct.
 ```typescript
 public applyRemovalPolicy(policy: RemovalPolicy): void
 ```
+
+Sets the deletion policy of the resource based on the removal policy specified.
 
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.custom_resources.Task.applyRemovalPolicy.parameter.policy"></a>
 
@@ -7483,8 +7473,6 @@ Attributes are returned from the custom resource provider through the
 
 - *Type:* string
 
-the name of the attribute.
-
 ---
 
 ##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.custom_resources.Task.getAttString"></a>
@@ -7501,8 +7489,6 @@ Attributes are returned from the custom resource provider through the
 ###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.custom_resources.Task.getAttString.parameter.attributeName"></a>
 
 - *Type:* string
-
-the name of the attribute.
 
 ---
 
@@ -12409,7 +12395,6 @@ new cloudformation_include.CfnIncludeToCdk()
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded">findIncluded</a></code> | Finds a construct from CfnIncludes in scope with the given logicalId. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude">isCfnInclude</a></code> | Returns true if the given construct is an instance of CfnInclude. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources">modifyLogicalIdsOfResources</a></code> | Changes the LogicalIds of existing resources. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded">removeIncluded</a></code> | Removes a construct from CfnInclude with the given logicalId. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.replaceIncluded">replaceIncluded</a></code> | Replaces an L1 construct in a CfnInclude with an L1 or L2 CDK construct of your choosing. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId">setLogicalId</a></code> | Sets the logical ID of the resource to the Node ID of the construct. |
@@ -12451,44 +12436,6 @@ Returns true if the given construct is an instance of CfnInclude.
 ###### `x`<sup>Optional</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude.parameter.x"></a>
 
 - *Type:* constructs.IConstruct
-
----
-
-##### `modifyLogicalIdsOfResources` <a name="modifyLogicalIdsOfResources" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources"></a>
-
-```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
-
-cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources(scope: IConstruct, resourceType: string, prefix?: string, suffix?: string)
-```
-
-Changes the LogicalIds of existing resources.
-
-This is useful when you get the
-"Modifying service token is not allowed." Error from CloudFormation.  Just
-modify the LogicalId for at least one deployment.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources.parameter.scope"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-###### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources.parameter.resourceType"></a>
-
-- *Type:* string
-
----
-
-###### `prefix`<sup>Optional</sup> <a name="prefix" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources.parameter.prefix"></a>
-
-- *Type:* string
-
----
-
-###### `suffix`<sup>Optional</sup> <a name="suffix" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources.parameter.suffix"></a>
-
-- *Type:* string
 
 ---
 
@@ -16228,6 +16175,92 @@ on search direction).
 Delayed log-line construction.
 
 
+
+### ITask <a name="ITask" id="@michanto/cdk-orchestration.custom_resources.ITask"></a>
+
+- *Implemented By:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource, @michanto/cdk-orchestration.custom_resources.Task, @michanto/cdk-orchestration.orchestration.LambdaTask, @michanto/cdk-orchestration.orchestration.S3FileMetadata, @michanto/cdk-orchestration.orchestration.S3FileReader, @michanto/cdk-orchestration.orchestration.S3FileResource, @michanto/cdk-orchestration.orchestration.StepFunctionTask, @michanto/cdk-orchestration.orchestration.StepFunctionTaskStep, @michanto/cdk-orchestration.custom_resources.ITask
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.ITask.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.ITask.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.ITask.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@michanto/cdk-orchestration.custom_resources.ITask.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Sets the deletion policy of the resource based on the removal policy specified.
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.custom_resources.ITask.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.custom_resources.ITask.getAtt"></a>
+
+```typescript
+public getAtt(attributeName: string): Reference
+```
+
+Returns the value of an attribute of the custom resource of an arbitrary type.
+
+Attributes are returned from the custom resource provider through the
+`Data` map where the key is the attribute name.
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.custom_resources.ITask.getAtt.parameter.attributeName"></a>
+
+- *Type:* string
+
+the name of the attribute.
+
+---
+
+##### `getAttString` <a name="getAttString" id="@michanto/cdk-orchestration.custom_resources.ITask.getAttString"></a>
+
+```typescript
+public getAttString(attributeName: string): string
+```
+
+Returns the value of an attribute of the custom resource of type string.
+
+Attributes are returned from the custom resource provider through the
+`Data` map where the key is the attribute name.
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@michanto/cdk-orchestration.custom_resources.ITask.getAttString.parameter.attributeName"></a>
+
+- *Type:* string
+
+the name of the attribute.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.ITask.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
+
+---
+
+##### `ref`<sup>Required</sup> <a name="ref" id="@michanto/cdk-orchestration.custom_resources.ITask.property.ref"></a>
+
+```typescript
+public readonly ref: string;
+```
+
+- *Type:* string
+
+The physical name of this custom resource.
+
+---
 
 ## Enums <a name="Enums" id="Enums"></a>
 
