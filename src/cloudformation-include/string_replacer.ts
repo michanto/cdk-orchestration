@@ -10,7 +10,7 @@ export interface StringReplacerProps extends StringTransformProps {
 }
 
 /**
- * String handler that replaces strings in a template.  Useful for renaming LogicalIDs, as long as they are reasonably
+ * StringTransform that replaces strings in a template.  Useful for renaming LogicalIDs, as long as they are reasonably
  * unique.
  */
 export class StringReplacer extends StringTransform {
