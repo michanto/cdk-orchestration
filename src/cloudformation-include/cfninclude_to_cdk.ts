@@ -59,25 +59,6 @@ export class CfnIncludeToCdk {
   }
 
   /**
-   * Changes the LogicalIds of existing resources.  This is useful when you get the
-   * "Modifying service token is not allowed." Error from CloudFormation.  Just
-   * modify the LogicalId for at least one deployment.
-   *
-   * @param scope
-   * @param resourceType
-   * @param prefix
-   * @param suffix
-   */
-  static modifyLogicalIdsOfResources(scope: IConstruct, resourceType: string, prefix?: string, suffix?: string) {
-    let cfnResources = new CfnElementUtilities().cfnResources(scope, resourceType);
-    for (let resource of cfnResources) {
-      let newLogicalId = `${prefix ? prefix : ''}${resource.logicalId}${suffix ? suffix : ''}`;
-      resource.overrideLogicalId(newLogicalId);
-    }
-  }
-
-
-  /**
    * Finds a construct from CfnIncludes in scope with the given logicalId.
    *
    * @param logicalId

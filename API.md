@@ -12395,7 +12395,6 @@ new cloudformation_include.CfnIncludeToCdk()
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded">findIncluded</a></code> | Finds a construct from CfnIncludes in scope with the given logicalId. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude">isCfnInclude</a></code> | Returns true if the given construct is an instance of CfnInclude. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources">modifyLogicalIdsOfResources</a></code> | Changes the LogicalIds of existing resources. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded">removeIncluded</a></code> | Removes a construct from CfnInclude with the given logicalId. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.replaceIncluded">replaceIncluded</a></code> | Replaces an L1 construct in a CfnInclude with an L1 or L2 CDK construct of your choosing. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId">setLogicalId</a></code> | Sets the logical ID of the resource to the Node ID of the construct. |
@@ -12437,44 +12436,6 @@ Returns true if the given construct is an instance of CfnInclude.
 ###### `x`<sup>Optional</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude.parameter.x"></a>
 
 - *Type:* constructs.IConstruct
-
----
-
-##### `modifyLogicalIdsOfResources` <a name="modifyLogicalIdsOfResources" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources"></a>
-
-```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
-
-cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources(scope: IConstruct, resourceType: string, prefix?: string, suffix?: string)
-```
-
-Changes the LogicalIds of existing resources.
-
-This is useful when you get the
-"Modifying service token is not allowed." Error from CloudFormation.  Just
-modify the LogicalId for at least one deployment.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources.parameter.scope"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-###### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources.parameter.resourceType"></a>
-
-- *Type:* string
-
----
-
-###### `prefix`<sup>Optional</sup> <a name="prefix" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources.parameter.prefix"></a>
-
-- *Type:* string
-
----
-
-###### `suffix`<sup>Optional</sup> <a name="suffix" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources.parameter.suffix"></a>
-
-- *Type:* string
 
 ---
 
