@@ -1,5 +1,6 @@
 export * from './cfninclude_to_cdk';
 export * from './file_reader';
+export * from './string_replacer';
 export * from './parser';
 export * from './stringifier';
 export * from './temp_file_writer';

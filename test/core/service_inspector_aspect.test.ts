@@ -10,6 +10,7 @@ describe('ServiceInspectorAspect tests', () => {
     let aspect = new ServiceInspectorAspect();
     Aspects.of(app).add(aspect);
     app.node.findAll().forEach(x => aspect.visit(x));
+    // We want this logging here.
     console.log(TreeInspectable.of(bucket).attributes);
     expect(TreeInspectable.of(bucket).attributes).toMatchObject({
       '@aws-cdk/core.DependableTrait': 'object',

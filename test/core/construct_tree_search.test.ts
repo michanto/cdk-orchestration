@@ -20,6 +20,7 @@ describe('ConstructTreeSearch tests', () => {
     let isFrankenstein = (x: IConstruct): boolean => {
       return Resource.isResource(x) &&
         CfnResource.isCfnResource(x.node.scope) &&
+        CfnElement.isCfnElement(x.node.scope) &&
         Object.is(x.node.defaultChild, x.node.scope);
     };
 

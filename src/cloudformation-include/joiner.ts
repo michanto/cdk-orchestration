@@ -20,14 +20,13 @@ export interface JoinerProps extends TransformBaseProps {}
  * writing it to the template.
  */
 export class Joiner extends TransformBase {
-  constructor(scope: Construct, id: string, props?: JoinerProps) {
+  constructor(scope: Construct, id: string = 'Joiner', props?: JoinerProps) {
     super(scope, id, props ?? {
-      order: ImportOrders.PRE_READER,
+      order: ImportOrders.TRANSFORMS,
     });
   }
 
-  /** @internal */
-  protected _apply(template: any): any {
+  doJoin(template: any) {
     if (typeof template == 'object' && template['Fn::Join']) {
       let delimiter = template['Fn::Join'][0];
       // Turn any non-strings into "any" tokens that resolve to the original object.
@@ -39,6 +38,22 @@ export class Joiner extends TransformBase {
         }), { displayHint: 'JoinPart' })) as string[];
       // Concatenate the strings and the tokenized objects.
       template = parts.join(delimiter);
+    }
+    return template;
+  }
+
+  /** @internal */
+  protected _apply(template: any): any {
+    if (typeof template == 'object' && template['Fn::Join']) {
+      template = this.doJoin(template);
+    } else if (typeof template == 'object' && template.Resources) {
+      for (let resId in template.Resources) {
+        let resource = template.Resources[resId];
+        for (let propertyName in resource.Properties) {
+          resource.Properties[propertyName] =
+            this.doJoin(resource.Properties[propertyName]);
+        }
+      }
     }
     return template;
   }

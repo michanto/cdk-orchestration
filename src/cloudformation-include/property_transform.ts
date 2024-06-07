@@ -1,7 +1,6 @@
-import { CfnElement, CfnResource, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { BaseImporter, Joiner as Joiner, YamlParser, Stringifier } from '.';
-import { ConstructTreeSearch, IConstructTest } from '../core';
+import { CfnElementUtilities } from '../core';
 import { Transform, Transforms, ImportOrders, TransformProps, CfTemplateType } from '../transforms';
 
 /**
@@ -61,19 +60,12 @@ export class PropertyTransformApplier extends Transform {
 export class PropertyTransformHost extends BaseImporter {
   static hostId(propertyName: string) { return `@${propertyName}TransformHost`; };
 
-  static isCfnResourceType(resourceType: string): IConstructTest {
-    return (scope: Construct) => CfnResource.isCfnResource(scope)
-      && CfnElement.isCfnElement(scope) // isCfnResource isn't good enough by itself.
-      && scope.cfnResourceType == resourceType;
-  }
-
   static getPropertyTransformHost(scope: Construct, propertyName: string, resourceType: string): PropertyTransformHost {
-    let searchResults = ConstructTreeSearch.for(PropertyTransformHost.isCfnResourceType(resourceType))
-      .searchDown(scope, Stack.isStack);
-    let cfnResource = searchResults.pop() as CfnResource;
-    if (!cfnResource) {
-      throw new Error(`No resource of type ${resourceType} found.`);
+    let searchResults = new CfnElementUtilities().cfnResources(scope, resourceType);
+    if (searchResults.length != 1) {
+      throw new Error(`Expected to find 1 resource of type ${resourceType} found ${searchResults.length}.`);
     }
+    let cfnResource = searchResults.pop()!;
     let propertyTransformApplier = cfnResource.node.tryFindChild(PropertyTransformApplier.applierId(propertyName)) as PropertyTransformApplier;
     if (!propertyTransformApplier) {
       propertyTransformApplier = new PropertyTransformApplier(cfnResource, propertyName, resourceType);
@@ -95,7 +87,7 @@ export class PropertyTransformHost extends BaseImporter {
 
 export interface PropertyTransformProps extends TransformProps {
   readonly propertyName: string;
-  readonly cfnResourceType: string;
+  readonly resourceType: string;
 }
 
 /**
@@ -110,11 +102,15 @@ export abstract class PropertyTransform extends Transform {
     return (this.node.scope as any)[PropertyTransform.propertyTransformPropsSymbol(this.node.id)] ;
   }
 
+  protected get propertyTransformHost() {
+    return PropertyTransformHost.getPropertyTransformHost(this.node.scope!, this.propertyName, this.resourceType);
+  }
+
   get propertyName(): string {
     return this.propertyTransformProps.propertyName;
   }
   get resourceType(): string {
-    return this.propertyTransformProps.cfnResourceType;
+    return this.propertyTransformProps.resourceType;
   }
 
   constructor(scope: Construct, id: string, propertyTransformProps: PropertyTransformProps) {
@@ -124,7 +120,7 @@ export abstract class PropertyTransform extends Transform {
   }
 
   findShimParent(): Construct {
-    let tHost = PropertyTransformHost.getPropertyTransformHost(this.node.scope!, this.propertyName, this.resourceType);
+    let tHost = this.propertyTransformHost;
     let order = tHost.node.tryFindChild(this.order ?? ImportOrders.TRANSFORMS) as Construct;
     if (!order) {
       order = tHost;
@@ -145,7 +141,7 @@ export abstract class JsonPropertyTransform extends PropertyTransform {
   }
 
   findShimParent(): Construct {
-    let tHost = PropertyTransformHost.getPropertyTransformHost(this.node.scope!, this.propertyName, this.resourceType);
+    let tHost = this.propertyTransformHost;
     // If we haven't added the JSON transforms yet, add them now.
     if (tHost.parserOrder.node.tryFindChild('YamlParser') == undefined) {
       new YamlParser(tHost.parserOrder, 'YamlParser');

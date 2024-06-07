@@ -12,6 +12,7 @@ export class CustomResourceUtilities {
       && (elt.cfnResourceType.startsWith('Custom::') ||
     elt.cfnResourceType == 'AWS::CloudFormation::CustomResource');
   }
+
   protected treeSearch = ConstructTreeSearch.for(CustomResourceUtilities.isCustomResource);
 
   /**

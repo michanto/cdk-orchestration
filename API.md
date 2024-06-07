@@ -2532,7 +2532,7 @@ writing it to the template.
 ```typescript
 import { cloudformation_include } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.Joiner(scope: Construct, id: string, props?: JoinerProps)
+new cloudformation_include.Joiner(scope: Construct, id?: string, props?: JoinerProps)
 ```
 
 | **Name** | **Type** | **Description** |
@@ -2549,7 +2549,7 @@ new cloudformation_include.Joiner(scope: Construct, id: string, props?: JoinerPr
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.Initializer.parameter.id"></a>
+##### `id`<sup>Optional</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -2568,6 +2568,7 @@ new cloudformation_include.Joiner(scope: Construct, id: string, props?: JoinerPr
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.doJoin">doJoin</a></code> | *No description.* |
 
 ---
 
@@ -2609,6 +2610,18 @@ Examines construct.
 ###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+##### `doJoin` <a name="doJoin" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.doJoin"></a>
+
+```typescript
+public doJoin(template: any): any
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.doJoin.parameter.template"></a>
+
+- *Type:* any
 
 ---
 
@@ -4977,7 +4990,6 @@ Returns a string representation of this construct.
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.getPropertyTransformHost">getPropertyTransformHost</a></code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.hostId">hostId</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.isCfnResourceType">isCfnResourceType</a></code> | *No description.* |
 
 ---
 
@@ -5066,20 +5078,6 @@ cloudformation_include.PropertyTransformHost.hostId(propertyName: string)
 ```
 
 ###### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.hostId.parameter.propertyName"></a>
-
-- *Type:* string
-
----
-
-##### `isCfnResourceType` <a name="isCfnResourceType" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.isCfnResourceType"></a>
-
-```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
-
-cloudformation_include.PropertyTransformHost.isCfnResourceType(resourceType: string)
-```
-
-###### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.isCfnResourceType.parameter.resourceType"></a>
 
 - *Type:* string
 
@@ -5984,6 +5982,14 @@ public readonly resource: AwsCustomResource;
 
 
 ### StatesTransform <a name="StatesTransform" id="@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform"></a>
+
+This transform allows you to edit the DefinitionString property of a StateMachine.
+
+This is great for editing the DefinitionString
+of a StateMachine you don't have the code for.
+
+This Transform creates it's own scaffolding (TransformHost and Applier)
+for the L1 Transform when you add it to an existing StateMachine.
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.Initializer"></a>
 
@@ -7011,44 +7017,44 @@ public readonly order: string;
 ---
 
 
-### StringReplacer <a name="StringReplacer" id="@michanto/cdk-orchestration.transforms.StringReplacer"></a>
+### StringReplacer <a name="StringReplacer" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer"></a>
 
 String handler that replaces strings in a template.
 
 Useful for renaming LogicalIDs, as long as they are reasonably
 unique.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.StringReplacer.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.Initializer"></a>
 
 ```typescript
-import { transforms } from '@michanto/cdk-orchestration'
+import { cloudformation_include } from '@michanto/cdk-orchestration'
 
-new transforms.StringReplacer(scope: Construct, id: string, props: StringReplacerProps)
+new cloudformation_include.StringReplacer(scope: Construct, id: string, props: StringReplacerProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.transforms.StringReplacerProps</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.StringReplacer.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.StringReplacer.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.Initializer.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.transforms.StringReplacer.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.Initializer.parameter.props"></a>
 
-- *Type:* @michanto/cdk-orchestration.transforms.StringReplacerProps
+- *Type:* @michanto/cdk-orchestration.cloudformation_include.StringReplacerProps
 
 ---
 
@@ -7056,14 +7062,14 @@ new transforms.StringReplacer(scope: Construct, id: string, props: StringReplace
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.apply">apply</a></code> | *No description.* |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.StringReplacer.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.toString"></a>
 
 ```typescript
 public toString(): string
@@ -7071,7 +7077,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.StringReplacer.findShimParent"></a>
+##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.findShimParent"></a>
 
 ```typescript
 public findShimParent(): Construct
@@ -7090,7 +7096,7 @@ TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child
 '_Transforms' exists under the transform host, then the '_Transforms' construct will be
 the shim parent.
 
-##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.StringReplacer.inspect"></a>
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -7098,19 +7104,19 @@ public inspect(inspector: TreeInspector): void
 
 Examines construct.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.StringReplacer.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
 ---
 
-##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.StringReplacer.apply"></a>
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.apply"></a>
 
 ```typescript
 public apply(template: string): string
 ```
 
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.StringReplacer.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.apply.parameter.template"></a>
 
 - *Type:* string
 
@@ -7120,16 +7126,16 @@ public apply(template: string): string
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.StringReplacer.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.isConstruct"></a>
 
 ```typescript
-import { transforms } from '@michanto/cdk-orchestration'
+import { cloudformation_include } from '@michanto/cdk-orchestration'
 
-transforms.StringReplacer.isConstruct(x: any)
+cloudformation_include.StringReplacer.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -7148,7 +7154,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.StringReplacer.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -7160,14 +7166,14 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.order">order</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.props">props</a></code> | <code>@michanto/cdk-orchestration.transforms.StringReplacerProps</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.props">props</a></code> | <code>@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.StringReplacer.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -7179,7 +7185,7 @@ The tree node.
 
 ---
 
-##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.StringReplacer.property.cfnTransform"></a>
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.cfnTransform"></a>
 
 ```typescript
 public readonly cfnTransform: ICfnTransform;
@@ -7189,7 +7195,7 @@ public readonly cfnTransform: ICfnTransform;
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.StringReplacer.property.order"></a>
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -7199,13 +7205,13 @@ public readonly order: string;
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.transforms.StringReplacer.property.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.props"></a>
 
 ```typescript
 public readonly props: StringReplacerProps;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.StringReplacerProps
+- *Type:* @michanto/cdk-orchestration.cloudformation_include.StringReplacerProps
 
 ---
 
@@ -10013,8 +10019,8 @@ const jsonPropertyTransformProps: cloudformation_include.JsonPropertyTransformPr
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.property.order">order</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.property.cfnResourceType">cfnResourceType</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -10028,20 +10034,20 @@ public readonly order: string;
 
 ---
 
-##### `cfnResourceType`<sup>Required</sup> <a name="cfnResourceType" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.property.cfnResourceType"></a>
+##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.property.propertyName"></a>
 
 ```typescript
-public readonly cfnResourceType: string;
+public readonly propertyName: string;
 ```
 
 - *Type:* string
 
 ---
 
-##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.property.propertyName"></a>
+##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.property.resourceType"></a>
 
 ```typescript
-public readonly propertyName: string;
+public readonly resourceType: string;
 ```
 
 - *Type:* string
@@ -10935,8 +10941,8 @@ const propertyTransformProps: cloudformation_include.PropertyTransformProps = { 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.property.order">order</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.property.cfnResourceType">cfnResourceType</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -10950,20 +10956,20 @@ public readonly order: string;
 
 ---
 
-##### `cfnResourceType`<sup>Required</sup> <a name="cfnResourceType" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.property.cfnResourceType"></a>
+##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.property.propertyName"></a>
 
 ```typescript
-public readonly cfnResourceType: string;
+public readonly propertyName: string;
 ```
 
 - *Type:* string
 
 ---
 
-##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.property.propertyName"></a>
+##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.property.resourceType"></a>
 
 ```typescript
-public readonly propertyName: string;
+public readonly resourceType: string;
 ```
 
 - *Type:* string
@@ -11579,29 +11585,29 @@ If not provided, a role will be created.
 
 ---
 
-### StringReplacerProps <a name="StringReplacerProps" id="@michanto/cdk-orchestration.transforms.StringReplacerProps"></a>
+### StringReplacerProps <a name="StringReplacerProps" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps"></a>
 
 Properties for {@link StringReplacer}.
 
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.transforms.StringReplacerProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps.Initializer"></a>
 
 ```typescript
-import { transforms } from '@michanto/cdk-orchestration'
+import { cloudformation_include } from '@michanto/cdk-orchestration'
 
-const stringReplacerProps: transforms.StringReplacerProps = { ... }
+const stringReplacerProps: cloudformation_include.StringReplacerProps = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacerProps.property.order">order</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacerProps.property.joiner">joiner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacerProps.property.splitter">splitter</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps.property.joiner">joiner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps.property.splitter">splitter</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.StringReplacerProps.property.order"></a>
+##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -11611,7 +11617,7 @@ public readonly order: string;
 
 ---
 
-##### `joiner`<sup>Required</sup> <a name="joiner" id="@michanto/cdk-orchestration.transforms.StringReplacerProps.property.joiner"></a>
+##### `joiner`<sup>Required</sup> <a name="joiner" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps.property.joiner"></a>
 
 ```typescript
 public readonly joiner: string;
@@ -11621,7 +11627,7 @@ public readonly joiner: string;
 
 ---
 
-##### `splitter`<sup>Required</sup> <a name="splitter" id="@michanto/cdk-orchestration.transforms.StringReplacerProps.property.splitter"></a>
+##### `splitter`<sup>Required</sup> <a name="splitter" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps.property.splitter"></a>
 
 ```typescript
 public readonly splitter: string;
@@ -12322,6 +12328,7 @@ new CfnElementUtilities()
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.CfnElementUtilities.cfnElementHost">cfnElementHost</a></code> | Returns the antecedent cnfElement in the tree  (if any). |
 | <code><a href="#@michanto/cdk-orchestration.CfnElementUtilities.cfnElements">cfnElements</a></code> | Returns a list of all L1 construct descendents of the scope. |
+| <code><a href="#@michanto/cdk-orchestration.CfnElementUtilities.cfnResources">cfnResources</a></code> | Returns a list of all CfnResource construct descendents of the scope. |
 
 ---
 
@@ -12355,6 +12362,26 @@ Returns a list of all L1 construct descendents of the scope.
 
 ---
 
+##### `cfnResources` <a name="cfnResources" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnResources"></a>
+
+```typescript
+public cfnResources(scope: Construct, resourceType?: string): CfnResource[]
+```
+
+Returns a list of all CfnResource construct descendents of the scope.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnResources.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnResources.parameter.resourceType"></a>
+
+- *Type:* string
+
+---
+
 
 
 
@@ -12382,6 +12409,7 @@ new cloudformation_include.CfnIncludeToCdk()
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded">findIncluded</a></code> | Finds a construct from CfnIncludes in scope with the given logicalId. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude">isCfnInclude</a></code> | Returns true if the given construct is an instance of CfnInclude. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources">modifyLogicalIdsOfResources</a></code> | Changes the LogicalIds of existing resources. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded">removeIncluded</a></code> | Removes a construct from CfnInclude with the given logicalId. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.replaceIncluded">replaceIncluded</a></code> | Replaces an L1 construct in a CfnInclude with an L1 or L2 CDK construct of your choosing. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId">setLogicalId</a></code> | Sets the logical ID of the resource to the Node ID of the construct. |
@@ -12426,6 +12454,44 @@ Returns true if the given construct is an instance of CfnInclude.
 
 ---
 
+##### `modifyLogicalIdsOfResources` <a name="modifyLogicalIdsOfResources" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources"></a>
+
+```typescript
+import { cloudformation_include } from '@michanto/cdk-orchestration'
+
+cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources(scope: IConstruct, resourceType: string, prefix?: string, suffix?: string)
+```
+
+Changes the LogicalIds of existing resources.
+
+This is useful when you get the
+"Modifying service token is not allowed." Error from CloudFormation.  Just
+modify the LogicalId for at least one deployment.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources.parameter.resourceType"></a>
+
+- *Type:* string
+
+---
+
+###### `prefix`<sup>Optional</sup> <a name="prefix" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources.parameter.prefix"></a>
+
+- *Type:* string
+
+---
+
+###### `suffix`<sup>Optional</sup> <a name="suffix" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.modifyLogicalIdsOfResources.parameter.suffix"></a>
+
+- *Type:* string
+
+---
+
 ##### `removeIncluded` <a name="removeIncluded" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded"></a>
 
 ```typescript
@@ -12455,7 +12521,7 @@ Finds the CfnInclude in the stack of the given scope.
 ```typescript
 import { cloudformation_include } from '@michanto/cdk-orchestration'
 
-cloudformation_include.CfnIncludeToCdk.replaceIncluded(logicalId: string, replacementConstruct: Construct)
+cloudformation_include.CfnIncludeToCdk.replaceIncluded(logicalId: string, replacementConstruct: IConstruct)
 ```
 
 Replaces an L1 construct in a CfnInclude with an L1 or L2 CDK construct of your choosing.
@@ -12478,7 +12544,7 @@ Logical ID of the construct we are replacing.
 
 ###### `replacementConstruct`<sup>Required</sup> <a name="replacementConstruct" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.replaceIncluded.parameter.replacementConstruct"></a>
 
-- *Type:* constructs.Construct
+- *Type:* constructs.IConstruct
 
 Construct that should be replacing the included construct.
 
@@ -12489,7 +12555,7 @@ Construct that should be replacing the included construct.
 ```typescript
 import { cloudformation_include } from '@michanto/cdk-orchestration'
 
-cloudformation_include.CfnIncludeToCdk.setLogicalId(construct: Construct, id?: string)
+cloudformation_include.CfnIncludeToCdk.setLogicalId(construct: IConstruct, id?: string)
 ```
 
 Sets the logical ID of the resource to the Node ID of the construct.
@@ -12502,7 +12568,7 @@ sub-tree.
 
 ###### `construct`<sup>Required</sup> <a name="construct" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId.parameter.construct"></a>
 
-- *Type:* constructs.Construct
+- *Type:* constructs.IConstruct
 
 The resource construct.
 
@@ -12511,6 +12577,10 @@ The resource construct.
 ###### `id`<sup>Optional</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId.parameter.id"></a>
 
 - *Type:* string
+
+New ID.
+
+Defaults to `construct.node.id`.
 
 ---
 
