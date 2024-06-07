@@ -32,8 +32,9 @@ export class CfnIncludeToCdk {
    * sub-tree.
    *
    * @param construct The resource construct.
+   * @param id New ID.  Defaults to `construct.node.id`.
    */
-  static setLogicalId<T extends Construct>(construct: T, id?: string): T {
+  static setLogicalId(construct: IConstruct, id?: string): IConstruct {
     let logicalId = id ?? construct.node.id;
     if (CfnElement.isCfnElement(construct)) {
       construct.overrideLogicalId(logicalId);
@@ -55,6 +56,24 @@ export class CfnIncludeToCdk {
       }
     }
     return construct;
+  }
+
+  /**
+   * Changes the LogicalIds of existing resources.  This is useful when you get the
+   * "Modifying service token is not allowed." Error from CloudFormation.  Just
+   * modify the LogicalId for at least one deployment.
+   *
+   * @param scope
+   * @param resourceType
+   * @param prefix
+   * @param suffix
+   */
+  static modifyLogicalIdsOfResources(scope: IConstruct, resourceType: string, prefix?: string, suffix?: string) {
+    let cfnResources = new CfnElementUtilities().cfnResources(scope, resourceType);
+    for (let resource of cfnResources) {
+      let newLogicalId = `${prefix ? prefix : ''}${resource.logicalId}${suffix ? suffix : ''}`;
+      resource.overrideLogicalId(newLogicalId);
+    }
   }
 
 
@@ -125,7 +144,7 @@ export class CfnIncludeToCdk {
    * @param logicalId Logical ID of the construct we are replacing.
    * @param replacementConstruct Construct that should be replacing the included construct.
    */
-  static replaceIncluded<T extends Construct>(logicalId: string, replacementConstruct: T): T {
+  static replaceIncluded(logicalId: string, replacementConstruct: IConstruct): IConstruct {
     CfnIncludeToCdk.removeIncluded(logicalId, replacementConstruct);
 
     // Set the LogicalId of the replacement to be the same as the LogicalId of the replaced construct

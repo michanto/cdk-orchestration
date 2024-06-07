@@ -21,6 +21,8 @@ function log(message: Record<string, any>) {
  * https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/custom-resource-handlers/lib/custom-resources/aws-custom-resource-handler/aws-sdk-v3-handler.ts
  */
 export class CustomResourceHandler {
+  protected logApiResponseData: boolean = false;
+
   decodeProperties(event: any) {
     let encoded = event.ResourceProperties.EncodedProperties;
     if (encoded) {
@@ -73,7 +75,15 @@ export class CustomResourceHandler {
   }
   /* c8 ignore end */
 
+  /**
+   * Makes the call encapsulated by an AwsApiCall.
+   * @param call AwsApiCall
+   * @returns
+   */
   async getResponse(call: any) {
+    // User may only be calling getResponse.
+    this.logApiResponseData = call?.logApiResponseData ?? false;
+
     const apiCall = new ApiCall(call.service, call.action);
 
     let credentials;
@@ -104,9 +114,8 @@ export class CustomResourceHandler {
         flattenResponse: false,
       }) as Record<string, any>;
 
-      const logApiResponseData = call?.logApiResponseData ?? true;
-      if (logApiResponseData) {
-        console.log('API response', response);
+      if (this.logApiResponseData) {
+        log({ Response: response });
       }
       flatData.apiVersion = apiCall.client.config.apiVersion; // For test purposes: check if apiVersion was correctly passed.
       flatData.region = await apiCall.client.config.region().catch(() => undefined); // For test purposes: check if region was correctly passed.
@@ -128,6 +137,9 @@ export class CustomResourceHandler {
             parameters: parameters,
             flattenResponse: false,
           }) as Record<string, any>;
+          if (this.logApiResponseData) {
+            log({ NextPage: nextPage });
+          }
           for (let field in nextPage) {
             if (Array.isArray(nextPage[field]) && Array.isArray(response[field])) {
               response[field] = [...response[field],
@@ -141,7 +153,9 @@ export class CustomResourceHandler {
       }
 
       let responseBufferField = call.responseBufferField;
-      log({ response: response });
+      if (this.logApiResponseData) {
+        log({ response: response });
+      }
       log({ responseBufferField: responseBufferField });
       if (responseBufferField && response[responseBufferField]) {
         let body = (response[responseBufferField] as any).toString('utf-8');
@@ -165,9 +179,13 @@ export class CustomResourceHandler {
   }
 
   flatten(response: any) {
-    log({ Response: response });
+    if (this.logApiResponseData) {
+      log({ Response: response });
+    }
     let flattened = flatten(response);
-    log({ Flattened: flattened });
+    if (this.logApiResponseData) {
+      log({ Flattened: flattened });
+    }
     return flattened;
   }
 
@@ -182,7 +200,9 @@ export class CustomResourceHandler {
     if (outputPaths) {
       data = filterKeys(flattened, startsWithOneOf(outputPaths));
     }
-    log({ Filtered: data });
+    if (this.logApiResponseData) {
+      log({ Filtered: data });
+    }
     return data;
   }
 
@@ -199,6 +219,8 @@ export class CustomResourceHandler {
     }
 
     if (call) {
+      this.logApiResponseData = call?.logApiResponseData ?? false;
+
       if (event.ResourceProperties.AutoPaginate) {
         call.autoPaginate = event.ResourceProperties.AutoPaginate;
       }
@@ -209,7 +231,7 @@ export class CustomResourceHandler {
       }
 
       call.parameters = decodeSpecialValues(call.parameters, physicalResourceId);
-      console.log(JSON.stringify({ ...event, ResponseURL: '...' }));
+      log(event);
       if (event.ResourceProperties.ResponseBufferField) {
         call.responseBufferField = event.ResourceProperties.ResponseBufferField;
       }
