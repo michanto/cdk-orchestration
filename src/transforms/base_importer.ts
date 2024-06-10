@@ -1,5 +1,6 @@
 import { Construct } from 'constructs';
-import { CfnTransformHost, ImportOrders } from '.';
+import { CfnTransformHost } from './cfn_transform_host';
+import { ImportOrders } from './import_orders';
 
 /**
  * Base class for JSON processors.  Has orders that
