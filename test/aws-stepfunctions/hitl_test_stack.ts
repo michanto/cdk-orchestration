@@ -19,7 +19,7 @@ import { LambdaInvoke } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { Construct } from 'constructs';
 import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
 import { InsertStepFunctionState } from '../../src/aws-stepfunctions';
-import { Joiner } from '../../src/cloudformation-include';
+import { Joiner } from '../../src/transforms';
 
 const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas`;
 

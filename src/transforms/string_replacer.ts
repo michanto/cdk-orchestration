@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { StringTransform, StringTransformProps } from '../transforms';
+import { StringTransform, StringTransformProps } from './string_transform';
 
 /**
  * Properties for {@link StringReplacer}

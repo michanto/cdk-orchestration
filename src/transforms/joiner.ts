@@ -1,6 +1,7 @@
 import { Lazy, Token } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { ImportOrders, TransformBase, TransformBaseProps } from '../transforms';
+import { ImportOrders } from './import_orders';
+import { TransformBase, TransformBaseProps } from './transform';
 
 /**
  * Props for Joiner

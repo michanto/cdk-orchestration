@@ -1,7 +1,8 @@
 import * as fs from 'fs';
 import { Construct } from 'constructs';
 import { tmpNameSync } from 'tmp';
-import { ImportOrders, StringTransform } from '../transforms';
+import { ImportOrders } from './import_orders';
+import { StringTransform } from './string_transform';
 
 /**
  * Writes a template to a temp file, so it can be used with CfnInclude.

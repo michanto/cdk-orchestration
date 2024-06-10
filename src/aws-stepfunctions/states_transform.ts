@@ -1,7 +1,7 @@
 import { CfnStateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
-import { JsonPropertyTransform } from '../cloudformation-include/property_transform';
 import { TransformProps } from '../transforms';
+import { JsonPropertyTransform } from '../transforms/property_transform';
 
 export interface StatesTransformProps extends TransformProps {}
 

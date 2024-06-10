@@ -1,5 +1,6 @@
 import { Construct } from 'constructs';
-import { ImportOrders, TransformBase } from '../transforms';
+import { ImportOrders } from './import_orders';
+import { TransformBase } from './transform';
 
 /**
  * Stringifies the template so it can be written to a file.

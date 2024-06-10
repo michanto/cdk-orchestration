@@ -25,7 +25,7 @@ StepFunctionTasks for up to four days (!).
 Artifact creation is a primary use-case for Tasks.  ML model training, FPGA layouts, embedded software builds, or
 anything that can be run in an AWS execution environment, including StepFunctions on-prem support for things like HITL testing.
 
-See the integration tests for examples of how to use attributes.  Attributes from one task can be passed as paramters to a
+See the integration tests for examples of how to use attributes.  Attributes from one task can be passed as parameters to a
 subsequent task.  Attributes are only returned if they are accessed (via getAtt or getAttString), allowing small parts of Lambda
 and StepFunction outputs to be used.
 

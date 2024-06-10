@@ -6,8 +6,6 @@ import { CfnStateMachine, DefinitionBody, Pass, StateMachine } from 'aws-cdk-lib
 import { Construct } from 'constructs';
 import {
   CfnIncludeToCdk,
-  StringReplacer,
-  TempFileWriter,
   TemplateImporter,
 } from '../../lib/cloudformation-include';
 import {
@@ -15,6 +13,8 @@ import {
   Transform,
   TransformHost,
   Transforms,
+  StringReplacer,
+  TempFileWriter,
 } from '../../lib/transforms';
 
 const env = { account: '000000000000', region: 'us-west-2' };

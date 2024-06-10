@@ -3,12 +3,14 @@ import { Template } from 'aws-cdk-lib/assertions';
 import { Construct } from 'constructs';
 import {
   BaseTemplateImporter,
+  TemplateImporter,
+} from '../../lib/cloudformation-include';
+import {
   FileReader,
   JsonParser,
   Stringifier,
   TempFileWriter,
-  TemplateImporter,
-} from '../../lib/cloudformation-include';
+} from '../../lib/transforms';
 
 const env = { account: '000000000000', region: 'us-west-2' };
 

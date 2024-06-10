@@ -1,6 +1,7 @@
 import { Construct } from 'constructs';
 import { parse as yamlParse } from 'yaml';
-import { ImportOrders, TransformBase, TransformBaseProps } from '../transforms';
+import { ImportOrders } from './import_orders';
+import { TransformBase, TransformBaseProps } from './transform';
 
 export interface ParserProps extends TransformBaseProps {}
 

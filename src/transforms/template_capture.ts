@@ -1,5 +1,6 @@
 import { Construct } from 'constructs';
-import { ImportOrders, Transform, CfTemplateType } from '../transforms';
+import { ImportOrders } from './import_orders';
+import { CfTemplateType, Transform } from './transform';
 
 /**
  * Capture the template right before it is written to a file.

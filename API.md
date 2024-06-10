@@ -2,35 +2,35 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
-### BaseImporter <a name="BaseImporter" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter"></a>
+### BaseImporter <a name="BaseImporter" id="@michanto/cdk-orchestration.transforms.BaseImporter"></a>
 
 Base class for JSON processors.
 
 Has orders that
 allow L2 transforms to be applied in the correct order.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.BaseImporter.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.BaseImporter(scope: Construct, id: string)
+new transforms.BaseImporter(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseImporter.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseImporter.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.BaseImporter.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.BaseImporter.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -40,11 +40,11 @@ new cloudformation_include.BaseImporter(scope: Construct, id: string)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseImporter.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.toString">toString</a></code> | Returns a string representation of this construct. |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.BaseImporter.toString"></a>
 
 ```typescript
 public toString(): string
@@ -56,17 +56,17 @@ Returns a string representation of this construct.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseImporter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseImporter.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.BaseImporter.isConstruct"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.BaseImporter.isConstruct(x: any)
+transforms.BaseImporter.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -85,7 +85,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.BaseImporter.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -93,19 +93,19 @@ Any object.
 
 ---
 
-##### `isCfnTransformHost` <a name="isCfnTransformHost" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.isCfnTransformHost"></a>
+##### `isCfnTransformHost` <a name="isCfnTransformHost" id="@michanto/cdk-orchestration.transforms.BaseImporter.isCfnTransformHost"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.BaseImporter.isCfnTransformHost(scope: Construct)
+transforms.BaseImporter.isCfnTransformHost(scope: Construct)
 ```
 
 Tells you if an object is a CfnTransformHost.
 
 Duck-typing.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.isCfnTransformHost.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.BaseImporter.isCfnTransformHost.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
@@ -115,18 +115,18 @@ Duck-typing.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.parserOrder">parserOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.readerOrder">readerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.imports">imports</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.parserOrder">parserOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.readerOrder">readerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.imports">imports</a></code> | <code>number</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -138,7 +138,7 @@ The tree node.
 
 ---
 
-##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.parserOrder"></a>
+##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.parserOrder"></a>
 
 ```typescript
 public readonly parserOrder: Construct;
@@ -148,7 +148,7 @@ public readonly parserOrder: Construct;
 
 ---
 
-##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.preReaderOrder"></a>
+##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.preReaderOrder"></a>
 
 ```typescript
 public readonly preReaderOrder: Construct;
@@ -158,7 +158,7 @@ public readonly preReaderOrder: Construct;
 
 ---
 
-##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.readerOrder"></a>
+##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.readerOrder"></a>
 
 ```typescript
 public readonly readerOrder: Construct;
@@ -168,7 +168,7 @@ public readonly readerOrder: Construct;
 
 ---
 
-##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.stringTransformOrder"></a>
+##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.stringTransformOrder"></a>
 
 ```typescript
 public readonly stringTransformOrder: Construct;
@@ -178,7 +178,7 @@ public readonly stringTransformOrder: Construct;
 
 ---
 
-##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.templateTransformOrder"></a>
+##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.templateTransformOrder"></a>
 
 ```typescript
 public readonly templateTransformOrder: Construct;
@@ -188,7 +188,7 @@ public readonly templateTransformOrder: Construct;
 
 ---
 
-##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.writerOrder"></a>
+##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.writerOrder"></a>
 
 ```typescript
 public readonly writerOrder: Construct;
@@ -198,7 +198,7 @@ public readonly writerOrder: Construct;
 
 ---
 
-##### `imports`<sup>Required</sup> <a name="imports" id="@michanto/cdk-orchestration.cloudformation_include.BaseImporter.property.imports"></a>
+##### `imports`<sup>Required</sup> <a name="imports" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.imports"></a>
 
 ```typescript
 public readonly imports: number;
@@ -367,7 +367,7 @@ Duck-typing.
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.imports">imports</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.capture">capture</a></code> | <code>@michanto/cdk-orchestration.cloudformation_include.TemplateCapture</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.capture">capture</a></code> | <code>@michanto/cdk-orchestration.transforms.TemplateCapture</code> | *No description.* |
 
 ---
 
@@ -459,7 +459,7 @@ public readonly imports: number;
 public readonly capture: TemplateCapture;
 ```
 
-- *Type:* @michanto/cdk-orchestration.cloudformation_include.TemplateCapture
+- *Type:* @michanto/cdk-orchestration.transforms.TemplateCapture
 
 ---
 
@@ -962,32 +962,32 @@ public readonly order: string;
 ---
 
 
-### FileReader <a name="FileReader" id="@michanto/cdk-orchestration.cloudformation_include.FileReader"></a>
+### FileReader <a name="FileReader" id="@michanto/cdk-orchestration.transforms.FileReader"></a>
 
 Reads a file (presumably one containing a template) and returns it as a string.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.FileReader.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.FileReader.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.FileReader(scope: Construct, id: string)
+new transforms.FileReader(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.FileReader.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.FileReader.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.FileReader.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.FileReader.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.FileReader.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.FileReader.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -997,14 +997,14 @@ new cloudformation_include.FileReader(scope: Construct, id: string)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.FileReader.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.FileReader.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.FileReader.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.FileReader.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.apply">apply</a></code> | *No description.* |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.FileReader.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.FileReader.toString"></a>
 
 ```typescript
 public toString(): string
@@ -1012,7 +1012,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.cloudformation_include.FileReader.findShimParent"></a>
+##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.FileReader.findShimParent"></a>
 
 ```typescript
 public findShimParent(): Construct
@@ -1031,7 +1031,7 @@ TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child
 '_Transforms' exists under the transform host, then the '_Transforms' construct will be
 the shim parent.
 
-##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.FileReader.inspect"></a>
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.FileReader.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -1039,19 +1039,19 @@ public inspect(inspector: TreeInspector): void
 
 Examines construct.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.FileReader.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.FileReader.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
 ---
 
-##### `apply` <a name="apply" id="@michanto/cdk-orchestration.cloudformation_include.FileReader.apply"></a>
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.FileReader.apply"></a>
 
 ```typescript
 public apply(template: string): string
 ```
 
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.FileReader.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.FileReader.apply.parameter.template"></a>
 
 - *Type:* string
 
@@ -1061,16 +1061,16 @@ public apply(template: string): string
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.FileReader.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.FileReader.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.FileReader.isConstruct"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.FileReader.isConstruct(x: any)
+transforms.FileReader.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -1089,7 +1089,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.FileReader.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.FileReader.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -1101,13 +1101,13 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.FileReader.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.FileReader.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.FileReader.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.property.order">order</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.FileReader.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.FileReader.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -1119,7 +1119,7 @@ The tree node.
 
 ---
 
-##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.cloudformation_include.FileReader.property.cfnTransform"></a>
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.FileReader.property.cfnTransform"></a>
 
 ```typescript
 public readonly cfnTransform: ICfnTransform;
@@ -1129,7 +1129,7 @@ public readonly cfnTransform: ICfnTransform;
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.FileReader.property.order"></a>
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.FileReader.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -2515,7 +2515,7 @@ public readonly resourceType: string;
 ---
 
 
-### Joiner <a name="Joiner" id="@michanto/cdk-orchestration.cloudformation_include.Joiner"></a>
+### Joiner <a name="Joiner" id="@michanto/cdk-orchestration.transforms.Joiner"></a>
 
 JSON resource properties can be stored in CloudFormation either as a string, or as an Fn.join of strings and objects.
 
@@ -2527,37 +2527,37 @@ that can be parsed and modified by Transforms.
 During synthesis, the CDK will turn the tokenized string back into an Fn.join before
 writing it to the template.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.Joiner.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.Joiner(scope: Construct, id?: string, props?: JoinerProps)
+new transforms.Joiner(scope: Construct, id?: string, props?: JoinerProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.cloudformation_include.JoinerProps</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.transforms.JoinerProps</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.Joiner.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Optional</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.Initializer.parameter.id"></a>
+##### `id`<sup>Optional</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.Joiner.Initializer.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.Initializer.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.transforms.Joiner.Initializer.parameter.props"></a>
 
-- *Type:* @michanto/cdk-orchestration.cloudformation_include.JoinerProps
+- *Type:* @michanto/cdk-orchestration.transforms.JoinerProps
 
 ---
 
@@ -2565,14 +2565,14 @@ new cloudformation_include.Joiner(scope: Construct, id?: string, props?: JoinerP
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.doJoin">doJoin</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.doJoin">doJoin</a></code> | *No description.* |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.Joiner.toString"></a>
 
 ```typescript
 public toString(): string
@@ -2580,7 +2580,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.findShimParent"></a>
+##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.Joiner.findShimParent"></a>
 
 ```typescript
 public findShimParent(): Construct
@@ -2599,7 +2599,7 @@ TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child
 '_Transforms' exists under the transform host, then the '_Transforms' construct will be
 the shim parent.
 
-##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.inspect"></a>
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.Joiner.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -2607,19 +2607,19 @@ public inspect(inspector: TreeInspector): void
 
 Examines construct.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.Joiner.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
 ---
 
-##### `doJoin` <a name="doJoin" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.doJoin"></a>
+##### `doJoin` <a name="doJoin" id="@michanto/cdk-orchestration.transforms.Joiner.doJoin"></a>
 
 ```typescript
 public doJoin(template: any): any
 ```
 
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.doJoin.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.Joiner.doJoin.parameter.template"></a>
 
 - *Type:* any
 
@@ -2629,16 +2629,16 @@ public doJoin(template: any): any
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.Joiner.isConstruct"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.Joiner.isConstruct(x: any)
+transforms.Joiner.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -2657,7 +2657,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.Joiner.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -2669,13 +2669,13 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Joiner.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.property.order">order</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.Joiner.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -2687,7 +2687,7 @@ The tree node.
 
 ---
 
-##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.property.cfnTransform"></a>
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.Joiner.property.cfnTransform"></a>
 
 ```typescript
 public readonly cfnTransform: ICfnTransform;
@@ -2697,7 +2697,7 @@ public readonly cfnTransform: ICfnTransform;
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.Joiner.property.order"></a>
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.Joiner.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -2708,35 +2708,35 @@ public readonly order: string;
 ---
 
 
-### JsonParser <a name="JsonParser" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser"></a>
+### JsonParser <a name="JsonParser" id="@michanto/cdk-orchestration.transforms.JsonParser"></a>
 
 Uses a yaml parser to parse a template.
 
 Takes in a template as a string JSON,
 and returns a parsed template.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.JsonParser.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.JsonParser(scope: Construct, id: string)
+new transforms.JsonParser(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.JsonParser.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.JsonParser.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -2746,14 +2746,14 @@ new cloudformation_include.JsonParser(scope: Construct, id: string)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.apply">apply</a></code> | *No description.* |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.JsonParser.toString"></a>
 
 ```typescript
 public toString(): string
@@ -2761,7 +2761,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.findShimParent"></a>
+##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.JsonParser.findShimParent"></a>
 
 ```typescript
 public findShimParent(): Construct
@@ -2780,7 +2780,7 @@ TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child
 '_Transforms' exists under the transform host, then the '_Transforms' construct will be
 the shim parent.
 
-##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.inspect"></a>
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.JsonParser.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -2788,19 +2788,19 @@ public inspect(inspector: TreeInspector): void
 
 Examines construct.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.JsonParser.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
 ---
 
-##### `apply` <a name="apply" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.apply"></a>
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.JsonParser.apply"></a>
 
 ```typescript
 public apply(template: string): any
 ```
 
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.JsonParser.apply.parameter.template"></a>
 
 - *Type:* string
 
@@ -2810,16 +2810,16 @@ public apply(template: string): any
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.JsonParser.isConstruct"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.JsonParser.isConstruct(x: any)
+transforms.JsonParser.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -2838,7 +2838,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.JsonParser.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -2850,13 +2850,13 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonParser.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.property.order">order</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.JsonParser.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -2868,7 +2868,7 @@ The tree node.
 
 ---
 
-##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.property.cfnTransform"></a>
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.JsonParser.property.cfnTransform"></a>
 
 ```typescript
 public readonly cfnTransform: ICfnTransform;
@@ -2878,7 +2878,7 @@ public readonly cfnTransform: ICfnTransform;
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.JsonParser.property.order"></a>
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.JsonParser.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -2889,41 +2889,41 @@ public readonly order: string;
 ---
 
 
-### JsonPropertyTransform <a name="JsonPropertyTransform" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform"></a>
+### JsonPropertyTransform <a name="JsonPropertyTransform" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform"></a>
 
 Transforms a JSON.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.JsonPropertyTransform(scope: Construct, id: string, props: JsonPropertyTransformProps)
+new transforms.JsonPropertyTransform(scope: Construct, id: string, props: JsonPropertyTransformProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.Initializer.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.Initializer.parameter.props"></a>
 
-- *Type:* @michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps
+- *Type:* @michanto/cdk-orchestration.transforms.JsonPropertyTransformProps
 
 ---
 
@@ -2931,14 +2931,14 @@ new cloudformation_include.JsonPropertyTransform(scope: Construct, id: string, p
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.apply">apply</a></code> | *No description.* |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.toString"></a>
 
 ```typescript
 public toString(): string
@@ -2946,7 +2946,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.findShimParent"></a>
+##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.findShimParent"></a>
 
 ```typescript
 public findShimParent(): Construct
@@ -2965,7 +2965,7 @@ TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child
 '_Transforms' exists under the transform host, then the '_Transforms' construct will be
 the shim parent.
 
-##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.inspect"></a>
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -2973,19 +2973,19 @@ public inspect(inspector: TreeInspector): void
 
 Examines construct.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
 ---
 
-##### `apply` <a name="apply" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.apply"></a>
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.apply"></a>
 
 ```typescript
 public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 ```
 
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.apply.parameter.template"></a>
 
 - *Type:* {[ key: string ]: any}
 
@@ -2995,16 +2995,16 @@ public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.isConstruct"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.JsonPropertyTransform.isConstruct(x: any)
+transforms.JsonPropertyTransform.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -3023,7 +3023,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -3035,15 +3035,15 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.property.order">order</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -3055,7 +3055,7 @@ The tree node.
 
 ---
 
-##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.property.cfnTransform"></a>
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.cfnTransform"></a>
 
 ```typescript
 public readonly cfnTransform: ICfnTransform;
@@ -3065,7 +3065,7 @@ public readonly cfnTransform: ICfnTransform;
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.property.order"></a>
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -3075,7 +3075,7 @@ public readonly order: string;
 
 ---
 
-##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.property.propertyName"></a>
+##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.propertyName"></a>
 
 ```typescript
 public readonly propertyName: string;
@@ -3085,7 +3085,7 @@ public readonly propertyName: string;
 
 ---
 
-##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransform.property.resourceType"></a>
+##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.resourceType"></a>
 
 ```typescript
 public readonly resourceType: string;
@@ -4293,41 +4293,41 @@ Tokenized string that evaluates to the state's ID.
 ---
 
 
-### Parser <a name="Parser" id="@michanto/cdk-orchestration.cloudformation_include.Parser"></a>
+### Parser <a name="Parser" id="@michanto/cdk-orchestration.transforms.Parser"></a>
 
 Base class for JsonParser and YamlParser transforms.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.Parser.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.Parser.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.Parser(scope: Construct, id: string, props?: ParserProps)
+new transforms.Parser(scope: Construct, id: string, props?: ParserProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.cloudformation_include.ParserProps</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.transforms.ParserProps</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.Parser.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.Parser.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.Parser.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.Parser.Initializer.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.cloudformation_include.Parser.Initializer.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.transforms.Parser.Initializer.parameter.props"></a>
 
-- *Type:* @michanto/cdk-orchestration.cloudformation_include.ParserProps
+- *Type:* @michanto/cdk-orchestration.transforms.ParserProps
 
 ---
 
@@ -4335,14 +4335,14 @@ new cloudformation_include.Parser(scope: Construct, id: string, props?: ParserPr
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.apply">apply</a></code> | *No description.* |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.Parser.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.Parser.toString"></a>
 
 ```typescript
 public toString(): string
@@ -4350,7 +4350,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.cloudformation_include.Parser.findShimParent"></a>
+##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.Parser.findShimParent"></a>
 
 ```typescript
 public findShimParent(): Construct
@@ -4369,7 +4369,7 @@ TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child
 '_Transforms' exists under the transform host, then the '_Transforms' construct will be
 the shim parent.
 
-##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.Parser.inspect"></a>
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.Parser.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -4377,19 +4377,19 @@ public inspect(inspector: TreeInspector): void
 
 Examines construct.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.Parser.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.Parser.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
 ---
 
-##### `apply` <a name="apply" id="@michanto/cdk-orchestration.cloudformation_include.Parser.apply"></a>
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.Parser.apply"></a>
 
 ```typescript
 public apply(template: string): any
 ```
 
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.Parser.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.Parser.apply.parameter.template"></a>
 
 - *Type:* string
 
@@ -4399,16 +4399,16 @@ public apply(template: string): any
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.Parser.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.Parser.isConstruct"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.Parser.isConstruct(x: any)
+transforms.Parser.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -4427,7 +4427,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.Parser.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.Parser.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -4439,13 +4439,13 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Parser.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.property.order">order</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.Parser.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.Parser.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -4457,7 +4457,7 @@ The tree node.
 
 ---
 
-##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.cloudformation_include.Parser.property.cfnTransform"></a>
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.Parser.property.cfnTransform"></a>
 
 ```typescript
 public readonly cfnTransform: ICfnTransform;
@@ -4467,7 +4467,7 @@ public readonly cfnTransform: ICfnTransform;
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.Parser.property.order"></a>
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.Parser.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -4478,41 +4478,41 @@ public readonly order: string;
 ---
 
 
-### PropertyTransform <a name="PropertyTransform" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform"></a>
+### PropertyTransform <a name="PropertyTransform" id="@michanto/cdk-orchestration.transforms.PropertyTransform"></a>
 
 Transforms a property of a resource.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.PropertyTransform.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.PropertyTransform(scope: Construct, id: string, propertyTransformProps: PropertyTransformProps)
+new transforms.PropertyTransform(scope: Construct, id: string, propertyTransformProps: PropertyTransformProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.Initializer.parameter.propertyTransformProps">propertyTransformProps</a></code> | <code>@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.Initializer.parameter.propertyTransformProps">propertyTransformProps</a></code> | <code>@michanto/cdk-orchestration.transforms.PropertyTransformProps</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.PropertyTransform.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.PropertyTransform.Initializer.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-##### `propertyTransformProps`<sup>Required</sup> <a name="propertyTransformProps" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.Initializer.parameter.propertyTransformProps"></a>
+##### `propertyTransformProps`<sup>Required</sup> <a name="propertyTransformProps" id="@michanto/cdk-orchestration.transforms.PropertyTransform.Initializer.parameter.propertyTransformProps"></a>
 
-- *Type:* @michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps
+- *Type:* @michanto/cdk-orchestration.transforms.PropertyTransformProps
 
 ---
 
@@ -4520,14 +4520,14 @@ new cloudformation_include.PropertyTransform(scope: Construct, id: string, prope
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.apply">apply</a></code> | *No description.* |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.PropertyTransform.toString"></a>
 
 ```typescript
 public toString(): string
@@ -4535,7 +4535,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.findShimParent"></a>
+##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.PropertyTransform.findShimParent"></a>
 
 ```typescript
 public findShimParent(): Construct
@@ -4554,7 +4554,7 @@ TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child
 '_Transforms' exists under the transform host, then the '_Transforms' construct will be
 the shim parent.
 
-##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.inspect"></a>
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.PropertyTransform.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -4562,19 +4562,19 @@ public inspect(inspector: TreeInspector): void
 
 Examines construct.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.PropertyTransform.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
 ---
 
-##### `apply` <a name="apply" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.apply"></a>
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.PropertyTransform.apply"></a>
 
 ```typescript
 public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 ```
 
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.PropertyTransform.apply.parameter.template"></a>
 
 - *Type:* {[ key: string ]: any}
 
@@ -4584,16 +4584,16 @@ public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.PropertyTransform.isConstruct"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.PropertyTransform.isConstruct(x: any)
+transforms.PropertyTransform.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -4612,7 +4612,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.PropertyTransform.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -4624,15 +4624,15 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.property.order">order</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.PropertyTransform.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -4644,7 +4644,7 @@ The tree node.
 
 ---
 
-##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.property.cfnTransform"></a>
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.PropertyTransform.property.cfnTransform"></a>
 
 ```typescript
 public readonly cfnTransform: ICfnTransform;
@@ -4654,7 +4654,7 @@ public readonly cfnTransform: ICfnTransform;
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.property.order"></a>
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.PropertyTransform.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -4664,7 +4664,7 @@ public readonly order: string;
 
 ---
 
-##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.property.propertyName"></a>
+##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.transforms.PropertyTransform.property.propertyName"></a>
 
 ```typescript
 public readonly propertyName: string;
@@ -4674,7 +4674,7 @@ public readonly propertyName: string;
 
 ---
 
-##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransform.property.resourceType"></a>
+##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.transforms.PropertyTransform.property.resourceType"></a>
 
 ```typescript
 public readonly resourceType: string;
@@ -4685,7 +4685,7 @@ public readonly resourceType: string;
 ---
 
 
-### PropertyTransformApplier <a name="PropertyTransformApplier" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier"></a>
+### PropertyTransformApplier <a name="PropertyTransformApplier" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier"></a>
 
 Applies Transforms to a Resource property.
 
@@ -4702,35 +4702,35 @@ That creates a StatesTransformApplier, which creates
 a StatesTransformHost.  StepFunctionTransforms are hosted
 by the StepFunctionTransformHost.  When the StateMachine is
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.PropertyTransformApplier(scope: Construct, propertyName: string, propertyType: string)
+new transforms.PropertyTransformApplier(scope: Construct, propertyName: string, propertyType: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.Initializer.parameter.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.Initializer.parameter.propertyType">propertyType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.Initializer.parameter.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.Initializer.parameter.propertyType">propertyType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.Initializer.parameter.propertyName"></a>
+##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.Initializer.parameter.propertyName"></a>
 
 - *Type:* string
 
 ---
 
-##### `propertyType`<sup>Required</sup> <a name="propertyType" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.Initializer.parameter.propertyType"></a>
+##### `propertyType`<sup>Required</sup> <a name="propertyType" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.Initializer.parameter.propertyType"></a>
 
 - *Type:* string
 
@@ -4740,14 +4740,14 @@ new cloudformation_include.PropertyTransformApplier(scope: Construct, propertyNa
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.apply">apply</a></code> | Find the StatesTransformHost and apply those to the state machine definition. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.apply">apply</a></code> | Find the StatesTransformHost and apply those to the state machine definition. |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.toString"></a>
 
 ```typescript
 public toString(): string
@@ -4755,7 +4755,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.findShimParent"></a>
+##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.findShimParent"></a>
 
 ```typescript
 public findShimParent(): Construct
@@ -4774,7 +4774,7 @@ TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child
 '_Transforms' exists under the transform host, then the '_Transforms' construct will be
 the shim parent.
 
-##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.inspect"></a>
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -4782,13 +4782,13 @@ public inspect(inspector: TreeInspector): void
 
 Examines construct.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
 ---
 
-##### `apply` <a name="apply" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.apply"></a>
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.apply"></a>
 
 ```typescript
 public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
@@ -4796,7 +4796,7 @@ public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 
 Find the StatesTransformHost and apply those to the state machine definition.
 
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.apply.parameter.template"></a>
 
 - *Type:* {[ key: string ]: any}
 
@@ -4806,17 +4806,17 @@ Find the StatesTransformHost and apply those to the state machine definition.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.applierId">applierId</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.applierId">applierId</a></code> | *No description.* |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.isConstruct"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.PropertyTransformApplier.isConstruct(x: any)
+transforms.PropertyTransformApplier.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -4835,7 +4835,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -4843,15 +4843,15 @@ Any object.
 
 ---
 
-##### `applierId` <a name="applierId" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.applierId"></a>
+##### `applierId` <a name="applierId" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.applierId"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.PropertyTransformApplier.applierId(propertyName: string)
+transforms.PropertyTransformApplier.applierId(propertyName: string)
 ```
 
-###### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.applierId.parameter.propertyName"></a>
+###### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.applierId.parameter.propertyName"></a>
 
 - *Type:* string
 
@@ -4861,15 +4861,15 @@ cloudformation_include.PropertyTransformApplier.applierId(propertyName: string)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.property.order">order</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.property.propertyType">propertyType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.propertyType">propertyType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -4881,7 +4881,7 @@ The tree node.
 
 ---
 
-##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.property.cfnTransform"></a>
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.cfnTransform"></a>
 
 ```typescript
 public readonly cfnTransform: ICfnTransform;
@@ -4891,7 +4891,7 @@ public readonly cfnTransform: ICfnTransform;
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.property.order"></a>
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -4901,7 +4901,7 @@ public readonly order: string;
 
 ---
 
-##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.property.propertyName"></a>
+##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.propertyName"></a>
 
 ```typescript
 public readonly propertyName: string;
@@ -4911,7 +4911,7 @@ public readonly propertyName: string;
 
 ---
 
-##### `propertyType`<sup>Required</sup> <a name="propertyType" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier.property.propertyType"></a>
+##### `propertyType`<sup>Required</sup> <a name="propertyType" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.propertyType"></a>
 
 ```typescript
 public readonly propertyType: string;
@@ -4922,41 +4922,41 @@ public readonly propertyType: string;
 ---
 
 
-### PropertyTransformHost <a name="PropertyTransformHost" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost"></a>
+### PropertyTransformHost <a name="PropertyTransformHost" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost"></a>
 
 Hosts PropertyTransforms.
 
 Must be a child of a PropertyTransformApplier.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.PropertyTransformHost(scope: PropertyTransformApplier, propertyName: string, resourceType: string)
+new transforms.PropertyTransformHost(scope: PropertyTransformApplier, propertyName: string, resourceType: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.Initializer.parameter.scope">scope</a></code> | <code>@michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.Initializer.parameter.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.Initializer.parameter.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.Initializer.parameter.scope">scope</a></code> | <code>@michanto/cdk-orchestration.transforms.PropertyTransformApplier</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.Initializer.parameter.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.Initializer.parameter.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.Initializer.parameter.scope"></a>
 
-- *Type:* @michanto/cdk-orchestration.cloudformation_include.PropertyTransformApplier
+- *Type:* @michanto/cdk-orchestration.transforms.PropertyTransformApplier
 
 ---
 
-##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.Initializer.parameter.propertyName"></a>
+##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.Initializer.parameter.propertyName"></a>
 
 - *Type:* string
 
 ---
 
-##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.Initializer.parameter.resourceType"></a>
+##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.Initializer.parameter.resourceType"></a>
 
 - *Type:* string
 
@@ -4966,11 +4966,11 @@ new cloudformation_include.PropertyTransformHost(scope: PropertyTransformApplier
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.toString">toString</a></code> | Returns a string representation of this construct. |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.toString"></a>
 
 ```typescript
 public toString(): string
@@ -4982,19 +4982,19 @@ Returns a string representation of this construct.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.getPropertyTransformHost">getPropertyTransformHost</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.hostId">hostId</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.getPropertyTransformHost">getPropertyTransformHost</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.hostId">hostId</a></code> | *No description.* |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.isConstruct"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.PropertyTransformHost.isConstruct(x: any)
+transforms.PropertyTransformHost.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -5013,7 +5013,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -5021,59 +5021,59 @@ Any object.
 
 ---
 
-##### `isCfnTransformHost` <a name="isCfnTransformHost" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.isCfnTransformHost"></a>
+##### `isCfnTransformHost` <a name="isCfnTransformHost" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.isCfnTransformHost"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.PropertyTransformHost.isCfnTransformHost(scope: Construct)
+transforms.PropertyTransformHost.isCfnTransformHost(scope: Construct)
 ```
 
 Tells you if an object is a CfnTransformHost.
 
 Duck-typing.
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.isCfnTransformHost.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.isCfnTransformHost.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `getPropertyTransformHost` <a name="getPropertyTransformHost" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.getPropertyTransformHost"></a>
+##### `getPropertyTransformHost` <a name="getPropertyTransformHost" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.getPropertyTransformHost"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.PropertyTransformHost.getPropertyTransformHost(scope: Construct, propertyName: string, resourceType: string)
+transforms.PropertyTransformHost.getPropertyTransformHost(scope: Construct, propertyName: string, resourceType: string)
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.getPropertyTransformHost.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.getPropertyTransformHost.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.getPropertyTransformHost.parameter.propertyName"></a>
+###### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.getPropertyTransformHost.parameter.propertyName"></a>
 
 - *Type:* string
 
 ---
 
-###### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.getPropertyTransformHost.parameter.resourceType"></a>
+###### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.getPropertyTransformHost.parameter.resourceType"></a>
 
 - *Type:* string
 
 ---
 
-##### `hostId` <a name="hostId" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.hostId"></a>
+##### `hostId` <a name="hostId" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.hostId"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.PropertyTransformHost.hostId(propertyName: string)
+transforms.PropertyTransformHost.hostId(propertyName: string)
 ```
 
-###### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.hostId.parameter.propertyName"></a>
+###### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.hostId.parameter.propertyName"></a>
 
 - *Type:* string
 
@@ -5083,20 +5083,20 @@ cloudformation_include.PropertyTransformHost.hostId(propertyName: string)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.parserOrder">parserOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.preReaderOrder">preReaderOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.readerOrder">readerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.imports">imports</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.parserOrder">parserOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.preReaderOrder">preReaderOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.readerOrder">readerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.imports">imports</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -5108,7 +5108,7 @@ The tree node.
 
 ---
 
-##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.parserOrder"></a>
+##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.parserOrder"></a>
 
 ```typescript
 public readonly parserOrder: Construct;
@@ -5118,7 +5118,7 @@ public readonly parserOrder: Construct;
 
 ---
 
-##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.preReaderOrder"></a>
+##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.preReaderOrder"></a>
 
 ```typescript
 public readonly preReaderOrder: Construct;
@@ -5128,7 +5128,7 @@ public readonly preReaderOrder: Construct;
 
 ---
 
-##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.readerOrder"></a>
+##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.readerOrder"></a>
 
 ```typescript
 public readonly readerOrder: Construct;
@@ -5138,7 +5138,7 @@ public readonly readerOrder: Construct;
 
 ---
 
-##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.stringTransformOrder"></a>
+##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.stringTransformOrder"></a>
 
 ```typescript
 public readonly stringTransformOrder: Construct;
@@ -5148,7 +5148,7 @@ public readonly stringTransformOrder: Construct;
 
 ---
 
-##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.templateTransformOrder"></a>
+##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.templateTransformOrder"></a>
 
 ```typescript
 public readonly templateTransformOrder: Construct;
@@ -5158,7 +5158,7 @@ public readonly templateTransformOrder: Construct;
 
 ---
 
-##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.writerOrder"></a>
+##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.writerOrder"></a>
 
 ```typescript
 public readonly writerOrder: Construct;
@@ -5168,7 +5168,7 @@ public readonly writerOrder: Construct;
 
 ---
 
-##### `imports`<sup>Required</sup> <a name="imports" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.imports"></a>
+##### `imports`<sup>Required</sup> <a name="imports" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.imports"></a>
 
 ```typescript
 public readonly imports: number;
@@ -5178,7 +5178,7 @@ public readonly imports: number;
 
 ---
 
-##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.propertyName"></a>
+##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.propertyName"></a>
 
 ```typescript
 public readonly propertyName: string;
@@ -5188,7 +5188,7 @@ public readonly propertyName: string;
 
 ---
 
-##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformHost.property.resourceType"></a>
+##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.resourceType"></a>
 
 ```typescript
 public readonly resourceType: string;
@@ -6825,32 +6825,32 @@ public readonly PURPOSE: string;
 
 ---
 
-### Stringifier <a name="Stringifier" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier"></a>
+### Stringifier <a name="Stringifier" id="@michanto/cdk-orchestration.transforms.Stringifier"></a>
 
 Stringifies the template so it can be written to a file.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.Stringifier.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.Stringifier(scope: Construct, id: string)
+new transforms.Stringifier(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Stringifier.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Stringifier.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.Stringifier.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.Stringifier.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -6860,14 +6860,14 @@ new cloudformation_include.Stringifier(scope: Construct, id: string)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Stringifier.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Stringifier.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Stringifier.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Stringifier.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.apply">apply</a></code> | *No description.* |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.Stringifier.toString"></a>
 
 ```typescript
 public toString(): string
@@ -6875,7 +6875,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier.findShimParent"></a>
+##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.Stringifier.findShimParent"></a>
 
 ```typescript
 public findShimParent(): Construct
@@ -6894,7 +6894,7 @@ TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child
 '_Transforms' exists under the transform host, then the '_Transforms' construct will be
 the shim parent.
 
-##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier.inspect"></a>
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.Stringifier.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -6902,19 +6902,19 @@ public inspect(inspector: TreeInspector): void
 
 Examines construct.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.Stringifier.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
 ---
 
-##### `apply` <a name="apply" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier.apply"></a>
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.Stringifier.apply"></a>
 
 ```typescript
 public apply(template: any): string
 ```
 
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.Stringifier.apply.parameter.template"></a>
 
 - *Type:* any
 
@@ -6924,16 +6924,16 @@ public apply(template: any): string
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Stringifier.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.Stringifier.isConstruct"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.Stringifier.isConstruct(x: any)
+transforms.Stringifier.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -6952,7 +6952,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.Stringifier.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -6964,13 +6964,13 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Stringifier.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Stringifier.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.Stringifier.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.property.order">order</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.Stringifier.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -6982,7 +6982,7 @@ The tree node.
 
 ---
 
-##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier.property.cfnTransform"></a>
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.Stringifier.property.cfnTransform"></a>
 
 ```typescript
 public readonly cfnTransform: ICfnTransform;
@@ -6992,7 +6992,7 @@ public readonly cfnTransform: ICfnTransform;
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.Stringifier.property.order"></a>
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.Stringifier.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -7003,44 +7003,44 @@ public readonly order: string;
 ---
 
 
-### StringReplacer <a name="StringReplacer" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer"></a>
+### StringReplacer <a name="StringReplacer" id="@michanto/cdk-orchestration.transforms.StringReplacer"></a>
 
 StringTransform that replaces strings in a template.
 
 Useful for renaming LogicalIDs, as long as they are reasonably
 unique.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.StringReplacer.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.StringReplacer(scope: Construct, id: string, props: StringReplacerProps)
+new transforms.StringReplacer(scope: Construct, id: string, props: StringReplacerProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.transforms.StringReplacerProps</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.StringReplacer.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.StringReplacer.Initializer.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.transforms.StringReplacer.Initializer.parameter.props"></a>
 
-- *Type:* @michanto/cdk-orchestration.cloudformation_include.StringReplacerProps
+- *Type:* @michanto/cdk-orchestration.transforms.StringReplacerProps
 
 ---
 
@@ -7048,14 +7048,14 @@ new cloudformation_include.StringReplacer(scope: Construct, id: string, props: S
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.apply">apply</a></code> | *No description.* |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.StringReplacer.toString"></a>
 
 ```typescript
 public toString(): string
@@ -7063,7 +7063,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.findShimParent"></a>
+##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.StringReplacer.findShimParent"></a>
 
 ```typescript
 public findShimParent(): Construct
@@ -7082,7 +7082,7 @@ TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child
 '_Transforms' exists under the transform host, then the '_Transforms' construct will be
 the shim parent.
 
-##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.inspect"></a>
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.StringReplacer.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -7090,19 +7090,19 @@ public inspect(inspector: TreeInspector): void
 
 Examines construct.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.StringReplacer.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
 ---
 
-##### `apply` <a name="apply" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.apply"></a>
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.StringReplacer.apply"></a>
 
 ```typescript
 public apply(template: string): string
 ```
 
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.StringReplacer.apply.parameter.template"></a>
 
 - *Type:* string
 
@@ -7112,16 +7112,16 @@ public apply(template: string): string
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.StringReplacer.isConstruct"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.StringReplacer.isConstruct(x: any)
+transforms.StringReplacer.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -7140,7 +7140,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.StringReplacer.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -7152,14 +7152,14 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.order">order</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.props">props</a></code> | <code>@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.props">props</a></code> | <code>@michanto/cdk-orchestration.transforms.StringReplacerProps</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.StringReplacer.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -7171,7 +7171,7 @@ The tree node.
 
 ---
 
-##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.cfnTransform"></a>
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.StringReplacer.property.cfnTransform"></a>
 
 ```typescript
 public readonly cfnTransform: ICfnTransform;
@@ -7181,7 +7181,7 @@ public readonly cfnTransform: ICfnTransform;
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.order"></a>
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.StringReplacer.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -7191,13 +7191,13 @@ public readonly order: string;
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacer.property.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.transforms.StringReplacer.property.props"></a>
 
 ```typescript
 public readonly props: StringReplacerProps;
 ```
 
-- *Type:* @michanto/cdk-orchestration.cloudformation_include.StringReplacerProps
+- *Type:* @michanto/cdk-orchestration.transforms.StringReplacerProps
 
 ---
 
@@ -7592,41 +7592,41 @@ The physical name of this custom resource.
 ---
 
 
-### TempFileWriter <a name="TempFileWriter" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter"></a>
+### TempFileWriter <a name="TempFileWriter" id="@michanto/cdk-orchestration.transforms.TempFileWriter"></a>
 
 Writes a template to a temp file, so it can be used with CfnInclude.
 
 This should be the LAST transform run before handing off to the CfnInclude.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.TempFileWriter.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.TempFileWriter(scope: Construct, id: string, tmpDir?: string)
+new transforms.TempFileWriter(scope: Construct, id: string, tmpDir?: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.Initializer.parameter.tmpDir">tmpDir</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.Initializer.parameter.tmpDir">tmpDir</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.TempFileWriter.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.TempFileWriter.Initializer.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-##### `tmpDir`<sup>Optional</sup> <a name="tmpDir" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.Initializer.parameter.tmpDir"></a>
+##### `tmpDir`<sup>Optional</sup> <a name="tmpDir" id="@michanto/cdk-orchestration.transforms.TempFileWriter.Initializer.parameter.tmpDir"></a>
 
 - *Type:* string
 
@@ -7636,15 +7636,15 @@ new cloudformation_include.TempFileWriter(scope: Construct, id: string, tmpDir?:
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.apply">apply</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.writeTempFile">writeTempFile</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.writeTempFile">writeTempFile</a></code> | *No description.* |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.TempFileWriter.toString"></a>
 
 ```typescript
 public toString(): string
@@ -7652,7 +7652,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.findShimParent"></a>
+##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.TempFileWriter.findShimParent"></a>
 
 ```typescript
 public findShimParent(): Construct
@@ -7671,7 +7671,7 @@ TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child
 '_Transforms' exists under the transform host, then the '_Transforms' construct will be
 the shim parent.
 
-##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.inspect"></a>
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.TempFileWriter.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -7679,37 +7679,37 @@ public inspect(inspector: TreeInspector): void
 
 Examines construct.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.TempFileWriter.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
 ---
 
-##### `apply` <a name="apply" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.apply"></a>
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.TempFileWriter.apply"></a>
 
 ```typescript
 public apply(template: string): string
 ```
 
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.TempFileWriter.apply.parameter.template"></a>
 
 - *Type:* string
 
 ---
 
-##### `writeTempFile` <a name="writeTempFile" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.writeTempFile"></a>
+##### `writeTempFile` <a name="writeTempFile" id="@michanto/cdk-orchestration.transforms.TempFileWriter.writeTempFile"></a>
 
 ```typescript
 public writeTempFile(data: string, tmpDir?: string): string
 ```
 
-###### `data`<sup>Required</sup> <a name="data" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.writeTempFile.parameter.data"></a>
+###### `data`<sup>Required</sup> <a name="data" id="@michanto/cdk-orchestration.transforms.TempFileWriter.writeTempFile.parameter.data"></a>
 
 - *Type:* string
 
 ---
 
-###### `tmpDir`<sup>Optional</sup> <a name="tmpDir" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.writeTempFile.parameter.tmpDir"></a>
+###### `tmpDir`<sup>Optional</sup> <a name="tmpDir" id="@michanto/cdk-orchestration.transforms.TempFileWriter.writeTempFile.parameter.tmpDir"></a>
 
 - *Type:* string
 
@@ -7719,16 +7719,16 @@ public writeTempFile(data: string, tmpDir?: string): string
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.TempFileWriter.isConstruct"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.TempFileWriter.isConstruct(x: any)
+transforms.TempFileWriter.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -7747,7 +7747,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.TempFileWriter.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -7759,14 +7759,14 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.property.order">order</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.property.tmpDir">tmpDir</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.property.tmpDir">tmpDir</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.TempFileWriter.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -7778,7 +7778,7 @@ The tree node.
 
 ---
 
-##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.property.cfnTransform"></a>
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.TempFileWriter.property.cfnTransform"></a>
 
 ```typescript
 public readonly cfnTransform: ICfnTransform;
@@ -7788,7 +7788,7 @@ public readonly cfnTransform: ICfnTransform;
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.property.order"></a>
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.TempFileWriter.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -7798,7 +7798,7 @@ public readonly order: string;
 
 ---
 
-##### `tmpDir`<sup>Optional</sup> <a name="tmpDir" id="@michanto/cdk-orchestration.cloudformation_include.TempFileWriter.property.tmpDir"></a>
+##### `tmpDir`<sup>Optional</sup> <a name="tmpDir" id="@michanto/cdk-orchestration.transforms.TempFileWriter.property.tmpDir"></a>
 
 ```typescript
 public readonly tmpDir: string;
@@ -7809,32 +7809,32 @@ public readonly tmpDir: string;
 ---
 
 
-### TemplateCapture <a name="TemplateCapture" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture"></a>
+### TemplateCapture <a name="TemplateCapture" id="@michanto/cdk-orchestration.transforms.TemplateCapture"></a>
 
 Capture the template right before it is written to a file.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.TemplateCapture.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.TemplateCapture(scope: Construct, id: string)
+new transforms.TemplateCapture(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.TemplateCapture.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.TemplateCapture.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -7844,14 +7844,14 @@ new cloudformation_include.TemplateCapture(scope: Construct, id: string)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.apply">apply</a></code> | *No description.* |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.TemplateCapture.toString"></a>
 
 ```typescript
 public toString(): string
@@ -7859,7 +7859,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.findShimParent"></a>
+##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.TemplateCapture.findShimParent"></a>
 
 ```typescript
 public findShimParent(): Construct
@@ -7878,7 +7878,7 @@ TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child
 '_Transforms' exists under the transform host, then the '_Transforms' construct will be
 the shim parent.
 
-##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.inspect"></a>
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.TemplateCapture.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -7886,19 +7886,19 @@ public inspect(inspector: TreeInspector): void
 
 Examines construct.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.TemplateCapture.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
 ---
 
-##### `apply` <a name="apply" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.apply"></a>
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.TemplateCapture.apply"></a>
 
 ```typescript
 public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 ```
 
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.TemplateCapture.apply.parameter.template"></a>
 
 - *Type:* {[ key: string ]: any}
 
@@ -7908,16 +7908,16 @@ public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.TemplateCapture.isConstruct"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.TemplateCapture.isConstruct(x: any)
+transforms.TemplateCapture.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -7936,7 +7936,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.TemplateCapture.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -7948,14 +7948,14 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.property.order">order</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.property.template">template</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.property.template">template</a></code> | <code>any</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.TemplateCapture.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -7967,7 +7967,7 @@ The tree node.
 
 ---
 
-##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.property.cfnTransform"></a>
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.TemplateCapture.property.cfnTransform"></a>
 
 ```typescript
 public readonly cfnTransform: ICfnTransform;
@@ -7977,7 +7977,7 @@ public readonly cfnTransform: ICfnTransform;
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.property.order"></a>
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.TemplateCapture.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -7987,7 +7987,7 @@ public readonly order: string;
 
 ---
 
-##### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.TemplateCapture.property.template"></a>
+##### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.TemplateCapture.property.template"></a>
 
 ```typescript
 public readonly template: any;
@@ -8158,7 +8158,7 @@ Duck-typing.
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.imports">imports</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.capture">capture</a></code> | <code>@michanto/cdk-orchestration.cloudformation_include.TemplateCapture</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.capture">capture</a></code> | <code>@michanto/cdk-orchestration.transforms.TemplateCapture</code> | *No description.* |
 
 ---
 
@@ -8250,7 +8250,7 @@ public readonly imports: number;
 public readonly capture: TemplateCapture;
 ```
 
-- *Type:* @michanto/cdk-orchestration.cloudformation_include.TemplateCapture
+- *Type:* @michanto/cdk-orchestration.transforms.TemplateCapture
 
 ---
 
@@ -8636,35 +8636,35 @@ public readonly order: string;
 ---
 
 
-### YamlParser <a name="YamlParser" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser"></a>
+### YamlParser <a name="YamlParser" id="@michanto/cdk-orchestration.transforms.YamlParser"></a>
 
 Uses a yaml parser to parse a template.
 
 Takes in a template as a string either Yaml or JSON,
 and returns a parsed template.
 
-#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.Initializer"></a>
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.YamlParser.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-new cloudformation_include.YamlParser(scope: Construct, id: string)
+new transforms.YamlParser(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.YamlParser.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.YamlParser.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -8674,14 +8674,14 @@ new cloudformation_include.YamlParser(scope: Construct, id: string)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
+| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.apply">apply</a></code> | *No description.* |
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.toString"></a>
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.YamlParser.toString"></a>
 
 ```typescript
 public toString(): string
@@ -8689,7 +8689,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.findShimParent"></a>
+##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.YamlParser.findShimParent"></a>
 
 ```typescript
 public findShimParent(): Construct
@@ -8708,7 +8708,7 @@ TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child
 '_Transforms' exists under the transform host, then the '_Transforms' construct will be
 the shim parent.
 
-##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.inspect"></a>
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.YamlParser.inspect"></a>
 
 ```typescript
 public inspect(inspector: TreeInspector): void
@@ -8716,19 +8716,19 @@ public inspect(inspector: TreeInspector): void
 
 Examines construct.
 
-###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.inspect.parameter.inspector"></a>
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.YamlParser.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
 
 ---
 
-##### `apply` <a name="apply" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.apply"></a>
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.YamlParser.apply"></a>
 
 ```typescript
 public apply(template: string): any
 ```
 
-###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.apply.parameter.template"></a>
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.YamlParser.apply.parameter.template"></a>
 
 - *Type:* string
 
@@ -8738,16 +8738,16 @@ public apply(template: string): any
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.YamlParser.isConstruct"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-cloudformation_include.YamlParser.isConstruct(x: any)
+transforms.YamlParser.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
@@ -8766,7 +8766,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.YamlParser.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -8778,13 +8778,13 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.YamlParser.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.property.order">order</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.YamlParser.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -8796,7 +8796,7 @@ The tree node.
 
 ---
 
-##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.property.cfnTransform"></a>
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.YamlParser.property.cfnTransform"></a>
 
 ```typescript
 public readonly cfnTransform: ICfnTransform;
@@ -8806,7 +8806,7 @@ public readonly cfnTransform: ICfnTransform;
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.YamlParser.property.order"></a>
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.YamlParser.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -9960,27 +9960,27 @@ public readonly state: State;
 
 ---
 
-### JoinerProps <a name="JoinerProps" id="@michanto/cdk-orchestration.cloudformation_include.JoinerProps"></a>
+### JoinerProps <a name="JoinerProps" id="@michanto/cdk-orchestration.transforms.JoinerProps"></a>
 
 Props for Joiner.
 
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.cloudformation_include.JoinerProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.transforms.JoinerProps.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-const joinerProps: cloudformation_include.JoinerProps = { ... }
+const joinerProps: transforms.JoinerProps = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JoinerProps.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JoinerProps.property.order">order</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.JoinerProps.property.order"></a>
+##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.JoinerProps.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -9990,27 +9990,27 @@ public readonly order: string;
 
 ---
 
-### JsonPropertyTransformProps <a name="JsonPropertyTransformProps" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps"></a>
+### JsonPropertyTransformProps <a name="JsonPropertyTransformProps" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps"></a>
 
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-const jsonPropertyTransformProps: cloudformation_include.JsonPropertyTransformProps = { ... }
+const jsonPropertyTransformProps: transforms.JsonPropertyTransformProps = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.property.order">order</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.property.order"></a>
+##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -10020,7 +10020,7 @@ public readonly order: string;
 
 ---
 
-##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.property.propertyName"></a>
+##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.propertyName"></a>
 
 ```typescript
 public readonly propertyName: string;
@@ -10030,7 +10030,7 @@ public readonly propertyName: string;
 
 ---
 
-##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.cloudformation_include.JsonPropertyTransformProps.property.resourceType"></a>
+##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.resourceType"></a>
 
 ```typescript
 public readonly resourceType: string;
@@ -10884,25 +10884,25 @@ public readonly logLevel: number;
 
 ---
 
-### ParserProps <a name="ParserProps" id="@michanto/cdk-orchestration.cloudformation_include.ParserProps"></a>
+### ParserProps <a name="ParserProps" id="@michanto/cdk-orchestration.transforms.ParserProps"></a>
 
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.cloudformation_include.ParserProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.transforms.ParserProps.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-const parserProps: cloudformation_include.ParserProps = { ... }
+const parserProps: transforms.ParserProps = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.ParserProps.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ParserProps.property.order">order</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.ParserProps.property.order"></a>
+##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.ParserProps.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -10912,27 +10912,27 @@ public readonly order: string;
 
 ---
 
-### PropertyTransformProps <a name="PropertyTransformProps" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps"></a>
+### PropertyTransformProps <a name="PropertyTransformProps" id="@michanto/cdk-orchestration.transforms.PropertyTransformProps"></a>
 
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.transforms.PropertyTransformProps.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-const propertyTransformProps: cloudformation_include.PropertyTransformProps = { ... }
+const propertyTransformProps: transforms.PropertyTransformProps = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.property.order">order</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.property.order"></a>
+##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -10942,7 +10942,7 @@ public readonly order: string;
 
 ---
 
-##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.property.propertyName"></a>
+##### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.propertyName"></a>
 
 ```typescript
 public readonly propertyName: string;
@@ -10952,7 +10952,7 @@ public readonly propertyName: string;
 
 ---
 
-##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.cloudformation_include.PropertyTransformProps.property.resourceType"></a>
+##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.resourceType"></a>
 
 ```typescript
 public readonly resourceType: string;
@@ -11571,29 +11571,29 @@ If not provided, a role will be created.
 
 ---
 
-### StringReplacerProps <a name="StringReplacerProps" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps"></a>
+### StringReplacerProps <a name="StringReplacerProps" id="@michanto/cdk-orchestration.transforms.StringReplacerProps"></a>
 
 Properties for {@link StringReplacer}.
 
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.transforms.StringReplacerProps.Initializer"></a>
 
 ```typescript
-import { cloudformation_include } from '@michanto/cdk-orchestration'
+import { transforms } from '@michanto/cdk-orchestration'
 
-const stringReplacerProps: cloudformation_include.StringReplacerProps = { ... }
+const stringReplacerProps: transforms.StringReplacerProps = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps.property.order">order</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps.property.joiner">joiner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps.property.splitter">splitter</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacerProps.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacerProps.property.joiner">joiner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacerProps.property.splitter">splitter</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps.property.order"></a>
+##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.StringReplacerProps.property.order"></a>
 
 ```typescript
 public readonly order: string;
@@ -11603,7 +11603,7 @@ public readonly order: string;
 
 ---
 
-##### `joiner`<sup>Required</sup> <a name="joiner" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps.property.joiner"></a>
+##### `joiner`<sup>Required</sup> <a name="joiner" id="@michanto/cdk-orchestration.transforms.StringReplacerProps.property.joiner"></a>
 
 ```typescript
 public readonly joiner: string;
@@ -11613,7 +11613,7 @@ public readonly joiner: string;
 
 ---
 
-##### `splitter`<sup>Required</sup> <a name="splitter" id="@michanto/cdk-orchestration.cloudformation_include.StringReplacerProps.property.splitter"></a>
+##### `splitter`<sup>Required</sup> <a name="splitter" id="@michanto/cdk-orchestration.transforms.StringReplacerProps.property.splitter"></a>
 
 ```typescript
 public readonly splitter: string;

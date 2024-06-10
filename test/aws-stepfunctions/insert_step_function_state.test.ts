@@ -4,7 +4,7 @@ import { CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { DefinitionBody, Fail, Pass, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { CreateConsoleLink, HitlTestStack } from './hitl_test_stack';
 import { InsertStepFunctionState } from '../../src/aws-stepfunctions';
-import { PropertyTransformApplier } from '../../src/cloudformation-include';
+import { PropertyTransformApplier } from '../../src/transforms';
 
 describe('InsertStepFunctionState integration tests', () => {
   test('InsertStepFunctionState integration test stack synthesizes.', () => {

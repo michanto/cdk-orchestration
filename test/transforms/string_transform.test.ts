@@ -1,5 +1,6 @@
 import { App, Environment, Stack } from 'aws-cdk-lib';
-import { StringReplacer, TemplateImporter } from '../../src/cloudformation-include';
+import { TemplateImporter } from '../../src/cloudformation-include';
+import { StringReplacer } from '../../src/transforms';
 
 const env: Required<Environment> = {
   account: '000000000000',

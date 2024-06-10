@@ -1,7 +1,12 @@
 import { Construct } from 'constructs';
-import { BaseImporter, Joiner as Joiner, YamlParser, Stringifier } from '.';
+import { BaseImporter } from './base_importer';
+import { ImportOrders } from './import_orders';
+import { Joiner } from './joiner';
+import { YamlParser } from './parser';
+import { Stringifier } from './stringifier';
+import { Transform, CfTemplateType, TransformProps } from './transform';
+import { Transforms } from './transforms';
 import { CfnElementUtilities } from '../core';
-import { Transform, Transforms, ImportOrders, TransformProps, CfTemplateType } from '../transforms';
 
 /**
  * Applies Transforms to a Resource property.

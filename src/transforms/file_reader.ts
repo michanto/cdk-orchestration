@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import { Construct } from 'constructs';
-import { ImportOrders, StringTransform } from '../transforms';
+import { ImportOrders } from './import_orders';
+import { StringTransform } from './string_transform';
 
 /**
  * Reads a file (presumably one containing a template) and returns it as a string.
