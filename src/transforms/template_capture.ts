@@ -5,14 +5,15 @@ import { CfTemplateType, Transform } from './transform';
 /**
  * Capture the template right before it is written to a file.
  */
-
 export class TemplateCapture extends Transform {
   template: any;
 
   constructor(scope: Construct, id: string) {
-    super(scope, id, {
-      order: ImportOrders.WRITER,
-    });
+    super(scope, id);
+  }
+
+  get order(): string {
+    return ImportOrders.WRITER;
   }
 
   apply(template: CfTemplateType): CfTemplateType {

@@ -1,10 +1,9 @@
 import { Construct } from 'constructs';
 import { BaseImporter } from './base_importer';
-import { ImportOrders } from './import_orders';
 import { Joiner } from './joiner';
 import { YamlParser } from './parser';
 import { Stringifier } from './stringifier';
-import { Transform, CfTemplateType, TransformProps } from './transform';
+import { Transform, CfTemplateType } from './transform';
 import { Transforms } from './transforms';
 import { CfnElementUtilities } from '../core';
 
@@ -90,7 +89,7 @@ export class PropertyTransformHost extends BaseImporter {
   }
 }
 
-export interface PropertyTransformProps extends TransformProps {
+export interface PropertyTransformProps {
   readonly propertyName: string;
   readonly resourceType: string;
 }
@@ -119,14 +118,14 @@ export abstract class PropertyTransform extends Transform {
   }
 
   constructor(scope: Construct, id: string, propertyTransformProps: PropertyTransformProps) {
-    // Store these on the scope so they are available to findShimParent.
+    // Store these on the scope so they are available to the shimParent property.
     (scope as any)[PropertyTransform.propertyTransformPropsSymbol(id)] = propertyTransformProps;
-    super(scope, id, propertyTransformProps);
+    super(scope, id);
   }
 
-  findShimParent(): Construct {
+  get shimParent(): Construct {
     let tHost = this.propertyTransformHost;
-    let order = tHost.node.tryFindChild(this.order ?? ImportOrders.TRANSFORMS) as Construct;
+    let order = tHost.node.tryFindChild(this.order) as Construct;
     if (!order) {
       order = tHost;
     }
@@ -145,7 +144,7 @@ export abstract class JsonPropertyTransform extends PropertyTransform {
     super(scope, id, props);
   }
 
-  findShimParent(): Construct {
+  get shimParent(): Construct {
     let tHost = this.propertyTransformHost;
     // If we haven't added the JSON transforms yet, add them now.
     if (tHost.parserOrder.node.tryFindChild('YamlParser') == undefined) {
@@ -154,7 +153,7 @@ export abstract class JsonPropertyTransform extends PropertyTransform {
       // Turns the parsed Yaml/JSON into a JSON string so it can be written back to the template.
       new Stringifier(tHost.writerOrder, 'Stringify');
     }
-    return super.findShimParent();
+    return super.shimParent;
   }
 }
 

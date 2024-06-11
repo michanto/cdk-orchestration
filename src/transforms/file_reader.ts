@@ -6,10 +6,13 @@ import { StringTransform } from './string_transform';
 /**
  * Reads a file (presumably one containing a template) and returns it as a string.
  */
-
 export class FileReader extends StringTransform {
   constructor(scope: Construct, id: string) {
-    super(scope, id, { order: ImportOrders.READER });
+    super(scope, id);
+  }
+
+  get order(): string {
+    return ImportOrders.READER;
   }
 
   apply(template: string): string {

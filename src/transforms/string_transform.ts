@@ -1,17 +1,20 @@
 import { Construct } from 'constructs';
 import { ImportOrders } from './import_orders';
-import { TransformBase, TransformBaseProps } from './transform';
-
-export interface StringTransformProps extends TransformBaseProps {
-}
+import { TransformBase } from './transform';
 
 /**
  * L2 transform that manipulates templates in string form.
  * Ensures input and output are both string typed.
+ *
+ * See StringReplacer for an example.
  */
 export abstract class StringTransform extends TransformBase {
-  protected constructor(scope: Construct, id: string, props?: StringTransformProps) {
-    super(scope, id, { order: props?.order ?? ImportOrders.STRING_TRANSFORMS });
+  protected constructor(scope: Construct, id: string) {
+    super(scope, id);
+  }
+
+  get order(): string {
+    return ImportOrders.STRING_TRANSFORMS;
   }
 
   abstract apply(template: string): string

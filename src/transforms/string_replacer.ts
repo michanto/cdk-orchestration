@@ -1,10 +1,10 @@
 import { Construct } from 'constructs';
-import { StringTransform, StringTransformProps } from './string_transform';
+import { StringTransform } from './string_transform';
 
 /**
  * Properties for {@link StringReplacer}
  */
-export interface StringReplacerProps extends StringTransformProps {
+export interface StringReplacerProps {
   readonly splitter: string;
   readonly joiner: string;
 }
@@ -15,7 +15,7 @@ export interface StringReplacerProps extends StringTransformProps {
  */
 export class StringReplacer extends StringTransform {
   constructor(scope: Construct, id: string, readonly props: StringReplacerProps) {
-    super(scope, id, props);
+    super(scope, id);
   }
 
   apply(template: string): string {

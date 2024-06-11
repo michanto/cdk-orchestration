@@ -4,10 +4,11 @@
 
 ### BaseImporter <a name="BaseImporter" id="@michanto/cdk-orchestration.transforms.BaseImporter"></a>
 
-Base class for JSON processors.
+This class adds Orders to a CfnTransformHost.  Orders allow L2 transforms to be applied in the correct order.
 
-Has orders that
-allow L2 transforms to be applied in the correct order.
+Examples include TemplateImporter in the cloudformation-include
+submodule and PropertyTransformHost (see StatesTransform in the
+aws-stepfunctiosn submodule for usage).
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.BaseImporter.Initializer"></a>
 
@@ -122,7 +123,6 @@ Duck-typing.
 | <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.imports">imports</a></code> | <code>number</code> | *No description.* |
 
 ---
 
@@ -195,16 +195,6 @@ public readonly writerOrder: Construct;
 ```
 
 - *Type:* constructs.Construct
-
----
-
-##### `imports`<sup>Required</sup> <a name="imports" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.imports"></a>
-
-```typescript
-public readonly imports: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -366,7 +356,6 @@ Duck-typing.
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.imports">imports</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.capture">capture</a></code> | <code>@michanto/cdk-orchestration.transforms.TemplateCapture</code> | *No description.* |
 
 ---
@@ -443,16 +432,6 @@ public readonly writerOrder: Construct;
 
 ---
 
-##### `imports`<sup>Required</sup> <a name="imports" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.imports"></a>
-
-```typescript
-public readonly imports: number;
-```
-
-- *Type:* number
-
----
-
 ##### `capture`<sup>Required</sup> <a name="capture" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.capture"></a>
 
 ```typescript
@@ -468,12 +447,11 @@ public readonly capture: TemplateCapture;
 
 - *Implements:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
-This is the base class for CDK Transform constructs.
+CfnTransform the base class for L1 CDK Transform constructs.  TransformBase is the L2 Transform base class.
 
-A CfnTransform class will have no affect on the template unless it is hosted.
-The hosting construct must support Transform processing.  CfnTransformHostHook
-ensures the construct is hosted by either the antecedent CfnElement, Stack, or by
-another construct in the heirarchy (such as a TemplateImporter)
+Transforms are applied to Stacks, CfnElements or CfnTransformHost constructs
+(such as TemplateImporter).  They allow low-level access to CloudFormation
+via the apply method.
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.CfnTransform.Initializer"></a>
 
@@ -642,17 +620,16 @@ public readonly id: string;
 
 ### CfnTransformHost <a name="CfnTransformHost" id="@michanto/cdk-orchestration.transforms.CfnTransformHost"></a>
 
-Normally, transforms are hosted by a Stack or CfnElement, and they are applied during synthesis (calls to _toCloudFormation).
+CfnTransformHost allows transforms to be used anywhere JSON is accessible.
 
-Adding a
+Transforms hosted by a Stack or CfnElement are
+applied during synthesis (calls to _toCloudFormation). Adding a
 CfnTransform to a Stack or CfnElement will cause the _toCloudFormation
 method to be proxied to apply Transforms.
 
-But if you want transforms hosted for some other reason, this is the class you should use.
-This class hosts transforms, but does not know what to do with them.
-So anything can be done with the transforms hosted here, but they will not affect the stack itself.
-
-This is used for import and other non-stack not-element scenarios.
+This class is used for import (see TemplateImporter in cloudformation-include submodule) and
+for properties (see StatesTransform in aws-stepfunctions submodule), and other non-stack
+non-element scenarios.
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.CfnTransformHost.Initializer"></a>
 
@@ -828,9 +805,8 @@ new custom_resources.EncodeResource(scope: Construct, id?: string)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.findShimParent">findShimParent</a></code> | Encodes an L1, L2 or L3 custom resource by finding the child custom resource of the scope of this transform. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.apply">apply</a></code> | Modifies the passed in template. |
 
 ---
 
@@ -841,17 +817,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.custom_resources.EncodeResource.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-Encodes an L1, L2 or L3 custom resource by finding the child custom resource of the scope of this transform.
-
-Throws if there are
-multiple custom resources under the scope.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.custom_resources.EncodeResource.inspect"></a>
 
@@ -872,6 +837,8 @@ Examines construct.
 ```typescript
 public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 ```
+
+Modifies the passed in template.
 
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.custom_resources.EncodeResource.apply.parameter.template"></a>
 
@@ -924,8 +891,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Encodes an L1, L2 or L3 custom resource by finding the child custom resource of the scope of this transform. |
 
 ---
 
@@ -949,6 +917,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.custom_resources.EncodeResource.property.order"></a>
@@ -958,6 +928,23 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.custom_resources.EncodeResource.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Encodes an L1, L2 or L3 custom resource by finding the child custom resource of the scope of this transform.
+
+Throws if there are
+multiple custom resources under the scope.
 
 ---
 
@@ -998,7 +985,6 @@ new transforms.FileReader(scope: Construct, id: string)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.apply">apply</a></code> | *No description.* |
 
@@ -1011,25 +997,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.FileReader.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.FileReader.inspect"></a>
 
@@ -1102,8 +1069,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 
 ---
 
@@ -1127,6 +1095,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.FileReader.property.order"></a>
@@ -1136,6 +1106,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.FileReader.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -2351,9 +2346,8 @@ new aws_stepfunctions.InsertStepFunctionState(scope: Construct, id: string, prop
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.apply">apply</a></code> | Modifies the passed in template. |
 
 ---
 
@@ -2364,25 +2358,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.inspect"></a>
 
@@ -2403,6 +2378,8 @@ Examines construct.
 ```typescript
 public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 ```
+
+Modifies the passed in template.
 
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.apply.parameter.template"></a>
 
@@ -2455,8 +2432,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
@@ -2482,6 +2460,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.order"></a>
@@ -2491,6 +2471,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -2532,14 +2537,13 @@ writing it to the template.
 ```typescript
 import { transforms } from '@michanto/cdk-orchestration'
 
-new transforms.Joiner(scope: Construct, id?: string, props?: JoinerProps)
+new transforms.Joiner(scope: Construct, id?: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.transforms.JoinerProps</code> | *No description.* |
 
 ---
 
@@ -2555,18 +2559,11 @@ new transforms.Joiner(scope: Construct, id?: string, props?: JoinerProps)
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.transforms.Joiner.Initializer.parameter.props"></a>
-
-- *Type:* @michanto/cdk-orchestration.transforms.JoinerProps
-
----
-
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.doJoin">doJoin</a></code> | *No description.* |
 
@@ -2579,25 +2576,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.Joiner.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.Joiner.inspect"></a>
 
@@ -2670,8 +2648,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 
 ---
 
@@ -2695,6 +2674,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.Joiner.property.order"></a>
@@ -2704,6 +2685,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.Joiner.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -2747,7 +2753,6 @@ new transforms.JsonParser(scope: Construct, id: string)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.apply">apply</a></code> | *No description.* |
 
@@ -2760,25 +2765,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.JsonParser.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.JsonParser.inspect"></a>
 
@@ -2851,8 +2837,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 
 ---
 
@@ -2876,6 +2863,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.JsonParser.property.order"></a>
@@ -2885,6 +2874,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.JsonParser.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -2932,9 +2946,8 @@ new transforms.JsonPropertyTransform(scope: Construct, id: string, props: JsonPr
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.apply">apply</a></code> | Modifies the passed in template. |
 
 ---
 
@@ -2945,25 +2958,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.inspect"></a>
 
@@ -2985,9 +2979,13 @@ Examines construct.
 public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 ```
 
+Modifies the passed in template.
+
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.apply.parameter.template"></a>
 
 - *Type:* {[ key: string ]: any}
+
+Always return the template.
 
 ---
 
@@ -3036,8 +3034,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
@@ -3063,6 +3062,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.order"></a>
@@ -3072,6 +3073,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -4302,14 +4328,13 @@ Base class for JsonParser and YamlParser transforms.
 ```typescript
 import { transforms } from '@michanto/cdk-orchestration'
 
-new transforms.Parser(scope: Construct, id: string, props?: ParserProps)
+new transforms.Parser(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Parser.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Parser.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.transforms.ParserProps</code> | *No description.* |
 
 ---
 
@@ -4325,18 +4350,11 @@ new transforms.Parser(scope: Construct, id: string, props?: ParserProps)
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.transforms.Parser.Initializer.parameter.props"></a>
-
-- *Type:* @michanto/cdk-orchestration.transforms.ParserProps
-
----
-
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Parser.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Parser.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Parser.apply">apply</a></code> | *No description.* |
 
@@ -4349,25 +4367,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.Parser.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.Parser.inspect"></a>
 
@@ -4440,8 +4439,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Parser.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 
 ---
 
@@ -4465,6 +4465,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.Parser.property.order"></a>
@@ -4474,6 +4476,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.Parser.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -4521,9 +4548,8 @@ new transforms.PropertyTransform(scope: Construct, id: string, propertyTransform
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.apply">apply</a></code> | Modifies the passed in template. |
 
 ---
 
@@ -4534,25 +4560,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.PropertyTransform.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.PropertyTransform.inspect"></a>
 
@@ -4574,9 +4581,13 @@ Examines construct.
 public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 ```
 
+Modifies the passed in template.
+
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.PropertyTransform.apply.parameter.template"></a>
 
 - *Type:* {[ key: string ]: any}
+
+Always return the template.
 
 ---
 
@@ -4625,8 +4636,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
@@ -4652,6 +4664,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.PropertyTransform.property.order"></a>
@@ -4661,6 +4675,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.PropertyTransform.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -4741,7 +4780,6 @@ new transforms.PropertyTransformApplier(scope: Construct, propertyName: string, 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.apply">apply</a></code> | Find the StatesTransformHost and apply those to the state machine definition. |
 
@@ -4754,25 +4792,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.inspect"></a>
 
@@ -4862,8 +4881,9 @@ transforms.PropertyTransformApplier.applierId(propertyName: string)
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.propertyType">propertyType</a></code> | <code>string</code> | *No description.* |
 
@@ -4889,6 +4909,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.order"></a>
@@ -4898,6 +4920,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -5090,7 +5137,6 @@ transforms.PropertyTransformHost.hostId(propertyName: string)
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.imports">imports</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
@@ -5165,16 +5211,6 @@ public readonly writerOrder: Construct;
 ```
 
 - *Type:* constructs.Construct
-
----
-
-##### `imports`<sup>Required</sup> <a name="imports" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.imports"></a>
-
-```typescript
-public readonly imports: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -5986,14 +6022,13 @@ for the L1 Transform when you add it to an existing StateMachine.
 ```typescript
 import { aws_stepfunctions } from '@michanto/cdk-orchestration'
 
-new aws_stepfunctions.StatesTransform(scope: Construct, id: string, props?: StatesTransformProps)
+new aws_stepfunctions.StatesTransform(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.aws_stepfunctions.StatesTransformProps</code> | *No description.* |
 
 ---
 
@@ -6009,20 +6044,13 @@ new aws_stepfunctions.StatesTransform(scope: Construct, id: string, props?: Stat
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.Initializer.parameter.props"></a>
-
-- *Type:* @michanto/cdk-orchestration.aws_stepfunctions.StatesTransformProps
-
----
-
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.apply">apply</a></code> | Modifies the passed in template. |
 
 ---
 
@@ -6033,25 +6061,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.inspect"></a>
 
@@ -6073,9 +6082,13 @@ Examines construct.
 public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 ```
 
+Modifies the passed in template.
+
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.apply.parameter.template"></a>
 
 - *Type:* {[ key: string ]: any}
+
+Always return the template.
 
 ---
 
@@ -6124,8 +6137,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
@@ -6151,6 +6165,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.order"></a>
@@ -6160,6 +6176,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -6861,7 +6902,6 @@ new transforms.Stringifier(scope: Construct, id: string)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.apply">apply</a></code> | *No description.* |
 
@@ -6874,25 +6914,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.Stringifier.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.Stringifier.inspect"></a>
 
@@ -6965,8 +6986,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 
 ---
 
@@ -6990,6 +7012,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.Stringifier.property.order"></a>
@@ -6999,6 +7023,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.Stringifier.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -7049,7 +7098,6 @@ new transforms.StringReplacer(scope: Construct, id: string, props: StringReplace
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.apply">apply</a></code> | *No description.* |
 
@@ -7062,25 +7110,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.StringReplacer.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.StringReplacer.inspect"></a>
 
@@ -7153,8 +7182,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.property.props">props</a></code> | <code>@michanto/cdk-orchestration.transforms.StringReplacerProps</code> | *No description.* |
 
 ---
@@ -7179,6 +7209,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.StringReplacer.property.order"></a>
@@ -7188,6 +7220,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.StringReplacer.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -7204,23 +7261,22 @@ public readonly props: StringReplacerProps;
 
 ### StringTransform <a name="StringTransform" id="@michanto/cdk-orchestration.transforms.StringTransform"></a>
 
-L2 transform that manipulates templates in string form.
+L2 transform that manipulates templates in string form. Ensures input and output are both string typed.
 
-Ensures input and output are both string typed.
+See StringReplacer for an example.
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.StringTransform.Initializer"></a>
 
 ```typescript
 import { transforms } from '@michanto/cdk-orchestration'
 
-new transforms.StringTransform(scope: Construct, id: string, props?: StringTransformProps)
+new transforms.StringTransform(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.transforms.StringTransformProps</code> | *No description.* |
 
 ---
 
@@ -7236,18 +7292,11 @@ new transforms.StringTransform(scope: Construct, id: string, props?: StringTrans
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.transforms.StringTransform.Initializer.parameter.props"></a>
-
-- *Type:* @michanto/cdk-orchestration.transforms.StringTransformProps
-
----
-
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.apply">apply</a></code> | *No description.* |
 
@@ -7260,25 +7309,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.StringTransform.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.StringTransform.inspect"></a>
 
@@ -7351,8 +7381,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 
 ---
 
@@ -7376,6 +7407,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.StringTransform.property.order"></a>
@@ -7385,6 +7418,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.StringTransform.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -7637,7 +7695,6 @@ new transforms.TempFileWriter(scope: Construct, id: string, tmpDir?: string)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.apply">apply</a></code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.writeTempFile">writeTempFile</a></code> | *No description.* |
@@ -7651,25 +7708,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.TempFileWriter.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.TempFileWriter.inspect"></a>
 
@@ -7760,8 +7798,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.property.tmpDir">tmpDir</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -7786,6 +7825,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.TempFileWriter.property.order"></a>
@@ -7795,6 +7836,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.TempFileWriter.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -7845,9 +7911,8 @@ new transforms.TemplateCapture(scope: Construct, id: string)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.apply">apply</a></code> | Modifies the passed in template. |
 
 ---
 
@@ -7858,25 +7923,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.TemplateCapture.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.TemplateCapture.inspect"></a>
 
@@ -7897,6 +7943,8 @@ Examines construct.
 ```typescript
 public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 ```
+
+Modifies the passed in template.
 
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.TemplateCapture.apply.parameter.template"></a>
 
@@ -7949,8 +7997,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.property.template">template</a></code> | <code>any</code> | *No description.* |
 
 ---
@@ -7975,6 +8024,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.TemplateCapture.property.order"></a>
@@ -7984,6 +8035,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.TemplateCapture.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -8157,7 +8233,6 @@ Duck-typing.
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.imports">imports</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.capture">capture</a></code> | <code>@michanto/cdk-orchestration.transforms.TemplateCapture</code> | *No description.* |
 
 ---
@@ -8234,16 +8309,6 @@ public readonly writerOrder: Construct;
 
 ---
 
-##### `imports`<sup>Required</sup> <a name="imports" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.imports"></a>
-
-```typescript
-public readonly imports: number;
-```
-
-- *Type:* number
-
----
-
 ##### `capture`<sup>Required</sup> <a name="capture" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.capture"></a>
 
 ```typescript
@@ -8257,19 +8322,22 @@ public readonly capture: TemplateCapture;
 
 ### Transform <a name="Transform" id="@michanto/cdk-orchestration.transforms.Transform"></a>
 
+Base class for ordinary Transforms that act on CloudFormation and other forms of JSON.
+
+Most Transforms will use this as their base class.
+
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.Transform.Initializer"></a>
 
 ```typescript
 import { transforms } from '@michanto/cdk-orchestration'
 
-new transforms.Transform(scope: Construct, id: string, props?: TransformProps)
+new transforms.Transform(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Transform.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Transform.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Transform.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.transforms.TransformProps</code> | *No description.* |
 
 ---
 
@@ -8285,20 +8353,13 @@ new transforms.Transform(scope: Construct, id: string, props?: TransformProps)
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.transforms.Transform.Initializer.parameter.props"></a>
-
-- *Type:* @michanto/cdk-orchestration.transforms.TransformProps
-
----
-
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Transform.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Transform.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Transform.inspect">inspect</a></code> | Examines construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Transform.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Transform.apply">apply</a></code> | Modifies the passed in template. |
 
 ---
 
@@ -8309,25 +8370,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.Transform.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.Transform.inspect"></a>
 
@@ -8349,9 +8391,13 @@ Examines construct.
 public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
 ```
 
+Modifies the passed in template.
+
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.Transform.apply.parameter.template"></a>
 
 - *Type:* {[ key: string ]: any}
+
+Always return the template.
 
 ---
 
@@ -8400,8 +8446,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Transform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Transform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Transform.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Transform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Transform.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Transform.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 
 ---
 
@@ -8425,6 +8472,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.Transform.property.order"></a>
@@ -8434,6 +8483,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.Transform.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -8450,8 +8524,8 @@ without having to navigate to the underlying L1 construct.
 TransformBase creates an L1 shim CfnTransform that calls the _apply function of the
 L2 TransformBase that created it.
 
-TransformBase.getShimParent determines where to put the L1 shim in the construct tree.
-There are three possibilites:
+TransformBase.shimParent determines where to put the L1 shim in the construct tree.
+There are four possibilites:
 
 1. The parent of the Transform is a Resource.  In this case, the shim is created as a child
 of the Resources L1 construct (resource.node.defaultChild).
@@ -8460,27 +8534,28 @@ one of the hosts children, as determined by TransformBase.order.  If the order d
 the shim transform is created normally (as a child of TransformBase).
 3. Neither of the above are true, in which case the shim transform is created as a child
 of TransformBase.
-4. getShimParent can also be overridden to support specific use-cases.
+4. shimParent has been overridden to support a specific use-case.
 
 The TransformBase._apply method should call a concretely typed "apply" method on the subclass.
 See {@link StringTransform } or {@link Transform} for examples.
 
 Ordering transforms is necessary when serializing and deserializing CloudFormation (CfnInclude scenarios),
-as then transforms can be written to handle CloudFormation as a filename, a string or a JSON object.
+which moves CloudFormation between different representations.  TemplateImporter handles
+CloudFormation as a filename, then as a string, a POJO, back to a string, and
+back to file name for use with CfnInclude.
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.TransformBase.Initializer"></a>
 
 ```typescript
 import { transforms } from '@michanto/cdk-orchestration'
 
-new transforms.TransformBase(scope: Construct, id: string, props: TransformBaseProps)
+new transforms.TransformBase(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TransformBase.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.transforms.TransformBaseProps</code> | *No description.* |
 
 ---
 
@@ -8496,18 +8571,11 @@ new transforms.TransformBase(scope: Construct, id: string, props: TransformBaseP
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.transforms.TransformBase.Initializer.parameter.props"></a>
-
-- *Type:* @michanto/cdk-orchestration.transforms.TransformBaseProps
-
----
-
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformBase.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TransformBase.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformBase.inspect">inspect</a></code> | Examines construct. |
 
 ---
@@ -8519,25 +8587,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.TransformBase.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.TransformBase.inspect"></a>
 
@@ -8598,8 +8647,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TransformBase.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TransformBase.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TransformBase.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TransformBase.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TransformBase.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 
 ---
 
@@ -8623,6 +8673,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.TransformBase.property.order"></a>
@@ -8632,6 +8684,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.TransformBase.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -8675,7 +8752,6 @@ new transforms.YamlParser(scope: Construct, id: string)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.findShimParent">findShimParent</a></code> | This function figures out which node in the tree should parent the shim (CfnTransform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.apply">apply</a></code> | *No description.* |
 
@@ -8688,25 +8764,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `findShimParent` <a name="findShimParent" id="@michanto/cdk-orchestration.transforms.YamlParser.findShimParent"></a>
-
-```typescript
-public findShimParent(): Construct
-```
-
-This function figures out which node in the tree should parent the shim (CfnTransform).
-
-Normally, the shim should be a child of this construct (TransformBase).  However,
-if the parent of this construct is an L2 resource, then the shim should be a child
-of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-TransformBase to an L2 resource acts the same as adding the equivalent
-CfnTransform to an L1 resource, which is convinient.
-
-Otherwise, we want the shim to be under the child of the transform host specified by
-TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-'_Transforms' exists under the transform host, then the '_Transforms' construct will be
-the shim parent.
 
 ##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.YamlParser.inspect"></a>
 
@@ -8779,8 +8836,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 
 ---
 
@@ -8804,6 +8862,8 @@ public readonly cfnTransform: ICfnTransform;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
 
+The L1 shim transform  for this L2 transform.
+
 ---
 
 ##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.YamlParser.property.order"></a>
@@ -8813,6 +8873,31 @@ public readonly order: string;
 ```
 
 - *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.YamlParser.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
 
 ---
 
@@ -9924,19 +10009,8 @@ const insertStepFunctionStateProps: aws_stepfunctions.InsertStepFunctionStatePro
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionStateProps.property.order">order</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionStateProps.property.insertAfterStep">insertAfterStep</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionStateProps.property.state">state</a></code> | <code>aws-cdk-lib.aws_stepfunctions.State</code> | *No description.* |
-
----
-
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionStateProps.property.order"></a>
-
-```typescript
-public readonly order: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -9960,36 +10034,6 @@ public readonly state: State;
 
 ---
 
-### JoinerProps <a name="JoinerProps" id="@michanto/cdk-orchestration.transforms.JoinerProps"></a>
-
-Props for Joiner.
-
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.transforms.JoinerProps.Initializer"></a>
-
-```typescript
-import { transforms } from '@michanto/cdk-orchestration'
-
-const joinerProps: transforms.JoinerProps = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.JoinerProps.property.order">order</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.JoinerProps.property.order"></a>
-
-```typescript
-public readonly order: string;
-```
-
-- *Type:* string
-
----
-
 ### JsonPropertyTransformProps <a name="JsonPropertyTransformProps" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps"></a>
 
 #### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.Initializer"></a>
@@ -10004,19 +10048,8 @@ const jsonPropertyTransformProps: transforms.JsonPropertyTransformProps = { ... 
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.order">order</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.order"></a>
-
-```typescript
-public readonly order: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -10856,6 +10889,8 @@ Where in the event the arn of the stateMachine to call is stored.
 
 ### LoggerProps <a name="LoggerProps" id="@michanto/cdk-orchestration.LoggerProps"></a>
 
+Properties for creating a Logger.
+
 #### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.LoggerProps.Initializer"></a>
 
 ```typescript
@@ -10868,7 +10903,7 @@ const loggerProps: LoggerProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.LoggerProps.property.logLevel">logLevel</a></code> | <code>number</code> | # Note: This is a number to support custom log levels (e.g. FATAL = 0.5). |
+| <code><a href="#@michanto/cdk-orchestration.LoggerProps.property.logLevel">logLevel</a></code> | <code>number</code> | The log level. |
 
 ---
 
@@ -10880,35 +10915,7 @@ public readonly logLevel: number;
 
 - *Type:* number
 
-# Note: This is a number to support custom log levels (e.g. FATAL = 0.5).
-
----
-
-### ParserProps <a name="ParserProps" id="@michanto/cdk-orchestration.transforms.ParserProps"></a>
-
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.transforms.ParserProps.Initializer"></a>
-
-```typescript
-import { transforms } from '@michanto/cdk-orchestration'
-
-const parserProps: transforms.ParserProps = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.ParserProps.property.order">order</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.ParserProps.property.order"></a>
-
-```typescript
-public readonly order: string;
-```
-
-- *Type:* string
+The log level.
 
 ---
 
@@ -10926,19 +10933,8 @@ const propertyTransformProps: transforms.PropertyTransformProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.order">order</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.order"></a>
-
-```typescript
-public readonly order: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -11259,34 +11255,6 @@ The particular service that was queried.
 
 ---
 
-### StatesTransformProps <a name="StatesTransformProps" id="@michanto/cdk-orchestration.aws_stepfunctions.StatesTransformProps"></a>
-
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.aws_stepfunctions.StatesTransformProps.Initializer"></a>
-
-```typescript
-import { aws_stepfunctions } from '@michanto/cdk-orchestration'
-
-const statesTransformProps: aws_stepfunctions.StatesTransformProps = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransformProps.property.order">order</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.aws_stepfunctions.StatesTransformProps.property.order"></a>
-
-```typescript
-public readonly order: string;
-```
-
-- *Type:* string
-
----
-
 ### StepFunctionTaskProps <a name="StepFunctionTaskProps" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskProps"></a>
 
 Properties for StepFunctionTask.
@@ -11587,19 +11555,8 @@ const stringReplacerProps: transforms.StringReplacerProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacerProps.property.order">order</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacerProps.property.joiner">joiner</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacerProps.property.splitter">splitter</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.StringReplacerProps.property.order"></a>
-
-```typescript
-public readonly order: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -11617,90 +11574,6 @@ public readonly joiner: string;
 
 ```typescript
 public readonly splitter: string;
-```
-
-- *Type:* string
-
----
-
-### StringTransformProps <a name="StringTransformProps" id="@michanto/cdk-orchestration.transforms.StringTransformProps"></a>
-
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.transforms.StringTransformProps.Initializer"></a>
-
-```typescript
-import { transforms } from '@michanto/cdk-orchestration'
-
-const stringTransformProps: transforms.StringTransformProps = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.StringTransformProps.property.order">order</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.StringTransformProps.property.order"></a>
-
-```typescript
-public readonly order: string;
-```
-
-- *Type:* string
-
----
-
-### TransformBaseProps <a name="TransformBaseProps" id="@michanto/cdk-orchestration.transforms.TransformBaseProps"></a>
-
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.transforms.TransformBaseProps.Initializer"></a>
-
-```typescript
-import { transforms } from '@michanto/cdk-orchestration'
-
-const transformBaseProps: transforms.TransformBaseProps = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TransformBaseProps.property.order">order</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.TransformBaseProps.property.order"></a>
-
-```typescript
-public readonly order: string;
-```
-
-- *Type:* string
-
----
-
-### TransformProps <a name="TransformProps" id="@michanto/cdk-orchestration.transforms.TransformProps"></a>
-
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.transforms.TransformProps.Initializer"></a>
-
-```typescript
-import { transforms } from '@michanto/cdk-orchestration'
-
-const transformProps: transforms.TransformProps = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TransformProps.property.order">order</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `order`<sup>Optional</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.TransformProps.property.order"></a>
-
-```typescript
-public readonly order: string;
 ```
 
 - *Type:* string
@@ -14044,7 +13917,9 @@ public readonly scope: Construct;
 
 Node console logger.
 
-Provides scoped logging to a construct.
+Provides scoped logging to a construct.  This means the Logger applies to the construct
+it was added to, and all descendent constructs in the tree.  Can be overridden by adding
+a Logger to a descendent construct, or replacing the Logger on a construct.
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.Logger.Initializer"></a>
 
@@ -14070,9 +13945,9 @@ new Logger(props?: LoggerProps)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.Logger.levelColor">levelColor</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.Logger.levelName">levelName</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.Logger.log">log</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.Logger.levelColor">levelColor</a></code> | Returns the AnsiColor associated with a logLevel. |
+| <code><a href="#@michanto/cdk-orchestration.Logger.levelName">levelName</a></code> | Returns the name of the logLevel (if known)/. |
+| <code><a href="#@michanto/cdk-orchestration.Logger.log">log</a></code> | Logs a line associated with a scope to the console. |
 
 ---
 
@@ -14082,11 +13957,13 @@ new Logger(props?: LoggerProps)
 public levelColor(logLevel: number): string
 ```
 
+Returns the AnsiColor associated with a logLevel.
+
 ###### `logLevel`<sup>Required</sup> <a name="logLevel" id="@michanto/cdk-orchestration.Logger.levelColor.parameter.logLevel"></a>
 
 - *Type:* number
 
-a number to support custom levels (e.g. FATAL = 0.5).
+The log level.
 
 ---
 
@@ -14096,11 +13973,13 @@ a number to support custom levels (e.g. FATAL = 0.5).
 public levelName(logLevel: number): string
 ```
 
+Returns the name of the logLevel (if known)/.
+
 ###### `logLevel`<sup>Required</sup> <a name="logLevel" id="@michanto/cdk-orchestration.Logger.levelName.parameter.logLevel"></a>
 
 - *Type:* number
 
-a number to support custom levels (e.g. FATAL = 0.5).
+The log level.
 
 ---
 
@@ -14110,9 +13989,13 @@ a number to support custom levels (e.g. FATAL = 0.5).
 public log(scope: Construct, logLevel: number, message: string | IStringProvider): void
 ```
 
+Logs a line associated with a scope to the console.
+
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.Logger.log.parameter.scope"></a>
 
 - *Type:* constructs.Construct
+
+Scope associated with the log line.
 
 ---
 
@@ -14120,7 +14003,7 @@ public log(scope: Construct, logLevel: number, message: string | IStringProvider
 
 - *Type:* number
 
-a number to support custom levels (e.g. FATAL = 0.5).
+The log level.
 
 ---
 
@@ -14128,14 +14011,16 @@ a number to support custom levels (e.g. FATAL = 0.5).
 
 - *Type:* string | <a href="#@michanto/cdk-orchestration.IStringProvider">IStringProvider</a>
 
+Message or string provider to log.
+
 ---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.Logger.of">of</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.Logger.set">set</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.Logger.of">of</a></code> | Return the Logger associated with the scope. |
+| <code><a href="#@michanto/cdk-orchestration.Logger.set">set</a></code> | Sets a Logger on a construct. |
 
 ---
 
@@ -14146,6 +14031,11 @@ import { Logger } from '@michanto/cdk-orchestration'
 
 Logger.of(scope: Construct)
 ```
+
+Return the Logger associated with the scope.
+
+Searches up the tree if there is none.
+Default is NoopLogger (no logging).
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.Logger.of.parameter.scope"></a>
 
@@ -14160,6 +14050,8 @@ import { Logger } from '@michanto/cdk-orchestration'
 
 Logger.set(scope: Construct, logger: ILogger)
 ```
+
+Sets a Logger on a construct.
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.Logger.set.parameter.scope"></a>
 
@@ -14177,7 +14069,7 @@ Logger.set(scope: Construct, logger: ILogger)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.Logger.property.logLevel">logLevel</a></code> | <code>number</code> | Returns the current log level. |
+| <code><a href="#@michanto/cdk-orchestration.Logger.property.logLevel">logLevel</a></code> | <code>number</code> | logLevel for this logger. |
 | <code><a href="#@michanto/cdk-orchestration.Logger.property.props">props</a></code> | <code><a href="#@michanto/cdk-orchestration.LoggerProps">LoggerProps</a></code> | *No description.* |
 
 ---
@@ -14190,7 +14082,7 @@ public readonly logLevel: number;
 
 - *Type:* number
 
-Returns the current log level.
+logLevel for this logger.
 
 ---
 
@@ -14285,6 +14177,8 @@ Default is `Logger.of(node)?.logLevel`.
 
 ### NoOpLogger <a name="NoOpLogger" id="@michanto/cdk-orchestration.NoOpLogger"></a>
 
+Logger that does not log.
+
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.NoOpLogger.Initializer"></a>
 
 ```typescript
@@ -14302,9 +14196,9 @@ new NoOpLogger()
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.NoOpLogger.levelColor">levelColor</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.NoOpLogger.levelName">levelName</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.NoOpLogger.log">log</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.NoOpLogger.levelColor">levelColor</a></code> | Returns the AnsiColor associated with a logLevel. |
+| <code><a href="#@michanto/cdk-orchestration.NoOpLogger.levelName">levelName</a></code> | Returns the name of the logLevel (if known)/. |
+| <code><a href="#@michanto/cdk-orchestration.NoOpLogger.log">log</a></code> | Logs a line associated with a scope to the console. |
 
 ---
 
@@ -14314,11 +14208,13 @@ new NoOpLogger()
 public levelColor(logLevel: number): string
 ```
 
+Returns the AnsiColor associated with a logLevel.
+
 ###### `logLevel`<sup>Required</sup> <a name="logLevel" id="@michanto/cdk-orchestration.NoOpLogger.levelColor.parameter.logLevel"></a>
 
 - *Type:* number
 
-a number to support custom levels (e.g. FATAL = 0.5).
+The log level.
 
 ---
 
@@ -14328,11 +14224,13 @@ a number to support custom levels (e.g. FATAL = 0.5).
 public levelName(logLevel: number): string
 ```
 
+Returns the name of the logLevel (if known)/.
+
 ###### `logLevel`<sup>Required</sup> <a name="logLevel" id="@michanto/cdk-orchestration.NoOpLogger.levelName.parameter.logLevel"></a>
 
 - *Type:* number
 
-a number to support custom levels (e.g. FATAL = 0.5).
+The log level.
 
 ---
 
@@ -14342,9 +14240,13 @@ a number to support custom levels (e.g. FATAL = 0.5).
 public log(scope: Construct, logLevel: number, message: string | IStringProvider): void
 ```
 
+Logs a line associated with a scope to the console.
+
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.NoOpLogger.log.parameter.scope"></a>
 
 - *Type:* constructs.Construct
+
+Scope associated with the log line.
 
 ---
 
@@ -14352,7 +14254,7 @@ public log(scope: Construct, logLevel: number, message: string | IStringProvider
 
 - *Type:* number
 
-a number to support custom levels (e.g. FATAL = 0.5).
+The log level.
 
 ---
 
@@ -14360,14 +14262,16 @@ a number to support custom levels (e.g. FATAL = 0.5).
 
 - *Type:* string | <a href="#@michanto/cdk-orchestration.IStringProvider">IStringProvider</a>
 
+Message or string provider to log.
+
 ---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.NoOpLogger.of">of</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.NoOpLogger.set">set</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.NoOpLogger.of">of</a></code> | Return the Logger associated with the scope. |
+| <code><a href="#@michanto/cdk-orchestration.NoOpLogger.set">set</a></code> | Sets a Logger on a construct. |
 
 ---
 
@@ -14378,6 +14282,11 @@ import { NoOpLogger } from '@michanto/cdk-orchestration'
 
 NoOpLogger.of(scope: Construct)
 ```
+
+Return the Logger associated with the scope.
+
+Searches up the tree if there is none.
+Default is NoopLogger (no logging).
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.NoOpLogger.of.parameter.scope"></a>
 
@@ -14392,6 +14301,8 @@ import { NoOpLogger } from '@michanto/cdk-orchestration'
 
 NoOpLogger.set(scope: Construct, logger: ILogger)
 ```
+
+Sets a Logger on a construct.
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.NoOpLogger.set.parameter.scope"></a>
 
@@ -14409,7 +14320,7 @@ NoOpLogger.set(scope: Construct, logger: ILogger)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.NoOpLogger.property.logLevel">logLevel</a></code> | <code>number</code> | Returns the current log level. |
+| <code><a href="#@michanto/cdk-orchestration.NoOpLogger.property.logLevel">logLevel</a></code> | <code>number</code> | logLevel for this logger. |
 | <code><a href="#@michanto/cdk-orchestration.NoOpLogger.property.props">props</a></code> | <code><a href="#@michanto/cdk-orchestration.LoggerProps">LoggerProps</a></code> | *No description.* |
 
 ---
@@ -14422,7 +14333,7 @@ public readonly logLevel: number;
 
 - *Type:* number
 
-Returns the current log level.
+logLevel for this logger.
 
 ---
 
@@ -15615,7 +15526,9 @@ public readonly TOKEN_SERVICE_FACTORY: IConstructServiceFactory;
 
 ### TransformHost <a name="TransformHost" id="@michanto/cdk-orchestration.transforms.TransformHost"></a>
 
-Static helpers.
+Static helpers for Transform Hosts.
+
+TransformHosts will be either a Stack, a CfnElement, or a CfnTransformHost.
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.TransformHost.Initializer"></a>
 
@@ -15636,7 +15549,7 @@ new transforms.TransformHost()
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.ensureHosted">ensureHosted</a></code> | Ensures that a Transform is hosted by modifying the ancestor CfnElement or Stack (if necessary) so they can host transforms. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.hook">hook</a></code> | This turns a Stack or CfnElement into a transform host. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.hook">hook</a></code> | Turns a Stack or CfnElement into a transform host. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.isTransformHost">isTransformHost</a></code> | Returns true for any Stack or CfnElement that is a transform host, as well as for all CfnTransformHost constructs. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.mark">mark</a></code> | Marks a construct as a TransformHost, isolating the transforms under it from the Stack. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.of">of</a></code> | Note: This returns the transform host, which may be either a Stack, a CfnElement, or a CfnTransformHost. |
@@ -15672,10 +15585,10 @@ import { transforms } from '@michanto/cdk-orchestration'
 transforms.TransformHost.hook(construct: IConstruct)
 ```
 
-This turns a Stack or CfnElement into a transform host.
+Turns a Stack or CfnElement into a transform host.
 
-Called from the ensureHosted, which itself is called from
-the CfnTransform constructor to ensure that the CfnTransform
+Called the ensureHosted, which itself is called from
+the CfnTransform and TransformBase constructors to ensure that the CfnTransform
 is hosted either by a CfnElement or a Stack.
 
 ###### `construct`<sup>Required</sup> <a name="construct" id="@michanto/cdk-orchestration.transforms.TransformHost.hook.parameter.construct"></a>
@@ -15693,6 +15606,9 @@ transforms.TransformHost.isTransformHost(scope: Construct)
 ```
 
 Returns true for any Stack or CfnElement that is a transform host, as well as for all CfnTransformHost constructs.
+
+Note that a Stack or CfnElement may start of as not being a transform
+host, but can become one later if a transform is applied to it.
 
 It does NOT tell you that the object is of type CfnTransformHost.
 
@@ -15742,8 +15658,8 @@ Note: This returns the transform host, which may be either a Stack, a CfnElement
 
 This helper class can extract ICfnTransforms from a construct tree so they can be applied to a template.
 
-This class is used by the framework to apply transforms, and can be used to import templates into
-a CfnInclude construct.
+Stacks, CfnElements and subclasses of CfnTransformHost use this class to apply their transforms.
+See the Transforms section of the README.md file for details.
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -15762,6 +15678,8 @@ public apply(template: any): any
 
 Applies the transforms on a scope to a template.
 
+Throws when a Transform fails to return a template.
+
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.Transforms.apply.parameter.template"></a>
 
 - *Type:* any
@@ -15775,6 +15693,8 @@ public get(): ICfnTransform[]
 ```
 
 Returns all transforms attached to the scope as descendents.
+
+Throws when a Transform fails to return a template.
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -15982,8 +15902,7 @@ A CDK Transform is a construct that can take
 input, such as CloudFormation, and transform it, most likely into slightly different
 CloudFormation.
 
-CDK Transforms have two use-cases:  Preprocessing CloudFormation before it is imported to the CDK,
-and post-processing CloudFormation produced by the CDK before it is written to a file in cdk.out.
+CDK Transforms have many use-cases.  See the Transforms section of the README.md file.
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -16266,45 +16185,63 @@ The physical name of this custom resource.
 
 ### ImportOrders <a name="ImportOrders" id="@michanto/cdk-orchestration.transforms.ImportOrders"></a>
 
+Defines where Transforms of a given order are added to a Transform host.
+
+ImportOrders are the names of the constructs under the TransformHost.  See BaseImporter.
+
 #### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.PRE_READER">PRE_READER</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.READER">READER</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.STRING_TRANSFORMS">STRING_TRANSFORMS</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.PARSER">PARSER</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.TRANSFORMS">TRANSFORMS</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.WRITER">WRITER</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.PRE_READER">PRE_READER</a></code> | Transforms that run before the Reader. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.READER">READER</a></code> | Transform that reads a file into a string. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.STRING_TRANSFORMS">STRING_TRANSFORMS</a></code> | Transforms that run against the sting representation. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.PARSER">PARSER</a></code> | Parses the string representation into (for example) JSON. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.TRANSFORMS">TRANSFORMS</a></code> | Transform structured data, such as JSON, YAML, TOML. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.WRITER">WRITER</a></code> | Writes structured data to a file. |
 
 ---
 
 ##### `PRE_READER` <a name="PRE_READER" id="@michanto/cdk-orchestration.transforms.ImportOrders.PRE_READER"></a>
+
+Transforms that run before the Reader.
 
 ---
 
 
 ##### `READER` <a name="READER" id="@michanto/cdk-orchestration.transforms.ImportOrders.READER"></a>
 
+Transform that reads a file into a string.
+
 ---
 
 
 ##### `STRING_TRANSFORMS` <a name="STRING_TRANSFORMS" id="@michanto/cdk-orchestration.transforms.ImportOrders.STRING_TRANSFORMS"></a>
+
+Transforms that run against the sting representation.
 
 ---
 
 
 ##### `PARSER` <a name="PARSER" id="@michanto/cdk-orchestration.transforms.ImportOrders.PARSER"></a>
 
+Parses the string representation into (for example) JSON.
+
 ---
 
 
 ##### `TRANSFORMS` <a name="TRANSFORMS" id="@michanto/cdk-orchestration.transforms.ImportOrders.TRANSFORMS"></a>
 
+Transform structured data, such as JSON, YAML, TOML.
+
 ---
 
 
 ##### `WRITER` <a name="WRITER" id="@michanto/cdk-orchestration.transforms.ImportOrders.WRITER"></a>
+
+Writes structured data to a file.
+
+Necessary for CfnInclude scenarios.
 
 ---
 
@@ -16313,51 +16250,57 @@ The physical name of this custom resource.
 
 The Node logging levels (from the console object).
 
-# Note:
-
-The logging interfaces take numbers for logLevel instead of this enum.
-This allows the user to define custom log levels (e.g.
-FATAL = 0.5).  Subclass Log and Logger to support custom log levels.
-
 #### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.LogLevel.OFF">OFF</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.LogLevel.ERROR">ERROR</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.LogLevel.WARNING">WARNING</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.LogLevel.INFO">INFO</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.LogLevel.DEBUG">DEBUG</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.LogLevel.ALL">ALL</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.LogLevel.OFF">OFF</a></code> | No logging. |
+| <code><a href="#@michanto/cdk-orchestration.LogLevel.ERROR">ERROR</a></code> | Log Errors. |
+| <code><a href="#@michanto/cdk-orchestration.LogLevel.WARNING">WARNING</a></code> | Log Warnings and Errors. |
+| <code><a href="#@michanto/cdk-orchestration.LogLevel.INFO">INFO</a></code> | Log Info, Warnings and Errors. |
+| <code><a href="#@michanto/cdk-orchestration.LogLevel.DEBUG">DEBUG</a></code> | Debug logging - verbose. |
+| <code><a href="#@michanto/cdk-orchestration.LogLevel.ALL">ALL</a></code> | Log everything - most verbose. |
 
 ---
 
 ##### `OFF` <a name="OFF" id="@michanto/cdk-orchestration.LogLevel.OFF"></a>
+
+No logging.
 
 ---
 
 
 ##### `ERROR` <a name="ERROR" id="@michanto/cdk-orchestration.LogLevel.ERROR"></a>
 
+Log Errors.
+
 ---
 
 
 ##### `WARNING` <a name="WARNING" id="@michanto/cdk-orchestration.LogLevel.WARNING"></a>
+
+Log Warnings and Errors.
 
 ---
 
 
 ##### `INFO` <a name="INFO" id="@michanto/cdk-orchestration.LogLevel.INFO"></a>
 
+Log Info, Warnings and Errors.
+
 ---
 
 
 ##### `DEBUG` <a name="DEBUG" id="@michanto/cdk-orchestration.LogLevel.DEBUG"></a>
 
+Debug logging - verbose.
+
 ---
 
 
 ##### `ALL` <a name="ALL" id="@michanto/cdk-orchestration.LogLevel.ALL"></a>
+
+Log everything - most verbose.
 
 ---
 

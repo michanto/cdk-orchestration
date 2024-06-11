@@ -46,6 +46,7 @@ export interface ImportTemplateProps {
  * - Transform - Modify the parsed template before it is imported.
  */
 export abstract class BaseTemplateImporter extends BaseImporter {
+  protected imports: number = 0;
   readonly capture: TemplateCapture;
   protected constructor(scope: Construct, id: string) {
     super(scope, id);

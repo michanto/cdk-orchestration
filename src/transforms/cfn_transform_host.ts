@@ -4,16 +4,16 @@ import { TransformHost } from './transform_host';
 import { Transforms } from './transforms';
 
 /**
- * Normally, transforms are hosted by a Stack or CfnElement, and they are
+ * CfnTransformHost allows transforms to be used anywhere JSON is accessible.
+ *
+ * Transforms hosted by a Stack or CfnElement are
  * applied during synthesis (calls to _toCloudFormation). Adding a
  * CfnTransform to a Stack or CfnElement will cause the _toCloudFormation
  * method to be proxied to apply Transforms.
  *
- * But if you want transforms hosted for some other reason, this is the class you should use.
- * This class hosts transforms, but does not know what to do with them.
- * So anything can be done with the transforms hosted here, but they will not affect the stack itself.
- *
- * This is used for import and other non-stack not-element scenarios.
+ * This class is used for import (see TemplateImporter in cloudformation-include submodule) and
+ * for properties (see StatesTransform in aws-stepfunctions submodule), and other non-stack
+ * non-element scenarios.
  */
 export class CfnTransformHost extends Construct {
   /**
