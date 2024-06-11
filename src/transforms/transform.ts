@@ -35,6 +35,52 @@ import { TransformHost } from './transform_host';
  * back to file name for use with CfnInclude.
  */
 export abstract class TransformBase extends Construct implements IInspectable {
+  /**
+   * This function figures out which node in the tree should parent the shim (CfnTransform).
+   *
+   * Normally, the shim should be a child of this construct (TransformBase).  However,
+   * if the parent of this construct is an L2 resource, then the shim should be a child
+   * of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
+   * TransformBase to an L2 resource acts the same as adding the equivalent
+   * CfnTransform to an L1 resource, which is convinient.
+   *
+   * Otherwise, we want the shim to be under the child of the transform host specified by
+   * TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
+   * '_Transforms' exists under the transform host, then the '_Transforms' construct will be
+   * the shim parent.
+   */
+  protected static findShimParent(base: TransformBase): Construct {
+    // If the parent of this is an L2 resource, return the L1 resource.
+    if (base.node.scope
+      && Resource.isResource(base.node.scope)
+      && base.node.scope.node.defaultChild
+      && CfnElement.isCfnElement(base.node.scope.node.defaultChild)) {
+
+      let l1Construct = base.node.scope.node.defaultChild;
+      // Allow the L1 construct to use orders.
+      let orderSubTree = l1Construct.node.tryFindChild(base.order);
+      return orderSubTree ? orderSubTree : l1Construct;
+    }
+
+    let host = TransformHost.of(base);
+    if (host) {
+      // See if the host has a child named `this.order`.
+      let desiredPath = host.node.path + `/${base.order}`;
+      if (base.node.path.startsWith(desiredPath)) {
+        // We're already in the order.  Return this.
+        return base;
+      } else {
+        // If the order exists, that is the parent.
+        let orderSubTree = host.node.tryFindChild(base.order);
+        if (orderSubTree) {
+          return orderSubTree;
+        }
+      }
+    }
+    // Default parent is always this.
+    return base;
+  }
+
   /** The L1 Shim transform attached to an L2 TransformBase. */
   private static CfnTransformShim = class CfnTransformShim extends CfnTransform implements IInspectable {
     constructor(scope: Construct, id: string, readonly wrapper: TransformBase) {
@@ -73,54 +119,23 @@ export abstract class TransformBase extends Construct implements IInspectable {
     inspector.addAttribute('TransformBase.cfnTransformPath', this.cfnTransform.node.path);
   }
 
-  get shimParent() {
-    return this.findShimParent();
-  }
-
   /**
-   * This function figures out which node in the tree should parent the shim (CfnTransform).
+   * Returns the parent for the CfnTransformShim (L1 transform) that will
+   * be created by this TransformBase (L2 transform).
    *
-   * Normally, the shim should be a child of this construct (TransformBase).  However,
-   * if the parent of this construct is an L2 resource, then the shim should be a child
-   * of the related L1 resource (this.node.scope.node.defaultChild).  That way adding a
-   * TransformBase to an L2 resource acts the same as adding the equivalent
-   * CfnTransform to an L1 resource, which is convinient.
+   * Override this method to parent the CfnTransform to a specific CfnResource
+   * if that is desired.  The default behavior is to return the L1 construct (or
+   * the order under the L1 construct) if the transform is added to an L2 construct.
+   * Otherwise, return either an order under the transform host of this
+   * (to support ordered hosts), or the TransformBase (this).
    *
-   * Otherwise, we want the shim to be under the child of the transform host specified by
-   * TransformBase.order.  Thus, if TransformBase.order is '_Transforms', and a child named
-   * '_Transforms' exists under the transform host, then the '_Transforms' construct will be
-   * the shim parent.
+   * - Note to implementors:
+   *    Since shimParent is called from the TransformShim constructor, it
+   *    will not have access to any properties of subclasses.  See
+   *    PropertyTransform for a work-around.
    */
-  findShimParent(): Construct {
-    // If the parent of this is an L2 resource, return the L1 resource.
-    if (this.node.scope
-      && Resource.isResource(this.node.scope)
-      && this.node.scope.node.defaultChild
-      && CfnElement.isCfnElement(this.node.scope.node.defaultChild)) {
-
-      let l1Construct = this.node.scope.node.defaultChild;
-      // Allow the L1 construct to use orders.
-      let orderSubTree = l1Construct.node.tryFindChild(this.order);
-      return orderSubTree ? orderSubTree : l1Construct;
-    }
-
-    let host = TransformHost.of(this);
-    if (host) {
-      // See if the host has a child named `this.order`.
-      let desiredPath = host.node.path + `/${this.order}`;
-      if (this.node.path.startsWith(desiredPath)) {
-        // We're already in the order.  Return this.
-        return this;
-      } else {
-        // If the order exists, that is the parent.
-        let orderSubTree = host.node.tryFindChild(this.order);
-        if (orderSubTree) {
-          return orderSubTree;
-        }
-      }
-    }
-    // Default parent is always this.
-    return this;
+  get shimParent() {
+    return TransformBase.findShimParent(this);
   }
 
   /**
