@@ -4746,14 +4746,14 @@ by the StepFunctionTransformHost.  When the StateMachine is
 ```typescript
 import { transforms } from '@michanto/cdk-orchestration'
 
-new transforms.PropertyTransformApplier(scope: Construct, propertyName: string, propertyType: string)
+new transforms.PropertyTransformApplier(scope: Construct, propertyName: string, resourceType: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.Initializer.parameter.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.Initializer.parameter.propertyType">propertyType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.Initializer.parameter.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -4769,7 +4769,7 @@ new transforms.PropertyTransformApplier(scope: Construct, propertyName: string, 
 
 ---
 
-##### `propertyType`<sup>Required</sup> <a name="propertyType" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.Initializer.parameter.propertyType"></a>
+##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.Initializer.parameter.resourceType"></a>
 
 - *Type:* string
 
@@ -4885,7 +4885,7 @@ transforms.PropertyTransformApplier.applierId(propertyName: string)
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.propertyType">propertyType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -4958,10 +4958,10 @@ public readonly propertyName: string;
 
 ---
 
-##### `propertyType`<sup>Required</sup> <a name="propertyType" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.propertyType"></a>
+##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.property.resourceType"></a>
 
 ```typescript
-public readonly propertyType: string;
+public readonly resourceType: string;
 ```
 
 - *Type:* string
@@ -12188,6 +12188,7 @@ new CfnElementUtilities()
 | <code><a href="#@michanto/cdk-orchestration.CfnElementUtilities.cfnElementHost">cfnElementHost</a></code> | Returns the antecedent cnfElement in the tree  (if any). |
 | <code><a href="#@michanto/cdk-orchestration.CfnElementUtilities.cfnElements">cfnElements</a></code> | Returns a list of all L1 construct descendents of the scope. |
 | <code><a href="#@michanto/cdk-orchestration.CfnElementUtilities.cfnResources">cfnResources</a></code> | Returns a list of all CfnResource construct descendents of the scope. |
+| <code><a href="#@michanto/cdk-orchestration.CfnElementUtilities.findCfnResource">findCfnResource</a></code> | Finds a single CfnResource, with an optional type. |
 
 ---
 
@@ -12238,6 +12239,30 @@ Returns a list of all CfnResource construct descendents of the scope.
 ###### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnResources.parameter.resourceType"></a>
 
 - *Type:* string
+
+---
+
+##### `findCfnResource` <a name="findCfnResource" id="@michanto/cdk-orchestration.CfnElementUtilities.findCfnResource"></a>
+
+```typescript
+public findCfnResource(scope: Construct, resourceType?: string): CfnResource
+```
+
+Finds a single CfnResource, with an optional type.
+
+Throws if there are more (or fewer) than one.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.CfnElementUtilities.findCfnResource.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.CfnElementUtilities.findCfnResource.parameter.resourceType"></a>
+
+- *Type:* string
+
+Type of resource to find.
 
 ---
 
@@ -15693,8 +15718,6 @@ public get(): ICfnTransform[]
 ```
 
 Returns all transforms attached to the scope as descendents.
-
-Throws when a Transform fails to return a template.
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
