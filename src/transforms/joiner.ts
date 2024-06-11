@@ -1,12 +1,6 @@
 import { Lazy, Token } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { ImportOrders } from './import_orders';
-import { TransformBase, TransformBaseProps } from './transform';
-
-/**
- * Props for Joiner
- */
-export interface JoinerProps extends TransformBaseProps {}
+import { TransformBase } from './transform';
 
 /**
  * JSON resource properties can be stored in CloudFormation either as a string,
@@ -21,10 +15,8 @@ export interface JoinerProps extends TransformBaseProps {}
  * writing it to the template.
  */
 export class Joiner extends TransformBase {
-  constructor(scope: Construct, id: string = 'Joiner', props?: JoinerProps) {
-    super(scope, id, props ?? {
-      order: ImportOrders.TRANSFORMS,
-    });
+  constructor(scope: Construct, id: string = 'Joiner') {
+    super(scope, id);
   }
 
   doJoin(template: any) {

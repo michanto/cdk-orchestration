@@ -5,28 +5,28 @@ import { NAMESPACE } from '../private/internals';
 
 /**
  * The Node logging levels (from the console object).
- *
- * # Note:
- *
- * The logging interfaces take numbers for logLevel instead of this enum.
- * This allows the user to define custom log levels (e.g.
- * FATAL = 0.5).  Subclass Log and Logger to support custom log levels.
  */
 export enum LogLevel {
+  /** No logging. */
   OFF = 0,
+  /** Log Errors */
   ERROR,
+  /** Log Warnings and Errors */
   WARNING,
+  /** Log Info, Warnings and Errors */
   INFO,
+  /** Debug logging - verbose. */
   DEBUG,
+  /** Log everything - most verbose. */
   ALL = 0xFFFFFFFFFFFFFFFF
 }
 
 /**
+ * Properties for creating a Logger
  */
 export interface LoggerProps {
   /**
-   * # Note:
-   * This is a number to support custom log levels (e.g. FATAL = 0.5).
+   * The log level.
    */
   readonly logLevel: number;
 }
@@ -58,12 +58,20 @@ export interface ILogger {
 
 /**
  * Node console logger.
- * Provides scoped logging to a construct.
+ *
+ * Provides scoped logging to a construct.  This means the Logger applies to the construct
+ * it was added to, and all descendent constructs in the tree.  Can be overridden by adding
+ * a Logger to a descendent construct, or replacing the Logger on a construct.
  */
 export class Logger implements ILogger {
+  /**
+   * Return the Logger associated with the scope.  Searches up the tree if there is none.
+   * Default is NoopLogger (no logging).
+   */
   static of(scope: Construct): ILogger {
     return Logger.LOGGER_SERVICE.of(scope) as ILogger;
   }
+  /** Sets a Logger on a construct. */
   static set(scope: Construct, logger: ILogger) {
     Logger.LOGGER_SERVICE.set(scope, logger);
   }
@@ -73,6 +81,7 @@ export class Logger implements ILogger {
     factory: (_c) => new NoOpLogger(),
   });
 
+  /** logLevel for this logger. */
   readonly logLevel: number;
 
   constructor(readonly props: LoggerProps = {
@@ -82,8 +91,8 @@ export class Logger implements ILogger {
   }
 
   /**
-   *
-   * @param logLevel - a number to support custom levels (e.g. FATAL = 0.5)
+   * Returns the AnsiColor associated with a logLevel.
+   * @param logLevel - The log level.
    */
   levelColor(logLevel: number): string {
     switch (logLevel) {
@@ -97,8 +106,8 @@ export class Logger implements ILogger {
   }
 
   /**
-   *
-   * @param logLevel - a number to support custom levels (e.g. FATAL = 0.5)
+   * Returns the name of the logLevel (if known)/
+   * @param logLevel - The log level.
    */
   levelName(logLevel: number): string {
     switch (logLevel) {
@@ -117,10 +126,11 @@ export class Logger implements ILogger {
   }
 
   /**
+   * Logs a line associated with a scope to the console.
    *
-   * @param scope
-   * @param logLevel - a number to support custom levels (e.g. FATAL = 0.5)
-   * @param message
+   * @param scope Scope associated with the log line.
+   * @param logLevel - The log level.
+   * @param message - Message or string provider to log.
    */
   log(scope: Construct, logLevel: number, message: string | IStringProvider) {
     let decision = logLevel <= this.props.logLevel;
@@ -157,7 +167,7 @@ export class Logger implements ILogger {
 }
 
 /**
- *
+ * Logger that does not log.
  */
 export class NoOpLogger extends Logger {
   constructor() {

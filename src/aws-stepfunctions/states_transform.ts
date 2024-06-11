@@ -1,9 +1,6 @@
 import { CfnStateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
-import { TransformProps } from '../transforms';
 import { JsonPropertyTransform } from '../transforms/property_transform';
-
-export interface StatesTransformProps extends TransformProps {}
 
 /**
  * This transform allows you to edit the DefinitionString property
@@ -14,9 +11,8 @@ export interface StatesTransformProps extends TransformProps {}
  * for the L1 Transform when you add it to an existing StateMachine.
  */
 export abstract class StatesTransform extends JsonPropertyTransform {
-  constructor(scope: Construct, id: string, props?: StatesTransformProps) {
+  constructor(scope: Construct, id: string) {
     super(scope, id, {
-      ...(props ? props : {}),
       propertyName: 'DefinitionString',
       resourceType: CfnStateMachine.CFN_RESOURCE_TYPE_NAME,
     });

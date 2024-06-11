@@ -4,12 +4,12 @@ import { CFN_TRANSFORM_RTTI } from './private/transform_rtti';
 import { TransformHost } from './transform_host';
 
 /**
- * This is the base class for CDK Transform constructs.
+ * CfnTransform the base class for L1 CDK Transform constructs.  TransformBase is the
+ * L2 Transform base class.
  *
- * A CfnTransform class will have no affect on the template unless it is hosted.
- * The hosting construct must support Transform processing.  CfnTransformHostHook
- * ensures the construct is hosted by either the antecedent CfnElement, Stack, or by
- * another construct in the heirarchy (such as a TemplateImporter)
+ * Transforms are applied to Stacks, CfnElements or CfnTransformHost constructs
+ * (such as TemplateImporter).  They allow low-level access to CloudFormation
+ * via the apply method.
  */
 export abstract class CfnTransform extends Construct implements ICfnTransform {
   /**

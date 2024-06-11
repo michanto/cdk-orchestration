@@ -5,10 +5,6 @@ import { ICfnTransform } from './icfn_transform';
 import { ImportOrders } from './import_orders';
 import { TransformHost } from './transform_host';
 
-export interface TransformBaseProps {
-  readonly order?: string;
-}
-
 /**
  * TransformBase is the base class for L2 transforms.
  *
@@ -18,8 +14,8 @@ export interface TransformBaseProps {
  * TransformBase creates an L1 shim CfnTransform that calls the _apply function of the
  * L2 TransformBase that created it.
  *
- * TransformBase.getShimParent determines where to put the L1 shim in the construct tree.
- * There are three possibilites:
+ * TransformBase.shimParent determines where to put the L1 shim in the construct tree.
+ * There are four possibilites:
  *
  * 1. The parent of the Transform is a Resource.  In this case, the shim is created as a child
  * of the Resources L1 construct (resource.node.defaultChild).
@@ -28,15 +24,18 @@ export interface TransformBaseProps {
  * the shim transform is created normally (as a child of TransformBase).
  * 3. Neither of the above are true, in which case the shim transform is created as a child
  * of TransformBase.
- * 4. getShimParent can also be overridden to support specific use-cases.
+ * 4. shimParent has been overridden to support a specific use-case.
  *
  * The TransformBase._apply method should call a concretely typed "apply" method on the subclass.
  * See {@link StringTransform} or {@link Transform} for examples.
  *
  * Ordering transforms is necessary when serializing and deserializing CloudFormation (CfnInclude scenarios),
- * as then transforms can be written to handle CloudFormation as a filename, a string or a JSON object.
+ * which moves CloudFormation between different representations.  TemplateImporter handles
+ * CloudFormation as a filename, then as a string, a POJO, back to a string, and
+ * back to file name for use with CfnInclude.
  */
 export abstract class TransformBase extends Construct implements IInspectable {
+  /** The L1 Shim transform attached to an L2 TransformBase. */
   private static CfnTransformShim = class CfnTransformShim extends CfnTransform implements IInspectable {
     constructor(scope: Construct, id: string, readonly wrapper: TransformBase) {
       super(scope, id);
@@ -52,15 +51,19 @@ export abstract class TransformBase extends Construct implements IInspectable {
     }
   };
 
+  /** The L1 shim transform  for this L2 transform. */
   readonly cfnTransform: ICfnTransform;
-  readonly order: string;
 
-  protected constructor(scope: Construct, id: string, props: TransformBaseProps) {
+  /** The order of this L2 transform. */
+  get order(): string {
+    return ImportOrders.TRANSFORMS;
+  }
+
+  protected constructor(scope: Construct, id: string) {
     super(scope, id);
-    this.order = props.order ?? ImportOrders.TRANSFORMS;
     // This will make any antecedent CfnElement or Stack a TransformHost.
     TransformHost.ensureHosted(scope);
-    let parent = this.findShimParent();
+    let parent = this.shimParent;
     // Id for the transform shim
     let shimId = `${id}Shim${parent.node.children.length}`;
     this.cfnTransform = new TransformBase.CfnTransformShim(parent, shimId, this);
@@ -68,6 +71,10 @@ export abstract class TransformBase extends Construct implements IInspectable {
 
   inspect(inspector: TreeInspector) {
     inspector.addAttribute('TransformBase.cfnTransformPath', this.cfnTransform.node.path);
+  }
+
+  get shimParent() {
+    return this.findShimParent();
   }
 
   /**
@@ -127,14 +134,21 @@ export type CfTemplateType = {
   [key: string]: any;
 }
 
-export interface TransformProps extends TransformBaseProps {
-}
-
+/**
+ * Base class for ordinary Transforms that act on CloudFormation and other forms of JSON.
+ *
+ * Most Transforms will use this as their base class.
+ */
 export abstract class Transform extends TransformBase {
 
-  constructor(scope: Construct, id: string, props?: TransformProps) {
-    super(scope, id, props ? { ...props, order: props.order ?? ImportOrders.TRANSFORMS } : { order: ImportOrders.TRANSFORMS });
+  constructor(scope: Construct, id: string) {
+    super(scope, id);
   }
+
+  /**
+   * Modifies the passed in template.
+   * @param template Always return the template.
+   */
   public abstract apply(template: CfTemplateType): CfTemplateType;
 
   /**

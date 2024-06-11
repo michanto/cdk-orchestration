@@ -84,17 +84,4 @@ describe('Transform tests.', () => {
     new BucketNameTransform(bucket, 'BucketName', 'my_bucket');
     expect(CfnTransform.isCfnTransform(order.node.children[0])).toBeTruthy();
   });
-
-  it('TransformProps all ways', () => {
-    class NoopTransform extends Transform {
-      public apply(template: CfTemplateType): CfTemplateType {
-        return template;
-      }
-    }
-    let stack = new Stack();
-    ;
-    expect(new NoopTransform(stack, 'One').order).toBe(ImportOrders.TRANSFORMS);
-    expect(new NoopTransform(stack, 'Two', {}).order).toBe(ImportOrders.TRANSFORMS);
-    expect(new NoopTransform(stack, 'Three', { order: 'newOrder' }).order).toBe('newOrder');
-  });
 });

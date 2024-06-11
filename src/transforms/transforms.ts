@@ -6,8 +6,9 @@ import { Log } from '../core';
 /**
  * This helper class can extract ICfnTransforms from a construct tree so they can be applied to a template.
  *
- * This class is used by the framework to apply transforms, and can be used to import templates into
- * a CfnInclude construct.
+ * Stacks, CfnElements and subclasses of CfnTransformHost use this class to apply their transforms.
+ * See the Transforms section of the README.md file for details.
+ *
  */
 export class Transforms {
   /**
@@ -24,6 +25,8 @@ export class Transforms {
 
   /**
    * Returns all transforms attached to the scope as descendents.
+   *
+   * Throws when a Transform fails to return a template.
    */
   get(): ICfnTransform[] {
     return TRANSFORM_CONSTRUCT_HOST.getHostedConstructs(this.scope) as ICfnTransform[];
@@ -31,6 +34,8 @@ export class Transforms {
 
   /**
    * Applies the transforms on a scope to a template.
+   *
+   * Throws when a Transform fails to return a template.
    * @param template
    */
   apply(template: any): any {

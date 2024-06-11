@@ -12,7 +12,11 @@ import { StringTransform } from './string_transform';
 
 export class TempFileWriter extends StringTransform {
   constructor(scope: Construct, id: string, readonly tmpDir?: string) {
-    super(scope, id, { order: ImportOrders.WRITER });
+    super(scope, id);
+  }
+
+  get order(): string {
+    return ImportOrders.WRITER;
   }
 
   writeTempFile(data: string, tmpDir?: string): string {

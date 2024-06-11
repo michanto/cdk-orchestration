@@ -1,16 +1,18 @@
 import { Construct } from 'constructs';
 import { parse as yamlParse } from 'yaml';
 import { ImportOrders } from './import_orders';
-import { TransformBase, TransformBaseProps } from './transform';
-
-export interface ParserProps extends TransformBaseProps {}
+import { TransformBase } from './transform';
 
 /**
  * Base class for JsonParser and YamlParser transforms.
  */
 export abstract class Parser extends TransformBase {
-  protected constructor(scope: Construct, id: string, props?: ParserProps) {
-    super(scope, id, { order: props?.order ?? ImportOrders.PARSER });
+  protected constructor(scope: Construct, id: string) {
+    super(scope, id);
+  }
+
+  get order(): string {
+    return ImportOrders.PARSER;
   }
 
   abstract apply(template: string): any;

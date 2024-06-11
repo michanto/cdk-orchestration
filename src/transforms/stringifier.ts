@@ -5,10 +5,13 @@ import { TransformBase } from './transform';
 /**
  * Stringifies the template so it can be written to a file.
  */
-
 export class Stringifier extends TransformBase {
   constructor(scope: Construct, id: string) {
-    super(scope, id, { order: ImportOrders.WRITER });
+    super(scope, id);
+  }
+
+  get order(): string {
+    return ImportOrders.WRITER;
   }
 
   /** @internal */

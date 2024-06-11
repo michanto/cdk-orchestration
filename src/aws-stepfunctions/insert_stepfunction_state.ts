@@ -1,10 +1,10 @@
 import { State } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
-import { StatesTransform, StatesTransformProps } from './states_transform';
+import { StatesTransform } from './states_transform';
 import { Log } from '../core';
 import { CfTemplateType } from '../transforms';
 
-export interface InsertStepFunctionStateProps extends StatesTransformProps {
+export interface InsertStepFunctionStateProps {
   readonly state: State;
   readonly insertAfterStep: string;
 }
@@ -14,7 +14,7 @@ export interface InsertStepFunctionStateProps extends StatesTransformProps {
  */
 export class InsertStepFunctionState extends StatesTransform {
   constructor(scope: Construct, id: string, protected readonly props: InsertStepFunctionStateProps) {
-    super(scope, id, props);
+    super(scope, id);
   }
 
   apply(template: CfTemplateType) {

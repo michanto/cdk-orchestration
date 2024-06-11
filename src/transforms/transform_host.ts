@@ -5,13 +5,17 @@ import { Transforms } from './transforms';
 import { CfnElementUtilities, ConstructService, PostResolveToken } from '../core';
 
 /**
- * Static helpers.
+ * Static helpers for Transform Hosts.
+ *
+ * TransformHosts will be either a Stack, a CfnElement, or a CfnTransformHost.
  */
-
 export class TransformHost {
   /**
    * Returns true for any Stack or CfnElement that is a transform host,
    * as well as for all CfnTransformHost constructs.
+   *
+   * Note that a Stack or CfnElement may start of as not being a transform
+   * host, but can become one later if a transform is applied to it.
    *
    * It does NOT tell you that the object is of type CfnTransformHost.
    */
@@ -59,10 +63,10 @@ export class TransformHost {
 
 
   /**
- * This turns a Stack or CfnElement into a transform host.
+ * Turns a Stack or CfnElement into a transform host.
  *
- * Called from the ensureHosted, which itself is called from
- * the CfnTransform constructor to ensure that the CfnTransform
+ * Called the ensureHosted, which itself is called from
+ * the CfnTransform and TransformBase constructors to ensure that the CfnTransform
  * is hosted either by a CfnElement or a Stack.
  */
   static hook(construct: IConstruct) {
