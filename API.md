@@ -1122,7 +1122,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -2487,7 +2487,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -2701,7 +2701,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -2890,7 +2890,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -3089,7 +3089,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -4492,7 +4492,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -4691,7 +4691,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -4936,7 +4936,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -6192,7 +6192,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -7039,7 +7039,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -7236,7 +7236,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -7434,7 +7434,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -7852,7 +7852,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -8051,7 +8051,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -8499,7 +8499,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -8700,7 +8700,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
@@ -8889,7 +8889,7 @@ public readonly shimParent: Construct;
 Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
 
 Override this method to parent the CfnTransform to a specific CfnResource
-if that is desired.  The default behavior is to return the L1 construct (or 
+if that is desired.  The default behavior is to return the L1 construct (or
 the order under the L1 construct) if the transform is added to an L2 construct.
 Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
