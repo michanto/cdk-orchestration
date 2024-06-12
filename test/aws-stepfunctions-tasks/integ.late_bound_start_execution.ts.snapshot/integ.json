@@ -1,0 +1,22 @@
+{
+  "version": "36.0.0",
+  "testCases": {
+    "LateBoundStepFunctionInteg/DefaultTest": {
+      "stacks": [
+        "LbSfseIntegrationTest"
+      ],
+      "regions": [
+        "us-east-1"
+      ],
+      "cdkCommandOptions": {
+        "destroy": {
+          "args": {
+            "force": true
+          }
+        }
+      },
+      "assertionStack": "LateBoundStepFunctionInteg/DefaultTest/DeployAssert",
+      "assertionStackName": "LateBoundStepFunctionIntegDefaultTestDeployAssert9FA039FE"
+    }
+  }
+}

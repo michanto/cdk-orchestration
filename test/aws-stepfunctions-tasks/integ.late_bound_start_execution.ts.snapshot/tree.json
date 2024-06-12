@@ -1,0 +1,1970 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "LbSfseIntegrationTest": {
+        "id": "LbSfseIntegrationTest",
+        "path": "LbSfseIntegrationTest",
+        "children": {
+          "Wait": {
+            "id": "Wait",
+            "path": "LbSfseIntegrationTest/Wait",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_stepfunctions.Wait",
+              "version": "2.120.0"
+            }
+          },
+          "Waiter": {
+            "id": "Waiter",
+            "path": "LbSfseIntegrationTest/Waiter",
+            "children": {
+              "Role": {
+                "id": "Role",
+                "path": "LbSfseIntegrationTest/Waiter/Role",
+                "children": {
+                  "ImportRole": {
+                    "id": "ImportRole",
+                    "path": "LbSfseIntegrationTest/Waiter/Role/ImportRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "LbSfseIntegrationTest/Waiter/Role/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "states.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.120.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "LbSfseIntegrationTest/Waiter/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::StepFunctions::StateMachine",
+                  "aws:cdk:cloudformation:props": {
+                    "definitionString": "{\"StartAt\":\"Wait\",\"States\":{\"Wait\":{\"Type\":\"Wait\",\"Comment\":\"Waits for the provided waitSeconds.\",\"SecondsPath\":\"$.waitSeconds\",\"End\":true}}}",
+                    "roleArn": {
+                      "Fn::GetAtt": [
+                        "WaiterRole1D460720",
+                        "Arn"
+                      ]
+                    },
+                    "stateMachineName": "WaitingStateMachine"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_stepfunctions.StateMachine",
+              "version": "2.120.0"
+            }
+          },
+          "Execute": {
+            "id": "Execute",
+            "path": "LbSfseIntegrationTest/Execute",
+            "children": {
+              "RaceLrsfe": {
+                "id": "RaceLrsfe",
+                "path": "LbSfseIntegrationTest/Execute/RaceLrsfe",
+                "children": {
+                  "RunIt": {
+                    "id": "RunIt",
+                    "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/RunIt",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/RunIt/Resource",
+                        "children": {
+                          "Default": {
+                            "id": "Default",
+                            "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/RunIt/Resource/Default",
+                            "children": {
+                              "EncodeResourceShim0": {
+                                "id": "EncodeResourceShim0",
+                                "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/RunIt/Resource/Default/EncodeResourceShim0",
+                                "attributes": {
+                                  "CfnTransformShim.transformPath": "LbSfseIntegrationTest/Execute/RaceLrsfe/RunIt/Resource/EncodeResource"
+                                },
+                                "constructInfo": {
+                                  "fqn": "constructs.Construct",
+                                  "version": "10.3.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.CfnResource",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "EncodeResource": {
+                            "id": "EncodeResource",
+                            "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/RunIt/Resource/EncodeResource",
+                            "attributes": {
+                              "TransformBase.cfnTransformPath": "LbSfseIntegrationTest/Execute/RaceLrsfe/RunIt/Resource/Default/EncodeResourceShim0"
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CustomResource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "RunResourceAlways": {
+                        "id": "RunResourceAlways",
+                        "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/RunIt/RunResourceAlways",
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "WaitForIt1": {
+                    "id": "WaitForIt1",
+                    "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt1",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt1/Resource",
+                        "children": {
+                          "Default": {
+                            "id": "Default",
+                            "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt1/Resource/Default",
+                            "children": {
+                              "EncodeResourceShim0": {
+                                "id": "EncodeResourceShim0",
+                                "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt1/Resource/Default/EncodeResourceShim0",
+                                "attributes": {
+                                  "CfnTransformShim.transformPath": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt1/Resource/EncodeResource"
+                                },
+                                "constructInfo": {
+                                  "fqn": "constructs.Construct",
+                                  "version": "10.3.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.CfnResource",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "EncodeResource": {
+                            "id": "EncodeResource",
+                            "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt1/Resource/EncodeResource",
+                            "attributes": {
+                              "TransformBase.cfnTransformPath": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt1/Resource/Default/EncodeResourceShim0"
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CustomResource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "RunResourceAlways": {
+                        "id": "RunResourceAlways",
+                        "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt1/RunResourceAlways",
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "WaitForIt2": {
+                    "id": "WaitForIt2",
+                    "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt2",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt2/Resource",
+                        "children": {
+                          "Default": {
+                            "id": "Default",
+                            "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt2/Resource/Default",
+                            "children": {
+                              "EncodeResourceShim0": {
+                                "id": "EncodeResourceShim0",
+                                "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt2/Resource/Default/EncodeResourceShim0",
+                                "attributes": {
+                                  "CfnTransformShim.transformPath": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt2/Resource/EncodeResource"
+                                },
+                                "constructInfo": {
+                                  "fqn": "constructs.Construct",
+                                  "version": "10.3.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.CfnResource",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "EncodeResource": {
+                            "id": "EncodeResource",
+                            "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt2/Resource/EncodeResource",
+                            "attributes": {
+                              "TransformBase.cfnTransformPath": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt2/Resource/Default/EncodeResourceShim0"
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CustomResource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "RunResourceAlways": {
+                        "id": "RunResourceAlways",
+                        "path": "LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt2/RunResourceAlways",
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "RacerDefinition": {
+            "id": "RacerDefinition",
+            "path": "LbSfseIntegrationTest/RacerDefinition",
+            "children": {
+              "ContestantNamesRole": {
+                "id": "ContestantNamesRole",
+                "path": "LbSfseIntegrationTest/RacerDefinition/ContestantNamesRole",
+                "children": {
+                  "ImportContestantNamesRole": {
+                    "id": "ImportContestantNamesRole",
+                    "path": "LbSfseIntegrationTest/RacerDefinition/ContestantNamesRole/ImportContestantNamesRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "LbSfseIntegrationTest/RacerDefinition/ContestantNamesRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.120.0"
+                }
+              },
+              "ContestantNamesLambda": {
+                "id": "ContestantNamesLambda",
+                "path": "LbSfseIntegrationTest/RacerDefinition/ContestantNamesLambda",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "LbSfseIntegrationTest/RacerDefinition/ContestantNamesLambda/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "zipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.handler = void 0;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\nconst handler = async (event, context) => {\nlog({ Event: event });\nlog({ Context: context });\nlet executions = event.StateMachineExecutions;\nfor (let i = 0; i < executions.length; i++) {\nif (executions[i].completeFlag == \"Timeout\") {\nexecutions[i].name = `${event.ExecutionName}_Timeout`;\n}\nelse {\nexecutions[i].name = `${event.ExecutionName}_${i}`;\n}\n}\nreturn Promise.resolve(executions);\n};\nexports.handler = handler;"
+                        },
+                        "environment": {
+                          "variables": {
+                            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+                          }
+                        },
+                        "handler": "index.handler",
+                        "role": {
+                          "Fn::GetAtt": [
+                            "RacerDefinitionContestantNamesRoleF9B4ED83",
+                            "Arn"
+                          ]
+                        },
+                        "runtime": "nodejs18.x"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "attributes": {
+                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-aosP1H/87dc969d-create_contestant_names.js"
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.120.0"
+                }
+              },
+              "ContestantNamesTask": {
+                "id": "ContestantNamesTask",
+                "path": "LbSfseIntegrationTest/RacerDefinition/ContestantNamesTask",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
+                  "version": "2.120.0"
+                }
+              },
+              "NestedWorkflowStateMachine": {
+                "id": "NestedWorkflowStateMachine",
+                "path": "LbSfseIntegrationTest/RacerDefinition/NestedWorkflowStateMachine",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.120.0"
+                }
+              },
+              "InvokeWorkflow": {
+                "id": "InvokeWorkflow",
+                "path": "LbSfseIntegrationTest/RacerDefinition/InvokeWorkflow",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+                  "version": "2.120.0"
+                }
+              },
+              "DroppedOut": {
+                "id": "DroppedOut",
+                "path": "LbSfseIntegrationTest/RacerDefinition/DroppedOut",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.Wait",
+                  "version": "2.120.0"
+                }
+              },
+              "ExitEarly": {
+                "id": "ExitEarly",
+                "path": "LbSfseIntegrationTest/RacerDefinition/ExitEarly",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.Fail",
+                  "version": "2.120.0"
+                }
+              },
+              "ProcessParallel": {
+                "id": "ProcessParallel",
+                "path": "LbSfseIntegrationTest/RacerDefinition/ProcessParallel",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.Map",
+                  "version": "2.120.0"
+                }
+              },
+              "Succeeded": {
+                "id": "Succeeded",
+                "path": "LbSfseIntegrationTest/RacerDefinition/Succeeded",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.Succeed",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "StepFunctionRace": {
+            "id": "StepFunctionRace",
+            "path": "LbSfseIntegrationTest/StepFunctionRace",
+            "children": {
+              "Role": {
+                "id": "Role",
+                "path": "LbSfseIntegrationTest/StepFunctionRace/Role",
+                "children": {
+                  "ImportRole": {
+                    "id": "ImportRole",
+                    "path": "LbSfseIntegrationTest/StepFunctionRace/Role/ImportRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "LbSfseIntegrationTest/StepFunctionRace/Role/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "states.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "LbSfseIntegrationTest/StepFunctionRace/Role/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "LbSfseIntegrationTest/StepFunctionRace/Role/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "lambda:InvokeFunction",
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "RacerDefinitionContestantNamesLambda4CAC7472",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "RacerDefinitionContestantNamesLambda4CAC7472",
+                                              "Arn"
+                                            ]
+                                          },
+                                          ":*"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Action": "states:StartExecution",
+                                  "Effect": "Allow",
+                                  "Resource": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":states:",
+                                        {
+                                          "Ref": "AWS::Region"
+                                        },
+                                        ":",
+                                        {
+                                          "Ref": "AWS::AccountId"
+                                        },
+                                        ":stateMachine:*"
+                                      ]
+                                    ]
+                                  }
+                                },
+                                {
+                                  "Action": [
+                                    "states:DescribeExecution",
+                                    "states:StopExecution"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":states:",
+                                        {
+                                          "Ref": "AWS::Region"
+                                        },
+                                        ":",
+                                        {
+                                          "Ref": "AWS::AccountId"
+                                        },
+                                        ":execution:**"
+                                      ]
+                                    ]
+                                  }
+                                },
+                                {
+                                  "Action": [
+                                    "events:DescribeRule",
+                                    "events:PutRule",
+                                    "events:PutTargets"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":events:",
+                                        {
+                                          "Ref": "AWS::Region"
+                                        },
+                                        ":",
+                                        {
+                                          "Ref": "AWS::AccountId"
+                                        },
+                                        ":rule/StepFunctionsGetEventsForStepFunctionsExecutionRule"
+                                      ]
+                                    ]
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "StepFunctionRaceRoleDefaultPolicy5C7A59A5",
+                            "roles": [
+                              {
+                                "Ref": "StepFunctionRaceRoleA1DB6C30"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.120.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "LbSfseIntegrationTest/StepFunctionRace/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::StepFunctions::StateMachine",
+                  "aws:cdk:cloudformation:props": {
+                    "definitionString": {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "{\"StartAt\":\"ContestantNamesTask\",\"States\":{\"ContestantNamesTask\":{\"Next\":\"ProcessParallel\",\"Retry\":[{\"ErrorEquals\":[\"Lambda.ClientExecutionTimeoutException\",\"Lambda.ServiceException\",\"Lambda.AWSLambdaException\",\"Lambda.SdkClientException\"],\"IntervalSeconds\":2,\"MaxAttempts\":6,\"BackoffRate\":2}],\"Type\":\"Task\",\"ResultPath\":\"$.stateMachineExecutions\",\"Resource\":\"",
+                          {
+                            "Fn::GetAtt": [
+                              "RacerDefinitionContestantNamesLambda4CAC7472",
+                              "Arn"
+                            ]
+                          },
+                          "\",\"Parameters\":{\"ExecutionName.$\":\"$$.Execution.Name\",\"StateMachineExecutions.$\":\"$.stateMachineExecutions\"}},\"ProcessParallel\":{\"Type\":\"Map\",\"Comment\":\"Process parallel\",\"ResultPath\":\"$.outputs\",\"Next\":\"Succeeded\",\"Catch\":[{\"ErrorEquals\":[\"Completed.1\",\"Completed.2\",\"Completed.3\",\"Completed.4\",\"Completed.5\",\"Completed.6\",\"Completed.7\",\"Completed.8\",\"Completed.9\",\"Completed.10\",\"Completed.11\",\"Completed.12\",\"Completed.13\",\"Completed.14\",\"Completed.15\",\"Completed.16\",\"Completed.17\",\"Completed.18\",\"Completed.19\",\"Completed.20\"],\"Next\":\"Succeeded\"}],\"ItemsPath\":\"$.stateMachineExecutions\",\"ItemProcessor\":{\"ProcessorConfig\":{\"Mode\":\"INLINE\"},\"StartAt\":\"InvokeWorkflow\",\"States\":{\"InvokeWorkflow\":{\"Next\":\"ExitEarly\",\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"ResultPath\":\"$.errorData\",\"Next\":\"DroppedOut\"}],\"Type\":\"Task\",\"ResultPath\":\"$.stateMachineOutput\",\"Resource\":\"arn:",
+                          {
+                            "Ref": "AWS::Partition"
+                          },
+                          ":states:::states:startExecution.sync:2\",\"Parameters\":{\"Input.$\":\"$.inputEvent\",\"StateMachineArn.$\":\"$.stateMachineArn\",\"Name.$\":\"$.name\"}},\"ExitEarly\":{\"Type\":\"Fail\",\"ErrorPath\":\"$.completeFlag\"},\"DroppedOut\":{\"Type\":\"Wait\",\"SecondsPath\":\"$.inputEvent.totalTimeout\",\"End\":true}}}},\"Succeeded\":{\"Type\":\"Succeed\"}}}"
+                        ]
+                      ]
+                    },
+                    "roleArn": {
+                      "Fn::GetAtt": [
+                        "StepFunctionRaceRoleA1DB6C30",
+                        "Arn"
+                      ]
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+                  "version": "2.120.0"
+                }
+              },
+              "ExecutePolicy": {
+                "id": "ExecutePolicy",
+                "path": "LbSfseIntegrationTest/StepFunctionRace/ExecutePolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "LbSfseIntegrationTest/StepFunctionRace/ExecutePolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "states:StartExecution",
+                              "Effect": "Allow",
+                              "Resource": "*"
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "StepFunctionRaceExecutePolicyB218936D",
+                        "roles": [
+                          {
+                            "Ref": "StepFunctionRaceRoleA1DB6C30"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Policy",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_stepfunctions.StateMachine",
+              "version": "2.120.0"
+            }
+          },
+          "RaceRefereeWait": {
+            "id": "RaceRefereeWait",
+            "path": "LbSfseIntegrationTest/RaceRefereeWait",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_stepfunctions.Wait",
+              "version": "2.120.0"
+            }
+          },
+          "StepFunctionRaceReferee": {
+            "id": "StepFunctionRaceReferee",
+            "path": "LbSfseIntegrationTest/StepFunctionRaceReferee",
+            "children": {
+              "Role": {
+                "id": "Role",
+                "path": "LbSfseIntegrationTest/StepFunctionRaceReferee/Role",
+                "children": {
+                  "ImportRole": {
+                    "id": "ImportRole",
+                    "path": "LbSfseIntegrationTest/StepFunctionRaceReferee/Role/ImportRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "LbSfseIntegrationTest/StepFunctionRaceReferee/Role/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "states.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.120.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "LbSfseIntegrationTest/StepFunctionRaceReferee/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::StepFunctions::StateMachine",
+                  "aws:cdk:cloudformation:props": {
+                    "definitionString": "{\"StartAt\":\"RaceRefereeWait\",\"States\":{\"RaceRefereeWait\":{\"Type\":\"Wait\",\"Comment\":\"Waits for the provided waitSeconds.\",\"SecondsPath\":\"$.waitSeconds\",\"End\":true}}}",
+                    "roleArn": {
+                      "Fn::GetAtt": [
+                        "StepFunctionRaceRefereeRole2D39D2E5",
+                        "Arn"
+                      ]
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_stepfunctions.StateMachine",
+              "version": "2.120.0"
+            }
+          },
+          "StepFunctionTaskStepResources": {
+            "id": "StepFunctionTaskStepResources",
+            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources",
+            "children": {
+              "StepFunctionTaskStepRole": {
+                "id": "StepFunctionTaskStepRole",
+                "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepRole",
+                "children": {
+                  "ImportStepFunctionTaskStepRole": {
+                    "id": "ImportStepFunctionTaskStepRole",
+                    "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepRole/ImportStepFunctionTaskStepRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ],
+                        "policies": [
+                          {
+                            "policyName": "StepFunctionTaskPolicy",
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "states:*",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.120.0"
+                }
+              },
+              "StepFunctionTaskStepOnEvent": {
+                "id": "StepFunctionTaskStepOnEvent",
+                "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepOnEvent",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepOnEvent/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "zipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.stepFunctionComplete = exports.startStepFunction = exports.startsWithOneOf = exports.filterKeys = exports.flatten = void 0;\nconst crypto_1 = require(\"crypto\");\nconst client_sfn_1 = require(\"@aws-sdk/client-sfn\");\nconst logger = process.env.LogLevel ? console : undefined;\n\nfunction flatten(root) {\nconst ret = {};\nrecurse(root);\nreturn ret;\nfunction recurse(x, path = []) {\nif (x && typeof x === 'object') {\nfor (const [key, value] of Object.entries(x)) {\nrecurse(value, [...path, key]);\n}\nreturn;\n}\nret[path.join('.')] = x;\n}\n}\nexports.flatten = flatten;\n\nfunction filterKeys(object, pred) {\nreturn Object.entries(object)\n.reduce((acc, [k, v]) => pred(k)\n? { ...acc, [k]: v }\n: acc, {});\n}\nexports.filterKeys = filterKeys;\n\nfunction startsWithOneOf(searchStrings) {\nreturn function (string) {\nfor (const searchString of searchStrings) {\nif (string.startsWith(searchString)) {\nreturn true;\n}\n}\nreturn false;\n};\n}\nexports.startsWithOneOf = startsWithOneOf;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\nconst startStepFunction = async (event, context) => {\nlog({ Event: event });\nlog({ Context: context });\nif (event.RequestType == 'Delete') {\nreturn Promise.resolve({\nIsComplete: true,\n});\n}\n\nif ('EncodedProperties' in event.ResourceProperties) {\nevent.ResourceProperties = JSON.parse(Buffer\n.from(event.ResourceProperties.EncodedProperties, 'base64')\n.toString('utf8'));\nlog({ DecodedEvent: JSON.stringify(event) });\n}\nlet stepFunction = new client_sfn_1.SFN({\nlogger: logger,\n});\nlet stateMachineArn = event.ResourceProperties.StateMachineArn;\nlet executionArn = event.ResourceProperties.ExecutionArn;\nlet stateMachineEvent = event.ResourceProperties.StateMachineEvent;\nlet succeedAfterMs = event.ResourceProperties.SucceedAfterMs;\nif (stateMachineArn) {\nlet prefix = event.ResourceProperties.Prefix;\nlet request = {\nstateMachineArn: stateMachineArn,\ninput: JSON.stringify(stateMachineEvent),\n};\nif (prefix) {\nrequest.name = `${prefix}_${(0, crypto_1.randomUUID)()}`;\n}\nlet result = await stepFunction.startExecution(request);\nreturn Promise.resolve({\nPhysicalResourceId: result.executionArn,\nExecutionArn: result.executionArn,\nStartDate: result.startDate,\nSucceedAfterMs: succeedAfterMs,\nIsComplete: false,\nOutputPaths: event.ResourceProperties.OutputPaths,\nDefaults: event.ResourceProperties.Defaults,\n});\n}\nelse if (executionArn) {\nlet suffix = event.ResourceProperties.Suffix;\nlet result = await stepFunction.describeExecution({\nexecutionArn: executionArn,\n});\nlet physicalResourceId = `${result.executionArn}.${suffix}`;\nreturn Promise.resolve({\nPhysicalResourceId: physicalResourceId,\nExecutionArn: result.executionArn,\nStartDate: result.startDate,\nSucceedAfterMs: succeedAfterMs,\nOutputPaths: event.ResourceProperties.OutputPaths,\nDefaults: event.ResourceProperties.Defaults,\nIsComplete: false,\n});\n}\nreturn Promise.reject({\nReason: 'One of StateMachineArn or ExecutionArn must be specified.',\n});\n};\nexports.startStepFunction = startStepFunction;\nconst stepFunctionComplete = async (event, context) => {\nlog({ Event: event });\nlog({ Context: context });\nif (event.RequestType == 'Delete') {\nreturn Promise.resolve({\nIsComplete: true,\n});\n}\nlet stepFunction = new client_sfn_1.SFN({\nlogger: logger,\n});\nlet result = await stepFunction.describeExecution({\nexecutionArn: event.ExecutionArn,\n});\nlet continueStates = ['RUNNING'];\nlet succeededStates = ['SUCCEEDED'];\nlet failedStates = ['FAILED', 'TIMED_OUT', 'ABORTED'];\nif (failedStates.includes(result.status)) {\nthrow new Error(`Arn: ${result.executionArn}. Status: ${result.status}. Error: '${result.error}' Cause: '${result.cause}'`);\n}\nlet isComplete = succeededStates.includes(result.status);\nif (!isComplete && !continueStates.includes(result.status)) {\nthrow new Error(`Unknown state: ${result.status}.`);\n}\nlet now = Date.now();\nlog({ Now: now, StartDate: result.startDate.getTime() });\nlet succeedAfterMs = event.SucceedAfterMs;\n\n\nif (!isComplete && succeedAfterMs && (now - result.startDate.getTime()) > succeedAfterMs) {\nlog({ Message: 'Timed out.  Complete regardless of StepFunction state.' });\nisComplete = true;\n}\nelse {\nlog({ IsComplete: isComplete });\n}\nlet response = {\nExecutionArn: event.ExecutionArn,\nStartDate: event.StartDate,\nSucceedAfterMs: succeedAfterMs,\nIsComplete: isComplete,\nOutputPaths: event.OutputPaths,\nDefaults: event.Defaults,\n};\n\nif (event.OutputPaths) {\nlet flattened = flatten(result.output);\nlet defaults = filterKeys((event.Defaults ?? {}), startsWithOneOf(event.OutputPaths));\nlet filtered = filterKeys(flattened, startsWithOneOf(event.OutputPaths));\nresponse.Data = {\n...defaults,\n...filtered,\n};\n}\nreturn Promise.resolve(response);\n};\nexports.stepFunctionComplete = stepFunctionComplete;"
+                        },
+                        "environment": {
+                          "variables": {
+                            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+                          }
+                        },
+                        "handler": "index.startStepFunction",
+                        "role": {
+                          "Fn::GetAtt": [
+                            "StepFunctionTaskStepResourcesStepFunctionTaskStepRole8FEABF28",
+                            "Arn"
+                          ]
+                        },
+                        "runtime": "nodejs18.x",
+                        "timeout": 60
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "attributes": {
+                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-aosP1H/353dd860-step_function_execute.js"
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.120.0"
+                }
+              },
+              "StepFunctionTaskStepIsComplete": {
+                "id": "StepFunctionTaskStepIsComplete",
+                "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepIsComplete",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepIsComplete/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "zipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.stepFunctionComplete = exports.startStepFunction = exports.startsWithOneOf = exports.filterKeys = exports.flatten = void 0;\nconst crypto_1 = require(\"crypto\");\nconst client_sfn_1 = require(\"@aws-sdk/client-sfn\");\nconst logger = process.env.LogLevel ? console : undefined;\n\nfunction flatten(root) {\nconst ret = {};\nrecurse(root);\nreturn ret;\nfunction recurse(x, path = []) {\nif (x && typeof x === 'object') {\nfor (const [key, value] of Object.entries(x)) {\nrecurse(value, [...path, key]);\n}\nreturn;\n}\nret[path.join('.')] = x;\n}\n}\nexports.flatten = flatten;\n\nfunction filterKeys(object, pred) {\nreturn Object.entries(object)\n.reduce((acc, [k, v]) => pred(k)\n? { ...acc, [k]: v }\n: acc, {});\n}\nexports.filterKeys = filterKeys;\n\nfunction startsWithOneOf(searchStrings) {\nreturn function (string) {\nfor (const searchString of searchStrings) {\nif (string.startsWith(searchString)) {\nreturn true;\n}\n}\nreturn false;\n};\n}\nexports.startsWithOneOf = startsWithOneOf;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\nconst startStepFunction = async (event, context) => {\nlog({ Event: event });\nlog({ Context: context });\nif (event.RequestType == 'Delete') {\nreturn Promise.resolve({\nIsComplete: true,\n});\n}\n\nif ('EncodedProperties' in event.ResourceProperties) {\nevent.ResourceProperties = JSON.parse(Buffer\n.from(event.ResourceProperties.EncodedProperties, 'base64')\n.toString('utf8'));\nlog({ DecodedEvent: JSON.stringify(event) });\n}\nlet stepFunction = new client_sfn_1.SFN({\nlogger: logger,\n});\nlet stateMachineArn = event.ResourceProperties.StateMachineArn;\nlet executionArn = event.ResourceProperties.ExecutionArn;\nlet stateMachineEvent = event.ResourceProperties.StateMachineEvent;\nlet succeedAfterMs = event.ResourceProperties.SucceedAfterMs;\nif (stateMachineArn) {\nlet prefix = event.ResourceProperties.Prefix;\nlet request = {\nstateMachineArn: stateMachineArn,\ninput: JSON.stringify(stateMachineEvent),\n};\nif (prefix) {\nrequest.name = `${prefix}_${(0, crypto_1.randomUUID)()}`;\n}\nlet result = await stepFunction.startExecution(request);\nreturn Promise.resolve({\nPhysicalResourceId: result.executionArn,\nExecutionArn: result.executionArn,\nStartDate: result.startDate,\nSucceedAfterMs: succeedAfterMs,\nIsComplete: false,\nOutputPaths: event.ResourceProperties.OutputPaths,\nDefaults: event.ResourceProperties.Defaults,\n});\n}\nelse if (executionArn) {\nlet suffix = event.ResourceProperties.Suffix;\nlet result = await stepFunction.describeExecution({\nexecutionArn: executionArn,\n});\nlet physicalResourceId = `${result.executionArn}.${suffix}`;\nreturn Promise.resolve({\nPhysicalResourceId: physicalResourceId,\nExecutionArn: result.executionArn,\nStartDate: result.startDate,\nSucceedAfterMs: succeedAfterMs,\nOutputPaths: event.ResourceProperties.OutputPaths,\nDefaults: event.ResourceProperties.Defaults,\nIsComplete: false,\n});\n}\nreturn Promise.reject({\nReason: 'One of StateMachineArn or ExecutionArn must be specified.',\n});\n};\nexports.startStepFunction = startStepFunction;\nconst stepFunctionComplete = async (event, context) => {\nlog({ Event: event });\nlog({ Context: context });\nif (event.RequestType == 'Delete') {\nreturn Promise.resolve({\nIsComplete: true,\n});\n}\nlet stepFunction = new client_sfn_1.SFN({\nlogger: logger,\n});\nlet result = await stepFunction.describeExecution({\nexecutionArn: event.ExecutionArn,\n});\nlet continueStates = ['RUNNING'];\nlet succeededStates = ['SUCCEEDED'];\nlet failedStates = ['FAILED', 'TIMED_OUT', 'ABORTED'];\nif (failedStates.includes(result.status)) {\nthrow new Error(`Arn: ${result.executionArn}. Status: ${result.status}. Error: '${result.error}' Cause: '${result.cause}'`);\n}\nlet isComplete = succeededStates.includes(result.status);\nif (!isComplete && !continueStates.includes(result.status)) {\nthrow new Error(`Unknown state: ${result.status}.`);\n}\nlet now = Date.now();\nlog({ Now: now, StartDate: result.startDate.getTime() });\nlet succeedAfterMs = event.SucceedAfterMs;\n\n\nif (!isComplete && succeedAfterMs && (now - result.startDate.getTime()) > succeedAfterMs) {\nlog({ Message: 'Timed out.  Complete regardless of StepFunction state.' });\nisComplete = true;\n}\nelse {\nlog({ IsComplete: isComplete });\n}\nlet response = {\nExecutionArn: event.ExecutionArn,\nStartDate: event.StartDate,\nSucceedAfterMs: succeedAfterMs,\nIsComplete: isComplete,\nOutputPaths: event.OutputPaths,\nDefaults: event.Defaults,\n};\n\nif (event.OutputPaths) {\nlet flattened = flatten(result.output);\nlet defaults = filterKeys((event.Defaults ?? {}), startsWithOneOf(event.OutputPaths));\nlet filtered = filterKeys(flattened, startsWithOneOf(event.OutputPaths));\nresponse.Data = {\n...defaults,\n...filtered,\n};\n}\nreturn Promise.resolve(response);\n};\nexports.stepFunctionComplete = stepFunctionComplete;"
+                        },
+                        "environment": {
+                          "variables": {
+                            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+                          }
+                        },
+                        "handler": "index.stepFunctionComplete",
+                        "role": {
+                          "Fn::GetAtt": [
+                            "StepFunctionTaskStepResourcesStepFunctionTaskStepRole8FEABF28",
+                            "Arn"
+                          ]
+                        },
+                        "runtime": "nodejs18.x",
+                        "timeout": 60
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "attributes": {
+                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-aosP1H/2cb83343-step_function_execute.js"
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.120.0"
+                }
+              },
+              "StepFunctionTaskStepProvider": {
+                "id": "StepFunctionTaskStepProvider",
+                "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider",
+                "children": {
+                  "framework-onEvent": {
+                    "id": "framework-onEvent",
+                    "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onEvent",
+                    "children": {
+                      "ServiceRole": {
+                        "id": "ServiceRole",
+                        "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onEvent/ServiceRole",
+                        "children": {
+                          "ImportServiceRole": {
+                            "id": "ImportServiceRole",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onEvent/ServiceRole/ImportServiceRole",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.Resource",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onEvent/ServiceRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "lambda.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "managedPolicyArns": [
+                                  {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                      ]
+                                    ]
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "DefaultPolicy": {
+                            "id": "DefaultPolicy",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onEvent/ServiceRole/DefaultPolicy",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onEvent/ServiceRole/DefaultPolicy/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "policyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": "lambda:InvokeFunction",
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::GetAtt": [
+                                                "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  ":*"
+                                                ]
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  ":*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Action": "states:StartExecution",
+                                          "Effect": "Allow",
+                                          "Resource": {
+                                            "Ref": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineA5471E7D"
+                                          }
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    },
+                                    "policyName": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEventServiceRoleDefaultPolicyCDF2B7E2",
+                                    "roles": [
+                                      {
+                                        "Ref": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEventServiceRoleC4623120"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                                  "version": "2.120.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.Policy",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Role",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Code": {
+                        "id": "Code",
+                        "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onEvent/Code",
+                        "children": {
+                          "Stage": {
+                            "id": "Stage",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onEvent/Code/Stage",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.AssetStaging",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "AssetBucket": {
+                            "id": "AssetBucket",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onEvent/Code/AssetBucket",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onEvent/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                          "aws:cdk:cloudformation:props": {
+                            "code": {
+                              "s3Bucket": {
+                                "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                              },
+                              "s3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+                            },
+                            "description": "AWS CDK resource provider framework - onEvent (LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider)",
+                            "environment": {
+                              "variables": {
+                                "USER_ON_EVENT_FUNCTION_ARN": {
+                                  "Fn::GetAtt": [
+                                    "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+                                    "Arn"
+                                  ]
+                                },
+                                "USER_IS_COMPLETE_FUNCTION_ARN": {
+                                  "Fn::GetAtt": [
+                                    "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+                                    "Arn"
+                                  ]
+                                },
+                                "WAITER_STATE_MACHINE_ARN": {
+                                  "Ref": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineA5471E7D"
+                                }
+                              }
+                            },
+                            "handler": "framework.onEvent",
+                            "role": {
+                              "Fn::GetAtt": [
+                                "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEventServiceRoleC4623120",
+                                "Arn"
+                              ]
+                            },
+                            "runtime": "nodejs18.x",
+                            "timeout": 900
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.Function",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "framework-isComplete": {
+                    "id": "framework-isComplete",
+                    "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-isComplete",
+                    "children": {
+                      "ServiceRole": {
+                        "id": "ServiceRole",
+                        "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-isComplete/ServiceRole",
+                        "children": {
+                          "ImportServiceRole": {
+                            "id": "ImportServiceRole",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-isComplete/ServiceRole/ImportServiceRole",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.Resource",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-isComplete/ServiceRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "lambda.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "managedPolicyArns": [
+                                  {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                      ]
+                                    ]
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "DefaultPolicy": {
+                            "id": "DefaultPolicy",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-isComplete/ServiceRole/DefaultPolicy",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-isComplete/ServiceRole/DefaultPolicy/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "policyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": "lambda:InvokeFunction",
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::GetAtt": [
+                                                "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  ":*"
+                                                ]
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  ":*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    },
+                                    "policyName": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisCompleteServiceRoleDefaultPolicy3F21E37E",
+                                    "roles": [
+                                      {
+                                        "Ref": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisCompleteServiceRole70FA82F3"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                                  "version": "2.120.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.Policy",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Role",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Code": {
+                        "id": "Code",
+                        "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-isComplete/Code",
+                        "children": {
+                          "Stage": {
+                            "id": "Stage",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-isComplete/Code/Stage",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.AssetStaging",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "AssetBucket": {
+                            "id": "AssetBucket",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-isComplete/Code/AssetBucket",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-isComplete/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                          "aws:cdk:cloudformation:props": {
+                            "code": {
+                              "s3Bucket": {
+                                "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                              },
+                              "s3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+                            },
+                            "description": "AWS CDK resource provider framework - isComplete (LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider)",
+                            "environment": {
+                              "variables": {
+                                "USER_ON_EVENT_FUNCTION_ARN": {
+                                  "Fn::GetAtt": [
+                                    "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+                                    "Arn"
+                                  ]
+                                },
+                                "USER_IS_COMPLETE_FUNCTION_ARN": {
+                                  "Fn::GetAtt": [
+                                    "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+                                    "Arn"
+                                  ]
+                                }
+                              }
+                            },
+                            "handler": "framework.isComplete",
+                            "role": {
+                              "Fn::GetAtt": [
+                                "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisCompleteServiceRole70FA82F3",
+                                "Arn"
+                              ]
+                            },
+                            "runtime": "nodejs18.x",
+                            "timeout": 900
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.Function",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "framework-onTimeout": {
+                    "id": "framework-onTimeout",
+                    "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onTimeout",
+                    "children": {
+                      "ServiceRole": {
+                        "id": "ServiceRole",
+                        "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onTimeout/ServiceRole",
+                        "children": {
+                          "ImportServiceRole": {
+                            "id": "ImportServiceRole",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onTimeout/ServiceRole/ImportServiceRole",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.Resource",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onTimeout/ServiceRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "lambda.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "managedPolicyArns": [
+                                  {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                      ]
+                                    ]
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "DefaultPolicy": {
+                            "id": "DefaultPolicy",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onTimeout/ServiceRole/DefaultPolicy",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onTimeout/ServiceRole/DefaultPolicy/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "policyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": "lambda:InvokeFunction",
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::GetAtt": [
+                                                "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  ":*"
+                                                ]
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  ":*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    },
+                                    "policyName": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutServiceRoleDefaultPolicy9EA2F13E",
+                                    "roles": [
+                                      {
+                                        "Ref": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutServiceRoleDD6F0E8E"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                                  "version": "2.120.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.Policy",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Role",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Code": {
+                        "id": "Code",
+                        "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onTimeout/Code",
+                        "children": {
+                          "Stage": {
+                            "id": "Stage",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onTimeout/Code/Stage",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.AssetStaging",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "AssetBucket": {
+                            "id": "AssetBucket",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onTimeout/Code/AssetBucket",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onTimeout/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                          "aws:cdk:cloudformation:props": {
+                            "code": {
+                              "s3Bucket": {
+                                "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                              },
+                              "s3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+                            },
+                            "description": "AWS CDK resource provider framework - onTimeout (LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider)",
+                            "environment": {
+                              "variables": {
+                                "USER_ON_EVENT_FUNCTION_ARN": {
+                                  "Fn::GetAtt": [
+                                    "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+                                    "Arn"
+                                  ]
+                                },
+                                "USER_IS_COMPLETE_FUNCTION_ARN": {
+                                  "Fn::GetAtt": [
+                                    "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+                                    "Arn"
+                                  ]
+                                }
+                              }
+                            },
+                            "handler": "framework.onTimeout",
+                            "role": {
+                              "Fn::GetAtt": [
+                                "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutServiceRoleDD6F0E8E",
+                                "Arn"
+                              ]
+                            },
+                            "runtime": "nodejs18.x",
+                            "timeout": 900
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.Function",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "waiter-state-machine": {
+                    "id": "waiter-state-machine",
+                    "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/waiter-state-machine",
+                    "children": {
+                      "Role": {
+                        "id": "Role",
+                        "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/waiter-state-machine/Role",
+                        "children": {
+                          "ImportRole": {
+                            "id": "ImportRole",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/waiter-state-machine/Role/ImportRole",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.Resource",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/waiter-state-machine/Role/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "states.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                              "version": "2.120.0"
+                            }
+                          },
+                          "DefaultPolicy": {
+                            "id": "DefaultPolicy",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/waiter-state-machine/Role/DefaultPolicy",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/waiter-state-machine/Role/DefaultPolicy/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "policyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": "lambda:InvokeFunction",
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisComplete48653344",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::GetAtt": [
+                                                "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutB0C276CE",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisComplete48653344",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  ":*"
+                                                ]
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutB0C276CE",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  ":*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Action": [
+                                            "logs:CreateLogDelivery",
+                                            "logs:CreateLogStream",
+                                            "logs:DeleteLogDelivery",
+                                            "logs:DescribeLogGroups",
+                                            "logs:DescribeResourcePolicies",
+                                            "logs:GetLogDelivery",
+                                            "logs:ListLogDeliveries",
+                                            "logs:PutLogEvents",
+                                            "logs:PutResourcePolicy",
+                                            "logs:UpdateLogDelivery"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": "*"
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    },
+                                    "policyName": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineRoleDefaultPolicy9FA4DF7F",
+                                    "roles": [
+                                      {
+                                        "Ref": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineRole9809049C"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                                  "version": "2.120.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.Policy",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Role",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "LogGroup": {
+                        "id": "LogGroup",
+                        "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/waiter-state-machine/LogGroup",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/waiter-state-machine/LogGroup/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::Logs::LogGroup",
+                              "aws:cdk:cloudformation:props": {
+                                "retentionInDays": 731
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_logs.CfnLogGroup",
+                              "version": "2.120.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_logs.LogGroup",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/waiter-state-machine/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::StepFunctions::StateMachine",
+                          "aws:cdk:cloudformation:props": {
+                            "definitionString": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "{\"StartAt\":\"framework-isComplete-task\",\"States\":{\"framework-isComplete-task\":{\"End\":true,\"Retry\":[{\"ErrorEquals\":[\"States.ALL\"],\"IntervalSeconds\":30,\"MaxAttempts\":120,\"BackoffRate\":1}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"Next\":\"framework-onTimeout-task\"}],\"Type\":\"Task\",\"Resource\":\"",
+                                  {
+                                    "Fn::GetAtt": [
+                                      "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisComplete48653344",
+                                      "Arn"
+                                    ]
+                                  },
+                                  "\"},\"framework-onTimeout-task\":{\"End\":true,\"Type\":\"Task\",\"Resource\":\"",
+                                  {
+                                    "Fn::GetAtt": [
+                                      "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutB0C276CE",
+                                      "Arn"
+                                    ]
+                                  },
+                                  "\"}}}"
+                                ]
+                              ]
+                            },
+                            "loggingConfiguration": {
+                              "destinations": [
+                                {
+                                  "cloudWatchLogsLogGroup": {
+                                    "logGroupArn": {
+                                      "Fn::GetAtt": [
+                                        "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineLogGroupC3DBDC7A",
+                                        "Arn"
+                                      ]
+                                    }
+                                  }
+                                }
+                              ],
+                              "includeExecutionData": false,
+                              "level": "ERROR"
+                            },
+                            "roleArn": {
+                              "Fn::GetAtt": [
+                                "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineRole9809049C",
+                                "Arn"
+                              ]
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.custom_resources.WaiterStateMachine",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.custom_resources.Provider",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "LbSfseIntegrationTest/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.120.0"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "LbSfseIntegrationTest/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.120.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.120.0"
+        }
+      },
+      "LateBoundStepFunctionInteg": {
+        "id": "LateBoundStepFunctionInteg",
+        "path": "LateBoundStepFunctionInteg",
+        "children": {
+          "DefaultTest": {
+            "id": "DefaultTest",
+            "path": "LateBoundStepFunctionInteg/DefaultTest",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "LateBoundStepFunctionInteg/DefaultTest/Default",
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              },
+              "DeployAssert": {
+                "id": "DeployAssert",
+                "path": "LateBoundStepFunctionInteg/DefaultTest/DeployAssert",
+                "children": {
+                  "BootstrapVersion": {
+                    "id": "BootstrapVersion",
+                    "path": "LateBoundStepFunctionInteg/DefaultTest/DeployAssert/BootstrapVersion",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnParameter",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "CheckBootstrapVersion": {
+                    "id": "CheckBootstrapVersion",
+                    "path": "LateBoundStepFunctionInteg/DefaultTest/DeployAssert/CheckBootstrapVersion",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnRule",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Stack",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/integ-tests-alpha.IntegTestCase",
+              "version": "2.120.0-alpha.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "@aws-cdk/integ-tests-alpha.IntegTest",
+          "version": "2.120.0-alpha.0"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.3.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.120.0"
+    }
+  }
+}

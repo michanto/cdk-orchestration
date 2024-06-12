@@ -1,4 +1,9 @@
 {
+ "Metadata": {
+  "build_hostname": "88665a457e00.ant.amazon.com",
+  "build_timestamp": 1718235378290,
+  "build_user": "michanto"
+ },
  "Resources": {
   "ContentsAreEqualTask6E9A79F0": {
    "Type": "Custom::EqualsComparisonAssertion",
@@ -38,7 +43,7 @@
         {
          "Ref": "EqualsFunction495237D7"
         },
-        "-b6591a1752047c01dd1ae098ae41d107\"}},\"ResponseBufferField\":\"Payload\",\"RequestedOutputs\":[],\"salt\":1718227106802}"
+        "-b6591a1752047c01dd1ae098ae41d107\"}},\"ResponseBufferField\":\"Payload\",\"RequestedOutputs\":[],\"salt\":1718235378290}"
        ]
       ]
      }
@@ -345,7 +350,7 @@
         {
          "Ref": "EqualsFunction495237D7"
         },
-        "-cee4a04e780a42c69fd7960e4471b8ee\"}},\"ResponseBufferField\":\"Payload\",\"RequestedOutputs\":[],\"salt\":1718227106802}"
+        "-cee4a04e780a42c69fd7960e4471b8ee\"}},\"ResponseBufferField\":\"Payload\",\"RequestedOutputs\":[],\"salt\":1718235378290}"
        ]
       ]
      }
@@ -392,7 +397,7 @@
     "expected": "{\"$ObjectLike\":{\"Exports\":{\"$ArrayWith\":[{\"$ObjectLike\":{}}]}}}",
     "parameters": {},
     "flattenResponse": "false",
-    "salt": "1718227108090"
+    "salt": "1718235379510"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"

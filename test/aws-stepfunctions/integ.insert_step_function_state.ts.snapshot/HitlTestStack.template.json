@@ -1,0 +1,442 @@
+{
+ "Resources": {
+  "HitlStepFunctionEchoLambdaServiceRoleFB48D8D1": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   }
+  },
+  "HitlStepFunctionEchoLambda20867270": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "ZipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.handler = void 0;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\nasync function handler(event, context) {\nlog({ Event: event });\nlog({ Context: context });\nreturn Promise.resolve(event ?? {});\n}\nexports.handler = handler;"
+    },
+    "Environment": {
+     "Variables": {
+      "LogLevel": "1",
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "HitlStepFunctionEchoLambdaServiceRoleFB48D8D1",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x"
+   },
+   "DependsOn": [
+    "HitlStepFunctionEchoLambdaServiceRoleFB48D8D1"
+   ]
+  },
+  "FailedHitlStepFunctionEchoLambdaServiceRoleDC50D593": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   }
+  },
+  "FailedHitlStepFunctionEchoLambda7E4327A1": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "ZipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.handler = void 0;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\nasync function handler(event, context) {\nlog({ Event: event });\nlog({ Context: context });\nreturn Promise.resolve(event ?? {});\n}\nexports.handler = handler;"
+    },
+    "Environment": {
+     "Variables": {
+      "LogLevel": "1",
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "FailedHitlStepFunctionEchoLambdaServiceRoleDC50D593",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x"
+   },
+   "DependsOn": [
+    "FailedHitlStepFunctionEchoLambdaServiceRoleDC50D593"
+   ]
+  },
+  "MockHitlStateMachineRole38B152A8": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "states.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   }
+  },
+  "MockHitlStateMachineRoleDefaultPolicyB4C117F2": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CreateDeepLinkS3UrlLambdaB14417E2",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "HitlStepFunctionEchoLambda20867270",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CreateDeepLinkS3UrlLambdaB14417E2",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "HitlStepFunctionEchoLambda20867270",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "MockHitlStateMachineRoleDefaultPolicyB4C117F2",
+    "Roles": [
+     {
+      "Ref": "MockHitlStateMachineRole38B152A8"
+     }
+    ]
+   }
+  },
+  "MockHitlStateMachine1D7D3E53": {
+   "Type": "AWS::StepFunctions::StateMachine",
+   "Properties": {
+    "DefinitionString": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"StartAt\":\"AreRunsComplete?\",\"States\":{\"AreRunsComplete?\":{\"Type\":\"Pass\",\"Result\":{\"s3Uri\":\"s3://hitl-test-runs/runs/hitl-host-02/2024-05-10T10:38:27Z/15a85c7d-d7ca-43b4-906a-818488f39177\",\"allRunsComplete\":true,\"allRunsSuccessful\":true},\"Next\":\"DeepLinkStep\"},\"EchoStep\":{\"Next\":\"AreRunsSuccessful?\",\"Retry\":[{\"ErrorEquals\":[\"Lambda.ClientExecutionTimeoutException\",\"Lambda.ServiceException\",\"Lambda.AWSLambdaException\",\"Lambda.SdkClientException\"],\"IntervalSeconds\":2,\"MaxAttempts\":6,\"BackoffRate\":2}],\"Type\":\"Task\",\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "HitlStepFunctionEchoLambda20867270",
+         "Arn"
+        ]
+       },
+       "\"},\"AreRunsSuccessful?\":{\"Type\":\"Choice\",\"Choices\":[{\"And\":[{\"Variable\":\"$.allRunsComplete\",\"BooleanEquals\":true},{\"Variable\":\"$.allRunsSuccessful\",\"BooleanEquals\":true}],\"Next\":\"SucceedStep\"}],\"Default\":\"FailStep\"},\"FailStep\":{\"Type\":\"Fail\",\"Comment\":\"All runs complete but not successful\",\"CausePath\":\"States.JsonToString($)\"},\"SucceedStep\":{\"Type\":\"Succeed\",\"Comment\":\"All runs complete and successful\"},\"DeepLinkStep\":{\"Retry\":[{\"ErrorEquals\":[\"Lambda.ClientExecutionTimeoutException\",\"Lambda.ServiceException\",\"Lambda.AWSLambdaException\",\"Lambda.SdkClientException\"],\"IntervalSeconds\":2,\"MaxAttempts\":6,\"BackoffRate\":2}],\"Type\":\"Task\",\"ResultPath\":\"$.DeepLink\",\"ResultSelector\":{\"DeepLink.$\":\"$.deepLink\"},\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "CreateDeepLinkS3UrlLambdaB14417E2",
+         "Arn"
+        ]
+       },
+       "\",\"Next\":\"EchoStep\"}}}"
+      ]
+     ]
+    },
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "MockHitlStateMachineRole38B152A8",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "MockHitlStateMachineRoleDefaultPolicyB4C117F2",
+    "MockHitlStateMachineRole38B152A8"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "CreateDeepLinkS3UrlLambdaServiceRoleDF619012": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   }
+  },
+  "CreateDeepLinkS3UrlLambdaB14417E2": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "ZipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.s3UriToConsoleUri = void 0;\nconst logger = process.env.LogLevel ? console : undefined;\nfunction log(message) {\nlogger?.log(JSON.stringify(message));\n}\nasync function s3UriToConsoleUri(event, context) {\nlog({ name: 's3UriToConsoleUri' });\nlog({ event: event, context: context });\nif (!event.s3Uri) {\nthrow new Error('Did not find an s3Uri in the event.');\n}\nlet s3Uri = new URL(event.s3Uri);\nlet bucket = s3Uri.hostname;\n\nlet prefix = s3Uri.pathname.substring(1) + (event.Suffix ?? '');\nlet region = event.Region ?? 'us-west-2';\nlog({ bucket: bucket, prefix: prefix, region: region });\nlet destination = `https://${region}.console.aws.amazon.com/s3/object/${bucket}?region=${region}&bucketType=general&prefix=${encodeURIComponent(prefix)}`;\nlog({ destination: destination });\nreturn Promise.resolve({ destination: destination });\n}\nexports.s3UriToConsoleUri = s3UriToConsoleUri;"
+    },
+    "Environment": {
+     "Variables": {
+      "LogLevel": "1",
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "Handler": "index.s3UriToConsoleUri",
+    "Role": {
+     "Fn::GetAtt": [
+      "CreateDeepLinkS3UrlLambdaServiceRoleDF619012",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x"
+   },
+   "DependsOn": [
+    "CreateDeepLinkS3UrlLambdaServiceRoleDF619012"
+   ]
+  },
+  "MockFailHitlStateMachineRole401D2E3C": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "states.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   }
+  },
+  "MockFailHitlStateMachineRoleDefaultPolicy413D5222": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CreateDeepLinkS3UrlLambdaB14417E2",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "FailedHitlStepFunctionEchoLambda7E4327A1",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CreateDeepLinkS3UrlLambdaB14417E2",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "FailedHitlStepFunctionEchoLambda7E4327A1",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "MockFailHitlStateMachineRoleDefaultPolicy413D5222",
+    "Roles": [
+     {
+      "Ref": "MockFailHitlStateMachineRole401D2E3C"
+     }
+    ]
+   }
+  },
+  "MockFailHitlStateMachine944A3F8A": {
+   "Type": "AWS::StepFunctions::StateMachine",
+   "Properties": {
+    "DefinitionString": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"StartAt\":\"AreRunsComplete?\",\"States\":{\"AreRunsComplete?\":{\"Type\":\"Pass\",\"Result\":{\"s3Uri\":\"s3://hitl-test-runs/runs/hitl-host-01/2024-05-10T10:38:27Z/0caefbbe-0eb5-11ef-abd9-c25c5bb7c74f\",\"allRunsComplete\":true,\"allRunsSuccessful\":false},\"Next\":\"DeepLinkStep\"},\"EchoStep\":{\"Next\":\"AreRunsSuccessful?\",\"Retry\":[{\"ErrorEquals\":[\"Lambda.ClientExecutionTimeoutException\",\"Lambda.ServiceException\",\"Lambda.AWSLambdaException\",\"Lambda.SdkClientException\"],\"IntervalSeconds\":2,\"MaxAttempts\":6,\"BackoffRate\":2}],\"Type\":\"Task\",\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "FailedHitlStepFunctionEchoLambda7E4327A1",
+         "Arn"
+        ]
+       },
+       "\"},\"AreRunsSuccessful?\":{\"Type\":\"Choice\",\"Choices\":[{\"And\":[{\"Variable\":\"$.allRunsComplete\",\"BooleanEquals\":true},{\"Variable\":\"$.allRunsSuccessful\",\"BooleanEquals\":true}],\"Next\":\"SucceedStep\"}],\"Default\":\"FailStep\"},\"FailStep\":{\"Type\":\"Fail\",\"Comment\":\"All runs complete but not successful\",\"CausePath\":\"States.JsonToString($)\"},\"SucceedStep\":{\"Type\":\"Succeed\",\"Comment\":\"All runs complete and successful\"},\"DeepLinkStep\":{\"Retry\":[{\"ErrorEquals\":[\"Lambda.ClientExecutionTimeoutException\",\"Lambda.ServiceException\",\"Lambda.AWSLambdaException\",\"Lambda.SdkClientException\"],\"IntervalSeconds\":2,\"MaxAttempts\":6,\"BackoffRate\":2}],\"Type\":\"Task\",\"ResultPath\":\"$.DeepLink\",\"ResultSelector\":{\"DeepLink.$\":\"$.deepLink\"},\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "CreateDeepLinkS3UrlLambdaB14417E2",
+         "Arn"
+        ]
+       },
+       "\",\"Next\":\"EchoStep\"}}}"
+      ]
+     ]
+    },
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "MockFailHitlStateMachineRole401D2E3C",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "MockFailHitlStateMachineRoleDefaultPolicy413D5222",
+    "MockFailHitlStateMachineRole401D2E3C"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

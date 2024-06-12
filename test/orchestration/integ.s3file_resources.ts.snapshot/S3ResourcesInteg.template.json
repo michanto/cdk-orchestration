@@ -1,4 +1,9 @@
 {
+ "Metadata": {
+  "build_hostname": "88665a457e00.ant.amazon.com",
+  "build_timestamp": 1718235378290,
+  "build_user": "michanto"
+ },
  "Resources": {
   "MyBucketF68F3FF0": {
    "Type": "AWS::S3::Bucket",
@@ -51,7 +56,7 @@
      ]
     },
     "InstallLatestAwsSdk": false,
-    "salt": 1718227106802
+    "salt": 1718235378290
    },
    "DependsOn": [
     "WriterCustomResourcePolicy72926270"
@@ -185,7 +190,7 @@
         {
          "Ref": "MyBucketF68F3FF0"
         },
-        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"ResponseBufferField\":\"Body\",\"RequestedOutputs\":[\"Some\"],\"salt\":1718227106802}"
+        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"ResponseBufferField\":\"Body\",\"RequestedOutputs\":[\"Some\"],\"salt\":1718235378290}"
        ]
       ]
      }
@@ -451,7 +456,7 @@
         {
          "Ref": "MyBucketF68F3FF0"
         },
-        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"RequestedOutputs\":[\"Metadata.mymetadata\"],\"salt\":1718227106802}"
+        "\",\"Key\":\"foo/bar/baz.json\"},\"physicalResourceId\":{\"id\":\"Reader\"},\"ignoreErrorCodesMatching\":\"NoSuchKey|NoSuchBucket\"},\"RequestedOutputs\":[\"Metadata.mymetadata\"],\"salt\":1718235378290}"
        ]
       ]
      }

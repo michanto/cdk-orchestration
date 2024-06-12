@@ -1,0 +1,1249 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "HitlTestStack": {
+        "id": "HitlTestStack",
+        "path": "HitlTestStack",
+        "children": {
+          "HitlStepFunction": {
+            "id": "HitlStepFunction",
+            "path": "HitlTestStack/HitlStepFunction",
+            "children": {
+              "AreRunsComplete?": {
+                "id": "AreRunsComplete?",
+                "path": "HitlTestStack/HitlStepFunction/AreRunsComplete?",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.Pass",
+                  "version": "2.120.0"
+                }
+              },
+              "EchoLambda": {
+                "id": "EchoLambda",
+                "path": "HitlTestStack/HitlStepFunction/EchoLambda",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "HitlTestStack/HitlStepFunction/EchoLambda/ServiceRole",
+                    "children": {
+                      "ImportServiceRole": {
+                        "id": "ImportServiceRole",
+                        "path": "HitlTestStack/HitlStepFunction/EchoLambda/ServiceRole/ImportServiceRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "HitlTestStack/HitlStepFunction/EchoLambda/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "HitlTestStack/HitlStepFunction/EchoLambda/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "zipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.handler = void 0;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\nasync function handler(event, context) {\nlog({ Event: event });\nlog({ Context: context });\nreturn Promise.resolve(event ?? {});\n}\nexports.handler = handler;"
+                        },
+                        "environment": {
+                          "variables": {
+                            "LogLevel": "1",
+                            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+                          }
+                        },
+                        "handler": "index.handler",
+                        "role": {
+                          "Fn::GetAtt": [
+                            "HitlStepFunctionEchoLambdaServiceRoleFB48D8D1",
+                            "Arn"
+                          ]
+                        },
+                        "runtime": "nodejs18.x"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "attributes": {
+                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-DBGFK8/fa05f3d3-echo.js"
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.120.0"
+                }
+              },
+              "EchoStep": {
+                "id": "EchoStep",
+                "path": "HitlTestStack/HitlStepFunction/EchoStep",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
+                  "version": "2.120.0"
+                }
+              },
+              "AreRunsSuccessful?": {
+                "id": "AreRunsSuccessful?",
+                "path": "HitlTestStack/HitlStepFunction/AreRunsSuccessful?",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.Choice",
+                  "version": "2.120.0"
+                }
+              },
+              "SucceedStep": {
+                "id": "SucceedStep",
+                "path": "HitlTestStack/HitlStepFunction/SucceedStep",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.Succeed",
+                  "version": "2.120.0"
+                }
+              },
+              "FailStep": {
+                "id": "FailStep",
+                "path": "HitlTestStack/HitlStepFunction/FailStep",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.Fail",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "FailedHitlStepFunction": {
+            "id": "FailedHitlStepFunction",
+            "path": "HitlTestStack/FailedHitlStepFunction",
+            "children": {
+              "AreRunsComplete?": {
+                "id": "AreRunsComplete?",
+                "path": "HitlTestStack/FailedHitlStepFunction/AreRunsComplete?",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.Pass",
+                  "version": "2.120.0"
+                }
+              },
+              "EchoLambda": {
+                "id": "EchoLambda",
+                "path": "HitlTestStack/FailedHitlStepFunction/EchoLambda",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "HitlTestStack/FailedHitlStepFunction/EchoLambda/ServiceRole",
+                    "children": {
+                      "ImportServiceRole": {
+                        "id": "ImportServiceRole",
+                        "path": "HitlTestStack/FailedHitlStepFunction/EchoLambda/ServiceRole/ImportServiceRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "HitlTestStack/FailedHitlStepFunction/EchoLambda/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "HitlTestStack/FailedHitlStepFunction/EchoLambda/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "zipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.handler = void 0;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\nasync function handler(event, context) {\nlog({ Event: event });\nlog({ Context: context });\nreturn Promise.resolve(event ?? {});\n}\nexports.handler = handler;"
+                        },
+                        "environment": {
+                          "variables": {
+                            "LogLevel": "1",
+                            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+                          }
+                        },
+                        "handler": "index.handler",
+                        "role": {
+                          "Fn::GetAtt": [
+                            "FailedHitlStepFunctionEchoLambdaServiceRoleDC50D593",
+                            "Arn"
+                          ]
+                        },
+                        "runtime": "nodejs18.x"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "attributes": {
+                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-DBGFK8/d6a979cf-echo.js"
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.120.0"
+                }
+              },
+              "EchoStep": {
+                "id": "EchoStep",
+                "path": "HitlTestStack/FailedHitlStepFunction/EchoStep",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
+                  "version": "2.120.0"
+                }
+              },
+              "AreRunsSuccessful?": {
+                "id": "AreRunsSuccessful?",
+                "path": "HitlTestStack/FailedHitlStepFunction/AreRunsSuccessful?",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.Choice",
+                  "version": "2.120.0"
+                }
+              },
+              "SucceedStep": {
+                "id": "SucceedStep",
+                "path": "HitlTestStack/FailedHitlStepFunction/SucceedStep",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.Succeed",
+                  "version": "2.120.0"
+                }
+              },
+              "FailStep": {
+                "id": "FailStep",
+                "path": "HitlTestStack/FailedHitlStepFunction/FailStep",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.Fail",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "MockHitlStateMachine": {
+            "id": "MockHitlStateMachine",
+            "path": "HitlTestStack/MockHitlStateMachine",
+            "children": {
+              "Role": {
+                "id": "Role",
+                "path": "HitlTestStack/MockHitlStateMachine/Role",
+                "children": {
+                  "ImportRole": {
+                    "id": "ImportRole",
+                    "path": "HitlTestStack/MockHitlStateMachine/Role/ImportRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "HitlTestStack/MockHitlStateMachine/Role/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "states.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "HitlTestStack/MockHitlStateMachine/Role/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "HitlTestStack/MockHitlStateMachine/Role/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "lambda:InvokeFunction",
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "CreateDeepLinkS3UrlLambdaB14417E2",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::GetAtt": [
+                                        "HitlStepFunctionEchoLambda20867270",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "CreateDeepLinkS3UrlLambdaB14417E2",
+                                              "Arn"
+                                            ]
+                                          },
+                                          ":*"
+                                        ]
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "HitlStepFunctionEchoLambda20867270",
+                                              "Arn"
+                                            ]
+                                          },
+                                          ":*"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "MockHitlStateMachineRoleDefaultPolicyB4C117F2",
+                            "roles": [
+                              {
+                                "Ref": "MockHitlStateMachineRole38B152A8"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.120.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "HitlTestStack/MockHitlStateMachine/Resource",
+                "children": {
+                  "@DefinitionStringApplier": {
+                    "id": "@DefinitionStringApplier",
+                    "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier",
+                    "children": {
+                      "@DefinitionStringApplierShim0": {
+                        "id": "@DefinitionStringApplierShim0",
+                        "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringApplierShim0",
+                        "attributes": {
+                          "CfnTransformShim.transformPath": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier"
+                        },
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      },
+                      "@DefinitionStringTransformHost": {
+                        "id": "@DefinitionStringTransformHost",
+                        "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost",
+                        "children": {
+                          "_PreReader": {
+                            "id": "_PreReader",
+                            "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_PreReader",
+                            "children": {
+                              "Joiner": {
+                                "id": "Joiner",
+                                "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_PreReader/Joiner",
+                                "children": {
+                                  "JoinerShim0": {
+                                    "id": "JoinerShim0",
+                                    "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_PreReader/Joiner/JoinerShim0",
+                                    "attributes": {
+                                      "CfnTransformShim.transformPath": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_PreReader/Joiner"
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "constructs.Construct",
+                                      "version": "10.3.0"
+                                    }
+                                  }
+                                },
+                                "attributes": {
+                                  "TransformBase.cfnTransformPath": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_PreReader/Joiner/JoinerShim0"
+                                },
+                                "constructInfo": {
+                                  "fqn": "constructs.Construct",
+                                  "version": "10.3.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          },
+                          "_Reader": {
+                            "id": "_Reader",
+                            "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Reader",
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          },
+                          "_StringTransforms": {
+                            "id": "_StringTransforms",
+                            "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_StringTransforms",
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          },
+                          "_Parser": {
+                            "id": "_Parser",
+                            "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Parser",
+                            "children": {
+                              "YamlParser": {
+                                "id": "YamlParser",
+                                "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Parser/YamlParser",
+                                "children": {
+                                  "YamlParserShim0": {
+                                    "id": "YamlParserShim0",
+                                    "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Parser/YamlParser/YamlParserShim0",
+                                    "attributes": {
+                                      "CfnTransformShim.transformPath": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Parser/YamlParser"
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "constructs.Construct",
+                                      "version": "10.3.0"
+                                    }
+                                  }
+                                },
+                                "attributes": {
+                                  "TransformBase.cfnTransformPath": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Parser/YamlParser/YamlParserShim0"
+                                },
+                                "constructInfo": {
+                                  "fqn": "constructs.Construct",
+                                  "version": "10.3.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          },
+                          "_Transforms": {
+                            "id": "_Transforms",
+                            "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Transforms",
+                            "children": {
+                              "NewStepShim0": {
+                                "id": "NewStepShim0",
+                                "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Transforms/NewStepShim0",
+                                "attributes": {
+                                  "CfnTransformShim.transformPath": "HitlTestStack/MockHitlStateMachine/NewStep"
+                                },
+                                "constructInfo": {
+                                  "fqn": "constructs.Construct",
+                                  "version": "10.3.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          },
+                          "_Writer": {
+                            "id": "_Writer",
+                            "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Writer",
+                            "children": {
+                              "Stringify": {
+                                "id": "Stringify",
+                                "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Writer/Stringify",
+                                "children": {
+                                  "StringifyShim0": {
+                                    "id": "StringifyShim0",
+                                    "path": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Writer/Stringify/StringifyShim0",
+                                    "attributes": {
+                                      "CfnTransformShim.transformPath": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Writer/Stringify"
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "constructs.Construct",
+                                      "version": "10.3.0"
+                                    }
+                                  }
+                                },
+                                "attributes": {
+                                  "TransformBase.cfnTransformPath": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Writer/Stringify/StringifyShim0"
+                                },
+                                "constructInfo": {
+                                  "fqn": "constructs.Construct",
+                                  "version": "10.3.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      }
+                    },
+                    "attributes": {
+                      "TransformBase.cfnTransformPath": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringApplierShim0"
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  }
+                },
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::StepFunctions::StateMachine",
+                  "aws:cdk:cloudformation:props": {
+                    "definitionString": {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "{\"StartAt\":\"AreRunsComplete?\",\"States\":{\"AreRunsComplete?\":{\"Type\":\"Pass\",\"Result\":{\"s3Uri\":\"s3://hitl-test-runs/runs/hitl-host-02/2024-05-10T10:38:27Z/15a85c7d-d7ca-43b4-906a-818488f39177\",\"allRunsComplete\":true,\"allRunsSuccessful\":true},\"Next\":\"EchoStep\"},\"EchoStep\":{\"Next\":\"AreRunsSuccessful?\",\"Retry\":[{\"ErrorEquals\":[\"Lambda.ClientExecutionTimeoutException\",\"Lambda.ServiceException\",\"Lambda.AWSLambdaException\",\"Lambda.SdkClientException\"],\"IntervalSeconds\":2,\"MaxAttempts\":6,\"BackoffRate\":2}],\"Type\":\"Task\",\"Resource\":\"",
+                          {
+                            "Fn::GetAtt": [
+                              "HitlStepFunctionEchoLambda20867270",
+                              "Arn"
+                            ]
+                          },
+                          "\"},\"AreRunsSuccessful?\":{\"Type\":\"Choice\",\"Choices\":[{\"And\":[{\"Variable\":\"$.allRunsComplete\",\"BooleanEquals\":true},{\"Variable\":\"$.allRunsSuccessful\",\"BooleanEquals\":true}],\"Next\":\"SucceedStep\"}],\"Default\":\"FailStep\"},\"FailStep\":{\"Type\":\"Fail\",\"Comment\":\"All runs complete but not successful\",\"CausePath\":\"States.JsonToString($)\"},\"SucceedStep\":{\"Type\":\"Succeed\",\"Comment\":\"All runs complete and successful\"}}}"
+                        ]
+                      ]
+                    },
+                    "roleArn": {
+                      "Fn::GetAtt": [
+                        "MockHitlStateMachineRole38B152A8",
+                        "Arn"
+                      ]
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+                  "version": "2.120.0"
+                }
+              },
+              "NewStep": {
+                "id": "NewStep",
+                "path": "HitlTestStack/MockHitlStateMachine/NewStep",
+                "attributes": {
+                  "TransformBase.cfnTransformPath": "HitlTestStack/MockHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Transforms/NewStepShim0"
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_stepfunctions.StateMachine",
+              "version": "2.120.0"
+            }
+          },
+          "CreateDeepLink": {
+            "id": "CreateDeepLink",
+            "path": "HitlTestStack/CreateDeepLink",
+            "children": {
+              "S3UrlLambda": {
+                "id": "S3UrlLambda",
+                "path": "HitlTestStack/CreateDeepLink/S3UrlLambda",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "HitlTestStack/CreateDeepLink/S3UrlLambda/ServiceRole",
+                    "children": {
+                      "ImportServiceRole": {
+                        "id": "ImportServiceRole",
+                        "path": "HitlTestStack/CreateDeepLink/S3UrlLambda/ServiceRole/ImportServiceRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "HitlTestStack/CreateDeepLink/S3UrlLambda/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "HitlTestStack/CreateDeepLink/S3UrlLambda/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "zipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.s3UriToConsoleUri = void 0;\nconst logger = process.env.LogLevel ? console : undefined;\nfunction log(message) {\nlogger?.log(JSON.stringify(message));\n}\nasync function s3UriToConsoleUri(event, context) {\nlog({ name: 's3UriToConsoleUri' });\nlog({ event: event, context: context });\nif (!event.s3Uri) {\nthrow new Error('Did not find an s3Uri in the event.');\n}\nlet s3Uri = new URL(event.s3Uri);\nlet bucket = s3Uri.hostname;\n\nlet prefix = s3Uri.pathname.substring(1) + (event.Suffix ?? '');\nlet region = event.Region ?? 'us-west-2';\nlog({ bucket: bucket, prefix: prefix, region: region });\nlet destination = `https://${region}.console.aws.amazon.com/s3/object/${bucket}?region=${region}&bucketType=general&prefix=${encodeURIComponent(prefix)}`;\nlog({ destination: destination });\nreturn Promise.resolve({ destination: destination });\n}\nexports.s3UriToConsoleUri = s3UriToConsoleUri;"
+                        },
+                        "environment": {
+                          "variables": {
+                            "LogLevel": "1",
+                            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+                          }
+                        },
+                        "handler": "index.s3UriToConsoleUri",
+                        "role": {
+                          "Fn::GetAtt": [
+                            "CreateDeepLinkS3UrlLambdaServiceRoleDF619012",
+                            "Arn"
+                          ]
+                        },
+                        "runtime": "nodejs18.x"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "attributes": {
+                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-DBGFK8/79062b61-console_link.js"
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.120.0"
+                }
+              },
+              "DeepLinkStep": {
+                "id": "DeepLinkStep",
+                "path": "HitlTestStack/CreateDeepLink/DeepLinkStep",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "MockFailHitlStateMachine": {
+            "id": "MockFailHitlStateMachine",
+            "path": "HitlTestStack/MockFailHitlStateMachine",
+            "children": {
+              "Role": {
+                "id": "Role",
+                "path": "HitlTestStack/MockFailHitlStateMachine/Role",
+                "children": {
+                  "ImportRole": {
+                    "id": "ImportRole",
+                    "path": "HitlTestStack/MockFailHitlStateMachine/Role/ImportRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "HitlTestStack/MockFailHitlStateMachine/Role/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "states.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "HitlTestStack/MockFailHitlStateMachine/Role/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "HitlTestStack/MockFailHitlStateMachine/Role/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "lambda:InvokeFunction",
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "CreateDeepLinkS3UrlLambdaB14417E2",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::GetAtt": [
+                                        "FailedHitlStepFunctionEchoLambda7E4327A1",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "CreateDeepLinkS3UrlLambdaB14417E2",
+                                              "Arn"
+                                            ]
+                                          },
+                                          ":*"
+                                        ]
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "FailedHitlStepFunctionEchoLambda7E4327A1",
+                                              "Arn"
+                                            ]
+                                          },
+                                          ":*"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "MockFailHitlStateMachineRoleDefaultPolicy413D5222",
+                            "roles": [
+                              {
+                                "Ref": "MockFailHitlStateMachineRole401D2E3C"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.120.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.120.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "HitlTestStack/MockFailHitlStateMachine/Resource",
+                "children": {
+                  "@DefinitionStringApplier": {
+                    "id": "@DefinitionStringApplier",
+                    "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier",
+                    "children": {
+                      "@DefinitionStringApplierShim0": {
+                        "id": "@DefinitionStringApplierShim0",
+                        "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringApplierShim0",
+                        "attributes": {
+                          "CfnTransformShim.transformPath": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier"
+                        },
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      },
+                      "@DefinitionStringTransformHost": {
+                        "id": "@DefinitionStringTransformHost",
+                        "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost",
+                        "children": {
+                          "_PreReader": {
+                            "id": "_PreReader",
+                            "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_PreReader",
+                            "children": {
+                              "Joiner": {
+                                "id": "Joiner",
+                                "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_PreReader/Joiner",
+                                "children": {
+                                  "JoinerShim0": {
+                                    "id": "JoinerShim0",
+                                    "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_PreReader/Joiner/JoinerShim0",
+                                    "attributes": {
+                                      "CfnTransformShim.transformPath": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_PreReader/Joiner"
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "constructs.Construct",
+                                      "version": "10.3.0"
+                                    }
+                                  }
+                                },
+                                "attributes": {
+                                  "TransformBase.cfnTransformPath": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_PreReader/Joiner/JoinerShim0"
+                                },
+                                "constructInfo": {
+                                  "fqn": "constructs.Construct",
+                                  "version": "10.3.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          },
+                          "_Reader": {
+                            "id": "_Reader",
+                            "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Reader",
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          },
+                          "_StringTransforms": {
+                            "id": "_StringTransforms",
+                            "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_StringTransforms",
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          },
+                          "_Parser": {
+                            "id": "_Parser",
+                            "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Parser",
+                            "children": {
+                              "YamlParser": {
+                                "id": "YamlParser",
+                                "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Parser/YamlParser",
+                                "children": {
+                                  "YamlParserShim0": {
+                                    "id": "YamlParserShim0",
+                                    "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Parser/YamlParser/YamlParserShim0",
+                                    "attributes": {
+                                      "CfnTransformShim.transformPath": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Parser/YamlParser"
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "constructs.Construct",
+                                      "version": "10.3.0"
+                                    }
+                                  }
+                                },
+                                "attributes": {
+                                  "TransformBase.cfnTransformPath": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Parser/YamlParser/YamlParserShim0"
+                                },
+                                "constructInfo": {
+                                  "fqn": "constructs.Construct",
+                                  "version": "10.3.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          },
+                          "_Transforms": {
+                            "id": "_Transforms",
+                            "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Transforms",
+                            "children": {
+                              "NewStepShim0": {
+                                "id": "NewStepShim0",
+                                "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Transforms/NewStepShim0",
+                                "attributes": {
+                                  "CfnTransformShim.transformPath": "HitlTestStack/MockFailHitlStateMachine/NewStep"
+                                },
+                                "constructInfo": {
+                                  "fqn": "constructs.Construct",
+                                  "version": "10.3.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          },
+                          "_Writer": {
+                            "id": "_Writer",
+                            "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Writer",
+                            "children": {
+                              "Stringify": {
+                                "id": "Stringify",
+                                "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Writer/Stringify",
+                                "children": {
+                                  "StringifyShim0": {
+                                    "id": "StringifyShim0",
+                                    "path": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Writer/Stringify/StringifyShim0",
+                                    "attributes": {
+                                      "CfnTransformShim.transformPath": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Writer/Stringify"
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "constructs.Construct",
+                                      "version": "10.3.0"
+                                    }
+                                  }
+                                },
+                                "attributes": {
+                                  "TransformBase.cfnTransformPath": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Writer/Stringify/StringifyShim0"
+                                },
+                                "constructInfo": {
+                                  "fqn": "constructs.Construct",
+                                  "version": "10.3.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "constructs.Construct",
+                              "version": "10.3.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      }
+                    },
+                    "attributes": {
+                      "TransformBase.cfnTransformPath": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringApplierShim0"
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  }
+                },
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::StepFunctions::StateMachine",
+                  "aws:cdk:cloudformation:props": {
+                    "definitionString": {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "{\"StartAt\":\"AreRunsComplete?\",\"States\":{\"AreRunsComplete?\":{\"Type\":\"Pass\",\"Result\":{\"s3Uri\":\"s3://hitl-test-runs/runs/hitl-host-01/2024-05-10T10:38:27Z/0caefbbe-0eb5-11ef-abd9-c25c5bb7c74f\",\"allRunsComplete\":true,\"allRunsSuccessful\":false},\"Next\":\"EchoStep\"},\"EchoStep\":{\"Next\":\"AreRunsSuccessful?\",\"Retry\":[{\"ErrorEquals\":[\"Lambda.ClientExecutionTimeoutException\",\"Lambda.ServiceException\",\"Lambda.AWSLambdaException\",\"Lambda.SdkClientException\"],\"IntervalSeconds\":2,\"MaxAttempts\":6,\"BackoffRate\":2}],\"Type\":\"Task\",\"Resource\":\"",
+                          {
+                            "Fn::GetAtt": [
+                              "FailedHitlStepFunctionEchoLambda7E4327A1",
+                              "Arn"
+                            ]
+                          },
+                          "\"},\"AreRunsSuccessful?\":{\"Type\":\"Choice\",\"Choices\":[{\"And\":[{\"Variable\":\"$.allRunsComplete\",\"BooleanEquals\":true},{\"Variable\":\"$.allRunsSuccessful\",\"BooleanEquals\":true}],\"Next\":\"SucceedStep\"}],\"Default\":\"FailStep\"},\"FailStep\":{\"Type\":\"Fail\",\"Comment\":\"All runs complete but not successful\",\"CausePath\":\"States.JsonToString($)\"},\"SucceedStep\":{\"Type\":\"Succeed\",\"Comment\":\"All runs complete and successful\"}}}"
+                        ]
+                      ]
+                    },
+                    "roleArn": {
+                      "Fn::GetAtt": [
+                        "MockFailHitlStateMachineRole401D2E3C",
+                        "Arn"
+                      ]
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+                  "version": "2.120.0"
+                }
+              },
+              "NewStep": {
+                "id": "NewStep",
+                "path": "HitlTestStack/MockFailHitlStateMachine/NewStep",
+                "attributes": {
+                  "TransformBase.cfnTransformPath": "HitlTestStack/MockFailHitlStateMachine/Resource/@DefinitionStringApplier/@DefinitionStringTransformHost/_Transforms/NewStepShim0"
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_stepfunctions.StateMachine",
+              "version": "2.120.0"
+            }
+          },
+          "Joiner": {
+            "id": "Joiner",
+            "path": "HitlTestStack/Joiner",
+            "children": {
+              "JoinerShim0": {
+                "id": "JoinerShim0",
+                "path": "HitlTestStack/Joiner/JoinerShim0",
+                "attributes": {
+                  "CfnTransformShim.transformPath": "HitlTestStack/Joiner"
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              }
+            },
+            "attributes": {
+              "TransformBase.cfnTransformPath": "HitlTestStack/Joiner/JoinerShim0"
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "HitlTestStack/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.120.0"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "HitlTestStack/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.120.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.120.0"
+        }
+      },
+      "InsertStepFunctionStateInteg": {
+        "id": "InsertStepFunctionStateInteg",
+        "path": "InsertStepFunctionStateInteg",
+        "children": {
+          "DefaultTest": {
+            "id": "DefaultTest",
+            "path": "InsertStepFunctionStateInteg/DefaultTest",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "InsertStepFunctionStateInteg/DefaultTest/Default",
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              },
+              "DeployAssert": {
+                "id": "DeployAssert",
+                "path": "InsertStepFunctionStateInteg/DefaultTest/DeployAssert",
+                "children": {
+                  "BootstrapVersion": {
+                    "id": "BootstrapVersion",
+                    "path": "InsertStepFunctionStateInteg/DefaultTest/DeployAssert/BootstrapVersion",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnParameter",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "CheckBootstrapVersion": {
+                    "id": "CheckBootstrapVersion",
+                    "path": "InsertStepFunctionStateInteg/DefaultTest/DeployAssert/CheckBootstrapVersion",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnRule",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Stack",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/integ-tests-alpha.IntegTestCase",
+              "version": "2.120.0-alpha.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "@aws-cdk/integ-tests-alpha.IntegTest",
+          "version": "2.120.0-alpha.0"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.3.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.120.0"
+    }
+  }
+}

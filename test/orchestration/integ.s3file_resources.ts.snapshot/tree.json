@@ -908,6 +908,14 @@
               "version": "10.3.0"
             }
           },
+          "@StackProvenance": {
+            "id": "@StackProvenance",
+            "path": "S3ResourcesInteg/@StackProvenance",
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
           "Exports": {
             "id": "Exports",
             "path": "S3ResourcesInteg/Exports",
@@ -1180,7 +1188,7 @@
               }
             },
             "attributes": {
-              "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-k1heOP/effdb475-equals_comparison.js"
+              "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-9c1Lg0/effdb475-equals_comparison.js"
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_lambda.Function",
@@ -1740,6 +1748,14 @@
                 }
               }
             },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "@StackProvenance": {
+            "id": "@StackProvenance",
+            "path": "S3ResourcesAssertions/@StackProvenance",
             "constructInfo": {
               "fqn": "constructs.Construct",
               "version": "10.3.0"

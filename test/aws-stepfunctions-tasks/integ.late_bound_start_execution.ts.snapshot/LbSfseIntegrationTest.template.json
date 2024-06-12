@@ -1,0 +1,1142 @@
+{
+ "Resources": {
+  "WaiterRole1D460720": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "states.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   }
+  },
+  "WaiterD0B11E6D": {
+   "Type": "AWS::StepFunctions::StateMachine",
+   "Properties": {
+    "DefinitionString": "{\"StartAt\":\"Wait\",\"States\":{\"Wait\":{\"Type\":\"Wait\",\"Comment\":\"Waits for the provided waitSeconds.\",\"SecondsPath\":\"$.waitSeconds\",\"End\":true}}}",
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "WaiterRole1D460720",
+      "Arn"
+     ]
+    },
+    "StateMachineName": "WaitingStateMachine"
+   },
+   "DependsOn": [
+    "WaiterRole1D460720"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "ExecuteRaceLrsfeRunIt380B7469": {
+   "Type": "Custom::StepFunctionTaskStep",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEvent9D2C3EB6",
+      "Arn"
+     ]
+    },
+    "EncodedProperties": {
+     "Fn::Base64": {
+      "Fn::Join": [
+       "",
+       [
+        "{\"StateMachineArn\":\"",
+        {
+         "Ref": "StepFunctionRace37EE22CC"
+        },
+        "\",\"StateMachineEvent\":{\"stateMachineExecutions\":[{\"stateMachineArn\":\"",
+        {
+         "Ref": "WaiterD0B11E6D"
+        },
+        "\",\"inputEvent\":{\"waitSeconds\":50,\"totalTimeout\":7200},\"completeFlag\":\"Completed.1\"},{\"stateMachineArn\":\"",
+        {
+         "Ref": "WaiterD0B11E6D"
+        },
+        "\",\"inputEvent\":{\"waitSeconds\":100,\"totalTimeout\":7200},\"completeFlag\":\"Completed.2\"},{\"stateMachineArn\":\"",
+        {
+         "Ref": "WaiterD0B11E6D"
+        },
+        "\",\"inputEvent\":{\"waitSeconds\":150,\"totalTimeout\":7200},\"completeFlag\":\"Completed.3\"},{\"stateMachineArn\":\"",
+        {
+         "Ref": "WaiterD0B11E6D"
+        },
+        "\",\"inputEvent\":{\"waitSeconds\":200,\"totalTimeout\":7200},\"completeFlag\":\"Completed.4\"},{\"stateMachineArn\":\"",
+        {
+         "Ref": "StepFunctionRaceReferee1BB43316"
+        },
+        "\",\"inputEvent\":{\"Comment\":\"Referee\",\"waitSeconds\":7200},\"completeFlag\":\"Timeout\"}]},\"SucceedAfterMs\":3540000,\"OutputPaths\":[],\"salt\":1718235754107}"
+       ]
+      ]
+     }
+    }
+   },
+   "DependsOn": [
+    "StepFunctionRaceExecutePolicyB218936D",
+    "StepFunctionRace37EE22CC",
+    "StepFunctionRaceRoleDefaultPolicy5C7A59A5",
+    "StepFunctionRaceRoleA1DB6C30"
+   ],
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain"
+  },
+  "ExecuteRaceLrsfeWaitForIt1B563CD59": {
+   "Type": "Custom::StepFunctionTaskStep",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEvent9D2C3EB6",
+      "Arn"
+     ]
+    },
+    "EncodedProperties": {
+     "Fn::Base64": {
+      "Fn::Join": [
+       "",
+       [
+        "{\"ExecutionArn\":\"",
+        {
+         "Ref": "ExecuteRaceLrsfeRunIt380B7469"
+        },
+        "\",\"SucceedAfterMs\":7080000,\"Suffix\":\"1\",\"OutputPaths\":[],\"salt\":1718235754107}"
+       ]
+      ]
+     }
+    }
+   },
+   "DependsOn": [
+    "ExecuteRaceLrsfeRunIt380B7469",
+    "StepFunctionRaceExecutePolicyB218936D",
+    "StepFunctionRace37EE22CC",
+    "StepFunctionRaceRoleDefaultPolicy5C7A59A5",
+    "StepFunctionRaceRoleA1DB6C30"
+   ],
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain"
+  },
+  "ExecuteRaceLrsfeWaitForIt2E981DF9D": {
+   "Type": "Custom::StepFunctionTaskStep",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEvent9D2C3EB6",
+      "Arn"
+     ]
+    },
+    "EncodedProperties": {
+     "Fn::Base64": {
+      "Fn::Join": [
+       "",
+       [
+        "{\"ExecutionArn\":\"",
+        {
+         "Ref": "ExecuteRaceLrsfeRunIt380B7469"
+        },
+        "\",\"Suffix\":\"2\",\"OutputPaths\":[],\"salt\":1718235754107}"
+       ]
+      ]
+     }
+    }
+   },
+   "DependsOn": [
+    "ExecuteRaceLrsfeWaitForIt1B563CD59",
+    "StepFunctionRaceExecutePolicyB218936D",
+    "StepFunctionRace37EE22CC",
+    "StepFunctionRaceRoleDefaultPolicy5C7A59A5",
+    "StepFunctionRaceRoleA1DB6C30"
+   ],
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain"
+  },
+  "RacerDefinitionContestantNamesRoleF9B4ED83": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   }
+  },
+  "RacerDefinitionContestantNamesLambda4CAC7472": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "ZipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.handler = void 0;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\nconst handler = async (event, context) => {\nlog({ Event: event });\nlog({ Context: context });\nlet executions = event.StateMachineExecutions;\nfor (let i = 0; i < executions.length; i++) {\nif (executions[i].completeFlag == \"Timeout\") {\nexecutions[i].name = `${event.ExecutionName}_Timeout`;\n}\nelse {\nexecutions[i].name = `${event.ExecutionName}_${i}`;\n}\n}\nreturn Promise.resolve(executions);\n};\nexports.handler = handler;"
+    },
+    "Environment": {
+     "Variables": {
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "RacerDefinitionContestantNamesRoleF9B4ED83",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x"
+   },
+   "DependsOn": [
+    "RacerDefinitionContestantNamesRoleF9B4ED83"
+   ]
+  },
+  "StepFunctionRaceRoleA1DB6C30": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "states.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   }
+  },
+  "StepFunctionRaceRoleDefaultPolicy5C7A59A5": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "RacerDefinitionContestantNamesLambda4CAC7472",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "RacerDefinitionContestantNamesLambda4CAC7472",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":states:",
+          {
+           "Ref": "AWS::Region"
+          },
+          ":",
+          {
+           "Ref": "AWS::AccountId"
+          },
+          ":stateMachine:*"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": [
+        "states:DescribeExecution",
+        "states:StopExecution"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":states:",
+          {
+           "Ref": "AWS::Region"
+          },
+          ":",
+          {
+           "Ref": "AWS::AccountId"
+          },
+          ":execution:**"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": [
+        "events:DescribeRule",
+        "events:PutRule",
+        "events:PutTargets"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":events:",
+          {
+           "Ref": "AWS::Region"
+          },
+          ":",
+          {
+           "Ref": "AWS::AccountId"
+          },
+          ":rule/StepFunctionsGetEventsForStepFunctionsExecutionRule"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "StepFunctionRaceRoleDefaultPolicy5C7A59A5",
+    "Roles": [
+     {
+      "Ref": "StepFunctionRaceRoleA1DB6C30"
+     }
+    ]
+   }
+  },
+  "StepFunctionRace37EE22CC": {
+   "Type": "AWS::StepFunctions::StateMachine",
+   "Properties": {
+    "DefinitionString": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"StartAt\":\"ContestantNamesTask\",\"States\":{\"ContestantNamesTask\":{\"Next\":\"ProcessParallel\",\"Retry\":[{\"ErrorEquals\":[\"Lambda.ClientExecutionTimeoutException\",\"Lambda.ServiceException\",\"Lambda.AWSLambdaException\",\"Lambda.SdkClientException\"],\"IntervalSeconds\":2,\"MaxAttempts\":6,\"BackoffRate\":2}],\"Type\":\"Task\",\"ResultPath\":\"$.stateMachineExecutions\",\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "RacerDefinitionContestantNamesLambda4CAC7472",
+         "Arn"
+        ]
+       },
+       "\",\"Parameters\":{\"ExecutionName.$\":\"$$.Execution.Name\",\"StateMachineExecutions.$\":\"$.stateMachineExecutions\"}},\"ProcessParallel\":{\"Type\":\"Map\",\"Comment\":\"Process parallel\",\"ResultPath\":\"$.outputs\",\"Next\":\"Succeeded\",\"Catch\":[{\"ErrorEquals\":[\"Completed.1\",\"Completed.2\",\"Completed.3\",\"Completed.4\",\"Completed.5\",\"Completed.6\",\"Completed.7\",\"Completed.8\",\"Completed.9\",\"Completed.10\",\"Completed.11\",\"Completed.12\",\"Completed.13\",\"Completed.14\",\"Completed.15\",\"Completed.16\",\"Completed.17\",\"Completed.18\",\"Completed.19\",\"Completed.20\"],\"Next\":\"Succeeded\"}],\"ItemsPath\":\"$.stateMachineExecutions\",\"ItemProcessor\":{\"ProcessorConfig\":{\"Mode\":\"INLINE\"},\"StartAt\":\"InvokeWorkflow\",\"States\":{\"InvokeWorkflow\":{\"Next\":\"ExitEarly\",\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"ResultPath\":\"$.errorData\",\"Next\":\"DroppedOut\"}],\"Type\":\"Task\",\"ResultPath\":\"$.stateMachineOutput\",\"Resource\":\"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":states:::states:startExecution.sync:2\",\"Parameters\":{\"Input.$\":\"$.inputEvent\",\"StateMachineArn.$\":\"$.stateMachineArn\",\"Name.$\":\"$.name\"}},\"ExitEarly\":{\"Type\":\"Fail\",\"ErrorPath\":\"$.completeFlag\"},\"DroppedOut\":{\"Type\":\"Wait\",\"SecondsPath\":\"$.inputEvent.totalTimeout\",\"End\":true}}}},\"Succeeded\":{\"Type\":\"Succeed\"}}}"
+      ]
+     ]
+    },
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "StepFunctionRaceRoleA1DB6C30",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "StepFunctionRaceRoleDefaultPolicy5C7A59A5",
+    "StepFunctionRaceRoleA1DB6C30"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "StepFunctionRaceExecutePolicyB218936D": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "StepFunctionRaceExecutePolicyB218936D",
+    "Roles": [
+     {
+      "Ref": "StepFunctionRaceRoleA1DB6C30"
+     }
+    ]
+   }
+  },
+  "StepFunctionRaceRefereeRole2D39D2E5": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "states.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   }
+  },
+  "StepFunctionRaceReferee1BB43316": {
+   "Type": "AWS::StepFunctions::StateMachine",
+   "Properties": {
+    "DefinitionString": "{\"StartAt\":\"RaceRefereeWait\",\"States\":{\"RaceRefereeWait\":{\"Type\":\"Wait\",\"Comment\":\"Waits for the provided waitSeconds.\",\"SecondsPath\":\"$.waitSeconds\",\"End\":true}}}",
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "StepFunctionRaceRefereeRole2D39D2E5",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "StepFunctionRaceRefereeRole2D39D2E5"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete"
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepRole8FEABF28": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ],
+    "Policies": [
+     {
+      "PolicyDocument": {
+       "Statement": [
+        {
+         "Action": "states:*",
+         "Effect": "Allow",
+         "Resource": "*"
+        }
+       ],
+       "Version": "2012-10-17"
+      },
+      "PolicyName": "StepFunctionTaskPolicy"
+     }
+    ]
+   }
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "ZipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.stepFunctionComplete = exports.startStepFunction = exports.startsWithOneOf = exports.filterKeys = exports.flatten = void 0;\nconst crypto_1 = require(\"crypto\");\nconst client_sfn_1 = require(\"@aws-sdk/client-sfn\");\nconst logger = process.env.LogLevel ? console : undefined;\n\nfunction flatten(root) {\nconst ret = {};\nrecurse(root);\nreturn ret;\nfunction recurse(x, path = []) {\nif (x && typeof x === 'object') {\nfor (const [key, value] of Object.entries(x)) {\nrecurse(value, [...path, key]);\n}\nreturn;\n}\nret[path.join('.')] = x;\n}\n}\nexports.flatten = flatten;\n\nfunction filterKeys(object, pred) {\nreturn Object.entries(object)\n.reduce((acc, [k, v]) => pred(k)\n? { ...acc, [k]: v }\n: acc, {});\n}\nexports.filterKeys = filterKeys;\n\nfunction startsWithOneOf(searchStrings) {\nreturn function (string) {\nfor (const searchString of searchStrings) {\nif (string.startsWith(searchString)) {\nreturn true;\n}\n}\nreturn false;\n};\n}\nexports.startsWithOneOf = startsWithOneOf;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\nconst startStepFunction = async (event, context) => {\nlog({ Event: event });\nlog({ Context: context });\nif (event.RequestType == 'Delete') {\nreturn Promise.resolve({\nIsComplete: true,\n});\n}\n\nif ('EncodedProperties' in event.ResourceProperties) {\nevent.ResourceProperties = JSON.parse(Buffer\n.from(event.ResourceProperties.EncodedProperties, 'base64')\n.toString('utf8'));\nlog({ DecodedEvent: JSON.stringify(event) });\n}\nlet stepFunction = new client_sfn_1.SFN({\nlogger: logger,\n});\nlet stateMachineArn = event.ResourceProperties.StateMachineArn;\nlet executionArn = event.ResourceProperties.ExecutionArn;\nlet stateMachineEvent = event.ResourceProperties.StateMachineEvent;\nlet succeedAfterMs = event.ResourceProperties.SucceedAfterMs;\nif (stateMachineArn) {\nlet prefix = event.ResourceProperties.Prefix;\nlet request = {\nstateMachineArn: stateMachineArn,\ninput: JSON.stringify(stateMachineEvent),\n};\nif (prefix) {\nrequest.name = `${prefix}_${(0, crypto_1.randomUUID)()}`;\n}\nlet result = await stepFunction.startExecution(request);\nreturn Promise.resolve({\nPhysicalResourceId: result.executionArn,\nExecutionArn: result.executionArn,\nStartDate: result.startDate,\nSucceedAfterMs: succeedAfterMs,\nIsComplete: false,\nOutputPaths: event.ResourceProperties.OutputPaths,\nDefaults: event.ResourceProperties.Defaults,\n});\n}\nelse if (executionArn) {\nlet suffix = event.ResourceProperties.Suffix;\nlet result = await stepFunction.describeExecution({\nexecutionArn: executionArn,\n});\nlet physicalResourceId = `${result.executionArn}.${suffix}`;\nreturn Promise.resolve({\nPhysicalResourceId: physicalResourceId,\nExecutionArn: result.executionArn,\nStartDate: result.startDate,\nSucceedAfterMs: succeedAfterMs,\nOutputPaths: event.ResourceProperties.OutputPaths,\nDefaults: event.ResourceProperties.Defaults,\nIsComplete: false,\n});\n}\nreturn Promise.reject({\nReason: 'One of StateMachineArn or ExecutionArn must be specified.',\n});\n};\nexports.startStepFunction = startStepFunction;\nconst stepFunctionComplete = async (event, context) => {\nlog({ Event: event });\nlog({ Context: context });\nif (event.RequestType == 'Delete') {\nreturn Promise.resolve({\nIsComplete: true,\n});\n}\nlet stepFunction = new client_sfn_1.SFN({\nlogger: logger,\n});\nlet result = await stepFunction.describeExecution({\nexecutionArn: event.ExecutionArn,\n});\nlet continueStates = ['RUNNING'];\nlet succeededStates = ['SUCCEEDED'];\nlet failedStates = ['FAILED', 'TIMED_OUT', 'ABORTED'];\nif (failedStates.includes(result.status)) {\nthrow new Error(`Arn: ${result.executionArn}. Status: ${result.status}. Error: '${result.error}' Cause: '${result.cause}'`);\n}\nlet isComplete = succeededStates.includes(result.status);\nif (!isComplete && !continueStates.includes(result.status)) {\nthrow new Error(`Unknown state: ${result.status}.`);\n}\nlet now = Date.now();\nlog({ Now: now, StartDate: result.startDate.getTime() });\nlet succeedAfterMs = event.SucceedAfterMs;\n\n\nif (!isComplete && succeedAfterMs && (now - result.startDate.getTime()) > succeedAfterMs) {\nlog({ Message: 'Timed out.  Complete regardless of StepFunction state.' });\nisComplete = true;\n}\nelse {\nlog({ IsComplete: isComplete });\n}\nlet response = {\nExecutionArn: event.ExecutionArn,\nStartDate: event.StartDate,\nSucceedAfterMs: succeedAfterMs,\nIsComplete: isComplete,\nOutputPaths: event.OutputPaths,\nDefaults: event.Defaults,\n};\n\nif (event.OutputPaths) {\nlet flattened = flatten(result.output);\nlet defaults = filterKeys((event.Defaults ?? {}), startsWithOneOf(event.OutputPaths));\nlet filtered = filterKeys(flattened, startsWithOneOf(event.OutputPaths));\nresponse.Data = {\n...defaults,\n...filtered,\n};\n}\nreturn Promise.resolve(response);\n};\nexports.stepFunctionComplete = stepFunctionComplete;"
+    },
+    "Environment": {
+     "Variables": {
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "Handler": "index.startStepFunction",
+    "Role": {
+     "Fn::GetAtt": [
+      "StepFunctionTaskStepResourcesStepFunctionTaskStepRole8FEABF28",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 60
+   },
+   "DependsOn": [
+    "StepFunctionTaskStepResourcesStepFunctionTaskStepRole8FEABF28"
+   ]
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "ZipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.stepFunctionComplete = exports.startStepFunction = exports.startsWithOneOf = exports.filterKeys = exports.flatten = void 0;\nconst crypto_1 = require(\"crypto\");\nconst client_sfn_1 = require(\"@aws-sdk/client-sfn\");\nconst logger = process.env.LogLevel ? console : undefined;\n\nfunction flatten(root) {\nconst ret = {};\nrecurse(root);\nreturn ret;\nfunction recurse(x, path = []) {\nif (x && typeof x === 'object') {\nfor (const [key, value] of Object.entries(x)) {\nrecurse(value, [...path, key]);\n}\nreturn;\n}\nret[path.join('.')] = x;\n}\n}\nexports.flatten = flatten;\n\nfunction filterKeys(object, pred) {\nreturn Object.entries(object)\n.reduce((acc, [k, v]) => pred(k)\n? { ...acc, [k]: v }\n: acc, {});\n}\nexports.filterKeys = filterKeys;\n\nfunction startsWithOneOf(searchStrings) {\nreturn function (string) {\nfor (const searchString of searchStrings) {\nif (string.startsWith(searchString)) {\nreturn true;\n}\n}\nreturn false;\n};\n}\nexports.startsWithOneOf = startsWithOneOf;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\nconst startStepFunction = async (event, context) => {\nlog({ Event: event });\nlog({ Context: context });\nif (event.RequestType == 'Delete') {\nreturn Promise.resolve({\nIsComplete: true,\n});\n}\n\nif ('EncodedProperties' in event.ResourceProperties) {\nevent.ResourceProperties = JSON.parse(Buffer\n.from(event.ResourceProperties.EncodedProperties, 'base64')\n.toString('utf8'));\nlog({ DecodedEvent: JSON.stringify(event) });\n}\nlet stepFunction = new client_sfn_1.SFN({\nlogger: logger,\n});\nlet stateMachineArn = event.ResourceProperties.StateMachineArn;\nlet executionArn = event.ResourceProperties.ExecutionArn;\nlet stateMachineEvent = event.ResourceProperties.StateMachineEvent;\nlet succeedAfterMs = event.ResourceProperties.SucceedAfterMs;\nif (stateMachineArn) {\nlet prefix = event.ResourceProperties.Prefix;\nlet request = {\nstateMachineArn: stateMachineArn,\ninput: JSON.stringify(stateMachineEvent),\n};\nif (prefix) {\nrequest.name = `${prefix}_${(0, crypto_1.randomUUID)()}`;\n}\nlet result = await stepFunction.startExecution(request);\nreturn Promise.resolve({\nPhysicalResourceId: result.executionArn,\nExecutionArn: result.executionArn,\nStartDate: result.startDate,\nSucceedAfterMs: succeedAfterMs,\nIsComplete: false,\nOutputPaths: event.ResourceProperties.OutputPaths,\nDefaults: event.ResourceProperties.Defaults,\n});\n}\nelse if (executionArn) {\nlet suffix = event.ResourceProperties.Suffix;\nlet result = await stepFunction.describeExecution({\nexecutionArn: executionArn,\n});\nlet physicalResourceId = `${result.executionArn}.${suffix}`;\nreturn Promise.resolve({\nPhysicalResourceId: physicalResourceId,\nExecutionArn: result.executionArn,\nStartDate: result.startDate,\nSucceedAfterMs: succeedAfterMs,\nOutputPaths: event.ResourceProperties.OutputPaths,\nDefaults: event.ResourceProperties.Defaults,\nIsComplete: false,\n});\n}\nreturn Promise.reject({\nReason: 'One of StateMachineArn or ExecutionArn must be specified.',\n});\n};\nexports.startStepFunction = startStepFunction;\nconst stepFunctionComplete = async (event, context) => {\nlog({ Event: event });\nlog({ Context: context });\nif (event.RequestType == 'Delete') {\nreturn Promise.resolve({\nIsComplete: true,\n});\n}\nlet stepFunction = new client_sfn_1.SFN({\nlogger: logger,\n});\nlet result = await stepFunction.describeExecution({\nexecutionArn: event.ExecutionArn,\n});\nlet continueStates = ['RUNNING'];\nlet succeededStates = ['SUCCEEDED'];\nlet failedStates = ['FAILED', 'TIMED_OUT', 'ABORTED'];\nif (failedStates.includes(result.status)) {\nthrow new Error(`Arn: ${result.executionArn}. Status: ${result.status}. Error: '${result.error}' Cause: '${result.cause}'`);\n}\nlet isComplete = succeededStates.includes(result.status);\nif (!isComplete && !continueStates.includes(result.status)) {\nthrow new Error(`Unknown state: ${result.status}.`);\n}\nlet now = Date.now();\nlog({ Now: now, StartDate: result.startDate.getTime() });\nlet succeedAfterMs = event.SucceedAfterMs;\n\n\nif (!isComplete && succeedAfterMs && (now - result.startDate.getTime()) > succeedAfterMs) {\nlog({ Message: 'Timed out.  Complete regardless of StepFunction state.' });\nisComplete = true;\n}\nelse {\nlog({ IsComplete: isComplete });\n}\nlet response = {\nExecutionArn: event.ExecutionArn,\nStartDate: event.StartDate,\nSucceedAfterMs: succeedAfterMs,\nIsComplete: isComplete,\nOutputPaths: event.OutputPaths,\nDefaults: event.Defaults,\n};\n\nif (event.OutputPaths) {\nlet flattened = flatten(result.output);\nlet defaults = filterKeys((event.Defaults ?? {}), startsWithOneOf(event.OutputPaths));\nlet filtered = filterKeys(flattened, startsWithOneOf(event.OutputPaths));\nresponse.Data = {\n...defaults,\n...filtered,\n};\n}\nreturn Promise.resolve(response);\n};\nexports.stepFunctionComplete = stepFunctionComplete;"
+    },
+    "Environment": {
+     "Variables": {
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "Handler": "index.stepFunctionComplete",
+    "Role": {
+     "Fn::GetAtt": [
+      "StepFunctionTaskStepResourcesStepFunctionTaskStepRole8FEABF28",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 60
+   },
+   "DependsOn": [
+    "StepFunctionTaskStepResourcesStepFunctionTaskStepRole8FEABF28"
+   ]
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEventServiceRoleC4623120": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   }
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEventServiceRoleDefaultPolicyCDF2B7E2": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineA5471E7D"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEventServiceRoleDefaultPolicyCDF2B7E2",
+    "Roles": [
+     {
+      "Ref": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEventServiceRoleC4623120"
+     }
+    ]
+   }
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEvent9D2C3EB6": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+    },
+    "Description": "AWS CDK resource provider framework - onEvent (LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider)",
+    "Environment": {
+     "Variables": {
+      "USER_ON_EVENT_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+        "Arn"
+       ]
+      },
+      "USER_IS_COMPLETE_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+        "Arn"
+       ]
+      },
+      "WAITER_STATE_MACHINE_ARN": {
+       "Ref": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineA5471E7D"
+      }
+     }
+    },
+    "Handler": "framework.onEvent",
+    "Role": {
+     "Fn::GetAtt": [
+      "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEventServiceRoleC4623120",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 900
+   },
+   "DependsOn": [
+    "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEventServiceRoleDefaultPolicyCDF2B7E2",
+    "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEventServiceRoleC4623120"
+   ]
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisCompleteServiceRole70FA82F3": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   }
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisCompleteServiceRoleDefaultPolicy3F21E37E": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisCompleteServiceRoleDefaultPolicy3F21E37E",
+    "Roles": [
+     {
+      "Ref": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisCompleteServiceRole70FA82F3"
+     }
+    ]
+   }
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisComplete48653344": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+    },
+    "Description": "AWS CDK resource provider framework - isComplete (LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider)",
+    "Environment": {
+     "Variables": {
+      "USER_ON_EVENT_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+        "Arn"
+       ]
+      },
+      "USER_IS_COMPLETE_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+        "Arn"
+       ]
+      }
+     }
+    },
+    "Handler": "framework.isComplete",
+    "Role": {
+     "Fn::GetAtt": [
+      "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisCompleteServiceRole70FA82F3",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 900
+   },
+   "DependsOn": [
+    "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisCompleteServiceRoleDefaultPolicy3F21E37E",
+    "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisCompleteServiceRole70FA82F3"
+   ]
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutServiceRoleDD6F0E8E": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   }
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutServiceRoleDefaultPolicy9EA2F13E": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutServiceRoleDefaultPolicy9EA2F13E",
+    "Roles": [
+     {
+      "Ref": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutServiceRoleDD6F0E8E"
+     }
+    ]
+   }
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutB0C276CE": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+    },
+    "Description": "AWS CDK resource provider framework - onTimeout (LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider)",
+    "Environment": {
+     "Variables": {
+      "USER_ON_EVENT_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9",
+        "Arn"
+       ]
+      },
+      "USER_IS_COMPLETE_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A",
+        "Arn"
+       ]
+      }
+     }
+    },
+    "Handler": "framework.onTimeout",
+    "Role": {
+     "Fn::GetAtt": [
+      "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutServiceRoleDD6F0E8E",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 900
+   },
+   "DependsOn": [
+    "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutServiceRoleDefaultPolicy9EA2F13E",
+    "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutServiceRoleDD6F0E8E"
+   ]
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineRole9809049C": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "states.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   }
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineRoleDefaultPolicy9FA4DF7F": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisComplete48653344",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutB0C276CE",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisComplete48653344",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutB0C276CE",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "logs:CreateLogDelivery",
+        "logs:CreateLogStream",
+        "logs:DeleteLogDelivery",
+        "logs:DescribeLogGroups",
+        "logs:DescribeResourcePolicies",
+        "logs:GetLogDelivery",
+        "logs:ListLogDeliveries",
+        "logs:PutLogEvents",
+        "logs:PutResourcePolicy",
+        "logs:UpdateLogDelivery"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineRoleDefaultPolicy9FA4DF7F",
+    "Roles": [
+     {
+      "Ref": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineRole9809049C"
+     }
+    ]
+   }
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineLogGroupC3DBDC7A": {
+   "Type": "AWS::Logs::LogGroup",
+   "Properties": {
+    "RetentionInDays": 731
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain"
+  },
+  "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineA5471E7D": {
+   "Type": "AWS::StepFunctions::StateMachine",
+   "Properties": {
+    "DefinitionString": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"StartAt\":\"framework-isComplete-task\",\"States\":{\"framework-isComplete-task\":{\"End\":true,\"Retry\":[{\"ErrorEquals\":[\"States.ALL\"],\"IntervalSeconds\":30,\"MaxAttempts\":120,\"BackoffRate\":1}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"Next\":\"framework-onTimeout-task\"}],\"Type\":\"Task\",\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisComplete48653344",
+         "Arn"
+        ]
+       },
+       "\"},\"framework-onTimeout-task\":{\"End\":true,\"Type\":\"Task\",\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutB0C276CE",
+         "Arn"
+        ]
+       },
+       "\"}}}"
+      ]
+     ]
+    },
+    "LoggingConfiguration": {
+     "Destinations": [
+      {
+       "CloudWatchLogsLogGroup": {
+        "LogGroupArn": {
+         "Fn::GetAtt": [
+          "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineLogGroupC3DBDC7A",
+          "Arn"
+         ]
+        }
+       }
+      }
+     ],
+     "IncludeExecutionData": false,
+     "Level": "ERROR"
+    },
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineRole9809049C",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineRoleDefaultPolicy9FA4DF7F",
+    "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineRole9809049C"
+   ]
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

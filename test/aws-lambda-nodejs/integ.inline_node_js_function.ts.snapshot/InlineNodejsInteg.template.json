@@ -1,9 +1,4 @@
 {
- "Metadata": {
-  "build_hostname": "88665a457e00.ant.amazon.com",
-  "build_timestamp": 1718227352962,
-  "build_user": "michanto"
- },
  "Resources": {
   "ReverseServiceRole25D1973A": {
    "Type": "AWS::IAM::Role",

@@ -1,0 +1,281 @@
+{
+  "version": "36.0.0",
+  "artifacts": {
+    "LbSfseIntegrationTest.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "LbSfseIntegrationTest.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "LbSfseIntegrationTest": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "LbSfseIntegrationTest.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/452aaefd2ddaabbc2769a034d0c1ad4f2db3bc7d1a2f557a8ecb121e2334b589.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "LbSfseIntegrationTest.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "LbSfseIntegrationTest.assets"
+      ],
+      "metadata": {
+        "/LbSfseIntegrationTest/Waiter/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WaiterRole1D460720"
+          }
+        ],
+        "/LbSfseIntegrationTest/Waiter/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WaiterD0B11E6D"
+          }
+        ],
+        "/LbSfseIntegrationTest/Execute/RaceLrsfe/RunIt/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExecuteRaceLrsfeRunIt380B7469"
+          }
+        ],
+        "/LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt1/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExecuteRaceLrsfeWaitForIt1B563CD59"
+          }
+        ],
+        "/LbSfseIntegrationTest/Execute/RaceLrsfe/WaitForIt2/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExecuteRaceLrsfeWaitForIt2E981DF9D"
+          }
+        ],
+        "/LbSfseIntegrationTest/RacerDefinition/ContestantNamesRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RacerDefinitionContestantNamesRoleF9B4ED83"
+          }
+        ],
+        "/LbSfseIntegrationTest/RacerDefinition/ContestantNamesLambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RacerDefinitionContestantNamesLambda4CAC7472"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionRace/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionRaceRoleA1DB6C30"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionRace/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionRaceRoleDefaultPolicy5C7A59A5"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionRace/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionRace37EE22CC"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionRace/ExecutePolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionRaceExecutePolicyB218936D"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionRaceReferee/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionRaceRefereeRole2D39D2E5"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionRaceReferee/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionRaceReferee1BB43316"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepRole8FEABF28"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepOnEvent/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepOnEvent71816DC9"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepIsComplete/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepIsCompleteC615327A"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onEvent/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEventServiceRoleC4623120"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onEvent/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEventServiceRoleDefaultPolicyCDF2B7E2"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onEvent/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonEvent9D2C3EB6"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-isComplete/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisCompleteServiceRole70FA82F3"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-isComplete/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisCompleteServiceRoleDefaultPolicy3F21E37E"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-isComplete/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkisComplete48653344"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onTimeout/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutServiceRoleDD6F0E8E"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onTimeout/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutServiceRoleDefaultPolicy9EA2F13E"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/framework-onTimeout/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderframeworkonTimeoutB0C276CE"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/waiter-state-machine/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineRole9809049C"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/waiter-state-machine/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineRoleDefaultPolicy9FA4DF7F"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/waiter-state-machine/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineLogGroupC3DBDC7A"
+          }
+        ],
+        "/LbSfseIntegrationTest/StepFunctionTaskStepResources/StepFunctionTaskStepProvider/waiter-state-machine/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StepFunctionTaskStepResourcesStepFunctionTaskStepProviderwaiterstatemachineA5471E7D"
+          }
+        ],
+        "/LbSfseIntegrationTest/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/LbSfseIntegrationTest/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "LbSfseIntegrationTest"
+    },
+    "LateBoundStepFunctionIntegDefaultTestDeployAssert9FA039FE.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "LateBoundStepFunctionIntegDefaultTestDeployAssert9FA039FE.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "LateBoundStepFunctionIntegDefaultTestDeployAssert9FA039FE": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "LateBoundStepFunctionIntegDefaultTestDeployAssert9FA039FE.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/21fbb51d7b23f6a6c262b46a9caee79d744a3ac019fd45422d988b96d44b2a22.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "LateBoundStepFunctionIntegDefaultTestDeployAssert9FA039FE.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "LateBoundStepFunctionIntegDefaultTestDeployAssert9FA039FE.assets"
+      ],
+      "metadata": {
+        "/LateBoundStepFunctionInteg/DefaultTest/DeployAssert/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/LateBoundStepFunctionInteg/DefaultTest/DeployAssert/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "LateBoundStepFunctionInteg/DefaultTest/DeployAssert"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
