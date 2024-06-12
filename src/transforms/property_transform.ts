@@ -32,9 +32,9 @@ export class PropertyTransformApplier extends Transform {
    *
    * @param scope
    * @param propertyName
-   * @param propertyType
+   * @param resourceType
    */
-  constructor(scope: Construct, readonly propertyName: string, readonly propertyType: string) {
+  constructor(scope: Construct, readonly propertyName: string, readonly resourceType: string) {
     super(scope, PropertyTransformApplier.applierId(propertyName));
   }
 
@@ -48,7 +48,7 @@ export class PropertyTransformApplier extends Transform {
     }
     for (let resId in template.Resources) {
       let resource = template.Resources[resId];
-      if (resource.Type == this.propertyType && resource.Properties[this.propertyName]) {
+      if (resource.Type == this.resourceType && resource.Properties[this.propertyName]) {
         resource.Properties[this.propertyName] =
           Transforms.of(host).apply(resource.Properties[this.propertyName]);
       }
@@ -65,11 +65,8 @@ export class PropertyTransformHost extends BaseImporter {
   static hostId(propertyName: string) { return `@${propertyName}TransformHost`; };
 
   static getPropertyTransformHost(scope: Construct, propertyName: string, resourceType: string): PropertyTransformHost {
-    let searchResults = new CfnElementUtilities().cfnResources(scope, resourceType);
-    if (searchResults.length != 1) {
-      throw new Error(`Expected to find 1 resource of type ${resourceType} found ${searchResults.length}.`);
-    }
-    let cfnResource = searchResults.pop()!;
+    let cfnResource = new CfnElementUtilities().findCfnResource(scope, resourceType);
+
     let propertyTransformApplier = cfnResource.node.tryFindChild(PropertyTransformApplier.applierId(propertyName)) as PropertyTransformApplier;
     if (!propertyTransformApplier) {
       propertyTransformApplier = new PropertyTransformApplier(cfnResource, propertyName, resourceType);

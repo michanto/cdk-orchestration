@@ -29,7 +29,7 @@ export class CustomResourceUtilities {
       } is not a known custom resource type.  Found ${elements.length} CustomResources, expected one.`);
     }
 
-    return elements.pop() as CfnResource;
+    return elements.pop()! as CfnResource;
   }
 }
 

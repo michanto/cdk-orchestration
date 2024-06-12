@@ -12,6 +12,7 @@ export * from './log';
 export * from './logging_aspect';
 export * from './user_tokens';
 export * from './singleton';
+export * from './stack_provenance';
 export * from './tree_inspectable';
 export * from './service_inspector_aspect';
 export * from './cfn_element_utils';

@@ -1,6 +1,6 @@
 import { Lazy, Token } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { TransformBase } from './transform';
+import { AnyTransform } from './transform';
 
 /**
  * JSON resource properties can be stored in CloudFormation either as a string,
@@ -14,7 +14,7 @@ import { TransformBase } from './transform';
  * During synthesis, the CDK will turn the tokenized string back into an Fn.join before
  * writing it to the template.
  */
-export class Joiner extends TransformBase {
+export class Joiner extends AnyTransform {
   constructor(scope: Construct, id: string = 'Joiner') {
     super(scope, id);
   }
@@ -35,8 +35,7 @@ export class Joiner extends TransformBase {
     return template;
   }
 
-  /** @internal */
-  protected _apply(template: any): any {
+  public apply(template: any): any {
     if (typeof template == 'object' && template['Fn::Join']) {
       template = this.doJoin(template);
     } else if (typeof template == 'object' && template.Resources) {

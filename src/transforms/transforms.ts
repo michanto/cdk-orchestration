@@ -25,8 +25,6 @@ export class Transforms {
 
   /**
    * Returns all transforms attached to the scope as descendents.
-   *
-   * Throws when a Transform fails to return a template.
    */
   get(): ICfnTransform[] {
     return TRANSFORM_CONSTRUCT_HOST.getHostedConstructs(this.scope) as ICfnTransform[];

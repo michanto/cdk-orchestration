@@ -30,7 +30,7 @@ let writer = new S3FileResource(stack, 'Writer', {
 });
 
 let reader = new S3FileReader(stack, 'Reader', {
-  resourceType: 'Custon::ToRead',
+  resourceType: 'Custom::ToRead',
   bucket: bucket,
   key: key,
   physicalResourceId: PhysicalResourceId.of('Reader'),
