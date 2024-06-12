@@ -528,7 +528,7 @@
                           "s3Bucket": {
                             "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                           },
-                          "s3Key": "bb4acc28699b92231855ea05193fbb17a2fe62445f61983472fc49e74a237347.zip"
+                          "s3Key": "7eeb3194924d59cc3f9848370265acfffb80714e8cf41ace55315ad6dd49244f.zip"
                         },
                         "environment": {
                           "variables": {
@@ -1155,7 +1155,7 @@
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
                     "code": {
-                      "zipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.equalsComparison = void 0;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\n\nasync function equalsComparison(event, context) {\nlog({ Event: event });\nlog({ Context: context });\nlet expected = JSON.parse(event.expected.result)?.['$Exact'];\nif (!expected) {\nthrow new Error('Did not get an expected.');\n}\nlet actual = event.actual.result;\nif (!actual) {\nthrow new Error('Did not get an actual.');\n}\nif (expected != actual) {\nthrow new Error(`Expected ${expected}, got ${actual}.`);\n}\n}\nexports.equalsComparison = equalsComparison;"
+                      "zipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.equalsComparison = void 0;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\n\nasync function equalsComparison(event, context) {\nlog({ Event: event });\nlog({ Context: context });\nlet expected = JSON.parse(event.expected.result)?.$Exact;\nif (!expected) {\nthrow new Error('Did not get an expected.');\n}\nlet actual = event.actual.result;\nif (!actual) {\nthrow new Error('Did not get an actual.');\n}\nif (expected != actual) {\nthrow new Error(`Expected ${expected}, got ${actual}.`);\n}\n}\nexports.equalsComparison = equalsComparison;"
                     },
                     "environment": {
                       "variables": {
@@ -1180,7 +1180,7 @@
               }
             },
             "attributes": {
-              "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-HOQHV9/effdb475-equals_comparison.js"
+              "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-k1heOP/effdb475-equals_comparison.js"
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_lambda.Function",
@@ -1300,7 +1300,7 @@
                           "s3Bucket": {
                             "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                           },
-                          "s3Key": "bb4acc28699b92231855ea05193fbb17a2fe62445f61983472fc49e74a237347.zip"
+                          "s3Key": "7eeb3194924d59cc3f9848370265acfffb80714e8cf41ace55315ad6dd49244f.zip"
                         },
                         "environment": {
                           "variables": {

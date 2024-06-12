@@ -100,11 +100,19 @@
               }
             },
             "attributes": {
-              "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-zhJyMW/ca13d0d9-reverse_greeting.js"
+              "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-gXFsE5/ca13d0d9-reverse_greeting.js"
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_lambda.Function",
               "version": "2.120.0"
+            }
+          },
+          "@StackProvenance": {
+            "id": "@StackProvenance",
+            "path": "InlineNodejsInteg/@StackProvenance",
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
             }
           },
           "Exports": {
@@ -258,6 +266,14 @@
                         }
                       }
                     },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "@StackProvenance": {
+                    "id": "@StackProvenance",
+                    "path": "InlineNodejsIntegTest/DefaultTest/DeployAssert/@StackProvenance",
                     "constructInfo": {
                       "fqn": "constructs.Construct",
                       "version": "10.3.0"
