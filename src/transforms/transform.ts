@@ -155,16 +155,30 @@ export type CfTemplateType = {
  * Most Transforms will use this as their base class.
  */
 export abstract class Transform extends TransformBase {
-
-  constructor(scope: Construct, id: string) {
-    super(scope, id);
-  }
-
   /**
    * Modifies the passed in template.
    * @param template Always return the template.
    */
   public abstract apply(template: CfTemplateType): CfTemplateType;
+
+  /**
+   * @internal
+   */
+  protected _apply(template: any) {
+    return this.apply(template);
+  }
+}
+
+/**
+ * Use this for Transforms that need to deal with 'any' data.  As opposed to Transform, which
+ * deals with JSON only, or StringTransform, which only deals with Strings.
+ */
+export abstract class AnyTransform extends TransformBase {
+  /**
+   * Modifies the passed in template.
+   * @param template Always return the template.
+   */
+  public abstract apply(template: any): any;
 
   /**
    * @internal
