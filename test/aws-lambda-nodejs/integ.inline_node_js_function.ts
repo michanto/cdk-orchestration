@@ -1,9 +1,12 @@
 import { ExpectedResult, IntegTest } from '@aws-cdk/integ-tests-alpha';
-import { App, Stack } from 'aws-cdk-lib';
+import { App, Aspects, Stack } from 'aws-cdk-lib';
 import { Effect } from 'aws-cdk-lib/aws-iam';
 import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
+import { StackProvenanceAspect } from '../../src/core';
 
 const app = new App();
+Aspects.of(app).add(new StackProvenanceAspect());
+
 const stack = new Stack(app, 'InlineNodejsInteg', {});
 const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 let fun = new InlineNodejsFunction(stack, 'Reverse', {

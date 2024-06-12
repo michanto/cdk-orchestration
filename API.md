@@ -2,6 +2,199 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
+### AnyTransform <a name="AnyTransform" id="@michanto/cdk-orchestration.transforms.AnyTransform"></a>
+
+Use this for Transforms that need to deal with 'any' data.
+
+As opposed to Transform, which
+deals with JSON only, or StringTransform, which only deals with Strings.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.AnyTransform.Initializer"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+new transforms.AnyTransform(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.AnyTransform.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.AnyTransform.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.AnyTransform.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.AnyTransform.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.AnyTransform.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.AnyTransform.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.AnyTransform.apply">apply</a></code> | Modifies the passed in template. |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.AnyTransform.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.AnyTransform.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.AnyTransform.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.AnyTransform.apply"></a>
+
+```typescript
+public apply(template: any): any
+```
+
+Modifies the passed in template.
+
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.AnyTransform.apply.parameter.template"></a>
+
+- *Type:* any
+
+Always return the template.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.AnyTransform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.AnyTransform.isConstruct"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.AnyTransform.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.AnyTransform.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.AnyTransform.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.AnyTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.AnyTransform.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.AnyTransform.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.AnyTransform.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.AnyTransform.property.cfnTransform"></a>
+
+```typescript
+public readonly cfnTransform: ICfnTransform;
+```
+
+- *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
+
+The L1 shim transform  for this L2 transform.
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.AnyTransform.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.AnyTransform.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
+
+---
+
+
 ### BaseImporter <a name="BaseImporter" id="@michanto/cdk-orchestration.transforms.BaseImporter"></a>
 
 This class adds Orders to a CfnTransformHost.  Orders allow L2 transforms to be applied in the correct order.
@@ -2565,6 +2758,7 @@ new transforms.Joiner(scope: Construct, id?: string)
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.apply">apply</a></code> | Modifies the passed in template. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.doJoin">doJoin</a></code> | *No description.* |
 
 ---
@@ -2588,6 +2782,20 @@ Examines construct.
 ###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.Joiner.inspect.parameter.inspector"></a>
 
 - *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.Joiner.apply"></a>
+
+```typescript
+public apply(template: any): any
+```
+
+Modifies the passed in template.
+
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.Joiner.apply.parameter.template"></a>
+
+- *Type:* any
 
 ---
 
@@ -6003,6 +6211,127 @@ public readonly resource: AwsCustomResource;
 ```
 
 - *Type:* aws-cdk-lib.custom_resources.AwsCustomResource
+
+---
+
+
+### StackProvenance <a name="StackProvenance" id="@michanto/cdk-orchestration.StackProvenance"></a>
+
+Adds provenance data to the stack metadata.
+
+Use StackProvenanceAspect to add provenance data to all stacks.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.StackProvenance.Initializer"></a>
+
+```typescript
+import { StackProvenance } from '@michanto/cdk-orchestration'
+
+new StackProvenance(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.StackProvenance.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.StackProvenance.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.StackProvenance.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.StackProvenance.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.StackProvenance.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.StackProvenance.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.StackProvenance.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.StackProvenance.isConstruct"></a>
+
+```typescript
+import { StackProvenance } from '@michanto/cdk-orchestration'
+
+StackProvenance.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.StackProvenance.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.StackProvenance.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.StackProvenance.property.timestamp">timestamp</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.StackProvenance.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `timestamp`<sup>Required</sup> <a name="timestamp" id="@michanto/cdk-orchestration.StackProvenance.property.timestamp"></a>
+
+```typescript
+public readonly timestamp: number;
+```
+
+- *Type:* number
 
 ---
 
@@ -14946,6 +15275,50 @@ public readonly treeServiceProps: ConstructTreeServiceProps;
 - *Type:* <a href="#@michanto/cdk-orchestration.ConstructTreeServiceProps">ConstructTreeServiceProps</a>
 
 ---
+
+
+### StackProvenanceAspect <a name="StackProvenanceAspect" id="@michanto/cdk-orchestration.StackProvenanceAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Adds StackProvenance to all stacks in scope.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.StackProvenanceAspect.Initializer"></a>
+
+```typescript
+import { StackProvenanceAspect } from '@michanto/cdk-orchestration'
+
+new StackProvenanceAspect()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.StackProvenanceAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@michanto/cdk-orchestration.StackProvenanceAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.StackProvenanceAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
 
 
 ### StackToken <a name="StackToken" id="@michanto/cdk-orchestration.StackToken"></a>
