@@ -53,11 +53,18 @@ export class EncodeResource extends Transform {
         continue;
       }
       let serviceToken = res.Properties.ServiceToken;
+      let serviceTimeout = res.Properties.ServiceTimeout;
       delete res.Properties.ServiceToken;
-      let encodedProperties = {
+      if (serviceTimeout) {
+        delete res.Properties.ServiceTimeout;
+      }
+      let encodedProperties: any = {
         ServiceToken: serviceToken,
         EncodedProperties: Fn.base64(Stack.of(this).toJsonString(res.Properties)),
       };
+      if (serviceTimeout) {
+        encodedProperties.ServiceTimeout = serviceTimeout;
+      }
       res.Properties = encodedProperties;
     }
     return template;
