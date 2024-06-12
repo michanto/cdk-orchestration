@@ -3,13 +3,14 @@ import { App, Aspects, Stack } from 'aws-cdk-lib';
 import { Effect } from 'aws-cdk-lib/aws-iam';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
-import { Logger, LoggingAspect } from '../../src/core';
+import { Logger, LoggingAspect, StackProvenanceAspect } from '../../src/core';
 import { S3FileMetadata, S3FileReader, S3FileResource } from '../../src/orchestration';
 import { EqualsComparisonAssertion } from '../util/assertions';
 
 export const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
 const app = new App();
+Aspects.of(app).add(new StackProvenanceAspect());
 const stack = new Stack(app, 'S3ResourcesInteg', { stackName: 'S3ResourcesInteg' });
 const assertionStack = new Stack(app, 'S3ResourcesAssertions', {});
 

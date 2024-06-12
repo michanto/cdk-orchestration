@@ -123,8 +123,9 @@ export class CreateConsoleLink extends Construct {
   }
 }
 
+/** NOTE:  USED IN INTEGRATION TEST!  CHANGE CAREFULLY. */
 export class HitlTestStack extends Stack {
-  constructor(scope: Construct, id: string, props: StackProps) {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
     const succeedStepFunction = new HitlTestStepFunctionDefinition(this, 'HitlStepFunction', {
