@@ -28,7 +28,7 @@ export class CfnIncludeToCdk {
    * This should be used when you want the resource ID to be the same as the Node ID.
    * Such as when you are replicating an existing hand-crafted template.
    *
-   * Note:  This function L1 or L2 constructs, or any case where there is one L1 in the
+   * Note:  This function on L1 or L2 constructs, or any case where there is one L1 in the
    * sub-tree.
    *
    * @param construct The resource construct.
@@ -42,18 +42,10 @@ export class CfnIncludeToCdk {
       CfnElement.isCfnElement(construct.node.defaultChild)) {
       construct.node.defaultChild.overrideLogicalId(logicalId);
     } else {
-      // Not sure if there are any cases for this, but seems reasonable that if there
-      // is only one L1 in the sub-tree, then that is the one we need.
-      let elements = new CfnElementUtilities().cfnElements(construct);
-      let element = elements.pop();
-      if (elements.length == 0 && element) {
-        element.overrideLogicalId(logicalId);
-      } else {
-        // If there is more than one, or none, we have no way of knowing which one to modify.
-        throw new Error(`Error attempting to set the Logical ID for construct '${
-          construct.node.path
-        }'.  Could not find the CfnElement in the construct.`);
-      }
+      // It seems reasonable that if there is only one L1 in the sub-tree, then that is the one
+      // to modify.
+      let resource = new CfnElementUtilities().findCfnResource(construct);
+      resource.overrideLogicalId(logicalId);
     }
     return construct;
   }

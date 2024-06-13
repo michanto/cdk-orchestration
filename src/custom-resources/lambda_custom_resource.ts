@@ -213,6 +213,7 @@ export class LambdaCustomResource extends Task {
     return this.getAtt(dataPath).toString();
   }
 
+  /** Returns response data for the AWS SDK call. */
   getResponseFieldReference(dataPath: string) {
     return this.getAtt(dataPath);
   }

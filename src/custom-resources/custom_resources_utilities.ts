@@ -26,7 +26,7 @@ export class CustomResourceUtilities {
     if (elements.length != 1) {
       throw new Error(`Construct ${
         target.node.path
-      } is not a known custom resource type.  Found ${elements.length} CustomResources, expected one.`);
+      } is not a known custom resource type.  Found ${elements.length} CustomResources, expected one (1).`);
     }
 
     return elements.pop()! as CfnResource;

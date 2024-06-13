@@ -294,9 +294,10 @@ export class InlineNodejsFunction extends Function implements IInspectable {
 
   constructor(scope: Construct, id: string,
     private readonly props: InlineNodejsFunctionProps) {
+    let constructPath = scope.node.path + '/' + id;
     super(scope, id, {
       ...props as FunctionOptions,
-      code: Code.fromInline(getInlineCode(scope.node.path + '/' + id, props.entry!,
+      code: Code.fromInline(getInlineCode(constructPath, props.entry!,
         InlineNodejsFunction.minifyEngineFromProps(props))),
       runtime: getRuntime(scope, props),
       handler: props.handler ? (props.handler.indexOf('.') !== -1 ? `${
@@ -309,7 +310,7 @@ export class InlineNodejsFunction extends Function implements IInspectable {
     }
     let minifyEngine = InlineNodejsFunction.minifyEngineFromProps(props);
     if (minifyEngine != MinifyEngine.NONE) {
-      this.tmpFile = getMinifiedTmpFile(scope.node.path + '/' + id, this.props.entry!);
+      this.tmpFile = getMinifiedTmpFile(constructPath, this.props.entry!);
     }
   }
 
