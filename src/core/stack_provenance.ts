@@ -15,9 +15,11 @@ function executeShellCommand(command: string, env?: Record<string, string>): str
     return execSync(command,
       env ? { env: env, stdio: 'pipe' } : { stdio: 'pipe' })
       .toString().trim();
+  /* c8 ignore start */
   } catch {
     return undefined;
   }
+  /* c8 ignore end */
 }
 
 /**

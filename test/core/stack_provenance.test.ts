@@ -12,9 +12,6 @@ describe('StackProvenance Tests', () => {
     Aspects.of(app).add(new StackProvenanceAspect());
 
     let template = Template.fromStack(stack).toJSON();
-    console.log(typeof template);
-    console.log(template);
-    console.log(JSON.stringify(template, undefined, 2));
     expect(template).toMatchObject({
       Metadata: {
         build_timestamp: expect.any(Number),

@@ -17,6 +17,7 @@ describe('Custom Resource Utilities tests.', () => {
         this.addPropertyOverride('One', 1);
         this.addPropertyOverride('Two', true);
         this.addPropertyOverride('Three', 'Value');
+        this.addPropertyOverride('ServiceTimeout', '100');
         new EncodeResource(this);
         // Encode twice to test double-encoding works.
         new EncodeResource(this, 'Encode2');
