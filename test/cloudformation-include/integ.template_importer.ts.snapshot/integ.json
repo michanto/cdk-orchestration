@@ -1,0 +1,22 @@
+{
+  "version": "36.0.0",
+  "testCases": {
+    "InsertStepFunctionStateInteg/DefaultTest": {
+      "stacks": [
+        "PyStepFunctionsImport"
+      ],
+      "regions": [
+        "us-east-1"
+      ],
+      "cdkCommandOptions": {
+        "destroy": {
+          "args": {
+            "force": true
+          }
+        }
+      },
+      "assertionStack": "InsertStepFunctionStateInteg/DefaultTest/DeployAssert",
+      "assertionStackName": "InsertStepFunctionStateIntegDefaultTestDeployAssert1E82C0BE"
+    }
+  }
+}

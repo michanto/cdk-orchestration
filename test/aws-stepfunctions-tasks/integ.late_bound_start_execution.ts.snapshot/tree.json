@@ -362,7 +362,7 @@
                       "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                       "aws:cdk:cloudformation:props": {
                         "code": {
-                          "zipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.handler = void 0;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\nconst handler = async (event, context) => {\nlog({ Event: event });\nlog({ Context: context });\nlet executions = event.StateMachineExecutions;\nfor (let i = 0; i < executions.length; i++) {\nif (executions[i].completeFlag == \"Timeout\") {\nexecutions[i].name = `${event.ExecutionName}_Timeout`;\n}\nelse {\nexecutions[i].name = `${event.ExecutionName}_${i}`;\n}\n}\nreturn Promise.resolve(executions);\n};\nexports.handler = handler;"
+                          "zipFile": "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.handler = void 0;\nfunction log(message) {\nif (process.env.LogLevel) {\nconsole.log(JSON.stringify(message));\n}\n}\nconst handler = async (event, context) => {\nlog({ Event: event });\nlog({ Context: context });\nlet executions = event.StateMachineExecutions;\nfor (let i = 0; i < executions.length; i++) {\nif (executions[i].completeFlag == 'Timeout') {\nexecutions[i].name = `${event.ExecutionName}_Timeout`;\n}\nelse {\nexecutions[i].name = `${event.ExecutionName}_${i}`;\n}\n}\nreturn Promise.resolve(executions);\n};\nexports.handler = handler;"
                         },
                         "environment": {
                           "variables": {
@@ -386,7 +386,7 @@
                   }
                 },
                 "attributes": {
-                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-aosP1H/87dc969d-create_contestant_names.js"
+                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-Xlswuh/87dc969d-create_contestant_names.js"
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_lambda.Function",
@@ -917,7 +917,7 @@
                   }
                 },
                 "attributes": {
-                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-aosP1H/353dd860-step_function_execute.js"
+                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-Xlswuh/353dd860-step_function_execute.js"
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_lambda.Function",
@@ -960,7 +960,7 @@
                   }
                 },
                 "attributes": {
-                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-aosP1H/2cb83343-step_function_execute.js"
+                  "@michanto/cdk-orchestration.InlineNodejsFunction.tmpfile": "/private/var/folders/mv/_dp0vm1n2flfslttknhxh9t80000gs/T/minified-Xlswuh/2cb83343-step_function_execute.js"
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_lambda.Function",

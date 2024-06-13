@@ -1,0 +1,69 @@
+{
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Resources": {
+  "SFRoleE873EEF8": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "states.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   }
+  },
+  "StateMachineComponent": {
+   "Type": "AWS::StepFunctions::StateMachine",
+   "Properties": {
+    "DefinitionString": "{\n  \"StartAt\": \"MyPassState\",\n  \"States\": {\n    \"MyPassState\": {\n      \"Type\": \"Pass\",\n      \"Next\": \"Wait for 3 seconds\"\n    },\n    \"Wait for 3 seconds\": {\n      \"Seconds\": 3,\n      \"Type\": \"Wait\",\n      \"Next\": \"Convert HelloWorld to Base64\"\n    },\n    \"Convert HelloWorld to Base64\": {\n      \"Parameters\": {\n        \"FunctionName\": \"MyLambda\",\n        \"Payload\": {\n          \"input\": \"HelloWorld\"\n        }\n      },\n      \"Resource\": \"arn:aws:states:::lambda:invoke\",\n      \"Type\": \"Task\",\n      \"End\": true,\n      \"Retry\": [\n        {\n          \"ErrorEquals\": [\n            \"States.TaskFailed\"\n          ],\n          \"IntervalSeconds\": 15,\n          \"MaxAttempts\": 2,\n          \"BackoffRate\": 4.0\n        }\n      ],\n      \"Catch\": [\n        {\n          \"ErrorEquals\": [\n            \"States.TaskFailed\"\n          ],\n          \"Next\": \"LambdaTaskFailed\"\n        }\n      ]\n    },\n    \"LambdaTaskFailed\": {\n      \"Type\": \"Fail\"\n    }\n  }\n}",
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "SFRoleE873EEF8",
+      "Arn"
+     ]
+    },
+    "StateMachineName": "MyWorkflow"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

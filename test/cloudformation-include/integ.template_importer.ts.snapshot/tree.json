@@ -1,0 +1,447 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "PyStepFunctionsImport": {
+        "id": "PyStepFunctionsImport",
+        "path": "PyStepFunctionsImport",
+        "children": {
+          "SFRole": {
+            "id": "SFRole",
+            "path": "PyStepFunctionsImport/SFRole",
+            "children": {
+              "ImportSFRole": {
+                "id": "ImportSFRole",
+                "path": "PyStepFunctionsImport/SFRole/ImportSFRole",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.120.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "PyStepFunctionsImport/SFRole/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                  "aws:cdk:cloudformation:props": {
+                    "assumeRolePolicyDocument": {
+                      "Statement": [
+                        {
+                          "Action": "sts:AssumeRole",
+                          "Effect": "Allow",
+                          "Principal": {
+                            "Service": "states.amazonaws.com"
+                          }
+                        }
+                      ],
+                      "Version": "2012-10-17"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_iam.Role",
+              "version": "2.120.0"
+            }
+          },
+          "ImportPyStepFunction": {
+            "id": "ImportPyStepFunction",
+            "path": "PyStepFunctionsImport/ImportPyStepFunction",
+            "children": {
+              "Importer": {
+                "id": "Importer",
+                "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer",
+                "children": {
+                  "_PreReader": {
+                    "id": "_PreReader",
+                    "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_PreReader",
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "_Reader": {
+                    "id": "_Reader",
+                    "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Reader",
+                    "children": {
+                      "FileReaderShim0": {
+                        "id": "FileReaderShim0",
+                        "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Reader/FileReaderShim0",
+                        "attributes": {
+                          "CfnTransformShim.transformPath": "PyStepFunctionsImport/ImportPyStepFunction/Importer/FileReader"
+                        },
+                        "constructInfo": {
+                          "fqn": "@michanto/cdk-orchestration.transforms.CfnTransform",
+                          "version": "0.0.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "_StringTransforms": {
+                    "id": "_StringTransforms",
+                    "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_StringTransforms",
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "_Parser": {
+                    "id": "_Parser",
+                    "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Parser",
+                    "children": {
+                      "YamlParserShim0": {
+                        "id": "YamlParserShim0",
+                        "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Parser/YamlParserShim0",
+                        "attributes": {
+                          "CfnTransformShim.transformPath": "PyStepFunctionsImport/ImportPyStepFunction/Importer/YamlParser"
+                        },
+                        "constructInfo": {
+                          "fqn": "@michanto/cdk-orchestration.transforms.CfnTransform",
+                          "version": "0.0.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "_Transforms": {
+                    "id": "_Transforms",
+                    "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Transforms",
+                    "children": {
+                      "CleanupShim0": {
+                        "id": "CleanupShim0",
+                        "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Transforms/CleanupShim0",
+                        "attributes": {
+                          "CfnTransformShim.transformPath": "PyStepFunctionsImport/ImportPyStepFunction/Importer/Cleanup"
+                        },
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      },
+                      "DescriptionRemoverShim1": {
+                        "id": "DescriptionRemoverShim1",
+                        "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Transforms/DescriptionRemoverShim1",
+                        "attributes": {
+                          "CfnTransformShim.transformPath": "PyStepFunctionsImport/ImportPyStepFunction/Importer/Cleanup/DescriptionRemover"
+                        },
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "_Writer": {
+                    "id": "_Writer",
+                    "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Writer",
+                    "children": {
+                      "CaptureShim0": {
+                        "id": "CaptureShim0",
+                        "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Writer/CaptureShim0",
+                        "attributes": {
+                          "CfnTransformShim.transformPath": "PyStepFunctionsImport/ImportPyStepFunction/Importer/Capture"
+                        },
+                        "constructInfo": {
+                          "fqn": "@michanto/cdk-orchestration.transforms.CfnTransform",
+                          "version": "0.0.0"
+                        }
+                      },
+                      "StringifyShim1": {
+                        "id": "StringifyShim1",
+                        "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Writer/StringifyShim1",
+                        "attributes": {
+                          "CfnTransformShim.transformPath": "PyStepFunctionsImport/ImportPyStepFunction/Importer/Stringify"
+                        },
+                        "constructInfo": {
+                          "fqn": "@michanto/cdk-orchestration.transforms.CfnTransform",
+                          "version": "0.0.0"
+                        }
+                      },
+                      "TempFileShim2": {
+                        "id": "TempFileShim2",
+                        "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Writer/TempFileShim2",
+                        "attributes": {
+                          "CfnTransformShim.transformPath": "PyStepFunctionsImport/ImportPyStepFunction/Importer/TempFile"
+                        },
+                        "constructInfo": {
+                          "fqn": "@michanto/cdk-orchestration.transforms.CfnTransform",
+                          "version": "0.0.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "Capture": {
+                    "id": "Capture",
+                    "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/Capture",
+                    "attributes": {
+                      "TransformBase.cfnTransformPath": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Writer/CaptureShim0"
+                    },
+                    "constructInfo": {
+                      "fqn": "@michanto/cdk-orchestration.transforms.TemplateCapture",
+                      "version": "0.0.0"
+                    }
+                  },
+                  "FileReader": {
+                    "id": "FileReader",
+                    "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/FileReader",
+                    "attributes": {
+                      "TransformBase.cfnTransformPath": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Reader/FileReaderShim0"
+                    },
+                    "constructInfo": {
+                      "fqn": "@michanto/cdk-orchestration.transforms.FileReader",
+                      "version": "0.0.0"
+                    }
+                  },
+                  "YamlParser": {
+                    "id": "YamlParser",
+                    "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/YamlParser",
+                    "attributes": {
+                      "TransformBase.cfnTransformPath": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Parser/YamlParserShim0"
+                    },
+                    "constructInfo": {
+                      "fqn": "@michanto/cdk-orchestration.transforms.YamlParser",
+                      "version": "0.0.0"
+                    }
+                  },
+                  "Stringify": {
+                    "id": "Stringify",
+                    "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/Stringify",
+                    "attributes": {
+                      "TransformBase.cfnTransformPath": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Writer/StringifyShim1"
+                    },
+                    "constructInfo": {
+                      "fqn": "@michanto/cdk-orchestration.transforms.Stringifier",
+                      "version": "0.0.0"
+                    }
+                  },
+                  "TempFile": {
+                    "id": "TempFile",
+                    "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/TempFile",
+                    "attributes": {
+                      "TransformBase.cfnTransformPath": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Writer/TempFileShim2"
+                    },
+                    "constructInfo": {
+                      "fqn": "@michanto/cdk-orchestration.transforms.TempFileWriter",
+                      "version": "0.0.0"
+                    }
+                  },
+                  "Cleanup": {
+                    "id": "Cleanup",
+                    "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/Cleanup",
+                    "children": {
+                      "DescriptionRemover": {
+                        "id": "DescriptionRemover",
+                        "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/Cleanup/DescriptionRemover",
+                        "attributes": {
+                          "TransformBase.cfnTransformPath": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Transforms/DescriptionRemoverShim1"
+                        },
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      }
+                    },
+                    "attributes": {
+                      "TransformBase.cfnTransformPath": "PyStepFunctionsImport/ImportPyStepFunction/Importer/_Transforms/CleanupShim0"
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.3.0"
+                    }
+                  },
+                  "ImporterIMP0": {
+                    "id": "ImporterIMP0",
+                    "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/ImporterIMP0",
+                    "children": {
+                      "$Mappings": {
+                        "id": "$Mappings",
+                        "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/ImporterIMP0/$Mappings",
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      },
+                      "$Conditions": {
+                        "id": "$Conditions",
+                        "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/ImporterIMP0/$Conditions",
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      },
+                      "$Rules": {
+                        "id": "$Rules",
+                        "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/ImporterIMP0/$Rules",
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      },
+                      "StateMachineComponent": {
+                        "id": "StateMachineComponent",
+                        "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/ImporterIMP0/StateMachineComponent",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::StepFunctions::StateMachine",
+                          "aws:cdk:cloudformation:props": {
+                            "definitionString": "{\n  \"StartAt\": \"MyPassState\",\n  \"States\": {\n    \"MyPassState\": {\n      \"Type\": \"Pass\",\n      \"Next\": \"Wait for 3 seconds\"\n    },\n    \"Wait for 3 seconds\": {\n      \"Seconds\": 3,\n      \"Type\": \"Wait\",\n      \"Next\": \"Convert HelloWorld to Base64\"\n    },\n    \"Convert HelloWorld to Base64\": {\n      \"Parameters\": {\n        \"FunctionName\": \"MyLambda\",\n        \"Payload\": {\n          \"input\": \"HelloWorld\"\n        }\n      },\n      \"Resource\": \"arn:aws:states:::lambda:invoke\",\n      \"Type\": \"Task\",\n      \"End\": true,\n      \"Retry\": [\n        {\n          \"ErrorEquals\": [\n            \"States.TaskFailed\"\n          ],\n          \"IntervalSeconds\": 15,\n          \"MaxAttempts\": 2,\n          \"BackoffRate\": 4.0\n        }\n      ],\n      \"Catch\": [\n        {\n          \"ErrorEquals\": [\n            \"States.TaskFailed\"\n          ],\n          \"Next\": \"LambdaTaskFailed\"\n        }\n      ]\n    },\n    \"LambdaTaskFailed\": {\n      \"Type\": \"Fail\"\n    }\n  }\n}",
+                            "roleArn": {
+                              "Fn::GetAtt": [
+                                "SFRoleE873EEF8",
+                                "Arn"
+                              ]
+                            },
+                            "stateMachineName": "MyWorkflow"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+                          "version": "2.120.0"
+                        }
+                      },
+                      "$Hooks": {
+                        "id": "$Hooks",
+                        "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/ImporterIMP0/$Hooks",
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      },
+                      "$Ouputs": {
+                        "id": "$Ouputs",
+                        "path": "PyStepFunctionsImport/ImportPyStepFunction/Importer/ImporterIMP0/$Ouputs",
+                        "constructInfo": {
+                          "fqn": "constructs.Construct",
+                          "version": "10.3.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.cloudformation_include.CfnInclude",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@michanto/cdk-orchestration.cloudformation_include.TemplateImporter",
+                  "version": "0.0.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "PyStepFunctionsImport/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.120.0"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "PyStepFunctionsImport/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.120.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.120.0"
+        }
+      },
+      "InsertStepFunctionStateInteg": {
+        "id": "InsertStepFunctionStateInteg",
+        "path": "InsertStepFunctionStateInteg",
+        "children": {
+          "DefaultTest": {
+            "id": "DefaultTest",
+            "path": "InsertStepFunctionStateInteg/DefaultTest",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "InsertStepFunctionStateInteg/DefaultTest/Default",
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.3.0"
+                }
+              },
+              "DeployAssert": {
+                "id": "DeployAssert",
+                "path": "InsertStepFunctionStateInteg/DefaultTest/DeployAssert",
+                "children": {
+                  "BootstrapVersion": {
+                    "id": "BootstrapVersion",
+                    "path": "InsertStepFunctionStateInteg/DefaultTest/DeployAssert/BootstrapVersion",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnParameter",
+                      "version": "2.120.0"
+                    }
+                  },
+                  "CheckBootstrapVersion": {
+                    "id": "CheckBootstrapVersion",
+                    "path": "InsertStepFunctionStateInteg/DefaultTest/DeployAssert/CheckBootstrapVersion",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnRule",
+                      "version": "2.120.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Stack",
+                  "version": "2.120.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/integ-tests-alpha.IntegTestCase",
+              "version": "2.120.0-alpha.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "@aws-cdk/integ-tests-alpha.IntegTest",
+          "version": "2.120.0-alpha.0"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.3.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.120.0"
+    }
+  }
+}
