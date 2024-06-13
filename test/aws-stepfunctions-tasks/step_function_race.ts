@@ -11,7 +11,7 @@ import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
 import { LateBoundStepFunctionsStartExecution } from '../../src/aws-stepfunctions-tasks';
 import { StepFunctionTask, StepFunctionTaskProps } from '../../src/orchestration';
 
-const LAMBDA_PATH = `${__dirname}`;
+const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas`;
 
 export interface StepFunctionRaceProps {
   readonly initialPolicy?: PolicyStatement[];
