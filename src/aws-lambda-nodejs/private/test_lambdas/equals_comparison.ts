@@ -19,7 +19,17 @@ export async function equalsComparison(event: any, context: any) {
   if (!actual) {
     throw new Error('Did not get an actual.');
   }
+  let result: string;
+  let message: string;
   if (expected != actual) {
-    throw new Error(`Expected ${expected}, got ${actual}.`);
+    result = 'fail';
+    message = `Expected ${expected}, got ${actual}.`;
+  } else {
+    result = 'success';
+    message = 'success';
   }
+  return {
+    result: result,
+    message: message,
+  };
 }

@@ -1,6 +1,5 @@
 import { CustomResource, Reference, RemovalPolicy } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { CustomResourceUtilities } from './custom_resources_utilities';
 import { ConstructRunTimeTypeInfo } from '../core';
 import { NAMESPACE } from '../private/internals';
 
@@ -60,8 +59,7 @@ export abstract class Task extends Construct implements ITask {
   }
 
   applyRemovalPolicy(policy: RemovalPolicy): void {
-    let resource = new CustomResourceUtilities().findCustomResource(this);
-    resource.applyRemovalPolicy(policy);
+    this.customResource.applyRemovalPolicy(policy);
   }
 
   get ref(): string {

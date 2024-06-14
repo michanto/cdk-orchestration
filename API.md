@@ -3384,7 +3384,7 @@ new custom_resources.LambdaCustomResource(scope: Construct, id: string, props: L
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseField">getResponseField</a></code> | Returns a flattened JSON key from the resource response. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseFieldReference">getResponseFieldReference</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseFieldReference">getResponseFieldReference</a></code> | Returns response data for the AWS SDK call. |
 
 ---
 
@@ -3463,6 +3463,8 @@ Returns a flattened JSON key from the resource response.
 ```typescript
 public getResponseFieldReference(dataPath: string): Reference
 ```
+
+Returns response data for the AWS SDK call.
 
 ###### `dataPath`<sup>Required</sup> <a name="dataPath" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseFieldReference.parameter.dataPath"></a>
 
@@ -12737,7 +12739,7 @@ Sets the logical ID of the resource to the Node ID of the construct.
 This should be used when you want the resource ID to be the same as the Node ID.
 Such as when you are replicating an existing hand-crafted template.
 
-Note:  This function L1 or L2 constructs, or any case where there is one L1 in the
+Note:  This function works with L1 or L2 constructs, or any case where there is one L1 in the
 sub-tree.
 
 ###### `construct`<sup>Required</sup> <a name="construct" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId.parameter.construct"></a>

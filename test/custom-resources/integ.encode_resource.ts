@@ -1,12 +1,12 @@
-import { ExpectedResult, IntegTest, Match } from '@aws-cdk/integ-tests-alpha';
-import { App, CfnOutput, CustomResource, Stack } from 'aws-cdk-lib';
-import { Effect } from 'aws-cdk-lib/aws-iam';
+import { ActualResult, ExpectedResult, IntegTest } from '@aws-cdk/integ-tests-alpha';
+import { App, CustomResource, Stack } from 'aws-cdk-lib';
 import { Function } from 'aws-cdk-lib/aws-lambda';
 import { Provider } from 'aws-cdk-lib/custom-resources';
 import { Construct } from 'constructs';
 import { Singleton } from '../../src';
 import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
 import { EncodeResource } from '../../src/custom-resources';
+import { EqualsComparisonAssertion } from '../util/assertions';
 const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
 export class GreetingCustomResources extends Construct {
@@ -50,16 +50,18 @@ export class GreetingCustomResource extends Construct {
 const app = new App();
 const stack = new Stack(app, 'EncodeResourcesInteg', {});
 let greetingResource = new GreetingCustomResource(stack, 'Greeting').resource;
-let greeting = greetingResource.getAttString('Greeting');
-new CfnOutput(stack, 'AnOutput', {
-  exportName: 'GreetingExport',
-  value: greeting,
+
+const assertionStack = new Stack(app, 'EncodeResourceAssertions', {});
+new EqualsComparisonAssertion(assertionStack, 'GreetingIsReversed', {
+  actual: ActualResult.fromCustomResource(greetingResource, 'Greeting'),
+  expected: ExpectedResult.exact('ereht ,olleH'),
 });
 
-let integ = new IntegTest(app, 'EncodeResourcesIntegTest', {
+new IntegTest(app, 'EncodeResourcesIntegTest', {
   testCases: [
     stack,
   ],
+  assertionStack: assertionStack,
   cdkCommandOptions: {
     destroy: {
       args: {
@@ -68,21 +70,4 @@ let integ = new IntegTest(app, 'EncodeResourcesIntegTest', {
     },
   },
   regions: ['us-east-1'],
-});
-
-
-// integ.assertions.expect('Check', ExpectedResult.exact('ereht ,olleH'), ActualResult.fromCustomResource(greetingResource, 'Greeting'));
-
-integ.assertions.awsApiCall('CloudFormation', 'listExports', {
-}).expect(ExpectedResult.objectLike({
-  Exports: Match.arrayWith([Match.objectLike({}), {
-    ExportingStackId: Match.stringLikeRegexp('.*'),
-    Name: 'GreetingExport',
-    Value: 'ereht ,olleH',
-  }]),
-},
-)).provider.addToRolePolicy({
-  Effect: Effect.ALLOW,
-  Action: ['cloudFormation:List*'],
-  Resource: ['*'],
 });

@@ -1,11 +1,19 @@
 import { ActualResult, ExpectedResult } from '@aws-cdk/integ-tests-alpha';
-import { CustomResource } from 'aws-cdk-lib';
+import { CfnOutput, CustomResource } from 'aws-cdk-lib';
 import { IFunction } from 'aws-cdk-lib/aws-lambda';
+import { md5hash as coreMd5 } from 'aws-cdk-lib/core/lib/helpers-internal';
 import { Construct } from 'constructs';
 import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
 import { Singleton } from '../../src/core';
 import { Task } from '../../src/custom-resources';
 import { LambdaTask } from '../../src/orchestration';
+
+export function md5hash(obj: any): string {
+  if (!obj || (typeof(obj) === 'object' && Object.keys(obj).length === 0)) {
+    throw new Error('Cannot compute md5 hash for falsy object');
+  }
+  return coreMd5(JSON.stringify(obj));
+}
 
 export interface EqualsComparisonAssertionProps {
   readonly expected: ExpectedResult;
@@ -44,6 +52,15 @@ export class EqualsComparisonAssertion extends Task {
         actual: props.actual,
       }),
     });
+    const result = this.task.getAttString('result');
+    const message = this.task.getAttString('message');
+
+    new CfnOutput(this, 'AssertionResults', {
+      value: JSON.stringify({ status: result, message: message }),
+    }).overrideLogicalId(`AssertionResults${id}${md5hash({
+      actual: props.actual.result,
+      expected: props.expected.result,
+    })}`);
     this.customResource = this.task.customResource;
   }
 }

@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/8e9a100e544be4463afc228dbf9033be7b49bb7667e97bd9fab20a657bb3aa9a.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/7da82bcb7c2f95c36ab37b062364be2ecc1926b5ca9fedada6f5bf0cb09bf90f.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -162,7 +162,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/475c39f4891a47d2ab74b030030e1b748c01cd5af2041db4853c1bc8dd0ffa39.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/541d470b36d4a242c262b97b8ecde06b461b5794d809d732bfe4ea59bee37a49.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -189,6 +189,12 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "ContentsAreEqualTaskCustomResourcePolicyDD806DC2"
+          }
+        ],
+        "/S3ResourcesAssertions/ContentsAreEqual/AssertionResults": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssertionResultsContentsAreEqual956aa5dd490039267c3f3f346453164b"
           }
         ],
         "/S3ResourcesAssertions/EqualsFunction/ServiceRole/Resource": [
@@ -245,28 +251,10 @@
             "data": "MetadataAreEqualTaskCustomResourcePolicyF7CA1266"
           }
         ],
-        "/S3ResourcesAssertions/AwsApiCallCloudFormationlistExports/Default/Default": [
+        "/S3ResourcesAssertions/MetadataAreEqual/AssertionResults": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AwsApiCallCloudFormationlistExports"
-          }
-        ],
-        "/S3ResourcesAssertions/AwsApiCallCloudFormationlistExports/AssertionResults": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "AssertionResultsAwsApiCallCloudFormationlistExports"
-          }
-        ],
-        "/S3ResourcesAssertions/SingletonFunction1488541a7b23466481b69b4408076b81/Role": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "SingletonFunction1488541a7b23466481b69b4408076b81Role37ABCE73"
-          }
-        ],
-        "/S3ResourcesAssertions/SingletonFunction1488541a7b23466481b69b4408076b81/Handler": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "SingletonFunction1488541a7b23466481b69b4408076b81HandlerCD40AE9F"
+            "data": "AssertionResultsMetadataAreEqual082681e36c5e1fd55c1ed556d71a67e4"
           }
         ],
         "/S3ResourcesAssertions/BootstrapVersion": [
