@@ -15,8 +15,8 @@
           }
         }
       },
-      "assertionStack": "EncodeResourcesIntegTest/DefaultTest/DeployAssert",
-      "assertionStackName": "EncodeResourcesIntegTestDefaultTestDeployAssert5BF8388B"
+      "assertionStack": "EncodeResourceAssertions",
+      "assertionStackName": "EncodeResourceAssertions"
     }
   }
 }

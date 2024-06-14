@@ -1,11 +1,6 @@
 {
- "Metadata": {
-  "build_hostname": "88665a457e00.ant.amazon.com",
-  "build_timestamp": 1718387511454,
-  "build_user": "michanto"
- },
  "Resources": {
-  "ContentsAreEqualTask6E9A79F0": {
+  "GreetingIsReversedTask23AECE9D": {
    "Type": "Custom::EqualsComparisonAssertion",
    "Properties": {
     "ServiceToken": {
@@ -23,39 +18,39 @@
         {
          "Ref": "EqualsFunction495237D7"
         },
-        "\",\"Payload\":\"{\\\"expected\\\":{\\\"result\\\":\\\"{\\\\\\\"$Exact\\\\\\\":\\\\\\\"Data\\\\\\\"}\\\"},\\\"actual\\\":{\\\"result\\\":\\\"",
+        "\",\"Payload\":\"{\\\"expected\\\":{\\\"result\\\":\\\"{\\\\\\\"$Exact\\\\\\\":\\\\\\\"ereht ,olleH\\\\\\\"}\\\"},\\\"actual\\\":{\\\"result\\\":\\\"",
         {
-         "Fn::ImportValue": "S3ResourcesInteg:ExportsOutputFnGetAttReaderC968FCB1Some184BF997"
+         "Fn::ImportValue": "EncodeResourcesInteg:ExportsOutputFnGetAttGreeting7772ECD5Greeting47F1C162"
         },
         "\\\"}}\"},\"physicalResourceId\":{\"id\":\"Invoke",
         {
          "Ref": "EqualsFunction495237D7"
         },
-        "-51b6e452de1e3baeb74e7e2f8827c10d\"}},\"Update\":{\"service\":\"Lambda\",\"action\":\"invoke\",\"parameters\":{\"FunctionName\":\"",
+        "-b40f5038c9c9044dbaedb61b30d93083\"}},\"Update\":{\"service\":\"Lambda\",\"action\":\"invoke\",\"parameters\":{\"FunctionName\":\"",
         {
          "Ref": "EqualsFunction495237D7"
         },
-        "\",\"Payload\":\"{\\\"expected\\\":{\\\"result\\\":\\\"{\\\\\\\"$Exact\\\\\\\":\\\\\\\"Data\\\\\\\"}\\\"},\\\"actual\\\":{\\\"result\\\":\\\"",
+        "\",\"Payload\":\"{\\\"expected\\\":{\\\"result\\\":\\\"{\\\\\\\"$Exact\\\\\\\":\\\\\\\"ereht ,olleH\\\\\\\"}\\\"},\\\"actual\\\":{\\\"result\\\":\\\"",
         {
-         "Fn::ImportValue": "S3ResourcesInteg:ExportsOutputFnGetAttReaderC968FCB1Some184BF997"
+         "Fn::ImportValue": "EncodeResourcesInteg:ExportsOutputFnGetAttGreeting7772ECD5Greeting47F1C162"
         },
         "\\\"}}\"},\"physicalResourceId\":{\"id\":\"Invoke",
         {
          "Ref": "EqualsFunction495237D7"
         },
-        "-51b6e452de1e3baeb74e7e2f8827c10d\"}},\"ResponseBufferField\":\"Payload\",\"RequestedOutputs\":[\"result\",\"message\"],\"salt\":1718387511454}"
+        "-b40f5038c9c9044dbaedb61b30d93083\"}},\"ResponseBufferField\":\"Payload\",\"RequestedOutputs\":[\"result\",\"message\"],\"salt\":1718387787734}"
        ]
       ]
      }
     }
    },
    "DependsOn": [
-    "ContentsAreEqualTaskCustomResourcePolicyDD806DC2"
+    "GreetingIsReversedTaskCustomResourcePolicy22A0F722"
    ],
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete"
   },
-  "ContentsAreEqualTaskCustomResourcePolicyDD806DC2": {
+  "GreetingIsReversedTaskCustomResourcePolicy22A0F722": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -68,7 +63,7 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "ContentsAreEqualTaskCustomResourcePolicyDD806DC2",
+    "PolicyName": "GreetingIsReversedTaskCustomResourcePolicy22A0F722",
     "Roles": [
      {
       "Ref": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2"
@@ -115,8 +110,7 @@
     },
     "Environment": {
      "Variables": {
-      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
-      "LogLevel": "18446744073709552000"
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
      }
     },
     "Handler": "index.equalsComparison",
@@ -183,11 +177,6 @@
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
      "S3Key": "7eeb3194924d59cc3f9848370265acfffb80714e8cf41ace55315ad6dd49244f.zip"
-    },
-    "Environment": {
-     "Variables": {
-      "LogLevel": "18446744073709552000"
-     }
     },
     "Handler": "index.handler",
     "Role": {
@@ -285,7 +274,7 @@
      },
      "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
     },
-    "Description": "AWS CDK resource provider framework - onEvent (S3ResourcesAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider)",
+    "Description": "AWS CDK resource provider framework - onEvent (EncodeResourceAssertions/CDKORCHCUSTOMRESOURCE::Resources/CDKORCHCUSTOMRESOURCEProvider)",
     "Environment": {
      "Variables": {
       "USER_ON_EVENT_FUNCTION_ARN": {
@@ -293,8 +282,7 @@
         "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEOnEventB60C9E76",
         "Arn"
        ]
-      },
-      "LogLevel": "18446744073709552000"
+      }
      }
     },
     "Handler": "framework.onEvent",
@@ -311,81 +299,10 @@
     "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleDefaultPolicy9B953B1F",
     "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEventServiceRoleCBAF3CDB"
    ]
-  },
-  "MetadataAreEqualTaskADCEB8FB": {
-   "Type": "Custom::EqualsComparisonAssertion",
-   "Properties": {
-    "ServiceToken": {
-     "Fn::GetAtt": [
-      "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCEProviderframeworkonEvent4AE15604",
-      "Arn"
-     ]
-    },
-    "EncodedProperties": {
-     "Fn::Base64": {
-      "Fn::Join": [
-       "",
-       [
-        "{\"Create\":{\"service\":\"Lambda\",\"action\":\"invoke\",\"parameters\":{\"FunctionName\":\"",
-        {
-         "Ref": "EqualsFunction495237D7"
-        },
-        "\",\"Payload\":\"{\\\"expected\\\":{\\\"result\\\":\\\"{\\\\\\\"$Exact\\\\\\\":\\\\\\\"Michael\\\\\\\"}\\\"},\\\"actual\\\":{\\\"result\\\":\\\"",
-        {
-         "Fn::ImportValue": "S3ResourcesInteg:ExportsOutputFnGetAttMdReader891AE0B9MetadatamymetadataE62E86E6"
-        },
-        "\\\"}}\"},\"physicalResourceId\":{\"id\":\"Invoke",
-        {
-         "Ref": "EqualsFunction495237D7"
-        },
-        "-581b5f44f38d4f73497cc7d0d1633495\"}},\"Update\":{\"service\":\"Lambda\",\"action\":\"invoke\",\"parameters\":{\"FunctionName\":\"",
-        {
-         "Ref": "EqualsFunction495237D7"
-        },
-        "\",\"Payload\":\"{\\\"expected\\\":{\\\"result\\\":\\\"{\\\\\\\"$Exact\\\\\\\":\\\\\\\"Michael\\\\\\\"}\\\"},\\\"actual\\\":{\\\"result\\\":\\\"",
-        {
-         "Fn::ImportValue": "S3ResourcesInteg:ExportsOutputFnGetAttMdReader891AE0B9MetadatamymetadataE62E86E6"
-        },
-        "\\\"}}\"},\"physicalResourceId\":{\"id\":\"Invoke",
-        {
-         "Ref": "EqualsFunction495237D7"
-        },
-        "-581b5f44f38d4f73497cc7d0d1633495\"}},\"ResponseBufferField\":\"Payload\",\"RequestedOutputs\":[\"result\",\"message\"],\"salt\":1718387511454}"
-       ]
-      ]
-     }
-    }
-   },
-   "DependsOn": [
-    "MetadataAreEqualTaskCustomResourcePolicyF7CA1266"
-   ],
-   "UpdateReplacePolicy": "Delete",
-   "DeletionPolicy": "Delete"
-  },
-  "MetadataAreEqualTaskCustomResourcePolicyF7CA1266": {
-   "Type": "AWS::IAM::Policy",
-   "Properties": {
-    "PolicyDocument": {
-     "Statement": [
-      {
-       "Action": "lambda:Invoke",
-       "Effect": "Allow",
-       "Resource": "*"
-      }
-     ],
-     "Version": "2012-10-17"
-    },
-    "PolicyName": "MetadataAreEqualTaskCustomResourcePolicyF7CA1266",
-    "Roles": [
-     {
-      "Ref": "CDKORCHCUSTOMRESOURCEResourcesCDKORCHCUSTOMRESOURCERole685CF4F2"
-     }
-    ]
-   }
   }
  },
  "Outputs": {
-  "AssertionResultsContentsAreEqual956aa5dd490039267c3f3f346453164b": {
+  "AssertionResultsGreetingIsReversede02e85f76350e4c0d91d6d7b8c3fadd9": {
    "Value": {
     "Fn::Join": [
      "",
@@ -393,38 +310,14 @@
       "{\"status\":\"",
       {
        "Fn::GetAtt": [
-        "ContentsAreEqualTask6E9A79F0",
+        "GreetingIsReversedTask23AECE9D",
         "result"
        ]
       },
       "\",\"message\":\"",
       {
        "Fn::GetAtt": [
-        "ContentsAreEqualTask6E9A79F0",
-        "message"
-       ]
-      },
-      "\"}"
-     ]
-    ]
-   }
-  },
-  "AssertionResultsMetadataAreEqual082681e36c5e1fd55c1ed556d71a67e4": {
-   "Value": {
-    "Fn::Join": [
-     "",
-     [
-      "{\"status\":\"",
-      {
-       "Fn::GetAtt": [
-        "MetadataAreEqualTaskADCEB8FB",
-        "result"
-       ]
-      },
-      "\",\"message\":\"",
-      {
-       "Fn::GetAtt": [
-        "MetadataAreEqualTaskADCEB8FB",
+        "GreetingIsReversedTask23AECE9D",
         "message"
        ]
       },

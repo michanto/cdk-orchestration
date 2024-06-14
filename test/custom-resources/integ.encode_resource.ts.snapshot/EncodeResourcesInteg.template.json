@@ -181,7 +181,7 @@
   }
  },
  "Outputs": {
-  "AnOutput": {
+  "ExportsOutputFnGetAttGreeting7772ECD5Greeting47F1C162": {
    "Value": {
     "Fn::GetAtt": [
      "Greeting7772ECD5",
@@ -189,7 +189,7 @@
     ]
    },
    "Export": {
-    "Name": "GreetingExport"
+    "Name": "EncodeResourcesInteg:ExportsOutputFnGetAttGreeting7772ECD5Greeting47F1C162"
    }
   }
  },
