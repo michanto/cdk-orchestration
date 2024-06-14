@@ -28,7 +28,7 @@ export class CfnIncludeToCdk {
    * This should be used when you want the resource ID to be the same as the Node ID.
    * Such as when you are replicating an existing hand-crafted template.
    *
-   * Note:  This function on L1 or L2 constructs, or any case where there is one L1 in the
+   * Note:  This function works with L1 or L2 constructs, or any case where there is one L1 in the
    * sub-tree.
    *
    * @param construct The resource construct.
