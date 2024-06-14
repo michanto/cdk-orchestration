@@ -9,12 +9,17 @@ import { RemoveSalt } from '../util';
 
 const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas/`;
 
+export interface GreetingLambdaTaskProps {
+  readonly removeSalt: boolean;
+  readonly greeting: string;
+}
+
 export class GreetingLambdaTask extends Task {
   readonly handler: Function;
   readonly task: LambdaTask;
   readonly customResource: CustomResource;
 
-  constructor(scope: Construct, id: string, removeSalt: boolean) {
+  constructor(scope: Construct, id: string, props: GreetingLambdaTaskProps) {
     super(scope, id);
     this.handler = new InlineNodejsFunction(this, 'Reverse', {
       entry: `${LAMBDA_PATH}reverse_greeting.js`,
@@ -24,12 +29,12 @@ export class GreetingLambdaTask extends Task {
     this.task = new LambdaTask(this, 'LambdaTask', {
       lambdaFunction: this.handler,
       payload: JSON.stringify({
-        Greeting: 'Hello, world.',
+        Greeting: props.greeting,
       }),
     });
     this.customResource = this.task.customResource;
 
-    if (removeSalt) {
+    if (props.removeSalt) {
       new RemoveSalt(this);
     }
 

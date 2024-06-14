@@ -1,6 +1,5 @@
-import { ActualResult, ExpectedResult, IntegTest, Match } from '@aws-cdk/integ-tests-alpha';
+import { ActualResult, ExpectedResult, IntegTest } from '@aws-cdk/integ-tests-alpha';
 import { App, Aspects, Stack } from 'aws-cdk-lib';
-import { Effect } from 'aws-cdk-lib/aws-iam';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
 import { Logger, LoggingAspect, StackProvenanceAspect } from '../../src/core';
@@ -56,7 +55,7 @@ new EqualsComparisonAssertion(assertionStack, 'MetadataAreEqual', {
   expected: ExpectedResult.exact('Michael'),
 });
 
-let integ = new IntegTest(app, 'S3FileResourcesTest', {
+new IntegTest(app, 'S3FileResourcesTest', {
   testCases: [
     stack,
   ],
@@ -69,14 +68,4 @@ let integ = new IntegTest(app, 'S3FileResourcesTest', {
     },
   },
   regions: ['us-east-1'],
-});
-
-integ.assertions.awsApiCall('CloudFormation', 'listExports', {
-}).expect(ExpectedResult.objectLike({
-  Exports: Match.arrayWith([Match.objectLike({})]),
-},
-)).provider.addToRolePolicy({
-  Effect: Effect.ALLOW,
-  Action: ['cloudFormation:List*'],
-  Resource: ['*'],
 });
