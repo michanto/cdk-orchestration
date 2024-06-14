@@ -12739,7 +12739,7 @@ Sets the logical ID of the resource to the Node ID of the construct.
 This should be used when you want the resource ID to be the same as the Node ID.
 Such as when you are replicating an existing hand-crafted template.
 
-Note:  This function on L1 or L2 constructs, or any case where there is one L1 in the
+Note:  This function works with L1 or L2 constructs, or any case where there is one L1 in the
 sub-tree.
 
 ###### `construct`<sup>Required</sup> <a name="construct" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId.parameter.construct"></a>
