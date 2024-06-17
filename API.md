@@ -10754,6 +10754,7 @@ const lambdaCustomResourceProps: custom_resources.LambdaCustomResourceProps = { 
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The timeout for the singleton Lambda function implementing this custom resource. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The vpc to provision the lambda function in. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | Which subnets from the VPC to place the lambda function in. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.autoPaginate">autoPaginate</a></code> | <code>boolean</code> | If the AwsApiCall returns an NextToken, this will attempt to auto-paginate and get subsequent pages until there are none left. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: string}</code> | Default attribute values to use when the underlying task fails to return expected values. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.responseBufferField">responseBufferField</a></code> | <code>string</code> | Specifies a field in the API response that should be deserlized, such as Payload when calling lambda:Invoke, or Body when calling s3:GetObject. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.runAlways">runAlways</a></code> | <code>boolean</code> | Whether to run the task every time the stack is updated. |
@@ -10957,6 +10958,24 @@ Which subnets from the VPC to place the lambda function in.
 
 Only used if 'vpc' is supplied. Note: internet access for Lambdas
 requires a NAT gateway, so picking Public subnets is not allowed.
+
+---
+
+##### `autoPaginate`<sup>Optional</sup> <a name="autoPaginate" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.autoPaginate"></a>
+
+```typescript
+public readonly autoPaginate: boolean;
+```
+
+- *Type:* boolean
+
+If the AwsApiCall returns an NextToken, this will attempt to auto-paginate and get subsequent pages until there are none left.
+
+This is a dangerous flag to set if there are a lot of pages,
+and may cause the lambda to time out and the resource to fail.
+Be careful.
+
+Default is false.
 
 ---
 

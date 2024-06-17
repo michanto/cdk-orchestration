@@ -89,6 +89,19 @@ export interface LambdaCustomResourceProps extends AwsCustomResourceProps {
    * values.
    */
   readonly defaults?: Record<string, string>;
+
+  /**
+   * If the AwsApiCall returns an NextToken,
+   * this will attempt to auto-paginate and get subsequent
+   * pages until there are none left.
+   *
+   * This is a dangerous flag to set if there are a lot of pages,
+   * and may cause the lambda to time out and the resource to fail.
+   * Be careful.
+   *
+   * Default is false.
+   */
+  readonly autoPaginate?: boolean;
 }
 
 /**
@@ -155,6 +168,10 @@ export class LambdaCustomResource extends Task {
     crProps.RequestedOutputs = Lazy.list({
       produce: () => (this.customResource as InnerCustomResource).requestedOutputs,
     });
+
+    if (props.autoPaginate) {
+      crProps.AutoPaginate = true;
+    }
 
     this.customResource = new InnerCustomResource(this, 'Resource', {
       serviceToken: this.resources.provider.serviceToken,
