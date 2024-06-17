@@ -1,6 +1,8 @@
 import { CfnResource, CustomResource, Duration, Lazy } from 'aws-cdk-lib';
+import { IVpc, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
 import { IRole, ManagedPolicy, Policy, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Code, IFunction, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
+import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { AwsCustomResourceProps, AwsCustomResource, AwsSdkCall, Provider } from 'aws-cdk-lib/custom-resources';
 import { Construct, IConstruct } from 'constructs';
 import { CustomResourceUtilities } from './custom_resources_utilities';
@@ -18,6 +20,10 @@ export interface LambdaCustomResourceResourcesProps {
   readonly purpose: string;
   readonly timeout?: Duration;
   readonly role?: IRole;
+  readonly vpc?: IVpc;
+  readonly vpcSubnets?: SubnetSelection;
+  readonly functionName?: string;
+  readonly logRetention?: RetentionDays;
 }
 
 /**
@@ -56,6 +62,10 @@ export class LambdaCustomResourceResources extends Construct {
       role: this.role,
       runtime: Runtime.NODEJS_20_X,
       timeout: props.timeout ?? Duration.minutes(2),
+      vpc: props.vpc,
+      vpcSubnets: props.vpcSubnets,
+      functionName: props.functionName,
+      logRetention: props.logRetention,
     });
   }
 }
@@ -79,10 +89,23 @@ export interface LambdaCustomResourceProps extends AwsCustomResourceProps {
    * values.
    */
   readonly defaults?: Record<string, string>;
+
+  /**
+   * If the AwsApiCall returns an NextToken,
+   * this will attempt to auto-paginate and get subsequent
+   * pages until there are none left.
+   *
+   * This is a dangerous flag to set if there are a lot of pages,
+   * and may cause the lambda to time out and the resource to fail.
+   * Be careful.
+   *
+   * Default is false.
+   */
+  readonly autoPaginate?: boolean;
 }
 
 /**
- * This is a drop-in replacement for AwsCustomResource (not yet fully featured).
+ * This is a drop-in replacement for AwsCustomResource.
  * Provides it's own runtime similar to that of AwsCustomResource, but deserializes
  * the Lambda return value when the responseBufferField property is set to Payload.
  * For S3 GetObject, responseBufferField should be set to Body).
@@ -90,6 +113,7 @@ export interface LambdaCustomResourceProps extends AwsCustomResourceProps {
  * - Supports filtering (see {@link AwsSdkCall.outputPaths).
  * - Support deserlializing via LambdaCustomResourceProps.responseBufferField.
  * - Supports default values for response fields as LambdaCustomResourceProps.defaults.
+ * - Does not support installLatestAwsSdk parameter (future).
  */
 export class LambdaCustomResource extends Task {
   readonly resources: LambdaCustomResourceResources;
@@ -121,6 +145,10 @@ export class LambdaCustomResource extends Task {
       purpose: 'CDKORCHCUSTOMRESOURCE',
       timeout: props.timeout,
       role: props.role,
+      vpc: props.vpc,
+      vpcSubnets: props.vpcSubnets,
+      functionName: props.functionName,
+      logRetention: props.logRetention,
     });
 
     const create = props.onCreate || props.onUpdate;
@@ -141,6 +169,10 @@ export class LambdaCustomResource extends Task {
       produce: () => (this.customResource as InnerCustomResource).requestedOutputs,
     });
 
+    if (props.autoPaginate) {
+      crProps.AutoPaginate = true;
+    }
+
     this.customResource = new InnerCustomResource(this, 'Resource', {
       serviceToken: this.resources.provider.serviceToken,
       resourceType: `Custom::${purpose}`,
@@ -152,6 +184,10 @@ export class LambdaCustomResource extends Task {
       new RunResourceAlways(this);
     }
     this.createPolicy(props);
+
+    if (props.removalPolicy) {
+      this.applyRemovalPolicy(props.removalPolicy);
+    }
 
     new EncodeResource(this.customResource);
   }

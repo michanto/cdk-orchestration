@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import { App, RemovalPolicy, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { Role } from 'aws-cdk-lib/aws-iam';
+import { CfnLogGroup } from 'aws-cdk-lib/aws-logs';
 import { CfnStateMachine, DefinitionBody, Pass, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { PyStepFunctionsCleanup, PyStepFunctionsImportStack } from './py_step_functions_cleanup';
 import {
@@ -190,6 +191,32 @@ describe('Import transform tests', () => {
       },
     });
   });
+
+  test('CfnIncludeToCdk two includes.', () => {
+    let app = new App();
+
+    let stack = new Stack(app, 'TestStack', {
+      env: env,
+    });
+
+    let importer = new TemplateImporter(stack, 'Importer');
+    let roleArn = `arn:aws:iam::${env.account}:role/CustomSolonExecutionRole`;
+    let role = Role.fromRoleArn(importer, 'Role', roleArn);
+    new PyStepFunctionsCleanup(importer, 'Cleanup', {
+      resourceLogicalId: newResourceName,
+      role: role,
+    });
+    importer.importTemplate(templateFileName).getResource(newResourceName) as CfnStateMachine;
+    const bangBangFileName = `${__dirname}/bangbang.yaml`;
+    importer.importTemplate(bangBangFileName, {
+      parameters: {},
+    });
+    let stateMachine = CfnIncludeToCdk.findIncluded(newResourceName, stack) as CfnStateMachine;
+    let flowLogs = CfnIncludeToCdk.findIncluded('FlowLogsGroup', stack) as CfnLogGroup;
+    expect(stateMachine).toBeTruthy();
+    expect(flowLogs).toBeTruthy();
+  });
+
   test('TempFileWriter happy path.', () => {
     let app = new App();
 

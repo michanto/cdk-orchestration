@@ -10,13 +10,6 @@ export interface IConstructServiceFactory {
 }
 
 /**
- * Interface for creating a construct.
- */
-export interface IConstructFactory {
-  (scope: IConstruct, id: string): IConstruct;
-}
-
-/**
  * Properties for defining a construct service.
  *
  * A construct service is a symbol-keyed property on a construct.  The CDK uses
