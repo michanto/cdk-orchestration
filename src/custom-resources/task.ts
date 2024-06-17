@@ -1,9 +1,17 @@
 import { CustomResource, Reference, RemovalPolicy } from 'aws-cdk-lib';
+import { ITrigger } from 'aws-cdk-lib/triggers';
 import { Construct } from 'constructs';
 import { ConstructRunTimeTypeInfo } from '../core';
 import { NAMESPACE } from '../private/internals';
 
-export interface ITask {
+/**
+ * Task interface.  Allows easy access to both CustomResource and ITrigger
+ * functionality.
+ *
+ * Tasks are like triggers, but they expose the return value as attributes that
+ * can be used to create other resources.
+ */
+export interface ITask extends ITrigger {
   /**
    * Sets the deletion policy of the resource based on the removal policy specified.
    * @param policy
@@ -33,7 +41,6 @@ export interface ITask {
    * @returns a token for `Fn::GetAtt` encoded as a string.
    */
   getAttString(attributeName: string): string;
-
 }
 
 /**
@@ -72,5 +79,28 @@ export abstract class Task extends Construct implements ITask {
 
   getAttString(attributeName: string): string {
     return this.customResource.getAttString(attributeName);
+  }
+
+  /**
+   * Adds task dependencies. Execute this task only after these construct
+   * scopes have been provisioned.
+   *
+   * @param scopes A list of construct scopes which this task will depend on.
+   */
+  public executeAfter(...scopes: Construct[]): void {
+    this.node.addDependency(...scopes);
+  }
+
+  /**
+   * Adds task trigger as a dependency on other constructs. This means that this
+   * task will get executed *before* the given construct(s).
+   *
+   * @param scopes A list of construct scopes which will take a dependency on
+   * this task.
+   */
+  public executeBefore(...scopes: Construct[]): void {
+    for (const s of scopes) {
+      s.node.addDependency(this);
+    }
   }
 }

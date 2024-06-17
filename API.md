@@ -3381,6 +3381,8 @@ new custom_resources.LambdaCustomResource(scope: Construct, id: string, props: L
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.executeAfter">executeAfter</a></code> | Adds task dependencies. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.executeBefore">executeBefore</a></code> | Adds task trigger as a dependency on other constructs. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseField">getResponseField</a></code> | Returns a flattened JSON key from the resource response. |
@@ -3407,6 +3409,44 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.executeAfter"></a>
+
+```typescript
+public executeAfter(scopes: Construct): void
+```
+
+Adds task dependencies.
+
+Execute this task only after these construct
+scopes have been provisioned.
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.executeAfter.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which this task will depend on.
+
+---
+
+##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.executeBefore"></a>
+
+```typescript
+public executeBefore(scopes: Construct): void
+```
+
+Adds task trigger as a dependency on other constructs.
+
+This means that this
+task will get executed *before* the given construct(s).
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.executeBefore.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which will take a dependency on this task.
 
 ---
 
@@ -3825,6 +3865,8 @@ new orchestration.LambdaTask(scope: Construct, id: string, props: LambdaTaskProp
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.executeAfter">executeAfter</a></code> | Adds task dependencies. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.executeBefore">executeBefore</a></code> | Adds task trigger as a dependency on other constructs. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
@@ -3849,6 +3891,44 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.LambdaTask.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.LambdaTask.executeAfter"></a>
+
+```typescript
+public executeAfter(scopes: Construct): void
+```
+
+Adds task dependencies.
+
+Execute this task only after these construct
+scopes have been provisioned.
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.LambdaTask.executeAfter.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which this task will depend on.
+
+---
+
+##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.LambdaTask.executeBefore"></a>
+
+```typescript
+public executeBefore(scopes: Construct): void
+```
+
+Adds task trigger as a dependency on other constructs.
+
+This means that this
+task will get executed *before* the given construct(s).
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.LambdaTask.executeBefore.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which will take a dependency on this task.
 
 ---
 
@@ -5606,6 +5686,8 @@ new orchestration.S3FileMetadata(scope: Construct, id: string, props: S3FileRead
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.executeAfter">executeAfter</a></code> | Adds task dependencies. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.executeBefore">executeBefore</a></code> | Adds task trigger as a dependency on other constructs. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
@@ -5630,6 +5712,44 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.executeAfter"></a>
+
+```typescript
+public executeAfter(scopes: Construct): void
+```
+
+Adds task dependencies.
+
+Execute this task only after these construct
+scopes have been provisioned.
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.executeAfter.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which this task will depend on.
+
+---
+
+##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.executeBefore"></a>
+
+```typescript
+public executeBefore(scopes: Construct): void
+```
+
+Adds task trigger as a dependency on other constructs.
+
+This means that this
+task will get executed *before* the given construct(s).
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.executeBefore.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which will take a dependency on this task.
 
 ---
 
@@ -5829,6 +5949,8 @@ new orchestration.S3FileReader(scope: Construct, id: string, props: S3FileReader
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.executeAfter">executeAfter</a></code> | Adds task dependencies. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.executeBefore">executeBefore</a></code> | Adds task trigger as a dependency on other constructs. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
@@ -5853,6 +5975,44 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.S3FileReader.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.S3FileReader.executeAfter"></a>
+
+```typescript
+public executeAfter(scopes: Construct): void
+```
+
+Adds task dependencies.
+
+Execute this task only after these construct
+scopes have been provisioned.
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileReader.executeAfter.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which this task will depend on.
+
+---
+
+##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.S3FileReader.executeBefore"></a>
+
+```typescript
+public executeBefore(scopes: Construct): void
+```
+
+Adds task trigger as a dependency on other constructs.
+
+This means that this
+task will get executed *before* the given construct(s).
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileReader.executeBefore.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which will take a dependency on this task.
 
 ---
 
@@ -6045,6 +6205,8 @@ new orchestration.S3FileResource(scope: Construct, id: string, props: S3FileReso
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.executeAfter">executeAfter</a></code> | Adds task dependencies. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.executeBefore">executeBefore</a></code> | Adds task trigger as a dependency on other constructs. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
@@ -6069,6 +6231,44 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.S3FileResource.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.S3FileResource.executeAfter"></a>
+
+```typescript
+public executeAfter(scopes: Construct): void
+```
+
+Adds task dependencies.
+
+Execute this task only after these construct
+scopes have been provisioned.
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileResource.executeAfter.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which this task will depend on.
+
+---
+
+##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.S3FileResource.executeBefore"></a>
+
+```typescript
+public executeBefore(scopes: Construct): void
+```
+
+Adds task trigger as a dependency on other constructs.
+
+This means that this
+task will get executed *before* the given construct(s).
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileResource.executeBefore.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which will take a dependency on this task.
 
 ---
 
@@ -6612,6 +6812,8 @@ new orchestration.StepFunctionTask(scope: Construct, id: string, props: StepFunc
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.executeAfter">executeAfter</a></code> | Adds task dependencies. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.executeBefore">executeBefore</a></code> | Adds task trigger as a dependency on other constructs. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
@@ -6636,6 +6838,44 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.executeAfter"></a>
+
+```typescript
+public executeAfter(scopes: Construct): void
+```
+
+Adds task dependencies.
+
+Execute this task only after these construct
+scopes have been provisioned.
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.executeAfter.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which this task will depend on.
+
+---
+
+##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.executeBefore"></a>
+
+```typescript
+public executeBefore(scopes: Construct): void
+```
+
+Adds task trigger as a dependency on other constructs.
+
+This means that this
+task will get executed *before* the given construct(s).
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.executeBefore.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which will take a dependency on this task.
 
 ---
 
@@ -6847,6 +7087,8 @@ new orchestration.StepFunctionTaskStep(scope: Construct, id: string, props: Step
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.executeAfter">executeAfter</a></code> | Adds task dependencies. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.executeBefore">executeBefore</a></code> | Adds task trigger as a dependency on other constructs. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
@@ -6871,6 +7113,44 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.executeAfter"></a>
+
+```typescript
+public executeAfter(scopes: Construct): void
+```
+
+Adds task dependencies.
+
+Execute this task only after these construct
+scopes have been provisioned.
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.executeAfter.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which this task will depend on.
+
+---
+
+##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.executeBefore"></a>
+
+```typescript
+public executeBefore(scopes: Construct): void
+```
+
+Adds task trigger as a dependency on other constructs.
+
+This means that this
+task will get executed *before* the given construct(s).
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.executeBefore.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which will take a dependency on this task.
 
 ---
 
@@ -7820,6 +8100,8 @@ new custom_resources.Task(scope: Construct, id: string)
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.executeAfter">executeAfter</a></code> | Adds task dependencies. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.executeBefore">executeBefore</a></code> | Adds task trigger as a dependency on other constructs. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.getAtt">getAtt</a></code> | Returns the value of an attribute of the custom resource of an arbitrary type. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.getAttString">getAttString</a></code> | Returns the value of an attribute of the custom resource of type string. |
 
@@ -7844,6 +8126,44 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ###### `policy`<sup>Required</sup> <a name="policy" id="@michanto/cdk-orchestration.custom_resources.Task.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.custom_resources.Task.executeAfter"></a>
+
+```typescript
+public executeAfter(scopes: Construct): void
+```
+
+Adds task dependencies.
+
+Execute this task only after these construct
+scopes have been provisioned.
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.custom_resources.Task.executeAfter.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which this task will depend on.
+
+---
+
+##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.custom_resources.Task.executeBefore"></a>
+
+```typescript
+public executeBefore(scopes: Construct): void
+```
+
+Adds task trigger as a dependency on other constructs.
+
+This means that this
+task will get executed *before* the given construct(s).
+
+###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.custom_resources.Task.executeBefore.parameter.scopes"></a>
+
+- *Type:* constructs.Construct
+
+A list of construct scopes which will take a dependency on this task.
 
 ---
 
@@ -16495,7 +16815,14 @@ Delayed log-line construction.
 
 ### ITask <a name="ITask" id="@michanto/cdk-orchestration.custom_resources.ITask"></a>
 
+- *Extends:* aws-cdk-lib.triggers.ITrigger
+
 - *Implemented By:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource, @michanto/cdk-orchestration.custom_resources.Task, @michanto/cdk-orchestration.orchestration.LambdaTask, @michanto/cdk-orchestration.orchestration.S3FileMetadata, @michanto/cdk-orchestration.orchestration.S3FileReader, @michanto/cdk-orchestration.orchestration.S3FileResource, @michanto/cdk-orchestration.orchestration.StepFunctionTask, @michanto/cdk-orchestration.orchestration.StepFunctionTaskStep, @michanto/cdk-orchestration.custom_resources.ITask
+
+Task interface.  Allows easy access to both CustomResource and ITrigger functionality.
+
+Tasks are like triggers, but they expose the return value as attributes that
+can be used to create other resources.
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -16563,7 +16890,20 @@ the name of the attribute.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.ITask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.ITask.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.custom_resources.ITask.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
 
 ---
 
