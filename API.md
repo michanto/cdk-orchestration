@@ -3332,7 +3332,7 @@ public readonly resourceType: string;
 
 ### LambdaCustomResource <a name="LambdaCustomResource" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource"></a>
 
-This is a drop-in replacement for AwsCustomResource (not yet fully featured).
+This is a drop-in replacement for AwsCustomResource.
 
 Provides it's own runtime similar to that of AwsCustomResource, but deserializes
 the Lambda return value when the responseBufferField property is set to Payload.
@@ -3340,6 +3340,7 @@ For S3 GetObject, responseBufferField should be set to Body).
 - Supports flattening of lambda return values (see {@link AwsCustomResource.getResponseField}).
 - Supports filtering (see {@link AwsSdkCall.outputPaths).} * - Support deserlializing via LambdaCustomResourceProps.responseBufferField.
 - Supports default values for response fields as LambdaCustomResourceProps.defaults.
+- Does not support installLatestAwsSdk parameter (future).
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.Initializer"></a>
 
@@ -11014,8 +11015,12 @@ const lambdaCustomResourceResourcesProps: custom_resources.LambdaCustomResourceR
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.purpose">purpose</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.functionName">functionName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.logRetention">logRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | *No description.* |
 
 ---
 
@@ -11026,6 +11031,26 @@ public readonly purpose: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `functionName`<sup>Optional</sup> <a name="functionName" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.functionName"></a>
+
+```typescript
+public readonly functionName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `logRetention`<sup>Optional</sup> <a name="logRetention" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.logRetention"></a>
+
+```typescript
+public readonly logRetention: RetentionDays;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.RetentionDays
 
 ---
 
@@ -11046,6 +11071,26 @@ public readonly timeout: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `vpc`<sup>Optional</sup> <a name="vpc" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+---
+
+##### `vpcSubnets`<sup>Optional</sup> <a name="vpcSubnets" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps.property.vpcSubnets"></a>
+
+```typescript
+public readonly vpcSubnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
 
 ---
 
