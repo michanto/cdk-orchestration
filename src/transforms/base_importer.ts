@@ -1,6 +1,6 @@
 import { Construct } from 'constructs';
 import { CfnTransformHost } from './cfn_transform_host';
-import { ImportOrders } from './import_orders';
+import { ImportOrder, ImportOrders } from './import_orders';
 
 /**
  * This class adds Orders to a CfnTransformHost.  Orders
@@ -11,26 +11,26 @@ import { ImportOrders } from './import_orders';
  * aws-stepfunctiosn submodule for usage).
  */
 export class BaseImporter extends CfnTransformHost {
-  public readonly preReaderOrder: Construct;
-  public readonly readerOrder: Construct;
-  public readonly stringTransformOrder: Construct;
-  public readonly parserOrder: Construct;
-  public readonly templateTransformOrder: Construct;
-  public readonly writerOrder: Construct;
+  public readonly preReaderOrder: ImportOrder;
+  public readonly readerOrder: ImportOrder;
+  public readonly stringTransformOrder: ImportOrder;
+  public readonly parserOrder: ImportOrder;
+  public readonly templateTransformOrder: ImportOrder;
+  public readonly writerOrder: ImportOrder;
 
   constructor(scope: Construct, id: string) {
     super(scope, id);
     /** Order for ImportOrders.PRE_READER */
-    this.preReaderOrder = new Construct(this, ImportOrders.PRE_READER);
+    this.preReaderOrder = new ImportOrder(this, ImportOrders.PRE_READER);
     /** Order for ImportOrders.READER */
-    this.readerOrder = new Construct(this, ImportOrders.READER);
+    this.readerOrder = new ImportOrder(this, ImportOrders.READER);
     /** Order for ImportOrders.STRING_TRANSFORMS */
-    this.stringTransformOrder = new Construct(this, ImportOrders.STRING_TRANSFORMS);
+    this.stringTransformOrder = new ImportOrder(this, ImportOrders.STRING_TRANSFORMS);
     /** Order for ImportOrders.PARSER */
-    this.parserOrder = new Construct(this, ImportOrders.PARSER);
+    this.parserOrder = new ImportOrder(this, ImportOrders.PARSER);
     /** Order for ImportOrders.TRANSFORMS */
-    this.templateTransformOrder = new Construct(this, ImportOrders.TRANSFORMS);
+    this.templateTransformOrder = new ImportOrder(this, ImportOrders.TRANSFORMS);
     /** Order for ImportOrders.WRITER */
-    this.writerOrder = new Construct(this, ImportOrders.WRITER);
+    this.writerOrder = new ImportOrder(this, ImportOrders.WRITER);
   }
 }

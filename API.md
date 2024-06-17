@@ -310,12 +310,12 @@ Duck-typing.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.parserOrder">parserOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.readerOrder">readerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
 
 ---
 
@@ -334,60 +334,60 @@ The tree node.
 ##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.parserOrder"></a>
 
 ```typescript
-public readonly parserOrder: Construct;
+public readonly parserOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.preReaderOrder"></a>
 
 ```typescript
-public readonly preReaderOrder: Construct;
+public readonly preReaderOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.readerOrder"></a>
 
 ```typescript
-public readonly readerOrder: Construct;
+public readonly readerOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.stringTransformOrder"></a>
 
 ```typescript
-public readonly stringTransformOrder: Construct;
+public readonly stringTransformOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.templateTransformOrder"></a>
 
 ```typescript
-public readonly templateTransformOrder: Construct;
+public readonly templateTransformOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.writerOrder"></a>
 
 ```typescript
-public readonly writerOrder: Construct;
+public readonly writerOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
@@ -543,12 +543,12 @@ Duck-typing.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.parserOrder">parserOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.readerOrder">readerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.capture">capture</a></code> | <code>@michanto/cdk-orchestration.transforms.TemplateCapture</code> | *No description.* |
 
 ---
@@ -568,60 +568,60 @@ The tree node.
 ##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.parserOrder"></a>
 
 ```typescript
-public readonly parserOrder: Construct;
+public readonly parserOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.preReaderOrder"></a>
 
 ```typescript
-public readonly preReaderOrder: Construct;
+public readonly preReaderOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.readerOrder"></a>
 
 ```typescript
-public readonly readerOrder: Construct;
+public readonly readerOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.stringTransformOrder"></a>
 
 ```typescript
-public readonly stringTransformOrder: Construct;
+public readonly stringTransformOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.templateTransformOrder"></a>
 
 ```typescript
-public readonly templateTransformOrder: Construct;
+public readonly templateTransformOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.writerOrder"></a>
 
 ```typescript
-public readonly writerOrder: Construct;
+public readonly writerOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
@@ -1324,6 +1324,167 @@ Otherwise, return either an order under the transform host of this
    Since shimParent is called from the TransformShim constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
+
+---
+
+
+### ImportOrder <a name="ImportOrder" id="@michanto/cdk-orchestration.transforms.ImportOrder"></a>
+
+ImportOrder class.
+
+See BaseImporter for usage.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.ImportOrder.Initializer"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+new transforms.ImportOrder(scope: Construct, order: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.Initializer.parameter.order">order</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.ImportOrder.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.ImportOrder.Initializer.parameter.order"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.ImportOrder.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.findImportOrder">findImportOrder</a></code> | Returns an ImportOrder named {@link order} under the scope, or the scope if the ImportOrder cannot be found. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.isImportOrder">isImportOrder</a></code> | Returns true if the construct is an ImportOrder. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.ImportOrder.isConstruct"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.ImportOrder.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.ImportOrder.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `findImportOrder` <a name="findImportOrder" id="@michanto/cdk-orchestration.transforms.ImportOrder.findImportOrder"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.ImportOrder.findImportOrder(scope: Construct, order: string)
+```
+
+Returns an ImportOrder named {@link order} under the scope, or the scope if the ImportOrder cannot be found.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.ImportOrder.findImportOrder.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.ImportOrder.findImportOrder.parameter.order"></a>
+
+- *Type:* string
+
+---
+
+##### `isImportOrder` <a name="isImportOrder" id="@michanto/cdk-orchestration.transforms.ImportOrder.isImportOrder"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.ImportOrder.isImportOrder(x: IConstruct)
+```
+
+Returns true if the construct is an ImportOrder.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.ImportOrder.isImportOrder.parameter.x"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.property.order">order</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.ImportOrder.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.ImportOrder.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -5422,12 +5583,12 @@ transforms.PropertyTransformHost.hostId(propertyName: string)
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.parserOrder">parserOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.preReaderOrder">preReaderOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.readerOrder">readerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
@@ -5448,60 +5609,60 @@ The tree node.
 ##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.parserOrder"></a>
 
 ```typescript
-public readonly parserOrder: Construct;
+public readonly parserOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.preReaderOrder"></a>
 
 ```typescript
-public readonly preReaderOrder: Construct;
+public readonly preReaderOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.readerOrder"></a>
 
 ```typescript
-public readonly readerOrder: Construct;
+public readonly readerOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.stringTransformOrder"></a>
 
 ```typescript
-public readonly stringTransformOrder: Construct;
+public readonly stringTransformOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.templateTransformOrder"></a>
 
 ```typescript
-public readonly templateTransformOrder: Construct;
+public readonly templateTransformOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.writerOrder"></a>
 
 ```typescript
-public readonly writerOrder: Construct;
+public readonly writerOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
@@ -8879,12 +9040,12 @@ Duck-typing.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.parserOrder">parserOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.readerOrder">readerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.writerOrder">writerOrder</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.capture">capture</a></code> | <code>@michanto/cdk-orchestration.transforms.TemplateCapture</code> | *No description.* |
 
 ---
@@ -8904,60 +9065,60 @@ The tree node.
 ##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.parserOrder"></a>
 
 ```typescript
-public readonly parserOrder: Construct;
+public readonly parserOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.preReaderOrder"></a>
 
 ```typescript
-public readonly preReaderOrder: Construct;
+public readonly preReaderOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.readerOrder"></a>
 
 ```typescript
-public readonly readerOrder: Construct;
+public readonly readerOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.stringTransformOrder"></a>
 
 ```typescript
-public readonly stringTransformOrder: Construct;
+public readonly stringTransformOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.templateTransformOrder"></a>
 
 ```typescript
-public readonly templateTransformOrder: Construct;
+public readonly templateTransformOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 
 ##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.writerOrder"></a>
 
 ```typescript
-public readonly writerOrder: Construct;
+public readonly writerOrder: ImportOrder;
 ```
 
-- *Type:* constructs.Construct
+- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
 ---
 

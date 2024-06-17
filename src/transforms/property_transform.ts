@@ -121,15 +121,7 @@ export abstract class PropertyTransform extends Transform {
   }
 
   get shimParent(): Construct {
-    let tHost = this.propertyTransformHost;
-    let order = tHost.node.tryFindChild(this.order) as Construct;
-    /* c8 ignore start */
-    if (!order) {
-      // Unlikely to ever get here, but it's the correct behavior.
-      order = tHost;
-    }
-    /* c8 ignore end */
-    return order;
+    return this.propertyTransformHost;
   }
 }
 

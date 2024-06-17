@@ -10,6 +10,11 @@ export const CFN_TRANSFORM_RTTI = new ConstructRunTimeTypeInfo({
   servicePropertyName: `${NAMESPACE}.CfnTransform`,
 });
 
+/** Runtime Type Info for CfnTransform Orders */
+export const IMPORT_ORDER_RTTI = new ConstructRunTimeTypeInfo({
+  servicePropertyName: `${NAMESPACE}.ImportOrder`,
+});
+
 /**
  * Runtime Type Info for a Transform Host.
  * Note that being a Transform Host just means the construct is
