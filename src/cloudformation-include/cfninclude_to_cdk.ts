@@ -82,7 +82,9 @@ export class CfnIncludeToCdk {
       if (!included) {
         try { included = include.getHook(logicalId); } catch {}
       }
-      return included;
+      if (included) {
+        return included;
+      }
     }
     return undefined;
   }
