@@ -1,4 +1,4 @@
-import { CfnElement, IResolveContext, Stack } from 'aws-cdk-lib';
+import { CfnElement, IResolveContext, Resource, Stack } from 'aws-cdk-lib';
 import { Construct, IConstruct } from 'constructs';
 import { TRANSFORM_HOST_OF, TRANSFORM_HOST_RTTI } from './private/transform_rtti';
 import { Transforms } from './transforms';
@@ -42,10 +42,19 @@ export class TransformHost {
    * Not being able to do this may not be fatal, so we don't throw.
    */
   public static ensureHosted(scope: Construct) {
+    // If the scope of the Transform is an L2, hook the L1.
+    if (Resource.isResource(scope)
+      && scope.node.defaultChild
+      && CfnElement.isCfnElement(scope.node.defaultChild)) {
+      TransformHost.hook(scope.node.defaultChild);
+    }
+
+    // If this was created under an L1, hook the L1.
     let hostElt = new CfnElementUtilities().cfnElementHost(scope);
     if (hostElt) {
       TransformHost.hook(hostElt);
     }
+    // Always hook the stack.
     let hostStack = Stack.of(scope);
     if (hostStack) {
       TransformHost.hook(hostStack);

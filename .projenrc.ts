@@ -18,7 +18,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   packageManager: NodePackageManager.NPM,
   experimentalIntegRunner: false, // we're using the AWS CDK-provided runner
   // autoApproveUpgrades: true,
-  // autoApproveOptions: { allowedUsernames: ['hoegertn'] },
+  // autoApproveOptions: { allowedUsernames: ['michanto'] },
   depsUpgradeOptions: { workflowOptions: { schedule: javascript.UpgradeDependenciesSchedule.WEEKLY } },
   githubOptions: {
     projenCredentials: github.GithubCredentials.fromApp(),
@@ -123,7 +123,7 @@ packageJson?.addOverride('jest.coveragePathIgnorePatterns',
  * Especially useful with jest only directive (it.only or test.only).
  */
 // packageJson?.addOverride('jest.testMatch', [
-//   '<rootDir>/src/**/__tests__/**/*.ts?(x)',
+//  '<rootDir>/src/**/__tests__/**/*.ts?(x)',
 //  '<rootDir>/@(test|src)/**/*(*.)@(spec).ts?(x)',
 // ]);
 

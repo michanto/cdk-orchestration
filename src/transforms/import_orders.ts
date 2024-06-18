@@ -38,6 +38,7 @@ export class ImportOrder extends Construct {
     if (ImportOrder.isImportOrder(scope) && scope.node.id == order) {
       return scope;
     }
+
     if (TransformHost.isTransformHost(scope)) {
       let found = scope.node.tryFindChild(order) as Construct;
       if (ImportOrder.isImportOrder(found)) {

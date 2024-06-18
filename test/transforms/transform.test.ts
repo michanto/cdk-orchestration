@@ -2,6 +2,7 @@ import { Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { Bucket, CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
+import { Logger } from '../../src/core';
 import { CfTemplateType, CfnTransform, CfnTransformHost, ImportOrder, ImportOrders, Transform } from '../../src/transforms';
 
 export class BucketNameTransform extends Transform {
@@ -70,18 +71,26 @@ describe('Transform tests.', () => {
     expect(CfnTransform.isCfnTransform(order.node.children[0])).toBeTruthy();
   });
 
+  it('Transform applied to Stack works', () => {
+    let stack = new Stack();
+    new BucketNameTransform(stack, 'BucketName', 'my_bucket');
+    expect(CfnTransform.isCfnTransform(stack.node.children[1])).toBeTruthy();
+  });
+
   it('Transform applied to Order directly works', () => {
     let stack = new Stack();
     let order = new ImportOrder(stack, ImportOrders.TRANSFORMS);
-    let transform = new BucketNameTransform(order, 'BucketName', 'my_bucket');
-    expect(CfnTransform.isCfnTransform(transform.node.children[0])).toBeTruthy();
+    new BucketNameTransform(order, 'BucketName', 'my_bucket');
+    expect(CfnTransform.isCfnTransform(order.node.children[1])).toBeTruthy();
   });
 
   it('Transform applied to L1 Order works', () => {
     let stack = new Stack();
+    Logger.set(stack, new Logger());
     let bucket = new Bucket(stack, 'Bucket');
     let order = new ImportOrder(bucket.node.defaultChild!, ImportOrders.TRANSFORMS);
-    new BucketNameTransform(bucket, 'BucketName', 'my_bucket');
+    let transform = new BucketNameTransform(bucket, 'BucketName', 'my_bucket');
+    console.log(transform.cfnTransform.node.path);
     expect(CfnTransform.isCfnTransform(order.node.children[0])).toBeTruthy();
   });
 });
