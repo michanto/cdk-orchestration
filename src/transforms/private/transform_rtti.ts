@@ -1,6 +1,6 @@
 import { Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { ConstructHost, ConstructRunTimeTypeInfo, ConstructTreeService } from '../../core';
+import { ConstructHost, ConstructRunTimeTypeInfo, ConstructService } from '../../core';
 import { NAMESPACE } from '../../private/internals';
 
 /**
@@ -41,9 +41,8 @@ export const TRANSFORM_CONSTRUCT_HOST = new ConstructHost({
  * Similar to how Stack.of works.  The cache is a symbol `${NAMESPACE}.TransformHostCache`,
  * but the factory just does a searchUp the tree for a TransformHost
  */
-export const TRANSFORM_HOST_OF = new ConstructTreeService({
+export const TRANSFORM_HOST_OF = new ConstructService({
   servicePropertyName: `${TRANSFORM_HOST_RTTI.props.servicePropertyName}Cache`,
-  stopCondition: (s: Construct) => Stack.isStack(s),
   factory: (c: Construct) => {
     return TRANSFORM_HOST_RTTI.searchUp(c)?.scope;
   },

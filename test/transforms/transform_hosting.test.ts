@@ -16,11 +16,11 @@ describe('TransformHosting tests.', () => {
     // Without transforms, the stack and bucket are not hosts.
     let stack = new Stack();
 
-    expect(TransformHost.isTransformHost(stack)).toBeFalsy();
+    // isTransformHost calls ensureHosted, so it will be a host.
+    expect(TransformHost.isTransformHost(stack)).toBeTruthy();
     let bucket = new CfnBucket(stack, 'Bucket');
-    expect(TransformHost.isTransformHost(bucket)).toBeFalsy();
+    expect(TransformHost.isTransformHost(bucket)).toBeTruthy();
 
-    // Adding a transform to the bucket makes both stack and bucket hosts.
     let t1 = new NoopTransform(bucket, 't1');
     expect(TransformHost.isTransformHost(stack)).toBeTruthy();
     expect(TransformHost.isTransformHost(bucket)).toBeTruthy();

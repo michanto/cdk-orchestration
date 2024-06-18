@@ -14,7 +14,7 @@ export class CfnElementUtilities {
    * @param scope
    */
   cfnElements(scope: Construct) {
-    return this.treeSearch.searchDown(scope, x => Stack.isStack(x)) as CfnElement[];
+    return this.treeSearch.searchDown(scope, Stack.isStack) as CfnElement[];
   }
 
   /**
@@ -53,6 +53,6 @@ export class CfnElementUtilities {
    * @returns
    */
   cfnElementHost(scope: Construct) {
-    return this.treeSearch.searchUp(scope);
+    return this.treeSearch.searchUp(scope, Stack.isStack);
   }
 }

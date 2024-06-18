@@ -1,4 +1,4 @@
-import { CfnElement, IResolveContext, Resource, Stack } from 'aws-cdk-lib';
+import { CfnElement, IResolveContext, Stack } from 'aws-cdk-lib';
 import { Construct, IConstruct } from 'constructs';
 import { TRANSFORM_HOST_OF, TRANSFORM_HOST_RTTI } from './private/transform_rtti';
 import { Transforms } from './transforms';
@@ -11,15 +11,16 @@ import { CfnElementUtilities, ConstructService, PostResolveToken } from '../core
  */
 export class TransformHost {
   /**
-   * Returns true for any Stack or CfnElement that is a transform host,
-   * as well as for all CfnTransformHost constructs.
+   * Returns true for any Stack, CfnElement, or CfnTransformHost
+   * constructs.
    *
-   * Note that a Stack or CfnElement may start of as not being a transform
-   * host, but can become one later if a transform is applied to it.
-   *
-   * It does NOT tell you that the object is of type CfnTransformHost.
+   * Stacks and CfnElements start out not being transform
+   * hosts, but become hosts when a TransformHost method
+   * is called (such as when a Transform is applied to them).
    */
   static isTransformHost(scope: Construct): boolean {
+    // Ensure that the antecedent CfnElement or Stack are Transform hosts.
+    TransformHost.ensureHosted(scope);
     return TRANSFORM_HOST_RTTI.hasRtti(scope);
   }
 
@@ -28,8 +29,7 @@ export class TransformHost {
    * a CfnElement, or a CfnTransformHost.
    */
   static of(scope: Construct): IConstruct {
-    let found = TRANSFORM_HOST_OF.searchUpOrCreate(scope);
-    return ConstructService.serviceOf(found);
+    return TransformHost.ensureHosted(scope);
   }
 
   /**
@@ -42,13 +42,6 @@ export class TransformHost {
    * Not being able to do this may not be fatal, so we don't throw.
    */
   public static ensureHosted(scope: Construct) {
-    // If the scope of the Transform is an L2, hook the L1.
-    if (Resource.isResource(scope)
-      && scope.node.defaultChild
-      && CfnElement.isCfnElement(scope.node.defaultChild)) {
-      TransformHost.hook(scope.node.defaultChild);
-    }
-
     // If this was created under an L1, hook the L1.
     let hostElt = new CfnElementUtilities().cfnElementHost(scope);
     if (hostElt) {
@@ -59,7 +52,9 @@ export class TransformHost {
     if (hostStack) {
       TransformHost.hook(hostStack);
     }
-    return TransformHost.of(scope);
+
+    let found = TRANSFORM_HOST_OF.searchSelfOrCreate(scope);
+    return ConstructService.serviceOf(found);
   }
 
   /**
