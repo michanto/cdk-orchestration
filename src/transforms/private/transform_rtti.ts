@@ -44,7 +44,7 @@ export const TRANSFORM_CONSTRUCT_HOST = new ConstructHost({
 export const TRANSFORM_HOST_OF = new ConstructService({
   servicePropertyName: `${TRANSFORM_HOST_RTTI.props.servicePropertyName}Cache`,
   factory: (c: Construct) => {
-    return TRANSFORM_HOST_RTTI.searchUp(c)?.scope;
+    return TRANSFORM_HOST_RTTI.searchUp(c, Stack.isStack)?.scope;
   },
 });
 

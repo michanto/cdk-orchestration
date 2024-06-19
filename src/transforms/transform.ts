@@ -62,13 +62,7 @@ export abstract class TransformBase extends Construct implements IInspectable {
     }
 
     // If parent is an L1 construct, this will work because the constructor called ensureHosted.
-    let host = TransformHost.of(base);
-    if (host) {
-      return host;
-    }
-
-    // Default parent is always the scope.
-    return base;
+    return TransformHost.of(base);
   }
 
   /** The L1 Shim transform attached to an L2 TransformBase. */
@@ -100,6 +94,11 @@ export abstract class TransformBase extends Construct implements IInspectable {
     // This will make any antecedent CfnElement or Stack a TransformHost.
     TransformHost.ensureHosted(scope);
     let parent = ImportOrder.findImportOrder(this.shimParent, this.order);
+    if (scope.node.path.startsWith(parent.node.path)) {
+      // If this Transform is already under the parent, use this transform as the parent.
+      // It makes the tree neater.
+      parent = this;
+    }
     // Id for the transform shim
     let shimId = `${id}Shim${parent.node.children.length}`;
     this.cfnTransform = new TransformBase.CfnTransformShim(parent, shimId, this);

@@ -3152,7 +3152,7 @@ Examines construct.
 ##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.JsonParser.apply"></a>
 
 ```typescript
-public apply(template: string): any
+public apply(template: string): {[ key: string ]: any}
 ```
 
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.JsonParser.apply.parameter.template"></a>
@@ -4837,7 +4837,7 @@ Examines construct.
 ##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.Parser.apply"></a>
 
 ```typescript
-public apply(template: string): any
+public apply(template: string): {[ key: string ]: any}
 ```
 
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.Parser.apply.parameter.template"></a>
@@ -9595,7 +9595,7 @@ Examines construct.
 ##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.YamlParser.apply"></a>
 
 ```typescript
-public apply(template: string): any
+public apply(template: string): {[ key: string ]: any}
 ```
 
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.YamlParser.apply.parameter.template"></a>

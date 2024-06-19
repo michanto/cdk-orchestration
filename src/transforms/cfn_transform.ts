@@ -31,8 +31,6 @@ export abstract class CfnTransform extends Construct implements ICfnTransform {
 
   public constructor(scope: Construct, readonly id: string) {
     super(scope, id);
-    // Calls TransformHost.hook on the host Stack and/or CfnElement to ensure there is a host for the Transform.
-    TransformHost.ensureHosted(this);
     CFN_TRANSFORM_RTTI.addRtti(this);
     this.host = TransformHost.of(this);
   }
