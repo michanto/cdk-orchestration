@@ -1,7 +1,7 @@
 import { Construct } from 'constructs';
 import { parse as yamlParse } from 'yaml';
 import { ImportOrders } from './import_orders';
-import { TransformBase } from './transform';
+import { CfTemplateType, TransformBase } from './transform';
 
 /**
  * Base class for JsonParser and YamlParser transforms.
@@ -15,7 +15,7 @@ export abstract class Parser extends TransformBase {
     return ImportOrders.PARSER;
   }
 
-  abstract apply(template: string): any;
+  abstract apply(template: string): CfTemplateType;
 
   /**
    * @internal
@@ -34,7 +34,7 @@ export class YamlParser extends Parser {
     super(scope, id);
   }
 
-  apply(template: string): any {
+  apply(template: string): CfTemplateType {
     return yamlParse(template);
   }
 }
@@ -48,7 +48,7 @@ export class JsonParser extends Parser {
     super(scope, id);
   }
 
-  apply(template: string): any {
+  apply(template: string): CfTemplateType {
     return JSON.parse(template);
   }
 }

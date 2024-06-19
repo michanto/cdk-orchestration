@@ -42,6 +42,10 @@ export class TransformHost {
    * Not being able to do this may not be fatal, so we don't throw.
    */
   public static ensureHosted(scope: Construct) {
+    let ensured = TRANSFORM_HOST_OF.get(scope);
+    if (ensured) {
+      return ensured as Construct;
+    }
     // If this was created under an L1, hook the L1.
     let hostElt = new CfnElementUtilities().cfnElementHost(scope);
     if (hostElt) {
@@ -54,7 +58,7 @@ export class TransformHost {
     }
 
     let found = TRANSFORM_HOST_OF.searchSelfOrCreate(scope);
-    return ConstructService.serviceOf(found);
+    return ConstructService.serviceOf(found) as Construct;
   }
 
   /**

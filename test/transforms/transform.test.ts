@@ -72,15 +72,15 @@ describe('Transform tests.', () => {
 
   it('Transform applied to Stack works', () => {
     let stack = new Stack();
-    new BucketNameTransform(stack, 'BucketName', 'my_bucket');
-    expect(CfnTransform.isCfnTransform(stack.node.children[1])).toBeTruthy();
+    let transform = new BucketNameTransform(stack, 'BucketName', 'my_bucket');
+    expect(CfnTransform.isCfnTransform(transform.node.children[0])).toBeTruthy();
   });
 
   it('Transform applied to Order directly works', () => {
     let stack = new Stack();
     let order = new ImportOrder(stack, ImportOrders.TRANSFORMS);
-    new BucketNameTransform(order, 'BucketName', 'my_bucket');
-    expect(CfnTransform.isCfnTransform(order.node.children[1])).toBeTruthy();
+    let transform = new BucketNameTransform(order, 'BucketName', 'my_bucket');
+    expect(CfnTransform.isCfnTransform(transform.node.children[0])).toBeTruthy();
   });
 
   it('Transform applied to L1 Order works', () => {
