@@ -44,9 +44,7 @@ export class PropertyTransformApplier extends Transform {
    */
   apply(template: CfTemplateType) {
     let host = this.node.findChild(PropertyTransformHost.hostId(this.propertyName)) as PropertyTransformHost;
-    if (!host) {
-      throw new Error('Could not find a PropertyTransformHost.  Bad PropertyTransform setup.');
-    }
+
     for (let resId in template.Resources) {
       let resource = template.Resources[resId];
       if (resource.Type == this.resourceType && resource.Properties[this.propertyName]) {

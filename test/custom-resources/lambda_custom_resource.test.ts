@@ -1,4 +1,4 @@
-import { Stack } from 'aws-cdk-lib';
+import { RemovalPolicy, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { Bucket, IBucket } from 'aws-cdk-lib/aws-s3';
@@ -48,6 +48,7 @@ export class S3FileReading extends Construct {
         ...onCreate,
         assumedRoleArn: 'arn:aws:iam::000000000000:role/role-name-with-path',
       },
+      removalPolicy: RemovalPolicy.DESTROY,
       defaults: props.defaults,
       responseBufferField: 'Body',
       policy: props.policyFromCalls ? AwsCustomResourcePolicy.fromSdkCalls({

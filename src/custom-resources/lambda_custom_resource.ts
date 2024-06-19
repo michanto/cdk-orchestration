@@ -169,9 +169,12 @@ export class LambdaCustomResource extends Task {
       produce: () => (this.customResource as InnerCustomResource).requestedOutputs,
     });
 
+    // Use this feature at your own risk.  Docs say that.
+    /* c8 ignore start */
     if (props.autoPaginate) {
       crProps.AutoPaginate = true;
     }
+    /* c8 ignore end */
 
     this.customResource = new InnerCustomResource(this, 'Resource', {
       serviceToken: this.resources.provider.serviceToken,
