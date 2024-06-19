@@ -2,7 +2,7 @@ import { CfnElement, IInspectable, Resource, TreeInspector } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { CfnTransform } from './cfn_transform';
 import { ICfnTransform } from './icfn_transform';
-import { ImportOrders } from './import_orders';
+import { ImportOrder, ImportOrders } from './import_orders';
 import { TransformHost } from './transform_host';
 
 /**
@@ -51,33 +51,23 @@ export abstract class TransformBase extends Construct implements IInspectable {
    */
   protected static findShimParent(base: TransformBase): Construct {
     // If the parent of this is an L2 resource, return the L1 resource.
-    if (base.node.scope
-      && Resource.isResource(base.node.scope)
-      && base.node.scope.node.defaultChild
-      && CfnElement.isCfnElement(base.node.scope.node.defaultChild)) {
+    let scope = base.node.scope;
+    if (scope
+      && Resource.isResource(scope)
+      && scope.node.defaultChild
+      && CfnElement.isCfnElement(scope.node.defaultChild)) {
 
-      let l1Construct = base.node.scope.node.defaultChild;
-      // Allow the L1 construct to use orders.
-      let orderSubTree = l1Construct.node.tryFindChild(base.order);
-      return orderSubTree ? orderSubTree : l1Construct;
+      let l1Construct = scope.node.defaultChild;
+      return l1Construct;
     }
 
+    // If parent is an L1 construct, this will work because the constructor called ensureHosted.
     let host = TransformHost.of(base);
     if (host) {
-      // See if the host has a child named `this.order`.
-      let desiredPath = host.node.path + `/${base.order}`;
-      if (base.node.path.startsWith(desiredPath)) {
-        // We're already in the order.  Return this.
-        return base;
-      } else {
-        // If the order exists, that is the parent.
-        let orderSubTree = host.node.tryFindChild(base.order);
-        if (orderSubTree) {
-          return orderSubTree;
-        }
-      }
+      return host;
     }
-    // Default parent is always this.
+
+    // Default parent is always the scope.
     return base;
   }
 
@@ -109,7 +99,7 @@ export abstract class TransformBase extends Construct implements IInspectable {
     super(scope, id);
     // This will make any antecedent CfnElement or Stack a TransformHost.
     TransformHost.ensureHosted(scope);
-    let parent = this.shimParent;
+    let parent = ImportOrder.findImportOrder(this.shimParent, this.order);
     // Id for the transform shim
     let shimId = `${id}Shim${parent.node.children.length}`;
     this.cfnTransform = new TransformBase.CfnTransformShim(parent, shimId, this);

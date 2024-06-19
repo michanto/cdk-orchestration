@@ -1,5 +1,6 @@
 import { Construct } from 'constructs';
 import { BaseImporter } from './base_importer';
+import { ImportOrders } from './import_orders';
 import { Joiner } from './joiner';
 import { YamlParser } from './parser';
 import { Stringifier } from './stringifier';
@@ -58,6 +59,12 @@ export class PropertyTransformApplier extends Transform {
   }
 }
 
+class PreReadJoiner extends Joiner {
+  get order() {
+    return ImportOrders.PRE_READER;
+  }
+}
+
 /**
  * Hosts PropertyTransforms.  Must be a child of a PropertyTransformApplier.
  */
@@ -82,7 +89,7 @@ export class PropertyTransformHost extends BaseImporter {
     super(scope, PropertyTransformHost.hostId(propertyName));
     // If the property is represented as an Fn.join, this
     // turns the join into valid JSON that can be parsed by the Yaml parser.
-    new Joiner(this.preReaderOrder, 'Joiner');
+    new PreReadJoiner(this.preReaderOrder, 'Joiner');
   }
 }
 
@@ -121,15 +128,7 @@ export abstract class PropertyTransform extends Transform {
   }
 
   get shimParent(): Construct {
-    let tHost = this.propertyTransformHost;
-    let order = tHost.node.tryFindChild(this.order) as Construct;
-    /* c8 ignore start */
-    if (!order) {
-      // Unlikely to ever get here, but it's the correct behavior.
-      order = tHost;
-    }
-    /* c8 ignore end */
-    return order;
+    return this.propertyTransformHost;
   }
 }
 
