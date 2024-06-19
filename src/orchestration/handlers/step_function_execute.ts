@@ -56,9 +56,7 @@ export function startsWithOneOf(searchStrings: string[]): (string: string) => bo
 }
 
 function log(message: Record<string, any>) {
-  if (process.env.LogLevel) {
-    console.log(JSON.stringify(message));
-  }
+  logger?.log(JSON.stringify(message));
 }
 
 export const startStepFunction = async (event: any, context: any) => {
