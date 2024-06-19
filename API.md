@@ -16495,7 +16495,7 @@ new transforms.TransformHost()
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.ensureHosted">ensureHosted</a></code> | Ensures that a Transform is hosted by modifying the ancestor CfnElement or Stack (if necessary) so they can host transforms. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.hook">hook</a></code> | Turns a Stack or CfnElement into a transform host. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.isTransformHost">isTransformHost</a></code> | Returns true for any Stack or CfnElement that is a transform host, as well as for all CfnTransformHost constructs. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.isTransformHost">isTransformHost</a></code> | Returns true for any Stack, CfnElement, or CfnTransformHost constructs. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.mark">mark</a></code> | Marks a construct as a TransformHost, isolating the transforms under it from the Stack. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.of">of</a></code> | Note: This returns the transform host, which may be either a Stack, a CfnElement, or a CfnTransformHost. |
 
@@ -16550,12 +16550,11 @@ import { transforms } from '@michanto/cdk-orchestration'
 transforms.TransformHost.isTransformHost(scope: Construct)
 ```
 
-Returns true for any Stack or CfnElement that is a transform host, as well as for all CfnTransformHost constructs.
+Returns true for any Stack, CfnElement, or CfnTransformHost constructs.
 
-Note that a Stack or CfnElement may start of as not being a transform
-host, but can become one later if a transform is applied to it.
-
-It does NOT tell you that the object is of type CfnTransformHost.
+Stacks and CfnElements start out not being transform
+hosts, but become hosts when a TransformHost method
+is called (such as when a Transform is applied to them).
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.TransformHost.isTransformHost.parameter.scope"></a>
 
