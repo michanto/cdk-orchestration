@@ -235,7 +235,7 @@ export class ConstructService {
    * Can cache the created service elsewhere in the tree for re-use.
    * Used by App-scoped or Stack-scoped services.
    * @param cache
-   * @returns
+   * @returns The cache.
    */
   protected onCreateCache(cache: ServiceQueryResult): ServiceQueryResult {
     return cache;

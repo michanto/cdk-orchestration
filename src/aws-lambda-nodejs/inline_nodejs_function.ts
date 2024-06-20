@@ -9,21 +9,21 @@ import { Construct } from 'constructs';
 import { NAMESPACE } from '../private/internals';
 
 /**
- * Trims lines from inline JS
+ * Trims lines from inline JS.
  *
- * @param code
+ * @param code The code as string.
  */
 function trimLines(code: string) {
   return code.split('\n').map(x => x.trim()).join('\n');
 }
 
 /**
- * Strips comments from inline JS
+ * Strips comments from inline JS.
  *
  * From: https://stackoverflow.com/questions/5989315/regex-for-match-replacing-javascript-comments-both-multiline-and-inline
  * See: https://gist.github.com/DesignByOnyx/05c2241affc9dc498379e0d819c4d756
  *
- * @param code
+ * @param code  The code as string.
  */
 function stripComments(code: string) {
   return code.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1').trim();

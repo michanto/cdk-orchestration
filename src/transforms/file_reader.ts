@@ -17,7 +17,7 @@ export class FileReader extends StringTransform {
 
   apply(template: string): string {
     try {
-      return fs.readFileSync(template).toString();
+      return fs.readFileSync(template, { encoding: 'utf-8' }).toString();
     } catch (e) {
       throw new Error(`Template input ${template} must be file name.  Read file threw ${(e as any).toString()}`);
     }

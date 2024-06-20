@@ -3,7 +3,10 @@ import { Construct } from 'constructs';
 import { Log } from '../core';
 import { BaseImporter, FileReader, Stringifier, TempFileWriter, TemplateCapture, YamlParser } from '../transforms';
 
-/** */
+/**
+ * CfnIncludeProps minus the templateFile, which is passed separately to
+ * {@link BaseTemplateImporter.importTemplate}.
+ */
 export interface ImportTemplateProps {
   /**
    * See {@link CfnIncludeProps.preserveLogicalIds}.
@@ -62,7 +65,7 @@ export abstract class BaseTemplateImporter extends BaseImporter {
    * The Capture transform gives us access to the imported template JSON.
    *
    * @param props
-   * @returns
+   * @returns Filtered properties.
    */
   protected filterProps(props?: ImportTemplateProps): ImportTemplateProps | undefined {
     let log = Log.of(this);

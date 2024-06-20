@@ -29,12 +29,6 @@ export class PropertyTransformApplier extends Transform {
     return `@${propertyName}Applier`;
   }
 
-  /**
-   *
-   * @param scope
-   * @param propertyName
-   * @param resourceType
-   */
   constructor(scope: Construct, readonly propertyName: string, readonly resourceType: string) {
     super(scope, PropertyTransformApplier.applierId(propertyName));
   }

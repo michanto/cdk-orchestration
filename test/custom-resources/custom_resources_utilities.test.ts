@@ -81,6 +81,8 @@ describe('Custom Resource Utilities tests.', () => {
     // THEN
     let template = Template.fromStack(stack).toJSON();
 
+    expect(new CustomResourceUtilities().customResources(stack).length).toEqual(1);
+
     expect(template).toMatchObject({
       Resources: {
         Res1: {

@@ -34,7 +34,7 @@ export class Transforms {
    * Applies the transforms on a scope to a template.
    *
    * Throws when a Transform fails to return a template.
-   * @param template
+   * @param template Template to apply transforms to.
    */
   apply(template: any): any {
     let log = Log.of(this.scope);

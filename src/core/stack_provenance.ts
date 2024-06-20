@@ -5,10 +5,9 @@ import { BUILD_TIME } from './build_time';
 import { Singleton } from './singleton';
 
 /**
- * Executes a shell command.  Returns undefined on error.
- * @param command
- * @param env
- * @returns
+ * Executes a shell command and returns the result.  Returns undefined on error.
+ * @param command Shell command to execute.
+ * @param env Environment variables (if any).
  */
 function executeShellCommand(command: string, env?: Record<string, string>): string | undefined {
   try {

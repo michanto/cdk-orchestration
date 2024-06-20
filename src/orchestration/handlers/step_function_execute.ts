@@ -7,8 +7,8 @@ const logger = process.env.LogLevel ? console : undefined;
  * Flattens a nested object.
  * Copied from AwsCustomResource runtime in aws-cdk.
  *
- * @param object the object to be flattened
- * @returns a flat object with path as keys
+ * @param object The object to be flattened.
+ * @returns a flat object with path as keys.
  */
 export function flatten(root: unknown): { [key: string]: any } {
   const ret: { [key: string]: any } = {};

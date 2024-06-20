@@ -3660,6 +3660,8 @@ Returns a flattened JSON key from the resource response.
 
 - *Type:* string
 
+Response field name.
+
 ---
 
 ##### `getResponseFieldReference` <a name="getResponseFieldReference" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseFieldReference"></a>
@@ -3673,6 +3675,8 @@ Returns response data for the AWS SDK call.
 ###### `dataPath`<sup>Required</sup> <a name="dataPath" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.getResponseFieldReference.parameter.dataPath"></a>
 
 - *Type:* string
+
+Response field name.
 
 ---
 
@@ -9948,6 +9952,8 @@ or {@link ConstructService.searchSelfOrCreate}.
 
 ### ImportTemplateProps <a name="ImportTemplateProps" id="@michanto/cdk-orchestration.cloudformation_include.ImportTemplateProps"></a>
 
+CfnIncludeProps minus the templateFile, which is passed separately to {@link BaseTemplateImporter.importTemplate}.
+
 #### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.cloudformation_include.ImportTemplateProps.Initializer"></a>
 
 ```typescript
@@ -13343,6 +13349,8 @@ Returns true if the given construct is an instance of CfnInclude.
 
 - *Type:* constructs.IConstruct
 
+Construct to test.
+
 ---
 
 ##### `removeIncluded` <a name="removeIncluded" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded"></a>
@@ -14707,7 +14715,7 @@ Makes the call encapsulated by an AwsApiCall.
 
 - *Type:* any
 
-AwsApiCall.
+An AwsApiCall to execute.
 
 ---
 
@@ -14753,7 +14761,24 @@ new custom_resources.CustomResourceUtilities()
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.customResources">customResources</a></code> | Returns a list of all L1 custom resources under the scope. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource">findCustomResource</a></code> | Returns the CfnResource that produces the custom resource. |
+
+---
+
+##### `customResources` <a name="customResources" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.customResources"></a>
+
+```typescript
+public customResources(scope: Construct): CfnResource[]
+```
+
+Returns a list of all L1 custom resources under the scope.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.customResources.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+Scope for the search.
 
 ---
 
@@ -16759,6 +16784,8 @@ Throws when a Transform fails to return a template.
 
 - *Type:* any
 
+Template to apply transforms to.
+
 ---
 
 ##### `get` <a name="get" id="@michanto/cdk-orchestration.transforms.Transforms.get"></a>
@@ -17201,6 +17228,8 @@ Sets the deletion policy of the resource based on the removal policy specified.
 
 - *Type:* aws-cdk-lib.RemovalPolicy
 
+Removal policy.
+
 ---
 
 ##### `getAtt` <a name="getAtt" id="@michanto/cdk-orchestration.custom_resources.ITask.getAtt"></a>
@@ -17218,7 +17247,7 @@ Attributes are returned from the custom resource provider through the
 
 - *Type:* string
 
-the name of the attribute.
+The name of the attribute.
 
 ---
 
@@ -17237,7 +17266,7 @@ Attributes are returned from the custom resource provider through the
 
 - *Type:* string
 
-the name of the attribute.
+The name of the attribute.
 
 ---
 

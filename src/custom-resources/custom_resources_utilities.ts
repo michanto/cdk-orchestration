@@ -1,4 +1,4 @@
-import { CfnElement, CfnResource } from 'aws-cdk-lib';
+import { CfnElement, CfnResource, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { ConstructTreeSearch } from '../core';
 
@@ -16,10 +16,17 @@ export class CustomResourceUtilities {
   protected treeSearch = ConstructTreeSearch.for(CustomResourceUtilities.isCustomResource);
 
   /**
+   * Returns a list of all L1 custom resources under the scope.
+   * @param scope Scope for the search.
+   */
+  customResources(scope: Construct) {
+    return this.treeSearch.searchDown(scope, Stack.isStack) as CfnResource[];
+  }
+
+  /**
    * Returns the CfnResource that produces the custom resource.  This function throws
    * if there are none (or more than one).
    * @param target
-   * @returns
    */
   findCustomResource(target: Construct) {
     let elements = this.treeSearch.searchDown(target);

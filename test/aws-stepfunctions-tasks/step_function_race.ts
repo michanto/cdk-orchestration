@@ -55,7 +55,7 @@ export class StepFunctionRaceDefinition extends Construct implements IChainable 
    * We need a lambda to create contestant names from the executionName.  The executionName
    * will be <prefix>_<uuid>, and the contestant names will be <prefix>_<uuid>_<index>.
    * The referee name will be <prefix>_<uuid>_Timeout.
-   * @returns
+   * @returns The LambdaInvoke step.
    */
   createContestantNamesStep() {
     let role = new Role(this, 'ContestantNamesRole', {
@@ -224,7 +224,6 @@ export class StepFunctionRaceExecution extends Construct {
     });
 
     // Execute the race.
-    /** */
     let execution = new StepFunctionTask(this, 'RaceLrsfe', {
       stateMachine: racer,
       inputEvent: {
@@ -235,7 +234,6 @@ export class StepFunctionRaceExecution extends Construct {
     });
     // NOTE:  SFE will add this in a future version and we will be able to remove it here.
     execution.node.addDependency(racer);
-    /** */
   }
 
   createReferee(_props: StepFunctionRaceExecutionProps) {
