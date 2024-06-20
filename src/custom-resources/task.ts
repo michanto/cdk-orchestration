@@ -92,7 +92,7 @@ export abstract class Task extends Construct implements ITask {
   }
 
   /**
-   * Adds task trigger as a dependency on other constructs. This means that this
+   * Adds task as a dependency on other constructs. This means that this
    * task will get executed *before* the given construct(s).
    *
    * @param scopes A list of construct scopes which will take a dependency on

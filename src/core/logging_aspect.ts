@@ -4,7 +4,8 @@ import { IConstruct } from 'constructs';
 import { Logger } from './logger';
 
 /**
- * Adds a LogLevel environment variable to each Function based on the construct log level.
+ * Adds a LogLevel environment variable to each Function based on the logLevel parameter
+ * (if provided) or the construct log level.
  *
  * logLevel parameter defaults to `Logger.of(node)?.logLevel`.
  */

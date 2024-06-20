@@ -4,7 +4,7 @@ import { Function, IFunction } from 'aws-cdk-lib/aws-lambda';
 import { Bucket, IBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 import { AppToken, Singleton, StackToken } from '../../src';
-import { BadFunction } from '../util';
+import { EchoFunction } from '../util';
 
 export class StackTokenCustomResource extends CustomResource {
   constructor(scope: Construct, id: string, fn: IFunction ) {
@@ -30,7 +30,7 @@ export class StackTokenStack extends Stack {
       bucketName: StackToken.string(this, 'bucketName'),
     });
 
-    this.handler = Singleton.create(this, 'Function', (s, i) => new BadFunction(s, i)) as Function;
+    this.handler = Singleton.create(this, 'Function', (s, i) => new EchoFunction(s, i)) as Function;
     new StackTokenCustomResource(this, 'CustomResource', this.handler);
   }
 }
@@ -135,7 +135,7 @@ describe('UserToken tests', () => {
     // GIVEN
     const app = new App();
     const stack1 = new Stack(app, 'Stack1');
-    let fn = new BadFunction(stack1, 'Function');
+    let fn = new EchoFunction(stack1, 'Function');
     new Bucket(stack1, 'Bucket', {
       bucketName: AppToken.string(stack1, 'bucketName'),
     });

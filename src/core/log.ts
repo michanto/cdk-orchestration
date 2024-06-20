@@ -2,9 +2,9 @@ import { Construct } from 'constructs';
 import { ILogger, Logger, LogLevel, IStringProvider } from './logger';
 
 /**
- * Scoped logging.
- * Allows users to turn logging on and off for individual constructs or whole sub-trees
- * of the construct tree.  LoggingAspect will set the LogLevel of
+ * Scoped logger.
+ *
+ * Logs according to the Logger set on the given scope.
  */
 export class Log {
   static of(scope: Construct) {

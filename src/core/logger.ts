@@ -57,7 +57,7 @@ export interface ILogger {
 }
 
 /**
- * Node console logger.
+ * Scoped node console logger.
  *
  * Provides scoped logging to a construct.  This means the Logger applies to the construct
  * it was added to, and all descendent constructs in the tree.  Can be overridden by adding

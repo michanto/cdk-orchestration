@@ -53,7 +53,7 @@ export class ConstructTreeSearch {
   constructor(readonly predicate: IConstructPredicate) { }
 
   /**
-   * Returns T or undefined for the scope, based on predicate.
+   * Returns the scope or undefined, depending on a predicate match.
    * @param scope
    */
   public searchSelf(scope: IConstruct) {

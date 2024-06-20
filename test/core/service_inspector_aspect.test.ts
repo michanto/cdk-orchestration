@@ -15,7 +15,7 @@ describe('ServiceInspectorAspect tests', () => {
     expect(TreeInspectable.of(bucket).attributes).toMatchObject({
       '@aws-cdk/core.DependableTrait': 'object',
       '@aws-cdk/core.Resource': 'boolean',
-      '@aws-cdk/core.Stack.myStack': 'object',
+      '@aws-cdk/core.Stack.myStack': 'MyStack',
       '@michanto/cdk-orchestration.TreeInspectable': 'object',
     });
   });

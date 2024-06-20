@@ -33,8 +33,6 @@ describe('ConstructTreeSearch tests', () => {
     let frankensteinSearch = ConstructTreeSearch.for(isFrankenstein);
 
     expect(new CfnElementUtilities().cfnElements(stack1).length).toEqual(1);
-    expect(bucket3).toBeTruthy();
-    expect(frankensteinSearch).toBeTruthy();
 
     // THEN
     // Find stacks

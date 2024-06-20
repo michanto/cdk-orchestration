@@ -134,7 +134,8 @@ export interface JsonPropertyTransformProps extends PropertyTransformProps {
 }
 
 /**
- * Transforms a JSON
+ * Transforms a JSON property on a CfnElement.
+ * Canonical example is DefinitionString on a CfnStateMachine (StatesTransform).
  */
 export abstract class JsonPropertyTransform extends PropertyTransform {
   constructor(scope: Construct, id: string, props: JsonPropertyTransformProps) {
@@ -143,8 +144,9 @@ export abstract class JsonPropertyTransform extends PropertyTransform {
 
   get shimParent(): Construct {
     let tHost = this.propertyTransformHost;
-    // If we haven't added the JSON transforms yet, add them now.
+    // If we haven't added the support transforms yet, add them now.
     if (tHost.parserOrder.node.tryFindChild('YamlParser') == undefined) {
+      // Parses the joined JSON string.
       new YamlParser(tHost.parserOrder, 'YamlParser');
       // NOTE: Between the YamlParser and the Stringifier, the PropertyTransforms run.
       // Turns the parsed Yaml/JSON into a JSON string so it can be written back to the template.

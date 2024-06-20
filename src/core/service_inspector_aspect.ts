@@ -1,5 +1,5 @@
 import { IAspect, Stack } from 'aws-cdk-lib';
-import { IConstruct } from 'constructs';
+import { Construct, IConstruct } from 'constructs';
 import { ConstructTreeSearch } from './construct_tree_search';
 import { TreeInspectable } from './tree_inspectable';
 
@@ -18,7 +18,9 @@ export class ServiceInspectorAspect implements IAspect {
     for (let sym of Object.getOwnPropertySymbols(node)) {
       let key = Symbol.keyFor(sym);
       if (key) {
-        inspectable.addAttribute(key, typeof (node as any)[sym]);
+        let propValue = (node as any)[sym];
+        let value = Construct.isConstruct(propValue) ? propValue.node.path : typeof propValue;
+        inspectable.addAttribute(key, value);
       }
     }
   }
