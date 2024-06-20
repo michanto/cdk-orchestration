@@ -4,6 +4,9 @@ import { StatesTransform } from './states_transform';
 import { Log } from '../core';
 import { CfTemplateType } from '../transforms';
 
+/**
+ * Properties for InsertStepFunctionState.
+ */
 export interface InsertStepFunctionStateProps {
   readonly state: State;
   readonly insertAfterStep: string;

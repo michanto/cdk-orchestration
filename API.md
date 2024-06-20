@@ -10904,6 +10904,8 @@ supported.
 
 ### InsertStepFunctionStateProps <a name="InsertStepFunctionStateProps" id="@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionStateProps"></a>
 
+Properties for InsertStepFunctionState.
+
 #### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionStateProps.Initializer"></a>
 
 ```typescript
