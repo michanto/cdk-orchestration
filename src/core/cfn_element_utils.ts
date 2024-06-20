@@ -35,7 +35,6 @@ export class CfnElementUtilities {
    *
    * @param scope
    * @param resourceType Type of resource to find.
-   * @returns
    */
   findCfnResource(scope: Construct, resourceType?: string) {
     let searchResults = new CfnElementUtilities().cfnResources(scope, resourceType);
@@ -50,7 +49,6 @@ export class CfnElementUtilities {
    * Basially, CfnElement.of (like Stack.of).
    *
    * @param scope
-   * @returns
    */
   cfnElementHost(scope: Construct) {
     return this.treeSearch.searchUp(scope, Stack.isStack);

@@ -4,7 +4,7 @@ Orchestrate running tasks via CloudFormation.
 
 ---
 
-![cdk-orchestration: Experimental](https://img.shields.io/badge/cdk--orchestration-experimental-success.svg?style=for-the-badge)
+![cdk-orchestration: Active Development](https://img.shields.io/badge/cdk--orchestration-active_development-success.svg?style=for-the-badge)
 
 ---
 
@@ -275,6 +275,11 @@ let stack = new Stack(app, 'MyStack');
 let bucket = new Bucket(stack, 'MyBucket');
 Aspects.of(app).add(new ServiceInspectorAspect());
 ```
+
+## Stability Index
+Stability index is taken from [node](https://nodejs.org/api/documentation.html#stability-index).
+Current stability for this library is "active development", so
+better than experimental, but not quite 1.0 stability.
 
 ## License
 

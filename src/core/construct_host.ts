@@ -29,7 +29,6 @@ export class ConstructHost {
   /**
    * Returns constructs that match the hosted type that are under scope.
    * @param scope Scope for the search.  Not required to be the host.
-   * @returns
    */
   getHostedConstructs(scope: IConstruct): IConstruct[] {
     return ConstructService.scopesOf(

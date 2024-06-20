@@ -4,6 +4,9 @@ import { StatesTransform } from './states_transform';
 import { Log } from '../core';
 import { CfTemplateType } from '../transforms';
 
+/**
+ * Properties for InsertStepFunctionState.
+ */
 export interface InsertStepFunctionStateProps {
   readonly state: State;
   readonly insertAfterStep: string;
@@ -32,11 +35,12 @@ export class InsertStepFunctionState extends StatesTransform {
         template.States[stateName].Next = this.props.state.stateId;
         template.States[this.props.state.stateId] = taskJson;
         if (stateNext) {
-          template.States[this.props.state.stateId].Next = stateNext;
+          taskJson.Next = stateNext;
         }
         if (stateEnd) {
-          template.States[this.props.state.stateId].End = stateEnd;
+          taskJson.End = stateEnd;
         }
+        break;
       }
     }
     Log.of(this).debug(`${JSON.stringify(template, undefined, 2)}`);

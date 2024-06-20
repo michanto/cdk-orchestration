@@ -9,8 +9,8 @@ export class AppConstructTreeService extends ConstructTreeService {
   /**
    * Set service on the root object so it can be shared
    * by all constructs in the tree.
-   * @param cache
-   * @returns
+   * @param cache The cache that was just created.
+   * @returns The cache.
    */
   protected onCreateCache(cache: ServiceQueryResult): ServiceQueryResult {
     let service = cache.service;

@@ -1,7 +1,7 @@
 import { App, CfnElement, CfnResource, Resource, Stack } from 'aws-cdk-lib';
 import { Bucket, CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { IConstruct } from 'constructs';
-import { ConstructTreeSearch } from '../../src';
+import { CfnElementUtilities, ConstructTreeSearch } from '../../src';
 
 describe('ConstructTreeSearch tests', () => {
   it('Finds L1/L2/Frankenstein using all methods.', () => {
@@ -32,8 +32,7 @@ describe('ConstructTreeSearch tests', () => {
     let stackSearchFor = ConstructTreeSearch.for(Stack.isStack);
     let frankensteinSearch = ConstructTreeSearch.for(isFrankenstein);
 
-    expect(bucket3).toBeTruthy();
-    expect(frankensteinSearch).toBeTruthy();
+    expect(new CfnElementUtilities().cfnElements(stack1).length).toEqual(1);
 
     // THEN
     // Find stacks

@@ -169,9 +169,12 @@ export class LambdaCustomResource extends Task {
       produce: () => (this.customResource as InnerCustomResource).requestedOutputs,
     });
 
+    // Use this feature at your own risk.  Docs say that.
+    /* c8 ignore start */
     if (props.autoPaginate) {
       crProps.AutoPaginate = true;
     }
+    /* c8 ignore end */
 
     this.customResource = new InnerCustomResource(this, 'Resource', {
       serviceToken: this.resources.provider.serviceToken,
@@ -242,14 +245,16 @@ export class LambdaCustomResource extends Task {
 
   /**
    * Returns a flattened JSON key from the resource response.
-   * @param dataPath
-   * @returns
+   * @param dataPath Response field name.
    */
   getResponseField(dataPath: string) {
     return this.getAtt(dataPath).toString();
   }
 
-  /** Returns response data for the AWS SDK call. */
+  /**
+   * Returns response data for the AWS SDK call.
+   * @param dataPath Response field name.
+   */
   getResponseFieldReference(dataPath: string) {
     return this.getAtt(dataPath);
   }

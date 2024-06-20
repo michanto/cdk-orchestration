@@ -2,12 +2,12 @@ import { CfnCustomResource, CfnResource, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { AwsCustomResource, AwsCustomResourcePolicy, AwsSdkCall, PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
 import { CustomResourceUtilities, RunResourceAlways } from '../../src/custom-resources';
-import { BadFunction } from '../util';
+import { EchoFunction } from '../util';
 
 describe('Custom Resource Utilities tests.', () => {
   it('isCustomResource works.', () => {
     const stack = new Stack();
-    let serviceToken = new BadFunction(stack, 'Fun').functionArn;
+    let serviceToken = new EchoFunction(stack, 'Fun').functionArn;
 
     let resource1 = new CfnCustomResource(stack, 'Res1', {
       serviceToken: serviceToken,
@@ -60,7 +60,7 @@ describe('Custom Resource Utilities tests.', () => {
   it('findCustomResource throw on multiple custom resources.', () => {
     const stack = new Stack();
     let utils = new CustomResourceUtilities();
-    let serviceToken = new BadFunction(stack, 'Fun').functionArn;
+    let serviceToken = new EchoFunction(stack, 'Fun').functionArn;
 
     new CfnCustomResource(stack, 'Res1', {
       serviceToken: serviceToken,
@@ -73,13 +73,15 @@ describe('Custom Resource Utilities tests.', () => {
 
   it('RunResourceAlways works.', () => {
     const stack = new Stack();
-    let serviceToken = new BadFunction(stack, 'Fun').functionArn;
+    let serviceToken = new EchoFunction(stack, 'Fun').functionArn;
     let customResource = new CfnCustomResource(stack, 'Res1', {
       serviceToken: serviceToken,
     });
     new RunResourceAlways(customResource);
     // THEN
     let template = Template.fromStack(stack).toJSON();
+
+    expect(new CustomResourceUtilities().customResources(stack).length).toEqual(1);
 
     expect(template).toMatchObject({
       Resources: {

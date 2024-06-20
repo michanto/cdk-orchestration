@@ -29,12 +29,6 @@ export class PropertyTransformApplier extends Transform {
     return `@${propertyName}Applier`;
   }
 
-  /**
-   *
-   * @param scope
-   * @param propertyName
-   * @param resourceType
-   */
   constructor(scope: Construct, readonly propertyName: string, readonly resourceType: string) {
     super(scope, PropertyTransformApplier.applierId(propertyName));
   }
@@ -44,9 +38,7 @@ export class PropertyTransformApplier extends Transform {
    */
   apply(template: CfTemplateType) {
     let host = this.node.findChild(PropertyTransformHost.hostId(this.propertyName)) as PropertyTransformHost;
-    if (!host) {
-      throw new Error('Could not find a PropertyTransformHost.  Bad PropertyTransform setup.');
-    }
+
     for (let resId in template.Resources) {
       let resource = template.Resources[resId];
       if (resource.Type == this.resourceType && resource.Properties[this.propertyName]) {
@@ -136,7 +128,8 @@ export interface JsonPropertyTransformProps extends PropertyTransformProps {
 }
 
 /**
- * Transforms a JSON
+ * Transforms a JSON property on a CfnElement.
+ * Canonical example is DefinitionString on a CfnStateMachine (StatesTransform).
  */
 export abstract class JsonPropertyTransform extends PropertyTransform {
   constructor(scope: Construct, id: string, props: JsonPropertyTransformProps) {
@@ -145,8 +138,9 @@ export abstract class JsonPropertyTransform extends PropertyTransform {
 
   get shimParent(): Construct {
     let tHost = this.propertyTransformHost;
-    // If we haven't added the JSON transforms yet, add them now.
+    // If we haven't added the support transforms yet, add them now.
     if (tHost.parserOrder.node.tryFindChild('YamlParser') == undefined) {
+      // Parses the joined JSON string.
       new YamlParser(tHost.parserOrder, 'YamlParser');
       // NOTE: Between the YamlParser and the Stringifier, the PropertyTransforms run.
       // Turns the parsed Yaml/JSON into a JSON string so it can be written back to the template.

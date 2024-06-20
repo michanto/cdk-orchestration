@@ -14,7 +14,7 @@ import { NAMESPACE } from '../private/internals';
 export interface ITask extends ITrigger {
   /**
    * Sets the deletion policy of the resource based on the removal policy specified.
-   * @param policy
+   * @param policy Removal policy.
    */
   applyRemovalPolicy(policy: RemovalPolicy): void;
 
@@ -26,7 +26,7 @@ export interface ITask extends ITrigger {
    * type. Attributes are returned from the custom resource provider through the
    * `Data` map where the key is the attribute name.
    *
-   * @param attributeName the name of the attribute
+   * @param attributeName The name of the attribute.
    * @returns a token for `Fn::GetAtt`. Use `Token.asXxx` to encode the returned `Reference` as a specific type or
    * use the convenience `getAttString` for string attributes.
    */
@@ -37,7 +37,7 @@ export interface ITask extends ITrigger {
    * Attributes are returned from the custom resource provider through the
    * `Data` map where the key is the attribute name.
    *
-   * @param attributeName the name of the attribute
+   * @param attributeName The name of the attribute.
    * @returns a token for `Fn::GetAtt` encoded as a string.
    */
   getAttString(attributeName: string): string;
@@ -92,7 +92,7 @@ export abstract class Task extends Construct implements ITask {
   }
 
   /**
-   * Adds task trigger as a dependency on other constructs. This means that this
+   * Adds task as a dependency on other constructs. This means that this
    * task will get executed *before* the given construct(s).
    *
    * @param scopes A list of construct scopes which will take a dependency on

@@ -10,8 +10,7 @@ import { CfnElementUtilities, ConstructTreeSearch } from '../core';
 export class CfnIncludeToCdk {
   /**
    * Returns true if the given construct is an instance of CfnInclude
-   * @param x
-   * @returns
+   * @param x Construct to test.
    */
   static isCfnInclude(x: IConstruct | undefined): x is CfnInclude {
     if (!x) {

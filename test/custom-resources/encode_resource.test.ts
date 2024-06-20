@@ -4,13 +4,13 @@ import { CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 import { EncodeResource } from '../../src/custom-resources';
 import { CfTemplateType } from '../../src/transforms';
-import { BadFunction } from '../util';
+import { EchoFunction } from '../util';
 
 describe('Custom Resource Utilities tests.', () => {
   it('EncodeResource works.', () => {
     // Given
     const stack = new Stack();
-    let serviceToken = new BadFunction(stack, 'Fun').functionArn;
+    let serviceToken = new EchoFunction(stack, 'Fun').functionArn;
     new class extends CfnCustomResource {
       constructor(scope: Construct, id: string, props: CfnCustomResourceProps) {
         super(scope, id, props);
@@ -57,7 +57,7 @@ describe('Custom Resource Utilities tests.', () => {
 
   it('EncodeResource no ServiceToken does nothing', () => {
     const stack = new Stack();
-    let serviceToken = new BadFunction(stack, 'Fun').functionArn;
+    let serviceToken = new EchoFunction(stack, 'Fun').functionArn;
     new class extends CfnCustomResource {
       constructor(scope: Construct, id: string, props: CfnCustomResourceProps) {
         super(scope, id, props);

@@ -12,8 +12,8 @@ export class StackConstructTreeService extends ConstructTreeService {
    * When a stack service is created, set it on the Stack object so it can be shared
    * by all constructs in the stack.
    *
-   * @param cache
-   * @returns
+   * @param cache The cache.
+   * @returns The cache.
    */
   protected onCreateCache(cache: ServiceQueryResult): ServiceQueryResult {
     let service = cache.service;
@@ -30,7 +30,6 @@ export class StackConstructTreeService extends ConstructTreeService {
    * Return the stack service for the construct.
    *
    * @param construct
-   * @returns
    */
   of(construct: IConstruct) {
     // Will throw if the construct is not in a stack.

@@ -77,8 +77,8 @@ export class CustomResourceHandler {
 
   /**
    * Makes the call encapsulated by an AwsApiCall.
-   * @param call AwsApiCall
-   * @returns
+   * @param call An AwsApiCall to execute.
+   * @returns Response from call.
    */
   async getResponse(call: any) {
     // User may only be calling getResponse.
