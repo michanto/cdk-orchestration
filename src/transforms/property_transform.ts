@@ -52,7 +52,7 @@ export class PropertyTransformApplier extends Transform {
 }
 
 class PreReadJoiner extends Joiner {
-  get order() {
+  get order(): string {
     return ImportOrders.PRE_READER;
   }
 }
@@ -81,7 +81,7 @@ export class PropertyTransformHost extends BaseImporter {
     super(scope, PropertyTransformHost.hostId(propertyName));
     // If the property is represented as an Fn.join, this
     // turns the join into valid JSON that can be parsed by the Yaml parser.
-    new PreReadJoiner(this.preReaderOrder, 'Joiner');
+    new PreReadJoiner(this, 'Joiner');
   }
 }
 
@@ -139,12 +139,12 @@ export abstract class JsonPropertyTransform extends PropertyTransform {
   get shimParent(): Construct {
     let tHost = this.propertyTransformHost;
     // If we haven't added the support transforms yet, add them now.
-    if (tHost.parserOrder.node.tryFindChild('YamlParser') == undefined) {
+    if (tHost.node.tryFindChild('YamlParser') == undefined) {
       // Parses the joined JSON string.
-      new YamlParser(tHost.parserOrder, 'YamlParser');
+      new YamlParser(tHost, 'YamlParser');
       // NOTE: Between the YamlParser and the Stringifier, the PropertyTransforms run.
       // Turns the parsed Yaml/JSON into a JSON string so it can be written back to the template.
-      new Stringifier(tHost.writerOrder, 'Stringify');
+      new Stringifier(tHost, 'Stringify');
     }
     return super.shimParent;
   }
