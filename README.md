@@ -10,6 +10,9 @@ Orchestrate running tasks via CloudFormation.
 
 <!--END STABILITY BANNER-->
 
+## Documentation
+Docs are published at [Construct Hub](https://constructs.dev/packages/@michanto/cdk-orchestration) in a usable format.
+
 ## Tasks - Orchestration custom resources.
 CloudFormation is normally used for provisioning resources.  However, CloudFormation itself is a powerful orchestration engine.
 The CDK gives us the opportunity to run CustomResources as tasks.  Similar to CDK Tiggers, Tasks can return values (attributes)

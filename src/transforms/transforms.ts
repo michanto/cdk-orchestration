@@ -6,7 +6,7 @@ import { Log } from '../core';
 /**
  * This helper class can extract ICfnTransforms from a construct tree so they can be applied to a template.
  *
- * Stacks, CfnElements and subclasses of CfnTransformHost use this class to apply their transforms.
+ * Stacks, CfnElements and subclasses of CfnTransformHost use this class to apply descendent transforms.
  * See the Transforms section of the README.md file for details.
  *
  */
@@ -14,7 +14,7 @@ export class Transforms {
   /**
    * Returns a transforms object for the scope.  This object has access to all transforms attached to the scope
    * as descendents.
-   * @param scope
+   * @param scope Scope for Transforms.
    */
   public static of(scope: IConstruct): Transforms {
     return new Transforms(scope);

@@ -251,7 +251,7 @@ Returns a string representation of this construct.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.isCfnTransformHost">isCfnTransformHost</a></code> | Checks if `x` if a CfnTransformHost construct. |
 
 ---
 
@@ -292,16 +292,16 @@ Any object.
 ```typescript
 import { transforms } from '@michanto/cdk-orchestration'
 
-transforms.BaseImporter.isCfnTransformHost(scope: Construct)
+transforms.BaseImporter.isCfnTransformHost(x: Construct)
 ```
 
-Tells you if an object is a CfnTransformHost.
+Checks if `x` if a CfnTransformHost construct.
 
-Duck-typing.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.BaseImporter.isCfnTransformHost.parameter.scope"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.BaseImporter.isCfnTransformHost.parameter.x"></a>
 
 - *Type:* constructs.Construct
+
+Construct to test.
 
 ---
 
@@ -310,12 +310,12 @@ Duck-typing.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PARSER. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PRE_READER. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.READER. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.STRING_TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.WRITER. |
 
 ---
 
@@ -339,6 +339,8 @@ public readonly parserOrder: ImportOrder;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
+Order for ImportOrders.PARSER.
+
 ---
 
 ##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.preReaderOrder"></a>
@@ -348,6 +350,8 @@ public readonly preReaderOrder: ImportOrder;
 ```
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+
+Order for ImportOrders.PRE_READER.
 
 ---
 
@@ -359,6 +363,8 @@ public readonly readerOrder: ImportOrder;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
+Order for ImportOrders.READER.
+
 ---
 
 ##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.stringTransformOrder"></a>
@@ -368,6 +374,8 @@ public readonly stringTransformOrder: ImportOrder;
 ```
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+
+Order for ImportOrders.STRING_TRANSFORMS.
 
 ---
 
@@ -379,6 +387,8 @@ public readonly templateTransformOrder: ImportOrder;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
+Order for ImportOrders.TRANSFORMS.
+
 ---
 
 ##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.writerOrder"></a>
@@ -388,6 +398,8 @@ public readonly writerOrder: ImportOrder;
 ```
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+
+Order for ImportOrders.WRITER.
 
 ---
 
@@ -484,7 +496,7 @@ PreReader transforms are useful for calling scripts that write JSON files.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.isCfnTransformHost">isCfnTransformHost</a></code> | Checks if `x` if a CfnTransformHost construct. |
 
 ---
 
@@ -525,16 +537,16 @@ Any object.
 ```typescript
 import { cloudformation_include } from '@michanto/cdk-orchestration'
 
-cloudformation_include.BaseTemplateImporter.isCfnTransformHost(scope: Construct)
+cloudformation_include.BaseTemplateImporter.isCfnTransformHost(x: Construct)
 ```
 
-Tells you if an object is a CfnTransformHost.
+Checks if `x` if a CfnTransformHost construct.
 
-Duck-typing.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.isCfnTransformHost.parameter.scope"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.isCfnTransformHost.parameter.x"></a>
 
 - *Type:* constructs.Construct
+
+Construct to test.
 
 ---
 
@@ -543,12 +555,12 @@ Duck-typing.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PARSER. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PRE_READER. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.READER. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.STRING_TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.WRITER. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.capture">capture</a></code> | <code>@michanto/cdk-orchestration.transforms.TemplateCapture</code> | *No description.* |
 
 ---
@@ -573,6 +585,8 @@ public readonly parserOrder: ImportOrder;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
+Order for ImportOrders.PARSER.
+
 ---
 
 ##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.preReaderOrder"></a>
@@ -582,6 +596,8 @@ public readonly preReaderOrder: ImportOrder;
 ```
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+
+Order for ImportOrders.PRE_READER.
 
 ---
 
@@ -593,6 +609,8 @@ public readonly readerOrder: ImportOrder;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
+Order for ImportOrders.READER.
+
 ---
 
 ##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.stringTransformOrder"></a>
@@ -602,6 +620,8 @@ public readonly stringTransformOrder: ImportOrder;
 ```
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+
+Order for ImportOrders.STRING_TRANSFORMS.
 
 ---
 
@@ -613,6 +633,8 @@ public readonly templateTransformOrder: ImportOrder;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
+Order for ImportOrders.TRANSFORMS.
+
 ---
 
 ##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.writerOrder"></a>
@@ -622,6 +644,8 @@ public readonly writerOrder: ImportOrder;
 ```
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+
+Order for ImportOrders.WRITER.
 
 ---
 
@@ -702,8 +726,6 @@ Modifies the template.
 
 - *Type:* any
 
-The template to transform.
-
 ---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
@@ -711,7 +733,7 @@ The template to transform.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.CfnTransform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.CfnTransform.isCfnTransform">isCfnTransform</a></code> | Returns `true` if a construct is a CfnTransform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.CfnTransform.isCfnTransform">isCfnTransform</a></code> | Checks if `x` if a CfnTransform. |
 
 ---
 
@@ -755,7 +777,7 @@ import { transforms } from '@michanto/cdk-orchestration'
 transforms.CfnTransform.isCfnTransform(x: any)
 ```
 
-Returns `true` if a construct is a CfnTransform.
+Checks if `x` if a CfnTransform.
 
 Uses duck-typing instead of `instanceof` to allow CfnTransforms from different
 versions of this library to be included in the same stack.
@@ -872,7 +894,7 @@ Returns a string representation of this construct.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.CfnTransformHost.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.CfnTransformHost.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.CfnTransformHost.isCfnTransformHost">isCfnTransformHost</a></code> | Checks if `x` if a CfnTransformHost construct. |
 
 ---
 
@@ -913,16 +935,16 @@ Any object.
 ```typescript
 import { transforms } from '@michanto/cdk-orchestration'
 
-transforms.CfnTransformHost.isCfnTransformHost(scope: Construct)
+transforms.CfnTransformHost.isCfnTransformHost(x: Construct)
 ```
 
-Tells you if an object is a CfnTransformHost.
+Checks if `x` if a CfnTransformHost construct.
 
-Duck-typing.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.CfnTransformHost.isCfnTransformHost.parameter.scope"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.CfnTransformHost.isCfnTransformHost.parameter.x"></a>
 
 - *Type:* constructs.Construct
+
+Construct to test.
 
 ---
 
@@ -1331,6 +1353,12 @@ Otherwise, return either an order under the transform host of this
 ### ImportOrder <a name="ImportOrder" id="@michanto/cdk-orchestration.transforms.ImportOrder"></a>
 
 ImportOrder class.
+
+Defines the order in which Transforms are applied.
+This is important in cases where the type of the template passed between
+Transforms changes, such as when a FileReader turns a filename into
+a string with the contents of the file, or a Parser turns a JSON string
+into a Javascript object.
 
 See BaseImporter for usage.
 
@@ -2789,8 +2817,8 @@ Any object.
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.propertyName">propertyName</a></code> | <code>string</code> | Gets the propertyName from the scope of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.resourceType">resourceType</a></code> | <code>string</code> | Gets the resourceType from the scope of this construct. |
 
 ---
 
@@ -2861,6 +2889,8 @@ public readonly propertyName: string;
 
 - *Type:* string
 
+Gets the propertyName from the scope of this construct.
+
 ---
 
 ##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.property.resourceType"></a>
@@ -2870,6 +2900,8 @@ public readonly resourceType: string;
 ```
 
 - *Type:* string
+
+Gets the resourceType from the scope of this construct.
 
 ---
 
@@ -2881,7 +2913,8 @@ JSON resource properties can be stored in CloudFormation either as a string, or 
 In order for Transforms to act on embedded and joined JSON, the JSON first needs to
 be stringified.  If the template passed to this class is an Fn.join, this class
 tokenizes all objects in the join and concatenates them.  This forms valid JSON
-that can be parsed and modified by Transforms.
+that can be parsed and modified by Transforms.  See {@link PropertyTransform }
+for example usage.
 
 During synthesis, the CDK will turn the tokenized string back into an Fn.join before
 writing it to the template.
@@ -3408,8 +3441,8 @@ Any object.
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
-| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.propertyName">propertyName</a></code> | <code>string</code> | Gets the propertyName from the scope of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.resourceType">resourceType</a></code> | <code>string</code> | Gets the resourceType from the scope of this construct. |
 
 ---
 
@@ -3480,6 +3513,8 @@ public readonly propertyName: string;
 
 - *Type:* string
 
+Gets the propertyName from the scope of this construct.
+
 ---
 
 ##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.property.resourceType"></a>
@@ -3489,6 +3524,8 @@ public readonly resourceType: string;
 ```
 
 - *Type:* string
+
+Gets the resourceType from the scope of this construct.
 
 ---
 
@@ -3685,7 +3722,7 @@ Response field name.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.isTask">isTask</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.isTask">isTask</a></code> | Checks if `x` if a Task construct. |
 
 ---
 
@@ -3729,9 +3766,13 @@ import { custom_resources } from '@michanto/cdk-orchestration'
 custom_resources.LambdaCustomResource.isTask(x: Construct)
 ```
 
+Checks if `x` if a Task construct.
+
 ###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.isTask.parameter.x"></a>
 
 - *Type:* constructs.Construct
+
+Construct to test.
 
 ---
 
@@ -4139,7 +4180,7 @@ Attributes are returned from the custom resource provider through the
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.isTask">isTask</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.isTask">isTask</a></code> | Checks if `x` if a Task construct. |
 
 ---
 
@@ -4183,9 +4224,13 @@ import { orchestration } from '@michanto/cdk-orchestration'
 orchestration.LambdaTask.isTask(x: Construct)
 ```
 
+Checks if `x` if a Task construct.
+
 ###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.LambdaTask.isTask.parameter.x"></a>
 
 - *Type:* constructs.Construct
+
+Construct to test.
 
 ---
 
@@ -5097,8 +5142,8 @@ Any object.
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.propertyName">propertyName</a></code> | <code>string</code> | Gets the propertyName from the scope of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.property.resourceType">resourceType</a></code> | <code>string</code> | Gets the resourceType from the scope of this construct. |
 
 ---
 
@@ -5169,6 +5214,8 @@ public readonly propertyName: string;
 
 - *Type:* string
 
+Gets the propertyName from the scope of this construct.
+
 ---
 
 ##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.transforms.PropertyTransform.property.resourceType"></a>
@@ -5178,6 +5225,8 @@ public readonly resourceType: string;
 ```
 
 - *Type:* string
+
+Gets the resourceType from the scope of this construct.
 
 ---
 
@@ -5284,7 +5333,7 @@ Find the StatesTransformHost and apply those to the state machine definition.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.applierId">applierId</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.applierId">applierId</a></code> | Construct ID for a PropertyTransformApplier. |
 
 ---
 
@@ -5327,6 +5376,8 @@ import { transforms } from '@michanto/cdk-orchestration'
 
 transforms.PropertyTransformApplier.applierId(propertyName: string)
 ```
+
+Construct ID for a PropertyTransformApplier.
 
 ###### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.applierId.parameter.propertyName"></a>
 
@@ -5488,9 +5539,9 @@ Returns a string representation of this construct.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.getPropertyTransformHost">getPropertyTransformHost</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.hostId">hostId</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.isCfnTransformHost">isCfnTransformHost</a></code> | Checks if `x` if a CfnTransformHost construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.getPropertyTransformHost">getPropertyTransformHost</a></code> | Gets or create a PropertyTransformHost for a PropertyTransform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.hostId">hostId</a></code> | Construct ID for a PropertyTransformHost. |
 
 ---
 
@@ -5531,16 +5582,16 @@ Any object.
 ```typescript
 import { transforms } from '@michanto/cdk-orchestration'
 
-transforms.PropertyTransformHost.isCfnTransformHost(scope: Construct)
+transforms.PropertyTransformHost.isCfnTransformHost(x: Construct)
 ```
 
-Tells you if an object is a CfnTransformHost.
+Checks if `x` if a CfnTransformHost construct.
 
-Duck-typing.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.isCfnTransformHost.parameter.scope"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.isCfnTransformHost.parameter.x"></a>
 
 - *Type:* constructs.Construct
+
+Construct to test.
 
 ---
 
@@ -5552,9 +5603,13 @@ import { transforms } from '@michanto/cdk-orchestration'
 transforms.PropertyTransformHost.getPropertyTransformHost(scope: Construct, propertyName: string, resourceType: string)
 ```
 
+Gets or create a PropertyTransformHost for a PropertyTransform.
+
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.getPropertyTransformHost.parameter.scope"></a>
 
 - *Type:* constructs.Construct
+
+Scope for the PropertyTransform.
 
 ---
 
@@ -5562,11 +5617,15 @@ transforms.PropertyTransformHost.getPropertyTransformHost(scope: Construct, prop
 
 - *Type:* string
 
+Name of the property to transform.
+
 ---
 
 ###### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.getPropertyTransformHost.parameter.resourceType"></a>
 
 - *Type:* string
+
+Resource type to transform.
 
 ---
 
@@ -5577,6 +5636,8 @@ import { transforms } from '@michanto/cdk-orchestration'
 
 transforms.PropertyTransformHost.hostId(propertyName: string)
 ```
+
+Construct ID for a PropertyTransformHost.
 
 ###### `propertyName`<sup>Required</sup> <a name="propertyName" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.hostId.parameter.propertyName"></a>
 
@@ -5589,12 +5650,12 @@ transforms.PropertyTransformHost.hostId(propertyName: string)
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PARSER. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PRE_READER. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.READER. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.STRING_TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.WRITER. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
@@ -5620,6 +5681,8 @@ public readonly parserOrder: ImportOrder;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
+Order for ImportOrders.PARSER.
+
 ---
 
 ##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.preReaderOrder"></a>
@@ -5629,6 +5692,8 @@ public readonly preReaderOrder: ImportOrder;
 ```
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+
+Order for ImportOrders.PRE_READER.
 
 ---
 
@@ -5640,6 +5705,8 @@ public readonly readerOrder: ImportOrder;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
+Order for ImportOrders.READER.
+
 ---
 
 ##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.stringTransformOrder"></a>
@@ -5649,6 +5716,8 @@ public readonly stringTransformOrder: ImportOrder;
 ```
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+
+Order for ImportOrders.STRING_TRANSFORMS.
 
 ---
 
@@ -5660,6 +5729,8 @@ public readonly templateTransformOrder: ImportOrder;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
+Order for ImportOrders.TRANSFORMS.
+
 ---
 
 ##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.writerOrder"></a>
@@ -5669,6 +5740,8 @@ public readonly writerOrder: ImportOrder;
 ```
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+
+Order for ImportOrders.WRITER.
 
 ---
 
@@ -5960,7 +6033,7 @@ Attributes are returned from the custom resource provider through the
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.isTask">isTask</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.isTask">isTask</a></code> | Checks if `x` if a Task construct. |
 
 ---
 
@@ -6004,9 +6077,13 @@ import { orchestration } from '@michanto/cdk-orchestration'
 orchestration.S3FileMetadata.isTask(x: Construct)
 ```
 
+Checks if `x` if a Task construct.
+
 ###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.isTask.parameter.x"></a>
 
 - *Type:* constructs.Construct
+
+Construct to test.
 
 ---
 
@@ -6223,7 +6300,7 @@ Attributes are returned from the custom resource provider through the
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.isTask">isTask</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.isTask">isTask</a></code> | Checks if `x` if a Task construct. |
 
 ---
 
@@ -6267,9 +6344,13 @@ import { orchestration } from '@michanto/cdk-orchestration'
 orchestration.S3FileReader.isTask(x: Construct)
 ```
 
+Checks if `x` if a Task construct.
+
 ###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.S3FileReader.isTask.parameter.x"></a>
 
 - *Type:* constructs.Construct
+
+Construct to test.
 
 ---
 
@@ -6479,7 +6560,7 @@ Attributes are returned from the custom resource provider through the
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.isTask">isTask</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.isTask">isTask</a></code> | Checks if `x` if a Task construct. |
 
 ---
 
@@ -6523,9 +6604,13 @@ import { orchestration } from '@michanto/cdk-orchestration'
 orchestration.S3FileResource.isTask(x: Construct)
 ```
 
+Checks if `x` if a Task construct.
+
 ###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.S3FileResource.isTask.parameter.x"></a>
 
 - *Type:* constructs.Construct
+
+Construct to test.
 
 ---
 
@@ -6839,8 +6924,8 @@ Any object.
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.propertyName">propertyName</a></code> | <code>string</code> | Gets the propertyName from the scope of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.resourceType">resourceType</a></code> | <code>string</code> | Gets the resourceType from the scope of this construct. |
 
 ---
 
@@ -6911,6 +6996,8 @@ public readonly propertyName: string;
 
 - *Type:* string
 
+Gets the propertyName from the scope of this construct.
+
 ---
 
 ##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.property.resourceType"></a>
@@ -6920,6 +7007,8 @@ public readonly resourceType: string;
 ```
 
 - *Type:* string
+
+Gets the resourceType from the scope of this construct.
 
 ---
 
@@ -7086,7 +7175,7 @@ Attributes are returned from the custom resource provider through the
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.isTask">isTask</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.isTask">isTask</a></code> | Checks if `x` if a Task construct. |
 
 ---
 
@@ -7130,9 +7219,13 @@ import { orchestration } from '@michanto/cdk-orchestration'
 orchestration.StepFunctionTask.isTask(x: Construct)
 ```
 
+Checks if `x` if a Task construct.
+
 ###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.isTask.parameter.x"></a>
 
 - *Type:* constructs.Construct
+
+Construct to test.
 
 ---
 
@@ -7361,7 +7454,7 @@ Attributes are returned from the custom resource provider through the
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.isTask">isTask</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.isTask">isTask</a></code> | Checks if `x` if a Task construct. |
 
 ---
 
@@ -7405,9 +7498,13 @@ import { orchestration } from '@michanto/cdk-orchestration'
 orchestration.StepFunctionTaskStep.isTask(x: Construct)
 ```
 
+Checks if `x` if a Task construct.
+
 ###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.isTask.parameter.x"></a>
 
 - *Type:* constructs.Construct
+
+Construct to test.
 
 ---
 
@@ -8374,7 +8471,7 @@ Attributes are returned from the custom resource provider through the
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.isTask">isTask</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.Task.isTask">isTask</a></code> | Checks if `x` if a Task construct. |
 
 ---
 
@@ -8418,9 +8515,13 @@ import { custom_resources } from '@michanto/cdk-orchestration'
 custom_resources.Task.isTask(x: Construct)
 ```
 
+Checks if `x` if a Task construct.
+
 ###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.custom_resources.Task.isTask.parameter.x"></a>
 
 - *Type:* constructs.Construct
+
+Construct to test.
 
 ---
 
@@ -8516,7 +8617,7 @@ new transforms.TempFileWriter(scope: Construct, id: string, tmpDir?: string)
 | <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.inspect">inspect</a></code> | Examines construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.apply">apply</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.writeTempFile">writeTempFile</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.writeTempFile">writeTempFile</a></code> | Writes data to a temporary file. |
 
 ---
 
@@ -8560,15 +8661,21 @@ public apply(template: string): string
 public writeTempFile(data: string, tmpDir?: string): string
 ```
 
+Writes data to a temporary file.
+
 ###### `data`<sup>Required</sup> <a name="data" id="@michanto/cdk-orchestration.transforms.TempFileWriter.writeTempFile.parameter.data"></a>
 
 - *Type:* string
+
+Data to write.
 
 ---
 
 ###### `tmpDir`<sup>Optional</sup> <a name="tmpDir" id="@michanto/cdk-orchestration.transforms.TempFileWriter.writeTempFile.parameter.tmpDir"></a>
 
 - *Type:* string
+
+Temp directory.
 
 ---
 
@@ -8987,7 +9094,7 @@ PreReader transforms are useful for calling scripts that write JSON files.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.isCfnTransformHost">isCfnTransformHost</a></code> | Tells you if an object is a CfnTransformHost. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.isCfnTransformHost">isCfnTransformHost</a></code> | Checks if `x` if a CfnTransformHost construct. |
 
 ---
 
@@ -9028,16 +9135,16 @@ Any object.
 ```typescript
 import { cloudformation_include } from '@michanto/cdk-orchestration'
 
-cloudformation_include.TemplateImporter.isCfnTransformHost(scope: Construct)
+cloudformation_include.TemplateImporter.isCfnTransformHost(x: Construct)
 ```
 
-Tells you if an object is a CfnTransformHost.
+Checks if `x` if a CfnTransformHost construct.
 
-Duck-typing.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.isCfnTransformHost.parameter.scope"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.isCfnTransformHost.parameter.x"></a>
 
 - *Type:* constructs.Construct
+
+Construct to test.
 
 ---
 
@@ -9046,12 +9153,12 @@ Duck-typing.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PARSER. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PRE_READER. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.READER. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.STRING_TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.WRITER. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.capture">capture</a></code> | <code>@michanto/cdk-orchestration.transforms.TemplateCapture</code> | *No description.* |
 
 ---
@@ -9076,6 +9183,8 @@ public readonly parserOrder: ImportOrder;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
+Order for ImportOrders.PARSER.
+
 ---
 
 ##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.preReaderOrder"></a>
@@ -9085,6 +9194,8 @@ public readonly preReaderOrder: ImportOrder;
 ```
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+
+Order for ImportOrders.PRE_READER.
 
 ---
 
@@ -9096,6 +9207,8 @@ public readonly readerOrder: ImportOrder;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
+Order for ImportOrders.READER.
+
 ---
 
 ##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.stringTransformOrder"></a>
@@ -9105,6 +9218,8 @@ public readonly stringTransformOrder: ImportOrder;
 ```
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+
+Order for ImportOrders.STRING_TRANSFORMS.
 
 ---
 
@@ -9116,6 +9231,8 @@ public readonly templateTransformOrder: ImportOrder;
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
 
+Order for ImportOrders.TRANSFORMS.
+
 ---
 
 ##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.writerOrder"></a>
@@ -9125,6 +9242,8 @@ public readonly writerOrder: ImportOrder;
 ```
 
 - *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+
+Order for ImportOrders.WRITER.
 
 ---
 
@@ -10859,6 +10978,8 @@ public readonly state: State;
 
 ### JsonPropertyTransformProps <a name="JsonPropertyTransformProps" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps"></a>
 
+Properties for JsonPropertyTransform.
+
 #### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.Initializer"></a>
 
 ```typescript
@@ -10871,8 +10992,8 @@ const jsonPropertyTransformProps: transforms.JsonPropertyTransformProps = { ... 
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.propertyName">propertyName</a></code> | <code>string</code> | Name of the property to transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.resourceType">resourceType</a></code> | <code>string</code> | Resource type to transform. |
 
 ---
 
@@ -10884,6 +11005,8 @@ public readonly propertyName: string;
 
 - *Type:* string
 
+Name of the property to transform.
+
 ---
 
 ##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransformProps.property.resourceType"></a>
@@ -10893,6 +11016,8 @@ public readonly resourceType: string;
 ```
 
 - *Type:* string
+
+Resource type to transform.
 
 ---
 
@@ -11807,6 +11932,8 @@ The log level.
 
 ### PropertyTransformProps <a name="PropertyTransformProps" id="@michanto/cdk-orchestration.transforms.PropertyTransformProps"></a>
 
+Properties for PropertyTransform.
+
 #### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.transforms.PropertyTransformProps.Initializer"></a>
 
 ```typescript
@@ -11819,8 +11946,8 @@ const propertyTransformProps: transforms.PropertyTransformProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.propertyName">propertyName</a></code> | <code>string</code> | Name of the property to transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.resourceType">resourceType</a></code> | <code>string</code> | Resource type to transform. |
 
 ---
 
@@ -11832,6 +11959,8 @@ public readonly propertyName: string;
 
 - *Type:* string
 
+Name of the property to transform.
+
 ---
 
 ##### `resourceType`<sup>Required</sup> <a name="resourceType" id="@michanto/cdk-orchestration.transforms.PropertyTransformProps.property.resourceType"></a>
@@ -11841,6 +11970,8 @@ public readonly resourceType: string;
 ```
 
 - *Type:* string
+
+Resource type to transform.
 
 ---
 
@@ -13178,7 +13309,7 @@ new cloudformation_include.CfnIncludeToCdk()
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded">findIncluded</a></code> | Finds a construct from CfnIncludes in scope with the given logicalId. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude">isCfnInclude</a></code> | Returns true if the given construct is an instance of CfnInclude. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude">isCfnInclude</a></code> | Checks if `x` if a CfnInclude construct. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded">removeIncluded</a></code> | Removes a construct from CfnInclude with the given logicalId. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.replaceIncluded">replaceIncluded</a></code> | Replaces an L1 construct in a CfnInclude with an L1 or L2 CDK construct of your choosing. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId">setLogicalId</a></code> | Sets the logical ID of the resource to the Node ID of the construct. |
@@ -13215,7 +13346,7 @@ import { cloudformation_include } from '@michanto/cdk-orchestration'
 cloudformation_include.CfnIncludeToCdk.isCfnInclude(x?: IConstruct)
 ```
 
-Returns true if the given construct is an instance of CfnInclude.
+Checks if `x` if a CfnInclude construct.
 
 ###### `x`<sup>Optional</sup> <a name="x" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude.parameter.x"></a>
 
@@ -15452,7 +15583,7 @@ Manages singletons in the stack.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.Singleton.create">create</a></code> | Creates or returns a singleton object. |
-| <code><a href="#@michanto/cdk-orchestration.Singleton.isSingleton">isSingleton</a></code> | True if the construct has been marked as Singleton by this class. |
+| <code><a href="#@michanto/cdk-orchestration.Singleton.isSingleton">isSingleton</a></code> | Checks if `x` if a Singleton construct. |
 | <code><a href="#@michanto/cdk-orchestration.Singleton.mark">mark</a></code> | Marks an existing construct as a singleton. |
 
 ---
@@ -15495,11 +15626,13 @@ import { Singleton } from '@michanto/cdk-orchestration'
 Singleton.isSingleton(x: IConstruct)
 ```
 
-True if the construct has been marked as Singleton by this class.
+Checks if `x` if a Singleton construct.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.Singleton.isSingleton.parameter.x"></a>
 
 - *Type:* constructs.IConstruct
+
+Construct to test.
 
 ---
 
@@ -16525,7 +16658,7 @@ new transforms.TransformHost()
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.hook">hook</a></code> | Turns a Stack or CfnElement into a transform host. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.isTransformHost">isTransformHost</a></code> | Returns true for any Stack, CfnElement, or CfnTransformHost constructs. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.mark">mark</a></code> | Marks a construct as a TransformHost, isolating the transforms under it from the Stack. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.of">of</a></code> | Note: This returns the transform host, which may be either a Stack, a CfnElement, or a CfnTransformHost. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TransformHost.of">of</a></code> | Returns the transform host, which may be either a Stack, a CfnElement, or a CfnTransformHost. |
 
 ---
 
@@ -16538,6 +16671,8 @@ transforms.TransformHost.ensureHosted(scope: Construct)
 ```
 
 Ensures that a Transform is hosted by modifying the ancestor CfnElement or Stack (if necessary) so they can host transforms.
+
+Users should call TransformHost.of instead of this framework function.
 
 Ensures that Tranforms under a CfnElement apply to the CfnElement, and Transforms under
 a Stack apply to the Stack.
@@ -16563,6 +16698,8 @@ Turns a Stack or CfnElement into a transform host.
 Called the ensureHosted, which itself is called from
 the CfnTransform and TransformBase constructors to ensure that the CfnTransform
 is hosted either by a CfnElement or a Stack.
+
+Users should call TransformHost.of.
 
 ###### `construct`<sup>Required</sup> <a name="construct" id="@michanto/cdk-orchestration.transforms.TransformHost.hook.parameter.construct"></a>
 
@@ -16602,6 +16739,8 @@ Marks a construct as a TransformHost, isolating the transforms under it from the
 
 Host decides when to apply the descendent transforms.
 
+Users likely will not call this framework function.
+
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.TransformHost.mark.parameter.scope"></a>
 
 - *Type:* constructs.Construct
@@ -16616,7 +16755,7 @@ import { transforms } from '@michanto/cdk-orchestration'
 transforms.TransformHost.of(scope: Construct)
 ```
 
-Note: This returns the transform host, which may be either a Stack, a CfnElement, or a CfnTransformHost.
+Returns the transform host, which may be either a Stack, a CfnElement, or a CfnTransformHost.
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.TransformHost.of.parameter.scope"></a>
 
@@ -16630,7 +16769,7 @@ Note: This returns the transform host, which may be either a Stack, a CfnElement
 
 This helper class can extract ICfnTransforms from a construct tree so they can be applied to a template.
 
-Stacks, CfnElements and subclasses of CfnTransformHost use this class to apply their transforms.
+Stacks, CfnElements and subclasses of CfnTransformHost use this class to apply descendent transforms.
 See the Transforms section of the README.md file for details.
 
 #### Methods <a name="Methods" id="Methods"></a>
@@ -16692,6 +16831,8 @@ as descendents.
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.Transforms.of.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
+
+Scope for Transforms.
 
 ---
 
@@ -16880,7 +17021,7 @@ CDK Transforms have many use-cases.  See the Transforms section of the README.md
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.transforms.ICfnTransform.apply">apply</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ICfnTransform.apply">apply</a></code> | Modifies the template. |
 
 ---
 
@@ -16890,9 +17031,13 @@ CDK Transforms have many use-cases.  See the Transforms section of the README.md
 public apply(template: any): any
 ```
 
+Modifies the template.
+
 ###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.ICfnTransform.apply.parameter.template"></a>
 
 - *Type:* any
+
+The template to transform.
 
 ---
 
@@ -17181,7 +17326,8 @@ The physical name of this custom resource.
 
 Defines where Transforms of a given order are added to a Transform host.
 
-ImportOrders are the names of the constructs under the TransformHost.  See BaseImporter.
+ImportOrders are the names of the ImportOrder constructs under the
+TransformHost.  See {@link BaseImporter }.
 
 #### Members <a name="Members" id="Members"></a>
 
@@ -17189,7 +17335,7 @@ ImportOrders are the names of the constructs under the TransformHost.  See BaseI
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.PRE_READER">PRE_READER</a></code> | Transforms that run before the Reader. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.READER">READER</a></code> | Transform that reads a file into a string. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.STRING_TRANSFORMS">STRING_TRANSFORMS</a></code> | Transforms that run against the sting representation. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.STRING_TRANSFORMS">STRING_TRANSFORMS</a></code> | Transforms that run against the sting representation of a template. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.PARSER">PARSER</a></code> | Parses the string representation into (for example) JSON. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.TRANSFORMS">TRANSFORMS</a></code> | Transform structured data, such as JSON, YAML, TOML. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrders.WRITER">WRITER</a></code> | Writes structured data to a file. |
@@ -17212,7 +17358,7 @@ Transform that reads a file into a string.
 
 ##### `STRING_TRANSFORMS` <a name="STRING_TRANSFORMS" id="@michanto/cdk-orchestration.transforms.ImportOrders.STRING_TRANSFORMS"></a>
 
-Transforms that run against the sting representation.
+Transforms that run against the sting representation of a template.
 
 ---
 

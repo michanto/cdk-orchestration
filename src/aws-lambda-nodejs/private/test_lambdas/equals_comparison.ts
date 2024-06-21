@@ -5,7 +5,7 @@ function log(message: Record<string, any>) {
 }
 
 /**
- * Can be used as a custom resource lambda or as a lambda.
+ * For use with the EqualsComparisonAssertion task.
  */
 export async function equalsComparison(event: any, context: any) {
   log({ Event: event });

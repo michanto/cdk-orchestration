@@ -25,6 +25,7 @@ import { CfnElementUtilities } from '../core';
  * by the StepFunctionTransformHost.  When the StateMachine is
  */
 export class PropertyTransformApplier extends Transform {
+  /** Construct ID for a PropertyTransformApplier. */
   static applierId(propertyName: string) {
     return `@${propertyName}Applier`;
   }
@@ -61,8 +62,17 @@ class PreReadJoiner extends Joiner {
  * Hosts PropertyTransforms.  Must be a child of a PropertyTransformApplier.
  */
 export class PropertyTransformHost extends BaseImporter {
+  /** Construct ID for a PropertyTransformHost. */
   static hostId(propertyName: string) { return `@${propertyName}TransformHost`; };
 
+  /**
+   * Gets or create a PropertyTransformHost for a PropertyTransform.
+   *
+   * @param scope Scope for the PropertyTransform.
+   * @param propertyName Name of the property to transform.
+   * @param resourceType Resource type to transform.
+   * @returns The host.
+   */
   static getPropertyTransformHost(scope: Construct, propertyName: string, resourceType: string): PropertyTransformHost {
     let cfnResource = new CfnElementUtilities().findCfnResource(scope, resourceType);
 
@@ -85,8 +95,17 @@ export class PropertyTransformHost extends BaseImporter {
   }
 }
 
+/**
+ * Properties for PropertyTransform.
+ */
 export interface PropertyTransformProps {
+  /**
+   * Name of the property to transform.
+   */
   readonly propertyName: string;
+  /**
+   * Resource type to transform.
+   */
   readonly resourceType: string;
 }
 
@@ -98,17 +117,30 @@ export abstract class PropertyTransform extends Transform {
     return Symbol.for(`@${id}_PropertyTransformProps`);
   }
 
+  /**
+   * Gets the properties from the scope of this construct.
+   */
   protected get propertyTransformProps(): PropertyTransformProps {
     return (this.node.scope as any)[PropertyTransform.propertyTransformPropsSymbol(this.node.id)] ;
   }
 
+  /**
+   * Gets the host from the scope of this construct.
+   */
   protected get propertyTransformHost() {
     return PropertyTransformHost.getPropertyTransformHost(this.node.scope!, this.propertyName, this.resourceType);
   }
 
+  /**
+   * Gets the propertyName from the scope of this construct.
+   */
   get propertyName(): string {
     return this.propertyTransformProps.propertyName;
   }
+
+  /**
+   * Gets the resourceType from the scope of this construct.
+   */
   get resourceType(): string {
     return this.propertyTransformProps.resourceType;
   }
@@ -124,6 +156,7 @@ export abstract class PropertyTransform extends Transform {
   }
 }
 
+/** Properties for JsonPropertyTransform. */
 export interface JsonPropertyTransformProps extends PropertyTransformProps {
 }
 

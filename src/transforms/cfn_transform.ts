@@ -13,7 +13,7 @@ import { TransformHost } from './transform_host';
  */
 export abstract class CfnTransform extends Construct implements ICfnTransform {
   /**
-   * Returns `true` if a construct is a CfnTransform.
+   * Checks if `x` if a CfnTransform.
    *
    * Uses duck-typing instead of `instanceof` to allow CfnTransforms from different
    * versions of this library to be included in the same stack.
@@ -35,10 +35,5 @@ export abstract class CfnTransform extends Construct implements ICfnTransform {
     this.host = TransformHost.of(this);
   }
 
-  /**
-   * Modifies the template
-   * @param template The template to transform.
-   * @returns The template.  If not, an exception is thrown when the transform is applied.
-   */
   abstract apply(template: any): any
 }

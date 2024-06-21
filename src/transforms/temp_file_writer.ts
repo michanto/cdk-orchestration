@@ -19,6 +19,12 @@ export class TempFileWriter extends StringTransform {
     return ImportOrders.WRITER;
   }
 
+  /**
+   * Writes data to a temporary file.
+   * @param data Data to write.
+   * @param tmpDir Temp directory
+   * @returns The file path.
+   */
   writeTempFile(data: string, tmpDir?: string): string {
     if (tmpDir && !fs.existsSync(tmpDir)) {
       fs.mkdirSync(tmpDir);
