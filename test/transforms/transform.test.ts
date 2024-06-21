@@ -109,7 +109,7 @@ describe('Transform tests.', () => {
     let transform = new BucketNameTransform(bucket, 'BucketName', 'my_bucket');
     // Since the Transform is attached to the L2, which is under the L1, the
     // cfnTransform will be a child of the Transform, because the host above it is
-    // the L1.  So this works as indended.
+    // the L1.  So this works as intended.
     expect(CfnTransform.isCfnTransform(transform.node.children[0])).toBeTruthy();
   });
 
