@@ -21,6 +21,7 @@ import { Task } from '../custom-resources/task';
  * They work very similar to how AwsCustomResource and AwsSdkCall work.
  */
 export interface LambdaTaskProps {
+  /** Custom resource type.  Default is Custom::LambdaTask. */
   readonly resourceType?: string;
   /**
    * See {@link AwsCustomResourceProps.policy}
@@ -85,8 +86,11 @@ export interface LambdaTaskProps {
  * See {@link LambdaTaskProps} for details.
  */
 export class LambdaTask extends Task {
+  /** L2 custom resource for this Task. */
   readonly customResource: CustomResource;
+  /** Lambda function called by this Task. */
   readonly lambdaFunction: IFunction;
+  /** LambdaCustomResource that implements this Task. */
   readonly lambdaCustomResource: LambdaCustomResource;
 
   constructor(scope: Construct, id: string, props: LambdaTaskProps) {

@@ -60,8 +60,15 @@ export interface StepFunctionTaskStepProps {
 const LAMBDA_PATH = `${__dirname}/../../lib/orchestration/handlers`;
 
 export class StepFunctionTaskStepConstants {
-  // The execution will run for at most one hour, and query every 30 seconds.
+  /**
+   * Only used by StepFunctionTask.
+   * The execution will run for at most one hour, and query every 30 seconds.
+   */
   static readonly QUERY_INTERVAL = Duration.seconds(30);
+  /**
+   * Only used by StepFunctionTask.
+   * Timeout for a single step is 1 hour.
+   */
   static readonly TOTAL_TIMEOUT = Duration.hours(1);
   /**
    * Only used by StepFunctionTask.
@@ -93,13 +100,17 @@ export interface StepFunctionTaskStepResourcesProps {
  * Internal resources for StepFunctionTaskStep.  Created as a Singleton.
  */
 export class StepFunctionTaskStepResources extends Construct {
+  /** Resource type will be Custom::StepFunctionTaskStep. */
   static readonly PURPOSE = 'StepFunctionTaskStep';
+  /** The shared role */
   readonly role: IRole;
+  /** The custom resource onEvent provider method. */
   readonly onEvent: Function;
+  /** The custom resource isComplete provider method. */
   readonly isComplete: Function;
+  /** The custom resource provider. */
   readonly provider: Provider;
 
-  // TODO:  Protected
   constructor(scope: Construct, id: string, props: StepFunctionTaskStepResourcesProps) {
     super(scope, id);
     let purpose = StepFunctionTaskStepResources.PURPOSE;

@@ -3781,11 +3781,11 @@ Construct to test.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | The L2 custom resource. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.props">props</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.resource">resource</a></code> | <code>aws-cdk-lib.CfnResource</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.resources">resources</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.resource">resource</a></code> | <code>aws-cdk-lib.CfnResource</code> | The L1 custom resource. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.resources">resources</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources</code> | Support resources for LambdaCustomResource. |
 
 ---
 
@@ -3808,6 +3808,8 @@ public readonly customResource: CustomResource;
 ```
 
 - *Type:* aws-cdk-lib.CustomResource
+
+The L2 custom resource.
 
 ---
 
@@ -3841,6 +3843,8 @@ public readonly resource: CfnResource;
 
 - *Type:* aws-cdk-lib.CfnResource
 
+The L1 custom resource.
+
 ---
 
 ##### `resources`<sup>Required</sup> <a name="resources" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.property.resources"></a>
@@ -3850,6 +3854,8 @@ public readonly resources: LambdaCustomResourceResources;
 ```
 
 - *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources
+
+Support resources for LambdaCustomResource.
 
 ---
 
@@ -3897,8 +3903,8 @@ new custom_resources.LambdaCustomResourceResources(scope: Construct, id: string,
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.createOnEventFunction">createOnEventFunction</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.createRole">createRole</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.createOnEventFunction">createOnEventFunction</a></code> | Creates the custom resource onEvent provider method. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.createRole">createRole</a></code> | Creates the shared role. |
 
 ---
 
@@ -3916,6 +3922,8 @@ Returns a string representation of this construct.
 public createOnEventFunction(props: LambdaCustomResourceResourcesProps): Function
 ```
 
+Creates the custom resource onEvent provider method.
+
 ###### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.createOnEventFunction.parameter.props"></a>
 
 - *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResourcesProps
@@ -3927,6 +3935,8 @@ public createOnEventFunction(props: LambdaCustomResourceResourcesProps): Functio
 ```typescript
 public createRole(props: LambdaCustomResourceResourcesProps): Role
 ```
+
+Creates the shared role.
 
 ###### `props`<sup>Required</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.createRole.parameter.props"></a>
 
@@ -3979,9 +3989,9 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.onEvent">onEvent</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.provider">provider</a></code> | <code>aws-cdk-lib.custom_resources.Provider</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.onEvent">onEvent</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The custom resource onEvent provider method. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.provider">provider</a></code> | <code>aws-cdk-lib.custom_resources.Provider</code> | The custom resource provider. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The shared role. |
 
 ---
 
@@ -4005,6 +4015,8 @@ public readonly onEvent: IFunction;
 
 - *Type:* aws-cdk-lib.aws_lambda.IFunction
 
+The custom resource onEvent provider method.
+
 ---
 
 ##### `provider`<sup>Required</sup> <a name="provider" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.provider"></a>
@@ -4015,6 +4027,8 @@ public readonly provider: Provider;
 
 - *Type:* aws-cdk-lib.custom_resources.Provider
 
+The custom resource provider.
+
 ---
 
 ##### `role`<sup>Required</sup> <a name="role" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceResources.property.role"></a>
@@ -4024,6 +4038,8 @@ public readonly role: IRole;
 ```
 
 - *Type:* aws-cdk-lib.aws_iam.IRole
+
+The shared role.
 
 ---
 
@@ -4239,10 +4255,10 @@ Construct to test.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | L2 custom resource for this Task. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.lambdaCustomResource">lambdaCustomResource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.lambdaCustomResource">lambdaCustomResource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | LambdaCustomResource that implements this Task. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTask.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | Lambda function called by this Task. |
 
 ---
 
@@ -4266,6 +4282,8 @@ public readonly customResource: CustomResource;
 
 - *Type:* aws-cdk-lib.CustomResource
 
+L2 custom resource for this Task.
+
 ---
 
 ##### `ref`<sup>Required</sup> <a name="ref" id="@michanto/cdk-orchestration.orchestration.LambdaTask.property.ref"></a>
@@ -4288,6 +4306,8 @@ public readonly lambdaCustomResource: LambdaCustomResource;
 
 - *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource
 
+LambdaCustomResource that implements this Task.
+
 ---
 
 ##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="@michanto/cdk-orchestration.orchestration.LambdaTask.property.lambdaFunction"></a>
@@ -4297,6 +4317,8 @@ public readonly lambdaFunction: IFunction;
 ```
 
 - *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+Lambda function called by this Task.
 
 ---
 
@@ -6092,9 +6114,9 @@ Construct to test.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | L2 custom resource for this Task. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.lambdaCustomResource">lambdaCustomResource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.lambdaCustomResource">lambdaCustomResource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | LambdaCustomResource that implements this Task. |
 
 ---
 
@@ -6118,6 +6140,8 @@ public readonly customResource: CustomResource;
 
 - *Type:* aws-cdk-lib.CustomResource
 
+L2 custom resource for this Task.
+
 ---
 
 ##### `ref`<sup>Required</sup> <a name="ref" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.property.ref"></a>
@@ -6139,6 +6163,8 @@ public readonly lambdaCustomResource: LambdaCustomResource;
 ```
 
 - *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource
+
+LambdaCustomResource that implements this Task.
 
 ---
 
@@ -6359,9 +6385,9 @@ Construct to test.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | L2 custom resource for this Task. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.lambdaCustomResource">lambdaCustomResource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReader.property.lambdaCustomResource">lambdaCustomResource</a></code> | <code>@michanto/cdk-orchestration.custom_resources.LambdaCustomResource</code> | LambdaCustomResource that implements this Task. |
 
 ---
 
@@ -6385,6 +6411,8 @@ public readonly customResource: CustomResource;
 
 - *Type:* aws-cdk-lib.CustomResource
 
+L2 custom resource for this Task.
+
 ---
 
 ##### `ref`<sup>Required</sup> <a name="ref" id="@michanto/cdk-orchestration.orchestration.S3FileReader.property.ref"></a>
@@ -6406,6 +6434,8 @@ public readonly lambdaCustomResource: LambdaCustomResource;
 ```
 
 - *Type:* @michanto/cdk-orchestration.custom_resources.LambdaCustomResource
+
+LambdaCustomResource that implements this Task.
 
 ---
 
@@ -6621,7 +6651,7 @@ Construct to test.
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.property.resource">resource</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResource.property.resource">resource</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResource</code> | AwsCustomResource that implements this task. |
 
 ---
 
@@ -6666,6 +6696,8 @@ public readonly resource: AwsCustomResource;
 ```
 
 - *Type:* aws-cdk-lib.custom_resources.AwsCustomResource
+
+AwsCustomResource that implements this task.
 
 ---
 
@@ -7234,7 +7266,7 @@ Construct to test.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.property.customResource">customResource</a></code> | <code>aws-cdk-lib.CustomResource</code> | L2 custom resource for this Task. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.property.ref">ref</a></code> | <code>string</code> | The physical name of this custom resource. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.property.numberOfSteps">numberOfSteps</a></code> | <code>number</code> | Total number of StepFunctionTaskStep resources created. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTask.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Execution role. |
@@ -7260,6 +7292,8 @@ public readonly customResource: CustomResource;
 ```
 
 - *Type:* aws-cdk-lib.CustomResource
+
+L2 custom resource for this Task.
 
 ---
 
@@ -7665,10 +7699,10 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.isComplete">isComplete</a></code> | <code>aws-cdk-lib.aws_lambda.Function</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.onEvent">onEvent</a></code> | <code>aws-cdk-lib.aws_lambda.Function</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.provider">provider</a></code> | <code>aws-cdk-lib.custom_resources.Provider</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.isComplete">isComplete</a></code> | <code>aws-cdk-lib.aws_lambda.Function</code> | The custom resource isComplete provider method. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.onEvent">onEvent</a></code> | <code>aws-cdk-lib.aws_lambda.Function</code> | The custom resource onEvent provider method. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.provider">provider</a></code> | <code>aws-cdk-lib.custom_resources.Provider</code> | The custom resource provider. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The shared role. |
 
 ---
 
@@ -7692,6 +7726,8 @@ public readonly isComplete: Function;
 
 - *Type:* aws-cdk-lib.aws_lambda.Function
 
+The custom resource isComplete provider method.
+
 ---
 
 ##### `onEvent`<sup>Required</sup> <a name="onEvent" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.onEvent"></a>
@@ -7701,6 +7737,8 @@ public readonly onEvent: Function;
 ```
 
 - *Type:* aws-cdk-lib.aws_lambda.Function
+
+The custom resource onEvent provider method.
 
 ---
 
@@ -7712,6 +7750,8 @@ public readonly provider: Provider;
 
 - *Type:* aws-cdk-lib.custom_resources.Provider
 
+The custom resource provider.
+
 ---
 
 ##### `role`<sup>Required</sup> <a name="role" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.role"></a>
@@ -7722,13 +7762,15 @@ public readonly role: IRole;
 
 - *Type:* aws-cdk-lib.aws_iam.IRole
 
+The shared role.
+
 ---
 
 #### Constants <a name="Constants" id="Constants"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.PURPOSE">PURPOSE</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepResources.property.PURPOSE">PURPOSE</a></code> | <code>string</code> | Resource type will be Custom::StepFunctionTaskStep. |
 
 ---
 
@@ -7739,6 +7781,8 @@ public readonly PURPOSE: string;
 ```
 
 - *Type:* string
+
+Resource type will be Custom::StepFunctionTaskStep.
 
 ---
 
@@ -10951,8 +10995,8 @@ const insertStepFunctionStateProps: aws_stepfunctions.InsertStepFunctionStatePro
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionStateProps.property.insertAfterStep">insertAfterStep</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionStateProps.property.state">state</a></code> | <code>aws-cdk-lib.aws_stepfunctions.State</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionStateProps.property.insertAfterStep">insertAfterStep</a></code> | <code>string</code> | Step after which to insert the new state. |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionStateProps.property.state">state</a></code> | <code>aws-cdk-lib.aws_stepfunctions.State</code> | State to insert into the StateMachine. |
 
 ---
 
@@ -10964,6 +11008,8 @@ public readonly insertAfterStep: string;
 
 - *Type:* string
 
+Step after which to insert the new state.
+
 ---
 
 ##### `state`<sup>Required</sup> <a name="state" id="@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionStateProps.property.state"></a>
@@ -10973,6 +11019,8 @@ public readonly state: State;
 ```
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.State
+
+State to insert into the StateMachine.
 
 ---
 
@@ -11436,7 +11484,7 @@ const lambdaTaskProps: orchestration.LambdaTaskProps = { ... }
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.outputPaths">outputPaths</a></code> | <code>string[]</code> | See {@link AwsSdkCall.outputPaths}. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | See {@link AwsSdkCall.physicalResourceId}. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.policy">policy</a></code> | <code>aws-cdk-lib.custom_resources.AwsCustomResourcePolicy</code> | See {@link AwsCustomResourceProps.policy}. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.resourceType">resourceType</a></code> | <code>string</code> | Custom resource type. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | See {@link AwsCustomResourceProps.role}. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.runAlways">runAlways</a></code> | <code>boolean</code> | Whether to run the task every time the stack is updated. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.LambdaTaskProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | See {@link AwsCustomResourceProps.timeout}. |
@@ -11548,6 +11596,10 @@ public readonly resourceType: string;
 ```
 
 - *Type:* string
+
+Custom resource type.
+
+Default is Custom::LambdaTask.
 
 ---
 
@@ -11991,11 +12043,11 @@ const s3FileMetadataProps: orchestration.S3FileMetadataProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.key">key</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | Bucket to read from. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.key">key</a></code> | <code>string</code> | S3 file key to read from. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | Physical resource ID. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: any}</code> | Default values to use if the file/properties can't be found. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.resourceType">resourceType</a></code> | <code>string</code> | Resource Type. |
 
 ---
 
@@ -12007,6 +12059,8 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+Bucket to read from.
+
 ---
 
 ##### `key`<sup>Required</sup> <a name="key" id="@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.key"></a>
@@ -12017,6 +12071,8 @@ public readonly key: string;
 
 - *Type:* string
 
+S3 file key to read from.
+
 ---
 
 ##### `physicalResourceId`<sup>Required</sup> <a name="physicalResourceId" id="@michanto/cdk-orchestration.orchestration.S3FileMetadataProps.property.physicalResourceId"></a>
@@ -12026,6 +12082,8 @@ public readonly physicalResourceId: PhysicalResourceId;
 ```
 
 - *Type:* aws-cdk-lib.custom_resources.PhysicalResourceId
+
+Physical resource ID.
 
 ---
 
@@ -12051,6 +12109,10 @@ public readonly resourceType: string;
 
 - *Type:* string
 
+Resource Type.
+
+Defaults to Custom::S3FileReader.
+
 ---
 
 ### S3FileReaderProps <a name="S3FileReaderProps" id="@michanto/cdk-orchestration.orchestration.S3FileReaderProps"></a>
@@ -12069,11 +12131,11 @@ const s3FileReaderProps: orchestration.S3FileReaderProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.key">key</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | Bucket to read from. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.key">key</a></code> | <code>string</code> | S3 file key to read from. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | Physical resource ID. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: any}</code> | Default values to use if the file/properties can't be found. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.resourceType">resourceType</a></code> | <code>string</code> | Resource Type. |
 
 ---
 
@@ -12085,6 +12147,8 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+Bucket to read from.
+
 ---
 
 ##### `key`<sup>Required</sup> <a name="key" id="@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.key"></a>
@@ -12095,6 +12159,8 @@ public readonly key: string;
 
 - *Type:* string
 
+S3 file key to read from.
+
 ---
 
 ##### `physicalResourceId`<sup>Required</sup> <a name="physicalResourceId" id="@michanto/cdk-orchestration.orchestration.S3FileReaderProps.property.physicalResourceId"></a>
@@ -12104,6 +12170,8 @@ public readonly physicalResourceId: PhysicalResourceId;
 ```
 
 - *Type:* aws-cdk-lib.custom_resources.PhysicalResourceId
+
+Physical resource ID.
 
 ---
 
@@ -12129,6 +12197,10 @@ public readonly resourceType: string;
 
 - *Type:* string
 
+Resource Type.
+
+Defaults to Custom::S3FileReader.
+
 ---
 
 ### S3FileResourceProps <a name="S3FileResourceProps" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps"></a>
@@ -12145,12 +12217,12 @@ const s3FileResourceProps: orchestration.S3FileResourceProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.body">body</a></code> | <code>any</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.key">key</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.metadata">metadata</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.body">body</a></code> | <code>any</code> | Body of the file to write. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | Bucket to write to. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.key">key</a></code> | <code>string</code> | S3 file key to write to. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.physicalResourceId">physicalResourceId</a></code> | <code>aws-cdk-lib.custom_resources.PhysicalResourceId</code> | Physical resource ID. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.metadata">metadata</a></code> | <code>{[ key: string ]: string}</code> | Metadata for the file. |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.resourceType">resourceType</a></code> | <code>string</code> | Resource Type. |
 
 ---
 
@@ -12162,6 +12234,8 @@ public readonly body: any;
 
 - *Type:* any
 
+Body of the file to write.
+
 ---
 
 ##### `bucket`<sup>Required</sup> <a name="bucket" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.bucket"></a>
@@ -12171,6 +12245,8 @@ public readonly bucket: IBucket;
 ```
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
+
+Bucket to write to.
 
 ---
 
@@ -12182,6 +12258,8 @@ public readonly key: string;
 
 - *Type:* string
 
+S3 file key to write to.
+
 ---
 
 ##### `physicalResourceId`<sup>Required</sup> <a name="physicalResourceId" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.physicalResourceId"></a>
@@ -12191,6 +12269,8 @@ public readonly physicalResourceId: PhysicalResourceId;
 ```
 
 - *Type:* aws-cdk-lib.custom_resources.PhysicalResourceId
+
+Physical resource ID.
 
 ---
 
@@ -12202,6 +12282,8 @@ public readonly metadata: {[ key: string ]: string};
 
 - *Type:* {[ key: string ]: string}
 
+Metadata for the file.
+
 ---
 
 ##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.orchestration.S3FileResourceProps.property.resourceType"></a>
@@ -12211,6 +12293,10 @@ public readonly resourceType: string;
 ```
 
 - *Type:* string
+
+Resource Type.
+
+Defaults to Custom::S3FileResource.
 
 ---
 
@@ -14630,13 +14716,13 @@ new custom_resources.CustomResourceHandler()
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.decodeProperties">decodeProperties</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.filter">filter</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.flatten">flatten</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getCall">getCall</a></code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getPhysicalResourceId">getPhysicalResourceId</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.decodeProperties">decodeProperties</a></code> | Decodes the encoded properties passed to the resource. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.filter">filter</a></code> | Filters the flattened result using the outputPaths. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.flatten">flatten</a></code> | Flattens the response into attributes. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getCall">getCall</a></code> | Gets the AwsSdkCall from the properties for the given request type. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getPhysicalResourceId">getPhysicalResourceId</a></code> | Returns the PhysicalResourceId from the event. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getResponse">getResponse</a></code> | Makes the call encapsulated by an AwsApiCall. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.handle">handle</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.handle">handle</a></code> | Custom resource handler for LambdaCustomResource. |
 
 ---
 
@@ -14645,6 +14731,8 @@ new custom_resources.CustomResourceHandler()
 ```typescript
 public decodeProperties(event: any): any
 ```
+
+Decodes the encoded properties passed to the resource.
 
 ###### `event`<sup>Required</sup> <a name="event" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.decodeProperties.parameter.event"></a>
 
@@ -14657,6 +14745,8 @@ public decodeProperties(event: any): any
 ```typescript
 public filter(call: any, flattened: any): {[ key: string ]: string}
 ```
+
+Filters the flattened result using the outputPaths.
 
 ###### `call`<sup>Required</sup> <a name="call" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.filter.parameter.call"></a>
 
@@ -14676,6 +14766,8 @@ public filter(call: any, flattened: any): {[ key: string ]: string}
 public flatten(response: any): {[ key: string ]: any}
 ```
 
+Flattens the response into attributes.
+
 ###### `response`<sup>Required</sup> <a name="response" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.flatten.parameter.response"></a>
 
 - *Type:* any
@@ -14688,6 +14780,8 @@ public flatten(response: any): {[ key: string ]: any}
 public getCall(event: any): any
 ```
 
+Gets the AwsSdkCall from the properties for the given request type.
+
 ###### `event`<sup>Required</sup> <a name="event" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getCall.parameter.event"></a>
 
 - *Type:* any
@@ -14699,6 +14793,8 @@ public getCall(event: any): any
 ```typescript
 public getPhysicalResourceId(event: any): string
 ```
+
+Returns the PhysicalResourceId from the event.
 
 ###### `event`<sup>Required</sup> <a name="event" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.getPhysicalResourceId.parameter.event"></a>
 
@@ -14727,6 +14823,8 @@ An AwsApiCall to execute.
 ```typescript
 public handle(event: any, context: any): any
 ```
+
+Custom resource handler for LambdaCustomResource.
 
 ###### `event`<sup>Required</sup> <a name="event" id="@michanto/cdk-orchestration.custom_resources.CustomResourceHandler.handle.parameter.event"></a>
 
@@ -14806,7 +14904,7 @@ if there are none (or more than one).
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.isCustomResource">isCustomResource</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.isCustomResource">isCustomResource</a></code> | Checks if `elt` if a L1 CustomResource construct (CfnResource). |
 
 ---
 
@@ -14818,9 +14916,13 @@ import { custom_resources } from '@michanto/cdk-orchestration'
 custom_resources.CustomResourceUtilities.isCustomResource(elt: Construct)
 ```
 
+Checks if `elt` if a L1 CustomResource construct (CfnResource).
+
 ###### `elt`<sup>Required</sup> <a name="elt" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.isCustomResource.parameter.elt"></a>
 
 - *Type:* constructs.Construct
+
+Construct to test.
 
 ---
 
@@ -16306,9 +16408,9 @@ new orchestration.StepFunctionTaskStepConstants()
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants.property.QUERY_INTERVAL">QUERY_INTERVAL</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants.property.QUERY_INTERVAL">QUERY_INTERVAL</a></code> | <code>aws-cdk-lib.Duration</code> | Only used by StepFunctionTask. |
 | <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants.property.SUCCEED_AFTER_MS">SUCCEED_AFTER_MS</a></code> | <code>aws-cdk-lib.Duration</code> | Only used by StepFunctionTask. |
-| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants.property.TOTAL_TIMEOUT">TOTAL_TIMEOUT</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants.property.TOTAL_TIMEOUT">TOTAL_TIMEOUT</a></code> | <code>aws-cdk-lib.Duration</code> | Only used by StepFunctionTask. |
 
 ---
 
@@ -16319,6 +16421,10 @@ public readonly QUERY_INTERVAL: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+Only used by StepFunctionTask.
+
+The execution will run for at most one hour, and query every 30 seconds.
 
 ---
 
@@ -16346,6 +16452,10 @@ public readonly TOTAL_TIMEOUT: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+Only used by StepFunctionTask.
+
+Timeout for a single step is 1 hour.
 
 ---
 

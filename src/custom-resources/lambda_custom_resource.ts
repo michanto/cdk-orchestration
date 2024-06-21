@@ -30,8 +30,11 @@ export interface LambdaCustomResourceResourcesProps {
  * Support resources for LambdaCustomResource.
  */
 export class LambdaCustomResourceResources extends Construct {
+  /** The shared role */
   readonly role: IRole;
+  /** The custom resource onEvent provider method. */
   readonly onEvent: IFunction;
+  /** The custom resource provider. */
   readonly provider: Provider;
 
   constructor(scope: Construct, id: string, props: LambdaCustomResourceResourcesProps) {
@@ -46,6 +49,7 @@ export class LambdaCustomResourceResources extends Construct {
     });
   }
 
+  /** Creates the shared role. */
   createRole(props: LambdaCustomResourceResourcesProps) {
     return new Role(this, `${props.purpose}Role`, {
       assumedBy: new ServicePrincipal('lambda.amazonaws.com'),
@@ -55,6 +59,7 @@ export class LambdaCustomResourceResources extends Construct {
     });
   }
 
+  /** Creates the custom resource onEvent provider method. */
   createOnEventFunction(props: LambdaCustomResourceResourcesProps) {
     return new Function(this, `${props.purpose}OnEvent`, {
       code: Code.fromAsset(`${__dirname}../../../lib/custom-resources/handlers`),
@@ -116,8 +121,11 @@ export interface LambdaCustomResourceProps extends AwsCustomResourceProps {
  * - Does not support installLatestAwsSdk parameter (future).
  */
 export class LambdaCustomResource extends Task {
+  /** Support resources for LambdaCustomResource. */
   readonly resources: LambdaCustomResourceResources;
+  /** The L2 custom resource. */
   readonly customResource: CustomResource;
+  /** The L1 custom resource. */
   readonly resource: CfnResource;
 
   constructor(scope: Construct, id: string, readonly props: LambdaCustomResourceProps) {

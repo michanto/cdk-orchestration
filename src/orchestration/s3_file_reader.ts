@@ -11,9 +11,13 @@ import { Task } from '../custom-resources/task';
  * Properties for S3FileReader
  */
 export interface S3FileReaderProps {
+  /** Resource Type.  Defaults to Custom::S3FileReader. */
   readonly resourceType?: string;
+  /** Bucket to read from. */
   readonly bucket: IBucket;
+  /** S3 file key to read from. */
   readonly key: string;
+  /** Physical resource ID. */
   readonly physicalResourceId: PhysicalResourceId;
   /**
    * Default values to use if the file/properties can't be found.
@@ -33,7 +37,9 @@ export interface S3FileReaderProps {
  * CFN has limits to how much data can be returned.
  */
 export class S3FileReader extends Task {
+  /** LambdaCustomResource that implements this Task. */
   readonly lambdaCustomResource: LambdaCustomResource;
+  /** L2 custom resource for this Task. */
   readonly customResource: CustomResource;
 
   constructor(scope: Construct, id: string, props: S3FileReaderProps) {
