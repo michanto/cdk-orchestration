@@ -101,4 +101,25 @@ describe('Transform tests.', () => {
     new BucketNameTransform(stOrder, 'BucketName', 'my_bucket');
     expect(CfnTransform.isCfnTransform(tOrder.node.children[0])).toBeTruthy();
   });
+
+  it('Transform applied to Frankenstein works', () => {
+    let stack = new Stack();
+    let cfnBucket = new CfnBucket(stack, 'MyBucket');
+    let bucket = Bucket.fromCfnBucket(cfnBucket);
+    let transform = new BucketNameTransform(bucket, 'BucketName', 'my_bucket');
+    // Since the Transform is attached to the L2, which is under the L1, the
+    // cfnTransform will be a child of the Transform, because the host above it is
+    // the L1.  So this works as indended.
+    expect(CfnTransform.isCfnTransform(transform.node.children[0])).toBeTruthy();
+  });
+
+  it('Transform applied to Frankenstein order works', () => {
+    let stack = new Stack();
+    let cfnBucket = new CfnBucket(stack, 'MyBucket');
+    let order = new ImportOrder(cfnBucket, ImportOrders.TRANSFORMS);
+    let bucket = Bucket.fromCfnBucket(cfnBucket);
+    new BucketNameTransform(bucket, 'BucketName', 'my_bucket');
+    // Transform should be able to find the Order under the L1 and attach the CfnTransform to it.
+    expect(CfnTransform.isCfnTransform(order.node.children[0])).toBeTruthy();
+  });
 });
