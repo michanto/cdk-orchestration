@@ -50,6 +50,10 @@ export interface ITask extends ITrigger {
  * having to navigate the construct tree.
  */
 export abstract class Task extends Construct implements ITask {
+  /**
+   * Checks if `x` if a Task construct.
+   * @param x Construct to test.
+   */
   static isTask(x: Construct): x is Task {
     return Task.TASK_RTTI.hasRtti(x);
   }

@@ -17,11 +17,11 @@ import { Transforms } from './transforms';
  */
 export class CfnTransformHost extends Construct {
   /**
-   * Tells you if an object is a CfnTransformHost.
-   * Duck-typing.
+   * Checks if `x` if a CfnTransformHost construct.
+   * @param x Construct to test.
    */
-  static isCfnTransformHost(scope: Construct): boolean {
-    return TransformHost.isTransformHost(scope) && 'apply' in scope;
+  static isCfnTransformHost(x: Construct): boolean {
+    return TransformHost.isTransformHost(x) && 'apply' in x;
   }
 
   constructor(scope: Construct, id: string) {

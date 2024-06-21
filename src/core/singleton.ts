@@ -32,7 +32,8 @@ export class Singleton {
   }
 
   /**
-   * True if the construct has been marked as Singleton by this class.
+   * Checks if `x` if a Singleton construct.
+   * @param x Construct to test.
    */
   static isSingleton(x: IConstruct): boolean {
     return Singleton.SINGELTON_RTTI.hasRtti(x);

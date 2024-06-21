@@ -6,6 +6,11 @@ import { ConstructTreeSearch } from '../core';
  * Utilities for creating custom resources
  */
 export class CustomResourceUtilities {
+  /**
+   * Checks if `elt` if a L1 CustomResource construct (CfnResource).
+   *
+   * @param elt Construct to test.
+   */
   static isCustomResource(elt: Construct): boolean {
     return CfnResource.isCfnResource(elt)
       && CfnElement.isCfnElement(elt) // isCfnResource isn't good enough by itself.

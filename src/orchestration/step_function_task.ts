@@ -67,6 +67,7 @@ export interface StepFunctionTaskProps {
  * resources will fast-fail.
  */
 export class StepFunctionTask extends Task {
+  /** L2 custom resource for this Task. */
   readonly customResource: CustomResource;
 
   /**

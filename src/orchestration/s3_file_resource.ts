@@ -6,11 +6,17 @@ import { RunResourceAlways } from '../custom-resources';
 import { Task } from '../custom-resources/task';
 
 export interface S3FileResourceProps {
+  /** Resource Type.  Defaults to Custom::S3FileResource. */
   readonly resourceType?: string;
+  /** Body of the file to write. */
   readonly body: any;
+  /** Metadata for the file. */
   readonly metadata?: Record<string, string>;
+  /** Bucket to write to. */
   readonly bucket: IBucket;
+  /** S3 file key to write to. */
   readonly key: string;
+  /** Physical resource ID. */
   readonly physicalResourceId: PhysicalResourceId;
 }
 
@@ -18,6 +24,7 @@ export interface S3FileResourceProps {
  * A resources that writes an S3 JSON file.
  */
 export class S3FileResource extends Task {
+  /** AwsCustomResource that implements this task. */
   readonly resource: AwsCustomResource;
 
   constructor(scope: Construct, id: string, props: S3FileResourceProps) {

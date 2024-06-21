@@ -25,7 +25,7 @@ export class TransformHost {
   }
 
   /**
-   * Note: This returns the transform host, which may be either a Stack,
+   * Returns the transform host, which may be either a Stack,
    * a CfnElement, or a CfnTransformHost.
    */
   static of(scope: Construct): IConstruct {
@@ -35,6 +35,8 @@ export class TransformHost {
   /**
    * Ensures that a Transform is hosted by modifying the ancestor CfnElement or Stack
    * (if necessary) so they can host transforms.
+   *
+   * Users should call TransformHost.of instead of this framework function.
    *
    * Ensures that Tranforms under a CfnElement apply to the CfnElement, and Transforms under
    * a Stack apply to the Stack.
@@ -64,6 +66,8 @@ export class TransformHost {
   /**
    * Marks a construct as a TransformHost, isolating the transforms under it from the Stack.
    * Host decides when to apply the descendent transforms.
+   *
+   * Users likely will not call this framework function.
    */
   public static mark(scope: Construct) {
     TRANSFORM_HOST_RTTI.addRtti(scope);
@@ -76,6 +80,8 @@ export class TransformHost {
  * Called the ensureHosted, which itself is called from
  * the CfnTransform and TransformBase constructors to ensure that the CfnTransform
  * is hosted either by a CfnElement or a Stack.
+ *
+ * Users should call TransformHost.of.
  */
   static hook(construct: IConstruct) {
     const errorMsg = 'TransformHost.hook can only be used on Construct classes that implement _toCloudFormation.';

@@ -9,7 +9,8 @@ import { AnyTransform } from './transform';
  * In order for Transforms to act on embedded and joined JSON, the JSON first needs to
  * be stringified.  If the template passed to this class is an Fn.join, this class
  * tokenizes all objects in the join and concatenates them.  This forms valid JSON
- * that can be parsed and modified by Transforms.
+ * that can be parsed and modified by Transforms.  See {@link PropertyTransform}
+ * for example usage.
  *
  * During synthesis, the CDK will turn the tokenized string back into an Fn.join before
  * writing it to the template.

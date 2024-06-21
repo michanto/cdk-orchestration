@@ -23,6 +23,7 @@ function log(message: Record<string, any>) {
 export class CustomResourceHandler {
   protected logApiResponseData: boolean = false;
 
+  /** Decodes the encoded properties passed to the resource. */
   decodeProperties(event: any) {
     let encoded = event.ResourceProperties.EncodedProperties;
     if (encoded) {
@@ -36,6 +37,7 @@ export class CustomResourceHandler {
     return event;
   }
 
+  /** Returns the PhysicalResourceId from the event. */
   getPhysicalResourceId(event: any) {
     let physicalResourceId: string;
     switch (event.RequestType) {
@@ -55,12 +57,19 @@ export class CustomResourceHandler {
     return physicalResourceId;
   }
 
+  /** Gets the AwsSdkCall from the properties for the given request type. */
   getCall(event: any) {
     return event.ResourceProperties[event.RequestType];
   }
 
   // For testability
   /* c8 ignore start */
+  /**
+   * Invokes an AwsSdkCall.
+   * @param apiCallIn The ApiCall wrapper.
+   * @param optionsIn The InvokeOptions.
+   * @returns The result.
+   */
   protected async invoke(apiCallIn: any, optionsIn: any) {
     let apiCall = apiCallIn as ApiCall;
     let options = optionsIn as InvokeOptions;
@@ -178,6 +187,7 @@ export class CustomResourceHandler {
     throw new Error('Should have returned a response or thrown.');
   }
 
+  /** Flattens the response into attributes. */
   flatten(response: any) {
     if (this.logApiResponseData) {
       log({ Response: response });
@@ -189,6 +199,7 @@ export class CustomResourceHandler {
     return flattened;
   }
 
+  /** Filters the flattened result using the outputPaths. */
   filter(call: any, flattened: any) {
     let data: { [key: string]: string } = {};
     let outputPaths: string[] | undefined;
@@ -206,6 +217,7 @@ export class CustomResourceHandler {
     return data;
   }
 
+  /** Custom resource handler for LambdaCustomResource. */
   async handle(event: any, context: any) {
     log({ Event: event });
     log({ Context: context });

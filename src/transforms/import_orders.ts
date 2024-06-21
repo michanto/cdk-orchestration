@@ -4,14 +4,15 @@ import { TransformHost } from './transform_host';
 
 /**
  * Defines where Transforms of a given order are added to a Transform host.
- * ImportOrders are the names of the constructs under the TransformHost.  See BaseImporter.
+ * ImportOrders are the names of the ImportOrder constructs under the
+ * TransformHost.  See {@link BaseImporter}.
  */
 export enum ImportOrders {
   /** Transforms that run before the Reader. */
   PRE_READER = '_PreReader',
   /** Transform that reads a file into a string. */
   READER = '_Reader',
-  /** Transforms that run against the sting representation. */
+  /** Transforms that run against the sting representation of a template. */
   STRING_TRANSFORMS = '_StringTransforms',
   /** Parses the string representation into (for example) JSON. */
   PARSER = '_Parser',
@@ -22,7 +23,13 @@ export enum ImportOrders {
 }
 
 /**
- * ImportOrder class.  See BaseImporter for usage.
+ * ImportOrder class.  Defines the order in which Transforms are applied.
+ * This is important in cases where the type of the template passed between
+ * Transforms changes, such as when a FileReader turns a filename into
+ * a string with the contents of the file, or a Parser turns a JSON string
+ * into a Javascript object.
+ *
+ * See BaseImporter for usage.
  */
 export class ImportOrder extends Construct {
   /** Returns true if the construct is an ImportOrder. */

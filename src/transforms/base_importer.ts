@@ -11,26 +11,26 @@ import { ImportOrder, ImportOrders } from './import_orders';
  * aws-stepfunctiosn submodule for usage).
  */
 export class BaseImporter extends CfnTransformHost {
+  /** Order for ImportOrders.PRE_READER */
   public readonly preReaderOrder: ImportOrder;
+  /** Order for ImportOrders.READER */
   public readonly readerOrder: ImportOrder;
+  /** Order for ImportOrders.STRING_TRANSFORMS */
   public readonly stringTransformOrder: ImportOrder;
+  /** Order for ImportOrders.PARSER */
   public readonly parserOrder: ImportOrder;
+  /** Order for ImportOrders.TRANSFORMS */
   public readonly templateTransformOrder: ImportOrder;
+  /** Order for ImportOrders.WRITER */
   public readonly writerOrder: ImportOrder;
 
   constructor(scope: Construct, id: string) {
     super(scope, id);
-    /** Order for ImportOrders.PRE_READER */
     this.preReaderOrder = new ImportOrder(this, ImportOrders.PRE_READER);
-    /** Order for ImportOrders.READER */
     this.readerOrder = new ImportOrder(this, ImportOrders.READER);
-    /** Order for ImportOrders.STRING_TRANSFORMS */
     this.stringTransformOrder = new ImportOrder(this, ImportOrders.STRING_TRANSFORMS);
-    /** Order for ImportOrders.PARSER */
     this.parserOrder = new ImportOrder(this, ImportOrders.PARSER);
-    /** Order for ImportOrders.TRANSFORMS */
     this.templateTransformOrder = new ImportOrder(this, ImportOrders.TRANSFORMS);
-    /** Order for ImportOrders.WRITER */
     this.writerOrder = new ImportOrder(this, ImportOrders.WRITER);
   }
 }

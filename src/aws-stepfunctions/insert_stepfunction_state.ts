@@ -8,7 +8,13 @@ import { CfTemplateType } from '../transforms';
  * Properties for InsertStepFunctionState.
  */
 export interface InsertStepFunctionStateProps {
+  /**
+   * State to insert into the StateMachine.
+   */
   readonly state: State;
+  /**
+   * Step after which to insert the new state.
+   */
   readonly insertAfterStep: string;
 }
 

@@ -24,7 +24,9 @@ export interface S3FileMetadataProps extends S3FileReaderProps {
  * CFN has limits to how much data can be returned.
  */
 export class S3FileMetadata extends Task {
+  /** LambdaCustomResource that implements this Task. */
   readonly lambdaCustomResource: LambdaCustomResource;
+  /** L2 custom resource for this Task. */
   readonly customResource: CustomResource;
 
   constructor(scope: Construct, id: string, props: S3FileReaderProps) {
