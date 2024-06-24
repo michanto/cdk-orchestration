@@ -55,7 +55,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   ],
 
   deps: [
-    'aws-lambda@0.1.1',
+    'aws-lambda@1.0.7',
     '@types/aws-lambda@^8.10.137',
     '@aws-sdk/client-s3@3.6.1',
     '@aws-sdk/client-lambda@3.501.0',
