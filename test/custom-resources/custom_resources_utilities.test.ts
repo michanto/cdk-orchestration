@@ -71,6 +71,14 @@ describe('Custom Resource Utilities tests.', () => {
     expect(() => utils.findCustomResource(stack)).toThrow();
   });
 
+  it('findCustomResource throws on no custom resources.', () => {
+    const stack = new Stack();
+    let utils = new CustomResourceUtilities();
+    new EchoFunction(stack, 'Fun').functionArn;
+
+    expect(() => utils.findCustomResource(stack)).toThrow();
+  });
+
   it('RunResourceAlways works.', () => {
     const stack = new Stack();
     let serviceToken = new EchoFunction(stack, 'Fun').functionArn;

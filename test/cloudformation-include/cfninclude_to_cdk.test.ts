@@ -18,12 +18,12 @@ describe('CfnIncludeToCdk tests', () => {
     let bucket = new Bucket(stack, 'S3BucketNotification', {
       bucketName: Fn.sub('NotificationBucket'),
     });
-    let cfnFunction = CfnIncludeToCdk.findIncluded('S3TriggerLambdaFunction', stack) as CfnFunction;
+    let cfnFunction = CfnIncludeToCdk.tryFindIncluded('S3TriggerLambdaFunction', stack) as CfnFunction;
     let fn = Function.fromFunctionArn(stack, 'S3TriggerLambdaFunction', cfnFunction.attrArn);
     bucket.addEventNotification(EventType.OBJECT_CREATED_PUT, new LambdaDestination(fn));
 
     CfnIncludeToCdk.replaceIncluded('S3BucketNotification', bucket);
-    let param = CfnIncludeToCdk.findIncluded('NotificationBucket', stack);
+    let param = CfnIncludeToCdk.tryFindIncluded('NotificationBucket', stack);
     let template = Template.fromStack(stack).toJSON();
     expect(param).toBeTruthy();
     expect(template).toMatchObject({
@@ -89,24 +89,24 @@ describe('CfnIncludeToCdk tests', () => {
     new CfnBucket(scope, 'MyOtherBucket');
     expect(() => CfnIncludeToCdk.setLogicalId(scope, 'MyBucket')).toThrow();
   });
-  test('CfnIncludeToCdk findIncluded tests', () => {
+  test('CfnIncludeToCdk tryFindIncluded tests', () => {
     const stack = new Stack();
     new CfnInclude(stack, 'included1', {
       templateFile: `${__dirname}/parameter-references.json`,
     });
-    const param = CfnIncludeToCdk.findIncluded('MyParam', stack) as CfnParameter;
+    const param = CfnIncludeToCdk.tryFindIncluded('MyParam', stack) as CfnParameter;
     expect(param.default).toEqual('MyValue');
-    const output = CfnIncludeToCdk.findIncluded('MyOutput', stack) as CfnOutput;
+    const output = CfnIncludeToCdk.tryFindIncluded('MyOutput', stack) as CfnOutput;
     expect(output.value).toBeTruthy();
-    const condition = CfnIncludeToCdk.findIncluded('AlwaysFalse', stack) as CfnCondition;
+    const condition = CfnIncludeToCdk.tryFindIncluded('AlwaysFalse', stack) as CfnCondition;
     expect(condition.expression).toBeTruthy();
 
-    const dne = CfnIncludeToCdk.findIncluded('DoesNotExist', stack);
+    const dne = CfnIncludeToCdk.tryFindIncluded('DoesNotExist', stack);
     expect(dne).toBeUndefined();
   });
-  test('CfnIncludeToCdk findIncluded no included', () => {
+  test('CfnIncludeToCdk tryFindIncluded no included', () => {
     const stack = new Stack();
-    const dne = CfnIncludeToCdk.findIncluded('DoesNotExist', stack);
+    const dne = CfnIncludeToCdk.tryFindIncluded('DoesNotExist', stack);
     expect(dne).toBeUndefined();
   });
 });

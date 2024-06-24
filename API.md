@@ -969,6 +969,208 @@ The tree node.
 ---
 
 
+### Echo <a name="Echo" id="@michanto/cdk-orchestration.transforms.Echo"></a>
+
+Logs the given template.
+
+Turn scoped logging on for the
+construct (`Logger.set(scope, logger)`) to see the log lines.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.Echo.Initializer"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+new transforms.Echo(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Echo.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Echo.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.Echo.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.Echo.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Echo.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Echo.inspect">inspect</a></code> | Examines construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Echo.apply">apply</a></code> | Modifies the passed in template. |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.Echo.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `inspect` <a name="inspect" id="@michanto/cdk-orchestration.transforms.Echo.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines construct.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@michanto/cdk-orchestration.transforms.Echo.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+---
+
+##### `apply` <a name="apply" id="@michanto/cdk-orchestration.transforms.Echo.apply"></a>
+
+```typescript
+public apply(template: {[ key: string ]: any}): {[ key: string ]: any}
+```
+
+Modifies the passed in template.
+
+###### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.Echo.apply.parameter.template"></a>
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Echo.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.Echo.isConstruct"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.Echo.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.Echo.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Echo.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Echo.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Echo.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Echo.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Echo.property.template">template</a></code> | <code>any</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.Echo.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `cfnTransform`<sup>Required</sup> <a name="cfnTransform" id="@michanto/cdk-orchestration.transforms.Echo.property.cfnTransform"></a>
+
+```typescript
+public readonly cfnTransform: ICfnTransform;
+```
+
+- *Type:* @michanto/cdk-orchestration.transforms.ICfnTransform
+
+The L1 shim transform  for this L2 transform.
+
+---
+
+##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.Echo.property.order"></a>
+
+```typescript
+public readonly order: string;
+```
+
+- *Type:* string
+
+The order of this L2 transform.
+
+---
+
+##### `shimParent`<sup>Required</sup> <a name="shimParent" id="@michanto/cdk-orchestration.transforms.Echo.property.shimParent"></a>
+
+```typescript
+public readonly shimParent: Construct;
+```
+
+- *Type:* constructs.Construct
+
+Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform).
+
+Override this method to parent the CfnTransform to a specific CfnResource
+if that is desired.  The default behavior is to return the L1 construct (or
+the order under the L1 construct) if the transform is added to an L2 construct.
+Otherwise, return either an order under the transform host of this
+(to support ordered hosts), or the TransformBase (this).
+
+- Note to implementors:
+   Since shimParent is called from the TransformShim constructor, it
+   will not have access to any properties of subclasses.  See
+   PropertyTransform for a work-around.
+
+---
+
+##### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.Echo.property.template"></a>
+
+```typescript
+public readonly template: any;
+```
+
+- *Type:* any
+
+---
+
+
 ### EncodeResource <a name="EncodeResource" id="@michanto/cdk-orchestration.custom_resources.EncodeResource"></a>
 
 This transform base64-encodes any CustomResource it is applied to by moving all properties (other than ServiceToken) to EncodedProperties and applying {@link Fn.base64}. This resource will encode it's properties as a post-resolve step, It is meant to be used on CfnCustomResource (or any CfnResource with a ServiceToken), as it does not encode the ServiceToken.  If there is no ServiceToken, the resource is not encoded.
@@ -13394,15 +13596,16 @@ new cloudformation_include.CfnIncludeToCdk()
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded">findIncluded</a></code> | Finds a construct from CfnIncludes in scope with the given logicalId. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded">findIncluded</a></code> | Deprecated.  Use tryFindIncluded instead. New Rule: - findXXX never returns undefined. - tryFindXXX returns a value or undefined. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.isCfnInclude">isCfnInclude</a></code> | Checks if `x` if a CfnInclude construct. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.removeIncluded">removeIncluded</a></code> | Removes a construct from CfnInclude with the given logicalId. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.replaceIncluded">replaceIncluded</a></code> | Replaces an L1 construct in a CfnInclude with an L1 or L2 CDK construct of your choosing. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.setLogicalId">setLogicalId</a></code> | Sets the logical ID of the resource to the Node ID of the construct. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.tryFindIncluded">tryFindIncluded</a></code> | Finds a construct from CfnIncludes in scope with the given logicalId. |
 
 ---
 
-##### `findIncluded` <a name="findIncluded" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded"></a>
+##### ~~`findIncluded`~~ <a name="findIncluded" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded"></a>
 
 ```typescript
 import { cloudformation_include } from '@michanto/cdk-orchestration'
@@ -13410,7 +13613,9 @@ import { cloudformation_include } from '@michanto/cdk-orchestration'
 cloudformation_include.CfnIncludeToCdk.findIncluded(logicalId: string, scope: Construct)
 ```
 
-Finds a construct from CfnIncludes in scope with the given logicalId.
+Deprecated.  Use tryFindIncluded instead. New Rule: - findXXX never returns undefined. - tryFindXXX returns a value or undefined.
+
+*'findIncluded' will be removed in 0.2.0.*
 
 ###### `logicalId`<sup>Required</sup> <a name="logicalId" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.findIncluded.parameter.logicalId"></a>
 
@@ -13531,6 +13736,28 @@ The resource construct.
 New ID.
 
 Defaults to `construct.node.id`.
+
+---
+
+##### `tryFindIncluded` <a name="tryFindIncluded" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.tryFindIncluded"></a>
+
+```typescript
+import { cloudformation_include } from '@michanto/cdk-orchestration'
+
+cloudformation_include.CfnIncludeToCdk.tryFindIncluded(logicalId: string, scope: Construct)
+```
+
+Finds a construct from CfnIncludes in scope with the given logicalId.
+
+###### `logicalId`<sup>Required</sup> <a name="logicalId" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.tryFindIncluded.parameter.logicalId"></a>
+
+- *Type:* string
+
+---
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.CfnIncludeToCdk.tryFindIncluded.parameter.scope"></a>
+
+- *Type:* constructs.Construct
 
 ---
 
@@ -15635,7 +15862,7 @@ to get this property populated, if it was skipped for performance reasons.
 
 - *Implements:* aws-cdk-lib.IAspect
 
-Writes the names and types of all symbols on a construct to tree.json.
+Writes the names and types (or path in the case of Construct-valued properties) of all symbol properties of a Construct to tree.json.
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.ServiceInspectorAspect.Initializer"></a>
 

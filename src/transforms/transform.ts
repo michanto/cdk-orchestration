@@ -61,7 +61,6 @@ export abstract class TransformBase extends Construct implements IInspectable {
       return l1Construct;
     }
 
-    // If parent is an L1 construct, this will work because the constructor called ensureHosted.
     return TransformHost.of(base);
   }
 
@@ -93,7 +92,8 @@ export abstract class TransformBase extends Construct implements IInspectable {
     super(scope, id);
     // This will make any antecedent CfnElement or Stack a TransformHost.
     TransformHost.ensureHosted(scope);
-    let parent = ImportOrder.findImportOrder(this.shimParent, this.order);
+    let parent = ImportOrder.findImportOrder(
+      this.shimParent ?? TransformHost.of(this), this.order);
     if (scope.node.path.startsWith(parent.node.path)) {
       // If this Transform is already under the parent, use this transform as the parent.
       // It makes the tree neater.

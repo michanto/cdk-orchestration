@@ -50,12 +50,26 @@ export class CfnIncludeToCdk {
   }
 
   /**
+   * Deprecated.  Use tryFindIncluded instead.
+   * New Rule:
+   * - findXXX never returns undefined.
+   * - tryFindXXX returns a value or undefined.
+   *
+   * *'findIncluded' will be removed in 0.2.0.*
+   *
+   * @deprecated Use tryFindIncluded instead.
+   */
+  static findIncluded(logicalId: string, scope: Construct): CfnElement | undefined {
+    return this.tryFindIncluded(logicalId, scope);
+  }
+
+  /**
    * Finds a construct from CfnIncludes in scope with the given logicalId.
    *
    * @param logicalId
    * @param scope
    */
-  static findIncluded(logicalId: string, scope: Construct): CfnElement | undefined {
+  static tryFindIncluded(logicalId: string, scope: Construct): CfnElement | undefined {
     let stack = Stack.of(scope);
     let cfnIncludes = ConstructTreeSearch.for(CfnIncludeToCdk.isCfnInclude).searchDown(stack, x => Stack.isStack(x)) as CfnInclude[];
     for (let include of cfnIncludes) {
@@ -96,7 +110,7 @@ export class CfnIncludeToCdk {
    * @param scope
    */
   static removeIncluded(logicalId: string, scope: Construct) {
-    let included = this.findIncluded(logicalId, scope);
+    let included = this.tryFindIncluded(logicalId, scope);
     // Found the original imported resource/mapping/output/whatever.  Remove it from the tree.
     // NOTE:  If we didn't find it, probably the CfnInclude is completely converted and was removed.
     if (included) {

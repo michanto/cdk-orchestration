@@ -2,7 +2,7 @@ import { Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { Bucket, CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
-import { CfTemplateType, CfnTransform, CfnTransformHost, ImportOrder, ImportOrders, Transform } from '../../src/transforms';
+import { CfTemplateType, CfnTransform, CfnTransformHost, Echo, ImportOrder, ImportOrders, Transform } from '../../src/transforms';
 
 export class BucketNameTransform extends Transform {
   constructor(scope: Construct, id: string, readonly bucketName: string) {
@@ -119,6 +119,7 @@ describe('Transform tests.', () => {
     let order = new ImportOrder(cfnBucket, ImportOrders.TRANSFORMS);
     let bucket = Bucket.fromCfnBucket(cfnBucket);
     new BucketNameTransform(bucket, 'BucketName', 'my_bucket');
+    new Echo(stack, 'Echo');
     // Transform should be able to find the Order under the L1 and attach the CfnTransform to it.
     expect(CfnTransform.isCfnTransform(order.node.children[0])).toBeTruthy();
   });

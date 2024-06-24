@@ -211,8 +211,8 @@ describe('Import transform tests', () => {
     importer.importTemplate(bangBangFileName, {
       parameters: {},
     });
-    let stateMachine = CfnIncludeToCdk.findIncluded(newResourceName, stack) as CfnStateMachine;
-    let flowLogs = CfnIncludeToCdk.findIncluded('FlowLogsGroup', stack) as CfnLogGroup;
+    let stateMachine = CfnIncludeToCdk.tryFindIncluded(newResourceName, stack) as CfnStateMachine;
+    let flowLogs = CfnIncludeToCdk.tryFindIncluded('FlowLogsGroup', stack) as CfnLogGroup;
     expect(stateMachine).toBeTruthy();
     expect(flowLogs).toBeTruthy();
   });

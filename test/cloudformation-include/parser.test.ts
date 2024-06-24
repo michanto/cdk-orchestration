@@ -24,7 +24,7 @@ describe('Parser tests', () => {
     });
 
     let importer = new TemplateImporter(stack, 'Importer');
-    expect(importer.node.findChild('YamlParser')).toBeDefined();
+    expect(importer.node.tryFindChild('YamlParser')).toBeDefined();
     importer.importTemplate(templateFileName);
     let template = Template.fromStack(stack).toJSON();
     expect(template).toMatchObject({
