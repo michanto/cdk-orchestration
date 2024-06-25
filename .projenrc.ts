@@ -99,7 +99,12 @@ const packageJson = project.tryFindObjectFile('package.json');
 packageJson?.addOverride('exports', {
   '.': './lib/index.js',
   './.jsii': './.jsii',
-  './transforms': './lib/transforms/index.js',
+  './transforms': {
+    import: {
+      default: './lib/transforms/index.js',
+      types: './lib/transforms/index.d.ts',
+    },
+  },
   './cloudformation-include': './lib/cloudformation-include/index.js',
   './aws-lambda-nodejs': './lib/aws-lambda-nodejs/index.js',
   './aws-stepfunctions': './lib/aws-stepfunctions/index.js',
