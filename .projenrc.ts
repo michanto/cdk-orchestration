@@ -1,5 +1,5 @@
 import { ReleasableCommits, awscdk, github, javascript, release } from 'projen';
-import { NodePackageManager } from 'projen/lib/javascript';
+import { NodePackageManager, TypeScriptModuleResolution } from 'projen/lib/javascript';
 
 // See how to publish https://github.com/mikejgray/ovos-skill-projen/blob/main/.projenrc.ts
 let cdkVersion = '2.120.0';
@@ -80,6 +80,18 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // devDeps: [
 
   // ],
+  tsconfigDev: {
+    compilerOptions: {
+      module: 'nodenext',
+      moduleResolution: TypeScriptModuleResolution.NODE_NEXT,
+    },
+  },
+  tsconfig: {
+    compilerOptions: {
+      module: 'nodenext',
+      moduleResolution: TypeScriptModuleResolution.NODE_NEXT,
+    },
+  },
 });
 
 project.addTask('integ', {
