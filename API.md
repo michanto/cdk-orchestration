@@ -973,8 +973,8 @@ The tree node.
 
 Logs the given template.
 
-Turn scoped logging on for the
-construct (`Logger.set(scope, logger)`) to see the log lines.
+Turn off this logging by setting a NoOpLogger on this construct:
+`Logger.set(echo, new NoOpLogger())`;
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.Echo.Initializer"></a>
 
@@ -15424,7 +15424,7 @@ Logger.of(scope: Construct)
 Return the Logger associated with the scope.
 
 Searches up the tree if there is none.
-Default is NoopLogger (no logging).
+Default is NoOpLogger (no logging).
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.Logger.of.parameter.scope"></a>
 
@@ -15675,7 +15675,7 @@ NoOpLogger.of(scope: Construct)
 Return the Logger associated with the scope.
 
 Searches up the tree if there is none.
-Default is NoopLogger (no logging).
+Default is NoOpLogger (no logging).
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.NoOpLogger.of.parameter.scope"></a>
 

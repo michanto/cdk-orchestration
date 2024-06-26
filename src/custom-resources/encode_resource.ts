@@ -60,7 +60,9 @@ export class EncodeResource extends Transform {
       }
       let encodedProperties: any = {
         ServiceToken: serviceToken,
-        EncodedProperties: Fn.base64(Stack.of(this).toJsonString(res.Properties)),
+        // This could be done with Fn.base64, but then we'd have a token.
+        // And it's nice if future transforms get a fully-resolved string.
+        EncodedProperties: { 'Fn::Base64': Stack.of(this).toJsonString(res.Properties) },
       };
       if (serviceTimeout) {
         encodedProperties.ServiceTimeout = serviceTimeout;

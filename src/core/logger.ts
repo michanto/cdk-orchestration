@@ -66,7 +66,7 @@ export interface ILogger {
 export class Logger implements ILogger {
   /**
    * Return the Logger associated with the scope.  Searches up the tree if there is none.
-   * Default is NoopLogger (no logging).
+   * Default is NoOpLogger (no logging).
    */
   static of(scope: Construct): ILogger {
     return Logger.LOGGER_SERVICE.of(scope) as ILogger;
