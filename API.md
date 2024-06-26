@@ -969,6 +969,183 @@ The tree node.
 ---
 
 
+### Chainable <a name="Chainable" id="@michanto/cdk-orchestration.aws_stepfunctions.Chainable"></a>
+
+- *Implements:* aws-cdk-lib.aws_stepfunctions.IChainable
+
+Base class for StepFunction definitions.
+
+Helps users define StepFunction definitions as constructs thusly:
+```
+class MyDefinition extends Chainable {
+  constructor(scope: Construct, id: string) {
+    super(scope, id);
+    let start = new Pass(stack, 'Pass')
+    this.wrapped = Chain.start(start);
+  }
+}
+let definition = new MyDefinition(stack, 'PassDef');
+let sm = new StateMachine(stack, 'Passer', {
+   definitionBody: DefinitionBody.fromChainable(definition),
+});
+```
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.aws_stepfunctions.Chainable.Initializer"></a>
+
+```typescript
+import { aws_stepfunctions } from '@michanto/cdk-orchestration'
+
+new aws_stepfunctions.Chainable(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.Chainable.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.Chainable.Initializer.parameter.id">id</a></code> | <code>string</code> | Descriptive identifier for this chainable. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.aws_stepfunctions.Chainable.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.aws_stepfunctions.Chainable.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+Descriptive identifier for this chainable.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.Chainable.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.aws_stepfunctions.Chainable.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.Chainable.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.aws_stepfunctions.Chainable.isConstruct"></a>
+
+```typescript
+import { aws_stepfunctions } from '@michanto/cdk-orchestration'
+
+aws_stepfunctions.Chainable.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.aws_stepfunctions.Chainable.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.Chainable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.Chainable.property.endStates">endStates</a></code> | <code>aws-cdk-lib.aws_stepfunctions.INextable[]</code> | The chainable end state(s) of this chainable. |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.Chainable.property.id">id</a></code> | <code>string</code> | Descriptive identifier for this chainable. |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.Chainable.property.startState">startState</a></code> | <code>aws-cdk-lib.aws_stepfunctions.State</code> | The start state of this chainable. |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.Chainable.property.wrapped">wrapped</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IChainable</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.aws_stepfunctions.Chainable.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `endStates`<sup>Required</sup> <a name="endStates" id="@michanto/cdk-orchestration.aws_stepfunctions.Chainable.property.endStates"></a>
+
+```typescript
+public readonly endStates: INextable[];
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.INextable[]
+
+The chainable end state(s) of this chainable.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.aws_stepfunctions.Chainable.property.id"></a>
+
+```typescript
+public readonly id: string;
+```
+
+- *Type:* string
+
+Descriptive identifier for this chainable.
+
+---
+
+##### `startState`<sup>Required</sup> <a name="startState" id="@michanto/cdk-orchestration.aws_stepfunctions.Chainable.property.startState"></a>
+
+```typescript
+public readonly startState: State;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.State
+
+The start state of this chainable.
+
+---
+
+##### `wrapped`<sup>Required</sup> <a name="wrapped" id="@michanto/cdk-orchestration.aws_stepfunctions.Chainable.property.wrapped"></a>
+
+```typescript
+public readonly wrapped: IChainable;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IChainable
+
+---
+
+
 ### Echo <a name="Echo" id="@michanto/cdk-orchestration.transforms.Echo"></a>
 
 Logs the given template.

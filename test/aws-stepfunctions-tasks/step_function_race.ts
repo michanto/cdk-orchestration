@@ -1,13 +1,14 @@
 import { Duration } from 'aws-cdk-lib';
 import { Effect, ManagedPolicy, Policy, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import {
-  Chain, INextable, IChainable, Map, State, TaskInput, Succeed,
+  Chain, IChainable, Map, TaskInput, Succeed,
   IStateMachine, Fail, StateMachine, JsonPath, Wait, WaitTime, DefinitionBody,
 } from 'aws-cdk-lib/aws-stepfunctions';
 import { LambdaInvoke } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { Construct } from 'constructs';
 import { Singleton } from '../../src';
 import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
+import { Chainable } from '../../src/aws-stepfunctions';
 import { LateBoundStepFunctionsStartExecution } from '../../src/aws-stepfunctions-tasks';
 import { StepFunctionTask, StepFunctionTaskProps } from '../../src/orchestration';
 
@@ -25,8 +26,8 @@ export interface StepFunctionRaceProps {
  * [Implementing patterns that exit early out of a parallel state in AWS Step
  * Functions](https://aws.amazon.com/blogs/compute/implementing-patterns-that-exit-early-out-of-a-parallel-state-in-aws-step-functions/)
  */
-export class StepFunctionRaceDefinition extends Construct implements IChainable {
-  private readonly chainable: IChainable;
+export class StepFunctionRaceDefinition extends Chainable {
+  readonly wrapped: IChainable;
   readonly initialPolicy: PolicyStatement[];
 
 
@@ -48,7 +49,7 @@ export class StepFunctionRaceDefinition extends Construct implements IChainable 
     start.next(parallel);
 
 
-    this.chainable = Chain.start(start);
+    this.wrapped = Chain.start(start);
   }
 
   /**
@@ -107,21 +108,6 @@ export class StepFunctionRaceDefinition extends Construct implements IChainable 
 
   createSuccessStep(): IChainable {
     return new Succeed(this, 'Succeeded');
-  }
-
-  /*************************
-     * Chainable definition
-     *************************/
-  public get endStates(): INextable[] {
-    return this.chainable.endStates;
-  }
-
-  public get id(): string {
-    return this.chainable.id;
-  }
-
-  public get startState(): State {
-    return this.chainable.startState;
   }
 }
 
