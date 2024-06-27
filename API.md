@@ -1308,7 +1308,6 @@ Any object.
 | <code><a href="#@michanto/cdk-orchestration.transforms.Echo.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Echo.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Echo.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Returns the parent for the CfnTransformShim (L1 transform) that will be created by this TransformBase (L2 transform). |
-| <code><a href="#@michanto/cdk-orchestration.transforms.Echo.property.template">template</a></code> | <code>any</code> | *No description.* |
 
 ---
 
@@ -1368,16 +1367,6 @@ Otherwise, return either an order under the transform host of this
    Since shimParent is called from the TransformShim constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
-
----
-
-##### `template`<sup>Required</sup> <a name="template" id="@michanto/cdk-orchestration.transforms.Echo.property.template"></a>
-
-```typescript
-public readonly template: any;
-```
-
-- *Type:* any
 
 ---
 
