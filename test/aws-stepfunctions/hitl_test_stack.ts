@@ -7,18 +7,16 @@ import {
   DefinitionBody,
   Fail,
   IChainable,
-  INextable,
   JsonPath,
   Pass,
   Result,
-  State,
   StateMachine,
   Succeed,
 } from 'aws-cdk-lib/aws-stepfunctions';
 import { LambdaInvoke } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { Construct } from 'constructs';
 import { InlineNodejsFunction } from '../../src/aws-lambda-nodejs';
-import { InsertStepFunctionState } from '../../src/aws-stepfunctions';
+import { Chainable, InsertStepFunctionState } from '../../src/aws-stepfunctions';
 import { Joiner } from '../../src/transforms';
 
 const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas`;
@@ -39,8 +37,8 @@ export interface HitlTestStepFunctionProps {
   readonly successMode: boolean;
 }
 
-export class HitlTestStepFunctionDefinition extends Construct implements IChainable {
-  readonly chainable: IChainable;
+export class HitlTestStepFunctionDefinition extends Chainable {
+  readonly wrapped: IChainable;
 
   constructor(scope: Construct, id: string, props: HitlTestStepFunctionProps) {
     super(scope, id);
@@ -77,20 +75,8 @@ export class HitlTestStepFunctionDefinition extends Construct implements IChaina
     }));
     echoStep.next(areRunsSuccessful);
 
-    this.chainable = Chain.start(initialStep);
+    this.wrapped = Chain.start(initialStep);
   }
-
-  get id(): string {
-    return this.chainable.id;
-  }
-
-  get startState(): State {
-    return this.chainable.startState;
-  };
-
-  get endStates(): INextable[] {
-    return this.chainable.endStates;
-  };
 }
 
 

@@ -2,7 +2,7 @@ import { Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { Bucket, CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
-import { CfTemplateType, CfnTransform, CfnTransformHost, Echo, ImportOrder, ImportOrders, Transform } from '../../src/transforms';
+import { CfTemplateType, CfnTransform, CfnTransformHost, Echo, Order, ImportOrders, Transform } from '../../src/transforms';
 
 export class BucketNameTransform extends Transform {
   constructor(scope: Construct, id: string, readonly bucketName: string) {
@@ -58,14 +58,14 @@ describe('Transform tests.', () => {
   it('Transform applied to Order works', () => {
     let stack = new Stack();
     let importer = new CfnTransformHost(stack, 'Importer');
-    let order = new ImportOrder(importer, ImportOrders.TRANSFORMS);
+    let order = new Order(importer, ImportOrders.TRANSFORMS);
     new BucketNameTransform(importer, 'BucketName', 'my_bucket');
     expect(CfnTransform.isCfnTransform(order.node.children[0])).toBeTruthy();
   });
 
   it('Transform applied to stack Order works', () => {
     let stack = new Stack();
-    let order = new ImportOrder(stack, ImportOrders.TRANSFORMS);
+    let order = new Order(stack, ImportOrders.TRANSFORMS);
     new BucketNameTransform(stack, 'BucketName', 'my_bucket');
     expect(CfnTransform.isCfnTransform(order.node.children[0])).toBeTruthy();
   });
@@ -78,7 +78,7 @@ describe('Transform tests.', () => {
 
   it('Transform applied to Order directly works', () => {
     let stack = new Stack();
-    let order = new ImportOrder(stack, ImportOrders.TRANSFORMS);
+    let order = new Order(stack, ImportOrders.TRANSFORMS);
     let transform = new BucketNameTransform(order, 'BucketName', 'my_bucket');
     expect(CfnTransform.isCfnTransform(transform.node.children[0])).toBeTruthy();
   });
@@ -87,7 +87,7 @@ describe('Transform tests.', () => {
     let stack = new Stack();
 
     let bucket = new Bucket(stack, 'Bucket');
-    let order = new ImportOrder(bucket.node.defaultChild!, ImportOrders.TRANSFORMS);
+    let order = new Order(bucket.node.defaultChild!, ImportOrders.TRANSFORMS);
     new BucketNameTransform(bucket, 'BucketName', 'my_bucket');
     expect(CfnTransform.isCfnTransform(order.node.children[0])).toBeTruthy();
   });
@@ -96,8 +96,8 @@ describe('Transform tests.', () => {
     let stack = new Stack();
 
     let bucket = new Bucket(stack, 'Bucket');
-    let stOrder = new ImportOrder(bucket.node.defaultChild!, ImportOrders.STRING_TRANSFORMS);
-    let tOrder = new ImportOrder(bucket.node.defaultChild!, ImportOrders.TRANSFORMS);
+    let stOrder = new Order(bucket.node.defaultChild!, ImportOrders.STRING_TRANSFORMS);
+    let tOrder = new Order(bucket.node.defaultChild!, ImportOrders.TRANSFORMS);
     new BucketNameTransform(stOrder, 'BucketName', 'my_bucket');
     expect(CfnTransform.isCfnTransform(tOrder.node.children[0])).toBeTruthy();
   });
@@ -116,7 +116,7 @@ describe('Transform tests.', () => {
   it('Transform applied to Frankenstein order works', () => {
     let stack = new Stack();
     let cfnBucket = new CfnBucket(stack, 'MyBucket');
-    let order = new ImportOrder(cfnBucket, ImportOrders.TRANSFORMS);
+    let order = new Order(cfnBucket, ImportOrders.TRANSFORMS);
     let bucket = Bucket.fromCfnBucket(cfnBucket);
     new BucketNameTransform(bucket, 'BucketName', 'my_bucket');
     new Echo(stack, 'Echo');

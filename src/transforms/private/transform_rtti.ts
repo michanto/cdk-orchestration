@@ -11,8 +11,8 @@ export const CFN_TRANSFORM_RTTI = new ConstructRunTimeTypeInfo({
 });
 
 /** Runtime Type Info for CfnTransform Orders */
-export const IMPORT_ORDER_RTTI = new ConstructRunTimeTypeInfo({
-  servicePropertyName: `${NAMESPACE}.ImportOrder`,
+export const ORDER_RTTI = new ConstructRunTimeTypeInfo({
+  servicePropertyName: `${NAMESPACE}.Order`,
 });
 
 /**
