@@ -2,7 +2,8 @@ import { CfnElement, IInspectable, Resource, TreeInspector } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { CfnTransform } from './cfn_transform';
 import { ICfnTransform } from './icfn_transform';
-import { ImportOrder, ImportOrders } from './import_orders';
+import { ImportOrders } from './import_orders';
+import { Order } from './order';
 import { TransformHost } from './transform_host';
 
 /**
@@ -92,7 +93,7 @@ export abstract class TransformBase extends Construct implements IInspectable {
     super(scope, id);
     // This will make any antecedent CfnElement or Stack a TransformHost.
     TransformHost.ensureHosted(scope);
-    let parent = ImportOrder.findImportOrder(
+    let parent = Order.findOrder(
       this.shimParent ?? TransformHost.of(this), this.order);
     if (scope.node.path.startsWith(parent.node.path)) {
       // If this Transform is already under the parent, use this transform as the parent.

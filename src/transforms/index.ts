@@ -1,5 +1,6 @@
 export * from './icfn_transform';
 export * from './import_orders';
+export * from './order';
 export * from './transforms';
 export * from './transform_host';
 export * from './cfn_transform';

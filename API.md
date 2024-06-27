@@ -252,6 +252,7 @@ Returns a string representation of this construct.
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.isCfnTransformHost">isCfnTransformHost</a></code> | Checks if `x` if a CfnTransformHost construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.createImportOrders">createImportOrders</a></code> | Add import orders to any CfnElement or Stack to order the transforms. |
 
 ---
 
@@ -305,17 +306,33 @@ Construct to test.
 
 ---
 
+##### `createImportOrders` <a name="createImportOrders" id="@michanto/cdk-orchestration.transforms.BaseImporter.createImportOrders"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.BaseImporter.createImportOrders(scope: Construct)
+```
+
+Add import orders to any CfnElement or Stack to order the transforms.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.BaseImporter.createImportOrders.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PARSER. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PRE_READER. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.READER. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.STRING_TRANSFORMS. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.TRANSFORMS. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.WRITER. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.PARSER. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.PRE_READER. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.READER. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.STRING_TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.BaseImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.WRITER. |
 
 ---
 
@@ -334,10 +351,10 @@ The tree node.
 ##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.parserOrder"></a>
 
 ```typescript
-public readonly parserOrder: ImportOrder;
+public readonly parserOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.PARSER.
 
@@ -346,10 +363,10 @@ Order for ImportOrders.PARSER.
 ##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.preReaderOrder"></a>
 
 ```typescript
-public readonly preReaderOrder: ImportOrder;
+public readonly preReaderOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.PRE_READER.
 
@@ -358,10 +375,10 @@ Order for ImportOrders.PRE_READER.
 ##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.readerOrder"></a>
 
 ```typescript
-public readonly readerOrder: ImportOrder;
+public readonly readerOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.READER.
 
@@ -370,10 +387,10 @@ Order for ImportOrders.READER.
 ##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.stringTransformOrder"></a>
 
 ```typescript
-public readonly stringTransformOrder: ImportOrder;
+public readonly stringTransformOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.STRING_TRANSFORMS.
 
@@ -382,10 +399,10 @@ Order for ImportOrders.STRING_TRANSFORMS.
 ##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.templateTransformOrder"></a>
 
 ```typescript
-public readonly templateTransformOrder: ImportOrder;
+public readonly templateTransformOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.TRANSFORMS.
 
@@ -394,10 +411,10 @@ Order for ImportOrders.TRANSFORMS.
 ##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.transforms.BaseImporter.property.writerOrder"></a>
 
 ```typescript
-public readonly writerOrder: ImportOrder;
+public readonly writerOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.WRITER.
 
@@ -497,6 +514,7 @@ PreReader transforms are useful for calling scripts that write JSON files.
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.isCfnTransformHost">isCfnTransformHost</a></code> | Checks if `x` if a CfnTransformHost construct. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.createImportOrders">createImportOrders</a></code> | Add import orders to any CfnElement or Stack to order the transforms. |
 
 ---
 
@@ -550,17 +568,33 @@ Construct to test.
 
 ---
 
+##### `createImportOrders` <a name="createImportOrders" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.createImportOrders"></a>
+
+```typescript
+import { cloudformation_include } from '@michanto/cdk-orchestration'
+
+cloudformation_include.BaseTemplateImporter.createImportOrders(scope: Construct)
+```
+
+Add import orders to any CfnElement or Stack to order the transforms.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.createImportOrders.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PARSER. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PRE_READER. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.READER. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.STRING_TRANSFORMS. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.TRANSFORMS. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.WRITER. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.PARSER. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.PRE_READER. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.READER. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.STRING_TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.WRITER. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.capture">capture</a></code> | <code>@michanto/cdk-orchestration.transforms.TemplateCapture</code> | *No description.* |
 
 ---
@@ -580,10 +614,10 @@ The tree node.
 ##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.parserOrder"></a>
 
 ```typescript
-public readonly parserOrder: ImportOrder;
+public readonly parserOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.PARSER.
 
@@ -592,10 +626,10 @@ Order for ImportOrders.PARSER.
 ##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.preReaderOrder"></a>
 
 ```typescript
-public readonly preReaderOrder: ImportOrder;
+public readonly preReaderOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.PRE_READER.
 
@@ -604,10 +638,10 @@ Order for ImportOrders.PRE_READER.
 ##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.readerOrder"></a>
 
 ```typescript
-public readonly readerOrder: ImportOrder;
+public readonly readerOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.READER.
 
@@ -616,10 +650,10 @@ Order for ImportOrders.READER.
 ##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.stringTransformOrder"></a>
 
 ```typescript
-public readonly stringTransformOrder: ImportOrder;
+public readonly stringTransformOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.STRING_TRANSFORMS.
 
@@ -628,10 +662,10 @@ Order for ImportOrders.STRING_TRANSFORMS.
 ##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.templateTransformOrder"></a>
 
 ```typescript
-public readonly templateTransformOrder: ImportOrder;
+public readonly templateTransformOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.TRANSFORMS.
 
@@ -640,10 +674,10 @@ Order for ImportOrders.TRANSFORMS.
 ##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.cloudformation_include.BaseTemplateImporter.property.writerOrder"></a>
 
 ```typescript
-public readonly writerOrder: ImportOrder;
+public readonly writerOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.WRITER.
 
@@ -1486,7 +1520,7 @@ Any object.
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.property.cfnTransform">cfnTransform</a></code> | <code>@michanto/cdk-orchestration.transforms.ICfnTransform</code> | The L1 shim transform  for this L2 transform. |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.property.order">order</a></code> | <code>string</code> | The order of this L2 transform. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.property.order">order</a></code> | <code>string</code> | Run this transform last so previous transforms have access to the custom resource properties. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.property.shimParent">shimParent</a></code> | <code>constructs.Construct</code> | Encodes an L1, L2 or L3 custom resource by finding the child custom resource of the scope of this transform. |
 
 ---
@@ -1523,7 +1557,10 @@ public readonly order: string;
 
 - *Type:* string
 
-The order of this L2 transform.
+Run this transform last so previous transforms have access to the custom resource properties.
+
+Works fine on custom resources without orders, but it's a nice feature
+for LambdaCustomResource.
 
 ---
 
@@ -1731,28 +1768,18 @@ Otherwise, return either an order under the transform host of this
 
 ### ImportOrder <a name="ImportOrder" id="@michanto/cdk-orchestration.transforms.ImportOrder"></a>
 
-ImportOrder class.
-
-Defines the order in which Transforms are applied.
-This is important in cases where the type of the template passed between
-Transforms changes, such as when a FileReader turns a filename into
-a string with the contents of the file, or a Parser turns a JSON string
-into a Javascript object.
-
-See BaseImporter for usage.
-
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.ImportOrder.Initializer"></a>
 
 ```typescript
 import { transforms } from '@michanto/cdk-orchestration'
 
-new transforms.ImportOrder(scope: Construct, order: string)
+new transforms.ImportOrder(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.Initializer.parameter.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -1762,7 +1789,7 @@ new transforms.ImportOrder(scope: Construct, order: string)
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.ImportOrder.Initializer.parameter.order"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.ImportOrder.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -1776,7 +1803,7 @@ new transforms.ImportOrder(scope: Construct, order: string)
 
 ---
 
-##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.ImportOrder.toString"></a>
+##### ~~`toString`~~ <a name="toString" id="@michanto/cdk-orchestration.transforms.ImportOrder.toString"></a>
 
 ```typescript
 public toString(): string
@@ -1789,12 +1816,14 @@ Returns a string representation of this construct.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.findImportOrder">findImportOrder</a></code> | Returns an ImportOrder named {@link order} under the scope, or the scope if the ImportOrder cannot be found. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.isImportOrder">isImportOrder</a></code> | Returns true if the construct is an ImportOrder. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.findOrder">findOrder</a></code> | Returns an Order named {@link order} under the scope, or the scope if the Order cannot be found. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.isOrder">isOrder</a></code> | Returns true if the construct is an Order. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.findImportOrder">findImportOrder</a></code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.isImportOrder">isImportOrder</a></code> | *No description.* |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.ImportOrder.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.ImportOrder.isConstruct"></a>
 
 ```typescript
 import { transforms } from '@michanto/cdk-orchestration'
@@ -1826,15 +1855,51 @@ Any object.
 
 ---
 
-##### `findImportOrder` <a name="findImportOrder" id="@michanto/cdk-orchestration.transforms.ImportOrder.findImportOrder"></a>
+##### ~~`findOrder`~~ <a name="findOrder" id="@michanto/cdk-orchestration.transforms.ImportOrder.findOrder"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.ImportOrder.findOrder(scope: Construct, order: string)
+```
+
+Returns an Order named {@link order} under the scope, or the scope if the Order cannot be found.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.ImportOrder.findOrder.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.ImportOrder.findOrder.parameter.order"></a>
+
+- *Type:* string
+
+---
+
+##### ~~`isOrder`~~ <a name="isOrder" id="@michanto/cdk-orchestration.transforms.ImportOrder.isOrder"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.ImportOrder.isOrder(x: IConstruct)
+```
+
+Returns true if the construct is an Order.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.ImportOrder.isOrder.parameter.x"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### ~~`findImportOrder`~~ <a name="findImportOrder" id="@michanto/cdk-orchestration.transforms.ImportOrder.findImportOrder"></a>
 
 ```typescript
 import { transforms } from '@michanto/cdk-orchestration'
 
 transforms.ImportOrder.findImportOrder(scope: Construct, order: string)
 ```
-
-Returns an ImportOrder named {@link order} under the scope, or the scope if the ImportOrder cannot be found.
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.ImportOrder.findImportOrder.parameter.scope"></a>
 
@@ -1848,15 +1913,13 @@ Returns an ImportOrder named {@link order} under the scope, or the scope if the 
 
 ---
 
-##### `isImportOrder` <a name="isImportOrder" id="@michanto/cdk-orchestration.transforms.ImportOrder.isImportOrder"></a>
+##### ~~`isImportOrder`~~ <a name="isImportOrder" id="@michanto/cdk-orchestration.transforms.ImportOrder.isImportOrder"></a>
 
 ```typescript
 import { transforms } from '@michanto/cdk-orchestration'
 
 transforms.ImportOrder.isImportOrder(x: IConstruct)
 ```
-
-Returns true if the construct is an ImportOrder.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.ImportOrder.isImportOrder.parameter.x"></a>
 
@@ -1869,11 +1932,13 @@ Returns true if the construct is an ImportOrder.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.property.order">order</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.ImportOrder.property.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.ImportOrder.property.node"></a>
+##### ~~`node`~~<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.ImportOrder.property.node"></a>
+
+- *Deprecated:* Use Order.
 
 ```typescript
 public readonly node: Node;
@@ -1885,10 +1950,12 @@ The tree node.
 
 ---
 
-##### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.ImportOrder.property.order"></a>
+##### ~~`id`~~<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.ImportOrder.property.id"></a>
+
+- *Deprecated:* Use Order.
 
 ```typescript
-public readonly order: string;
+public readonly id: string;
 ```
 
 - *Type:* string
@@ -5223,6 +5290,173 @@ Tokenized string that evaluates to the state's ID.
 ---
 
 
+### Order <a name="Order" id="@michanto/cdk-orchestration.transforms.Order"></a>
+
+Order class.
+
+Defines the order in which Transforms are applied.
+This is important in cases where the type of the template passed between
+Transforms changes, such as when a FileReader turns a filename into
+a string with the contents of the file, or a Parser turns a JSON string
+into a Javascript object.
+
+See BaseImporter for usage.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.transforms.Order.Initializer"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+new transforms.Order(scope: Construct, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Order.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Order.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.Order.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.Order.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Order.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@michanto/cdk-orchestration.transforms.Order.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Order.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Order.findOrder">findOrder</a></code> | Returns an Order named {@link order} under the scope, or the scope if the Order cannot be found. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Order.isOrder">isOrder</a></code> | Returns true if the construct is an Order. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@michanto/cdk-orchestration.transforms.Order.isConstruct"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.Order.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.Order.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `findOrder` <a name="findOrder" id="@michanto/cdk-orchestration.transforms.Order.findOrder"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.Order.findOrder(scope: Construct, order: string)
+```
+
+Returns an Order named {@link order} under the scope, or the scope if the Order cannot be found.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.Order.findOrder.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `order`<sup>Required</sup> <a name="order" id="@michanto/cdk-orchestration.transforms.Order.findOrder.parameter.order"></a>
+
+- *Type:* string
+
+---
+
+##### `isOrder` <a name="isOrder" id="@michanto/cdk-orchestration.transforms.Order.isOrder"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.Order.isOrder(x: IConstruct)
+```
+
+Returns true if the construct is an Order.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.transforms.Order.isOrder.parameter.x"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Order.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Order.property.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@michanto/cdk-orchestration.transforms.Order.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.Order.property.id"></a>
+
+```typescript
+public readonly id: string;
+```
+
+- *Type:* string
+
+---
+
+
 ### Parser <a name="Parser" id="@michanto/cdk-orchestration.transforms.Parser"></a>
 
 Base class for JsonParser and YamlParser transforms.
@@ -5941,6 +6175,7 @@ Returns a string representation of this construct.
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.isCfnTransformHost">isCfnTransformHost</a></code> | Checks if `x` if a CfnTransformHost construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.createImportOrders">createImportOrders</a></code> | Add import orders to any CfnElement or Stack to order the transforms. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.getPropertyTransformHost">getPropertyTransformHost</a></code> | Gets or create a PropertyTransformHost for a PropertyTransform. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.hostId">hostId</a></code> | Construct ID for a PropertyTransformHost. |
 
@@ -5993,6 +6228,22 @@ Checks if `x` if a CfnTransformHost construct.
 - *Type:* constructs.Construct
 
 Construct to test.
+
+---
+
+##### `createImportOrders` <a name="createImportOrders" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.createImportOrders"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.PropertyTransformHost.createImportOrders(scope: Construct)
+```
+
+Add import orders to any CfnElement or Stack to order the transforms.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.createImportOrders.parameter.scope"></a>
+
+- *Type:* constructs.Construct
 
 ---
 
@@ -6051,12 +6302,12 @@ Construct ID for a PropertyTransformHost.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PARSER. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PRE_READER. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.READER. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.STRING_TRANSFORMS. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.TRANSFORMS. |
-| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.WRITER. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.PARSER. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.PRE_READER. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.READER. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.STRING_TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.WRITER. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.propertyName">propertyName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
 
@@ -6077,10 +6328,10 @@ The tree node.
 ##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.parserOrder"></a>
 
 ```typescript
-public readonly parserOrder: ImportOrder;
+public readonly parserOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.PARSER.
 
@@ -6089,10 +6340,10 @@ Order for ImportOrders.PARSER.
 ##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.preReaderOrder"></a>
 
 ```typescript
-public readonly preReaderOrder: ImportOrder;
+public readonly preReaderOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.PRE_READER.
 
@@ -6101,10 +6352,10 @@ Order for ImportOrders.PRE_READER.
 ##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.readerOrder"></a>
 
 ```typescript
-public readonly readerOrder: ImportOrder;
+public readonly readerOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.READER.
 
@@ -6113,10 +6364,10 @@ Order for ImportOrders.READER.
 ##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.stringTransformOrder"></a>
 
 ```typescript
-public readonly stringTransformOrder: ImportOrder;
+public readonly stringTransformOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.STRING_TRANSFORMS.
 
@@ -6125,10 +6376,10 @@ Order for ImportOrders.STRING_TRANSFORMS.
 ##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.templateTransformOrder"></a>
 
 ```typescript
-public readonly templateTransformOrder: ImportOrder;
+public readonly templateTransformOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.TRANSFORMS.
 
@@ -6137,10 +6388,10 @@ Order for ImportOrders.TRANSFORMS.
 ##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.transforms.PropertyTransformHost.property.writerOrder"></a>
 
 ```typescript
-public readonly writerOrder: ImportOrder;
+public readonly writerOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.WRITER.
 
@@ -9518,6 +9769,7 @@ PreReader transforms are useful for calling scripts that write JSON files.
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.isCfnTransformHost">isCfnTransformHost</a></code> | Checks if `x` if a CfnTransformHost construct. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.createImportOrders">createImportOrders</a></code> | Add import orders to any CfnElement or Stack to order the transforms. |
 
 ---
 
@@ -9571,17 +9823,33 @@ Construct to test.
 
 ---
 
+##### `createImportOrders` <a name="createImportOrders" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.createImportOrders"></a>
+
+```typescript
+import { cloudformation_include } from '@michanto/cdk-orchestration'
+
+cloudformation_include.TemplateImporter.createImportOrders(scope: Construct)
+```
+
+Add import orders to any CfnElement or Stack to order the transforms.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.createImportOrders.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PARSER. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.PRE_READER. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.READER. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.STRING_TRANSFORMS. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.TRANSFORMS. |
-| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.ImportOrder</code> | Order for ImportOrders.WRITER. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.parserOrder">parserOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.PARSER. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.preReaderOrder">preReaderOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.PRE_READER. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.readerOrder">readerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.READER. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.stringTransformOrder">stringTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.STRING_TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.templateTransformOrder">templateTransformOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.TRANSFORMS. |
+| <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.writerOrder">writerOrder</a></code> | <code>@michanto/cdk-orchestration.transforms.Order</code> | Order for ImportOrders.WRITER. |
 | <code><a href="#@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.capture">capture</a></code> | <code>@michanto/cdk-orchestration.transforms.TemplateCapture</code> | *No description.* |
 
 ---
@@ -9601,10 +9869,10 @@ The tree node.
 ##### `parserOrder`<sup>Required</sup> <a name="parserOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.parserOrder"></a>
 
 ```typescript
-public readonly parserOrder: ImportOrder;
+public readonly parserOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.PARSER.
 
@@ -9613,10 +9881,10 @@ Order for ImportOrders.PARSER.
 ##### `preReaderOrder`<sup>Required</sup> <a name="preReaderOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.preReaderOrder"></a>
 
 ```typescript
-public readonly preReaderOrder: ImportOrder;
+public readonly preReaderOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.PRE_READER.
 
@@ -9625,10 +9893,10 @@ Order for ImportOrders.PRE_READER.
 ##### `readerOrder`<sup>Required</sup> <a name="readerOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.readerOrder"></a>
 
 ```typescript
-public readonly readerOrder: ImportOrder;
+public readonly readerOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.READER.
 
@@ -9637,10 +9905,10 @@ Order for ImportOrders.READER.
 ##### `stringTransformOrder`<sup>Required</sup> <a name="stringTransformOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.stringTransformOrder"></a>
 
 ```typescript
-public readonly stringTransformOrder: ImportOrder;
+public readonly stringTransformOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.STRING_TRANSFORMS.
 
@@ -9649,10 +9917,10 @@ Order for ImportOrders.STRING_TRANSFORMS.
 ##### `templateTransformOrder`<sup>Required</sup> <a name="templateTransformOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.templateTransformOrder"></a>
 
 ```typescript
-public readonly templateTransformOrder: ImportOrder;
+public readonly templateTransformOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.TRANSFORMS.
 
@@ -9661,10 +9929,10 @@ Order for ImportOrders.TRANSFORMS.
 ##### `writerOrder`<sup>Required</sup> <a name="writerOrder" id="@michanto/cdk-orchestration.cloudformation_include.TemplateImporter.property.writerOrder"></a>
 
 ```typescript
-public readonly writerOrder: ImportOrder;
+public readonly writerOrder: Order;
 ```
 
-- *Type:* @michanto/cdk-orchestration.transforms.ImportOrder
+- *Type:* @michanto/cdk-orchestration.transforms.Order
 
 Order for ImportOrders.WRITER.
 
@@ -17840,7 +18108,7 @@ The physical name of this custom resource.
 
 Defines where Transforms of a given order are added to a Transform host.
 
-ImportOrders are the names of the ImportOrder constructs under the
+ImportOrders are the names of the Order constructs under the
 TransformHost.  See {@link BaseImporter }.
 
 #### Members <a name="Members" id="Members"></a>

@@ -1,7 +1,7 @@
 import { Fn, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { CustomResourceUtilities } from './custom_resources_utilities';
-import { CfTemplateType, Transform } from '../transforms';
+import { CfTemplateType, ImportOrders, Transform } from '../transforms';
 
 /**
  * This transform base64-encodes any CustomResource it is applied to
@@ -29,6 +29,16 @@ import { CfTemplateType, Transform } from '../transforms';
 export class EncodeResource extends Transform {
   constructor(scope: Construct, id: string = 'EncodeResource') {
     super(scope, id);
+  }
+
+  /**
+   * Run this transform last so previous transforms have access to the
+   * custom resource properties.
+   * Works fine on custom resources without orders, but it's a nice feature
+   * for LambdaCustomResource.
+   */
+  get order(): string {
+    return ImportOrders.WRITER;
   }
 
   /**
@@ -60,9 +70,8 @@ export class EncodeResource extends Transform {
       }
       let encodedProperties: any = {
         ServiceToken: serviceToken,
-        // This could be done with Fn.base64, but then we'd have a token.
-        // And it's nice if future transforms get a fully-resolved string.
-        EncodedProperties: { 'Fn::Base64': Stack.of(this).toJsonString(res.Properties) },
+        // You can create tokens in transforms, but they will get resolved after all transforms are applied.
+        EncodedProperties: Fn.base64(Stack.of(this).toJsonString(res.Properties)),
       };
       if (serviceTimeout) {
         encodedProperties.ServiceTimeout = serviceTimeout;
