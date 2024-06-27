@@ -10533,6 +10533,32 @@ Otherwise, return either an order under the transform host of this
 
 ## Structs <a name="Structs" id="Structs"></a>
 
+### CfnElementPredicate <a name="CfnElementPredicate" id="@michanto/cdk-orchestration.CfnElementPredicate"></a>
+
+Typed predicate for use with CfnElementUtilities.
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.CfnElementPredicate.Initializer"></a>
+
+```typescript
+import { CfnElementPredicate } from '@michanto/cdk-orchestration'
+
+const cfnElementPredicate: CfnElementPredicate = { ... }
+```
+
+
+### CfnResourcePredicate <a name="CfnResourcePredicate" id="@michanto/cdk-orchestration.CfnResourcePredicate"></a>
+
+Typed predicate for use with CfnElementUtilities and CustomResourceUtilities.
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.CfnResourcePredicate.Initializer"></a>
+
+```typescript
+import { CfnResourcePredicate } from '@michanto/cdk-orchestration'
+
+const cfnResourcePredicate: CfnResourcePredicate = { ... }
+```
+
+
 ### ConstructHostProps <a name="ConstructHostProps" id="@michanto/cdk-orchestration.ConstructHostProps"></a>
 
 Properties for ConstructHost.
@@ -13916,7 +13942,7 @@ Creates a named token.
 
 ### CfnElementUtilities <a name="CfnElementUtilities" id="@michanto/cdk-orchestration.CfnElementUtilities"></a>
 
-Utilities for use with CfnElement.
+Find L1 constructs (CfnElements and CfnResources) in the construct tree.
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.CfnElementUtilities.Initializer"></a>
 
@@ -13945,7 +13971,7 @@ new CfnElementUtilities()
 ##### `cfnElementHost` <a name="cfnElementHost" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnElementHost"></a>
 
 ```typescript
-public cfnElementHost(scope: Construct): IConstruct
+public cfnElementHost(scope: Construct, predicate?: CfnElementPredicate): IConstruct
 ```
 
 Returns the antecedent cnfElement in the tree  (if any).
@@ -13956,12 +13982,22 @@ Basially, CfnElement.of (like Stack.of).
 
 - *Type:* constructs.Construct
 
+Scope for the search.
+
+---
+
+###### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnElementHost.parameter.predicate"></a>
+
+- *Type:* <a href="#@michanto/cdk-orchestration.CfnElementPredicate">CfnElementPredicate</a>
+
+Optional predicate.
+
 ---
 
 ##### `cfnElements` <a name="cfnElements" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnElements"></a>
 
 ```typescript
-public cfnElements(scope: Construct): CfnElement[]
+public cfnElements(scope: Construct, predicate?: CfnElementPredicate): CfnElement[]
 ```
 
 Returns a list of all L1 construct descendents of the scope.
@@ -13970,12 +14006,22 @@ Returns a list of all L1 construct descendents of the scope.
 
 - *Type:* constructs.Construct
 
+Scope for the search.
+
+---
+
+###### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnElements.parameter.predicate"></a>
+
+- *Type:* <a href="#@michanto/cdk-orchestration.CfnElementPredicate">CfnElementPredicate</a>
+
+Optional predicate.
+
 ---
 
 ##### `cfnResources` <a name="cfnResources" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnResources"></a>
 
 ```typescript
-public cfnResources(scope: Construct, resourceType?: string): CfnResource[]
+public cfnResources(scope: Construct, resourceType?: string, predicate?: CfnResourcePredicate): CfnResource[]
 ```
 
 Returns a list of all CfnResource construct descendents of the scope.
@@ -13984,18 +14030,30 @@ Returns a list of all CfnResource construct descendents of the scope.
 
 - *Type:* constructs.Construct
 
+Scope for the search.
+
 ---
 
 ###### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnResources.parameter.resourceType"></a>
 
 - *Type:* string
 
+Type of resource to return.
+
+---
+
+###### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnResources.parameter.predicate"></a>
+
+- *Type:* <a href="#@michanto/cdk-orchestration.CfnResourcePredicate">CfnResourcePredicate</a>
+
+Optional predicate.
+
 ---
 
 ##### `findCfnResource` <a name="findCfnResource" id="@michanto/cdk-orchestration.CfnElementUtilities.findCfnResource"></a>
 
 ```typescript
-public findCfnResource(scope: Construct, resourceType?: string): CfnResource
+public findCfnResource(scope: Construct, resourceType?: string, predicate?: CfnResourcePredicate): CfnResource
 ```
 
 Finds a single CfnResource, with an optional type.
@@ -14006,13 +14064,23 @@ Throws if there are more (or fewer) than one.
 
 - *Type:* constructs.Construct
 
+Scope for the search.
+
 ---
 
 ###### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.CfnElementUtilities.findCfnResource.parameter.resourceType"></a>
 
 - *Type:* string
 
-Type of resource to find.
+Type of resource to return.
+
+---
+
+###### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.CfnElementUtilities.findCfnResource.parameter.predicate"></a>
+
+- *Type:* <a href="#@michanto/cdk-orchestration.CfnResourcePredicate">CfnResourcePredicate</a>
+
+Optional predicate.
 
 ---
 
@@ -15515,7 +15583,7 @@ Custom resource handler for LambdaCustomResource.
 
 ### CustomResourceUtilities <a name="CustomResourceUtilities" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities"></a>
 
-Utilities for creating custom resources.
+Find CustomResource L1s (CfnResources) in the construct tree.
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.Initializer"></a>
 
@@ -15542,7 +15610,7 @@ new custom_resources.CustomResourceUtilities()
 ##### `customResources` <a name="customResources" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.customResources"></a>
 
 ```typescript
-public customResources(scope: Construct): CfnResource[]
+public customResources(scope: Construct, resourceType?: string, predicate?: CfnResourcePredicate): CfnResource[]
 ```
 
 Returns a list of all L1 custom resources under the scope.
@@ -15555,10 +15623,28 @@ Scope for the search.
 
 ---
 
+###### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.customResources.parameter.resourceType"></a>
+
+- *Type:* string
+
+Must be of the form 'Custom::XXX' or 'AWS::CloudFormation::CustomResource'.
+
+Optional.
+
+---
+
+###### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.customResources.parameter.predicate"></a>
+
+- *Type:* <a href="#@michanto/cdk-orchestration.CfnResourcePredicate">CfnResourcePredicate</a>
+
+Optional predicate.
+
+---
+
 ##### `findCustomResource` <a name="findCustomResource" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource"></a>
 
 ```typescript
-public findCustomResource(target: Construct): CfnResource
+public findCustomResource(scope: Construct, resourceType?: string, predicate?: CfnResourcePredicate): CfnResource
 ```
 
 Returns the CfnResource that produces the custom resource.
@@ -15566,9 +15652,29 @@ Returns the CfnResource that produces the custom resource.
 This function throws
 if there are none (or more than one).
 
-###### `target`<sup>Required</sup> <a name="target" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource.parameter.target"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource.parameter.scope"></a>
 
 - *Type:* constructs.Construct
+
+Scope for the search.
+
+---
+
+###### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource.parameter.resourceType"></a>
+
+- *Type:* string
+
+Must be of the form 'Custom::XXX' or 'AWS::CloudFormation::CustomResource'.
+
+Optional.
+
+---
+
+###### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource.parameter.predicate"></a>
+
+- *Type:* <a href="#@michanto/cdk-orchestration.CfnResourcePredicate">CfnResourcePredicate</a>
+
+Optional predicate.
 
 ---
 
@@ -15589,6 +15695,9 @@ custom_resources.CustomResourceUtilities.isCustomResource(elt: Construct)
 ```
 
 Checks if `elt` if a L1 CustomResource construct (CfnResource).
+
+Test is that elt is a CfnResource with a resourceType of the form
+'Custom::XXX' or 'AWS::CloudFormation::CustomResource'.
 
 ###### `elt`<sup>Required</sup> <a name="elt" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.isCustomResource.parameter.elt"></a>
 

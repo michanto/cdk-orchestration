@@ -3,41 +3,58 @@ import { Construct } from 'constructs';
 import { ConstructTreeSearch } from './construct_tree_search';
 
 /**
- * Utilities for use with CfnElement.
+ * Typed predicate for use with CfnElementUtilities
  */
+export interface CfnElementPredicate {
+  (x: CfnElement): boolean;
+}
+
+/**
+ * Typed predicate for use with CfnElementUtilities and CustomResourceUtilities.
+ */
+export interface CfnResourcePredicate {
+  (x: CfnResource): boolean;
+}
+
+/** Find L1 constructs (CfnElements and CfnResources) in the construct tree. */
 export class CfnElementUtilities {
-  protected treeSearch = ConstructTreeSearch.for(CfnElement.isCfnElement);
-
-
   /**
    * Returns a list of all L1 construct descendents of the scope.
-   * @param scope
+   * @param scope Scope for the search.
+   * @param predicate Optional predicate.
    */
-  cfnElements(scope: Construct) {
-    return this.treeSearch.searchDown(scope, Stack.isStack) as CfnElement[];
+  cfnElements(scope: Construct, predicate?: CfnElementPredicate) {
+    return ConstructTreeSearch.for(
+      x => CfnElement.isCfnElement(x) &&
+      (predicate == undefined || predicate(x)),
+    ).searchDown(scope, Stack.isStack) as CfnElement[];
   }
 
   /**
    * Returns a list of all CfnResource construct descendents of the scope.
    *
-   * @param scope
-   * @param resourceType
+   * @param scope Scope for the search.
+   * @param resourceType Type of resource to return.
+   * @param predicate Optional predicate.
    */
-  cfnResources(scope: Construct, resourceType?: string) {
+  cfnResources(scope: Construct, resourceType?: string, predicate?: CfnResourcePredicate) {
     let treeSearch = ConstructTreeSearch.for(
       x => CfnElement.isCfnElement(x) && CfnResource.isCfnResource(x) &&
-        (resourceType == undefined || resourceType == x.cfnResourceType));
+        (resourceType == undefined || resourceType == x.cfnResourceType) &&
+        (predicate == undefined || predicate(x)),
+    );
     return treeSearch.searchDown(scope, Stack.isStack) as CfnResource[];
   }
 
   /**
    * Finds a single CfnResource, with an optional type.  Throws if there are more (or fewer) than one.
    *
-   * @param scope
-   * @param resourceType Type of resource to find.
+   * @param scope Scope for the search.
+   * @param resourceType Type of resource to return.
+   * @param predicate Optional predicate.
    */
-  findCfnResource(scope: Construct, resourceType?: string) {
-    let searchResults = new CfnElementUtilities().cfnResources(scope, resourceType);
+  findCfnResource(scope: Construct, resourceType?: string, predicate?: CfnResourcePredicate) {
+    let searchResults = this.cfnResources(scope, resourceType, predicate);
     if (searchResults.length != 1) {
       throw new Error(`Expected to find one (1) CfnResource of type ${resourceType ?? '"any"'} found ${searchResults.length}.`);
     }
@@ -48,9 +65,13 @@ export class CfnElementUtilities {
    * Returns the antecedent cnfElement in the tree  (if any).
    * Basially, CfnElement.of (like Stack.of).
    *
-   * @param scope
+   * @param scope Scope for the search.
+   * @param predicate Optional predicate.
    */
-  cfnElementHost(scope: Construct) {
-    return this.treeSearch.searchUp(scope, Stack.isStack);
+  cfnElementHost(scope: Construct, predicate?: CfnElementPredicate) {
+    return ConstructTreeSearch.for(
+      x => CfnElement.isCfnElement(x) &&
+      (predicate == undefined || predicate(x)),
+    ).searchUp(scope, Stack.isStack);
   }
 }
