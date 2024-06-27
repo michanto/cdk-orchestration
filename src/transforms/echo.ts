@@ -1,6 +1,5 @@
 import { Construct } from 'constructs';
-import { TemplateCapture } from './template_capture';
-import { CfTemplateType } from './transform';
+import { CfTemplateType, Transform } from './transform';
 import { Log, Logger } from '../core';
 
 /**
@@ -9,7 +8,7 @@ import { Log, Logger } from '../core';
  * Turn off this logging by setting a NoOpLogger on this construct:
  * `Logger.set(echo, new NoOpLogger())`;
  */
-export class Echo extends TemplateCapture {
+export class Echo extends Transform {
   constructor(scope: Construct, id: string) {
     super(scope, id);
     Logger.set(this, new Logger());
@@ -17,7 +16,7 @@ export class Echo extends TemplateCapture {
 
   public apply(template: CfTemplateType): CfTemplateType {
     Log.of(this).info(() => JSON.stringify(template, undefined, 2));
-    return super.apply(template);
+    return template;
   }
 }
 
