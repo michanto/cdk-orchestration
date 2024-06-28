@@ -5,7 +5,7 @@ import { ConstructTreeSearch } from './construct_tree_search';
 /**
  * Typed predicate for use with StackUtilities
  */
-export interface StackPredicate {
+export interface IStackPredicate {
   (x: Stack): boolean;
 }
 
@@ -16,7 +16,7 @@ export class StackUtilities {
    * @param scope Scope for the search.
    * @param predicate Optional predicate.
    */
-  stackHost(scope: Construct, predicate?: StackPredicate) {
+  stackHost(scope: Construct, predicate?: IStackPredicate) {
     return ConstructTreeSearch.for(
       x => Stack.isStack(x) &&
       (predicate == undefined || predicate(x)),
@@ -28,7 +28,7 @@ export class StackUtilities {
    * @param scope Scope for the search.
    * @param predicate Optional predicate.
    */
-  stacks(scope: Construct, predicate?: StackPredicate) {
+  stacks(scope: Construct, predicate?: IStackPredicate) {
     return ConstructTreeSearch.for(
       x => Stack.isStack(x) &&
       (predicate == undefined || predicate(x)),
