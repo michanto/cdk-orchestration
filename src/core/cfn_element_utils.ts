@@ -5,14 +5,14 @@ import { ConstructTreeSearch } from './construct_tree_search';
 /**
  * Typed predicate for use with CfnElementUtilities
  */
-export interface CfnElementPredicate {
+export interface ICfnElementPredicate {
   (x: CfnElement): boolean;
 }
 
 /**
  * Typed predicate for use with CfnElementUtilities and CustomResourceUtilities.
  */
-export interface CfnResourcePredicate {
+export interface ICfnResourcePredicate {
   (x: CfnResource): boolean;
 }
 
@@ -23,7 +23,7 @@ export class CfnElementUtilities {
    * @param scope Scope for the search.
    * @param predicate Optional predicate.
    */
-  cfnElements(scope: Construct, predicate?: CfnElementPredicate) {
+  cfnElements(scope: Construct, predicate?: ICfnElementPredicate) {
     return ConstructTreeSearch.for(
       x => CfnElement.isCfnElement(x) &&
       (predicate == undefined || predicate(x)),
@@ -37,7 +37,7 @@ export class CfnElementUtilities {
    * @param resourceType Type of resource to return.
    * @param predicate Optional predicate.
    */
-  cfnResources(scope: Construct, resourceType?: string, predicate?: CfnResourcePredicate) {
+  cfnResources(scope: Construct, resourceType?: string, predicate?: ICfnResourcePredicate) {
     let treeSearch = ConstructTreeSearch.for(
       x => CfnElement.isCfnElement(x) && CfnResource.isCfnResource(x) &&
         (resourceType == undefined || resourceType == x.cfnResourceType) &&
@@ -53,7 +53,7 @@ export class CfnElementUtilities {
    * @param resourceType Type of resource to return.
    * @param predicate Optional predicate.
    */
-  findCfnResource(scope: Construct, resourceType?: string, predicate?: CfnResourcePredicate) {
+  findCfnResource(scope: Construct, resourceType?: string, predicate?: ICfnResourcePredicate) {
     let searchResults = this.cfnResources(scope, resourceType, predicate);
     if (searchResults.length != 1) {
       throw new Error(`Expected to find one (1) CfnResource of type ${resourceType ?? '"any"'} found ${searchResults.length}.`);
@@ -68,10 +68,10 @@ export class CfnElementUtilities {
    * @param scope Scope for the search.
    * @param predicate Optional predicate.
    */
-  cfnElementHost(scope: Construct, predicate?: CfnElementPredicate) {
+  cfnElementHost(scope: Construct, predicate?: ICfnElementPredicate) {
     return ConstructTreeSearch.for(
       x => CfnElement.isCfnElement(x) &&
       (predicate == undefined || predicate(x)),
-    ).searchUp(scope, Stack.isStack);
+    ).searchUp(scope, Stack.isStack) as CfnElement | undefined;
   }
 }

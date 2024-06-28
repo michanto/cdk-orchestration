@@ -10522,32 +10522,6 @@ Otherwise, return either an order under the transform host of this
 
 ## Structs <a name="Structs" id="Structs"></a>
 
-### CfnElementPredicate <a name="CfnElementPredicate" id="@michanto/cdk-orchestration.CfnElementPredicate"></a>
-
-Typed predicate for use with CfnElementUtilities.
-
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.CfnElementPredicate.Initializer"></a>
-
-```typescript
-import { CfnElementPredicate } from '@michanto/cdk-orchestration'
-
-const cfnElementPredicate: CfnElementPredicate = { ... }
-```
-
-
-### CfnResourcePredicate <a name="CfnResourcePredicate" id="@michanto/cdk-orchestration.CfnResourcePredicate"></a>
-
-Typed predicate for use with CfnElementUtilities and CustomResourceUtilities.
-
-#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.CfnResourcePredicate.Initializer"></a>
-
-```typescript
-import { CfnResourcePredicate } from '@michanto/cdk-orchestration'
-
-const cfnResourcePredicate: CfnResourcePredicate = { ... }
-```
-
-
 ### ConstructHostProps <a name="ConstructHostProps" id="@michanto/cdk-orchestration.ConstructHostProps"></a>
 
 Properties for ConstructHost.
@@ -13960,7 +13934,7 @@ new CfnElementUtilities()
 ##### `cfnElementHost` <a name="cfnElementHost" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnElementHost"></a>
 
 ```typescript
-public cfnElementHost(scope: Construct, predicate?: CfnElementPredicate): IConstruct
+public cfnElementHost(scope: Construct, predicate?: ICfnElementPredicate): CfnElement
 ```
 
 Returns the antecedent cnfElement in the tree  (if any).
@@ -13977,7 +13951,7 @@ Scope for the search.
 
 ###### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnElementHost.parameter.predicate"></a>
 
-- *Type:* <a href="#@michanto/cdk-orchestration.CfnElementPredicate">CfnElementPredicate</a>
+- *Type:* <a href="#@michanto/cdk-orchestration.ICfnElementPredicate">ICfnElementPredicate</a>
 
 Optional predicate.
 
@@ -13986,7 +13960,7 @@ Optional predicate.
 ##### `cfnElements` <a name="cfnElements" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnElements"></a>
 
 ```typescript
-public cfnElements(scope: Construct, predicate?: CfnElementPredicate): CfnElement[]
+public cfnElements(scope: Construct, predicate?: ICfnElementPredicate): CfnElement[]
 ```
 
 Returns a list of all L1 construct descendents of the scope.
@@ -14001,7 +13975,7 @@ Scope for the search.
 
 ###### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnElements.parameter.predicate"></a>
 
-- *Type:* <a href="#@michanto/cdk-orchestration.CfnElementPredicate">CfnElementPredicate</a>
+- *Type:* <a href="#@michanto/cdk-orchestration.ICfnElementPredicate">ICfnElementPredicate</a>
 
 Optional predicate.
 
@@ -14010,7 +13984,7 @@ Optional predicate.
 ##### `cfnResources` <a name="cfnResources" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnResources"></a>
 
 ```typescript
-public cfnResources(scope: Construct, resourceType?: string, predicate?: CfnResourcePredicate): CfnResource[]
+public cfnResources(scope: Construct, resourceType?: string, predicate?: ICfnResourcePredicate): CfnResource[]
 ```
 
 Returns a list of all CfnResource construct descendents of the scope.
@@ -14033,7 +14007,7 @@ Type of resource to return.
 
 ###### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.CfnElementUtilities.cfnResources.parameter.predicate"></a>
 
-- *Type:* <a href="#@michanto/cdk-orchestration.CfnResourcePredicate">CfnResourcePredicate</a>
+- *Type:* <a href="#@michanto/cdk-orchestration.ICfnResourcePredicate">ICfnResourcePredicate</a>
 
 Optional predicate.
 
@@ -14042,7 +14016,7 @@ Optional predicate.
 ##### `findCfnResource` <a name="findCfnResource" id="@michanto/cdk-orchestration.CfnElementUtilities.findCfnResource"></a>
 
 ```typescript
-public findCfnResource(scope: Construct, resourceType?: string, predicate?: CfnResourcePredicate): CfnResource
+public findCfnResource(scope: Construct, resourceType?: string, predicate?: ICfnResourcePredicate): CfnResource
 ```
 
 Finds a single CfnResource, with an optional type.
@@ -14067,7 +14041,7 @@ Type of resource to return.
 
 ###### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.CfnElementUtilities.findCfnResource.parameter.predicate"></a>
 
-- *Type:* <a href="#@michanto/cdk-orchestration.CfnResourcePredicate">CfnResourcePredicate</a>
+- *Type:* <a href="#@michanto/cdk-orchestration.ICfnResourcePredicate">ICfnResourcePredicate</a>
 
 Optional predicate.
 
@@ -15599,7 +15573,7 @@ new custom_resources.CustomResourceUtilities()
 ##### `customResources` <a name="customResources" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.customResources"></a>
 
 ```typescript
-public customResources(scope: Construct, resourceType?: string, predicate?: CfnResourcePredicate): CfnResource[]
+public customResources(scope: Construct, resourceType?: string, predicate?: ICfnResourcePredicate): CfnResource[]
 ```
 
 Returns a list of all L1 custom resources under the scope.
@@ -15624,7 +15598,7 @@ Optional.
 
 ###### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.customResources.parameter.predicate"></a>
 
-- *Type:* <a href="#@michanto/cdk-orchestration.CfnResourcePredicate">CfnResourcePredicate</a>
+- *Type:* <a href="#@michanto/cdk-orchestration.ICfnResourcePredicate">ICfnResourcePredicate</a>
 
 Optional predicate.
 
@@ -15633,7 +15607,7 @@ Optional predicate.
 ##### `findCustomResource` <a name="findCustomResource" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource"></a>
 
 ```typescript
-public findCustomResource(scope: Construct, resourceType?: string, predicate?: CfnResourcePredicate): CfnResource
+public findCustomResource(scope: Construct, resourceType?: string, predicate?: ICfnResourcePredicate): CfnResource
 ```
 
 Returns the CfnResource that produces the custom resource.
@@ -15661,7 +15635,7 @@ Optional.
 
 ###### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.findCustomResource.parameter.predicate"></a>
 
-- *Type:* <a href="#@michanto/cdk-orchestration.CfnResourcePredicate">CfnResourcePredicate</a>
+- *Type:* <a href="#@michanto/cdk-orchestration.ICfnResourcePredicate">ICfnResourcePredicate</a>
 
 Optional predicate.
 
@@ -17882,6 +17856,22 @@ public readonly TREE_INSPECTABLE_SERVICE: ConstructService;
 ---
 
 ## Protocols <a name="Protocols" id="Protocols"></a>
+
+### ICfnElementPredicate <a name="ICfnElementPredicate" id="@michanto/cdk-orchestration.ICfnElementPredicate"></a>
+
+- *Implemented By:* <a href="#@michanto/cdk-orchestration.ICfnElementPredicate">ICfnElementPredicate</a>
+
+Typed predicate for use with CfnElementUtilities.
+
+
+
+### ICfnResourcePredicate <a name="ICfnResourcePredicate" id="@michanto/cdk-orchestration.ICfnResourcePredicate"></a>
+
+- *Implemented By:* <a href="#@michanto/cdk-orchestration.ICfnResourcePredicate">ICfnResourcePredicate</a>
+
+Typed predicate for use with CfnElementUtilities and CustomResourceUtilities.
+
+
 
 ### ICfnTransform <a name="ICfnTransform" id="@michanto/cdk-orchestration.transforms.ICfnTransform"></a>
 

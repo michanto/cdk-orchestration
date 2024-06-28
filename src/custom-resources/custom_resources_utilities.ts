@@ -1,6 +1,6 @@
 import { CfnElement, CfnResource, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { CfnResourcePredicate, ConstructTreeSearch } from '../core';
+import { ICfnResourcePredicate, ConstructTreeSearch } from '../core';
 
 /** Find CustomResource L1s (CfnResources) in the construct tree. */
 export class CustomResourceUtilities {
@@ -24,7 +24,7 @@ export class CustomResourceUtilities {
    * @param resourceType Must be of the form 'Custom::XXX' or 'AWS::CloudFormation::CustomResource'.  Optional.
    * @param predicate Optional predicate.
    */
-  customResources(scope: Construct, resourceType?: string, predicate?: CfnResourcePredicate) {
+  customResources(scope: Construct, resourceType?: string, predicate?: ICfnResourcePredicate) {
     return ConstructTreeSearch.for(
       x => CustomResourceUtilities.isCustomResource(x) && CfnResource.isCfnResource(x) &&
       (resourceType == undefined || resourceType == (x).cfnResourceType) &&
@@ -39,7 +39,7 @@ export class CustomResourceUtilities {
    * @param resourceType Must be of the form 'Custom::XXX' or 'AWS::CloudFormation::CustomResource'.  Optional.
    * @param predicate Optional predicate.
    */
-  findCustomResource(scope: Construct, resourceType?: string, predicate?: CfnResourcePredicate) {
+  findCustomResource(scope: Construct, resourceType?: string, predicate?: ICfnResourcePredicate) {
     let elements = this.customResources(scope, resourceType, predicate);
     if (elements.length != 1) {
       throw new Error(`Construct ${
