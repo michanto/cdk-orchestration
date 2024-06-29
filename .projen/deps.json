@@ -135,6 +135,11 @@
       "type": "bundled"
     },
     {
+      "name": "react-native",
+      "version": ">=0.56",
+      "type": "bundled"
+    },
+    {
       "name": "tmp",
       "version": "^0.2.1",
       "type": "bundled"
@@ -187,6 +192,11 @@
     {
       "name": "aws-lambda",
       "version": "1.0.7",
+      "type": "runtime"
+    },
+    {
+      "name": "react-native",
+      "version": ">=0.56",
       "type": "runtime"
     },
     {

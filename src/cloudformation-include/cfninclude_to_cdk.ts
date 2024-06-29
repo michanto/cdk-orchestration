@@ -50,20 +50,6 @@ export class CfnIncludeToCdk {
   }
 
   /**
-   * Deprecated.  Use tryFindIncluded instead.
-   * New Rule:
-   * - findXXX never returns undefined.
-   * - tryFindXXX returns a value or undefined.
-   *
-   * *'findIncluded' will be removed in 0.2.0.*
-   *
-   * @deprecated Use tryFindIncluded instead.
-   */
-  static findIncluded(logicalId: string, scope: Construct): CfnElement | undefined {
-    return this.tryFindIncluded(logicalId, scope);
-  }
-
-  /**
    * Finds a construct from CfnIncludes in scope with the given logicalId.
    *
    * @param logicalId
