@@ -41,16 +41,3 @@ export class Order extends Construct {
     ORDER_RTTI.addRtti(this);
   }
 }
-
-/** @deprecated Use Order. */
-export class ImportOrder extends Order {
-  /** @deprecated Use Order. */
-  static isImportOrder(x: IConstruct): x is ImportOrder {
-    return Order.isOrder(x);
-  }
-
-  /** @deprecated Use Order. */
-  static findImportOrder(scope: Construct, order: string) {
-    return Order.findOrder(scope, order);
-  }
-}
