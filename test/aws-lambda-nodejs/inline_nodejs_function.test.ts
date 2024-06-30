@@ -4,6 +4,7 @@ import { Runtime } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 import { InlineNodejsFunction, InlineNodejsFunctionProps, MinifyEngine } from '../../src/aws-lambda-nodejs';
 import { Logger, LoggingAspect } from '../../src/core';
+import { TemplateCapture } from '../../src/transforms';
 
 const LAMBDA_PATH = `${__dirname}/../../lib/aws-lambda-nodejs/private/test_lambdas`;
 describe('InlineNodeJsFunction tests', () => {
@@ -161,6 +162,7 @@ describe('InlineNodeJsFunction tests', () => {
     let fn = new MyInlineFunction(stack, 'MyInlineFunction', {
       minifyEngine: engine,
     });
+    let capture = new TemplateCapture(fn, 'Capture');
 
     // THEN
     let inspector = new TreeInspector();
@@ -172,6 +174,9 @@ describe('InlineNodeJsFunction tests', () => {
     }
 
     let template = Template.fromStack(stack).toJSON();
+    let codeSize = capture.template.Resources.MyInlineFunction9974A7D0.Properties.Code.ZipFile.length;
+    let engineName = engine == undefined ? 'undefined' : MinifyEngine[engine];
+    console.log(`Engine ${engineName} produced code of size ${codeSize}`);
     expect(template).toMatchObject({
       Resources: {
         MyInlineFunction9974A7D0: {
