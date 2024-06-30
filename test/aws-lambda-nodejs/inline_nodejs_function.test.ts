@@ -150,7 +150,7 @@ describe('InlineNodeJsFunction tests', () => {
 
   test.each([
     undefined,
-    // MinifyEngine.ES_BUILD,
+    // MinifyEngine.ES_BUILD, Note:  EsBuild tests moved to cdk-orchestration-examples.
     MinifyEngine.SIMPLE,
     MinifyEngine.NONE,
   ])('InlineNodejsFunction all minify', (engine) => {
@@ -188,21 +188,6 @@ describe('InlineNodeJsFunction tests', () => {
         },
       },
     });
-  });
-
-  test.skip('InlineNodejsFunction no esbuild', () => {
-    // GIVEN
-    const stack = new Stack();
-
-    // WHEN
-    jest.mock('esbuild', () => {
-      throw new Error();
-    });
-
-    // THEN
-    expect(() => new MyInlineFunction(stack, 'MyInlineFunction', {
-      minifyEngine: MinifyEngine.ES_BUILD,
-    })).toThrow();
   });
 
   test('InlineNodejsFunction LAMBDA_NODEJS_USE_LATEST_RUNTIME enabled', () => {
