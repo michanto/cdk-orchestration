@@ -195,6 +195,17 @@ describe('InlineNodeJsFunction tests', () => {
     });
   });
 
+
+  test('InlineNodejsFunction no esbuild', () => {
+    // GIVEN
+    const stack = new Stack();
+
+    // THEN
+    expect(() => new MyInlineFunction(stack, 'MyInlineFunction', {
+      minifyEngine: MinifyEngine.ES_BUILD,
+    })).toThrow();
+  });
+
   test('InlineNodejsFunction LAMBDA_NODEJS_USE_LATEST_RUNTIME enabled', () => {
     // GIVEN
     const stack = new Stack();
