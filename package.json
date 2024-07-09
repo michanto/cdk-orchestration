@@ -72,7 +72,6 @@
     "@aws-sdk/credential-providers": "3.501.0",
     "@types/aws-lambda": "^8.10.137",
     "aws-lambda": "1.0.7",
-    "react-native": ">=0.56",
     "tmp": "^0.2.1",
     "yaml": "^2.1.1"
   },
@@ -84,7 +83,6 @@
     "@aws-sdk/credential-providers",
     "@types/aws-lambda",
     "aws-lambda",
-    "react-native",
     "tmp",
     "yaml"
   ],

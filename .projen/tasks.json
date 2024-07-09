@@ -291,7 +291,7 @@
           "exec": "npm install"
         },
         {
-          "exec": "npm update @aws-cdk/integ-runner @aws-cdk/integ-tests-alpha @types/jest @types/node @types/tmp @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen standard-version ts-jest ts-node typescript @aws-sdk/client-ec2 @aws-sdk/client-lambda @aws-sdk/client-s3 @aws-sdk/client-sfn @aws-sdk/credential-providers @types/aws-lambda aws-lambda react-native tmp yaml aws-cdk-lib constructs"
+          "exec": "npm update @aws-cdk/integ-runner @aws-cdk/integ-tests-alpha @types/jest @types/node @types/tmp @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen standard-version ts-jest ts-node typescript @aws-sdk/client-ec2 @aws-sdk/client-lambda @aws-sdk/client-s3 @aws-sdk/client-sfn @aws-sdk/credential-providers @types/aws-lambda aws-lambda tmp yaml aws-cdk-lib constructs"
         },
         {
           "exec": "npx projen"
