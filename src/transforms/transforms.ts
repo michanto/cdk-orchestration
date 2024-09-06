@@ -1,7 +1,7 @@
 import { IConstruct } from 'constructs';
 import { ICfnTransform } from './icfn_transform';
-import { TRANSFORM_CONSTRUCT_HOST } from './private/transform_rtti';
 import { Log } from '../core';
+import { TRANSFORM_CONSTRUCT_HOST } from './private/transform_rtti';
 
 /**
  * This helper class can extract ICfnTransforms from a construct tree so they can be applied to a template.
