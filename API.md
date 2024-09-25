@@ -16908,6 +16908,83 @@ Creates a named token.
 
 
 
+### StackUtilities <a name="StackUtilities" id="@michanto/cdk-orchestration.StackUtilities"></a>
+
+Find stacks in the construct tree.
+
+#### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.StackUtilities.Initializer"></a>
+
+```typescript
+import { StackUtilities } from '@michanto/cdk-orchestration'
+
+new StackUtilities()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.StackUtilities.stackHost">stackHost</a></code> | Stack.of, but does not throw. |
+| <code><a href="#@michanto/cdk-orchestration.StackUtilities.stacks">stacks</a></code> | Returns a list of all Stack construct descendents of the scope. |
+
+---
+
+##### `stackHost` <a name="stackHost" id="@michanto/cdk-orchestration.StackUtilities.stackHost"></a>
+
+```typescript
+public stackHost(scope: Construct, predicate?: IStackPredicate): Stack
+```
+
+Stack.of, but does not throw.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.StackUtilities.stackHost.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+Scope for the search.
+
+---
+
+###### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.StackUtilities.stackHost.parameter.predicate"></a>
+
+- *Type:* <a href="#@michanto/cdk-orchestration.IStackPredicate">IStackPredicate</a>
+
+Optional predicate.
+
+---
+
+##### `stacks` <a name="stacks" id="@michanto/cdk-orchestration.StackUtilities.stacks"></a>
+
+```typescript
+public stacks(scope: Construct, predicate?: IStackPredicate): Stack[]
+```
+
+Returns a list of all Stack construct descendents of the scope.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.StackUtilities.stacks.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+Scope for the search.
+
+---
+
+###### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.StackUtilities.stacks.parameter.predicate"></a>
+
+- *Type:* <a href="#@michanto/cdk-orchestration.IStackPredicate">IStackPredicate</a>
+
+Optional predicate.
+
+---
+
+
+
+
 ### StepFunctionTaskStepConstants <a name="StepFunctionTaskStepConstants" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants"></a>
 
 #### Initializers <a name="Initializers" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStepConstants.Initializer"></a>
@@ -17839,6 +17916,14 @@ public process(x: any, context: IResolveContext): any
 - *Type:* aws-cdk-lib.IResolveContext
 
 ---
+
+
+### IStackPredicate <a name="IStackPredicate" id="@michanto/cdk-orchestration.IStackPredicate"></a>
+
+- *Implemented By:* <a href="#@michanto/cdk-orchestration.IStackPredicate">IStackPredicate</a>
+
+Typed predicate for use with StackUtilities.
+
 
 
 ### IStopCondition <a name="IStopCondition" id="@michanto/cdk-orchestration.IStopCondition"></a>
