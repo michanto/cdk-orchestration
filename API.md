@@ -13850,6 +13850,31 @@ Optional predicate.
 
 ---
 
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.CfnElementUtilities.isCfnResource">isCfnResource</a></code> | Better version of CfnResource.isCfnResource, because it first checks to see if the construct is a CfnElement, which is missing in the CfnResource.isCfnResource implementation. |
+
+---
+
+##### `isCfnResource` <a name="isCfnResource" id="@michanto/cdk-orchestration.CfnElementUtilities.isCfnResource"></a>
+
+```typescript
+import { CfnElementUtilities } from '@michanto/cdk-orchestration'
+
+CfnElementUtilities.isCfnResource(x: IConstruct)
+```
+
+Better version of CfnResource.isCfnResource, because it first checks to see if the construct is a CfnElement, which is missing in the CfnResource.isCfnResource implementation.
+
+###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.CfnElementUtilities.isCfnResource.parameter.x"></a>
+
+- *Type:* constructs.IConstruct
+
+Construct to test.
+
+---
 
 
 
@@ -15423,7 +15448,7 @@ Optional predicate.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.isCustomResource">isCustomResource</a></code> | Checks if `elt` if a L1 CustomResource construct (CfnResource). |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.isCustomResource">isCustomResource</a></code> | Checks if `elt` is a L1 CustomResource construct (CfnResource). |
 
 ---
 
@@ -15435,10 +15460,10 @@ import { custom_resources } from '@michanto/cdk-orchestration'
 custom_resources.CustomResourceUtilities.isCustomResource(elt: Construct)
 ```
 
-Checks if `elt` if a L1 CustomResource construct (CfnResource).
+Checks if `elt` is a L1 CustomResource construct (CfnResource).
 
 Test is that elt is a CfnResource with a resourceType of the form
-'Custom::XXX' or 'AWS::CloudFormation::CustomResource'.
+`Custom::XXX` or `AWS::CloudFormation::CustomResource`.
 
 ###### `elt`<sup>Required</sup> <a name="elt" id="@michanto/cdk-orchestration.custom_resources.CustomResourceUtilities.isCustomResource.parameter.elt"></a>
 
