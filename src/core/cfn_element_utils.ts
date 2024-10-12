@@ -1,5 +1,5 @@
 import { CfnElement, CfnResource, Stack } from 'aws-cdk-lib';
-import { Construct } from 'constructs';
+import { Construct, IConstruct } from 'constructs';
 import { ConstructTreeSearch } from './construct_tree_search';
 
 /**
@@ -18,6 +18,18 @@ export interface ICfnResourcePredicate {
 
 /** Find L1 constructs (CfnElements and CfnResources) in the construct tree. */
 export class CfnElementUtilities {
+  /**
+   * Better version of CfnResource.isCfnResource, because it first checks to see if
+   * the construct is a CfnElement, which is missing in the CfnResource.isCfnResource
+   * implementation.
+   *
+   * @param x Construct to test.
+   * @returns
+   */
+  static isCfnResource(x: IConstruct): x is CfnResource {
+    return CfnElement.isCfnElement(x) && CfnResource.isCfnResource(x);
+  }
+
   /**
    * Returns a list of all L1 construct descendents of the scope.
    * @param scope Scope for the search.
@@ -39,7 +51,7 @@ export class CfnElementUtilities {
    */
   cfnResources(scope: Construct, resourceType?: string, predicate?: ICfnResourcePredicate) {
     let treeSearch = ConstructTreeSearch.for(
-      x => CfnElement.isCfnElement(x) && CfnResource.isCfnResource(x) &&
+      x => CfnElementUtilities.isCfnResource(x) &&
         (resourceType == undefined || resourceType == x.cfnResourceType) &&
         (predicate == undefined || predicate(x)),
     );

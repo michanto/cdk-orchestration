@@ -1,19 +1,18 @@
-import { CfnElement, CfnResource, Stack } from 'aws-cdk-lib';
+import { CfnResource, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { ICfnResourcePredicate, ConstructTreeSearch } from '../core';
+import { ICfnResourcePredicate, ConstructTreeSearch, CfnElementUtilities } from '../core';
 
 /** Find CustomResource L1s (CfnResources) in the construct tree. */
 export class CustomResourceUtilities {
   /**
-   * Checks if `elt` if a L1 CustomResource construct (CfnResource).
+   * Checks if `elt` is a L1 CustomResource construct (CfnResource).
    * Test is that elt is a CfnResource with a resourceType of the form
-   * 'Custom::XXX' or 'AWS::CloudFormation::CustomResource'.
+   * `Custom::XXX` or `AWS::CloudFormation::CustomResource`.
    *
    * @param elt Construct to test.
    */
   static isCustomResource(elt: Construct): boolean {
-    return CfnElement.isCfnElement(elt) // isCfnResource isn't good enough by itself.
-      && CfnResource.isCfnResource(elt)
+    return CfnElementUtilities.isCfnResource(elt)
       && (elt.cfnResourceType.startsWith('Custom::') ||
           elt.cfnResourceType == 'AWS::CloudFormation::CustomResource');
   }
