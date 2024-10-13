@@ -9,7 +9,11 @@ import { BUILD_TIME } from '../core';
 export class RunResourceAlways extends Construct {
   constructor(scope: Construct, id: string = 'RunResourceAlways') {
     super(scope, id);
-    let resource = new CustomResourceUtilities().findCustomResource(scope);
-    resource.addPropertyOverride('salt', BUILD_TIME);
+    this.target.addPropertyOverride('salt', BUILD_TIME);
+  }
+
+  get target() {
+    let scope = this.node.scope!;
+    return new CustomResourceUtilities().findCustomResource(scope);
   }
 }

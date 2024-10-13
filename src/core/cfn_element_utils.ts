@@ -23,6 +23,8 @@ export class CfnElementUtilities {
    * the construct is a CfnElement, which is missing in the CfnResource.isCfnResource
    * implementation.
    *
+   * See https://github.com/aws/aws-cdk/issues/30473 for details.
+   *
    * @param x Construct to test.
    * @returns
    */
@@ -59,13 +61,27 @@ export class CfnElementUtilities {
   }
 
   /**
-   * Finds a single CfnResource, with an optional type.  Throws if there are more (or fewer) than one.
+   * Finds a single CfnResource, with an optional type and predicate.
+   * - If the defaultChild is a matching CfnResource, that is returned.
+   * - Otherwise checks for a single CfnResource uner the scope and throws if:
+   *   - There aren't any.
+   *   - There is more than one.
    *
    * @param scope Scope for the search.
    * @param resourceType Type of resource to return.
    * @param predicate Optional predicate.
    */
   findCfnResource(scope: Construct, resourceType?: string, predicate?: ICfnResourcePredicate) {
+    // Generally prefer to return the defaultChild.
+    let defaultChild = scope.node.defaultChild;
+    if (defaultChild
+        && CfnElementUtilities.isCfnResource(defaultChild)
+        && (resourceType == undefined || resourceType == defaultChild.cfnResourceType)
+        && (predicate == undefined || predicate(defaultChild))
+    ) {
+      return defaultChild;
+    }
+
     let searchResults = this.cfnResources(scope, resourceType, predicate);
     if (searchResults.length != 1) {
       throw new Error(`Expected to find one (1) CfnResource of type ${resourceType ?? '"any"'} found ${searchResults.length}.`);

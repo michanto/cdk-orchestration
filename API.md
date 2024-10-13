@@ -6304,6 +6304,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlways.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlways.property.target">target</a></code> | <code>aws-cdk-lib.CfnResource</code> | *No description.* |
 
 ---
 
@@ -6316,6 +6317,16 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `target`<sup>Required</sup> <a name="target" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlways.property.target"></a>
+
+```typescript
+public readonly target: CfnResource;
+```
+
+- *Type:* aws-cdk-lib.CfnResource
 
 ---
 
@@ -13730,7 +13741,7 @@ new CfnElementUtilities()
 | <code><a href="#@michanto/cdk-orchestration.CfnElementUtilities.cfnElementHost">cfnElementHost</a></code> | Returns the antecedent cnfElement in the tree  (if any). |
 | <code><a href="#@michanto/cdk-orchestration.CfnElementUtilities.cfnElements">cfnElements</a></code> | Returns a list of all L1 construct descendents of the scope. |
 | <code><a href="#@michanto/cdk-orchestration.CfnElementUtilities.cfnResources">cfnResources</a></code> | Returns a list of all CfnResource construct descendents of the scope. |
-| <code><a href="#@michanto/cdk-orchestration.CfnElementUtilities.findCfnResource">findCfnResource</a></code> | Finds a single CfnResource, with an optional type. |
+| <code><a href="#@michanto/cdk-orchestration.CfnElementUtilities.findCfnResource">findCfnResource</a></code> | Finds a single CfnResource, with an optional type and predicate. |
 
 ---
 
@@ -13822,9 +13833,12 @@ Optional predicate.
 public findCfnResource(scope: Construct, resourceType?: string, predicate?: ICfnResourcePredicate): CfnResource
 ```
 
-Finds a single CfnResource, with an optional type.
+Finds a single CfnResource, with an optional type and predicate.
 
-Throws if there are more (or fewer) than one.
+If the defaultChild is a matching CfnResource, that is returned.
+- Otherwise checks for a single CfnResource uner the scope and throws if:
+  - There aren't any.
+  - There is more than one.
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.CfnElementUtilities.findCfnResource.parameter.scope"></a>
 
@@ -13867,6 +13881,8 @@ CfnElementUtilities.isCfnResource(x: IConstruct)
 ```
 
 Better version of CfnResource.isCfnResource, because it first checks to see if the construct is a CfnElement, which is missing in the CfnResource.isCfnResource implementation.
+
+See https://github.com/aws/aws-cdk/issues/30473 for details.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.CfnElementUtilities.isCfnResource.parameter.x"></a>
 
