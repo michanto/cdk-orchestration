@@ -23,6 +23,8 @@ export class CfnElementUtilities {
    * the construct is a CfnElement, which is missing in the CfnResource.isCfnResource
    * implementation.
    *
+   * See https://github.com/aws/aws-cdk/issues/30473 for details.
+   *
    * @param x Construct to test.
    * @returns
    */

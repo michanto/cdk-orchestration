@@ -6221,13 +6221,14 @@ Throws if it cannot find one custom resource under target.
 ```typescript
 import { custom_resources } from '@michanto/cdk-orchestration'
 
-new custom_resources.RunResourceAlways(scope: Construct, id?: string)
+new custom_resources.RunResourceAlways(scope: Construct, id?: string, props?: RunResourceAlwaysProperties)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlways.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlways.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlways.Initializer.parameter.props">props</a></code> | <code>@michanto/cdk-orchestration.custom_resources.RunResourceAlwaysProperties</code> | *No description.* |
 
 ---
 
@@ -6240,6 +6241,12 @@ new custom_resources.RunResourceAlways(scope: Construct, id?: string)
 ##### `id`<sup>Optional</sup> <a name="id" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlways.Initializer.parameter.id"></a>
 
 - *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlways.Initializer.parameter.props"></a>
+
+- *Type:* @michanto/cdk-orchestration.custom_resources.RunResourceAlwaysProperties
 
 ---
 
@@ -6304,6 +6311,8 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlways.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlways.property.target">target</a></code> | <code>aws-cdk-lib.CfnResource</code> | *No description.* |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlways.property.props">props</a></code> | <code>@michanto/cdk-orchestration.custom_resources.RunResourceAlwaysProperties</code> | *No description.* |
 
 ---
 
@@ -6316,6 +6325,26 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `target`<sup>Required</sup> <a name="target" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlways.property.target"></a>
+
+```typescript
+public readonly target: CfnResource;
+```
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlways.property.props"></a>
+
+```typescript
+public readonly props: RunResourceAlwaysProperties;
+```
+
+- *Type:* @michanto/cdk-orchestration.custom_resources.RunResourceAlwaysProperties
 
 ---
 
@@ -12466,6 +12495,55 @@ Resource type to transform.
 
 ---
 
+### RunResourceAlwaysProperties <a name="RunResourceAlwaysProperties" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlwaysProperties"></a>
+
+Optional properties for AddSalt construct.
+
+#### Initializer <a name="Initializer" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlwaysProperties.Initializer"></a>
+
+```typescript
+import { custom_resources } from '@michanto/cdk-orchestration'
+
+const runResourceAlwaysProperties: custom_resources.RunResourceAlwaysProperties = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlwaysProperties.property.predicate">predicate</a></code> | <code><a href="#@michanto/cdk-orchestration.ICfnResourcePredicate">ICfnResourcePredicate</a></code> | Predicate to use when searching for the custom resource. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.RunResourceAlwaysProperties.property.resourceType">resourceType</a></code> | <code>string</code> | Custom Resource type to add salt to. |
+
+---
+
+##### `predicate`<sup>Optional</sup> <a name="predicate" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlwaysProperties.property.predicate"></a>
+
+```typescript
+public readonly predicate: ICfnResourcePredicate;
+```
+
+- *Type:* <a href="#@michanto/cdk-orchestration.ICfnResourcePredicate">ICfnResourcePredicate</a>
+
+Predicate to use when searching for the custom resource.
+
+Optional.
+
+---
+
+##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="@michanto/cdk-orchestration.custom_resources.RunResourceAlwaysProperties.property.resourceType"></a>
+
+```typescript
+public readonly resourceType: string;
+```
+
+- *Type:* string
+
+Custom Resource type to add salt to.
+
+Optional.
+
+---
+
 ### S3FileMetadataProps <a name="S3FileMetadataProps" id="@michanto/cdk-orchestration.orchestration.S3FileMetadataProps"></a>
 
 Properties for S3FileMetadata.
@@ -13867,6 +13945,8 @@ CfnElementUtilities.isCfnResource(x: IConstruct)
 ```
 
 Better version of CfnResource.isCfnResource, because it first checks to see if the construct is a CfnElement, which is missing in the CfnResource.isCfnResource implementation.
+
+See https://github.com/aws/aws-cdk/issues/30473 for details.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@michanto/cdk-orchestration.CfnElementUtilities.isCfnResource.parameter.x"></a>
 
