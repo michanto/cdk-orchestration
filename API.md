@@ -1373,7 +1373,7 @@ Otherwise, return either an order under the transform host of this
 
 ### EncodeResource <a name="EncodeResource" id="@michanto/cdk-orchestration.custom_resources.EncodeResource"></a>
 
-This transform base64-encodes any CustomResource it is applied to by moving all properties (other than ServiceToken) to EncodedProperties and applying {@link Fn.base64}. This resource will encode it's properties as a post-resolve step, It is meant to be used on CfnCustomResource (or any CfnResource with a ServiceToken), as it does not encode the ServiceToken.  If there is no ServiceToken, the resource is not encoded.
+This transform base64-encodes any L1, L2 or L3 CustomResource it is applied to by moving all properties (other than those listed in SERVICE_PROPERTIES) to EncodedProperties and applying {@link Fn.base64}. This resource will encode it's properties as a post-resolve step, It is meant to be used on CfnCustomResource (or any CfnResource with a ServiceToken), as it does not encode the ServiceToken.  If there is no ServiceToken, the resource is not encoded.
 
 Why encode custom resources?  Because CloudFormation will turn numbers and booleans
 into strings when it calls a custom resource Lambda, and that is not always desirable.
@@ -1568,6 +1568,34 @@ multiple custom resources under the scope.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.property.SERVICE_PROPERTIES">SERVICE_PROPERTIES</a></code> | <code>string[]</code> | Service properties are used by CloudFormation and thus should not be encoded. |
+
+---
+
+##### `SERVICE_PROPERTIES`<sup>Required</sup> <a name="SERVICE_PROPERTIES" id="@michanto/cdk-orchestration.custom_resources.EncodeResource.property.SERVICE_PROPERTIES"></a>
+
+```typescript
+public readonly SERVICE_PROPERTIES: string[];
+```
+
+- *Type:* string[]
+
+Service properties are used by CloudFormation and thus should not be encoded.
+
+For now,
+that list means ServiceToken and ServiceTimeout.
+
+This future-proofs this transform against another service property being added in the future.
+Example:
+```
+EncodeResource.SERVICE_PROPERTIES.push('ServiceProperty')
+```
+
+---
 
 ### FileReader <a name="FileReader" id="@michanto/cdk-orchestration.transforms.FileReader"></a>
 
@@ -13836,7 +13864,7 @@ public findCfnResource(scope: Construct, resourceType?: string, predicate?: ICfn
 Finds a single CfnResource, with an optional type and predicate.
 
 If the defaultChild is a matching CfnResource, that is returned.
-- Otherwise checks for a single CfnResource uner the scope and throws if:
+- Otherwise checks for a single matching CfnResource under the scope and throws if:
   - There aren't any.
   - There is more than one.
 
