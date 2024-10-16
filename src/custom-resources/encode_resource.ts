@@ -75,7 +75,7 @@ export class EncodeResource extends Transform {
         continue;
       }
       let serviceProperties: any = {};
-      for (let serviceProp in EncodeResource.SERVICE_PROPERTIES) {
+      for (let serviceProp of EncodeResource.SERVICE_PROPERTIES) {
         if (res.Properties[serviceProp]) {
           serviceProperties[serviceProp] = res.Properties[serviceProp];
           delete res.Properties[serviceProp];
