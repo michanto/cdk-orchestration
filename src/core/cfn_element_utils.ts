@@ -63,7 +63,7 @@ export class CfnElementUtilities {
   /**
    * Finds a single CfnResource, with an optional type and predicate.
    * - If the defaultChild is a matching CfnResource, that is returned.
-   * - Otherwise checks for a single CfnResource uner the scope and throws if:
+   * - Otherwise checks for a single matching CfnResource under the scope and throws if:
    *   - There aren't any.
    *   - There is more than one.
    *

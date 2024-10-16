@@ -42,6 +42,7 @@ describe('Custom Resource Utilities tests.', () => {
               }),
             },
             ServiceToken: expect.anything(),
+            ServiceTimeout: expect.anything(),
           },
         },
       },
