@@ -32,6 +32,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   releasableCommits: ReleasableCommits.ofType(['feat', 'fix', 'revert', 'Revert']),
   gitpod: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
+  jestOptions: {
+    jestConfig: {
+      maxWorkers: 4,
+    },
+  },
   /*
   publishToPypi: {
     distName: 'cdk-orchestration',
