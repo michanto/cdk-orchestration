@@ -1848,7 +1848,9 @@ new aws_lambda_nodejs.InlineNodejsFunction(scope: Construct, id: string, props: 
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.considerWarningOnInvokeFunctionPermissions">considerWarningOnInvokeFunctionPermissions</a></code> | A warning will be added to functions under the following conditions: - permissions that include `lambda:InvokeFunction` are added to the unqualified function. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvoke">grantInvoke</a></code> | Grant the given identity permissions to invoke this Lambda. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeCompositePrincipal">grantInvokeCompositePrincipal</a></code> | Grant multiple principals the ability to invoke this Lambda via CompositePrincipal. |
+| <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeLatestVersion">grantInvokeLatestVersion</a></code> | Grant the given identity permissions to invoke the $LATEST version or unqualified version of this Lambda. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeUrl">grantInvokeUrl</a></code> | Grant the given identity permissions to invoke this Lambda Function URL. |
+| <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeVersion">grantInvokeVersion</a></code> | Grant the given identity permissions to invoke the given version of this Lambda. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metric">metric</a></code> | Return the given named metric for this Function. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricDuration">metricDuration</a></code> | How long execution of this Lambda takes. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.metricErrors">metricErrors</a></code> | How many invocations of this Lambda fail. |
@@ -2055,6 +2057,20 @@ Grant multiple principals the ability to invoke this Lambda via CompositePrincip
 
 ---
 
+##### `grantInvokeLatestVersion` <a name="grantInvokeLatestVersion" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeLatestVersion"></a>
+
+```typescript
+public grantInvokeLatestVersion(grantee: IGrantable): Grant
+```
+
+Grant the given identity permissions to invoke the $LATEST version or unqualified version of this Lambda.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeLatestVersion.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
 ##### `grantInvokeUrl` <a name="grantInvokeUrl" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeUrl"></a>
 
 ```typescript
@@ -2066,6 +2082,26 @@ Grant the given identity permissions to invoke this Lambda Function URL.
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeUrl.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+##### `grantInvokeVersion` <a name="grantInvokeVersion" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeVersion"></a>
+
+```typescript
+public grantInvokeVersion(grantee: IGrantable, version: IVersion): Grant
+```
+
+Grant the given identity permissions to invoke the given version of this Lambda.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeVersion.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `version`<sup>Required</sup> <a name="version" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.grantInvokeVersion.parameter.version"></a>
+
+- *Type:* aws-cdk-lib.aws_lambda.IVersion
 
 ---
 
@@ -2230,14 +2266,14 @@ Environment variable options.
 ##### `addLayers` <a name="addLayers" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addLayers"></a>
 
 ```typescript
-public addLayers(layers: ILayerVersion): void
+public addLayers(layers: ...ILayerVersion[]): void
 ```
 
 Adds one or more Lambda Layers to this Lambda function.
 
 ###### `layers`<sup>Required</sup> <a name="layers" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addLayers.parameter.layers"></a>
 
-- *Type:* aws-cdk-lib.aws_lambda.ILayerVersion
+- *Type:* ...aws-cdk-lib.aws_lambda.ILayerVersion[]
 
 the layers to be added.
 
@@ -3882,7 +3918,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -3892,7 +3928,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -3901,7 +3937,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -3911,7 +3947,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -4388,7 +4424,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.LambdaTask.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -4398,7 +4434,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.LambdaTask.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -4407,7 +4443,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.LambdaTask.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -4417,7 +4453,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.LambdaTask.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -6442,7 +6478,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -6452,7 +6488,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -6461,7 +6497,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -6471,7 +6507,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -6713,7 +6749,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.S3FileReader.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -6723,7 +6759,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileReader.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -6732,7 +6768,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.S3FileReader.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -6742,7 +6778,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileReader.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -6977,7 +7013,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.S3FileResource.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -6987,7 +7023,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileResource.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -6996,7 +7032,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.S3FileResource.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -7006,7 +7042,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileResource.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -7594,7 +7630,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -7604,7 +7640,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -7613,7 +7649,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -7623,7 +7659,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -7875,7 +7911,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -7885,7 +7921,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -7894,7 +7930,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -7904,7 +7940,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -8902,7 +8938,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.custom_resources.Task.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -8912,7 +8948,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.custom_resources.Task.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -8921,7 +8957,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.custom_resources.Task.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -8931,7 +8967,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.custom_resources.Task.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -10684,9 +10720,11 @@ const inlineNodejsFunctionProps: aws_lambda_nodejs.InlineNodejsFunctionProps = {
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.onSuccess">onSuccess</a></code> | <code>aws-cdk-lib.aws_lambda.IDestination</code> | The destination for successful invocations. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.retryAttempts">retryAttempts</a></code> | <code>number</code> | The maximum number of times to retry when the function returns an error. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.adotInstrumentation">adotInstrumentation</a></code> | <code>aws-cdk-lib.aws_lambda.AdotInstrumentationConfig</code> | Specify the configuration of AWS Distro for OpenTelemetry (ADOT) instrumentation. |
-| <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.allowAllOutbound">allowAllOutbound</a></code> | <code>boolean</code> | Whether to allow the Lambda to send all network traffic. |
+| <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.allowAllIpv6Outbound">allowAllIpv6Outbound</a></code> | <code>boolean</code> | Whether to allow the Lambda to send all ipv6 network traffic. |
+| <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.allowAllOutbound">allowAllOutbound</a></code> | <code>boolean</code> | Whether to allow the Lambda to send all network traffic (except ipv6). |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.allowPublicSubnet">allowPublicSubnet</a></code> | <code>boolean</code> | Lambda Functions in a public subnet can NOT access the internet. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.applicationLogLevel">applicationLogLevel</a></code> | <code>string</code> | Sets the application log level for the function. |
+| <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.applicationLogLevelV2">applicationLogLevelV2</a></code> | <code>aws-cdk-lib.aws_lambda.ApplicationLogLevel</code> | Sets the application log level for the function. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.architecture">architecture</a></code> | <code>aws-cdk-lib.aws_lambda.Architecture</code> | The system architectures compatible with this lambda function. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.codeSigningConfig">codeSigningConfig</a></code> | <code>aws-cdk-lib.aws_lambda.ICodeSigningConfig</code> | Code signing config associated with this function. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.currentVersionOptions">currentVersionOptions</a></code> | <code>aws-cdk-lib.aws_lambda.VersionOptions</code> | Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method. |
@@ -10702,9 +10740,11 @@ const inlineNodejsFunctionProps: aws_lambda_nodejs.InlineNodejsFunctionProps = {
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.functionName">functionName</a></code> | <code>string</code> | A name for the function. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.initialPolicy">initialPolicy</a></code> | <code>aws-cdk-lib.aws_iam.PolicyStatement[]</code> | Initial policy statements to add to the created Lambda Role. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.insightsVersion">insightsVersion</a></code> | <code>aws-cdk-lib.aws_lambda.LambdaInsightsVersion</code> | Specify the version of CloudWatch Lambda insights to use for monitoring. |
+| <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.ipv6AllowedForDualStack">ipv6AllowedForDualStack</a></code> | <code>boolean</code> | Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.layers">layers</a></code> | <code>aws-cdk-lib.aws_lambda.ILayerVersion[]</code> | A list of layers to add to the function's execution environment. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logFormat">logFormat</a></code> | <code>string</code> | Sets the logFormat for the function. |
-| <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | Sets the log group name for the function. |
+| <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.loggingFormat">loggingFormat</a></code> | <code>aws-cdk-lib.aws_lambda.LoggingFormat</code> | Sets the loggingFormat for the function. |
+| <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The log group the function sends logs to. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetention">logRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | The number of days log events are kept in CloudWatch Logs. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetentionRetryOptions">logRetentionRetryOptions</a></code> | <code>aws-cdk-lib.aws_lambda.LogRetentionRetryOptions</code> | When log retention is specified, a custom resource attempts to create the CloudWatch log group. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetentionRole">logRetentionRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The IAM role for the Lambda function associated with the custom resource that sets the retention policy. |
@@ -10712,12 +10752,14 @@ const inlineNodejsFunctionProps: aws_lambda_nodejs.InlineNodejsFunctionProps = {
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.paramsAndSecrets">paramsAndSecrets</a></code> | <code>aws-cdk-lib.aws_lambda.ParamsAndSecretsLayerVersion</code> | Specify the configuration of Parameters and Secrets Extension. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.profiling">profiling</a></code> | <code>boolean</code> | Enable profiling. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.profilingGroup">profilingGroup</a></code> | <code>aws-cdk-lib.aws_codeguruprofiler.IProfilingGroup</code> | Profiling Group. |
+| <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.recursiveLoop">recursiveLoop</a></code> | <code>aws-cdk-lib.aws_lambda.RecursiveLoop</code> | Sets the Recursive Loop Protection for Lambda Function. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.reservedConcurrentExecutions">reservedConcurrentExecutions</a></code> | <code>number</code> | The maximum of concurrent executions you want to reserve for the function. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Lambda execution role. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.runtimeManagementMode">runtimeManagementMode</a></code> | <code>aws-cdk-lib.aws_lambda.RuntimeManagementMode</code> | Sets the runtime management configuration for a function's version. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | The list of security groups to associate with the Lambda's network interfaces. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.snapStart">snapStart</a></code> | <code>aws-cdk-lib.aws_lambda.SnapStartConf</code> | Enable SnapStart for Lambda Function. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.systemLogLevel">systemLogLevel</a></code> | <code>string</code> | Sets the system log level for the function. |
+| <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.systemLogLevelV2">systemLogLevelV2</a></code> | <code>aws-cdk-lib.aws_lambda.SystemLogLevel</code> | Sets the system log level for the function. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The function execution time (in seconds) after which Lambda terminates the function. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.tracing">tracing</a></code> | <code>aws-cdk-lib.aws_lambda.Tracing</code> | Enable AWS X-Ray Tracing for Lambda Function. |
 | <code><a href="#@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | VPC network to place Lambda network interfaces. |
@@ -10803,6 +10845,26 @@ Specify the configuration of AWS Distro for OpenTelemetry (ADOT) instrumentation
 
 ---
 
+##### `allowAllIpv6Outbound`<sup>Optional</sup> <a name="allowAllIpv6Outbound" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.allowAllIpv6Outbound"></a>
+
+```typescript
+public readonly allowAllIpv6Outbound: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether to allow the Lambda to send all ipv6 network traffic.
+
+If set to true, there will only be a single egress rule which allows all
+outbound ipv6 traffic. If set to false, you must individually add traffic rules to allow the
+Lambda to connect to network targets using ipv6.
+
+Do not specify this property if the `securityGroups` or `securityGroup` property is set.
+Instead, configure `allowAllIpv6Outbound` directly on the security group.
+
+---
+
 ##### `allowAllOutbound`<sup>Optional</sup> <a name="allowAllOutbound" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.allowAllOutbound"></a>
 
 ```typescript
@@ -10812,7 +10874,7 @@ public readonly allowAllOutbound: boolean;
 - *Type:* boolean
 - *Default:* true
 
-Whether to allow the Lambda to send all network traffic.
+Whether to allow the Lambda to send all network traffic (except ipv6).
 
 If set to false, you must individually add traffic rules to allow the
 Lambda to connect to network targets.
@@ -10839,14 +10901,29 @@ Use this property to acknowledge this limitation and still place the function in
 
 ---
 
-##### `applicationLogLevel`<sup>Optional</sup> <a name="applicationLogLevel" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.applicationLogLevel"></a>
+##### ~~`applicationLogLevel`~~<sup>Optional</sup> <a name="applicationLogLevel" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.applicationLogLevel"></a>
+
+- *Deprecated:* Use `applicationLogLevelV2` as a property instead.
 
 ```typescript
 public readonly applicationLogLevel: string;
 ```
 
 - *Type:* string
-- *Default:* INFO
+- *Default:* "INFO"
+
+Sets the application log level for the function.
+
+---
+
+##### `applicationLogLevelV2`<sup>Optional</sup> <a name="applicationLogLevelV2" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.applicationLogLevelV2"></a>
+
+```typescript
+public readonly applicationLogLevelV2: ApplicationLogLevel;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.ApplicationLogLevel
+- *Default:* ApplicationLogLevel.INFO
 
 Sets the application log level for the function.
 
@@ -11065,6 +11142,21 @@ Specify the version of CloudWatch Lambda insights to use for monitoring.
 
 ---
 
+##### `ipv6AllowedForDualStack`<sup>Optional</sup> <a name="ipv6AllowedForDualStack" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.ipv6AllowedForDualStack"></a>
+
+```typescript
+public readonly ipv6AllowedForDualStack: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
+
+Only used if 'vpc' is supplied.
+
+---
+
 ##### `layers`<sup>Optional</sup> <a name="layers" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.layers"></a>
 
 ```typescript
@@ -11082,16 +11174,31 @@ that can be used by multiple functions.
 
 ---
 
-##### `logFormat`<sup>Optional</sup> <a name="logFormat" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logFormat"></a>
+##### ~~`logFormat`~~<sup>Optional</sup> <a name="logFormat" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logFormat"></a>
+
+- *Deprecated:* Use `loggingFormat` as a property instead.
 
 ```typescript
 public readonly logFormat: string;
 ```
 
 - *Type:* string
-- *Default:* Text format
+- *Default:* "Text"
 
 Sets the logFormat for the function.
+
+---
+
+##### `loggingFormat`<sup>Optional</sup> <a name="loggingFormat" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.loggingFormat"></a>
+
+```typescript
+public readonly loggingFormat: LoggingFormat;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.LoggingFormat
+- *Default:* LoggingFormat.TEXT
+
+Sets the loggingFormat for the function.
 
 ---
 
@@ -11102,9 +11209,17 @@ public readonly logGroup: ILogGroup;
 ```
 
 - *Type:* aws-cdk-lib.aws_logs.ILogGroup
-- *Default:* `/aws/lambda/${this.functionName}` default log group name created by Lambda
+- *Default:* `/aws/lambda/${this.functionName}` - default log group created by Lambda
 
-Sets the log group name for the function.
+The log group the function sends logs to.
+
+By default, Lambda functions send logs to an automatically created default log group named /aws/lambda/\<function name\>.
+However you cannot change the properties of this auto-created log group using the AWS CDK, e.g. you cannot set a different log retention.
+
+Use the `logGroup` property to create a fully customizable LogGroup ahead of time, and instruct the Lambda function to send logs to it.
+
+Providing a user-controlled log group was rolled out to commercial regions on 2023-11-16.
+If you are deploying to another type of region, please check regional availability first.
 
 ---
 
@@ -11123,6 +11238,20 @@ When updating
 this property, unsetting it doesn't remove the log retention policy. To
 remove the retention policy, set the value to `INFINITE`.
 
+This is a legacy API and we strongly recommend you move away from it if you can.
+Instead create a fully customizable log group with `logs.LogGroup` and use the `logGroup` property
+to instruct the Lambda function to send logs to it.
+Migrating from `logRetention` to `logGroup` will cause the name of the log group to change.
+Users and code and referencing the name verbatim will have to adjust.
+
+In AWS CDK code, you can access the log group name directly from the LogGroup construct:
+```ts
+import * as logs from 'aws-cdk-lib/aws-logs';
+
+declare const myLogGroup: logs.LogGroup;
+myLogGroup.logGroupName;
+```
+
 ---
 
 ##### `logRetentionRetryOptions`<sup>Optional</sup> <a name="logRetentionRetryOptions" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetentionRetryOptions"></a>
@@ -11138,6 +11267,9 @@ When log retention is specified, a custom resource attempts to create the CloudW
 
 These options control the retry policy when interacting with CloudWatch APIs.
 
+This is a legacy API and we strongly recommend you migrate to `logGroup` if you can.
+`logGroup` allows you to create a fully customizable log group and instruct the Lambda function to send logs to it.
+
 ---
 
 ##### `logRetentionRole`<sup>Optional</sup> <a name="logRetentionRole" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.logRetentionRole"></a>
@@ -11150,6 +11282,9 @@ public readonly logRetentionRole: IRole;
 - *Default:* A new role is created.
 
 The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
+
+This is a legacy API and we strongly recommend you migrate to `logGroup` if you can.
+`logGroup` allows you to create a fully customizable log group and instruct the Lambda function to send logs to it.
 
 ---
 
@@ -11212,6 +11347,21 @@ public readonly profilingGroup: IProfilingGroup;
 Profiling Group.
 
 > [https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html)
+
+---
+
+##### `recursiveLoop`<sup>Optional</sup> <a name="recursiveLoop" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.recursiveLoop"></a>
+
+```typescript
+public readonly recursiveLoop: RecursiveLoop;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.RecursiveLoop
+- *Default:* RecursiveLoop.Terminate
+
+Sets the Recursive Loop Protection for Lambda Function.
+
+It lets Lambda detect and terminate unintended recusrive loops.
 
 ---
 
@@ -11296,14 +11446,29 @@ SnapStart is currently supported only for Java 11, 17 runtime
 
 ---
 
-##### `systemLogLevel`<sup>Optional</sup> <a name="systemLogLevel" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.systemLogLevel"></a>
+##### ~~`systemLogLevel`~~<sup>Optional</sup> <a name="systemLogLevel" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.systemLogLevel"></a>
+
+- *Deprecated:* Use `systemLogLevelV2` as a property instead.
 
 ```typescript
 public readonly systemLogLevel: string;
 ```
 
 - *Type:* string
-- *Default:* INFO
+- *Default:* "INFO"
+
+Sets the system log level for the function.
+
+---
+
+##### `systemLogLevelV2`<sup>Optional</sup> <a name="systemLogLevelV2" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunctionProps.property.systemLogLevelV2"></a>
+
+```typescript
+public readonly systemLogLevelV2: SystemLogLevel;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.SystemLogLevel
+- *Default:* SystemLogLevel.INFO
 
 Sets the system log level for the function.
 
@@ -11565,7 +11730,9 @@ const lambdaCustomResourceProps: custom_resources.LambdaCustomResourceProps = { 
 | --- | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.functionName">functionName</a></code> | <code>string</code> | A name for the singleton Lambda function implementing this custom resource. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.installLatestAwsSdk">installLatestAwsSdk</a></code> | <code>boolean</code> | Whether to install the latest AWS SDK v2. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The Log Group used for logging of events emitted by the custom resource's lambda function. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.logRetention">logRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | The number of days log events of the singleton Lambda function implementing this custom resource are kept in CloudWatch Logs. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.memorySize">memorySize</a></code> | <code>number</code> | The memory size for the singleton Lambda function implementing this custom resource. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.onCreate">onCreate</a></code> | <code>aws-cdk-lib.custom_resources.AwsSdkCall</code> | The AWS SDK call to make when the resource is created. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.onDelete">onDelete</a></code> | <code>aws-cdk-lib.custom_resources.AwsSdkCall</code> | The AWS SDK call to make when the resource is deleted. |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.onUpdate">onUpdate</a></code> | <code>aws-cdk-lib.custom_resources.AwsSdkCall</code> | The AWS SDK call to make when the resource is updated. |
@@ -11620,6 +11787,22 @@ The default can be controlled using the context key
 
 ---
 
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+- *Default:* a default log group created by AWS Lambda
+
+The Log Group used for logging of events emitted by the custom resource's lambda function.
+
+Providing a user-controlled log group was rolled out to commercial regions on 2023-11-16.
+If you are deploying to another type of region, please check regional availability first.
+
+---
+
 ##### `logRetention`<sup>Optional</sup> <a name="logRetention" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.logRetention"></a>
 
 ```typescript
@@ -11630,6 +11813,22 @@ public readonly logRetention: RetentionDays;
 - *Default:* logs.RetentionDays.INFINITE
 
 The number of days log events of the singleton Lambda function implementing this custom resource are kept in CloudWatch Logs.
+
+This is a legacy API and we strongly recommend you migrate to `logGroup` if you can.
+`logGroup` allows you to create a fully customizable log group and instruct the Lambda function to send logs to it.
+
+---
+
+##### `memorySize`<sup>Optional</sup> <a name="memorySize" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResourceProps.property.memorySize"></a>
+
+```typescript
+public readonly memorySize: number;
+```
+
+- *Type:* number
+- *Default:* 512 mega in case if installLatestAwsSdk is false.
+
+The memory size for the singleton Lambda function implementing this custom resource.
 
 ---
 
@@ -12266,9 +12465,11 @@ public readonly integrationPattern: IntegrationPattern;
 
 AWS Step Functions integrates with services directly in the Amazon States Language.
 
-You can control these AWS services using service integration patterns
+You can control these AWS services using service integration patterns.
 
-> [https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token)
+Depending on the AWS Service, the Service Integration Pattern availability will vary.
+
+> [https://docs.aws.amazon.com/step-functions/latest/dg/connect-supported-services.html](https://docs.aws.amazon.com/step-functions/latest/dg/connect-supported-services.html)
 
 ---
 
