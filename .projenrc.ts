@@ -2,14 +2,14 @@ import { ReleasableCommits, awscdk, github, javascript, release } from 'projen';
 import { NodePackageManager, TypeScriptModuleResolution } from 'projen/lib/javascript';
 
 // See how to publish https://github.com/mikejgray/ovos-skill-projen/blob/main/.projenrc.ts
-let cdkVersion = '2.120.0';
+let cdkVersion = '2.162.1';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Michael Antonio',
   authorAddress: '',
   cdkVersion: cdkVersion,
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.5.0',
-  constructsVersion: '10.3.0',
+  constructsVersion: '10.4.2',
   name: '@michanto/cdk-orchestration',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/michanto/cdk-orchestration.git',
