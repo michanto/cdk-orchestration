@@ -2230,14 +2230,14 @@ Environment variable options.
 ##### `addLayers` <a name="addLayers" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addLayers"></a>
 
 ```typescript
-public addLayers(layers: ILayerVersion): void
+public addLayers(layers: ...ILayerVersion[]): void
 ```
 
 Adds one or more Lambda Layers to this Lambda function.
 
 ###### `layers`<sup>Required</sup> <a name="layers" id="@michanto/cdk-orchestration.aws_lambda_nodejs.InlineNodejsFunction.addLayers.parameter.layers"></a>
 
-- *Type:* aws-cdk-lib.aws_lambda.ILayerVersion
+- *Type:* ...aws-cdk-lib.aws_lambda.ILayerVersion[]
 
 the layers to be added.
 
@@ -3882,7 +3882,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -3892,7 +3892,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -3901,7 +3901,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -3911,7 +3911,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.custom_resources.LambdaCustomResource.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -4388,7 +4388,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.LambdaTask.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -4398,7 +4398,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.LambdaTask.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -4407,7 +4407,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.LambdaTask.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -4417,7 +4417,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.LambdaTask.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -6442,7 +6442,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -6452,7 +6452,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -6461,7 +6461,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -6471,7 +6471,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileMetadata.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -6713,7 +6713,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.S3FileReader.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -6723,7 +6723,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileReader.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -6732,7 +6732,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.S3FileReader.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -6742,7 +6742,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileReader.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -6977,7 +6977,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.S3FileResource.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -6987,7 +6987,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileResource.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -6996,7 +6996,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.S3FileResource.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -7006,7 +7006,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.S3FileResource.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -7594,7 +7594,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -7604,7 +7604,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -7613,7 +7613,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -7623,7 +7623,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.StepFunctionTask.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -7875,7 +7875,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -7885,7 +7885,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -7894,7 +7894,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -7904,7 +7904,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.orchestration.StepFunctionTaskStep.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
@@ -8902,7 +8902,7 @@ Sets the deletion policy of the resource based on the removal policy specified.
 ##### `executeAfter` <a name="executeAfter" id="@michanto/cdk-orchestration.custom_resources.Task.executeAfter"></a>
 
 ```typescript
-public executeAfter(scopes: Construct): void
+public executeAfter(scopes: ...Construct[]): void
 ```
 
 Adds task dependencies.
@@ -8912,7 +8912,7 @@ scopes have been provisioned.
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.custom_resources.Task.executeAfter.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which this task will depend on.
 
@@ -8921,7 +8921,7 @@ A list of construct scopes which this task will depend on.
 ##### `executeBefore` <a name="executeBefore" id="@michanto/cdk-orchestration.custom_resources.Task.executeBefore"></a>
 
 ```typescript
-public executeBefore(scopes: Construct): void
+public executeBefore(scopes: ...Construct[]): void
 ```
 
 Adds task as a dependency on other constructs.
@@ -8931,7 +8931,7 @@ task will get executed *before* the given construct(s).
 
 ###### `scopes`<sup>Required</sup> <a name="scopes" id="@michanto/cdk-orchestration.custom_resources.Task.executeBefore.parameter.scopes"></a>
 
-- *Type:* constructs.Construct
+- *Type:* ...constructs.Construct[]
 
 A list of construct scopes which will take a dependency on this task.
 
