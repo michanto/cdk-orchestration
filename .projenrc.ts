@@ -34,7 +34,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   npmAccess: javascript.NpmAccess.PUBLIC,
   jestOptions: {
     jestConfig: {
-      maxWorkers: 4,
+      maxWorkers: 2,
     },
   },
   /*

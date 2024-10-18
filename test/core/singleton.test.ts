@@ -19,6 +19,12 @@ describe('Singleton tests', () => {
     expect(() => Singleton.create(construct, 'Function', (_s, id) => new EchoFunction(construct, id))).toThrow();
   });
 
+  test('Create throws when wrong id.', () => {
+    let stack = new Stack();
+    let construct = new Construct(stack, 'AConstruct');
+    expect(() => Singleton.create(construct, 'Function', (s, _id) => new EchoFunction(s, 'Echo'))).toThrow();
+  });
+
   test('Mark throws when not at stack level.', () => {
     let stack = new Stack();
     let parent = new Construct(stack, 'AConstruct');
