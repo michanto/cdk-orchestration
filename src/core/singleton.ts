@@ -28,7 +28,12 @@ export class Singleton {
       throw new Error(`Construct ${existing.node.path} is not a singleton.`);
     }
     this.mark(factory(stack, id));
-    return stack.node.tryFindChild(id);
+
+    const result = stack.node.tryFindChild(id);
+    if (!result) {
+      throw new Error(`Could not find singleton '${id}' in stack after calling factory.`);
+    }
+    return result;
   }
 
   /**

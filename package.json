@@ -100,7 +100,7 @@
   "version": "0.0.0",
   "jest": {
     "coverageProvider": "v8",
-    "maxWorkers": 4,
+    "maxWorkers": 2,
     "testMatch": [
       "<rootDir>/@(src|test)/**/*(*.)@(spec|test).ts?(x)",
       "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)",
