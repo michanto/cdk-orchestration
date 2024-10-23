@@ -58,7 +58,7 @@ export class EncodeResource extends Transform {
    * resource of the scope of this transform.  Throws if there are
    * multiple custom resources under the scope.
    */
-  get shimParent(): Construct {
+  get target(): Construct {
     // Note:  We know this.node.scope exists because of the constructor.
     return new CustomResourceUtilities().findCustomResource(this.node.scope!);
   }
