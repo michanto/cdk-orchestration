@@ -146,12 +146,12 @@ export abstract class PropertyTransform extends Transform {
   }
 
   constructor(scope: Construct, id: string, propertyTransformProps: PropertyTransformProps) {
-    // Store these on the scope so they are available to the shimParent property.
+    // Store these on the scope so they are available to the target property.
     (scope as any)[PropertyTransform.propertyTransformPropsSymbol(id)] = propertyTransformProps;
     super(scope, id);
   }
 
-  get shimParent(): Construct {
+  get target(): Construct {
     return this.propertyTransformHost;
   }
 }
@@ -169,7 +169,7 @@ export abstract class JsonPropertyTransform extends PropertyTransform {
     super(scope, id, props);
   }
 
-  get shimParent(): Construct {
+  get target(): Construct {
     let tHost = this.propertyTransformHost;
     // If we haven't added the support transforms yet, add them now.
     if (tHost.node.tryFindChild('YamlParser') == undefined) {
@@ -179,7 +179,7 @@ export abstract class JsonPropertyTransform extends PropertyTransform {
       // Turns the parsed Yaml/JSON into a JSON string so it can be written back to the template.
       new Stringifier(tHost, 'Stringify');
     }
-    return super.shimParent;
+    return super.target;
   }
 }
 

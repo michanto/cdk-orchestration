@@ -15,7 +15,7 @@ import { TransformHost } from './transform_host';
  * TransformBase creates an L1 shim CfnTransform that calls the _apply function of the
  * L2 TransformBase that created it.
  *
- * TransformBase.shimParent determines where to put the L1 shim in the construct tree.
+ * TransformBase.target determines where to put the L1 shim in the construct tree.
  * There are four possibilites:
  *
  * 1. The parent of the Transform is a Resource.  In this case, the shim is created as a child
@@ -25,7 +25,7 @@ import { TransformHost } from './transform_host';
  * the shim transform is created normally (as a child of TransformBase).
  * 3. Neither of the above are true, in which case the shim transform is created as a child
  * of TransformBase.
- * 4. shimParent has been overridden to support a specific use-case.
+ * 4. target has been overridden to support a specific use-case.
  *
  * The TransformBase._apply method should call a concretely typed "apply" method on the subclass.
  * See {@link StringTransform} or {@link Transform} for examples.
@@ -50,7 +50,7 @@ export abstract class TransformBase extends Construct implements IInspectable {
    * '_Transforms' exists under the transform host, then the '_Transforms' construct will be
    * the shim parent.
    */
-  protected static findShimParent(base: TransformBase): Construct {
+  protected static findTarget(base: TransformBase): Construct {
     // If the parent of this is an L2 resource, return the L1 resource.
     let scope = base.node.scope;
     if (scope
@@ -94,7 +94,7 @@ export abstract class TransformBase extends Construct implements IInspectable {
     // This will make any antecedent CfnElement or Stack a TransformHost.
     TransformHost.ensureHosted(scope);
     let parent = Order.findOrder(
-      this.shimParent ?? TransformHost.of(this), this.order);
+      this.target ?? TransformHost.of(this), this.order);
     if (scope.node.path.startsWith(parent.node.path)) {
       // If this Transform is already under the parent, use this transform as the parent.
       // It makes the tree neater.
@@ -120,12 +120,12 @@ export abstract class TransformBase extends Construct implements IInspectable {
    * (to support ordered hosts), or the TransformBase (this).
    *
    * - Note to implementors:
-   *    Since shimParent is called from the TransformShim constructor, it
+   *    Since target is called from the TransformShim constructor, it
    *    will not have access to any properties of subclasses.  See
    *    PropertyTransform for a work-around.
    */
-  get shimParent() {
-    return TransformBase.findShimParent(this);
+  get target() {
+    return TransformBase.findTarget(this);
   }
 
   /**
