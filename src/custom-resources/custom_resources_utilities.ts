@@ -1,6 +1,6 @@
-import { CfnResource, Stack } from 'aws-cdk-lib';
+import { CfnResource } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { ICfnResourcePredicate, ConstructTreeSearch, CfnElementUtilities } from '../core';
+import { ICfnResourcePredicate, CfnElementUtilities } from '../core';
 
 /** Find CustomResource L1s (CfnResources) in the construct tree. */
 export class CustomResourceUtilities {
@@ -24,11 +24,10 @@ export class CustomResourceUtilities {
    * @param predicate Optional predicate.
    */
   customResources(scope: Construct, resourceType?: string, predicate?: ICfnResourcePredicate) {
-    return ConstructTreeSearch.for(
-      x => CustomResourceUtilities.isCustomResource(x) && CfnResource.isCfnResource(x) &&
-      (resourceType == undefined || resourceType == (x).cfnResourceType) &&
-      (predicate == undefined || predicate(x)),
-    ).searchDown(scope, Stack.isStack) as CfnResource[];
+    return new CfnElementUtilities().cfnResources(scope, resourceType, x => {
+      return CustomResourceUtilities.isCustomResource(x) &&
+        (predicate == undefined || predicate(x));
+    });
   }
 
   /**
