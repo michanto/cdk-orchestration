@@ -109,7 +109,7 @@ export class TransformHost {
             if (context.preparing) {
               return t;
             }
-            return Transforms.of(construct).apply(t);
+            return context.resolve(Transforms.of(construct).apply(t));
           },
         });
       };
