@@ -1,5 +1,5 @@
 import { CfnElement, IInspectable, Resource, TreeInspector } from 'aws-cdk-lib';
-import { Construct } from 'constructs';
+import { Construct, IConstruct } from 'constructs';
 import { CfnTransform } from './cfn_transform';
 import { ICfnTransform } from './icfn_transform';
 import { ImportOrders } from './import_orders';
@@ -36,6 +36,14 @@ import { TransformHost } from './transform_host';
  * back to file name for use with CfnInclude.
  */
 export abstract class TransformBase extends Construct implements IInspectable {
+  /**
+   * True if the scope is a TransformBase.
+   */
+  static isTransformBase(scope: IConstruct): scope is TransformBase {
+    return CfnTransform.isCfnTransform((scope as any)?.cfnTransform) &&
+      (scope as any).cfnTransform.wrapper == scope;
+  }
+
   /**
    * This function figures out which node in the tree should parent the shim (CfnTransform).
    *
@@ -120,7 +128,7 @@ export abstract class TransformBase extends Construct implements IInspectable {
    * (to support ordered hosts), or the TransformBase (this).
    *
    * - Note to implementors:
-   *    Since target is called from the TransformShim constructor, it
+   *    Since target is called from the TransformBase constructor, it
    *    will not have access to any properties of subclasses.  See
    *    PropertyTransform for a work-around.
    */
@@ -139,6 +147,11 @@ export type CfTemplateType = {
   [key: string]: any;
 }
 
+/** This is what Template.fromStack().toJSON() returns */
+export type CfJsonType = {
+  [key: string]: any;
+}
+
 /**
  * Base class for ordinary Transforms that act on CloudFormation and other forms of JSON.
  *
@@ -149,7 +162,7 @@ export abstract class Transform extends TransformBase {
    * Modifies the passed in template.
    * @param template Always return the template.
    */
-  public abstract apply(template: CfTemplateType): CfTemplateType;
+  public abstract apply(template: CfJsonType): CfJsonType;
 
   /**
    * @internal

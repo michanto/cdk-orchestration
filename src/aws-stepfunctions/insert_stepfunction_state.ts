@@ -2,7 +2,7 @@ import { State } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 import { StatesTransform } from './states_transform';
 import { Log } from '../core';
-import { CfTemplateType } from '../transforms';
+import { CfJsonType } from '../transforms';
 
 /**
  * Properties for InsertStepFunctionState.
@@ -26,7 +26,7 @@ export class InsertStepFunctionState extends StatesTransform {
     super(scope, id);
   }
 
-  apply(template: CfTemplateType) {
+  apply(template: CfJsonType) {
     let taskJson = this.props.state.toStateJson() as any;
     if (taskJson.End) {
       delete taskJson.End;

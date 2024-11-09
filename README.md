@@ -95,7 +95,7 @@ export class StackDescription extends Transform {
     super(scope, id);
   }
 
-  apply(template: CfTemplateType): CfTemplateType {
+  apply(template: CfJsonType): CfJsonType {
     // Any change to the template is allowed.
     template.Description = this.description;
     // Always return the altered template.
@@ -149,7 +149,7 @@ class MyStack extends Stack {
 
 ```
 class AuthTypeForCors extends CfnTransform {
-  apply(template: CfTemplateType): CfTemplateType {
+  apply(template: CfJsonType): CfJsonType {
     for (let resId in template.Resources) {
       let resource = template.Resources[resId]
       if (resource.Type == "AWS::ApiGateway::Method" &&
