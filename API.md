@@ -89,6 +89,7 @@ Always return the template.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.AnyTransform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.AnyTransform.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -121,6 +122,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.AnyTransform.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.AnyTransform.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.AnyTransform.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -188,7 +205,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -1184,6 +1201,8 @@ public readonly wrapped: IChainable;
 
 Logs the given template.
 
+Turn on this logging by setting a Logger on this construct:
+`Logger.set(echo, new Logger())`;
 Turn off this logging by setting a NoOpLogger on this construct:
 `Logger.set(echo, new NoOpLogger())`;
 
@@ -1192,7 +1211,7 @@ Turn off this logging by setting a NoOpLogger on this construct:
 ```typescript
 import { transforms } from '@michanto/cdk-orchestration'
 
-new transforms.Echo(scope: Construct, id: string)
+new transforms.Echo(scope: Construct, id?: string)
 ```
 
 | **Name** | **Type** | **Description** |
@@ -1208,7 +1227,7 @@ new transforms.Echo(scope: Construct, id: string)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.Echo.Initializer.parameter.id"></a>
+##### `id`<sup>Optional</sup> <a name="id" id="@michanto/cdk-orchestration.transforms.Echo.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -1265,6 +1284,7 @@ Modifies the passed in template.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Echo.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Echo.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -1297,6 +1317,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.Echo.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.Echo.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.Echo.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -1364,7 +1400,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -1468,6 +1504,7 @@ Modifies the passed in template.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.custom_resources.EncodeResource.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -1500,6 +1537,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.custom_resources.EncodeResource.isTransformBase"></a>
+
+```typescript
+import { custom_resources } from '@michanto/cdk-orchestration'
+
+custom_resources.EncodeResource.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.custom_resources.EncodeResource.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -1677,6 +1730,7 @@ public apply(template: string): string
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.FileReader.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -1709,6 +1763,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.FileReader.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.FileReader.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.FileReader.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -1776,7 +1846,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -3076,6 +3146,7 @@ Modifies the passed in template.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -3108,6 +3179,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.isTransformBase"></a>
+
+```typescript
+import { aws_stepfunctions } from '@michanto/cdk-orchestration'
+
+aws_stepfunctions.InsertStepFunctionState.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.aws_stepfunctions.InsertStepFunctionState.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -3177,7 +3264,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -3312,6 +3399,7 @@ public doJoin(template: any): any
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Joiner.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -3344,6 +3432,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.Joiner.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.Joiner.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.Joiner.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -3411,7 +3515,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -3501,6 +3605,7 @@ public apply(template: string): {[ key: string ]: any}
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonParser.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -3533,6 +3638,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.JsonParser.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.JsonParser.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.JsonParser.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -3600,7 +3721,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -3700,6 +3821,7 @@ Always return the template.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.JsonPropertyTransform.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -3732,6 +3854,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.JsonPropertyTransform.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.JsonPropertyTransform.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -3801,7 +3939,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -5393,6 +5531,7 @@ public apply(template: string): {[ key: string ]: any}
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Parser.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Parser.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -5425,6 +5564,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.Parser.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.Parser.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.Parser.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -5492,7 +5647,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -5590,6 +5745,7 @@ Always return the template.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransform.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -5622,6 +5778,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.PropertyTransform.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.PropertyTransform.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.PropertyTransform.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -5691,7 +5863,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -5824,6 +5996,7 @@ Find the StatesTransformHost and apply those to the state machine definition.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 | <code><a href="#@michanto/cdk-orchestration.transforms.PropertyTransformApplier.applierId">applierId</a></code> | Construct ID for a PropertyTransformApplier. |
 
 ---
@@ -5857,6 +6030,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.PropertyTransformApplier.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.PropertyTransformApplier.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -5942,7 +6131,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -7410,6 +7599,7 @@ Always return the template.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -7442,6 +7632,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.isTransformBase"></a>
+
+```typescript
+import { aws_stepfunctions } from '@michanto/cdk-orchestration'
+
+aws_stepfunctions.StatesTransform.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.aws_stepfunctions.StatesTransform.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -7511,7 +7717,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -8363,6 +8569,7 @@ public apply(template: any): string
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Stringifier.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -8395,6 +8602,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.Stringifier.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.Stringifier.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.Stringifier.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -8462,7 +8685,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -8559,6 +8782,7 @@ public apply(template: string): string
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringReplacer.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -8591,6 +8815,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.StringReplacer.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.StringReplacer.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.StringReplacer.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -8659,7 +8899,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -8758,6 +8998,7 @@ public apply(template: string): string
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.StringTransform.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -8790,6 +9031,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.StringTransform.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.StringTransform.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.StringTransform.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -8857,7 +9114,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -9225,6 +9482,7 @@ Temp directory.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TempFileWriter.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -9257,6 +9515,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.TempFileWriter.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.TempFileWriter.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.TempFileWriter.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -9325,7 +9599,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -9424,6 +9698,7 @@ Modifies the passed in template.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TemplateCapture.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -9456,6 +9731,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.TemplateCapture.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.TemplateCapture.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.TemplateCapture.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -9524,7 +9815,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -9902,6 +10193,7 @@ Always return the template.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.Transform.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.Transform.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -9934,6 +10226,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.Transform.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.Transform.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.Transform.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -10001,7 +10309,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -10103,6 +10411,7 @@ Examines construct.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.TransformBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.TransformBase.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -10135,6 +10444,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.TransformBase.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.TransformBase.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.TransformBase.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -10202,7 +10527,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 
@@ -10292,6 +10617,7 @@ public apply(template: string): {[ key: string ]: any}
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@michanto/cdk-orchestration.transforms.YamlParser.isTransformBase">isTransformBase</a></code> | True if the scope is a TransformBase. |
 
 ---
 
@@ -10324,6 +10650,22 @@ this type-testing method instead.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isTransformBase` <a name="isTransformBase" id="@michanto/cdk-orchestration.transforms.YamlParser.isTransformBase"></a>
+
+```typescript
+import { transforms } from '@michanto/cdk-orchestration'
+
+transforms.YamlParser.isTransformBase(scope: IConstruct)
+```
+
+True if the scope is a TransformBase.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@michanto/cdk-orchestration.transforms.YamlParser.isTransformBase.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -10391,7 +10733,7 @@ Otherwise, return either an order under the transform host of this
 (to support ordered hosts), or the TransformBase (this).
 
 - Note to implementors:
-   Since target is called from the TransformShim constructor, it
+   Since target is called from the TransformBase constructor, it
    will not have access to any properties of subclasses.  See
    PropertyTransform for a work-around.
 

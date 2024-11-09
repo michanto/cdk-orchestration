@@ -4,7 +4,7 @@ import { ImportOrders } from './import_orders';
 import { Joiner } from './joiner';
 import { YamlParser } from './parser';
 import { Stringifier } from './stringifier';
-import { Transform, CfTemplateType } from './transform';
+import { Transform, CfJsonType } from './transform';
 import { Transforms } from './transforms';
 import { CfnElementUtilities } from '../core';
 
@@ -37,7 +37,7 @@ export class PropertyTransformApplier extends Transform {
   /**
    * Find the StatesTransformHost and apply those to the state machine definition.
    */
-  apply(template: CfTemplateType) {
+  apply(template: CfJsonType) {
     let host = this.node.findChild(PropertyTransformHost.hostId(this.propertyName)) as PropertyTransformHost;
 
     for (let resId in template.Resources) {

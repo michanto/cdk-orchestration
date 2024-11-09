@@ -1,7 +1,7 @@
 import { Fn, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { CustomResourceUtilities } from './custom_resources_utilities';
-import { CfTemplateType, ImportOrders, Transform } from '../transforms';
+import { CfJsonType, ImportOrders, Transform } from '../transforms';
 
 /**
  * This transform base64-encodes any L1, L2 or L3 CustomResource it is applied to
@@ -63,7 +63,7 @@ export class EncodeResource extends Transform {
     return new CustomResourceUtilities().findCustomResource(this.node.scope!);
   }
 
-  apply(template: CfTemplateType): CfTemplateType {
+  apply(template: CfJsonType): CfJsonType {
     for (let resId in template.Resources) {
       let res = template.Resources[resId];
       if (res.Properties?.EncodedProperties) {

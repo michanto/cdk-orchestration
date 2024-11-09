@@ -3,7 +3,7 @@ import { Template } from 'aws-cdk-lib/assertions';
 import { CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 import { EncodeResource } from '../../src/custom-resources';
-import { CfTemplateType } from '../../src/transforms';
+import { CfJsonType } from '../../src/transforms';
 import { EchoFunction } from '../util';
 
 describe('Custom Resource Utilities tests.', () => {
@@ -66,7 +66,7 @@ describe('Custom Resource Utilities tests.', () => {
         this.addPropertyOverride('Two', true);
         this.addPropertyOverride('Three', 'Value');
         new class EncodeResourceEx extends EncodeResource {
-          apply(template: CfTemplateType): CfTemplateType {
+          apply(template: CfJsonType): CfJsonType {
             return super.apply(template);
           }
         } (this);

@@ -2,13 +2,13 @@ import { Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { Bucket, CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
-import { CfTemplateType, CfnTransform, CfnTransformHost, Echo, Order, ImportOrders, Transform } from '../../src/transforms';
+import { CfJsonType, CfnTransform, CfnTransformHost, Echo, Order, ImportOrders, Transform } from '../../src/transforms';
 
 export class BucketNameTransform extends Transform {
   constructor(scope: Construct, id: string, readonly bucketName: string) {
     super(scope, id);
   }
-  public apply(template: CfTemplateType): CfTemplateType {
+  public apply(template: CfJsonType): CfJsonType {
     for (let resId in template.Resources) {
       if (template.Resources[resId].Type == 'AWS::S3::Bucket') {
         if (!template.Resources[resId].Properties) {

@@ -3,10 +3,10 @@ import { IRole, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { CfnStateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 import { TemplateImporter } from '../../lib/cloudformation-include';
-import { Transform, StringReplacer, CfTemplateType } from '../../src/transforms';
+import { Transform, StringReplacer, CfJsonType } from '../../src/transforms';
 
 export class DescriptionRemover extends Transform {
-  public apply(template: CfTemplateType): CfTemplateType {
+  public apply(template: CfJsonType): CfJsonType {
     delete template.Description;
     return template;
   }
