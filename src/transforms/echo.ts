@@ -5,8 +5,6 @@ import { Log, Logger } from '../core';
 /**
  * Logs the given template.
  *
- * Turn on this logging by setting a Logger on this construct:
- * `Logger.set(echo, new Logger())`;
  * Turn off this logging by setting a NoOpLogger on this construct:
  * `Logger.set(echo, new NoOpLogger())`;
  */

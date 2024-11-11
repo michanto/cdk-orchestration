@@ -40,7 +40,7 @@ export class StackProvenanceAspect implements IAspect {
 export class StackProvenance extends Construct {
   static timestamp = BUILD_TIME;
 
-  constructor(scope: Construct, id: string) {
+  constructor(scope: Construct, id: string = '@StackProvenance') {
     super(scope, id);
 
     let stack = Stack.of(this);

@@ -101,8 +101,7 @@ export abstract class TransformBase extends Construct implements IInspectable {
     super(scope, id);
     // This will make any antecedent CfnElement or Stack a TransformHost.
     TransformHost.ensureHosted(scope);
-    let parent = Order.findOrder(
-      this.target ?? TransformHost.of(this), this.order);
+    let parent = this.findOrder(this.target ?? TransformHost.of(this));
     if (scope.node.path.startsWith(parent.node.path)) {
       // If this Transform is already under the parent, use this transform as the parent.
       // It makes the tree neater.
@@ -111,6 +110,10 @@ export abstract class TransformBase extends Construct implements IInspectable {
     // Id for the transform shim
     let shimId = `${id}Shim${parent.node.children.length}`;
     this.cfnTransform = new TransformBase.CfnTransformShim(parent, shimId, this);
+  }
+
+  protected findOrder(target: Construct) {
+    return Order.findOrder(target, this.order);
   }
 
   inspect(inspector: TreeInspector) {

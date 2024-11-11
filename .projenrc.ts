@@ -140,8 +140,8 @@ packageJson?.addOverride('jest.coveragePathIgnorePatterns',
  * Especially useful with jest only directive (it.only or test.only).
  */
 // packageJson?.addOverride('jest.testMatch', [
-//  '<rootDir>/src/**/__tests__/**/*.ts?(x)',
-//  '<rootDir>/@(test|src)/**/*(*.)@(spec).ts?(x)',
+//   '<rootDir>/src/**/__tests__/**/*.ts?(x)',
+//   '<rootDir>/@(test|src)/**/*(*.)@(spec).ts?(x)',
 // ]);
 
 project.synth();
