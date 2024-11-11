@@ -21,7 +21,7 @@ export abstract class StringTransform extends TransformBase {
     // Auto-boootstrap for CfnElement and Stack
     if (!target.node.tryFindChild(this.order) &&
       this.order == ImportOrders.STRING_TRANSFORMS &&
-      Stack.isStack(target) || CfnElement.isCfnElement(target)) {
+      (Stack.isStack(target) || CfnElement.isCfnElement(target))) {
       BaseImporter.createImportOrders(target);
       new class PreStringifier extends Stringifier {
         get order(): string {
