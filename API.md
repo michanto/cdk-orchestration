@@ -1201,8 +1201,6 @@ public readonly wrapped: IChainable;
 
 Logs the given template.
 
-Turn on this logging by setting a Logger on this construct:
-`Logger.set(echo, new Logger())`;
 Turn off this logging by setting a NoOpLogger on this construct:
 `Logger.set(echo, new NoOpLogger())`;
 
@@ -7399,7 +7397,7 @@ Use StackProvenanceAspect to add provenance data to all stacks.
 ```typescript
 import { StackProvenance } from '@michanto/cdk-orchestration'
 
-new StackProvenance(scope: Construct, id: string)
+new StackProvenance(scope: Construct, id?: string)
 ```
 
 | **Name** | **Type** | **Description** |
@@ -7415,7 +7413,7 @@ new StackProvenance(scope: Construct, id: string)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@michanto/cdk-orchestration.StackProvenance.Initializer.parameter.id"></a>
+##### `id`<sup>Optional</sup> <a name="id" id="@michanto/cdk-orchestration.StackProvenance.Initializer.parameter.id"></a>
 
 - *Type:* string
 
