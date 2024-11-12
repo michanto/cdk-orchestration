@@ -19,16 +19,21 @@ export abstract class StringTransform extends TransformBase {
 
   protected findOrder(target: Construct): Construct {
     // Auto-boootstrap for CfnElement and Stack
-    if (!target.node.tryFindChild(this.order) &&
-      this.order == ImportOrders.STRING_TRANSFORMS &&
-      (Stack.isStack(target) || CfnElement.isCfnElement(target))) {
-      BaseImporter.createImportOrders(target);
-      new class PreStringifier extends Stringifier {
-        get order(): string {
-          return ImportOrders.PRE_READER;
-        }
-      }(target, 'Stringifier');
-      new JsonParser(target, 'Parser');
+    if (Stack.isStack(target) || CfnElement.isCfnElement(target)) {
+      // If there aren't any orders, add them.
+      if (!target.node.tryFindChild(this.order) &&
+        this.order == ImportOrders.STRING_TRANSFORMS) {
+        BaseImporter.createImportOrders(target);
+      }
+      // If there is no parser, add the parser and stringifier.
+      if (!target.node.tryFindChild(ImportOrders.PARSER)?.node.children.length) {
+        new class PreStringifier extends Stringifier {
+          get order(): string {
+            return ImportOrders.PRE_READER;
+          }
+        }(target, 'Stringifier');
+        new JsonParser(target, 'Parser');
+      }
     }
     return super.findOrder(target);
   }
