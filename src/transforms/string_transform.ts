@@ -29,7 +29,7 @@ export abstract class StringTransform extends TransformBase {
       if (!target.node.tryFindChild(ImportOrders.PARSER)?.node.children.length) {
         new class PreStringifier extends Stringifier {
           get order(): string {
-            return ImportOrders.PRE_READER;
+            return ImportOrders.READER;
           }
         }(target, 'Stringifier');
         new JsonParser(target, 'Parser');
