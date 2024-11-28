@@ -13,6 +13,7 @@ describe('ServiceInspectorAspect tests', () => {
     // We want this logging here.
     console.log(TreeInspectable.of(bucket).attributes);
     expect(TreeInspectable.of(bucket).attributes).toMatchObject({
+      'constructs.Construct': 'boolean',
       '@aws-cdk/core.DependableTrait': 'object',
       '@aws-cdk/core.Resource': 'boolean',
       '@aws-cdk/core.Stack.myStack': 'MyStack',
