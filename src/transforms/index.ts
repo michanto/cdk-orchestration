@@ -5,6 +5,7 @@ export * from './transforms';
 export * from './transform_host';
 export * from './cfn_transform';
 export * from './cfn_transform_host';
+export * from './ordered_transform_host';
 export * from './base_importer';
 export * from './transform';
 export * from './string_transform';

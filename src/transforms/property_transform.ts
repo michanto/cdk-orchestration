@@ -1,7 +1,7 @@
 import { Construct } from 'constructs';
-import { BaseImporter } from './base_importer';
 import { ImportOrders } from './import_orders';
 import { Joiner } from './joiner';
+import { OrderedTransformHost } from './ordered_transform_host';
 import { YamlParser } from './parser';
 import { Stringifier } from './stringifier';
 import { Transform, CfJsonType } from './transform';
@@ -61,7 +61,7 @@ class PreReadJoiner extends Joiner {
 /**
  * Hosts PropertyTransforms.  Must be a child of a PropertyTransformApplier.
  */
-export class PropertyTransformHost extends BaseImporter {
+export class PropertyTransformHost extends OrderedTransformHost {
   /** Construct ID for a PropertyTransformHost. */
   static hostId(propertyName: string) { return `@${propertyName}TransformHost`; };
 

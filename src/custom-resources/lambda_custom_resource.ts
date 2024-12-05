@@ -12,7 +12,7 @@ import { InnerCustomResource } from './private/inner_custom_resource';
 import { RunResourceAlways } from './run_resource_always';
 import { Task } from './task';
 import { Singleton } from '../core';
-import { BaseImporter } from '../transforms';
+import { OrderedTransformHost } from '../transforms';
 
 /**
  * Props for LambdaCustomResourceResources
@@ -192,7 +192,7 @@ export class LambdaCustomResource extends Task {
     });
     this.resource = new CustomResourceUtilities().findCustomResource(this);
     // Allow transforms to be ordered on this construct.
-    BaseImporter.createImportOrders(this.resource);
+    OrderedTransformHost.createImportOrders(this.resource);
 
     if (props.runAlways == undefined || props.runAlways) {
       new RunResourceAlways(this);

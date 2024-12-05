@@ -2,7 +2,7 @@ import { App, Aspects, Environment, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { BUILD_TIME, StackProvenanceAspect } from '../../src/core';
-import { BaseImporter, StringReplacer } from '../../src/transforms';
+import { OrderedTransformHost, StringReplacer } from '../../src/transforms';
 
 const env: Required<Environment> = {
   account: '000000000000',
@@ -66,7 +66,7 @@ describe('StringTransform tests', () => {
     });
     let bucket = new CfnBucket(stack, 'MyBucket');
     bucket.addMetadata('build_timestamp', BUILD_TIME);
-    BaseImporter.createImportOrders(bucket);
+    OrderedTransformHost.createImportOrders(bucket);
 
     // EnsureChangeInStackB671AB8A and 1731294054943
     new StringReplacer(bucket, 'Replacer', {

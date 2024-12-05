@@ -1,7 +1,7 @@
 import { CfnElement, Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { BaseImporter } from './base_importer';
 import { ImportOrders } from './import_orders';
+import { OrderedTransformHost } from './ordered_transform_host';
 import { JsonParser } from './parser';
 import { Stringifier } from './stringifier';
 import { TransformBase } from './transform';
@@ -23,7 +23,7 @@ export abstract class StringTransform extends TransformBase {
       // If there aren't any orders, add them.
       if (!target.node.tryFindChild(this.order) &&
         this.order == ImportOrders.STRING_TRANSFORMS) {
-        BaseImporter.createImportOrders(target);
+        OrderedTransformHost.createImportOrders(target);
       }
       // If there is no parser, add the parser and stringifier.
       if (!target.node.tryFindChild(ImportOrders.PARSER)?.node.children.length) {
