@@ -21,7 +21,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // autoApproveOptions: { allowedUsernames: ['michanto'] },
   depsUpgradeOptions: { workflowOptions: { schedule: javascript.UpgradeDependenciesSchedule.WEEKLY } },
   githubOptions: {
-    projenCredentials: github.GithubCredentials.fromApp(),
+    projenCredentials: github.GithubCredentials.fromApp({ permissions: { workflows: github.workflows.AppPermission.WRITE } }),
     pullRequestLintOptions: {
       semanticTitleOptions: {
         types: ['feat', 'fix', 'chore', 'ci', 'docs', 'style', 'refactor', 'test', 'revert', 'Revert'],
