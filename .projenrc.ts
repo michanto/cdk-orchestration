@@ -8,7 +8,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: '',
   cdkVersion: cdkVersion,
   defaultReleaseBranch: 'main',
-  jsiiVersion: '~5.5.0',
+  jsiiVersion: '~5.8',
   constructsVersion: '10.4.2',
   name: '@michanto/cdk-orchestration',
   projenrcTs: true,
