@@ -95,6 +95,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     compilerOptions: {
       module: 'nodenext',
       moduleResolution: TypeScriptModuleResolution.NODE_NEXT,
+      isolatedModules: true,
     },
   },
 });
