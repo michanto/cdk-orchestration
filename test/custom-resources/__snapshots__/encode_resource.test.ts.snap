@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Custom Resource Utilities tests. EncodeResource no ServiceToken does nothing 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "FunA2CCED21": {
+      "DependsOn": [
+        "FunServiceRole3CC876D7",
+      ],
+      "Properties": {
+        "Code": {
+          "ZipFile": ""use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.handler = handler;
+function log(message) {
+    if (process.env.LogLevel) {
+        console.log(JSON.stringify(message));
+    }
+}
+async function handler(event, context) {
+    log({ Event: event });
+    log({ Context: context });
+    return Promise.resolve(event ?? {});
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZWNoby5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9hd3MtbGFtYmRhLW5vZGVqcy9wcml2YXRlL3Rlc3RfbGFtYmRhcy9lY2hvLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBS0EsMEJBSUM7QUFURCxTQUFTLEdBQUcsQ0FBQyxPQUE0QjtJQUN2QyxJQUFJLE9BQU8sQ0FBQyxHQUFHLENBQUMsUUFBUSxFQUFFLENBQUM7UUFDekIsT0FBTyxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUM7SUFDdkMsQ0FBQztBQUNILENBQUM7QUFDTSxLQUFLLFVBQVUsT0FBTyxDQUFDLEtBQVUsRUFBRSxPQUFZO0lBQ3BELEdBQUcsQ0FBQyxFQUFFLEtBQUssRUFBRSxLQUFLLEVBQUUsQ0FBQyxDQUFDO0lBQ3RCLEdBQUcsQ0FBQyxFQUFFLE9BQU8sRUFBRSxPQUFPLEVBQUUsQ0FBQyxDQUFDO0lBQzFCLE9BQU8sT0FBTyxDQUFDLE9BQU8sQ0FBQyxLQUFLLElBQUksRUFBRSxDQUFDLENBQUM7QUFDdEMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImZ1bmN0aW9uIGxvZyhtZXNzYWdlOiBSZWNvcmQ8c3RyaW5nLCBhbnk+KSB7XG4gIGlmIChwcm9jZXNzLmVudi5Mb2dMZXZlbCkge1xuICAgIGNvbnNvbGUubG9nKEpTT04uc3RyaW5naWZ5KG1lc3NhZ2UpKTtcbiAgfVxufVxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGhhbmRsZXIoZXZlbnQ6IGFueSwgY29udGV4dDogYW55KSB7XG4gIGxvZyh7IEV2ZW50OiBldmVudCB9KTtcbiAgbG9nKHsgQ29udGV4dDogY29udGV4dCB9KTtcbiAgcmV0dXJuIFByb21pc2UucmVzb2x2ZShldmVudCA/PyB7fSk7XG59XG4iXX0=",
+        },
+        "Handler": "handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "FunServiceRole3CC876D7",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "FunServiceRole3CC876D7": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "Res1": {
+      "Properties": {
+        "One": 1,
+        "Three": "Value",
+        "Two": true,
+      },
+      "Type": "AWS::CloudFormation::CustomResource",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

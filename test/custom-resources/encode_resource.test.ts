@@ -17,13 +17,13 @@ describe('Custom Resource Utilities tests.', () => {
         this.addPropertyOverride('One', 1);
         this.addPropertyOverride('Two', true);
         this.addPropertyOverride('Three', 'Value');
-        this.addPropertyOverride('ServiceTimeout', '100');
         new EncodeResource(this);
         // Encode twice to test double-encoding works.
         new EncodeResource(this, 'Encode2');
       }
     }(stack, 'Res1', {
       serviceToken: serviceToken,
+      serviceTimeout: 100,
     });
 
     // THEN
@@ -42,7 +42,7 @@ describe('Custom Resource Utilities tests.', () => {
               }),
             },
             ServiceToken: expect.anything(),
-            ServiceTimeout: expect.anything(),
+            ServiceTimeout: 100,
           },
         },
       },
@@ -75,6 +75,7 @@ describe('Custom Resource Utilities tests.', () => {
     }(stack, 'Res1', {
       serviceToken: serviceToken,
     });
-    Template.fromStack(stack);
+    const template = Template.fromStack(stack).toJSON();
+    expect(template).toMatchSnapshot();
   });
 });
